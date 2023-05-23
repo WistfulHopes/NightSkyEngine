@@ -36,7 +36,6 @@ struct FBattleState
 	bool PauseParticles;
 	int Meter[2] { 0 , 0 };
 	int MaxMeter[2] { 10000 , 10000 };
-	int MaxUniversalGauge = 60000;
 	int P1RoundsWon;
 	int P2RoundsWon;
 	int RoundCount = 0;
@@ -48,29 +47,18 @@ struct FBattleState
 	ERoundFormat RoundFormat = ERoundFormat::FirstToTwo;
 };
 
-#define SIZEOF_BATTLESTATE offsetof(FBattleState, BattleStateSyncEnd) - offsetof(FBattleState, BattleStateSync)
+constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(FBattleState, BattleStateSync);
 
 USTRUCT()
 struct FRollbackData
 {
 	GENERATED_BODY()
 	
-	uint8 ObjBuffer[406][SIZEOF_BATTLEACTOR] = { { 0 } };
+	uint8 ObjBuffer[406][SizeOfBattleObject] = { { 0 } };
 	bool ObjActive[400] = { false };
-	uint8 CharBuffer[6][SIZEOF_PLAYERCHARACTER] = { { 0 } };
-	uint8 BattleStateBuffer[SIZEOF_BATTLESTATE] = { 0 };
+	uint8 CharBuffer[6][SizeOfPlayerObject] = { { 0 } };
+	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
 	uint32 Checksum = 0;
-};
-
-USTRUCT(BlueprintType)
-struct FNetworkStats
-{
-	GENERATED_BODY()
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 Ping;
-	UPROPERTY(BlueprintReadOnly)
-	int32 RollbackFrames;
 };
 
 UCLASS()
@@ -88,9 +76,6 @@ public:
 	ANightSkyGameState();
 	
 	UPROPERTY()
-	FRollbackData StoredRollbackData;
-	FBattleState BattleState;
-
 	ABattleObject* SortedObjects[406];
 	
 	UPROPERTY(BlueprintReadWrite)
@@ -99,6 +84,12 @@ public:
 	ACameraActor* CameraActor;
 	UPROPERTY(BlueprintReadWrite)
 	ACameraActor* SequenceCameraActor;
+
+	UPROPERTY(BlueprintReadOnly)
+	APlayerObject* SequenceTarget;
+	
+	FRollbackData StoredRollbackData;
+	FBattleState BattleState;
 
 private:
 	int LocalInputs[2];
@@ -124,7 +115,4 @@ public:
 	void UpdateCamera() const;
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
-
-	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* SequenceTarget;
 };

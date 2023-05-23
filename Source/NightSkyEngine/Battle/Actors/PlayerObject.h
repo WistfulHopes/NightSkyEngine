@@ -257,7 +257,7 @@ protected:
 	
 public:
 	//Anything past here isn't saved or loaded for rollback.
-	int32 PlayerSyncEnd; 
+	unsigned char PlayerSyncEnd; 
 
 	/*
 	 * Data to copy from blueprint TArray to internal object
@@ -386,8 +386,7 @@ public:
 	bool CheckInputRaw(EInputFlags Input);
 	//checks input condition
 	UFUNCTION(BlueprintPure)
-	bool CheckInput(const FInputCondition& Input); 
-
+	bool CheckInput(const FInputCondition& Input);
 };
 
-#define SIZEOF_PLAYERCHARACTER offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync)
+constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

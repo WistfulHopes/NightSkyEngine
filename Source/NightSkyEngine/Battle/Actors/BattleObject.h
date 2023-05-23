@@ -446,4 +446,4 @@ public:
 	void DeactivateObject();
 };
 
-#define SIZEOF_BATTLEACTOR offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync)
+constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);

@@ -282,17 +282,17 @@ void ANightSkyGameState::UpdateCamera() const
 {
 	if (CameraActor != nullptr)
 	{
-		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).Y));
-		Distance = FMath::Clamp(Distance,15, 25);
-		float NewX = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 1080), Distance);
 		FVector Average = (Players[0]->GetActorLocation() + Players[3]->GetActorLocation()) / 2;
-		float NewY = FMath::Clamp(Average.Y,-700, 700);
+		float NewX = FMath::Clamp(Average.X,-700, 700);
+		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).X));
+		Distance = FMath::Clamp(Distance,15, 25);
+		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 1080), Distance);
 		float NewZ = Average.Z + 150;
 		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (!SequenceActor->SequencePlayer->IsPlaying())
 		{
-			SequenceCameraActor->SetActorLocation(FVector(-1080, 0, 175));
+			SequenceCameraActor->SetActorLocation(FVector(0, -1080, 175));
 		}
 	}
 }
