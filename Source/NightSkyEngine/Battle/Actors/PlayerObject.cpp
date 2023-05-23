@@ -315,6 +315,18 @@ void APlayerObject::Update()
 	CallSubroutine("CmnOnUpdate");
 	CallSubroutine("OnUpdate");
 
+	//run input buffer before checking hitstop
+	if ((Direction == DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
+	{
+		const unsigned int Bit1 = Player->Inputs >> 2 & 1;
+		const unsigned int Bit2 = Player->Inputs >> 3 & 1;
+		unsigned int x = Bit1 ^ Bit2;
+
+		x = x << 2 | x << 3;
+
+		Player->Inputs = Player->Inputs ^ x;
+	}
+
 	if ((PlayerFlags & PLF_IsStunned) == 0)
 	{
 		Enemy->ComboCounter = 0;
@@ -501,6 +513,25 @@ void APlayerObject::Update()
 	}
 	if (GameState->BattleState.TimeUntilRoundStart <= 0)
 		HandleStateMachine(false); //handle state transitions
+
+	if (Stance == ACT_Standing) //set pushbox values based on stance
+	{
+		PushWidth = StandPushWidth;
+		PushHeight = StandPushHeight;
+		PushHeightLow = 0;
+	}
+	else if (Stance == ACT_Crouching)
+	{
+		PushWidth = CrouchPushWidth;
+		PushHeight = CrouchPushHeight;
+		PushHeightLow = 0;
+	}
+	else if (Stance == ACT_Jumping)
+	{
+		PushWidth = AirPushWidth;
+		PushHeight = AirPushHeight;
+		PushHeightLow = AirPushHeightLow;
+	}
 
 	Player->StoredStateMachine.Update();
 	
@@ -948,6 +979,9 @@ void APlayerObject::OnStateChange()
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
+	AnimName.SetString("");
+	AnimFrame = 0;
+	CelName.SetString("");
 }
 
 void APlayerObject::ResetForRound()

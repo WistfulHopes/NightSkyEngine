@@ -183,6 +183,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		if (!SortedObjects[i]->IsPlayer || SortedObjects[i]->Player->PlayerFlags & PLF_IsOnScreen)
 			SortedObjects[i]->Update();
 	}
+	HandlePushCollision();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -212,7 +213,7 @@ void ANightSkyGameState::SortObjects()
 	}
 }
 
-void ANightSkyGameState::HandlePushCollision()
+void ANightSkyGameState::HandlePushCollision() const
 {
 	for (int i = 0; i < 6; i++)
 	{
@@ -282,16 +283,16 @@ void ANightSkyGameState::UpdateCamera() const
 	if (CameraActor != nullptr)
 	{
 		FVector Average = (Players[0]->GetActorLocation() + Players[3]->GetActorLocation()) / 2;
-		float NewX = FMath::Clamp(Average.X,-700, 700);
+		float NewX = FMath::Clamp(-Average.X,-700, 700);
 		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).X));
 		Distance = FMath::Clamp(Distance,15, 25);
-		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 1080), Distance);
+		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 960), Distance);
 		float NewZ = Average.Z + 150;
 		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (!SequenceActor->SequencePlayer->IsPlaying())
 		{
-			SequenceCameraActor->SetActorLocation(FVector(0, -1080, 175));
+			SequenceCameraActor->SetActorLocation(FVector(0, 960, 175));
 		}
 	}
 }

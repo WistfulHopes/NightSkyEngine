@@ -103,7 +103,7 @@ protected:
 	void UpdateLocalInput(); //updates local input
 	void UpdateGameState();
 	void SortObjects();
-	void HandlePushCollision(); //for each active object, handle push collision
+	void HandlePushCollision() const; //for each active object, handle push collision
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
 

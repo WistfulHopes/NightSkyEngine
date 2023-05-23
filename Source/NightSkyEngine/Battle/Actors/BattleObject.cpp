@@ -153,7 +153,7 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				const int PosXOffset = CollisionDepth / 2;
-				AddPosXWithDir(PosXOffset);
+				PosX += PosXOffset;
 			}
 		}
 	}
@@ -322,21 +322,6 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
-	//run input buffer before checking hitstop
-	if (IsPlayer && IsValid(Player))
-	{
-		if ((Direction != DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
-			{
-			const unsigned int Bit1 = Player->Inputs >> 2 & 1;
-			const unsigned int Bit2 = Player->Inputs >> 3 & 1;
-			unsigned int x = Bit1 ^ Bit2;
-
-			x = x << 2 | x << 3;
-
-			Player->Inputs = Player->Inputs ^ x;
-		}
-	}
-
 	if (Direction == DIR_Left)
 	{
 		SetActorScale3D(FVector(-1, 1, 1));
@@ -508,10 +493,10 @@ void ABattleObject::SetCelName(FString InName)
 
 void ABattleObject::GotoLabel(FString InName)
 {
-	if (IsPlayer)
-		Player->JumpToState(Player->GetCurrentStateName());
 	LabelName.SetString(InName);
 	GotoLabelActive = true;
+	if (IsPlayer)
+		Player->JumpToState(Player->GetCurrentStateName());
 }
 
 void ABattleObject::AddPosXWithDir(int InPosX)
