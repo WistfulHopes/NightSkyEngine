@@ -22,10 +22,10 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 {
 		for (int i = StoredStateMachine.States.Num() - 1; i >= 0; i--)
 	{
-        if (!(CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState
+        if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(StoredStateMachine.States[i]->Name)
             || FindWhiffCancelOption(StoredStateMachine.States[i]->Name)
-            || CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState
+            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             )) //check if the state is enabled, continue if not
         {
             continue;
@@ -266,7 +266,7 @@ void APlayerObject::Update()
 		Enemy->ComboTimer = 0;
 		TotalProration = 10000;
 	}
-	if (!Inputs << 27) //if no direction, set neutral input
+	if (Inputs << 27 == 0) //if no direction, set neutral input
 		Inputs |= INP_Neutral;
 	else
 		Inputs = Inputs & ~INP_Neutral; //remove neutral input if directional input
@@ -287,7 +287,7 @@ void APlayerObject::Update()
 			BitmaskD.InputFlag = INP_D;
 			ConditionD.Sequence.Add(BitmaskD);
 			ConditionD.Method = EInputMethod::Once;
-			if (CheckInput(ConditionA) && CheckInput(ConditionD) || CheckInput(ConditionD) && CheckInput(ConditionA))
+			if ((CheckInput(ConditionA) && CheckInput(ConditionD)) || (CheckInput(ConditionD) && CheckInput(ConditionA)))
 			{
 				JumpToState("GuardBreak");
 				Enemy->JumpToState("GuardBreak");
@@ -757,7 +757,7 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 	case EStateType::NeutralJump:
 	case EStateType::ForwardJump:
 	case EStateType::BackwardJump:
-		if (EnableFlags & ENB_Jumping || CancelFlags & CNC_JumpCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking)
+		if (EnableFlags & ENB_Jumping || (CancelFlags & CNC_JumpCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::ForwardWalk:
@@ -777,11 +777,11 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 			ReturnReg = true;
 		break;
 	case EStateType::ForwardAirDash:
-		if (EnableFlags & ENB_ForwardAirDash || CancelFlags & CNC_FAirDashCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking)
+		if (EnableFlags & ENB_ForwardAirDash || (CancelFlags & CNC_FAirDashCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::BackwardAirDash:
-		if (EnableFlags & ENB_BackAirDash || CancelFlags & CNC_BAirDashCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking)
+		if (EnableFlags & ENB_BackAirDash || (CancelFlags & CNC_BAirDashCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::NormalAttack:
@@ -790,11 +790,11 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 			ReturnReg = true;
 		break;
 	case EStateType::SpecialAttack:
-		if (EnableFlags & ENB_SpecialAttack || CancelFlags & CNC_SpecialCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking)
+		if (EnableFlags & ENB_SpecialAttack || (CancelFlags & CNC_SpecialCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::SuperAttack:
-		if (EnableFlags & ENB_SuperAttack || CancelFlags & CNC_SuperCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking)
+		if (EnableFlags & ENB_SuperAttack || (CancelFlags & CNC_SuperCancel && AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::Tech:

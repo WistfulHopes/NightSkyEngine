@@ -108,7 +108,7 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 {
 	if (MiscFlags & MISC_PushCollisionActive && OtherObj->MiscFlags & MISC_PushCollisionActive)
 	{
-		if (Hitstop <= 0 && (!OtherObj->IsPlayer || (OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0) || (!IsPlayer || Player->PlayerFlags & PLF_IsThrowLock) == 0)
+		if (Hitstop <= 0 && ((!OtherObj->IsPlayer || OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0 || (!IsPlayer || Player->PlayerFlags & PLF_IsThrowLock) == 0))
 		{
 			if (T >= OtherObj->B && B <= OtherObj->T && R >= OtherObj->L && L <= OtherObj->R)
 			{
@@ -267,7 +267,7 @@ void ABattleObject::Update()
 	//run input buffer before checking hitstop
 	if (IsPlayer && IsValid(Player))
 	{
-		if (!Direction == DIR_Left && !Player->FlipInputs || Player->FlipInputs && Direction == DIR_Right) //flip inputs with direction
+		if ((Direction != DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
 			{
 			const unsigned int Bit1 = Player->Inputs >> 2 & 1;
 			const unsigned int Bit2 = Player->Inputs >> 3 & 1;
