@@ -609,7 +609,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 	default:
 		ReturnReg = false;
 	}
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 bool APlayerObject::FindChainCancelOption(const FString& Name)
@@ -625,7 +625,7 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 		}
 	}
 	ReturnReg = false;
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 bool APlayerObject::FindWhiffCancelOption(const FString& Name)
@@ -641,7 +641,7 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 		}
 	}
 	ReturnReg = false;
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)
@@ -669,7 +669,7 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 		ReturnReg = true;
 	}	
 	ReturnReg = false;
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 bool APlayerObject::CheckObjectPreventingState(int InObjectID)
@@ -686,7 +686,7 @@ bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 		}
 	}
 	ReturnReg = false;
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 void APlayerObject::AddState(FString Name, UState* State)
@@ -808,7 +808,7 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 	default:
 		ReturnReg = false;
 	}
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 void APlayerObject::OnStateChange()
@@ -1055,11 +1055,11 @@ bool APlayerObject::CheckInputRaw(EInputFlags Input)
 		ReturnReg = true;
 	}
 	ReturnReg = false;
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)
 {
 	ReturnReg = StoredInputBuffer.CheckInputCondition(Input);
-	return ReturnReg;
+	return static_cast<bool>(ReturnReg);
 }

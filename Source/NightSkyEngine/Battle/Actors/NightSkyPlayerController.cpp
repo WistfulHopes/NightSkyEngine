@@ -5,6 +5,8 @@
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "InputMappingContext.h"
+#include "GameFramework/InputSettings.h"
 
 // Sets default values
 ANightSkyPlayerController::ANightSkyPlayerController()
@@ -193,42 +195,42 @@ void ANightSkyPlayerController::ReleaseRight()
 
 void ANightSkyPlayerController::PressA()
 {
-	Inputs |= INP_L;
+	Inputs |= INP_A;
 }
 
 void ANightSkyPlayerController::ReleaseA()
 {
-	Inputs = Inputs & ~INP_L;
+	Inputs = Inputs & ~INP_A;
 }
 
 void ANightSkyPlayerController::PressB()
 {
-	Inputs |= INP_M;
+	Inputs |= INP_B;
 }
 
 void ANightSkyPlayerController::ReleaseB()
 {
-	Inputs = Inputs & ~INP_M;
+	Inputs = Inputs & ~INP_B;
 }
 
 void ANightSkyPlayerController::PressC()
 {
-	Inputs |= INP_H;
+	Inputs |= INP_C;
 }
 
 void ANightSkyPlayerController::ReleaseC()
 {
-	Inputs = Inputs & ~INP_H;
+	Inputs = Inputs & ~INP_C;
 }
 
 void ANightSkyPlayerController::PressD()
 {
-	Inputs |= INP_S;
+	Inputs |= INP_D;
 }
 
 void ANightSkyPlayerController::ReleaseD()
 {
-	Inputs = Inputs & ~INP_S;
+	Inputs = Inputs & ~INP_D;
 }
 
 void ANightSkyPlayerController::PressE()

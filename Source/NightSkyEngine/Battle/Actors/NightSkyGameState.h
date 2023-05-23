@@ -54,13 +54,12 @@ USTRUCT()
 struct FRollbackData
 {
 	GENERATED_BODY()
-	FRollbackData();
 	
 	uint8 ObjBuffer[406][SIZEOF_BATTLEACTOR] = { { 0 } };
 	bool ObjActive[400] = { false };
 	uint8 CharBuffer[6][SIZEOF_PLAYERCHARACTER] = { { 0 } };
 	uint8 BattleStateBuffer[SIZEOF_BATTLESTATE] = { 0 };
-	uint32 Checksum;
+	uint32 Checksum = 0;
 };
 
 USTRUCT(BlueprintType)

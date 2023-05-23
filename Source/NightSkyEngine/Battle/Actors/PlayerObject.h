@@ -16,7 +16,8 @@ constexpr int32 ExtraGaugeCount = 5;
 constexpr int32 CancelArraySize = 64;
 constexpr int32 MaxComponentCount = 64;
 
-class APlayerObject;
+class USubroutineData;
+class UStateData;
 
 UENUM()
 enum EActionStance
@@ -211,7 +212,7 @@ public:
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
 	int32 ComboTimer;
-	int32 ThrowTechWindow = 6;
+	uint32 ThrowTechWindow = 6;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
 	uint32 StrikeInvulnerableTimer = 0;

@@ -22,5 +22,5 @@ public:
 	FString Name;
 
 	UFUNCTION(BlueprintNativeEvent)
-	void Exec(); //executes on call. write in bp
+	void Exec();
 };

@@ -16,7 +16,7 @@ public:
 	void SetString(const FString& InString)
 	{
 		std::memset(Data, 0, Length);
-		std::strcpy(Data, TCHAR_TO_ANSI(*InString));
+		strcpy_s(Data, Length, TCHAR_TO_ANSI(*InString));
 	}
 
 	char* GetString()

@@ -6,6 +6,8 @@
 #include "GameFramework/PlayerController.h"
 #include "NightSkyPlayerController.generated.h"
 
+class UInputMappingContext;
+
 UCLASS()
 class NIGHTSKYENGINE_API ANightSkyPlayerController : public APlayerController
 {
