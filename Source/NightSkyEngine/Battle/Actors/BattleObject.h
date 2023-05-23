@@ -269,7 +269,6 @@ public:
 	int32 GroundHeight;
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EObjDir> Direction;
-	int32 Pushback;
 	
 	/*
 	 * Attack data

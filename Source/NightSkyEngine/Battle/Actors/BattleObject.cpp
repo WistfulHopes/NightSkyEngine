@@ -51,12 +51,18 @@ void ABattleObject::Move()
 		AddPosXWithDir(Inertia);
 	}
 
-	Pushback = Pushback - Pushback / 10;
-	if (Pushback > -875 && Pushback < 875) //if inertia small enough, set to zero
+	if (IsPlayer)
 	{
-		Pushback = 0;
+		int32 ModifiedPushback;
+		if (Player->Stance == ACT_Crouching)
+			ModifiedPushback = Player->Pushback * 86;
+		else
+			ModifiedPushback = Player->Pushback * 88;
+
+		Player->Pushback = ModifiedPushback / 100;
+		
+		AddPosXWithDir(Player->Pushback);
 	}
-	AddPosXWithDir(Pushback);
 
 	AddPosXWithDir(FinalSpeedX); //apply speed
 
@@ -338,7 +344,6 @@ void ABattleObject::ResetObject()
 	SpeedZ = 0;
 	Gravity = 1900;
 	Inertia = 0;
-	Pushback = 0;
 	ActionTime = 0;
 	PushHeight = 0;
 	PushHeightLow = 0;
@@ -485,5 +490,4 @@ void ABattleObject::HaltMomentum()
 	SpeedZ = 0;
 	Gravity = 0;
 	Inertia = 0;
-	Pushback = 0;
 }

@@ -59,6 +59,8 @@ class NIGHTSKYENGINE_API APlayerObject : public ABattleObject
 	GENERATED_BODY()
 
 public:
+	APlayerObject();
+	
 	//Starting from this until PlayerSyncEnd, everything is saved/loaded for rollback.
 	unsigned char PlayerSync;
 	
@@ -206,8 +208,9 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
-
+	
 	EActionStance Stance;
+	int32 Pushback;
 	int32 CurrentHealth;
 	int32 TotalProration = 10000;
 	int32 ComboCounter;

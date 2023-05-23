@@ -6,6 +6,59 @@
 #include "NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
 
+APlayerObject::APlayerObject()
+{
+	Player = this;
+	StoredStateMachine.Parent = this;
+	MiscFlags = MISC_PushCollisionActive | MISC_WallCollisionActive | MISC_FloorCollisionActive;
+	CancelFlags = CNC_EnableKaraCancel | CNC_ChainCancelEnabled; 
+	PlayerFlags = PLF_DefaultLandingAction; 
+	FWalkSpeed = 7800;
+	BWalkSpeed = 4800;
+	FDashInitSpeed = 13000;
+	FDashAccel = 600;
+	FDashFriction = 95;
+	FDashMaxSpeed = 20000;
+	BDashSpeed = 14000;
+	BDashHeight = 5200;
+	BDashGravity = 700;
+	JumpHeight = 35000;
+	FJumpSpeed = 7900;
+	BJumpSpeed = 5200;
+	JumpGravity = 1900;
+	SuperJumpHeight = 43700;
+	FSuperJumpSpeed = 7900;
+	BSuperJumpSpeed = 5200;
+	SuperJumpGravity = 1900;
+	AirDashMinimumHeight = 105000;
+	FAirDashSpeed = 30000;
+	BAirDashSpeed = 24500;
+	FAirDashTime = 20;
+	BAirDashTime = 12;
+	FAirDashNoAttackTime = 5;
+	BAirDashNoAttackTime = 5;
+	AirJumpCount = 1;
+	AirDashCount = 1;
+	Stance = ACT_Standing;
+	StandPushWidth = 110000;
+	StandPushHeight = 240000;
+	CrouchPushWidth = 120000;
+	CrouchPushHeight = 180000;
+	AirPushWidth = 100000;
+	AirPushHeight = 275000;
+	AirPushHeightLow = -135000;
+	IsPlayer = true;
+	IsActive = true;
+	MaxHealth = 10000;
+	ForwardWalkMeterGain = 12;
+	ForwardJumpMeterGain = 10;
+	ForwardDashMeterGain = 25;
+	ForwardAirDashMeterGain = 25;
+	AttackFlags = 0;
+	for (bool& Visible : ComponentVisible)
+		Visible = true;
+}
+
 void APlayerObject::BeginPlay()
 {
 	Super::BeginPlay();
@@ -16,6 +69,9 @@ void APlayerObject::InitPlayer()
 {
 	CurrentHealth = MaxHealth;
 	StateName.SetString("Stand");
+	EnableFlip(true);
+	StateName.SetString("Stand");
+	InitBP();
 }
 
 void APlayerObject::HandleStateMachine(bool Buffer)
@@ -412,7 +468,10 @@ void APlayerObject::Update()
 	}
 	
 	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
+	{
+		Pushback = 0;
 		PlayerFlags &= ~PLF_IsStunned;
+	}
 	
 	if (PlayerFlags & PLF_IsKnockedDown && ActionTime == ReceivedHit.KnockdownTime && PosY <= GroundHeight && (PlayerFlags & PLF_IsDead) == 0)
 	{
