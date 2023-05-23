@@ -411,6 +411,7 @@ public:
 	void HandlePushCollision(const ABattleObject* OtherObj);
 
 private:
+	void UpdateVisualLocation();
 	void FuncCall(FName FuncName) const;
 	void GetBoxes();
 	
