@@ -146,6 +146,8 @@ class UState : public UObject
 public:
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* Parent;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CelIndex;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FString Name;
 	UPROPERTY(EditAnywhere)
@@ -160,6 +162,8 @@ public:
 	bool IsFollowupState;
 	UPROPERTY(EditAnywhere)
 	int ObjectID;
+
+	void CallExec();
 	
 	UFUNCTION(BlueprintNativeEvent)
 	void Exec();

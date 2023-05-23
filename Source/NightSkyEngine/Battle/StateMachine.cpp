@@ -10,6 +10,8 @@ void FStateMachine::Initialize()
 		if (CurrentState == nullptr)
 		{
 			CurrentState = State;
+			Parent->TriggerEvent(EVT_Enter);
+			Update();
 		}
 	}
 }
@@ -22,6 +24,8 @@ void FStateMachine::AddState(const FString Name, UState* Config)
 	if (CurrentState == nullptr)
 	{
 		CurrentState = Config;
+		Parent->TriggerEvent(EVT_Enter);
+		Update();
 	}
 }
 
@@ -51,10 +55,13 @@ bool FStateMachine::SetState(const FString Name)
 		CurrentState = States[StateNames.Find(Name)];
 		return true;
 	}
-		
+
+	Parent->TriggerEvent(EVT_Exit);
 	Parent->OnStateChange();	
 
 	CurrentState = States[StateNames.Find(Name)];
+	Parent->TriggerEvent(EVT_Enter);
+	Update();
 
 	return true;
 }
@@ -66,9 +73,12 @@ bool FStateMachine::ForceSetState(const FString Name)
 		return false;
 	}
 	
-	Parent->OnStateChange();
+	Parent->TriggerEvent(EVT_Exit);
+	Parent->OnStateChange();	
 
 	CurrentState = States[StateNames.Find(Name)];
+	Parent->TriggerEvent(EVT_Enter);
+	Update();
 
 	return true;
 }
@@ -103,6 +113,6 @@ void FStateMachine::Update() const
 {
 	if (CurrentState != nullptr)
 	{
-		CurrentState->Exec();
+		CurrentState->CallExec();
 	}
 }

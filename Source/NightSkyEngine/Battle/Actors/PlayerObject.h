@@ -190,12 +190,16 @@ public:
 	 */
 
 	FixedString<32> StateName;
+
+	UPROPERTY()
 	FStateMachine StoredStateMachine;
 
 	/*
 	 * Input data.
 	 */
 	uint32 Inputs;
+	
+	UPROPERTY()
 	FInputBuffer StoredInputBuffer;
 	
 	/*
@@ -215,9 +219,10 @@ public:
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
 	int32 ComboTimer;
-	uint32 ThrowTechWindow = 6;
+	int32 ThrowTechWindow = 6;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
+	uint32 EnableFlags = 0;
 	uint32 StrikeInvulnerableTimer = 0;
 	uint32 ThrowInvulnerableTimer = 0;
 	FExtraGauge ExtraGauges[ExtraGaugeCount];
@@ -246,7 +251,6 @@ protected:
 	uint32 CurrentAirDashCount = 0;
 	uint32 AirDashTimerMax = 0;
 	uint32 CancelFlags = 0;
-	uint32 EnableFlags = 0;
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
@@ -340,7 +344,9 @@ public:
 	void OnStateChange();
 	//resets object for next round
 	void ResetForRound();
-
+	//disables last input
+	void DisableLastInput();
+	
 	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
 	UFUNCTION(BlueprintImplementableEvent)
 	void InitBP();
@@ -360,6 +366,9 @@ public:
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
 	void CallSubroutine(FString Name);
+	//set stance
+	UFUNCTION(BlueprintCallable)
+	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
 	void JumpToState(FString NewName);
@@ -390,6 +399,18 @@ public:
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
+	//temporarily adds air jump
+	UFUNCTION(BlueprintCallable)
+	void AddAirJump(int32 NewAirJump);
+	//temporarily adds air dash
+	UFUNCTION(BlueprintCallable)
+	void AddAirDash(int32 NewAirDash);
+	//set air dash timer (set is forward for forward airdashes)
+	UFUNCTION(BlueprintCallable)
+	void SetAirDashTimer(bool IsForward);
+	//set air dash timer (set is forward for forward airdashes)
+	UFUNCTION(BlueprintCallable)
+	void SetAirDashNoAttackTimer(bool IsForward);
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

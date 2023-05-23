@@ -183,13 +183,12 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		if (!SortedObjects[i]->IsPlayer || SortedObjects[i]->Player->PlayerFlags & PLF_IsOnScreen)
 			SortedObjects[i]->Update();
 	}
-	
 }
 
 void ANightSkyGameState::UpdateGameState()
 {
 	UpdateLocalInput();
-	
+	UpdateGameState(LocalInputs[0], LocalInputs[1]);
 }
 
 void ANightSkyGameState::SortObjects()

@@ -70,13 +70,12 @@ void APlayerObject::InitPlayer()
 	CurrentHealth = MaxHealth;
 	StateName.SetString("Stand");
 	EnableFlip(true);
-	StateName.SetString("Stand");
 	InitBP();
 }
 
 void APlayerObject::HandleStateMachine(bool Buffer)
 {
-		for (int i = StoredStateMachine.States.Num() - 1; i >= 0; i--)
+	for (int i = StoredStateMachine.States.Num() - 1; i >= 0; i--)
 	{
         if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(StoredStateMachine.States[i]->Name)
@@ -390,16 +389,18 @@ void APlayerObject::Update()
 	
 	if (ComboCounter > 0)
 		ComboTimer++;
-
 		
 	if ((PlayerFlags & PLF_RoundWinInputLock) == 0)
 		StoredInputBuffer.Tick(Inputs);
 	else
 		StoredInputBuffer.Tick(INP_Neutral);
 
-	AirDashTimer--;
-	AirDashNoAttackTime--;
-	if (AirDashNoAttackTime == 0)
+	if (AirDashTimer > 0)
+		AirDashTimer--;
+
+	if (AirDashNoAttackTime > 0)
+		AirDashNoAttackTime--;
+	if (AirDashNoAttackTime == 1)
 		EnableAttacks();
 
 	StunTime--;
@@ -502,6 +503,10 @@ void APlayerObject::Update()
 		HandleStateMachine(false); //handle state transitions
 
 	Player->StoredStateMachine.Update();
+	
+	TimeUntilNextCel--;
+	if (TimeUntilNextCel == 0)
+		CelIndex++;
 }
 
 void APlayerObject::EmptyStateMachine()
@@ -668,7 +673,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 	default:
 		ReturnReg = false;
 	}
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 bool APlayerObject::FindChainCancelOption(const FString& Name)
@@ -684,7 +689,7 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 		}
 	}
 	ReturnReg = false;
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 bool APlayerObject::FindWhiffCancelOption(const FString& Name)
@@ -700,7 +705,7 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 		}
 	}
 	ReturnReg = false;
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)
@@ -728,7 +733,7 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 		ReturnReg = true;
 	}	
 	ReturnReg = false;
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 bool APlayerObject::CheckObjectPreventingState(int InObjectID)
@@ -745,7 +750,7 @@ bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 		}
 	}
 	ReturnReg = false;
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 void APlayerObject::AddState(FString Name, UState* State)
@@ -771,6 +776,11 @@ void APlayerObject::CallSubroutine(FString Name)
 
 	if (SubroutineNames.Find(Name) != INDEX_NONE)
 		Subroutines[SubroutineNames.Find(Name)]->Exec();
+}
+
+void APlayerObject::SetStance(EActionStance InStance)
+{
+	Stance = InStance;
 }
 
 void APlayerObject::JumpToState(FString NewName)
@@ -867,7 +877,7 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 	default:
 		ReturnReg = false;
 	}
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 void APlayerObject::OnStateChange()
@@ -883,7 +893,10 @@ void APlayerObject::OnStateChange()
 			}
 		}
 	}
-
+	
+	DisableLastInput();
+	DisableAll();
+	
 	// Reset flags
 	CancelFlags = CNC_EnableKaraCancel | CNC_ChainCancelEnabled; 
 	PlayerFlags &= ~PLF_ThrowActive;
@@ -895,9 +908,11 @@ void APlayerObject::OnStateChange()
 	AttackFlags &= ~ATK_ProrateOnce;
 	AttackFlags &= ~ATK_AttackHeadAttribute;
 	AttackFlags &= ~ATK_AttackProjectileAttribute;
+	MiscFlags = 0;
 	MiscFlags |= MISC_PushCollisionActive;
 	MiscFlags |= MISC_WallCollisionActive;
 	MiscFlags |= MISC_FloorCollisionActive;
+	MiscFlags |= MISC_InertiaEnable;
 	InvulnFlags = 0;
 
 	// Reset speed modifiers
@@ -913,6 +928,7 @@ void APlayerObject::OnStateChange()
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
+	EventHandlers[EVT_Enter].FunctionName.SetString("Init");	
 
 	// Reset action registers
 	ActionReg1 = 0;
@@ -929,7 +945,6 @@ void APlayerObject::OnStateChange()
 	FlipInputs = false;
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
-	StateName.SetString("");
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
@@ -937,7 +952,14 @@ void APlayerObject::OnStateChange()
 
 void APlayerObject::ResetForRound()
 {
-	PosX = 0;
+	if (PlayerIndex == 0)
+	{
+		PosX = -360000;
+	}
+	else
+	{
+		PosX = 360000;
+	}
 	PosY = 0;
 	PosZ = 0;
 	PrevPosX = 0;
@@ -968,6 +990,10 @@ void APlayerObject::ResetForRound()
 	StunTime = 0;
 	Hitstop = 0;
 	MiscFlags = 0;
+	MiscFlags |= MISC_PushCollisionActive;
+	MiscFlags |= MISC_WallCollisionActive;
+	MiscFlags |= MISC_FloorCollisionActive;
+	MiscFlags |= MISC_InertiaEnable;
 	Direction = DIR_Right;
 	SpeedXRate = 100;
 	SpeedXRatePerFrame = false;
@@ -985,8 +1011,7 @@ void APlayerObject::ResetForRound()
 	ActionReg6 = 0;
 	ActionReg7 = 0;
 	ActionReg8 = 0;
-	MiscFlags = 0;
-	IsPlayer = false;
+	IsPlayer = true;
 	SuperFreezeTimer = 0;
 	CelName.SetString("");
 	AnimName.SetString("");
@@ -995,6 +1020,7 @@ void APlayerObject::ResetForRound()
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
+	EventHandlers[EVT_Enter].FunctionName.SetString("Init");
 	HitPosX = 0;
 	HitPosY = 0;
 	for (auto& Box : Boxes)
@@ -1009,7 +1035,6 @@ void APlayerObject::ResetForRound()
 	PlayerReg6 = 0;
 	PlayerReg7 = 0;
 	PlayerReg8 = 0;
-	StateName.SetString("");
 	Inputs = 0;
 	FlipInputs = false;
 	Stance = ACT_Standing;
@@ -1054,6 +1079,12 @@ void APlayerObject::ResetForRound()
 		CancelOption = 0;
 	ExeStateName.SetString("");
 	BufferedStateName.SetString("");
+	JumpToState("Stand");
+}
+
+void APlayerObject::DisableLastInput()
+{
+	StoredInputBuffer.InputDisabled[89] = StoredInputBuffer.InputBufferInternal[89];
 }
 
 void APlayerObject::EnableState(EEnableFlags EnableType)
@@ -1114,11 +1145,37 @@ bool APlayerObject::CheckInputRaw(EInputFlags Input)
 		ReturnReg = true;
 	}
 	ReturnReg = false;
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
 }
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)
 {
 	ReturnReg = StoredInputBuffer.CheckInputCondition(Input);
-	return static_cast<bool>(ReturnReg);
+	return ReturnReg;
+}
+
+void APlayerObject::AddAirJump(int32 NewAirJump)
+{
+	CurrentAirJumpCount += NewAirJump;
+}
+
+void APlayerObject::AddAirDash(int32 NewAirDash)
+{
+	CurrentAirDashCount += NewAirDash;
+}
+
+void APlayerObject::SetAirDashTimer(bool IsForward)
+{
+	if (IsForward)
+		AirDashTimer = FAirDashTime + 1;
+	else
+		AirDashTimer = BAirDashTime + 1;
+}
+
+void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
+{
+	if (IsForward)
+		AirDashNoAttackTime = FAirDashNoAttackTime + 1;
+	else
+		AirDashNoAttackTime = BAirDashNoAttackTime + 1;
 }

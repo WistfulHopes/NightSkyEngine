@@ -38,7 +38,6 @@ struct FEventHandler
 {
 	GENERATED_BODY()
 
-	TEnumAsByte<EEventType> Type;
 	FixedString<32> FunctionName;
 };
 
@@ -298,7 +297,7 @@ public:
 
 	//This value stores the return value for functions.
 	UPROPERTY(BlueprintReadOnly)
-	int32 ReturnReg;
+	bool ReturnReg;
 
 	//The following values are per-action registers. Shared between the player and its child objects.
 	UPROPERTY(BlueprintReadWrite)
@@ -339,10 +338,14 @@ public:
 	/*
 	 * Action data
 	 */
-	
-	uint32 ActionTime;
+
+	UPROPERTY(BlueprintReadOnly)
+	int32 ActionTime;
 	FixedString<32> CelName;
+	FixedString<32> LabelName;
 	FixedString<32> AnimName;
+	UPROPERTY(BlueprintReadWrite)
+	bool GotoLabelActive;
 	UPROPERTY(BlueprintReadWrite)
 	int32 AnimFrame = 0;
 	UPROPERTY(BlueprintReadWrite)
@@ -409,6 +412,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	//handles pushing objects
 	void HandlePushCollision(const ABattleObject* OtherObj);
+	void HandleFlip();
+	void TriggerEvent(EEventType EventType);
 
 private:
 	void UpdateVisualLocation();
@@ -426,6 +431,25 @@ public:
 	/*
 	 * Blueprint callable functions.
 	 */
+
+	//initializes event handler
+	UFUNCTION(BlueprintCallable)
+	void InitEventHandler(EEventType EventType, FName FuncName);
+	//gets cel name
+	UFUNCTION(BlueprintPure)
+	FString GetCelName();
+	//gets anim name
+	UFUNCTION(BlueprintPure)
+	FString GetAnimName();
+	//gets label name
+	UFUNCTION(BlueprintPure)
+	FString GetLabelName();
+	//sets cel name
+	UFUNCTION(BlueprintCallable)
+	void SetCelName(FString InName);
+	//jumps to label
+	UFUNCTION(BlueprintCallable)
+	void GotoLabel(FString InName);
 	//adds x position
 	UFUNCTION(BlueprintCallable)
 	void AddPosXWithDir(int InPosX);
@@ -435,9 +459,24 @@ public:
 	//adds x speed
 	UFUNCTION(BlueprintCallable)
 	void AddSpeedXRaw(int InSpeedX);
+	//sets direction
+	UFUNCTION(BlueprintCallable)
+	void SetFacing(EObjDir NewDir);
+	//flips character
+	UFUNCTION(BlueprintCallable)
+	void FlipCharacter();
+	//forcibly face opponent
+	UFUNCTION(BlueprintCallable)
+	void FaceOpponent();
 	//enables flip
 	UFUNCTION(BlueprintCallable)
 	void EnableFlip(bool Enabled);
+	//enables inertia
+	UFUNCTION(BlueprintCallable)
+	void EnableInertia();
+	//disables inertia
+	UFUNCTION(BlueprintCallable)
+	void DisableInertia();
 	//halts momentum
 	UFUNCTION(BlueprintCallable)
 	void HaltMomentum();
