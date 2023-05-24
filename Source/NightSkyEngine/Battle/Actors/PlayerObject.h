@@ -437,6 +437,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	//based on received hit data, set values
 	void SetHitValues();
+	//toggles hud visibility
+	UFUNCTION(BlueprintCallable)
+	void BattleHudVisibility(bool Visible);	
 };
 #pragma pack(pop)
 

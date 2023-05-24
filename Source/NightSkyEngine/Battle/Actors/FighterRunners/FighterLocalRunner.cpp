@@ -27,6 +27,8 @@ void AFighterLocalRunner::BeginPlay()
 
 void AFighterLocalRunner::Update(float DeltaTime)
 {
+	if (GameState->bPauseGame)
+		return;
 	ElapsedTime += DeltaTime;
 	while (ElapsedTime >= OneFrame)
 	{

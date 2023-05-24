@@ -293,7 +293,7 @@ void AFighterMultiplayerRunner::Update(float DeltaTime)
 		{
 			int ahead = MultipliedFramesAhead;
 			MultipliedFramesAhead--;
-			if((ahead%TimesyncMultiplier)==0)
+			if(ahead%TimesyncMultiplier==0)
 			{
 				ElapsedTime=0;
 				break;

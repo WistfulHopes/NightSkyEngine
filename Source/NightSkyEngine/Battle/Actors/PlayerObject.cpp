@@ -761,6 +761,11 @@ void APlayerObject::SetHitValues()
 	AirDashNoAttackTime = 0;
 }
 
+void APlayerObject::BattleHudVisibility(bool Visible)
+{
+	GameState->BattleHudVisibility(Visible);
+}
+
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 {
 	if (BlockType != BLK_None)

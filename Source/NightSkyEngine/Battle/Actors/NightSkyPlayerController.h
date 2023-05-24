@@ -59,7 +59,10 @@ public:
 	void PressH();
 	void ReleaseH();
 
-	void UpdateInput(int Input[], int32 InFrame);
+	void PauseGame();
+	void UnpauseGame();
+	
+	void UpdateInput(int Input[], int32 InFrame) const;
 	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client);
 	
 	UFUNCTION(BlueprintCallable)
@@ -67,4 +70,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	ANetworkPawn* NetworkPawn;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OpenPauseMenu();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ClosePauseMenu();
 };

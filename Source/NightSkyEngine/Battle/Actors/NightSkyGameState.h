@@ -12,6 +12,8 @@ constexpr float OneFrame = 0.0166666666;
 constexpr int32 MaxBattleObjects = 101;
 constexpr int32 MaxPlayerObjects = 6;
 
+class ANightSkyBattleHudActor;
+
 UENUM()
 enum class ERoundFormat : uint8
 {
@@ -94,15 +96,19 @@ public:
 	ACameraActor* SequenceCameraActor;
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* SequenceTarget;
-	
+	UPROPERTY(BlueprintReadWrite)
+	bool bPauseGame;
+
 	UPROPERTY()
 	class AFighterLocalRunner* FighterRunner;
+	UPROPERTY(BlueprintReadWrite)
+	class ANightSkyBattleHudActor* BattleHudActor;
 
 	TArray<FRollbackData> StoredRollbackData;
 	FBattleState BattleState;
 	int LocalFrame;
 	int RemoteFrame;
-
+	
 private:
 	int LocalInputs[MaxRollbackFrames][2];
 	int RemoteInputs[MaxRollbackFrames][2];
@@ -130,10 +136,12 @@ public:
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void UpdateCamera() const;
+	void UpdateUI();
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
 	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
+	void BattleHudVisibility(bool Visible) const;
 	void SaveGameState(); //saves game state
 	void LoadGameState(); //loads game state
 };

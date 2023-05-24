@@ -16,7 +16,8 @@ public class NightSkyEngine : ModuleRules
 			"InputCore",
 			"MovieScene",
 			"LevelSequence",
-			"EnhancedInput"
+			"EnhancedInput",
+			"UMG",
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "GGPOUE4" });

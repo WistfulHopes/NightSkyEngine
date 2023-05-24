@@ -6,10 +6,13 @@
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
 #include "Camera/CameraActor.h"
+#include "Components/SlateWrapperTypes.h"
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Miscellaneous/FighterRunners.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
+#include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
+#include "NightSkyEngine/UI/NightSkyBattleWidget.h"
 
 // Sets default values
 ANightSkyGameState::ANightSkyGameState()
@@ -180,6 +183,7 @@ void ANightSkyGameState::Tick(float DeltaTime)
 
 	FighterRunner->Update(DeltaTime);
 	UpdateCamera();
+	UpdateUI();
 }
 
 void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
@@ -380,6 +384,35 @@ void ANightSkyGameState::UpdateCamera() const
 	}
 }
 
+void ANightSkyGameState::UpdateUI()
+{
+	if (BattleHudActor != nullptr)
+	{
+		if (BattleHudActor->Widget != nullptr)
+		{
+			if (BattleHudActor->Widget->P1Health.Num() >= 3)
+			{
+				BattleHudActor->Widget->P1Health[0] = static_cast<float>(Players[0]->CurrentHealth) / static_cast<float>(Players[0]->MaxHealth);
+				BattleHudActor->Widget->P1Health[1] = static_cast<float>(Players[1]->CurrentHealth) / static_cast<float>(Players[1]->MaxHealth);
+				BattleHudActor->Widget->P1Health[2] = static_cast<float>(Players[2]->CurrentHealth) / static_cast<float>(Players[2]->MaxHealth);
+			}
+			if (BattleHudActor->Widget->P2Health.Num() >= 3)
+			{
+				BattleHudActor->Widget->P2Health[0] = static_cast<float>(Players[3]->CurrentHealth) / static_cast<float>(Players[3]->MaxHealth);
+				BattleHudActor->Widget->P2Health[1] = static_cast<float>(Players[4]->CurrentHealth) / static_cast<float>(Players[4]->MaxHealth);
+				BattleHudActor->Widget->P2Health[2] = static_cast<float>(Players[5]->CurrentHealth) / static_cast<float>(Players[5]->MaxHealth);
+			}
+			BattleHudActor->Widget->P1RoundsWon = BattleState.P1RoundsWon;
+			BattleHudActor->Widget->P2RoundsWon = BattleState.P2RoundsWon;
+			BattleHudActor->Widget->Timer = ceil(static_cast<float>(BattleState.RoundTimer) / 60);
+			BattleHudActor->Widget->P1Meter = static_cast<float>(BattleState.Meter[0]) / 10000;
+			BattleHudActor->Widget->P2Meter = static_cast<float>(BattleState.Meter[1]) / 10000;
+			BattleHudActor->Widget->P1ComboCounter = Players[0]->ComboCounter;
+			BattleHudActor->Widget->P2ComboCounter = Players[3]->ComboCounter;
+		}
+	}
+}
+
 int ANightSkyGameState::GetLocalInputs(int Index) const
 {
 	if (const ANightSkyPlayerController* Controller = Cast<ANightSkyPlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), Index)); Controller != nullptr)
@@ -417,6 +450,14 @@ void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
 	*OutX = BattleState.CurrentScreenPos - 900000 + 1800000 * X / 100;
+}
+
+void ANightSkyGameState::BattleHudVisibility(bool Visible) const
+{
+	if (Visible)
+		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Visible);
+	else
+		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Hidden);
 }
 
 void ANightSkyGameState::SaveGameState()

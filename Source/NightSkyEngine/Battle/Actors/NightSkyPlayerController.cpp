@@ -158,6 +158,14 @@ void ANightSkyPlayerController::SetupInputComponent()
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
 		}
+		else if (ActionName == "Pause Game")
+		{
+			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
+		}
+		else if (ActionName == "Unpause Game")
+		{
+			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::UnpauseGame);
+		}
 	}
 }
 
@@ -282,7 +290,28 @@ void ANightSkyPlayerController::ReleaseH()
 	Inputs = Inputs & ~INP_H;
 }
 
-void ANightSkyPlayerController::UpdateInput(int Input[], int32 InFrame)
+void ANightSkyPlayerController::PauseGame()
+{
+	const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState());
+	if (!GameState->bPauseGame)
+	{
+		GameState->bPauseGame = true;
+		OpenPauseMenu();
+	}
+}
+
+void ANightSkyPlayerController::UnpauseGame()
+{
+	const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState());
+	if (GameState->bPauseGame)
+	{
+		GameState->bPauseGame = false;
+		ClosePauseMenu();
+	}
+}
+
+
+void ANightSkyPlayerController::UpdateInput(int Input[], int32 InFrame) const
 {
 	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
 	TArray<ANetworkPawn*> NetworkPawns;
