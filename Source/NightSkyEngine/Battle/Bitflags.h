@@ -88,6 +88,7 @@ enum EPlayerFlags
 	PLF_LockOpponentBurst = 0x200,
 	PLF_DefaultLandingAction = 0x400,
 	PLF_ForceEnableFarNormal = 0x800,
+	PLF_TouchingWall = 0x1000,
 };
 
 UENUM()

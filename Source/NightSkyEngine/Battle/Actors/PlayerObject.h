@@ -214,7 +214,6 @@ public:
 	int32 PlayerIndex;
 	
 	EActionStance Stance;
-	int32 Pushback;
 	int32 CurrentHealth;
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
@@ -338,8 +337,15 @@ private:
 	bool CheckObjectPreventingState(int InObjectID);
 
 public:
+	//initialize player for match/round start
 	void InitPlayer();
-	virtual void Update() override;
+	virtual void Update() override;	
+	//based on received hit action, choose state
+	void HandleHitAction(EHitAction HACT);
+	//check attack against block stance
+	bool IsCorrectBlock(EBlockType BlockType);
+	//jump to correct block state
+	void HandleBlockAction(EBlockType BlockType);
 	//called whenever state changes
 	void OnStateChange();
 	//resets object for next round
@@ -411,9 +417,17 @@ public:
 	//set air dash timer (set is forward for forward airdashes)
 	UFUNCTION(BlueprintCallable)
 	void SetAirDashNoAttackTimer(bool IsForward);
+	UFUNCTION(BlueprintCallable)
+	void AddChainCancelOption(FString Option);
+	//add whiff cancel option, use this in OnEntry
+	UFUNCTION(BlueprintCallable)
+	void AddWhiffCancelOption(FString Option);
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
+	UFUNCTION(BlueprintCallable)
+	//based on received hit data, set values
+	void SetHitValues();
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

@@ -184,6 +184,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 			SortedObjects[i]->Update();
 	}
 	HandlePushCollision();
+	HandleHitCollision();
 	SetScreenBounds();
 	SetWallCollision();
 }
@@ -229,6 +230,29 @@ void ANightSkyGameState::HandlePushCollision() const
 	}
 }
 
+void ANightSkyGameState::HandleHitCollision() const
+{
+	for (int i = 0; i < 406; i++)
+	{
+		if (i == BattleState.ActiveObjectCount)
+			break;
+		for (int j = 0; j < 6; j++)
+		{
+			if (i != j && SortedObjects[j]->Player->PlayerFlags & PLF_IsOnScreen)
+			{
+				SortedObjects[i]->HandleHitCollision(Cast<APlayerObject>(SortedObjects[j]));
+			}
+		}
+		for (int j = 0; j < 406; j++)
+		{
+			if (i != j)
+			{
+				SortedObjects[i]->HandleClashCollision(SortedObjects[j]);
+			}
+		}
+	}
+}
+
 void ANightSkyGameState::SetScreenBounds()
 {
 	for (int i = 0; i < 6; i++)
@@ -266,6 +290,7 @@ void ANightSkyGameState::SetWallCollision()
 		{
 			if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 			{
+				Players[i]->PlayerFlags |= PLF_TouchingWall;
 				if (Players[i]->PosX >= 840000 + BattleState.CurrentScreenPos)
 				{
 					Players[i]->PosX = 840000 + BattleState.CurrentScreenPos;
@@ -273,6 +298,10 @@ void ANightSkyGameState::SetWallCollision()
 				else if (Players[i]->PosX <= -840000 + BattleState.CurrentScreenPos)
 				{
 					Players[i]->PosX = -840000 + BattleState.CurrentScreenPos;
+				}
+				else
+				{
+					Players[i]->PlayerFlags &= ~PLF_TouchingWall;
 				}
 			}
 		}

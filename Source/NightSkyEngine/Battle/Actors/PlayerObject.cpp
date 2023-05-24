@@ -415,24 +415,27 @@ void APlayerObject::Update()
 	if (AirDashNoAttackTime == 1)
 		EnableAttacks();
 
-	StunTime--;
-	if (StunTime == 0)
+	if (StunTime > 0)
+		StunTime--;
+	if (StunTime == 1 && (PlayerFlags & PLF_IsDead) == 0)
 	{
-		if (GetCurrentStateName() == "Block")
+		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun)
 		{
-			JumpToState("Stand");
+			if (GetCurrentStateName() == "Block")
+			{
+				JumpToState("Stand");
+			}
+			else if (GetCurrentStateName() == "CrouchBlock")
+			{
+				JumpToState("Crouch");
+			}
+			else
+			{
+				JumpToState("VJump");
+			}
 		}
-		else if (GetCurrentStateName() == "CrouchBlock")
+		else if (PosY == GroundHeight && (PlayerFlags & PLF_IsKnockedDown) == 0)
 		{
-			JumpToState("Crouch");
-		}
-		else
-		{
-			JumpToState("VJump");
-		}
-		if (ReceivedHitAction < HACT_AirFaceUp && (PlayerFlags & PLF_IsDead) == 0)
-		{
-			EnableAll();
 			if (Stance == ACT_Standing)
 			{
 				JumpToState("Stand");
@@ -456,6 +459,11 @@ void APlayerObject::Update()
 		ReceivedHit = FHitData();
 	}
 
+	if (PlayerFlags & PLF_TouchingWall && Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
+	{
+		Enemy->Pushback = Pushback;
+		Pushback = 0;
+	}
 		
 	if (StoredStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY <= GroundHeight && PrevPosY > GroundHeight)
 	{
@@ -540,6 +548,301 @@ void APlayerObject::Update()
 		CelIndex++;
 }
 
+void APlayerObject::HandleHitAction(EHitAction HACT)
+{
+	for (int i = 0; i < 32; i++)
+	{
+		if (IsValid(ChildBattleObjects[i]))
+		{
+			if (ChildBattleObjects[i]->MiscFlags & MISC_DeactivateOnReceiveHit)
+			{
+				ChildBattleObjects[i]->DeactivateObject();
+			}
+		}
+	}
+	if (CurrentHealth <= 0)
+	{
+		PlayerFlags |= PLF_IsDead;
+		if (PosY <= GroundHeight)
+		{
+			JumpToState("Crumple");
+		}
+		else
+		{
+			if (HACT == HACT_AirFaceUp)
+				JumpToState("BLaunch");
+			else if (HACT == HACT_AirVertical)
+				JumpToState("VLaunch");
+			else if (HACT == HACT_AirFaceDown)
+				JumpToState("FLaunch");
+			else if (HACT == HACT_Blowback)
+				JumpToState("Blowback");
+			else
+				JumpToState("BLaunch");
+		}
+		ReceivedHitCommon.AttackLevel = -1;
+		return;
+	}
+	switch (HACT)
+	{
+	case HACT_GroundNormal:
+		if (Stance == ACT_Standing)
+		{
+			if (ReceivedHitCommon.AttackLevel == 0)
+				JumpToState("Hitstun0");
+			else if (ReceivedHitCommon.AttackLevel == 1)
+				JumpToState("Hitstun1");
+			else if (ReceivedHitCommon.AttackLevel == 2)
+				JumpToState("Hitstun2");
+			else if (ReceivedHitCommon.AttackLevel == 3)
+				JumpToState("Hitstun3");
+			else if (ReceivedHitCommon.AttackLevel == 4)
+				JumpToState("Hitstun4");
+			else if (ReceivedHitCommon.AttackLevel == 5)
+				JumpToState("Hitstun5");
+		}
+		else if (Stance == ACT_Crouching)
+		{
+			if (ReceivedHitCommon.AttackLevel == 0)
+				JumpToState("CrouchHitstun0");
+			else if (ReceivedHitCommon.AttackLevel == 1)
+				JumpToState("CrouchHitstun1");
+			else if (ReceivedHitCommon.AttackLevel == 2)
+				JumpToState("CrouchHitstun2");
+			else if (ReceivedHitCommon.AttackLevel == 3)
+				JumpToState("CrouchHitstun3");
+			else if (ReceivedHitCommon.AttackLevel == 4)
+				JumpToState("CrouchHitstun4");
+			else if (ReceivedHitCommon.AttackLevel == 5)
+				JumpToState("CrouchHitstun5");
+			StunTime += 2;
+		}
+		break;
+	case HACT_Crumple:
+		JumpToState("Crumple");
+		break;
+	case HACT_ForceCrouch:
+		Stance = ACT_Crouching;
+		if (ReceivedHitCommon.AttackLevel == 0)
+			JumpToState("CrouchHitstun0");
+		else if (ReceivedHitCommon.AttackLevel == 1)
+			JumpToState("CrouchHitstun1");
+		else if (ReceivedHitCommon.AttackLevel == 2)
+			JumpToState("CrouchHitstun2");
+		else if (ReceivedHitCommon.AttackLevel == 3)
+			JumpToState("CrouchHitstun3");
+		else if (ReceivedHitCommon.AttackLevel == 4)
+			JumpToState("CrouchHitstun4");
+		else if (ReceivedHitCommon.AttackLevel == 5)
+			JumpToState("CrouchHitstun5");
+		StunTime += 2;
+		break;
+	case HACT_ForceStand:
+		Stance = ACT_Standing;
+		if (ReceivedHitCommon.AttackLevel == 0)
+			JumpToState("Hitstun0");
+		else if (ReceivedHitCommon.AttackLevel == 1)
+			JumpToState("Hitstun1");
+		else if (ReceivedHitCommon.AttackLevel == 2)
+			JumpToState("Hitstun2");
+		else if (ReceivedHitCommon.AttackLevel == 3)
+			JumpToState("Hitstun3");
+		else if (ReceivedHitCommon.AttackLevel == 4)
+			JumpToState("Hitstun4");
+		else if (ReceivedHitCommon.AttackLevel == 5)
+			JumpToState("Hitstun5");
+		break;
+	case HACT_GuardBreakCrouch:
+		JumpToState("GuardBreakCrouch");
+		break;
+	case HACT_GuardBreakStand:
+		JumpToState("GuardBreak");
+		break;
+	case HACT_AirFaceUp:
+		JumpToState("BLaunch");
+		break;
+	case HACT_AirVertical:
+		JumpToState("VLaunch");
+		break;
+	case HACT_AirFaceDown:
+		JumpToState("FLaunch");
+		break;
+	case HACT_Blowback:
+		JumpToState("Blowback");
+		break;
+	case HACT_None: break;
+	default: ;
+	}
+	DisableAll();
+}
+
+void APlayerObject::SetHitValues()
+{
+	int32 Proration = ReceivedHit.ForcedProration;
+	if (Player->ComboCounter == 0)
+		Proration *= ReceivedHit.InitialProration;
+	else
+		Proration *= 100;
+	if (Player->ComboCounter == 0)
+		TotalProration = 10000;
+	Proration = Proration * TotalProration / 10000;
+	
+	if ((AttackFlags & ATK_ProrateOnce) == 0 || AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0)
+		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
+
+	int32 FinalHitstop = ReceivedHitCommon.Hitstop + ReceivedHit.EnemyHitstopModifier;
+	
+	Enemy->Hitstop = ReceivedHitCommon.Hitstop;
+	Hitstop = FinalHitstop;
+
+	int FinalDamage;
+	if (Player->ComboCounter == 0)
+		FinalDamage = ReceivedHit.Damage;
+	else
+		FinalDamage = ReceivedHit.Damage * Proration * Player->ComboRate / 1000000;
+
+	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
+		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
+
+	CurrentHealth -= FinalDamage;
+
+	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Player->ComboCounter * ReceivedHit.GroundPushbackX / 60;
+	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Player->ComboCounter * ReceivedHit.AirPushbackX / 60;
+	const int32 FinalAirHitPushbackY = ReceivedHit.AirPushbackY - Player->ComboCounter * ReceivedHit.AirPushbackY / 120;
+	const int32 FinalGravity = ReceivedHit.Gravity - Player->ComboCounter * ReceivedHit.Gravity / 60;
+	
+	EHitAction HACT;
+	
+	if (PosY == GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
+		HACT = ReceivedHit.GroundHitAction;
+	else
+		HACT = ReceivedHit.AirHitAction;
+	
+	switch (HACT)
+	{
+	case HACT_GroundNormal:
+	case HACT_ForceCrouch:
+	case HACT_ForceStand:
+		StunTime = ReceivedHit.Hitstun;
+		Pushback = -FinalHitPushbackX;
+		if (PlayerFlags & PLF_TouchingWall)
+		{
+			Enemy->Pushback = -FinalHitPushbackX;
+		}
+		break;
+	case HACT_AirFaceUp:
+	case HACT_AirVertical:
+	case HACT_AirFaceDown:
+		StunTime = ReceivedHit.Untech;
+		SpeedX = -FinalAirHitPushbackX;
+		SpeedY = FinalAirHitPushbackY;
+		Gravity = FinalGravity;
+		if (PlayerFlags & PLF_TouchingWall)
+		{
+			Enemy->Pushback = -ReceivedHit.GroundPushbackX;
+		}
+		break;
+	case HACT_Blowback:
+		StunTime = ReceivedHit.Untech;
+		SpeedX = -FinalAirHitPushbackX * 3 / 2;
+		SpeedY = FinalAirHitPushbackY * 3 / 2;
+		Gravity = FinalGravity;
+		if (PlayerFlags & PLF_TouchingWall)
+		{
+			Enemy->Pushback = -ReceivedHit.GroundPushbackX;
+		}
+	default:
+		break;
+	}
+	AirDashTimer = 0;
+	AirDashNoAttackTime = 0;
+}
+
+bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
+{
+	if (BlockType != BLK_None)
+	{
+		FInputCondition Left;
+		FInputBitmask BitmaskLeft;
+		BitmaskLeft.InputFlag = INP_Left;
+		Left.Sequence.Add(BitmaskLeft);
+		Left.bInputAllowDisable = false;
+		Left.Lenience = 12;
+		FInputCondition Right;
+		FInputBitmask BitmaskRight;
+		BitmaskRight.InputFlag = INP_Right;
+		Right.Sequence.Add(BitmaskRight);
+		if (CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight || GetCurrentStateName() == "AirBlock")
+		{
+			Left.Method = EInputMethod::Once;
+			if (CheckInput(Left) && InstantBlockLockoutTimer == 0)
+			{
+				//AddMeter(800);
+			}
+			return true;
+		}
+		FInputCondition Input1;
+		FInputBitmask BitmaskDownLeft;
+		BitmaskDownLeft.InputFlag = INP_DownLeft;
+		Input1.Sequence.Add(BitmaskDownLeft);
+		Input1.Method = EInputMethod::Strict;
+		Input1.bInputAllowDisable = false;
+		Input1.Lenience = 12;
+		if ((CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock") && BlockType != BLK_High && !CheckInput(Right))
+		{
+			Input1.Method = EInputMethod::OnceStrict;
+			if (CheckInput(Input1) && InstantBlockLockoutTimer == 0)
+			{
+				//AddMeter(800);
+			}
+			return true;
+		}
+		FInputCondition Input4;
+		Input4.Sequence.Add(BitmaskLeft);
+		Input4.Method = EInputMethod::Strict;
+		Input4.bInputAllowDisable = false;
+		Input4.Lenience = 12;
+		if ((CheckInput(Input4) || GetCurrentStateName() == "Block") && BlockType != BLK_Low && !CheckInput(Right))
+		{
+			Input4.Method = EInputMethod::OnceStrict;
+			if (CheckInput(Input4) && InstantBlockLockoutTimer == 0)
+			{
+				//AddMeter(800);
+			}
+			return true;
+		}
+	}
+	return false;
+}
+
+void APlayerObject::HandleBlockAction(EBlockType BlockType)
+{
+	FInputCondition Input1;
+	FInputBitmask BitmaskDownLeft;
+	BitmaskDownLeft.InputFlag = INP_DownLeft;
+	Input1.Sequence.Add(BitmaskDownLeft);
+	Input1.Method = EInputMethod::Strict;
+	FInputCondition Left;
+	FInputBitmask BitmaskLeft;
+	BitmaskLeft.InputFlag = INP_Left;
+	Left.Sequence.Add(BitmaskLeft);
+	if ((CheckInput(Left) && PosY > GroundHeight) || GetCurrentStateName() == "AirBlock")
+	{
+		JumpToState("AirBlock");
+		Stance = ACT_Jumping;
+	}
+	else if ((CheckInput(Input1) && PosY <= GroundHeight) || GetCurrentStateName() == "CrouchBlock")
+	{
+		JumpToState("CrouchBlock");
+		Stance = ACT_Crouching;
+	}
+	else 
+	{
+		JumpToState("Block");
+		Stance = ACT_Standing;
+	}
+}
+
 void APlayerObject::EmptyStateMachine()
 {
 	StoredStateMachine.States.Empty();
@@ -549,11 +852,11 @@ void APlayerObject::EmptyStateMachine()
 
 void APlayerObject::HandleBufferedState()
 {
-	if (!strcmp(BufferedStateName.GetString(), ""))
+	if (strcmp(BufferedStateName.GetString(), ""))
 	{
 		if (FindChainCancelOption(BufferedStateName.GetString())
 			|| FindWhiffCancelOption(BufferedStateName.GetString())) //if cancel option, allow resetting state
-				{
+		{
 			if (StoredStateMachine.ForceSetState(BufferedStateName.GetString()))
 			{
 				StateName.SetString(BufferedStateName.GetString());
@@ -573,7 +876,7 @@ void APlayerObject::HandleBufferedState()
 				}
 			}
 			BufferedStateName.SetString("");
-				}
+		}
 		else
 		{
 			if (StoredStateMachine.SetState(BufferedStateName.GetString()))
@@ -719,7 +1022,10 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 			}
 		}
 	}
-	ReturnReg = false;
+	else
+	{
+		ReturnReg = false;
+	}
 	return ReturnReg;
 }
 
@@ -735,14 +1041,20 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 			}
 		}
 	}
-	ReturnReg = false;
+	else
+	{
+		ReturnReg = false;
+	}
 	return ReturnReg;
 }
 
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 {
 	if ((CancelFlags & CNC_EnableKaraCancel) == 0)
+	{
 		ReturnReg = false;
+		return ReturnReg;
+	}
 	
 	CancelFlags &= ~CNC_EnableKaraCancel; //prevents kara cancelling immediately after the last kara cancel
 	
@@ -763,12 +1075,12 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 	{
 		ReturnReg = true;
 	}	
-	ReturnReg = false;
 	return ReturnReg;
 }
 
 bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 {
+	ReturnReg = false;
 	for (int i = 0; i < 32; i++)
 	{
 		if (IsValid(ChildBattleObjects[i]))
@@ -780,7 +1092,6 @@ bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 			}
 		}
 	}
-	ReturnReg = false;
 	return ReturnReg;
 }
 
@@ -939,6 +1250,7 @@ void APlayerObject::OnStateChange()
 	AttackFlags &= ~ATK_ProrateOnce;
 	AttackFlags &= ~ATK_AttackHeadAttribute;
 	AttackFlags &= ~ATK_AttackProjectileAttribute;
+	AttackFlags &= ~ATK_HasHit;
 	MiscFlags = 0;
 	MiscFlags |= MISC_PushCollisionActive;
 	MiscFlags |= MISC_WallCollisionActive;
@@ -1178,7 +1490,10 @@ bool APlayerObject::CheckInputRaw(EInputFlags Input)
 	{
 		ReturnReg = true;
 	}
-	ReturnReg = false;
+	else
+	{
+		ReturnReg = false;
+	}
 	return ReturnReg;
 }
 
@@ -1212,6 +1527,24 @@ void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
 		AirDashNoAttackTime = FAirDashNoAttackTime + 1;
 	else
 		AirDashNoAttackTime = BAirDashNoAttackTime + 1;
+}
+
+void APlayerObject::AddChainCancelOption(FString Option)
+{
+	ChainCancelOptions.Add(Option);
+	if (ChainCancelOptions.Num() > 0)
+	{
+		ChainCancelOptionsInternal[ChainCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(Option);
+	}
+}
+
+void APlayerObject::AddWhiffCancelOption(FString Option)
+{
+	WhiffCancelOptions.Add(Option);
+	if (WhiffCancelOptions.Num() > 0)
+	{
+		WhiffCancelOptionsInternal[WhiffCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(Option);
+	}
 }
 
 void APlayerObject::SetDefaultLandingAction(bool Enable)

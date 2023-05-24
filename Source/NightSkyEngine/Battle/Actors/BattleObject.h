@@ -75,7 +75,9 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyBlockstopModifier = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ChipDamagePercent = -1;
+	int32 Blockstun = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ChipDamagePercent = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundGuardPushbackX = -1;
 	UPROPERTY(BlueprintReadWrite)
@@ -83,7 +85,9 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	int32 AirGuardPushbackY = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 HitAngle;
+	int32 GuardGravity = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 HitAngle = 0;
 
 	FixedString<32> GuardSFXOverride;
 	FixedString<32> GuardVFXOverride;
@@ -133,9 +137,9 @@ struct FWallBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceUntech = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceXSpeed;
+	int32 WallBounceXSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceYSpeed;
+	int32 WallBounceYSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceGravity = 1900;
 	UPROPERTY(BlueprintReadWrite)
@@ -159,9 +163,9 @@ struct FGroundBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceUntech = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceXSpeed;
+	int32 GroundBounceXSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceYSpeed;
+	int32 GroundBounceYSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceGravity = 1900;
 };
@@ -180,11 +184,11 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	int32 Damage = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 MinimumDamagePercent = -1;
+	int32 MinimumDamagePercent = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 InitialProration = 100;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ForcedProration = 100;
+	int32 ForcedProration = 90;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundPushbackX = -1;
 	UPROPERTY(BlueprintReadWrite)
@@ -268,6 +272,8 @@ public:
 	int32 GroundHeight;
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EObjDir> Direction;
+	// Ground hit pushback
+	int32 Pushback;
 	
 	/*
 	 * Attack data
@@ -287,7 +293,6 @@ public:
 
 	FHitDataCommon ReceivedHitCommon;
 	FHitData ReceivedHit;
-	EHitAction ReceivedHitAction;
 	uint32 StunTime = 0;
 	uint32 Hitstop = 0;
 	
@@ -412,10 +417,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	//handles pushing objects
 	void HandlePushCollision(const ABattleObject* OtherObj);
+	//handles hitting objects
+	void HandleHitCollision(APlayerObject* OtherChar);
+	//initializes hit data by attack level
+	FHitData InitHitDataByAttackLevel(bool IsCounter);
+	//handles object clashes
+	void HandleClashCollision(ABattleObject* OtherObj);
+	//handles flip
 	void HandleFlip();
 	void TriggerEvent(EEventType EventType);
 
-private:
+protected:
 	void UpdateVisualLocation();
 	void FuncCall(FName FuncName) const;
 	void GetBoxes();
@@ -468,6 +480,12 @@ public:
 	//forcibly face opponent
 	UFUNCTION(BlueprintCallable)
 	void FaceOpponent();
+	//enables hit
+	UFUNCTION(BlueprintCallable)
+	void EnableHit(bool Enabled);
+	//sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
+	UFUNCTION(BlueprintCallable)
+	void SetAttacking(bool Attacking);
 	//enables flip
 	UFUNCTION(BlueprintCallable)
 	void EnableFlip(bool Enabled);

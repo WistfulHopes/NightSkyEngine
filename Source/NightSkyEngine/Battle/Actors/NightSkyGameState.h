@@ -31,7 +31,7 @@ struct FBattleState
 	int TimeUntilRoundStart = 180;
 	int CurrentScreenPos = 0;
 	UPROPERTY(BlueprintReadOnly)
-	int RoundTimer;
+	int RoundTimer = 0;
 	bool PauseTimer;
 	bool PauseParticles;
 	int Meter[2] { 0 , 0 };
@@ -104,6 +104,7 @@ protected:
 	void UpdateGameState();
 	void SortObjects();
 	void HandlePushCollision() const; //for each active object, handle push collision
+	void HandleHitCollision() const;
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
 
