@@ -57,4 +57,13 @@ public:
 	void ReleaseG();
 	void PressH();
 	void ReleaseH();
+
+	void UpdateInput(int Input[], int32 InFrame);
+	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client);
+	
+	UFUNCTION(BlueprintCallable)
+	void SendCharaData();
+
+	UPROPERTY(BlueprintReadOnly)
+	ANetworkPawn* NetworkPawn;
 };

@@ -76,3 +76,6 @@ Plugins/*/Intermediate/*
 DerivedDataCache/*
 
 JonbinsToColData.py
+
+# Final build
+WinBuild/*

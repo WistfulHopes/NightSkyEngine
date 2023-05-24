@@ -6,8 +6,10 @@
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
 #include "Camera/CameraActor.h"
+#include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
-#include "NightSkyEngine/NightSkyGameInstance.h"
+#include "NightSkyEngine/Miscellaneous/FighterRunners.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 
 // Sets default values
 ANightSkyGameState::ANightSkyGameState()
@@ -26,6 +28,10 @@ void ANightSkyGameState::BeginPlay()
 
 void ANightSkyGameState::Init()
 {
+	for (int i = 0; i < MaxRollbackFrames; i++)
+	{
+		StoredRollbackData.Add(FRollbackData());
+	}
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	
 	for (int i = 0; i < 6; i++)
@@ -90,6 +96,26 @@ void ANightSkyGameState::Init()
 		Objects[i]->ObjNumber = i;
 		SortedObjects[i + 6] = Objects[i];
 	}
+
+	FActorSpawnParameters SpawnParameters;
+	SpawnParameters.Owner = GetOwner();
+
+	switch (GameInstance->FighterRunner)
+	{
+	case LocalPlay:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
+		break;
+	case MULTIPLAYER:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterMultiplayerRunner::StaticClass(),SpawnParameters);
+		break;
+	case SYNCTEST:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterSynctestRunner::StaticClass(),SpawnParameters);
+		break;
+	default:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
+		break;
+	}
+	
 	BattleState.RoundFormat = GameInstance->RoundFormat;
 	BattleState.RoundTimer = GameInstance->StartRoundTimer * 60;
 	
@@ -117,8 +143,34 @@ void ANightSkyGameState::RoundInit()
 
 void ANightSkyGameState::UpdateLocalInput()
 {
-	LocalInputs[0] = GetLocalInputs(0);
-	LocalInputs[1] = GetLocalInputs(1);
+	if (GetWorld()->GetNetMode() == NM_Standalone)
+	{
+		LocalInputs[LocalFrame % MaxRollbackFrames][0] = GetLocalInputs(0);
+		LocalInputs[LocalFrame % MaxRollbackFrames][1] = GetLocalInputs(1);
+		return;
+	}
+	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+	int SendInputs[MaxRollbackFrames] = { 16 };
+	if (PlayerIndex == 0)
+	{
+		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] = GetLocalInputs(0);
+		for (int i = 0; i < MaxRollbackFrames; i++)
+		{
+			SendInputs[i] = LocalInputs[i][0];
+		}
+		Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->UpdateInput(SendInputs, LocalFrame);
+		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[RemoteFrame % MaxRollbackFrames][1];
+	}
+	else
+	{
+		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[RemoteFrame % MaxRollbackFrames][0];
+		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] = GetLocalInputs(0);
+		for (int i = 0; i < MaxRollbackFrames; i++)
+		{
+			SendInputs[i] = LocalInputs[i][1];
+		}
+		Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->UpdateInput(SendInputs, LocalFrame);
+	}
 }
 
 // Called every frame
@@ -126,7 +178,7 @@ void ANightSkyGameState::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UpdateGameState();
+	FighterRunner->Update(DeltaTime);
 	UpdateCamera();
 }
 
@@ -192,7 +244,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 void ANightSkyGameState::UpdateGameState()
 {
 	UpdateLocalInput();
-	UpdateGameState(LocalInputs[0], LocalInputs[1]);
+	UpdateGameState(LocalInputs[LocalFrame % MaxRollbackFrames][0], LocalInputs[LocalFrame % MaxRollbackFrames][1]);
 }
 
 void ANightSkyGameState::SortObjects()
@@ -288,7 +340,7 @@ void ANightSkyGameState::SetWallCollision()
 	{
 		if (Players[i] != nullptr)
 		{
-			if (Players[i]->PlayerFlags & PLF_IsOnScreen)
+			if (Players[i]->PlayerFlags & PLF_IsOnScreen && Players[i]->MiscFlags & MISC_WallCollisionActive)
 			{
 				Players[i]->PlayerFlags |= PLF_TouchingWall;
 				if (Players[i]->PosX >= 840000 + BattleState.CurrentScreenPos)
@@ -337,7 +389,94 @@ int ANightSkyGameState::GetLocalInputs(int Index) const
 	return 0;
 }
 
+void ANightSkyGameState::UpdateRemoteInput(int RemoteInput[], int32 InFrame)
+{
+	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+	if (PlayerIndex == 0)
+	{
+		for (int i = InFrame; i > InFrame - MaxRollbackFrames; i--)
+		{
+			RemoteInputs[i % MaxRollbackFrames][1] = RemoteInput[i % MaxRollbackFrames];
+		}
+	}
+	else
+	{
+		for (int i = InFrame; i > InFrame - MaxRollbackFrames; i--)
+		{
+			RemoteInputs[i % MaxRollbackFrames][0] = RemoteInput[i % MaxRollbackFrames];
+		}
+	}
+}
+
+void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
+{
+	OtherChecksum = RemoteChecksum;
+	OtherChecksumFrame = InFrame;
+}
+
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
 	*OutX = BattleState.CurrentScreenPos - 900000 + 1800000 * X / 100;
+}
+
+uint32 rollback_checksum(unsigned char* data, int size)
+{
+	uint32 c = 0;
+	for(int i = 0; i < size; i++) {
+		c = data[i] + 137 * c;
+	}
+	return c;
+}
+
+void ANightSkyGameState::SaveGameState()
+{
+	int BackupFrame = LocalFrame % MaxRollbackFrames;
+	StoredRollbackData[BackupFrame].ActiveObjectCount = BattleState.ActiveObjectCount;
+	StoredRollbackData[BackupFrame].Checksum = BattleState.FrameNumber + BattleState.CurrentScreenPos + BattleState.ActiveObjectCount;
+	memcpy(StoredRollbackData[BackupFrame].BattleStateBuffer, &BattleState.BattleStateSync, SizeOfBattleState);
+	StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].BattleStateBuffer, SizeOfBattleState);
+	for (int i = 0; i < 400; i++)
+	{
+		if (Objects[i]->IsActive)
+		{
+			Objects[i]->SaveForRollback(StoredRollbackData[BackupFrame].ObjBuffer[i]);
+			StoredRollbackData[BackupFrame].ObjActive[i] = true;
+		}
+		else
+			StoredRollbackData[BackupFrame].ObjActive[i] = false;
+		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].ObjBuffer[i], SizeOfBattleObject);
+		StoredRollbackData[BackupFrame].Checksum += StoredRollbackData[BackupFrame].ObjActive[i];
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		Players[i]->SaveForRollback(StoredRollbackData[BackupFrame].ObjBuffer[i + 400]);
+		Players[i]->SaveForRollbackPlayer(StoredRollbackData[BackupFrame].CharBuffer[i]);
+		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].ObjBuffer[i + 400], SizeOfBattleObject);
+		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].CharBuffer[i], SizeOfPlayerObject);
+	}
+}
+
+void ANightSkyGameState::LoadGameState()
+{
+	int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
+	BattleState.ActiveObjectCount = StoredRollbackData[CurrentRollbackFrame].ActiveObjectCount;
+	memcpy(&BattleState.BattleStateSync, StoredRollbackData[CurrentRollbackFrame].BattleStateBuffer, SizeOfBattleState);
+	for (int i = 0; i < 400; i++)
+	{
+		if (StoredRollbackData[CurrentRollbackFrame].ObjActive[i])
+		{
+			Objects[i]->LoadForRollback(StoredRollbackData[CurrentRollbackFrame].ObjBuffer[i]);
+		}
+		else
+		{
+			if (Objects[i]->IsActive)
+				Objects[i]->ResetObject();
+		}
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		Players[i]->LoadForRollback(StoredRollbackData[CurrentRollbackFrame].ObjBuffer[i + 400]);
+		Players[i]->LoadForRollbackPlayer(StoredRollbackData[CurrentRollbackFrame].CharBuffer[i]);
+	}
+	SortObjects();
 }

@@ -353,6 +353,10 @@ public:
 	//disables last input
 	void DisableLastInput();
 	
+	void SaveForRollbackPlayer(unsigned char* Buffer) const;
+	void LoadForRollbackPlayer(unsigned char* Buffer);
+	virtual void LogForSyncTestFile(FILE* file) override;
+
 	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
 	UFUNCTION(BlueprintImplementableEvent)
 	void InitBP();
@@ -393,6 +397,9 @@ public:
 	//enable all attacks only
 	UFUNCTION(BlueprintCallable)
 	void EnableAttacks();
+	//enable cancelling into same state
+	UFUNCTION(BlueprintCallable)
+	void EnableCancelIntoSelf(bool Enable);
 	//enables all state types besides tech
 	UFUNCTION(BlueprintCallable)
 	void EnableAll();

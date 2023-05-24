@@ -91,17 +91,6 @@ void ABattleObject::Move()
 		PosY = GroundHeight;
 		SpeedY = 0;
 	}
-	if (MiscFlags & MISC_WallCollisionActive)
-	{
-		if (PosX < -1800000)
-		{
-			PosX = -1800000;
-		}
-		else if (PosX > 1800000)
-		{
-			PosX = 1800000;
-		}
-	}
 
 	PosZ += FinalSpeedZ;
 }
@@ -152,8 +141,7 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 				{
 					CollisionDepth = OtherObj->R - L;
 				}
-				const int PosXOffset = CollisionDepth / 2;
-				PosX += PosXOffset;
+				PosX += CollisionDepth;
 			}
 		}
 	}
@@ -422,7 +410,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 9;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 10000;
+			HitCommon.GroundGuardPushbackX = 20000;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -436,7 +424,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 300;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 12500;
+			Data.GroundPushbackX = 25000;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -452,7 +440,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 11;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 11250;
+			HitCommon.GroundGuardPushbackX = 22500;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -466,7 +454,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 400;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 13750;
+			Data.GroundPushbackX = 27500;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -482,7 +470,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 13;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 13500;
+			HitCommon.GroundGuardPushbackX = 27000;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -496,7 +484,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 600;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 15000;
+			Data.GroundPushbackX = 30000;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -512,7 +500,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 16;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 15000;
+			HitCommon.GroundGuardPushbackX = 30000;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -526,7 +514,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 800;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 17500;
+			Data.GroundPushbackX = 35000;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -542,7 +530,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 18;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 17500;
+			HitCommon.GroundGuardPushbackX = 35000;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -556,7 +544,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 1000;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 20000;
+			Data.GroundPushbackX = 40000;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -572,7 +560,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == -1)
 			HitCommon.Blockstun = 20;
 		if (HitCommon.GroundGuardPushbackX == -1)
-			HitCommon.GroundGuardPushbackX = 22500;
+			HitCommon.GroundGuardPushbackX = 45000;
 		if (HitCommon.AirGuardPushbackX == -1)
 			HitCommon.AirGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackY == -1)
@@ -586,7 +574,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (Data.Damage == -1)
 			Data.Damage = 1250;
 		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 25000;
+			Data.GroundPushbackX = 50000;
 		if (Data.AirPushbackX == -1)
 			Data.AirPushbackX = 15000;
 		if (Data.AirPushbackY == -1)
@@ -733,6 +721,54 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 	if (IsValid(Func) && Func->ParmsSize == 0)
 	{
 		State->ProcessEvent(Func, nullptr);
+	}
+}
+
+void ABattleObject::SaveForRollback(unsigned char* Buffer) const
+{
+	FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
+}
+
+void ABattleObject::LoadForRollback(unsigned char* Buffer)
+{
+	FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
+	if (!IsPlayer)
+	{
+		int StateIndex = Player->ObjectStateNames.Find(ObjectStateName.GetString());
+		if (StateIndex != INDEX_NONE)
+		{
+			ObjectState = DuplicateObject(Player->ObjectStates[StateIndex], this);
+			ObjectState->Parent = this;
+		}
+	}
+}
+
+void ABattleObject::LogForSyncTestFile(FILE* file)
+{
+	if(file)
+	{
+		fprintf(file,"BattleActor:\n");
+		fprintf(file,"\tPosX: %d\n", PosX);
+		fprintf(file,"\tPosY: %d\n", PosY);
+		fprintf(file,"\tPrevPosX: %d\n", PrevPosX);
+		fprintf(file,"\tPrevPosY: %d\n", PrevPosY);
+		fprintf(file,"\tSpeedX: %d\n", SpeedX);
+		fprintf(file,"\tSpeedY: %d\n", SpeedY);
+		fprintf(file,"\tGravity: %d\n", Gravity);
+		fprintf(file,"\tInertia: %d\n", Inertia);
+		fprintf(file,"\tActionTime: %d\n", ActionTime);
+		fprintf(file,"\tPushHeight: %d\n", PushHeight);
+		fprintf(file,"\tPushHeightLow: %d\n", PushHeightLow);
+		fprintf(file,"\tPushWidth: %d\n", PushWidth);
+		fprintf(file,"\tStunTime: %d\n", StunTime);
+		fprintf(file,"\tHitstop: %d\n", Hitstop);
+		fprintf(file,"\tCelName: %s\n", CelName.GetString());
+		fprintf(file,"\tFacingRight: %d\n", AttackFlags);
+		fprintf(file,"\tDirection: %d\n", static_cast<int>(Direction));
+		fprintf(file,"\tMiscFlags: %d\n", MiscFlags);
+		fprintf(file,"\tCelIndex: %d\n", CelIndex);
+		fprintf(file,"\tTimeUntilNextCel: %d\n", TimeUntilNextCel);
+		fprintf(file,"\tAnimFrame: %d\n", AnimFrame);
 	}
 }
 

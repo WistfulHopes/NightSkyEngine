@@ -2,11 +2,19 @@
 
 
 #include "NightSkyPlayerController.h"
+
+#include "EngineUtils.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
+#include "NightSkyGameState.h"
+#include "FighterRunners/FighterMultiplayerRunner.h"
 #include "GameFramework/InputSettings.h"
+#include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Miscellaneous/NetworkPawn.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
+#include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
 
 // Sets default values
 ANightSkyPlayerController::ANightSkyPlayerController()
@@ -272,4 +280,91 @@ void ANightSkyPlayerController::PressH()
 void ANightSkyPlayerController::ReleaseH()
 {
 	Inputs = Inputs & ~INP_H;
+}
+
+void ANightSkyPlayerController::UpdateInput(int Input[], int32 InFrame)
+{
+	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+	TArray<ANetworkPawn*> NetworkPawns;
+	for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
+	{
+		NetworkPawns.Add(*It);
+	}
+	TArray<int32> SendInputs;
+	for (int i = 0; i < MaxRollbackFrames; i++)
+	{
+		SendInputs.Add(Input[i]);
+	}
+	if (NetworkPawns.Num() > 1)
+	{
+		if (PlayerIndex == 0)
+		{
+			for (int i = 0; i < MaxRollbackFrames; i++)
+			{
+				NetworkPawns[1]->SendToClient(SendInputs, InFrame);
+			}
+		}
+		else
+		{
+			for (int i = 0; i < MaxRollbackFrames; i++)
+			{
+				NetworkPawns[0]->SendToServer(SendInputs, InFrame);
+			}
+		}
+	}
+}
+
+void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Client)
+{
+	if(InNetworkPawn->FighterMultiplayerRunner==nullptr)//TODO: CHECK IF MULTIPLAYERRUNNER IS SPAWNED BEFORE THIS, IF SO DO THIS IN BEGINPLAY
+	{
+		TArray<AActor*> FoundFighterGameStates;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), AFighterMultiplayerRunner::StaticClass(), FoundFighterGameStates);
+		if(FoundFighterGameStates.Num()>0)
+		{
+			InNetworkPawn->FighterMultiplayerRunner = Cast<AFighterMultiplayerRunner>(FoundFighterGameStates[0]);
+		}
+	}
+
+	if (InNetworkPawn->FighterMultiplayerRunner && InNetworkPawn->FighterMultiplayerRunner->connectionManager)
+	{
+		while(InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.Num()>0)
+		{
+			auto SendVal = InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.GetTail();
+			if(Client)
+			{
+				InNetworkPawn->SendGgpoToClient(SendVal->GetValue());
+			}
+			else
+			{
+				InNetworkPawn->SendGgpoToServer(SendVal->GetValue());
+			}
+			InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.Empty();
+			//InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.RemoveNode(SendVal);
+		}
+	}
+}
+
+void ANightSkyPlayerController::SendCharaData()
+{
+	int PlayerIndex = 0;
+	if (GetWorld()->GetNetMode() == NM_Client)
+		PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex = 1;
+	TArray<ANetworkPawn*> NetworkPawns;
+	for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
+	{
+		NetworkPawns.Add(*It);
+	}
+	if (NetworkPawns.Num() > 1)
+	{
+		UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+		if (PlayerIndex == 0)
+		{
+			NetworkPawns[1]->ClientGetCharaData(GameInstance->PlayerList[0], GameInstance->RoundFormat, GameInstance->StartRoundTimer);
+		}
+		else
+		{
+			NetworkPawns[0]->ServerGetCharaData(GameInstance->PlayerList[03]);
+		}
+	}
 }

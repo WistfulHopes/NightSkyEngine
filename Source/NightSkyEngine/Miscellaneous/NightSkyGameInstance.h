@@ -28,4 +28,12 @@ public:
 	ERoundFormat RoundFormat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int StartRoundTimer;
+	
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool IsTraining = false;
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool IsCPUBattle = false;
+	
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	TEnumAsByte<EFighterRunners> FighterRunner;
 };

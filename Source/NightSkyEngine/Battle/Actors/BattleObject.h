@@ -426,13 +426,16 @@ public:
 	//handles flip
 	void HandleFlip();
 	void TriggerEvent(EEventType EventType);
-
+	void SaveForRollback(unsigned char* Buffer) const;
+	void LoadForRollback(unsigned char* Buffer);
+	virtual void LogForSyncTestFile(FILE* file);
+	
 protected:
 	void UpdateVisualLocation();
 	void FuncCall(FName FuncName) const;
 	void GetBoxes();
 	
-public:
+public:	
 	// Cannot be called on player objects. Initializes the object for use.
 	void InitObject();
 	virtual void Update();

@@ -459,7 +459,7 @@ void APlayerObject::Update()
 		ReceivedHit = FHitData();
 	}
 
-	if (PlayerFlags & PLF_TouchingWall && Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
+	if (PlayerFlags & PLF_TouchingWall && Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun && Pushback != 0)
 	{
 		Enemy->Pushback = Pushback;
 		Pushback = 0;
@@ -488,9 +488,12 @@ void APlayerObject::Update()
 		PlayerFlags &= ~PLF_IsKnockedDown;
 	}
 	
-	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
+	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun
+		&& StoredStateMachine.CurrentState->StateType != EStateType::Blockstun)
 	{
-		Pushback = 0;
+		if (Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun
+			&& Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Blockstun)
+			Pushback = 0;
 		PlayerFlags &= ~PLF_IsStunned;
 	}
 	
@@ -929,7 +932,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 	case EStateCondition::IsAttacking:
 		ReturnReg = AttackFlags & ATK_IsAttacking;
 	case EStateCondition::HitstopCancel:
-		ReturnReg = Hitstop == 0 && AttackFlags & ATK_IsAttacking;
+		ReturnReg = Hitstop == 1 && AttackFlags & ATK_IsAttacking;
 	case EStateCondition::IsStunned:
 		ReturnReg = PlayerFlags & PLF_IsStunned;
 	case EStateCondition::CloseNormal:
@@ -1012,6 +1015,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 
 bool APlayerObject::FindChainCancelOption(const FString& Name)
 {
+	ReturnReg = false;
 	if (AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking && CancelFlags & CNC_ChainCancelEnabled)
 	{
 		for (int i = 0; i < CancelArraySize; i++)
@@ -1019,18 +1023,16 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 			if (ChainCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptionsInternal[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
+				break;
 			}
 		}
-	}
-	else
-	{
-		ReturnReg = false;
 	}
 	return ReturnReg;
 }
 
 bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 {
+	ReturnReg = false;
 	if (CancelFlags & CNC_WhiffCancelEnabled)
 	{
 		for (int i = 0; i < CancelArraySize; i++)
@@ -1038,21 +1040,18 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 			if (WhiffCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptionsInternal[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
+				break;
 			}
 		}
-	}
-	else
-	{
-		ReturnReg = false;
 	}
 	return ReturnReg;
 }
 
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 {
+	ReturnReg = false;
 	if ((CancelFlags & CNC_EnableKaraCancel) == 0)
 	{
-		ReturnReg = false;
 		return ReturnReg;
 	}
 	
@@ -1088,7 +1087,10 @@ bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 			if (ChildBattleObjects[i]->IsActive)
 			{
 				if (ChildBattleObjects[i]->ObjectID == InObjectID && ChildBattleObjects[i]->ObjectID != 0)
+				{
 					ReturnReg = true;
+					break;
+				}
 			}
 		}
 	}
@@ -1420,9 +1422,9 @@ void APlayerObject::ResetForRound()
 	InstantBlockLockoutTimer = 0;
 	MeterCooldownTimer = 0;
 	for (int32& CancelOption : ChainCancelOptionsInternal)
-		CancelOption = 0;
+		CancelOption = -1;
 	for (int32& CancelOption : WhiffCancelOptionsInternal)
-		CancelOption = 0;
+		CancelOption = -1;
 	ExeStateName.SetString("");
 	BufferedStateName.SetString("");
 	JumpToState("Stand");
@@ -1431,6 +1433,66 @@ void APlayerObject::ResetForRound()
 void APlayerObject::DisableLastInput()
 {
 	StoredInputBuffer.InputDisabled[89] = StoredInputBuffer.InputBufferInternal[89];
+}
+
+void APlayerObject::SaveForRollbackPlayer(unsigned char* Buffer) const
+{
+	FMemory::Memcpy(Buffer, &PlayerSync, SizeOfPlayerObject);
+}
+
+void APlayerObject::LoadForRollbackPlayer(unsigned char* Buffer)
+{
+	FMemory::Memcpy(&PlayerSync, Buffer, SizeOfPlayerObject);
+	for (int i = 0; i < CancelArraySize; i++) //reload TArrays with rolled back data
+	{
+		ChainCancelOptions.Empty();
+		WhiffCancelOptions.Empty();
+		if (StoredStateMachine.StateNames.Num() > 0)
+		{
+			if (ChainCancelOptionsInternal[i] != -1)
+			{
+				ChainCancelOptions.Add(StoredStateMachine.GetStateName(ChainCancelOptionsInternal[i]));
+			}
+			if (WhiffCancelOptionsInternal[i] != -1)
+			{
+				WhiffCancelOptions.Add(StoredStateMachine.GetStateName(WhiffCancelOptionsInternal[i]));
+			}
+		}
+	}
+}
+
+void APlayerObject::LogForSyncTestFile(FILE* file)
+{
+	Super::LogForSyncTestFile(file);
+	if(file)
+	{
+		fprintf(file,"PlayerCharacter:\n");
+		fprintf(file,"\tEnableFlags: %d\n", EnableFlags);
+		fprintf(file,"\tCurrentAirJumpCount: %d\n", CurrentAirJumpCount);
+		fprintf(file,"\tCurrentAirDashCount: %d\n", CurrentAirDashCount);
+		fprintf(file,"\tAirDashTimerMax: %d\n", AirDashTimerMax);
+		fprintf(file,"\tCurrentHealth: %d\n", CurrentHealth);
+		fprintf(file,"\tCancelFlags: %d\n", CancelFlags);
+		fprintf(file,"\tInputs: %d\n", StoredInputBuffer.InputBufferInternal[89]);
+		fprintf(file,"\tStance: %d\n", Stance);
+		fprintf(file,"\tAirDashTimer: %d\n", AirDashTimer);
+		fprintf(file,"\tPlayerFlags: %d\n", PlayerFlags);
+		int ChainCancelChecksum = 0;
+		for (int i = 0; i < 0x20; i++)
+		{
+			ChainCancelChecksum += ChainCancelOptionsInternal[i];
+		}
+		fprintf(file,"\tChainCancelOptions: %d\n", ChainCancelChecksum);
+		int WhiffCancelChecksum = 0;
+		for (int i = 0; i < 0x20; i++)
+		{
+			WhiffCancelChecksum += WhiffCancelOptionsInternal[i];
+		}
+		fprintf(file,"\tChainCancelOptions: %d\n", WhiffCancelChecksum);
+		if (StoredStateMachine.States.Num() != 0)
+			fprintf(file,"\tStateName: %s\n", StateName.GetString());
+		fprintf(file,"\tEnemy: %p\n", Enemy);
+	}
 }
 
 void APlayerObject::EnableState(EEnableFlags EnableType)
@@ -1448,6 +1510,18 @@ void APlayerObject::EnableAttacks()
 	EnableState(ENB_NormalAttack);
 	EnableState(ENB_SpecialAttack);
 	EnableState(ENB_SuperAttack);
+}
+
+void APlayerObject::EnableCancelIntoSelf(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_CancelIntoSelf;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_CancelIntoSelf;
+	}
 }
 
 void APlayerObject::EnableAll()

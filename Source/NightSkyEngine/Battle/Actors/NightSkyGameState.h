@@ -7,6 +7,9 @@
 #include "GameFramework/GameStateBase.h"
 #include "NightSkyGameState.generated.h"
 
+constexpr int32 MaxRollbackFrames = 10;
+constexpr float OneFrame = 1 / 60;
+
 UENUM()
 enum class ERoundFormat : uint8
 {
@@ -54,6 +57,7 @@ struct FRollbackData
 {
 	GENERATED_BODY()
 	
+	int ActiveObjectCount;
 	uint8 ObjBuffer[406][SizeOfBattleObject] = { { 0 } };
 	bool ObjActive[400] = { false };
 	uint8 CharBuffer[6][SizeOfPlayerObject] = { { 0 } };
@@ -84,24 +88,31 @@ public:
 	ACameraActor* CameraActor;
 	UPROPERTY(BlueprintReadWrite)
 	ACameraActor* SequenceCameraActor;
-
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* SequenceTarget;
 	
-	FRollbackData StoredRollbackData;
+	UPROPERTY()
+	class AFighterLocalRunner* FighterRunner;
+
+	TArray<FRollbackData> StoredRollbackData;
 	FBattleState BattleState;
+	int LocalFrame;
+	int RemoteFrame;
 
 private:
-	int LocalInputs[2];
-	int RemoteInputs[2];
-	
+	int LocalInputs[MaxRollbackFrames][2];
+	int RemoteInputs[MaxRollbackFrames][2];
+	uint32 Checksum;
+	uint32 OtherChecksum;
+	int32 OtherChecksumFrame;
+	int32 PrevOtherChecksumFrame;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Init();
 	void RoundInit();
 	void UpdateLocalInput(); //updates local input
-	void UpdateGameState();
 	void SortObjects();
 	void HandlePushCollision() const; //for each active object, handle push collision
 	void HandleHitCollision() const;
@@ -112,8 +123,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void UpdateCamera() const;
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
+	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
+	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
+	void SaveGameState(); //saves game state
+	void LoadGameState(); //loads game state
 };
