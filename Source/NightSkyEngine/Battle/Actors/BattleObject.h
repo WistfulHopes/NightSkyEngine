@@ -449,7 +449,7 @@ public:
 	void SetCelName(FString InName);
 	//jumps to label
 	UFUNCTION(BlueprintCallable)
-	void GotoLabel(FString InName);
+	void GotoLabel(FString InName, bool ResetState = true);
 	//adds x position
 	UFUNCTION(BlueprintCallable)
 	void AddPosXWithDir(int InPosX);

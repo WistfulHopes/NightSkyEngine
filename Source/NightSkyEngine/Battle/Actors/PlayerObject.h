@@ -411,6 +411,9 @@ public:
 	//set air dash timer (set is forward for forward airdashes)
 	UFUNCTION(BlueprintCallable)
 	void SetAirDashNoAttackTimer(bool IsForward);
+	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
+	UFUNCTION(BlueprintCallable)
+	void SetDefaultLandingAction(bool Enable);
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

@@ -184,6 +184,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 			SortedObjects[i]->Update();
 	}
 	HandlePushCollision();
+	SetScreenBounds();
+	SetWallCollision();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -241,13 +243,13 @@ void ANightSkyGameState::SetScreenBounds()
 					{
 						const int NewScreenPos = (Players[i]->PosX + Players[j]->PosX) / 2;
 						BattleState.CurrentScreenPos = BattleState.CurrentScreenPos + (NewScreenPos - BattleState.CurrentScreenPos) * 5 / 100;
-						if (BattleState.CurrentScreenPos > 900000)
+						if (BattleState.CurrentScreenPos > 1080000)
 						{
-							BattleState.CurrentScreenPos = 900000;
+							BattleState.CurrentScreenPos = 1080000;
 						}
-						else if (BattleState.CurrentScreenPos < -900000)
+						else if (BattleState.CurrentScreenPos < -1080000)
 						{
-							BattleState.CurrentScreenPos = -900000;
+							BattleState.CurrentScreenPos = -1080000;
 						}
 					}
 				}
@@ -264,13 +266,13 @@ void ANightSkyGameState::SetWallCollision()
 		{
 			if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 			{
-				if (Players[i]->PosX >= 900000 + BattleState.CurrentScreenPos)
+				if (Players[i]->PosX >= 840000 + BattleState.CurrentScreenPos)
 				{
-					Players[i]->PosX = 900000 + BattleState.CurrentScreenPos;
+					Players[i]->PosX = 840000 + BattleState.CurrentScreenPos;
 				}
-				else if (Players[i]->PosX <= -900000 + BattleState.CurrentScreenPos)
+				else if (Players[i]->PosX <= -840000 + BattleState.CurrentScreenPos)
 				{
-					Players[i]->PosX = -900000 + BattleState.CurrentScreenPos;
+					Players[i]->PosX = -840000 + BattleState.CurrentScreenPos;
 				}
 			}
 		}
@@ -283,16 +285,16 @@ void ANightSkyGameState::UpdateCamera() const
 	if (CameraActor != nullptr)
 	{
 		FVector Average = (Players[0]->GetActorLocation() + Players[3]->GetActorLocation()) / 2;
-		float NewX = FMath::Clamp(-Average.X,-700, 700);
+		float NewX = FMath::Clamp(-Average.X,-540, 540);
 		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).X));
-		Distance = FMath::Clamp(Distance,15, 25);
-		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 960), Distance);
+		Distance = FMath::Clamp(Distance,20, 25);
+		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 840), Distance);
 		float NewZ = Average.Z + 150;
 		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (!SequenceActor->SequencePlayer->IsPlaying())
 		{
-			SequenceCameraActor->SetActorLocation(FVector(0, 960, 175));
+			SequenceCameraActor->SetActorLocation(FVector(0, 840, 175));
 		}
 	}
 }

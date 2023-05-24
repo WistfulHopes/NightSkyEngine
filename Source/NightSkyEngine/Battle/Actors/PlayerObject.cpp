@@ -1030,11 +1030,11 @@ void APlayerObject::ResetForRound()
 	MiscFlags |= MISC_InertiaEnable;
 	Direction = DIR_Right;
 	SpeedXRate = 100;
-	SpeedXRatePerFrame = false;
+	SpeedXRatePerFrame = 100;
 	SpeedYRate = 100;
-	SpeedYRatePerFrame = false;
+	SpeedYRatePerFrame = 100;
 	SpeedZRate = 100;
-	SpeedZRatePerFrame = false;
+	SpeedZRatePerFrame = 100;
 	GroundHeight = 0;
 	ReturnReg = 0;
 	ActionReg1 = 0;
@@ -1212,4 +1212,16 @@ void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
 		AirDashNoAttackTime = FAirDashNoAttackTime + 1;
 	else
 		AirDashNoAttackTime = BAirDashNoAttackTime + 1;
+}
+
+void APlayerObject::SetDefaultLandingAction(bool Enable)
+{
+	if (Enable)
+	{
+		PlayerFlags |= PLF_DefaultLandingAction;
+	}
+	else
+	{
+		PlayerFlags &= ~PLF_DefaultLandingAction;
+	}
 }

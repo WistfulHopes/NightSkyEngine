@@ -31,9 +31,9 @@ void ABattleObject::Move()
 	PrevPosX = PosX; 
 	PrevPosY = PosY;
 
-	SpeedX *= SpeedXRatePerFrame / 100;
-	SpeedY *= SpeedYRatePerFrame / 100;
-	SpeedZ *= SpeedZRatePerFrame / 100;
+	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
+	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
+	SpeedZ = SpeedZ * SpeedZRatePerFrame / 100;
 	const int32 FinalSpeedX = SpeedX * SpeedXRate / 100;
 	const int32 FinalSpeedY = SpeedY * SpeedYRate / 100;
 	const int32 FinalSpeedZ = SpeedZ * SpeedZRate / 100;
@@ -359,6 +359,7 @@ void ABattleObject::Update()
 		return;
 	}
 
+	TriggerEvent(EVT_Update);
 	GetBoxes();
 	Move();
 	
@@ -422,11 +423,11 @@ void ABattleObject::ResetObject()
 	MiscFlags = 0;
 	Direction = DIR_Right;
 	SpeedXRate = 100;
-	SpeedXRatePerFrame = false;
+	SpeedXRatePerFrame = 100;
 	SpeedYRate = 100;
-	SpeedYRatePerFrame = false;
+	SpeedYRatePerFrame = 100;
 	SpeedZRate = 100;
-	SpeedZRatePerFrame = false;
+	SpeedZRatePerFrame = 100;
 	GroundHeight = 0;
 	ReturnReg = 0;
 	ActionReg1 = 0;
@@ -491,11 +492,11 @@ void ABattleObject::SetCelName(FString InName)
 	CelName.SetString(InName);
 }
 
-void ABattleObject::GotoLabel(FString InName)
+void ABattleObject::GotoLabel(FString InName, bool ResetState)
 {
 	LabelName.SetString(InName);
 	GotoLabelActive = true;
-	if (IsPlayer)
+	if (IsPlayer && ResetState)
 		Player->JumpToState(Player->GetCurrentStateName());
 }
 
@@ -550,6 +551,7 @@ void ABattleObject::FlipCharacter()
 
 void ABattleObject::FaceOpponent()
 {
+	EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
 	if (PosX < Player->Enemy->PosX)
 	{
@@ -558,6 +560,11 @@ void ABattleObject::FaceOpponent()
 	else if (PosX > Player->Enemy->PosX)
 	{
 		SetFacing(DIR_Left);
+	}
+	if (CurrentDir != Direction)
+	{
+		SpeedX = -SpeedX;
+		Inertia = -Inertia;
 	}
 }
 
