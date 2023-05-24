@@ -112,7 +112,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		FMemory::Memcpy(&BattleState, rollbackdata->BattleStateBuffer, SizeOfBattleState);
 		fprintf(fp, "\tFrameNumber:%d\n", BattleState.FrameNumber);
 		fprintf(fp, "\tActiveObjectCount:%d\n", rollbackdata->ActiveObjectCount);
-		for (int i = 0; i < 400; i++)
+		for (int i = 0; i < MaxBattleObjects; i++)
 		{
 			if (rollbackdata->ObjActive[i])
 			{
@@ -121,18 +121,17 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 				BattleActor->LogForSyncTestFile(fp);
 			}
 		}
-		for (int i = 400; i < 406; i++)
+		for (int i = MaxBattleObjects; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{
 			APlayerObject* PlayerCharacter = NewObject<APlayerObject>();
 			FMemory::Memcpy((char*)PlayerCharacter + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
-			FMemory::Memcpy((char*)PlayerCharacter + offsetof(APlayerObject, PlayerSync), rollbackdata->CharBuffer[i - 400], SizeOfPlayerObject);
+			FMemory::Memcpy((char*)PlayerCharacter + offsetof(APlayerObject, PlayerSync), rollbackdata->CharBuffer[i - MaxBattleObjects], SizeOfPlayerObject);
 			PlayerCharacter->LogForSyncTestFile(fp);
 		}
 
 		fprintf(fp,"RawRollbackData:\n");
-		fprintf(fp, "\tInternalChecksum:%d\n", rollbackdata->Checksum);
 		fprintf(fp, "\tObjBuffer:\n");
-		for (int i = 0; i < 406; i++)
+		for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{
 			fprintf(fp, "Object %d\n", i);
 			for (int x = 0; x < SizeOfBattleObject; x++)
@@ -143,13 +142,13 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		}
 		fprintf(fp, "\n");
 		fprintf(fp, "\tObjActive:\n");
-		for (int i = 0; i < 400; i++)
+		for (int i = 0; i < MaxBattleObjects; i++)
 		{
 			fprintf(fp, " %x", rollbackdata->ObjActive[i]);
 		}
 		fprintf(fp, "\n");
 		fprintf(fp, "\tCharBuffer:\n");
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < MaxPlayerObjects; i++)
 		{
 			fprintf(fp, "Character %d\n", i);
 			for (int x = 0; x < SizeOfPlayerObject; x++)

@@ -19,6 +19,8 @@ constexpr int32 MaxComponentCount = 64;
 class USubroutineData;
 class UStateData;
 
+#pragma pack (push, 1)
+
 UENUM()
 enum EActionStance
 {
@@ -436,5 +438,6 @@ public:
 	//based on received hit data, set values
 	void SetHitValues();
 };
+#pragma pack(pop)
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

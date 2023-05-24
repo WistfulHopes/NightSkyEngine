@@ -16,6 +16,7 @@ constexpr int32 CollisionArraySize = 64;
 /*
  * Event handler data
  */
+#pragma pack (push, 1)
 
 UENUM()
 enum EEventType
@@ -505,5 +506,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
 };
+#pragma pack(pop)
 
 constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);

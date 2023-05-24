@@ -6,6 +6,8 @@
 #include "State.h"
 #include "InputBuffer.generated.h"
 
+#pragma pack (push, 1)
+
 /**
  * 
  */
@@ -31,3 +33,4 @@ public:
 	void FlipInputsInBuffer();
 };
 
+#pragma pack(pop)

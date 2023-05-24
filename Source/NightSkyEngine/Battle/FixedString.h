@@ -1,4 +1,5 @@
 ﻿#pragma once
+#pragma pack (push, 1)
 
 template<int Length>
 struct FixedString
@@ -24,3 +25,4 @@ public:
 		return Data;
 	}
 };
+#pragma pack(pop)

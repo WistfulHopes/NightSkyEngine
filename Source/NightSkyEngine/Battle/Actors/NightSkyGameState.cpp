@@ -34,7 +34,7 @@ void ANightSkyGameState::Init()
 	}
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		if (GameInstance != nullptr)
 		{
@@ -43,7 +43,7 @@ void ANightSkyGameState::Init()
 				if (GameInstance->PlayerList[i] != nullptr)
 				{
 					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->PlayerList[i]);
-					Players[i]->PlayerIndex = i * 3 > 6;
+					Players[i]->PlayerIndex = i * MaxPlayerObjects / 2 > MaxPlayerObjects;
 					for (int j = 0; j < i; j++)
 					{
 						if (IsValid(GameInstance->PlayerList[j]))
@@ -86,15 +86,15 @@ void ANightSkyGameState::Init()
 		}
 		Players[i]->InitPlayer();
 		Players[i]->GameState = this;
-		Players[i]->ObjNumber = i + 400;
+		Players[i]->ObjNumber = i + MaxBattleObjects;
 	}
-	for (int i = 0; i < 400; i++)
+	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass());
 		Objects[i]->ResetObject();
 		Objects[i]->GameState = this;
 		Objects[i]->ObjNumber = i;
-		SortedObjects[i + 6] = Objects[i];
+		SortedObjects[i + MaxPlayerObjects] = Objects[i];
 	}
 
 	FActorSpawnParameters SpawnParameters;
@@ -126,14 +126,14 @@ void ANightSkyGameState::RoundInit()
 {
 	BattleState.RoundCount++;
 	BattleState.TimeUntilRoundStart = 180;
-	for (int i = 0; i < 400; i++)
+	for (int i = 0; i < MaxBattleObjects; i++)
 		Objects[i]->ResetObject();
 	
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 		Players[i]->ResetForRound();
 
 	Players[0]->PlayerFlags = PLF_IsOnScreen;
-	Players[3]->PlayerFlags = PLF_IsOnScreen;
+	Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
 
 	const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 
@@ -204,22 +204,22 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 
 	Players[0]->Inputs = Input1;
 	Players[3]->Inputs = Input2;
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
-			for (int j = 0; j < 6; j++)
+			for (int j = 0; j < MaxPlayerObjects; j++)
 			{
-				if (i < 3)
+				if (i < MaxPlayerObjects / 2)
 				{
-					if (j >= 3 && Players[j]->PlayerFlags & PLF_IsOnScreen)
+					if (j >= MaxPlayerObjects / 2 && Players[j]->PlayerFlags & PLF_IsOnScreen)
 					{
 						Players[i]->Enemy = Players[j];
 					}
 				}
 				else
 				{
-					if (j < 3 && Players[j]->PlayerFlags & PLF_IsOnScreen)
+					if (j < MaxPlayerObjects / 2 && Players[j]->PlayerFlags & PLF_IsOnScreen)
 					{
 						Players[i]->Enemy = Players[j];
 					}
@@ -228,7 +228,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		}
 	}
 
-	for (int i = 0; i < 406; i++)
+	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
@@ -249,10 +249,10 @@ void ANightSkyGameState::UpdateGameState()
 
 void ANightSkyGameState::SortObjects()
 {
-	BattleState.ActiveObjectCount = 6;
-	for (int i = 6; i < 406; i++)
+	BattleState.ActiveObjectCount = MaxPlayerObjects;
+	for (int i = MaxPlayerObjects; i < MaxBattleObjects + MaxPlayerObjects; i++)
 	{
-		for (int j = i + 1; j < 406; j++)
+		for (int j = i + 1; j < MaxBattleObjects + MaxPlayerObjects; j++)
 		{
 			if (SortedObjects[j]->IsActive && !SortedObjects[i]->IsActive)
 			{
@@ -270,9 +270,9 @@ void ANightSkyGameState::SortObjects()
 
 void ANightSkyGameState::HandlePushCollision() const
 {
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
-		for (int j = 0; j < 6; j++)
+		for (int j = 0; j < MaxPlayerObjects; j++)
 		{
 			if (Players[i]->PlayerIndex != Players[j]->PlayerIndex && Players[i]->PlayerFlags & PLF_IsOnScreen && Players[j]->PlayerFlags & PLF_IsOnScreen)
 			{
@@ -284,18 +284,18 @@ void ANightSkyGameState::HandlePushCollision() const
 
 void ANightSkyGameState::HandleHitCollision() const
 {
-	for (int i = 0; i < 406; i++)
+	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
-		for (int j = 0; j < 6; j++)
+		for (int j = 0; j < MaxPlayerObjects; j++)
 		{
 			if (i != j && SortedObjects[j]->Player->PlayerFlags & PLF_IsOnScreen)
 			{
 				SortedObjects[i]->HandleHitCollision(Cast<APlayerObject>(SortedObjects[j]));
 			}
 		}
-		for (int j = 0; j < 406; j++)
+		for (int j = 0; j < MaxBattleObjects + MaxPlayerObjects; j++)
 		{
 			if (i != j)
 			{
@@ -307,11 +307,11 @@ void ANightSkyGameState::HandleHitCollision() const
 
 void ANightSkyGameState::SetScreenBounds()
 {
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		if (Players[i]->PlayerIndex == 0)
 		{
-			for (int j = 0; j < 6; j++)
+			for (int j = 0; j < MaxPlayerObjects; j++)
 			{
 				if (Players[j]->PlayerIndex == 1)
 				{
@@ -336,7 +336,7 @@ void ANightSkyGameState::SetScreenBounds()
 
 void ANightSkyGameState::SetWallCollision()
 {
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		if (Players[i] != nullptr)
 		{
@@ -419,23 +419,12 @@ void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int3
 	*OutX = BattleState.CurrentScreenPos - 900000 + 1800000 * X / 100;
 }
 
-uint32 rollback_checksum(unsigned char* data, int size)
-{
-	uint32 c = 0;
-	for(int i = 0; i < size; i++) {
-		c = data[i] + 137 * c;
-	}
-	return c;
-}
-
 void ANightSkyGameState::SaveGameState()
 {
 	int BackupFrame = LocalFrame % MaxRollbackFrames;
 	StoredRollbackData[BackupFrame].ActiveObjectCount = BattleState.ActiveObjectCount;
-	StoredRollbackData[BackupFrame].Checksum = BattleState.FrameNumber + BattleState.CurrentScreenPos + BattleState.ActiveObjectCount;
 	memcpy(StoredRollbackData[BackupFrame].BattleStateBuffer, &BattleState.BattleStateSync, SizeOfBattleState);
-	StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].BattleStateBuffer, SizeOfBattleState);
-	for (int i = 0; i < 400; i++)
+	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (Objects[i]->IsActive)
 		{
@@ -444,15 +433,11 @@ void ANightSkyGameState::SaveGameState()
 		}
 		else
 			StoredRollbackData[BackupFrame].ObjActive[i] = false;
-		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].ObjBuffer[i], SizeOfBattleObject);
-		StoredRollbackData[BackupFrame].Checksum += StoredRollbackData[BackupFrame].ObjActive[i];
 	}
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
-		Players[i]->SaveForRollback(StoredRollbackData[BackupFrame].ObjBuffer[i + 400]);
+		Players[i]->SaveForRollback(StoredRollbackData[BackupFrame].ObjBuffer[i + MaxBattleObjects]);
 		Players[i]->SaveForRollbackPlayer(StoredRollbackData[BackupFrame].CharBuffer[i]);
-		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].ObjBuffer[i + 400], SizeOfBattleObject);
-		StoredRollbackData[BackupFrame].Checksum += rollback_checksum(StoredRollbackData[BackupFrame].CharBuffer[i], SizeOfPlayerObject);
 	}
 }
 
@@ -461,7 +446,7 @@ void ANightSkyGameState::LoadGameState()
 	int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
 	BattleState.ActiveObjectCount = StoredRollbackData[CurrentRollbackFrame].ActiveObjectCount;
 	memcpy(&BattleState.BattleStateSync, StoredRollbackData[CurrentRollbackFrame].BattleStateBuffer, SizeOfBattleState);
-	for (int i = 0; i < 400; i++)
+	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (StoredRollbackData[CurrentRollbackFrame].ObjActive[i])
 		{
@@ -473,9 +458,9 @@ void ANightSkyGameState::LoadGameState()
 				Objects[i]->ResetObject();
 		}
 	}
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
-		Players[i]->LoadForRollback(StoredRollbackData[CurrentRollbackFrame].ObjBuffer[i + 400]);
+		Players[i]->LoadForRollback(StoredRollbackData[CurrentRollbackFrame].ObjBuffer[i + MaxBattleObjects]);
 		Players[i]->LoadForRollbackPlayer(StoredRollbackData[CurrentRollbackFrame].CharBuffer[i]);
 	}
 	SortObjects();

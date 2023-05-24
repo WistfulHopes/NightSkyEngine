@@ -7,6 +7,7 @@
 #include "NightSkyPlayerController.generated.h"
 
 class UInputMappingContext;
+class ANetworkPawn;
 
 UCLASS()
 class NIGHTSKYENGINE_API ANightSkyPlayerController : public APlayerController

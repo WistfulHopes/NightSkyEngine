@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FighterRunners.h"
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
 

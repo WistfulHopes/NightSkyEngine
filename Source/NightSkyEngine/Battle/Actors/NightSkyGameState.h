@@ -8,7 +8,9 @@
 #include "NightSkyGameState.generated.h"
 
 constexpr int32 MaxRollbackFrames = 10;
-constexpr float OneFrame = 1 / 60;
+constexpr float OneFrame = 0.0166666666;
+constexpr int32 MaxBattleObjects = 101;
+constexpr int32 MaxPlayerObjects = 6;
 
 UENUM()
 enum class ERoundFormat : uint8
@@ -23,6 +25,8 @@ enum class ERoundFormat : uint8
 	TwoVsTwoKOF,
 	ThreeVsThreeKOF,
 };
+
+#pragma pack (push, 1)
 
 USTRUCT(BlueprintType)
 struct FBattleState
@@ -58,12 +62,12 @@ struct FRollbackData
 	GENERATED_BODY()
 	
 	int ActiveObjectCount;
-	uint8 ObjBuffer[406][SizeOfBattleObject] = { { 0 } };
-	bool ObjActive[400] = { false };
-	uint8 CharBuffer[6][SizeOfPlayerObject] = { { 0 } };
+	uint8 ObjBuffer[MaxBattleObjects + MaxPlayerObjects][SizeOfBattleObject] = { { 0 } };
+	bool ObjActive[MaxBattleObjects] = { false };
+	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
 	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
-	uint32 Checksum = 0;
 };
+#pragma pack(pop)
 
 UCLASS()
 class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase
@@ -71,16 +75,16 @@ class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase
 	GENERATED_BODY()
 	
 	UPROPERTY()
-	APlayerObject* Players[6];
+	ABattleObject* Objects[MaxBattleObjects];
 	UPROPERTY()
-	ABattleObject* Objects[400];
+	APlayerObject* Players[MaxPlayerObjects];
 
 public:
 	// Sets default values for this actor's properties
 	ANightSkyGameState();
 	
 	UPROPERTY()
-	ABattleObject* SortedObjects[406];
+	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects];
 	
 	UPROPERTY(BlueprintReadWrite)
 	class ALevelSequenceActor* SequenceActor;
