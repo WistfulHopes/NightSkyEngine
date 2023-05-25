@@ -61,104 +61,104 @@ void ANightSkyPlayerController::SetupInputComponent()
 	
 	for (auto Mapping : InputMapping.Get()->GetMappings())
 	{
-		FString ActionName = Mapping.Action.Get()->ActionDescription.ToString();
-		if (ActionName == "Press Up")
+		FString ActionName = Mapping.Action.Get()->GetName();
+		if (ActionName == "PressUp")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressUp);
 		}
-		else if (ActionName == "Release Up")
+		else if (ActionName == "ReleaseUp")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseUp);
 		}
-		else if (ActionName == "Press Down")
+		else if (ActionName == "PressDown")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressDown);
 		}
-		else if (ActionName == "Release Down")
+		else if (ActionName == "ReleaseDown")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseDown);
 		}
-		else if (ActionName == "Press Left")
+		else if (ActionName == "PressLeft")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressLeft);
 		}
-		else if (ActionName == "Release Left")
+		else if (ActionName == "ReleaseLeft")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseLeft);
 		}
-		else if (ActionName == "Press Right")
+		else if (ActionName == "PressRight")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressRight);
 		}
-		else if (ActionName == "Release Right")
+		else if (ActionName == "ReleaseRight")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseRight);
 		}
-		else if (ActionName == "Press A")
+		else if (ActionName == "PressA")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressA);
 		}
-		else if (ActionName == "Release A")
+		else if (ActionName == "ReleaseA")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseA);
 		}
-		else if (ActionName == "Press B")
+		else if (ActionName == "PressB")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressB);
 		}
-		else if (ActionName == "Release B")
+		else if (ActionName == "ReleaseB")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseB);
 		}
-		else if (ActionName == "Press C")
+		else if (ActionName == "PressC")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressC);
 		}
-		else if (ActionName == "Release C")
+		else if (ActionName == "ReleaseC")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseC);
 		}
-		else if (ActionName == "Press D")
+		else if (ActionName == "PressD")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressD);
 		}
-		else if (ActionName == "Release D")
+		else if (ActionName == "ReleaseD")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseD);
 		}
-		else if (ActionName == "Press E")
+		else if (ActionName == "PressE")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressE);
 		}
-		else if (ActionName == "Release E")
+		else if (ActionName == "ReleaseE")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseE);
 		}
-		else if (ActionName == "Press F")
+		else if (ActionName == "PressF")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressF);
 		}
-		else if (ActionName == "Release F")
+		else if (ActionName == "ReleaseF")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseF);
 		}
-		else if (ActionName == "Press G")
+		else if (ActionName == "PressG")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressG);
 		}
-		else if (ActionName == "Release G")
+		else if (ActionName == "ReleaseG")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseG);
 		}
-		else if (ActionName == "Press H")
+		else if (ActionName == "PressH")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressH);
 		}
-		else if (ActionName == "Release H")
+		else if (ActionName == "ReleaseH")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
 		}
-		else if (ActionName == "Pause Game")
+		else if (ActionName == "PauseGame")
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
 		}

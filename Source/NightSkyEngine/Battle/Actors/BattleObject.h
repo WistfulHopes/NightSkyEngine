@@ -450,6 +450,9 @@ public:
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
 	void InitEventHandler(EEventType EventType, FName FuncName);
+	//initializes event handler
+	UFUNCTION(BlueprintCallable)
+	void RemoveEventHandler(EEventType EventType);
 	//gets cel name
 	UFUNCTION(BlueprintPure)
 	FString GetCelName();

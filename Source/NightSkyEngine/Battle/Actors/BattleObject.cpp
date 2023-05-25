@@ -1072,6 +1072,11 @@ void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName)
 	EventHandlers[EventType].FunctionName.SetString(FuncName.ToString());
 }
 
+void ABattleObject::RemoveEventHandler(EEventType EventType)
+{
+	EventHandlers[EventType].FunctionName.SetString("");
+}
+
 FString ABattleObject::GetCelName()
 {
 	return CelName.GetString();
