@@ -265,9 +265,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									}*/
 									TriggerEvent(EVT_Block);
 									
-									OtherChar->Hitstop = HitCommon.Hitstop;
 									OtherChar->StunTime = HitCommon.Blockstun;
-									Hitstop = HitCommon.Hitstop;
 									const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
 									OtherChar->CurrentHealth -= ChipDamage;
 									if (OtherChar->CurrentHealth <= 0)
@@ -389,12 +387,6 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 
 FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 {
-	FHitData Data;
-	if (!IsCounter)
-		Data = CounterHit;
-	else
-		Data = NormalHit;
-
 	if (HitCommon.AttackLevel < 0)
 		HitCommon.AttackLevel = 0;
 	if (HitCommon.AttackLevel > 4)
@@ -404,8 +396,6 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	{
 	case 0:
 	default:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 11;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -418,24 +408,26 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30000;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 10;
-		if (Data.Untech == -1)
-			Data.Untech = 10;
-		if (Data.Damage == -1)
-			Data.Damage = 300;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 25000;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30000;
-		if (Data.Gravity == -1)
-			Data.Gravity = 1900;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 11;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 10;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 10;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 300;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 25000;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30000;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 1900;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop;
 		break;
 	case 1:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 12;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -448,24 +440,26 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30050;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 12;
-		if (Data.Untech == -1)
-			Data.Untech = 12;
-		if (Data.Damage == -1)
-			Data.Damage = 400;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 27500;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30050;
-		if (Data.Gravity == -1)
-			Data.Gravity = 1900;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 12;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 12;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 12;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 400;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 27500;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30050;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 1900;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop + 2;
 		break;
 	case 2:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 13;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -478,24 +472,26 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30100;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 14;
-		if (Data.Untech == -1)
-			Data.Untech = 14;
-		if (Data.Damage == -1)
-			Data.Damage = 600;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 30000;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30100;
-		if (Data.Gravity == -1)
-			Data.Gravity = 1900;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 13;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 14;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 14;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 600;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 30000;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30100;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 1900;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop + 4;
 		break;
 	case 3:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 14;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -508,24 +504,26 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30150;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 17;
-		if (Data.Untech == -1)
-			Data.Untech = 16;
-		if (Data.Damage == -1)
-			Data.Damage = 800;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 35000;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30150;
-		if (Data.Gravity == -1)
-			Data.Gravity = 1900;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 14;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 17;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 16;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 800;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 35000;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30150;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 1900;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop + 8;
 		break;
 	case 4:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 15;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -538,24 +536,26 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30200;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 19;
-		if (Data.Untech == -1)
-			Data.Untech = 18;
-		if (Data.Damage == -1)
-			Data.Damage = 1000;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 40000;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30200;
-		if (Data.Gravity == -1)
-			Data.Gravity = 1900;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 15;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 19;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 18;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 1000;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 40000;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30200;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 1900;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop + 12;
 		break;
 	case 5:
-		if (HitCommon.Hitstop == -1)
-			HitCommon.Hitstop = 18;
 		if (HitCommon.BlockstopModifier == -1)
 			HitCommon.BlockstopModifier = 0;
 		if (HitCommon.Blockstun == -1)
@@ -568,22 +568,47 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.AirGuardPushbackY = 30250;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
-		if (Data.Hitstun == -1)
-			Data.Hitstun = 22;
-		if (Data.Untech == -1)
-			Data.Untech = 21;
-		if (Data.Damage == -1)
-			Data.Damage = 1250;
-		if (Data.GroundPushbackX == -1)
-			Data.GroundPushbackX = 50000;
-		if (Data.AirPushbackX == -1)
-			Data.AirPushbackX = 15000;
-		if (Data.AirPushbackY == -1)
-			Data.AirPushbackY = 30200;
-		if (Data.Gravity == -1)
-			Data.Gravity = 30250;
+		if (NormalHit.Hitstop == -1)
+			NormalHit.Hitstop = 18;
+		if (NormalHit.Hitstun == -1)
+			NormalHit.Hitstun = 22;
+		if (NormalHit.Untech == -1)
+			NormalHit.Untech = 21;
+		if (NormalHit.Damage == -1)
+			NormalHit.Damage = 1250;
+		if (NormalHit.GroundPushbackX == -1)
+			NormalHit.GroundPushbackX = 50000;
+		if (NormalHit.AirPushbackX == -1)
+			NormalHit.AirPushbackX = 15000;
+		if (NormalHit.AirPushbackY == -1)
+			NormalHit.AirPushbackY = 30200;
+		if (NormalHit.Gravity == -1)
+			NormalHit.Gravity = 30250;
+		if (CounterHit.Hitstop == -1)
+			CounterHit.Hitstop = NormalHit.Hitstop + 16;
 		break;
 	}
+	
+	if (CounterHit.Hitstun == -1)
+		CounterHit.Hitstun = NormalHit.Hitstun;
+	if (CounterHit.Untech == -1)
+		CounterHit.Untech = NormalHit.Untech * 2;
+	if (CounterHit.Damage == -1)
+		CounterHit.Damage = NormalHit.Damage * 110 / 100;
+	if (CounterHit.GroundPushbackX == -1)
+		CounterHit.GroundPushbackX = NormalHit.GroundPushbackX;
+	if (CounterHit.AirPushbackX == -1)
+		CounterHit.AirPushbackX = NormalHit.AirPushbackX;
+	if (CounterHit.AirPushbackY == -1)
+		CounterHit.AirPushbackY = NormalHit.AirPushbackY;
+	if (CounterHit.Gravity == -1)
+		CounterHit.Gravity = NormalHit.Gravity;
+	
+	FHitData Data;
+	if (!IsCounter)
+		Data = NormalHit;
+	else
+		Data = CounterHit;
 
 	return Data;
 }

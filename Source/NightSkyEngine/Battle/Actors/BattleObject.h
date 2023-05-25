@@ -85,8 +85,6 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EBlockType> BlockType = BLK_Mid;
 	UPROPERTY(BlueprintReadWrite)
-	int32 Hitstop = -1;
-	UPROPERTY(BlueprintReadWrite)
 	int32 BlockstopModifier = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyBlockstopModifier = 0;
@@ -175,6 +173,8 @@ struct FHitData
 {
 	GENERATED_BODY()
 
+	UPROPERTY(BlueprintReadWrite)
+	int32 Hitstop = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 Hitstun = -1;
 	UPROPERTY(BlueprintReadWrite)

@@ -569,9 +569,9 @@ void APlayerObject::Update()
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
 	Enemy->ComboCounter++;
-	int32 FinalHitstop = ReceivedHitCommon.Hitstop + ReceivedHit.EnemyHitstopModifier;
+	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 	
-	Enemy->Hitstop = ReceivedHitCommon.Hitstop;
+	Enemy->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = FinalHitstop;
 	
 	int32 Proration = ReceivedHit.ForcedProration;
@@ -587,7 +587,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
 	
 	int FinalDamage;
-	if (Enemy->ComboCounter == 0)
+	if (Enemy->ComboCounter == 1)
 		FinalDamage = ReceivedHit.Damage;
 	else
 		FinalDamage = ReceivedHit.Damage * Proration * Enemy->ComboRate / 1000000;
@@ -1719,6 +1719,42 @@ void APlayerObject::AddWhiffCancelOption(FString Option)
 	if (WhiffCancelOptions.Num() > 0)
 	{
 		WhiffCancelOptionsInternal[WhiffCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(Option);
+	}
+}
+
+void APlayerObject::EnableChainCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_ChainCancelEnabled;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_ChainCancelEnabled;
+	}
+}
+
+void APlayerObject::EnableWhiffCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_WhiffCancelEnabled;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_WhiffCancelEnabled;
+	}
+}
+
+void APlayerObject::EnableJumpCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_JumpCancel;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_JumpCancel;
 	}
 }
 

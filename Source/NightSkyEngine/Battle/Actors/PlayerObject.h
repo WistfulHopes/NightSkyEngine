@@ -435,6 +435,13 @@ public:
 	//add whiff cancel option, use this in OnEntry
 	UFUNCTION(BlueprintCallable)
 	void AddWhiffCancelOption(FString Option);
+	UFUNCTION(BlueprintCallable)
+	void EnableChainCancel(bool Enable);
+	//sets whiff cancel options enabled. off by default
+	UFUNCTION(BlueprintCallable)
+	void EnableWhiffCancel(bool Enable);
+	UFUNCTION(BlueprintCallable)
+	void EnableJumpCancel(bool Enable);
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
