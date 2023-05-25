@@ -128,6 +128,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								}
 								if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
+									GotoLabelActive = false;
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
 									case EEntryState::Standing:
@@ -154,6 +155,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								}
 								if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
+									GotoLabelActive = false;
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
 									case EEntryState::Standing:
@@ -182,6 +184,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 						}
 						if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 						{
+							GotoLabelActive = false;
 							switch (StoredStateMachine.States[i]->EntryState)
 							{
 							case EEntryState::Standing:
@@ -227,6 +230,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							}
 							if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
+								GotoLabelActive = false;
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
 								case EEntryState::Standing:
@@ -253,6 +257,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							}
 							if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
+								GotoLabelActive = false;
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
 								case EEntryState::Standing:
@@ -281,6 +286,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 					}
 					if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 					{
+						GotoLabelActive = false;
 						switch (StoredStateMachine.States[i]->EntryState)
 						{
 						case EEntryState::Standing:
@@ -806,9 +812,9 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputCondition Left;
 		FInputBitmask BitmaskLeft;
 		BitmaskLeft.InputFlag = INP_Left;
+		BitmaskLeft.Lenience = 10;
 		Left.Sequence.Add(BitmaskLeft);
 		Left.bInputAllowDisable = false;
-		Left.Lenience = 12;
 		FInputCondition Right;
 		FInputBitmask BitmaskRight;
 		BitmaskRight.InputFlag = INP_Right;
@@ -825,10 +831,10 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputCondition Input1;
 		FInputBitmask BitmaskDownLeft;
 		BitmaskDownLeft.InputFlag = INP_DownLeft;
+		BitmaskDownLeft.Lenience = 12;
 		Input1.Sequence.Add(BitmaskDownLeft);
 		Input1.Method = EInputMethod::Strict;
 		Input1.bInputAllowDisable = false;
-		Input1.Lenience = 12;
 		if ((CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock") && BlockType != BLK_High && !CheckInput(Right))
 		{
 			Input1.Method = EInputMethod::OnceStrict;
@@ -842,7 +848,6 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input4.Sequence.Add(BitmaskLeft);
 		Input4.Method = EInputMethod::Strict;
 		Input4.bInputAllowDisable = false;
-		Input4.Lenience = 12;
 		if ((CheckInput(Input4) || GetCurrentStateName() == "Block") && BlockType != BLK_Low && !CheckInput(Right))
 		{
 			Input4.Method = EInputMethod::OnceStrict;
@@ -901,6 +906,7 @@ void APlayerObject::HandleBufferedState()
 		{
 			if (StoredStateMachine.ForceSetState(BufferedStateName.GetString()))
 			{
+				GotoLabelActive = false;
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
 				case EEntryState::Standing:
@@ -922,6 +928,7 @@ void APlayerObject::HandleBufferedState()
 		{
 			if (StoredStateMachine.SetState(BufferedStateName.GetString()))
 			{
+				GotoLabelActive = false;
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
 				case EEntryState::Standing:

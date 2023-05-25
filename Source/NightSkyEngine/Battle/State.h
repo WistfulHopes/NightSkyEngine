@@ -105,8 +105,12 @@ struct FInputBitmask
 		InputFlag = Input;
 	};
 
+	//The input flag
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = EInputFlags))
 	int InputFlag;
+	//How much time is allowed between inputs
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Lenience = 8;
 };
 
 USTRUCT(BlueprintType)
@@ -116,8 +120,6 @@ struct FInputCondition
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FInputBitmask> Sequence;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int Lenience = 8;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int ImpreciseInputCount = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

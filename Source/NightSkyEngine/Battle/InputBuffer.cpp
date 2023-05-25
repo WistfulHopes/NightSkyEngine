@@ -14,18 +14,17 @@ void FInputBuffer::Tick(int32 Input)
 	InputDisabled[89] = 0;
 }
 
-bool FInputBuffer::CheckInputCondition(const FInputCondition InputCondition)
+bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
 {
 	for (int i = 0; i < 20; i++)
 	{
 		if (i >= InputCondition.Sequence.Num())
 		{
-			InputSequence[i] = -1;
+			InputSequence[i].InputFlag = -1;
 			continue;
 		}
-		InputSequence[i] = InputCondition.Sequence[i].InputFlag;
+		InputSequence[i] = InputCondition.Sequence[i];
 	}
-	Lenience = InputCondition.Lenience;
 	ImpreciseInputCount = InputCondition.ImpreciseInputCount;
 	bInputAllowDisable = InputCondition.bInputAllowDisable;
 	switch (InputCondition.Method)
@@ -43,12 +42,12 @@ bool FInputBuffer::CheckInputCondition(const FInputCondition InputCondition)
 	}
 }
 
-bool FInputBuffer::CheckInputSequence()
+bool FInputBuffer::CheckInputSequence() const
 {
 	int32 InputIndex = -10;
 	for (int32 i = 19; i > -1; i--)
 	{
-		if (InputSequence[i] != -1)
+		if (InputSequence[i].InputFlag != -1)
 		{
 			InputIndex = i;
 			break;
@@ -65,8 +64,8 @@ bool FInputBuffer::CheckInputSequence()
 		if (NoMatches && InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
 			return false;
 		
-		const int32 NeededInput = InputSequence[InputIndex];
-		if (FramesSinceLastMatch > Lenience)
+		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
 
@@ -82,12 +81,12 @@ bool FInputBuffer::CheckInputSequence()
 	return false;
 }
 
-bool FInputBuffer::CheckInputSequenceStrict()
+bool FInputBuffer::CheckInputSequenceStrict() const
 {
 	int32 InputIndex = -10;
 	for (int32 i = 19; i > -1; i--)
 	{
-		if (InputSequence[i] != -1)
+		if (InputSequence[i].InputFlag != -1)
 		{
 			InputIndex = i;
 			break;
@@ -105,8 +104,8 @@ bool FInputBuffer::CheckInputSequenceStrict()
 		if (NoMatches && InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
 			return false;
 		
-		const int32 NeededInput = InputSequence[InputIndex];
-		if (FramesSinceLastMatch > Lenience)
+		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
 
@@ -133,12 +132,12 @@ bool FInputBuffer::CheckInputSequenceStrict()
 	return false;
 }
 
-bool FInputBuffer::CheckInputSequenceOnce()
+bool FInputBuffer::CheckInputSequenceOnce() const
 {
 	int32 InputIndex = -10;
 	for (int32 i = 19; i > -1; i--)
 	{
-		if (InputSequence[i] != -1)
+		if (InputSequence[i].InputFlag != -1)
 		{
 			InputIndex = i;
 			break;
@@ -153,16 +152,16 @@ bool FInputBuffer::CheckInputSequenceOnce()
 
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
-			if (InputIndex <= -Lenience)
+			if (InputIndex <= -InputSequence[InputIndex].Lenience)
 				return false;
-			if (!(InputBufferInternal[i] & InputSequence[0]))
+			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
 				return true;
 			InputIndex--;
 			continue;
 		}
-		const int32 NeededInput = InputSequence[InputIndex];
+		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
-		if (FramesSinceLastMatch > Lenience)
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
 
@@ -177,12 +176,12 @@ bool FInputBuffer::CheckInputSequenceOnce()
 	return false;
 }
 
-bool FInputBuffer::CheckInputSequenceOnceStrict()
+bool FInputBuffer::CheckInputSequenceOnceStrict() const
 {
 	int32 InputIndex = -10;
 	for (int32 i = 19; i > -1; i--)
 	{
-		if (InputSequence[i] != -1)
+		if (InputSequence[i].InputFlag!= -1)
 		{
 			InputIndex = i;
 			break;
@@ -198,16 +197,16 @@ bool FInputBuffer::CheckInputSequenceOnceStrict()
 
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
-			if (InputIndex <= -Lenience)
+			if (InputIndex <= -InputSequence[InputIndex].Lenience)
 				return false;
-			if (!(InputBufferInternal[i] & InputSequence[0]))
+			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
 				return true;
 			InputIndex--;
 			continue;
 		}
-		const int32 NeededInput = InputSequence[InputIndex];
+		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
-		if (FramesSinceLastMatch > Lenience)
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
 

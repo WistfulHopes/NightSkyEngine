@@ -11,6 +11,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
+class UMaterialData;
 constexpr int32 DamageReactionCelCount = 64;
 constexpr int32 ExtraGaugeCount = 5;
 constexpr int32 CancelArraySize = 64;
@@ -315,6 +316,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UStateData* CharaStateData;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UMaterialData* MaterialData;
 	UPROPERTY(BlueprintReadOnly)
 	int32 ColorIndex = 1;
 	

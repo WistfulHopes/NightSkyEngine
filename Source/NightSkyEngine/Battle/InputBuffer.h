@@ -16,8 +16,7 @@ struct FInputBuffer
 {
 	GENERATED_BODY()
 protected:
-	int32 InputSequence[20] = { -1 };
-	int32 Lenience = 8; //how much time is allowed between inputs
+	FInputBitmask InputSequence[20] = {  };
 	int32 ImpreciseInputCount = 0; //how much time is allowed between inputs
 	bool bInputAllowDisable = true;
 public:
@@ -25,11 +24,11 @@ public:
 	int32 InputDisabled[90] = { 0 };
 	
 	void Tick(int32 Input);
-	bool CheckInputCondition(FInputCondition InputCondition);
-	bool CheckInputSequence();
-	bool CheckInputSequenceStrict(); //directional inputs must be exact
-	bool CheckInputSequenceOnce();
-	bool CheckInputSequenceOnceStrict();
+	bool CheckInputCondition(const FInputCondition& InputCondition);
+	bool CheckInputSequence() const;
+	bool CheckInputSequenceStrict() const; //directional inputs must be exact
+	bool CheckInputSequenceOnce() const;
+	bool CheckInputSequenceOnceStrict() const;
 	void FlipInputsInBuffer();
 };
 
