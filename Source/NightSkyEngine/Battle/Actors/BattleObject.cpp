@@ -54,14 +54,17 @@ void ABattleObject::Move()
 	if (IsPlayer)
 	{
 		int32 ModifiedPushback;
-		if (Player->Stance == ACT_Crouching)
+		if (PosY > GroundHeight)
+			ModifiedPushback = Player->Pushback * 84;
+		else if (Player->Stance == ACT_Crouching)
 			ModifiedPushback = Player->Pushback * 86;
 		else
 			ModifiedPushback = Player->Pushback * 88;
 
 		Player->Pushback = ModifiedPushback / 100;
-		
-		AddPosXWithDir(Player->Pushback);
+
+		if (PosY <= GroundHeight || !(Player->PlayerFlags & PLF_IsStunned))
+			AddPosXWithDir(Player->Pushback);
 	}
 
 	AddPosXWithDir(FinalSpeedX); //apply speed
@@ -189,8 +192,8 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 							{
 								OtherChar->FaceOpponent();
-								OtherChar->PlayerFlags |= PLF_IsStunned;
 								OtherChar->HaltMomentum();
+								OtherChar->PlayerFlags |= PLF_IsStunned;
 								AttackFlags &= ~ATK_HitActive;
 								AttackFlags |= ATK_HasHit;
 								int CollisionDepthX;
@@ -348,7 +351,6 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								{
 									OtherChar->SetFacing(DIR_Left);
 								}
-								OtherChar->Move();
 								OtherChar->DisableAll();
 								if (OtherChar->CurrentHealth <= 0 && (OtherChar->PlayerFlags & PLF_DeathCamOverride) == 0 && (OtherChar->PlayerFlags & PLF_IsDead) == 0)
 								{
@@ -1068,9 +1070,10 @@ void ABattleObject::SetCelName(FString InName)
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
 {
 	LabelName.SetString(InName);
-	GotoLabelActive = true;
 	if (IsPlayer && ResetState)
-		Player->JumpToState(Player->GetCurrentStateName());
+		Player->JumpToState(Player->GetCurrentStateName(), true);
+	else
+		GotoLabelActive = true;
 }
 
 void ABattleObject::AddPosXWithDir(int InPosX)

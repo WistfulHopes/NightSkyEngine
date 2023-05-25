@@ -337,6 +337,10 @@ private:
 	bool CheckKaraCancel(EStateType InStateType);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
 	bool CheckObjectPreventingState(int InObjectID);
+	//handles wall bounce
+	void HandleWallBounce();
+	//handles ground bounce
+	void HandleGroundBounce();
 
 public:
 	//initialize player for match/round start
@@ -383,7 +387,7 @@ public:
 	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	void JumpToState(FString NewName);
+	void JumpToState(FString NewName, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
 	FString GetCurrentStateName() const;

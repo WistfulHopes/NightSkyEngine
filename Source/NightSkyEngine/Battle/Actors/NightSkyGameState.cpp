@@ -631,7 +631,7 @@ void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
 
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
-	*OutX = BattleState.CurrentScreenPos - 900000 + 1800000 * X / 100;
+	*OutX = BattleState.CurrentScreenPos - 840000 + 1800000 * X / 100;
 }
 
 void ANightSkyGameState::BattleHudVisibility(bool Visible) const

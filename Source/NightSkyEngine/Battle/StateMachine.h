@@ -27,7 +27,7 @@ struct FStateMachine
 	void Initialize();	
 	void AddState(const FString Name, UState* Config);
 	
-	bool IsCurrentState(const FString Name)
+	bool IsCurrentState(const FString Name) const
 	{
 		return CurrentState->Name == Name;
 	}
