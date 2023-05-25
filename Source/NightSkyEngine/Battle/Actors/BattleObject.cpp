@@ -69,11 +69,11 @@ void ABattleObject::Move()
 	if (IsPlayer && Player != nullptr)
 	{
 		if (Player->AirDashTimer == 0 || (SpeedY > 0 && ActionTime < 5)) // only set y speed if not airdashing/airdash startup not done
-		{
+			{
 			PosY += FinalSpeedY;
 			if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
 				SpeedY -= Gravity;
-		}
+			}
 		else
 		{
 			SpeedY = 0;
@@ -89,7 +89,6 @@ void ABattleObject::Move()
 	if (PosY < GroundHeight && MiscFlags & MISC_FloorCollisionActive) //if on ground, force y values to zero
 	{
 		PosY = GroundHeight;
-		SpeedY = 0;
 	}
 
 	PosZ += FinalSpeedZ;
@@ -189,7 +188,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
 								&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 							{
-								OtherChar->HandleFlip();
+								OtherChar->FaceOpponent();
 								OtherChar->PlayerFlags |= PLF_IsStunned;
 								OtherChar->HaltMomentum();
 								AttackFlags &= ~ATK_HitActive;
@@ -912,8 +911,6 @@ void ABattleObject::Update()
 	T = PosY + PushHeight;
 	B = PosY - PushHeightLow;
 	
-	GetBoxes();
-	
 	if (SuperFreezeTimer > 0)
 	{
 		if (SuperFreezeTimer == 1)
@@ -939,6 +936,7 @@ void ABattleObject::Update()
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
 		TriggerEvent(EVT_Landing);
+		SpeedX = 0;
 	}
 
 	if (!IsPlayer)
@@ -952,6 +950,8 @@ void ABattleObject::Update()
 		TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
+		
+		GetBoxes();
 	}
 
 	ActionTime++;

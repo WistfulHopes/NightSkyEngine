@@ -21,7 +21,7 @@ class UStateData;
 
 #pragma pack (push, 1)
 
-UENUM()
+UENUM(BlueprintType)
 enum EActionStance
 {
 	ACT_Standing,
@@ -191,8 +191,6 @@ public:
 	 * Action data.
 	 */
 
-	FixedString<32> StateName;
-
 	UPROPERTY()
 	FStateMachine StoredStateMachine;
 
@@ -214,8 +212,9 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
-	
-	EActionStance Stance;
+
+	UPROPERTY(BlueprintReadOnly)
+	TEnumAsByte<EActionStance> Stance;
 	int32 CurrentHealth;
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
@@ -438,9 +437,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	//based on received hit data, set values
 	void SetHitValues();
+	//force enables far proximity normals
+	UFUNCTION(BlueprintCallable)
+	void ForceEnableFarNormal(bool Enable);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
-	void BattleHudVisibility(bool Visible);	
+	void BattleHudVisibility(bool Visible);
 };
 #pragma pack(pop)
 

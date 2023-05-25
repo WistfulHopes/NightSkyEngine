@@ -55,6 +55,21 @@ enum EBlockType
 	BLK_None UMETA(DisplayName="Unblockable"),
 };
 
+UENUM()
+enum class EHitSFXType : uint8
+{
+	SFX_Punch,
+	SFX_Kick,
+	SFX_Slash,
+};
+
+UENUM()
+enum class EHitVFXType : uint8
+{
+	VFX_Strike,
+	VFX_Slash,
+};
+
 USTRUCT(BlueprintType)
 struct FHitDataCommon
 {
@@ -89,9 +104,15 @@ struct FHitDataCommon
 	int32 GuardGravity = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 HitAngle = 0;
+	UPROPERTY(BlueprintReadWrite)
+	EHitSFXType SFXType = EHitSFXType::SFX_Punch;
+	UPROPERTY(BlueprintReadWrite)
+	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
 
 	FixedString<32> GuardSFXOverride;
 	FixedString<32> GuardVFXOverride;
+	FixedString<32> HitSFXOverride;
+	FixedString<32> HitVFXOverride;
 };
 
 UENUM()
@@ -113,21 +134,6 @@ enum EHitAction
 	HACT_GuardBreakAir UMETA(DisplayName="Guard Break Air"),
 };
 
-UENUM()
-enum class EHitSFXType : uint8
-{
-	SFX_Punch,
-	SFX_Kick,
-	SFX_Slash,
-};
-
-UENUM()
-enum class EHitVFXType : uint8
-{
-	VFX_Strike,
-	VFX_Slash,
-};
-
 USTRUCT(BlueprintType)
 struct FWallBounceData
 {
@@ -145,13 +151,6 @@ struct FWallBounceData
 	int32 WallBounceGravity = 1900;
 	UPROPERTY(BlueprintReadWrite)
 	bool WallBounceInCornerOnly = false;
-	UPROPERTY(BlueprintReadWrite)
-	EHitSFXType SFXType = EHitSFXType::SFX_Punch;
-	UPROPERTY(BlueprintReadWrite)
-	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
-	
-	FixedString<32> HitSFXOverride;
-	FixedString<32> HitVFXOverride;
 };
 
 USTRUCT(BlueprintType)

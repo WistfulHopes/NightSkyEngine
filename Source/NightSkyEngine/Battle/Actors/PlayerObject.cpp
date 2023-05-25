@@ -69,7 +69,6 @@ void APlayerObject::BeginPlay()
 void APlayerObject::InitPlayer()
 {
 	CurrentHealth = MaxHealth;
-	StateName.SetString("Stand");
 	EnableFlip(true);
 	InitBP();
 }
@@ -129,7 +128,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								}
 								if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
-									StateName.SetString(StoredStateMachine.States[i]->Name);
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
 									case EEntryState::Standing:
@@ -156,7 +154,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								}
 								if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
-									StateName.SetString(StoredStateMachine.States[i]->Name);
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
 									case EEntryState::Standing:
@@ -185,7 +182,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 						}
 						if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 						{
-							StateName.SetString(StoredStateMachine.States[i]->Name);
 							switch (StoredStateMachine.States[i]->EntryState)
 							{
 							case EEntryState::Standing:
@@ -231,7 +227,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							}
 							if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
-								StateName.SetString(StoredStateMachine.States[i]->Name);
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
 								case EEntryState::Standing:
@@ -258,7 +253,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							}
 							if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
-								StateName.SetString(StoredStateMachine.States[i]->Name);
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
 								case EEntryState::Standing:
@@ -287,7 +281,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 					}
 					if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 					{
-						StateName.SetString(StoredStateMachine.States[i]->Name);
 						switch (StoredStateMachine.States[i]->EntryState)
 						{
 						case EEntryState::Standing:
@@ -390,12 +383,16 @@ void APlayerObject::Update()
 
 	if (SuperFreezeTimer > 0)
 	{
+		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
 	if (Hitstop > 0)
 	{
+		if (PlayerFlags & PLF_IsStunned)
+			HandleBufferedState();
+		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		return;
@@ -432,7 +429,16 @@ void APlayerObject::Update()
 		AirDashNoAttackTime--;
 	if (AirDashNoAttackTime == 1)
 		EnableAttacks();
-
+	
+	if (PosY <= GroundHeight && (PlayerFlags & PLF_IsKnockedDown) == 0 && ReceivedHit.GroundBounce.GroundBounceCount == 0)
+	{
+		if (PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
+		{
+			StunTime = 0;
+			PlayerFlags |= PLF_IsKnockedDown;
+		}
+	}
+	
 	if (StunTime > 0)
 		StunTime--;
 	if (StunTime == 1 && (PlayerFlags & PLF_IsDead) == 0)
@@ -483,24 +489,6 @@ void APlayerObject::Update()
 		Pushback = 0;
 	}
 		
-	if (StoredStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY <= GroundHeight && PrevPosY > GroundHeight)
-	{
-		HaltMomentum();
-		if (StoredStateMachine.CurrentState->Name == "BLaunch" || StoredStateMachine.CurrentState->Name == "Blowback")
-			JumpToState("FaceUpBounce");
-		else if (StoredStateMachine.CurrentState->Name == "FLaunch")
-			JumpToState("FaceDownBounce");
-	}
-	
-	if (PosY <= GroundHeight && (PlayerFlags & PLF_IsKnockedDown) == 0 && ReceivedHit.GroundBounce.GroundBounceCount == 0)
-	{
-		if (StunTime > 0 && PrevPosY > GroundHeight)
-		{
-			PlayerFlags |= PLF_IsKnockedDown;
-			DisableState(ENB_Tech);
-		}
-	}
-	
 	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
 	{
 		PlayerFlags &= ~PLF_IsKnockedDown;
@@ -515,15 +503,15 @@ void APlayerObject::Update()
 		PlayerFlags &= ~PLF_IsStunned;
 	}
 	
-	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime == ReceivedHit.KnockdownTime && PosY <= GroundHeight && (PlayerFlags & PLF_IsDead) == 0)
+	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime == ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
 		Enemy->ComboTimer = 0;
 		OTGCount = 0;
 		if (StoredStateMachine.CurrentState->Name == "FaceDownLoop")
-			JumpToState("WakeUpFaceDown");
+			JumpToState("FaceDownWakeUp");
 		else if (StoredStateMachine.CurrentState->Name == "FaceUpLoop")
-			JumpToState("WakeUpFaceUp");
+			JumpToState("FaceUpWakeUp");
 		TotalProration = 10000;
 	}
 
@@ -535,7 +523,7 @@ void APlayerObject::Update()
 	{
 		CurrentAirJumpCount = AirJumpCount;
 		CurrentAirDashCount = AirDashCount;
-		if (PlayerFlags & PLF_DefaultLandingAction)
+		if (PlayerFlags & PLF_DefaultLandingAction && !(StoredStateMachine.CurrentState->StateType == EStateType::Hitstun))
 		{
 			JumpToState("JumpLanding");
 		}
@@ -567,16 +555,18 @@ void APlayerObject::Update()
 	TimeUntilNextCel--;
 	if (TimeUntilNextCel == 0)
 		CelIndex++;
+	
+	GetBoxes();
 }
 
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
 	int32 Proration = ReceivedHit.ForcedProration;
-	if (Player->ComboCounter == 0)
+	if (Enemy->ComboCounter == 0)
 		Proration *= ReceivedHit.InitialProration;
 	else
 		Proration *= 100;
-	if (Player->ComboCounter == 0)
+	if (Enemy->ComboCounter == 0)
 		TotalProration = 10000;
 	Proration = Proration * TotalProration / 10000;
 	
@@ -584,10 +574,10 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
 	
 	int FinalDamage;
-	if (Player->ComboCounter == 0)
+	if (Enemy->ComboCounter == 0)
 		FinalDamage = ReceivedHit.Damage;
 	else
-		FinalDamage = ReceivedHit.Damage * Proration * Player->ComboRate / 1000000;
+		FinalDamage = ReceivedHit.Damage * Proration * Enemy->ComboRate / 1000000;
 
 	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
 		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
@@ -596,6 +586,9 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	if (GameState->GameInstance->IsTraining && CurrentHealth < 1)
 		CurrentHealth = 1;
 
+	HaltMomentum();
+	EnableCancelIntoSelf(true);
+	
 	for (int i = 0; i < 32; i++)
 	{
 		if (IsValid(ChildBattleObjects[i]))
@@ -611,109 +604,118 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		PlayerFlags |= PLF_IsDead;
 		if (PosY <= GroundHeight)
 		{
-			JumpToState("Crumple");
+			BufferedStateName.SetString("Crumple");
 		}
 		else
 		{
 			if (HACT == HACT_AirFaceUp)
-				JumpToState("BLaunch");
+				BufferedStateName.SetString("BLaunch");
 			else if (HACT == HACT_AirVertical)
-				JumpToState("VLaunch");
+				BufferedStateName.SetString("VLaunch");
 			else if (HACT == HACT_AirFaceDown)
-				JumpToState("FLaunch");
+				BufferedStateName.SetString("FLaunch");
 			else if (HACT == HACT_Blowback)
-				JumpToState("Blowback");
+				BufferedStateName.SetString("Blowback");
 			else
-				JumpToState("BLaunch");
+				BufferedStateName.SetString("BLaunch");
 		}
 		return;
 	}
 	switch (HACT)
 	{
 	case HACT_GroundNormal:
-		if (Stance == ACT_Standing)
+		switch (Stance)
 		{
+		case ACT_Standing:
+		default:
 			if (ReceivedHitCommon.AttackLevel == 0)
-				JumpToState("Hitstun0");
+				BufferedStateName.SetString("Hitstun0");
 			else if (ReceivedHitCommon.AttackLevel == 1)
-				JumpToState("Hitstun1");
+				BufferedStateName.SetString("Hitstun1");
 			else if (ReceivedHitCommon.AttackLevel == 2)
-				JumpToState("Hitstun2");
+				BufferedStateName.SetString("Hitstun2");
 			else if (ReceivedHitCommon.AttackLevel == 3)
-				JumpToState("Hitstun3");
+				BufferedStateName.SetString("Hitstun3");
 			else if (ReceivedHitCommon.AttackLevel == 4)
-				JumpToState("Hitstun4");
+				BufferedStateName.SetString("Hitstun4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
-				JumpToState("Hitstun5");
-		}
-		else if (Stance == ACT_Crouching)
-		{
+				BufferedStateName.SetString("Hitstun5");
+			break;
+		case ACT_Crouching:
 			if (ReceivedHitCommon.AttackLevel == 0)
-				JumpToState("CrouchHitstun0");
+				BufferedStateName.SetString("CrouchHitstun0");
 			else if (ReceivedHitCommon.AttackLevel == 1)
-				JumpToState("CrouchHitstun1");
+				BufferedStateName.SetString("CrouchHitstun1");
 			else if (ReceivedHitCommon.AttackLevel == 2)
-				JumpToState("CrouchHitstun2");
+				BufferedStateName.SetString("CrouchHitstun2");
 			else if (ReceivedHitCommon.AttackLevel == 3)
-				JumpToState("CrouchHitstun3");
+				BufferedStateName.SetString("CrouchHitstun3");
 			else if (ReceivedHitCommon.AttackLevel == 4)
-				JumpToState("CrouchHitstun4");
+				BufferedStateName.SetString("CrouchHitstun4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
-				JumpToState("CrouchHitstun5");
-			StunTime += 2;
+				BufferedStateName.SetString("CrouchHitstun5");
+				StunTime += 2;
 		}
 		break;
 	case HACT_Crumple:
-		JumpToState("Crumple");
+		BufferedStateName.SetString("Crumple");
 		break;
 	case HACT_ForceCrouch:
 		Stance = ACT_Crouching;
 		if (ReceivedHitCommon.AttackLevel == 0)
-			JumpToState("CrouchHitstun0");
+			BufferedStateName.SetString("CrouchHitstun0");
 		else if (ReceivedHitCommon.AttackLevel == 1)
-			JumpToState("CrouchHitstun1");
+			BufferedStateName.SetString("CrouchHitstun1");
 		else if (ReceivedHitCommon.AttackLevel == 2)
-			JumpToState("CrouchHitstun2");
+			BufferedStateName.SetString("CrouchHitstun2");
 		else if (ReceivedHitCommon.AttackLevel == 3)
-			JumpToState("CrouchHitstun3");
+			BufferedStateName.SetString("CrouchHitstun3");
 		else if (ReceivedHitCommon.AttackLevel == 4)
-			JumpToState("CrouchHitstun4");
+			BufferedStateName.SetString("CrouchHitstun4");
 		else if (ReceivedHitCommon.AttackLevel == 5)
-			JumpToState("CrouchHitstun5");
+			BufferedStateName.SetString("CrouchHitstun5");
 		StunTime += 2;
 		break;
 	case HACT_ForceStand:
 		Stance = ACT_Standing;
 		if (ReceivedHitCommon.AttackLevel == 0)
-			JumpToState("Hitstun0");
+			BufferedStateName.SetString("Hitstun0");
 		else if (ReceivedHitCommon.AttackLevel == 1)
-			JumpToState("Hitstun1");
+			BufferedStateName.SetString("Hitstun1");
 		else if (ReceivedHitCommon.AttackLevel == 2)
-			JumpToState("Hitstun2");
+			BufferedStateName.SetString("Hitstun2");
 		else if (ReceivedHitCommon.AttackLevel == 3)
-			JumpToState("Hitstun3");
+			BufferedStateName.SetString("Hitstun3");
 		else if (ReceivedHitCommon.AttackLevel == 4)
-			JumpToState("Hitstun4");
+			BufferedStateName.SetString("Hitstun4");
 		else if (ReceivedHitCommon.AttackLevel == 5)
-			JumpToState("Hitstun5");
+			BufferedStateName.SetString("Hitstun5");
 		break;
 	case HACT_GuardBreakCrouch:
-		JumpToState("GuardBreakCrouch");
+		BufferedStateName.SetString("GuardBreakCrouch");
 		break;
 	case HACT_GuardBreakStand:
-		JumpToState("GuardBreak");
+		BufferedStateName.SetString("GuardBreak");
 		break;
 	case HACT_AirFaceUp:
-		JumpToState("BLaunch");
+		if (PosY <= GroundHeight)
+			PosY = 1;
+		BufferedStateName.SetString("BLaunch");
 		break;
 	case HACT_AirVertical:
-		JumpToState("VLaunch");
+		if (PosY <= GroundHeight)
+			PosY = 1;
+		BufferedStateName.SetString("VLaunch");
 		break;
 	case HACT_AirFaceDown:
-		JumpToState("FLaunch");
+		if (PosY <= GroundHeight)
+			PosY = 1;
+		BufferedStateName.SetString("FLaunch");
 		break;
 	case HACT_Blowback:
-		JumpToState("Blowback");
+		if (PosY <= GroundHeight)
+			PosY = 1;
+		BufferedStateName.SetString("Blowback");
 		break;
 	case HACT_None: break;
 	default: ;
@@ -723,15 +725,16 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 
 void APlayerObject::SetHitValues()
 {
+	Enemy->ComboCounter++;
 	int32 FinalHitstop = ReceivedHitCommon.Hitstop + ReceivedHit.EnemyHitstopModifier;
 	
 	Enemy->Hitstop = ReceivedHitCommon.Hitstop;
 	Hitstop = FinalHitstop;
 
-	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Player->ComboCounter * ReceivedHit.GroundPushbackX / 60;
-	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Player->ComboCounter * ReceivedHit.AirPushbackX / 60;
-	const int32 FinalAirHitPushbackY = ReceivedHit.AirPushbackY - Player->ComboCounter * ReceivedHit.AirPushbackY / 120;
-	const int32 FinalGravity = ReceivedHit.Gravity - Player->ComboCounter * ReceivedHit.Gravity / 60;
+	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Enemy->ComboCounter * ReceivedHit.GroundPushbackX / 60;
+	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Enemy->ComboCounter * ReceivedHit.AirPushbackX / 60;
+	const int32 FinalAirHitPushbackY = ReceivedHit.AirPushbackY - Enemy->ComboCounter * ReceivedHit.AirPushbackY / 120;
+	const int32 FinalGravity = ReceivedHit.Gravity - Enemy->ComboCounter * ReceivedHit.Gravity / 60;
 	
 	EHitAction HACT;
 	
@@ -778,6 +781,18 @@ void APlayerObject::SetHitValues()
 	}
 	AirDashTimer = 0;
 	AirDashNoAttackTime = 0;
+}
+
+void APlayerObject::ForceEnableFarNormal(bool Enable)
+{
+	if (Enable)
+	{
+		PlayerFlags |= PLF_ForceEnableFarNormal;
+	}
+	else
+	{
+		PlayerFlags &= ~PLF_ForceEnableFarNormal;
+	}
 }
 
 void APlayerObject::BattleHudVisibility(bool Visible)
@@ -886,7 +901,6 @@ void APlayerObject::HandleBufferedState()
 		{
 			if (StoredStateMachine.ForceSetState(BufferedStateName.GetString()))
 			{
-				StateName.SetString(BufferedStateName.GetString());
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
 				case EEntryState::Standing:
@@ -908,7 +922,6 @@ void APlayerObject::HandleBufferedState()
 		{
 			if (StoredStateMachine.SetState(BufferedStateName.GetString()))
 			{
-				StateName.SetString(BufferedStateName.GetString());
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
 				case EEntryState::Standing:
@@ -1074,7 +1087,7 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 {
 	ReturnReg = false;
-	if ((CancelFlags & CNC_EnableKaraCancel) == 0)
+	if ((CancelFlags & CNC_EnableKaraCancel) == 0 || AttackFlags & ATK_HasHit)
 	{
 		return ReturnReg;
 	}
@@ -1153,9 +1166,7 @@ void APlayerObject::SetStance(EActionStance InStance)
 
 void APlayerObject::JumpToState(FString NewName)
 {
-	if (StoredStateMachine.ForceSetState(NewName))
-		StateName.SetString(NewName);
-	if (StoredStateMachine.CurrentState != nullptr)
+	if (StoredStateMachine.ForceSetState(NewName) && StoredStateMachine.CurrentState != nullptr)
 	{
 		switch (StoredStateMachine.CurrentState->EntryState)
 		{
@@ -1314,6 +1325,10 @@ void APlayerObject::OnStateChange()
 	FlipInputs = false;
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
+	for (int32& CancelOption : ChainCancelOptionsInternal)
+		CancelOption = -1;
+	for (int32& CancelOption : WhiffCancelOptionsInternal)
+		CancelOption = -1;
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
@@ -1450,6 +1465,8 @@ void APlayerObject::ResetForRound()
 		CancelOption = -1;
 	for (int32& CancelOption : WhiffCancelOptionsInternal)
 		CancelOption = -1;
+	ChainCancelOptions.Empty();
+	WhiffCancelOptions.Empty();
 	ExeStateName.SetString("");
 	BufferedStateName.SetString("");
 	JumpToState("Stand");
@@ -1499,7 +1516,7 @@ void APlayerObject::LogForSyncTestFile(FILE* file)
 		fprintf(file,"\tCurrentHealth: %d\n", CurrentHealth);
 		fprintf(file,"\tCancelFlags: %d\n", CancelFlags);
 		fprintf(file,"\tInputs: %d\n", StoredInputBuffer.InputBufferInternal[89]);
-		fprintf(file,"\tStance: %d\n", Stance);
+		fprintf(file,"\tStance: %d\n", Stance.GetValue());
 		fprintf(file,"\tAirDashTimer: %d\n", AirDashTimer);
 		fprintf(file,"\tPlayerFlags: %d\n", PlayerFlags);
 		int ChainCancelChecksum = 0;
@@ -1514,8 +1531,6 @@ void APlayerObject::LogForSyncTestFile(FILE* file)
 			WhiffCancelChecksum += WhiffCancelOptionsInternal[i];
 		}
 		fprintf(file,"\tChainCancelOptions: %d\n", WhiffCancelChecksum);
-		if (StoredStateMachine.States.Num() != 0)
-			fprintf(file,"\tStateName: %s\n", StateName.GetString());
 		fprintf(file,"\tEnemy: %p\n", Enemy);
 	}
 }
