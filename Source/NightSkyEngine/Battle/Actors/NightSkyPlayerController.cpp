@@ -162,10 +162,6 @@ void ANightSkyPlayerController::SetupInputComponent()
 		{
 			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
 		}
-		else if (ActionName == "Unpause Game")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::UnpauseGame);
-		}
 	}
 }
 
@@ -299,17 +295,6 @@ void ANightSkyPlayerController::PauseGame()
 		OpenPauseMenu();
 	}
 }
-
-void ANightSkyPlayerController::UnpauseGame()
-{
-	const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState());
-	if (GameState->bPauseGame)
-	{
-		GameState->bPauseGame = false;
-		ClosePauseMenu();
-	}
-}
-
 
 void ANightSkyPlayerController::UpdateInput(int Input[], int32 InFrame) const
 {

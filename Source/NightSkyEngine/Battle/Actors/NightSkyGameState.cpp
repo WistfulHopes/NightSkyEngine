@@ -26,6 +26,7 @@ void ANightSkyGameState::BeginPlay()
 {
 	Super::BeginPlay();
 
+	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	Init();
 }
 
@@ -35,7 +36,6 @@ void ANightSkyGameState::Init()
 	{
 		StoredRollbackData.Add(FRollbackData());
 	}
-	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
@@ -46,7 +46,7 @@ void ANightSkyGameState::Init()
 				if (GameInstance->PlayerList[i] != nullptr)
 				{
 					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->PlayerList[i]);
-					Players[i]->PlayerIndex = i * MaxPlayerObjects / 2 > MaxPlayerObjects;
+					Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
 					for (int j = 0; j < i; j++)
 					{
 						if (IsValid(GameInstance->PlayerList[j]))
@@ -108,10 +108,10 @@ void ANightSkyGameState::Init()
 	case LocalPlay:
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 		break;
-	case MULTIPLAYER:
+	case Multiplayer:
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterMultiplayerRunner::StaticClass(),SpawnParameters);
 		break;
-	case SYNCTEST:
+	case SyncTest:
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterSynctestRunner::StaticClass(),SpawnParameters);
 		break;
 	default:
@@ -128,7 +128,8 @@ void ANightSkyGameState::Init()
 void ANightSkyGameState::RoundInit()
 {
 	BattleState.RoundCount++;
-	BattleState.TimeUntilRoundStart = 180;
+	if (!GameInstance->IsTraining)
+		BattleState.TimeUntilRoundStart = 180;
 	for (int i = 0; i < MaxBattleObjects; i++)
 		Objects[i]->ResetObject();
 	
@@ -137,22 +138,20 @@ void ANightSkyGameState::RoundInit()
 
 	Players[0]->PlayerFlags = PLF_IsOnScreen;
 	Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
-
-	const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-
+	
 	BattleState.RoundTimer = GameInstance->StartRoundTimer * 60;
 	BattleState.CurrentScreenPos = 0;
 }
 
 void ANightSkyGameState::UpdateLocalInput()
 {
-	if (GetWorld()->GetNetMode() == NM_Standalone)
+	if (GameInstance->FighterRunner == LocalPlay)
 	{
 		LocalInputs[LocalFrame % MaxRollbackFrames][0] = GetLocalInputs(0);
 		LocalInputs[LocalFrame % MaxRollbackFrames][1] = GetLocalInputs(1);
 		return;
 	}
-	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+	const int PlayerIndex = GameInstance->PlayerIndex;
 	int SendInputs[MaxRollbackFrames] = { 16 };
 	if (PlayerIndex == 0)
 	{
@@ -188,9 +187,13 @@ void ANightSkyGameState::Tick(float DeltaTime)
 
 void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 {
-	BattleState.TimeUntilRoundStart--;
-	if (BattleState.TimeUntilRoundStart <= 0)
-		BattleState.RoundTimer--;
+	if (!GameInstance->IsTraining && !BattleState.PauseTimer)
+	{
+		if (BattleState.TimeUntilRoundStart > 0)
+			BattleState.TimeUntilRoundStart--;
+		else
+			BattleState.RoundTimer--;
+	}
 
 	if (BattleState.RoundTimer < 0)
 		BattleState.RoundTimer = 0;
@@ -243,6 +246,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	HandleHitCollision();
 	SetScreenBounds();
 	SetWallCollision();
+	HandleRoundWin();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -306,6 +310,184 @@ void ANightSkyGameState::HandleHitCollision() const
 				SortedObjects[i]->HandleClashCollision(SortedObjects[j]);
 			}
 		}
+	}
+}
+
+void ANightSkyGameState::HandleRoundWin()
+{
+	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo)
+	{
+		if (Players[0]->CurrentHealth > 0 && Players[3]->CurrentHealth <= 0)
+		{
+			if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+				BattleState.P1RoundsWon++;
+			Players[0]->RoundWinTimer--;
+			Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
+			BattleState.PauseTimer = true;
+			if (Players[0]->RoundWinTimer == 0)
+			{
+				BattleState.PauseTimer = false;
+				HandleMatchWin();
+				RoundInit();
+			}
+		}
+		else if (Players[3]->CurrentHealth > 0 && Players[0]->CurrentHealth <= 0)
+		{
+			if ((Players[3]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+				BattleState.P2RoundsWon++;
+			Players[3]->RoundWinTimer--;
+			Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
+			BattleState.PauseTimer = true;
+			if (Players[3]->RoundWinTimer == 0)
+			{
+				BattleState.PauseTimer = false;
+				HandleMatchWin();
+				RoundInit();
+			}
+		}
+		else if (Players[0]->CurrentHealth <= 0 && Players[3]->CurrentHealth <= 0)
+		{
+			if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+			{
+				BattleState.P1RoundsWon++;
+				BattleState.P2RoundsWon++;
+			}
+			Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
+			Players[0]->RoundWinTimer--;
+			BattleState.PauseTimer = true;
+			if (Players[0]->RoundWinTimer == 0)
+			{
+				BattleState.PauseTimer = false;
+				HandleMatchWin();
+				RoundInit();
+			}
+		}
+		else if (BattleState.RoundTimer <= 0)
+		{
+			if (Players[0]->CurrentHealth > Players[3]->CurrentHealth)
+			{
+				if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+					BattleState.P1RoundsWon++;
+				Players[0]->RoundWinTimer--;
+				Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
+				BattleState.PauseTimer = true;
+				if (Players[0]->RoundWinTimer == 0)
+				{
+					BattleState.PauseTimer = false;
+					HandleMatchWin();
+					RoundInit();
+				}
+			}
+			else if (Players[3]->CurrentHealth > Players[0]->CurrentHealth)
+			{
+				if ((Players[3]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+					BattleState.P2RoundsWon++;
+				Players[3]->RoundWinTimer--;
+				Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
+				BattleState.PauseTimer = true;
+				if (Players[3]->RoundWinTimer == 0)
+				{
+					BattleState.PauseTimer = false;
+					HandleMatchWin();
+					RoundInit();
+				}
+			}
+			else if (Players[0]->CurrentHealth == Players[3]->CurrentHealth)
+			{
+				if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
+				{
+					BattleState.P1RoundsWon++;
+					BattleState.P2RoundsWon++;
+				}
+				Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
+				Players[0]->RoundWinTimer--;
+				BattleState.PauseTimer = true;
+				if (Players[0]->RoundWinTimer == 0)
+				{
+					BattleState.PauseTimer = false;
+					HandleMatchWin();
+					RoundInit();
+				}
+			}
+		}
+	}
+}
+
+void ANightSkyGameState::HandleMatchWin() const
+{
+	switch (BattleState.RoundFormat)
+	{
+	case ERoundFormat::FirstToOne:
+		if (BattleState.P1RoundsWon > 0 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P2RoundsWon > 0 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		return;
+	case ERoundFormat::FirstToTwo:
+		if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		return;
+	case ERoundFormat::FirstToThree:
+		if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P1RoundsWon == 4 && BattleState.P2RoundsWon == 4)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		return;
+	case ERoundFormat::FirstToFour:
+		if (BattleState.P1RoundsWon > 3 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P2RoundsWon > 3 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P1RoundsWon == 5 && BattleState.P2RoundsWon == 5)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		return;
+	case ERoundFormat::FirstToFive:
+		if (BattleState.P1RoundsWon > 4 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P2RoundsWon > 4 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		else if (BattleState.P1RoundsWon == 6 && BattleState.P2RoundsWon == 6)
+		{
+			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
+		}
+		return;
+	default: ;
 	}
 }
 
@@ -424,7 +606,7 @@ int ANightSkyGameState::GetLocalInputs(int Index) const
 
 void ANightSkyGameState::UpdateRemoteInput(int RemoteInput[], int32 InFrame)
 {
-	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+	const int PlayerIndex = GameInstance->PlayerIndex;
 	if (PlayerIndex == 0)
 	{
 		for (int i = InFrame; i > InFrame - MaxRollbackFrames; i--)

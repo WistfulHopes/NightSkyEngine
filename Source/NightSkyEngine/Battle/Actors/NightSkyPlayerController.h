@@ -60,7 +60,6 @@ public:
 	void ReleaseH();
 
 	void PauseGame();
-	void UnpauseGame();
 	
 	void UpdateInput(int Input[], int32 InFrame) const;
 	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client);

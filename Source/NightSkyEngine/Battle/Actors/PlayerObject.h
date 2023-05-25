@@ -229,6 +229,7 @@ public:
 	FExtraGauge ExtraGauges[ExtraGaugeCount];
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
+	int32 RoundWinTimer = 300;
 	
 	/*
 	 * Object pointers.

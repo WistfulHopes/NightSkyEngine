@@ -37,7 +37,7 @@ struct FBattleState
 
 	char BattleStateSync;
 	int FrameNumber;
-	int TimeUntilRoundStart = 180;
+	int TimeUntilRoundStart;
 	int CurrentScreenPos = 0;
 	UPROPERTY(BlueprintReadOnly)
 	int RoundTimer = 0;
@@ -88,6 +88,9 @@ public:
 	UPROPERTY()
 	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects];
 	
+	UPROPERTY()
+	class UNightSkyGameInstance* GameInstance;
+	
 	UPROPERTY(BlueprintReadWrite)
 	class ALevelSequenceActor* SequenceActor;
 	UPROPERTY(BlueprintReadWrite)
@@ -102,7 +105,7 @@ public:
 	UPROPERTY()
 	class AFighterLocalRunner* FighterRunner;
 	UPROPERTY(BlueprintReadWrite)
-	class ANightSkyBattleHudActor* BattleHudActor;
+	ANightSkyBattleHudActor* BattleHudActor;
 
 	TArray<FRollbackData> StoredRollbackData;
 	FBattleState BattleState;
@@ -126,6 +129,8 @@ protected:
 	void SortObjects();
 	void HandlePushCollision() const; //for each active object, handle push collision
 	void HandleHitCollision() const;
+	void HandleRoundWin();
+	void HandleMatchWin() const;
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
 

@@ -11,6 +11,6 @@
 UENUM(BlueprintType)
 enum EFighterRunners{
 LocalPlay,
-MULTIPLAYER,
-SYNCTEST
+Multiplayer,
+SyncTest
 };

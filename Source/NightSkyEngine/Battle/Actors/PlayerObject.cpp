@@ -5,6 +5,7 @@
 
 #include "NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 
 APlayerObject::APlayerObject()
 {
@@ -315,6 +316,23 @@ void APlayerObject::Update()
 	CallSubroutine("CmnOnUpdate");
 	CallSubroutine("OnUpdate");
 
+	if (GameState->GameInstance->IsTraining && PlayerIndex == 1)
+	{
+		if ((PlayerFlags & PLF_IsStunned) == 0)
+			CurrentHealth = MaxHealth;
+		if ((AttackFlags & ATK_IsAttacking) == 0 && ComboTimer <= 0)
+		{
+			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
+		}
+		if (EnableFlags & ENB_Tech)
+			Inputs = INP_A;
+		else
+			Inputs = INP_Neutral;
+	}
+	
+	if (GameState->BattleState.TimeUntilRoundStart > 0)
+		Inputs = INP_Neutral;
+
 	//run input buffer before checking hitstop
 	if ((Direction == DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
 	{
@@ -497,14 +515,14 @@ void APlayerObject::Update()
 		PlayerFlags &= ~PLF_IsStunned;
 	}
 	
-	if (PlayerFlags & PLF_IsKnockedDown && ActionTime == ReceivedHit.KnockdownTime && PosY <= GroundHeight && (PlayerFlags & PLF_IsDead) == 0)
+	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime == ReceivedHit.KnockdownTime && PosY <= GroundHeight && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
 		Enemy->ComboTimer = 0;
 		OTGCount = 0;
-		if (StoredStateMachine.CurrentState->Name == "FaceDown" || StoredStateMachine.CurrentState->Name == "FaceDownBounce")
+		if (StoredStateMachine.CurrentState->Name == "FaceDownLoop")
 			JumpToState("WakeUpFaceDown");
-		else if (StoredStateMachine.CurrentState->Name == "FaceUp" || StoredStateMachine.CurrentState->Name == "FaceUpBounce")
+		else if (StoredStateMachine.CurrentState->Name == "FaceUpLoop")
 			JumpToState("WakeUpFaceUp");
 		TotalProration = 10000;
 	}
@@ -522,9 +540,7 @@ void APlayerObject::Update()
 			JumpToState("JumpLanding");
 		}
 	}
-	if (GameState->BattleState.TimeUntilRoundStart <= 0)
-		HandleStateMachine(false); //handle state transitions
-
+	
 	if (Stance == ACT_Standing) //set pushbox values based on stance
 	{
 		PushWidth = StandPushWidth;
@@ -544,6 +560,8 @@ void APlayerObject::Update()
 		PushHeightLow = AirPushHeightLow;
 	}
 
+	HandleStateMachine(false);
+	
 	Player->StoredStateMachine.Update();
 	
 	TimeUntilNextCel--;
@@ -553,6 +571,31 @@ void APlayerObject::Update()
 
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
+	int32 Proration = ReceivedHit.ForcedProration;
+	if (Player->ComboCounter == 0)
+		Proration *= ReceivedHit.InitialProration;
+	else
+		Proration *= 100;
+	if (Player->ComboCounter == 0)
+		TotalProration = 10000;
+	Proration = Proration * TotalProration / 10000;
+	
+	if ((AttackFlags & ATK_ProrateOnce) == 0 || AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0)
+		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
+	
+	int FinalDamage;
+	if (Player->ComboCounter == 0)
+		FinalDamage = ReceivedHit.Damage;
+	else
+		FinalDamage = ReceivedHit.Damage * Proration * Player->ComboRate / 1000000;
+
+	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
+		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
+
+	CurrentHealth -= FinalDamage;
+	if (GameState->GameInstance->IsTraining && CurrentHealth < 1)
+		CurrentHealth = 1;
+
 	for (int i = 0; i < 32; i++)
 	{
 		if (IsValid(ChildBattleObjects[i]))
@@ -583,7 +626,6 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			else
 				JumpToState("BLaunch");
 		}
-		ReceivedHitCommon.AttackLevel = -1;
 		return;
 	}
 	switch (HACT)
@@ -681,33 +723,10 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 
 void APlayerObject::SetHitValues()
 {
-	int32 Proration = ReceivedHit.ForcedProration;
-	if (Player->ComboCounter == 0)
-		Proration *= ReceivedHit.InitialProration;
-	else
-		Proration *= 100;
-	if (Player->ComboCounter == 0)
-		TotalProration = 10000;
-	Proration = Proration * TotalProration / 10000;
-	
-	if ((AttackFlags & ATK_ProrateOnce) == 0 || AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0)
-		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
-
 	int32 FinalHitstop = ReceivedHitCommon.Hitstop + ReceivedHit.EnemyHitstopModifier;
 	
 	Enemy->Hitstop = ReceivedHitCommon.Hitstop;
 	Hitstop = FinalHitstop;
-
-	int FinalDamage;
-	if (Player->ComboCounter == 0)
-		FinalDamage = ReceivedHit.Damage;
-	else
-		FinalDamage = ReceivedHit.Damage * Proration * Player->ComboRate / 1000000;
-
-	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
-		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
-
-	CurrentHealth -= FinalDamage;
 
 	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Player->ComboCounter * ReceivedHit.GroundPushbackX / 60;
 	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Player->ComboCounter * ReceivedHit.AirPushbackX / 60;
@@ -1413,6 +1432,7 @@ void APlayerObject::ResetForRound()
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
+	RoundWinTimer = 300;
 	for (auto& ChildObj : ChildBattleObjects)
 		ChildObj = nullptr;
 	for (auto& StoredObj : StoredBattleObjects)
