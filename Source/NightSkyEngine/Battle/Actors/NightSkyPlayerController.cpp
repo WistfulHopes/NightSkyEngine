@@ -28,12 +28,33 @@ void ANightSkyPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
 }
 
 // Called every frame
 void ANightSkyPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (NetworkPawn != nullptr)
+	{
+		const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+		TArray<ANetworkPawn*> NetworkPawns;
+		for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
+		{
+			NetworkPawns.Add(*It);
+		}
+		if (NetworkPawns.Num() > 1)
+		{
+			if (PlayerIndex == 0)
+			{
+				SendGgpo(NetworkPawns[1], true);
+			}
+			else
+			{
+				SendGgpo(NetworkPawns[0], false);
+			}
+		}
+	}
 }
 
 

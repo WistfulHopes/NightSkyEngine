@@ -21,7 +21,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	
 	GGPOSessionCallbacks CreateCallbacks();
 	bool __cdecl BeginGameCallback(const char*);
 	bool __cdecl SaveGameStateCallback(unsigned char** buffer, int32* len, int32* checksum, int32);

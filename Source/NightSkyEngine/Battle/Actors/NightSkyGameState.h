@@ -7,7 +7,7 @@
 #include "GameFramework/GameStateBase.h"
 #include "NightSkyGameState.generated.h"
 
-constexpr int32 MaxRollbackFrames = 10;
+constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
 constexpr int32 MaxBattleObjects = 101;
 constexpr int32 MaxPlayerObjects = 6;
@@ -63,7 +63,6 @@ struct FRollbackData
 {
 	GENERATED_BODY()
 	
-	int ActiveObjectCount;
 	uint8 ObjBuffer[MaxBattleObjects + MaxPlayerObjects][SizeOfBattleObject] = { { 0 } };
 	bool ObjActive[MaxBattleObjects] = { false };
 	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
@@ -90,6 +89,9 @@ public:
 	
 	UPROPERTY()
 	class UNightSkyGameInstance* GameInstance;
+
+	UPROPERTY()
+	class AParticleManager* ParticleManager;
 	
 	UPROPERTY(BlueprintReadWrite)
 	class ALevelSequenceActor* SequenceActor;
@@ -109,12 +111,12 @@ public:
 
 	TArray<FRollbackData> StoredRollbackData;
 	FBattleState BattleState;
-	int LocalFrame;
-	int RemoteFrame;
+	int32 LocalFrame;
+	int32 RemoteFrame;
 	
 private:
-	int LocalInputs[MaxRollbackFrames][2];
-	int RemoteInputs[MaxRollbackFrames][2];
+	int32 LocalInputs[MaxRollbackFrames][2];
+	int32 RemoteInputs[MaxRollbackFrames][2];
 	uint32 Checksum;
 	uint32 OtherChecksum;
 	int32 OtherChecksumFrame;

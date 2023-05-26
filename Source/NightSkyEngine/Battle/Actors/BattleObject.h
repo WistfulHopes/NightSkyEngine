@@ -68,6 +68,7 @@ enum class EHitVFXType : uint8
 {
 	VFX_Strike,
 	VFX_Slash,
+	VFX_Special,
 };
 
 USTRUCT(BlueprintType)
@@ -89,7 +90,7 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyBlockstopModifier = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 Blockstun = 0;
+	int32 Blockstun = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 ChipDamagePercent = 0;
 	UPROPERTY(BlueprintReadWrite)
@@ -217,6 +218,58 @@ enum EObjDir
 {
 	DIR_Right,
 	DIR_Left,
+};
+
+UENUM()
+enum EDistanceType
+{
+	DIST_Distance,
+	DIST_DistanceX,
+	DIST_DistanceY,
+	DIST_FrontDistanceX,
+};
+
+UENUM()
+enum EHomingType
+{
+	HOMING_DistanceAccel,
+	HOMING_FixAccel,
+	HOMING_ToSpeed,
+};
+
+UENUM()
+enum EPosType
+{
+	POS_Player,
+	POS_Self,
+	POS_Center,
+	POS_Enemy,
+	POS_Hit,
+};
+
+UENUM()
+enum EObjType
+{
+	OBJ_Self,
+	OBJ_Enemy,
+	OBJ_Parent,
+	OBJ_Child0,
+	OBJ_Child1,
+	OBJ_Child2,
+	OBJ_Child3,
+	OBJ_Child4,
+	OBJ_Child5,
+	OBJ_Child6,
+	OBJ_Child7,
+	OBJ_Child8,
+	OBJ_Child9,
+	OBJ_Child10,
+	OBJ_Child11,
+	OBJ_Child12,
+	OBJ_Child13,
+	OBJ_Child14,
+	OBJ_Child15,
+	OBJ_Null,
 };
 
 UCLASS()
@@ -425,9 +478,11 @@ public:
 	void HandleClashCollision(ABattleObject* OtherObj);
 	//handles flip
 	void HandleFlip();
+	//gets position from pos type
+	void PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const;
 	void TriggerEvent(EEventType EventType);
 	void SaveForRollback(unsigned char* Buffer) const;
-	void LoadForRollback(unsigned char* Buffer);
+	void LoadForRollback(const unsigned char* Buffer);
 	virtual void LogForSyncTestFile(FILE* file);
 	
 protected:
@@ -477,6 +532,9 @@ public:
 	//adds x speed
 	UFUNCTION(BlueprintCallable)
 	void AddSpeedXRaw(int InSpeedX);
+	//calculates distance between points
+	UFUNCTION(BlueprintCallable)
+	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
 	//sets direction
 	UFUNCTION(BlueprintCallable)
 	void SetFacing(EObjDir NewDir);
@@ -504,6 +562,15 @@ public:
 	//halts momentum
 	UFUNCTION(BlueprintCallable)
 	void HaltMomentum();
+	//creates common particle
+	UFUNCTION(BlueprintCallable)
+	void CreateCommonParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	//creates character particle
+	UFUNCTION(BlueprintCallable)
+	void CreateCharaParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	//gets object by type
+	UFUNCTION(BlueprintPure)
+	ABattleObject* GetBattleObject(EObjType Type);
 	// Cannot be called on player objects. Deactivates the object and returns it to the pool.
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();

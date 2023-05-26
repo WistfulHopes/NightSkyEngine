@@ -5,6 +5,7 @@
 #include "LevelSequenceActor.h"
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
+#include "ParticleManager.h"
 #include "Camera/CameraActor.h"
 #include "Components/SlateWrapperTypes.h"
 #include "FighterRunners/FighterSynctestRunner.h"
@@ -26,6 +27,8 @@ void ANightSkyGameState::BeginPlay()
 {
 	Super::BeginPlay();
 
+	FActorSpawnParameters SpawnParameters;
+	ParticleManager = GetWorld()->SpawnActor<AParticleManager>();
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	Init();
 }
@@ -187,6 +190,7 @@ void ANightSkyGameState::Tick(float DeltaTime)
 
 void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 {
+	ParticleManager->UpdateParticles();
 	if (!GameInstance->IsTraining && !BattleState.PauseTimer)
 	{
 		if (BattleState.TimeUntilRoundStart > 0)
@@ -247,10 +251,13 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	SetScreenBounds();
 	SetWallCollision();
 	HandleRoundWin();
+	ParticleManager->PauseParticles();
 }
 
 void ANightSkyGameState::UpdateGameState()
 {
+	RemoteFrame++;
+	LocalFrame++;
 	UpdateLocalInput();
 	UpdateGameState(LocalInputs[LocalFrame % MaxRollbackFrames][0], LocalInputs[LocalFrame % MaxRollbackFrames][1]);
 }
@@ -644,8 +651,7 @@ void ANightSkyGameState::BattleHudVisibility(bool Visible) const
 
 void ANightSkyGameState::SaveGameState()
 {
-	int BackupFrame = LocalFrame % MaxRollbackFrames;
-	StoredRollbackData[BackupFrame].ActiveObjectCount = BattleState.ActiveObjectCount;
+	const int BackupFrame = LocalFrame % MaxRollbackFrames;
 	memcpy(StoredRollbackData[BackupFrame].BattleStateBuffer, &BattleState.BattleStateSync, SizeOfBattleState);
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
@@ -666,8 +672,8 @@ void ANightSkyGameState::SaveGameState()
 
 void ANightSkyGameState::LoadGameState()
 {
-	int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
-	BattleState.ActiveObjectCount = StoredRollbackData[CurrentRollbackFrame].ActiveObjectCount;
+	const int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
+	const int CurrentFrame = BattleState.FrameNumber;
 	memcpy(&BattleState.BattleStateSync, StoredRollbackData[CurrentRollbackFrame].BattleStateBuffer, SizeOfBattleState);
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
@@ -687,4 +693,5 @@ void ANightSkyGameState::LoadGameState()
 		Players[i]->LoadForRollbackPlayer(StoredRollbackData[CurrentRollbackFrame].CharBuffer[i]);
 	}
 	SortObjects();
+	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
 }

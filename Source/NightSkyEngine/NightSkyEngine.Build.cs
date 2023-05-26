@@ -14,10 +14,13 @@ public class NightSkyEngine : ModuleRules
 			"CoreUObject", 
 			"Engine",
 			"InputCore",
+			"OnlineSubsystem",
+			"OnlineSubsystemUtils",
 			"MovieScene",
 			"LevelSequence",
 			"EnhancedInput",
 			"UMG",
+			"Niagara",
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "GGPOUE4" });

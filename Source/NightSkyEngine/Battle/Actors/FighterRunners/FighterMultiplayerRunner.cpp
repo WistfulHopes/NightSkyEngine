@@ -4,6 +4,7 @@
 #include "FighterMultiplayerRunner.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
 
 // Sets default values
@@ -28,15 +29,10 @@ void AFighterMultiplayerRunner::BeginPlay()
 		GGPOPlayerHandle handle;
 		GGPOPlayer* player = new GGPOPlayer();
 		player->type = GGPO_PLAYERTYPE_REMOTE;
-		if(i == 0 && GetWorld()->GetNetMode()==ENetMode::NM_ListenServer)
+		if(i == GameState->GameInstance->PlayerIndex)
 		{
 			player->type = GGPO_PLAYERTYPE_LOCAL;
-			connectionManager->playerIndex = 1;	
-		}
-		if(i == 1 && GetWorld()->GetNetMode()==ENetMode::NM_Client)
-		{
-			player->type = GGPO_PLAYERTYPE_LOCAL;
-			connectionManager->playerIndex = 0;
+			connectionManager->playerIndex = i == 0 ? 1 : 0;	
 		}
 		player->player_num = i + 1;
 		player->connection_id = i;
@@ -48,6 +44,13 @@ void AFighterMultiplayerRunner::BeginPlay()
 		PlayerHandles.Add(handle);
 	}
 	GGPONet::ggpo_try_synchronize_local(ggpo);
+}
+
+void AFighterMultiplayerRunner::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	
+	delete connectionManager;
 }
 
 
@@ -111,7 +114,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		FBattleState BattleState;
 		FMemory::Memcpy(&BattleState, rollbackdata->BattleStateBuffer, SizeOfBattleState);
 		fprintf(fp, "\tFrameNumber:%d\n", BattleState.FrameNumber);
-		fprintf(fp, "\tActiveObjectCount:%d\n", rollbackdata->ActiveObjectCount);
+		fprintf(fp, "\tActiveObjectCount:%d\n", BattleState.ActiveObjectCount);
 		for (int i = 0; i < MaxBattleObjects; i++)
 		{
 			if (rollbackdata->ObjActive[i])
@@ -227,7 +230,7 @@ bool AFighterMultiplayerRunner::OnEventCallback(GGPOEvent* info)
 		break;
 	case GGPO_EVENTCODE_DISCONNECTED_FROM_PEER:
 		UE_LOG(LogTemp, Warning, TEXT("GGPO_EVENTCODE_DISCONNECTED_FROM_PEER"));
-		UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("Title")));
+		UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 	//FightGameInstance->ErrorMessage = FString("Enemy disconnected");
 	//EndOnline(true);
 		break;

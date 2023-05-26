@@ -3,9 +3,15 @@
 
 #include "BattleObject.h"
 
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraSystem.h"
+#include "NightSkyGameState.h"
+#include "ParticleManager.h"
 #include "PlayerObject.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
+#include "NightSkyEngine/Data/ParticleData.h"
 
 // Sets default values
 ABattleObject::ABattleObject()
@@ -211,58 +217,15 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								
 								TriggerEvent(EVT_HitOrBlock);
 
-								if ((OtherChar->EnableFlags & ENB_Block || OtherChar->StoredStateMachine.CurrentState->StateType == EStateType::Blockstun)
-									&& OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
+								const FHitData Data = InitHitDataByAttackLevel(false);
+								const FHitData CounterData = InitHitDataByAttackLevel(true);
+								OtherChar->ReceivedHitCommon = HitCommon;
+								OtherChar->ReceivedHit = Data;
+								
+								if (OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 								{
-									/* CreateCommonParticle("cmn_guard", POS_Hit, FVector(-50, 0, 0), FRotator(-HitEffect.HitAngle, 0, 0));
-									if (HitEffect.AttackLevel < 1)
-									{
-										switch (HitEffect.SFXType)
-										{
-										case EHitSFXType::SFX_Kick:
-											PlayCommonSound("GuardMeleeAltS");
-											break;
-										case EHitSFXType::SFX_Slash:
-											PlayCommonSound("GuardSlashS");
-											break;
-										case EHitSFXType::SFX_Punch:
-										default:
-											PlayCommonSound("GuardMeleeS");
-											break;
-										}
-									}
-									else if (HitEffect.AttackLevel < 3)
-									{
-										switch (HitEffect.SFXType)
-										{
-										case EHitSFXType::SFX_Kick:
-											PlayCommonSound("GuardMeleeAltM");
-											break;
-										case EHitSFXType::SFX_Slash:
-											PlayCommonSound("GuardSlashM");
-											break;
-										case EHitSFXType::SFX_Punch:
-										default:
-											PlayCommonSound("GuardMeleeM");
-											break;
-										}
-									}
-									else
-									{
-										switch (HitEffect.SFXType)
-										{
-										case EHitSFXType::SFX_Kick:
-											PlayCommonSound("GuardMeleeAltL");
-											break;
-										case EHitSFXType::SFX_Slash:
-											PlayCommonSound("GuardSlashL");
-											break;
-										case EHitSFXType::SFX_Punch:
-										default:
-											PlayCommonSound("GuardMeleeL");
-											break;
-										}
-									}*/
+
+									CreateCommonParticle("cmn_guard", POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Block);
 									
 									OtherChar->StunTime = HitCommon.Blockstun;
@@ -277,41 +240,24 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 										else
 											HACT = NormalHit.AirHitAction;
 
-										const FHitData Data = InitHitDataByAttackLevel(false);
-										OtherChar->ReceivedHitCommon = HitCommon;
-										OtherChar->ReceivedHit = Data;
 										OtherChar->HandleHitAction(HACT);
 									}
 									else
 									{
-										if (OtherChar->PosY <= OtherChar->GroundHeight)
+										OtherChar->HandleBlockAction();
+										OtherChar->AirDashTimer = 0;
+										if (OtherChar->PlayerFlags & PLF_TouchingWall)
 										{
-											OtherChar->Pushback = -HitCommon.GroundGuardPushbackX;
-											if (OtherChar->PlayerFlags & PLF_TouchingWall)
-											{
-												Pushback = OtherChar->Pushback;
-												OtherChar->Pushback = 0;
-											}
+											Pushback = OtherChar->Pushback;
+											OtherChar->Pushback = 0;
 										}
-										else
-										{
-											OtherChar->SpeedX = -HitCommon.AirGuardPushbackX;
-											OtherChar->SpeedY = HitCommon.AirGuardPushbackY;
-											OtherChar->Gravity = HitCommon.GuardGravity;
-											if (OtherChar->PlayerFlags & PLF_TouchingWall)
-											{
-												Pushback = OtherChar->Pushback;
-												OtherChar->Pushback = 0;
-											}
-											OtherChar->AirDashTimer = 0;
-										}
-										OtherChar->HandleBlockAction(HitCommon.BlockType);
 									}
 									// OtherChar->AddMeter(HitEffect.HitDamage * OtherChar->MeterPercentOnReceiveHitGuard / 100);
 									// Player->AddMeter(HitEffect.HitDamage * Player->MeterPercentOnHitGuard / 100);
 								}
 								else if ((OtherChar->AttackFlags & ATK_IsAttacking) == 0)
 								{
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Hit);
 									EHitAction HACT;
 										
@@ -320,13 +266,12 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									else
 										HACT = NormalHit.AirHitAction;
 
-									const FHitData Data = InitHitDataByAttackLevel(false);
-									OtherChar->ReceivedHitCommon = HitCommon;
-									OtherChar->ReceivedHit = Data;
 									OtherChar->HandleHitAction(HACT);
 								}
 								else
 								{
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									OtherChar->ReceivedHit = CounterData;
 									TriggerEvent(EVT_Hit);
 									TriggerEvent(EVT_CounterHit);
 									EHitAction HACT;
@@ -336,20 +281,8 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									else
 										HACT = CounterHit.AirHitAction;
 									
-									const FHitData Data = InitHitDataByAttackLevel(true);
-									OtherChar->ReceivedHitCommon = HitCommon;
-									OtherChar->ReceivedHit = Data;
 									OtherChar->HandleHitAction(HACT);
 								}
-								if (OtherChar->PosX < PosX)
-								{
-									OtherChar->SetFacing(DIR_Right);
-								}
-								else if (OtherChar->PosX > PosX)
-								{
-									OtherChar->SetFacing(DIR_Left);
-								}
-								OtherChar->DisableAll();
 								if (OtherChar->CurrentHealth <= 0 && (OtherChar->PlayerFlags & PLF_DeathCamOverride) == 0 && (OtherChar->PlayerFlags & PLF_IsDead) == 0)
 								{
 									if (Player->CurrentHealth == 0)
@@ -403,9 +336,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 20000;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30000;
+			HitCommon.AirGuardPushbackY = 15000;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -426,6 +359,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_s");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	case 1:
 		if (HitCommon.BlockstopModifier == -1)
@@ -435,9 +378,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 22500;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30050;
+			HitCommon.AirGuardPushbackY = 15025;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -458,6 +401,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 2;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_s");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	case 2:
 		if (HitCommon.BlockstopModifier == -1)
@@ -467,9 +420,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 27000;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30100;
+			HitCommon.AirGuardPushbackY = 15050;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -490,6 +443,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 4;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_m");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	case 3:
 		if (HitCommon.BlockstopModifier == -1)
@@ -499,9 +462,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 30000;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30150;
+			HitCommon.AirGuardPushbackY = 15075;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -522,6 +485,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 8;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_m");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	case 4:
 		if (HitCommon.BlockstopModifier == -1)
@@ -531,9 +504,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 35000;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30200;
+			HitCommon.AirGuardPushbackY = 15100;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -554,6 +527,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 12;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_l");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	case 5:
 		if (HitCommon.BlockstopModifier == -1)
@@ -563,9 +546,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.GroundGuardPushbackX == -1)
 			HitCommon.GroundGuardPushbackX = 45000;
 		if (HitCommon.AirGuardPushbackX == -1)
-			HitCommon.AirGuardPushbackX = 15000;
+			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == -1)
-			HitCommon.AirGuardPushbackY = 30250;
+			HitCommon.AirGuardPushbackY = 15125;
 		if (HitCommon.GuardGravity == -1)
 			HitCommon.GuardGravity = 1900;
 		if (NormalHit.Hitstop == -1)
@@ -586,6 +569,16 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			NormalHit.Gravity = 30250;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 16;
+		switch (HitCommon.VFXType)
+		{
+		case EHitVFXType::VFX_Strike:
+		case EHitVFXType::VFX_Slash:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_l");
+			break;
+		case EHitVFXType::VFX_Special:
+			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
 		break;
 	}
 	
@@ -609,7 +602,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		Data = NormalHit;
 	else
 		Data = CounterHit;
-
+	
 	return Data;
 }
 
@@ -682,7 +675,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								// OtherObj->Player->AddWhiffCancelOption(OtherObj->Player->GetCurrentStateName());
                                 // OtherObj->Player->EnableWhiffCancel(true);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								// CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(-50, 0, 0));
+								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 0, 0));
                                 // PlayCommonSound("HitClash");
 								return;
 							}
@@ -696,7 +689,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->HitPosY = HitPosY;
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								TriggerEvent(EVT_HitOrBlock);
-								//CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(-50, 0, 0));
+								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 0, 0));
                                 //PlayCommonSound("HitClash");
 								return;
 							}
@@ -711,7 +704,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 
 void ABattleObject::HandleFlip()
 {
-	EObjDir CurrentDir = Direction;
+	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
 	if (PosX < Player->Enemy->PosX)
 	{
@@ -738,6 +731,35 @@ void ABattleObject::HandleFlip()
 	}
 }
 
+void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const
+{
+	switch (Type)
+	{
+	case POS_Self:
+		*OutPosX = PosX;
+		*OutPosY = PosY;
+		break;
+	case POS_Player:
+		*OutPosX = Player->PosX;
+		*OutPosY = Player->PosY;
+		break;
+	case POS_Center:
+		*OutPosX = PosX;
+		*OutPosY = PosY + PushHeight;
+		break;
+	case POS_Enemy:
+		*OutPosX = Player->Enemy->PosX;
+		*OutPosY = Player->Enemy->PosY;
+		break;
+	case POS_Hit:
+		*OutPosX = HitPosX;
+		*OutPosY = HitPosY;
+		break;
+	default:
+		break;
+	}
+}
+
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
 	UState* State = ObjectState;
@@ -755,12 +777,12 @@ void ABattleObject::SaveForRollback(unsigned char* Buffer) const
 	FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
 }
 
-void ABattleObject::LoadForRollback(unsigned char* Buffer)
+void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 {
 	FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
 	if (!IsPlayer)
 	{
-		int StateIndex = Player->ObjectStateNames.Find(ObjectStateName.GetString());
+		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName.GetString());
 		if (StateIndex != INDEX_NONE)
 		{
 			ObjectState = DuplicateObject(Player->ObjectStates[StateIndex], this);
@@ -1029,7 +1051,7 @@ void ABattleObject::ResetObject()
 	SpeedZRate = 100;
 	SpeedZRatePerFrame = 100;
 	GroundHeight = 0;
-	ReturnReg = 0;
+	ReturnReg = false;
 	ActionReg1 = 0;
 	ActionReg2 = 0;
 	ActionReg3 = 0;
@@ -1142,6 +1164,52 @@ void ABattleObject::AddSpeedXRaw(int InSpeedX)
 	}
 }
 
+int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
+	EPosType Pos2)
+{
+	ABattleObject* Actor1 = GetBattleObject(Obj1);
+	ABattleObject* Actor2 = GetBattleObject(Obj2);
+	if (IsValid(Actor1) && IsValid(Actor2))
+	{
+		int32 PosX1 = 0;
+		int32 PosX2 = 0;
+		int32 PosY1 = 0;
+		int32 PosY2 = 0;
+
+		Actor1->PosTypeToPosition(Pos1, &PosX1, &PosY1);
+		Actor2->PosTypeToPosition(Pos2, &PosX2, &PosY2);
+
+		int32 ObjDist;
+		
+		switch (Type)
+		{
+		case DIST_Distance:
+			ObjDist = isqrt(static_cast<int64>(PosX2 - PosX1) * static_cast<int64>(PosX2 - PosX1) + static_cast<int64>(PosY2 - PosY1) * static_cast<int64>(PosY2 - PosY1));
+			break;
+		case DIST_DistanceX:
+			ObjDist = abs(PosX2 - PosX1);
+			break;
+		case DIST_DistanceY:
+			ObjDist = abs(PosY2 - PosY1);
+			break;
+		case DIST_FrontDistanceX:
+			{
+				int DirFlag = 1;
+				if (Actor1->Direction == DIR_Left)
+				{
+					DirFlag = -1;
+				}
+				ObjDist = abs(PosX2 - PosX1) * DirFlag;
+			}
+			break;
+		default:
+			return 0;
+		}
+		return ObjDist;
+	}
+	return 0;
+}
+
 void ABattleObject::SetFacing(EObjDir NewDir)
 {
 	Direction = NewDir;
@@ -1157,7 +1225,7 @@ void ABattleObject::FlipCharacter()
 
 void ABattleObject::FaceOpponent()
 {
-	EObjDir CurrentDir = Direction;
+	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
 	if (PosX < Player->Enemy->PosX)
 	{
@@ -1255,4 +1323,167 @@ void ABattleObject::HaltMomentum()
 	SpeedZ = 0;
 	Gravity = 0;
 	Inertia = 0;
+}
+
+void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector Offset, FRotator Rotation)
+{
+	if (Player->CommonParticleData != nullptr)
+	{
+		for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
+		{
+			if (ParticleStruct.Name == Name)
+			{
+				if (Direction == DIR_Left)
+				{
+					Rotation.Pitch = -Rotation.Pitch;
+					Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+				}
+				int32 TmpPosX;
+				int32 TmpPosY;
+				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
+				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				if (UNiagaraSystem* NiagaraSystem = Cast<UNiagaraSystem>(ParticleStruct.ParticleSystem); IsValid(NiagaraSystem))
+				{
+					GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, NiagaraSystem, FinalLocation, Rotation, GetActorScale()));
+					UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+					NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
+					if (Direction == DIR_Left)
+					{
+						NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+						NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
+					}
+				}
+				break;
+			}
+		}
+	}
+}
+
+void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector Offset, FRotator Rotation)
+{
+	if (Player->CharaParticleData != nullptr)
+	{
+		for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
+		{
+			if (ParticleStruct.Name == Name)
+			{
+				if (Direction == DIR_Left)
+					Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+				int32 TmpPosX;
+				int32 TmpPosY;
+				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
+				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				if (UNiagaraSystem* NiagaraSystem = Cast<UNiagaraSystem>(ParticleStruct.ParticleSystem); IsValid(NiagaraSystem))
+				{
+					GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, NiagaraSystem, FinalLocation, Rotation, GetActorScale()));
+					UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+					NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
+					if (Direction == DIR_Left)
+					{
+						NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+						NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
+						NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
+					}
+				}
+				break;
+			}
+		}
+	}
+}
+
+ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
+{
+	switch (Type)
+	{
+	case OBJ_Self:
+		return this;
+	case OBJ_Enemy:
+		return Player->Enemy;
+	case OBJ_Parent:
+		return Player;
+	case OBJ_Child0:
+		if (IsPlayer && Player->StoredBattleObjects[0])
+			if (Player->StoredBattleObjects[0]->IsActive)
+				return Player->StoredBattleObjects[0];
+		return nullptr;
+	case OBJ_Child1:
+		if (IsPlayer && Player->StoredBattleObjects[1])
+			if (Player->StoredBattleObjects[1]->IsActive)
+				return Player->StoredBattleObjects[1];
+		return nullptr;
+	case OBJ_Child2:
+		if (IsPlayer && Player->StoredBattleObjects[2])
+			if (Player->StoredBattleObjects[2]->IsActive)
+				return Player->StoredBattleObjects[2];
+		return nullptr;
+	case OBJ_Child3:
+		if (IsPlayer && Player->StoredBattleObjects[3])
+			if (Player->StoredBattleObjects[3]->IsActive)
+				return Player->StoredBattleObjects[3];
+		return nullptr;
+	case OBJ_Child4:
+		if (IsPlayer && Player->StoredBattleObjects[4])
+			if (Player->StoredBattleObjects[4]->IsActive)
+				return Player->StoredBattleObjects[4];
+		return nullptr;
+	case OBJ_Child5:
+		if (IsPlayer && Player->StoredBattleObjects[5])
+			if (Player->StoredBattleObjects[5]->IsActive)
+				return Player->StoredBattleObjects[5];
+		return nullptr;
+	case OBJ_Child6:
+		if (IsPlayer && Player->StoredBattleObjects[6])
+			if (Player->StoredBattleObjects[6]->IsActive)
+				return Player->StoredBattleObjects[6];
+		return nullptr;
+	case OBJ_Child7:
+		if (IsPlayer && Player->StoredBattleObjects[7])
+			if (Player->StoredBattleObjects[7]->IsActive)
+				return Player->StoredBattleObjects[7];
+		return nullptr;
+	case OBJ_Child8:
+		if (IsPlayer && Player->StoredBattleObjects[8])
+			if (Player->StoredBattleObjects[8]->IsActive)
+				return Player->StoredBattleObjects[8];
+		return nullptr;
+	case OBJ_Child9:
+		if (IsPlayer && Player->StoredBattleObjects[9])
+			if (Player->StoredBattleObjects[9]->IsActive)
+				return Player->StoredBattleObjects[9];
+		return nullptr;
+	case OBJ_Child10:
+		if (IsPlayer && Player->StoredBattleObjects[10])
+			if (Player->StoredBattleObjects[10]->IsActive)
+				return Player->StoredBattleObjects[10];
+		return nullptr;
+	case OBJ_Child11:
+		if (IsPlayer && Player->StoredBattleObjects[11])
+			if (Player->StoredBattleObjects[11]->IsActive)
+				return Player->StoredBattleObjects[11];
+		return nullptr;
+	case OBJ_Child12:
+		if (IsPlayer && Player->StoredBattleObjects[12])
+			if (Player->StoredBattleObjects[12]->IsActive)
+				return Player->StoredBattleObjects[12];
+		return nullptr;
+	case OBJ_Child13:
+		if (IsPlayer && Player->StoredBattleObjects[13])
+			if (Player->StoredBattleObjects[13]->IsActive)
+				return Player->StoredBattleObjects[13];
+		return nullptr;
+	case OBJ_Child14:
+		if (IsPlayer && Player->StoredBattleObjects[14])
+			if (Player->StoredBattleObjects[14]->IsActive)
+				return Player->StoredBattleObjects[14];
+		return nullptr;
+	case OBJ_Child15:
+		if (IsPlayer && Player->StoredBattleObjects[15])
+			if (Player->StoredBattleObjects[15]->IsActive)
+				return Player->StoredBattleObjects[15];
+		return nullptr;
+	default:
+		return nullptr;
+	}
 }

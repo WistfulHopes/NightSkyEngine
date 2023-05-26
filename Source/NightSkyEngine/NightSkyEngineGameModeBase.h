@@ -13,5 +13,12 @@ UCLASS()
 class NIGHTSKYENGINE_API ANightSkyEngineGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+		
+	bool bAllExistingPlayersRegistered;
+
+	virtual void PostLogin(APlayerController* NewPlayer) override;
+
+public:
+	void RegisterExistingPlayers();
+	void PreLogout(APlayerController *InPlayerController);
 };

@@ -380,7 +380,7 @@ void APlayerObject::Update()
 				Enemy->Pushback = -35000;
 				HitPosX = (PosX + Enemy->PosX) / 2;
 				HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
-				//CreateCommonParticle("cmn_throwtech", POS_Hit);
+				CreateCommonParticle("cmn_throwtech", POS_Hit);
 				return;
 			}
 		}
@@ -453,17 +453,17 @@ void APlayerObject::Update()
 	{
 		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun)
 		{
-			if (GetCurrentStateName() == "Block")
+			if (Stance == ACT_Standing)
 			{
-				JumpToState("Stand");
+				JumpToState("StandBlockEnd");
 			}
-			else if (GetCurrentStateName() == "CrouchBlock")
+			else if (Stance == ACT_Crouching)
 			{
-				JumpToState("Crouch");
+				JumpToState("CrouchBlockEnd");
 			}
 			else
 			{
-				JumpToState("VJump");
+				JumpToState("AirBlockEnd");
 			}
 		}
 		else if (PosY == GroundHeight && (PlayerFlags & PLF_IsKnockedDown) == 0)
@@ -520,6 +520,7 @@ void APlayerObject::Update()
 			JumpToState("FaceDownWakeUp");
 		else if (StoredStateMachine.CurrentState->Name == "FaceUpLoop")
 			JumpToState("FaceUpWakeUp");
+		PlayerFlags &= ~PLF_IsKnockedDown;
 		TotalProration = 10000;
 	}
 
@@ -539,7 +540,10 @@ void APlayerObject::Update()
 		{
 			JumpToState("JumpLanding");
 		}
+		CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	}
+
+	HandleProximityBlock();
 	
 	if (Stance == ACT_Standing) //set pushbox values based on stance
 	{
@@ -763,6 +767,8 @@ void APlayerObject::SetHitValues()
 	case HACT_AirFaceUp:
 	case HACT_AirVertical:
 	case HACT_AirFaceDown:
+		if (PosY < GroundHeight)
+			PosY = GroundHeight + 1;
 		StunTime = ReceivedHit.Untech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
@@ -773,6 +779,8 @@ void APlayerObject::SetHitValues()
 		}
 		break;
 	case HACT_Blowback:
+		if (PosY < GroundHeight)
+			PosY = GroundHeight + 1;
 		StunTime = ReceivedHit.Untech;
 		SpeedX = -FinalAirHitPushbackX * 3 / 2;
 		SpeedY = FinalAirHitPushbackY * 3 / 2;
@@ -807,7 +815,7 @@ void APlayerObject::BattleHudVisibility(bool Visible)
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 {
-	if (BlockType != BLK_None)
+	if (BlockType != BLK_None && EnableFlags & ENB_Block)
 	{
 		FInputCondition Left;
 		FInputBitmask BitmaskLeft;
@@ -848,7 +856,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input4.Sequence.Add(BitmaskLeft);
 		Input4.Method = EInputMethod::Strict;
 		Input4.bInputAllowDisable = false;
-		if ((CheckInput(Input4) || GetCurrentStateName() == "Block") && BlockType != BLK_Low && !CheckInput(Right))
+		if ((CheckInput(Input4) || GetCurrentStateName() == "StandBlock") && BlockType != BLK_Low && !CheckInput(Right))
 		{
 			Input4.Method = EInputMethod::OnceStrict;
 			if (CheckInput(Input4) && InstantBlockLockoutTimer == 0)
@@ -861,30 +869,110 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 	return false;
 }
 
-void APlayerObject::HandleBlockAction(EBlockType BlockType)
+void APlayerObject::HandleBlockAction()
 {
+	Enemy->Hitstop = ReceivedHit.Hitstop;
+	Hitstop = ReceivedHit.Hitstop + ReceivedHitCommon.EnemyBlockstopModifier;
+	StunTime = ReceivedHitCommon.Blockstun;
+
+	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
+
 	FInputCondition Input1;
 	FInputBitmask BitmaskDownLeft;
 	BitmaskDownLeft.InputFlag = INP_DownLeft;
 	Input1.Sequence.Add(BitmaskDownLeft);
 	Input1.Method = EInputMethod::Strict;
-	FInputCondition Left;
-	FInputBitmask BitmaskLeft;
-	BitmaskLeft.InputFlag = INP_Left;
-	Left.Sequence.Add(BitmaskLeft);
-	if ((CheckInput(Left) && PosY > GroundHeight) || GetCurrentStateName() == "AirBlock")
+	Input1.bInputAllowDisable = false;
+	switch (ReceivedHitCommon.AttackLevel)
 	{
-		JumpToState("AirBlock");
+	case 0:
+	default:
+		GotoLabel("Lv1");
+		break;
+	case 1:
+		GotoLabel("Lv1");
+		break;
+	case 2:
+		GotoLabel("Lv2");
+		break;
+	case 3:
+		GotoLabel("Lv2");
+		break;
+	case 4:
+		GotoLabel("Lv3");
+		break;
+	case 5:
+		GotoLabel("Lv3");
+		break;
+	}
+	if (PosY > GroundHeight || GetCurrentStateName() == "AirBlock")
+	{
+		JumpToState("AirBlock", true);
 		Stance = ACT_Jumping;
 	}
-	else if ((CheckInput(Input1) && PosY <= GroundHeight) || GetCurrentStateName() == "CrouchBlock")
+	else if (CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock")
 	{
-		JumpToState("CrouchBlock");
+		JumpToState("CrouchBlock", true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
-		JumpToState("Block");
+		JumpToState("StandBlock", true);
+		Stance = ACT_Standing;
+	}
+	if (PosY > GroundHeight)
+	{
+		SpeedX = -ReceivedHitCommon.AirGuardPushbackX;
+		SpeedY = ReceivedHitCommon.AirGuardPushbackY;
+		Gravity = ReceivedHitCommon.GuardGravity;
+	}
+}
+
+void APlayerObject::HandleProximityBlock()
+{
+	if (!(EnableFlags & ENB_ProximityBlock))
+		return;
+	if (!(Enemy->AttackFlags & ATK_IsAttacking) || !IsCorrectBlock(Enemy->HitCommon.BlockType)
+		|| CalculateDistanceBetweenPoints(DIST_Distance, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > 360000)
+	{
+		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun && StunTime == 0)
+		{
+			if (Stance == ACT_Standing)
+			{
+				JumpToState("StandBlockEnd");
+			}
+			else if (Stance == ACT_Crouching)
+			{
+				JumpToState("CrouchBlockEnd");
+			}
+			else
+			{
+				JumpToState("AirBlockEnd");
+			}
+		}
+		return;
+	}
+	
+	FInputCondition Input1;
+	FInputBitmask BitmaskDownLeft;
+	BitmaskDownLeft.InputFlag = INP_DownLeft;
+	Input1.Sequence.Add(BitmaskDownLeft);
+	Input1.Method = EInputMethod::Strict;
+	Input1.bInputAllowDisable = false;
+	GotoLabel("Pre");
+	if (PosY > GroundHeight)
+	{
+		JumpToState("AirBlock", true);
+		Stance = ACT_Jumping;
+	}
+	else if (CheckInput(Input1))
+	{
+		JumpToState("CrouchBlock", true);
+		Stance = ACT_Crouching;
+	}
+	else 
+	{
+		JumpToState("StandBlock", true);
 		Stance = ACT_Standing;
 	}
 }
@@ -1185,6 +1273,7 @@ void APlayerObject::HandleWallBounce()
 
 void APlayerObject::HandleGroundBounce()
 {
+	CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	ReceivedHit.GroundBounce.GroundBounceCount--;
 	if (SpeedX > 0)
 		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed;
@@ -1603,12 +1692,12 @@ void APlayerObject::LogForSyncTestFile(FILE* file)
 	}
 }
 
-void APlayerObject::EnableState(EEnableFlags EnableType)
+void APlayerObject::EnableState(int32 EnableType)
 {
 	EnableFlags |= EnableType;
 }
 
-void APlayerObject::DisableState(EEnableFlags EnableType)
+void APlayerObject::DisableState(int32 EnableType)
 {
 	EnableFlags = EnableFlags & ~EnableType;
 }
@@ -1647,6 +1736,7 @@ void APlayerObject::EnableAll()
 	EnableState(ENB_SpecialAttack);
 	EnableState(ENB_SuperAttack);
 	EnableState(ENB_Block);
+	EnableState(ENB_ProximityBlock);
 }
 
 void APlayerObject::DisableAll()
@@ -1664,6 +1754,7 @@ void APlayerObject::DisableAll()
 	DisableState(ENB_SpecialAttack);
 	DisableState(ENB_SuperAttack);
 	DisableState(ENB_Block);
+	DisableState(ENB_ProximityBlock);
 }
 
 bool APlayerObject::CheckInputRaw(EInputFlags Input)
@@ -1774,5 +1865,29 @@ void APlayerObject::SetDefaultLandingAction(bool Enable)
 	else
 	{
 		PlayerFlags &= ~PLF_DefaultLandingAction;
+	}
+}
+
+void APlayerObject::SetStrikeInvulnerable(bool Invulnerable)
+{
+	if (Invulnerable)
+	{
+		InvulnFlags |= INV_StrikeInvulnerable;
+	}
+	else
+	{
+		InvulnFlags &= ~INV_StrikeInvulnerable;
+	}
+}
+
+void APlayerObject::SetThrowInvulnerable(bool Invulnerable)
+{
+	if (Invulnerable)
+	{
+		InvulnFlags |= INV_ThrowInvulnerable;
+	}
+	else
+	{
+		InvulnFlags &= ~INV_ThrowInvulnerable;
 	}
 }

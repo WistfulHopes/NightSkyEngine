@@ -2,6 +2,7 @@
 .vs/
 .idea/
 Plugins/Developer/RiderLink/*
+Plugins/OnlineSubsystemRedpointEOS/*
 
 # Compiled Object files
 *.slo
@@ -79,3 +80,4 @@ JonbinsToColData.py
 
 # Final build
 WinBuild/*
+NightSkyEngine.uproject

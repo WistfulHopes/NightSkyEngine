@@ -152,12 +152,9 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
-			if (InputIndex <= -InputSequence[InputIndex].Lenience)
-				return false;
 			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
 				return true;
-			InputIndex--;
-			continue;
+			return false;
 		}
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
@@ -197,12 +194,9 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
-			if (InputIndex <= -InputSequence[InputIndex].Lenience)
-				return false;
-			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
+			if ((InputBufferInternal[i] ^ InputSequence[0].InputFlag) << 27 != 0)
 				return true;
-			InputIndex--;
-			continue;
+			return false;
 		}
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 

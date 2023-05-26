@@ -11,6 +11,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
+class UParticleData;
 class UMaterialData;
 constexpr int32 DamageReactionCelCount = 64;
 constexpr int32 ExtraGaugeCount = 5;
@@ -321,6 +322,11 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 ColorIndex = 1;
 	
+	UPROPERTY(EditAnywhere)
+	UParticleData* CommonParticleData;
+	UPROPERTY(EditAnywhere)
+	UParticleData* CharaParticleData;
+
 	UPROPERTY()
 	TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
 
@@ -354,7 +360,9 @@ public:
 	//check attack against block stance
 	bool IsCorrectBlock(EBlockType BlockType);
 	//jump to correct block state
-	void HandleBlockAction(EBlockType BlockType);
+	void HandleBlockAction();
+	//handles proximity blocking
+	void HandleProximityBlock();
 	//called whenever state changes
 	void OnStateChange();
 	//resets object for next round
@@ -399,10 +407,10 @@ public:
 	bool CheckStateEnabled(EStateType StateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
-	void EnableState(EEnableFlags EnableType);
+	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
 	//disables state type
 	UFUNCTION(BlueprintCallable)
-	void DisableState(EEnableFlags EnableType);
+	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
 	//enable all attacks only
 	UFUNCTION(BlueprintCallable)
 	void EnableAttacks();
@@ -448,6 +456,12 @@ public:
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
+	//sets strike invulnerable enabled
+	UFUNCTION(BlueprintCallable)
+	void SetStrikeInvulnerable(bool Invulnerable);
+	//sets throw invulnerable enabled
+	UFUNCTION(BlueprintCallable)
+	void SetThrowInvulnerable(bool Invulnerable);
 	UFUNCTION(BlueprintCallable)
 	//based on received hit data, set values
 	void SetHitValues();

@@ -26,6 +26,6 @@ class NIGHTSKYENGINE_API UMaterialData : public UDataAsset
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	TArray<FMaterialStruct> MaterialStructs;
 };

@@ -44,7 +44,8 @@ enum EEnableFlags
 	ENB_SpecialAttack = 0x400,
 	ENB_SuperAttack = 0x800,
 	ENB_Block = 0x1000,
-	ENB_Tech = 0x2000,
+	ENB_ProximityBlock = 0x2000,
+	ENB_Tech = 0x4000,
 };
 
 ENUM_CLASS_FLAGS(EEnableFlags);
