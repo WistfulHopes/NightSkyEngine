@@ -57,7 +57,7 @@ Udp::OnLoopPoll(void *cookie)
          }
          break;
       } else if (len > 0) {
-         Log("recvfrom returned (len:%d  from:%s).\n", len, _connection_manager->ToString(connection_id).c_str());
+         //Log("recvfrom returned (len:%d  from:%s).\n", len, _connection_manager->ToString(connection_id).c_str());
          UdpMsg *msg = (UdpMsg *)recv_buf;
          _callbacks->OnMsg(connection_id, msg, len);
       } 
