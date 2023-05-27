@@ -16,12 +16,12 @@ UGGPONetworkAddress* UGGPONetworkAddress::CreateNetworkAddress(UObject* Outer, c
 {
     UGGPONetworkAddress* Result = NewObject<UGGPONetworkAddress>(Outer, Name);
     // Same type, apparently?
-    const wchar_t* address = *Address;
+    const wchar_t* address = (wchar_t*)*Address;
 
     wchar_t WideIpBuffer[128];
     uint32 WideIpBufferSize = (uint32)ARRAYSIZEOF(WideIpBuffer);
     // Check and get port
-    if (swscanf_s(address, L"%[^:]:%hd", WideIpBuffer, WideIpBufferSize, &Result->Port) != 2) {
+    if (swscanf(address, L"%[^:]:%hd", WideIpBuffer, &Result->Port) != 2) {
         Result->bValidAddress = false;
     }
     else
@@ -42,7 +42,7 @@ UGGPONetworkAddress* UGGPONetworkAddress::CreateLocalAddress(UObject* Outer, con
 
     Result->bValidAddress = true;
     Result->Port = (uint16)LocalPort;
-    strcpy_s(Result->IpAddress, "127.0.0.1");
+    strcpy(Result->IpAddress, "127.0.0.1");
 
     return Result;
 }

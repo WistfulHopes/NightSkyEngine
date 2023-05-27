@@ -34,6 +34,7 @@ public:
 protected:
    int AdvanceQueueHead(int frame);
    void AddDelayedInputToQueue(GameInput &input, int i);
+   void Log(const char *fmt, ...);
 
 protected:
    int                  _id;

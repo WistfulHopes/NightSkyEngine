@@ -8,12 +8,12 @@
 #ifndef _SPECTATOR_H
 #define _SPECTATOR_H
 
-#include "../types.h"
-#include "../poll.h"
+#include "types.h"
+#include "poll.h"
+#include "sync.h"
 #include "backend.h"
 #include "timesync.h"
-#include "../network/udp_proto.h"
-#include "include/connection_manager.h"
+#include "network/udp_proto.h"
 
 #define SPECTATOR_FRAME_BUFFER_SIZE    64
 
@@ -34,7 +34,6 @@ public:
    virtual GGPOErrorCode SetFrameDelay(GGPOPlayerHandle player, int delay) { return GGPO_ERRORCODE_UNSUPPORTED; }
    virtual GGPOErrorCode SetDisconnectTimeout(int timeout) { return GGPO_ERRORCODE_UNSUPPORTED; }
    virtual GGPOErrorCode SetDisconnectNotifyStart(int timeout) { return GGPO_ERRORCODE_UNSUPPORTED; }
-   virtual GGPOErrorCode TrySynchronizeLocal() { return GGPO_ERRORCODE_UNSUPPORTED; }
 
 public:
    virtual void OnMsg(int connection_id, UdpMsg *msg, int len);

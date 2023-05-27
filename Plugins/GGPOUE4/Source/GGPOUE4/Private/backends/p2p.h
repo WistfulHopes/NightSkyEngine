@@ -8,12 +8,12 @@
 #ifndef _P2P_H
 #define _P2P_H
 
-#include "../types.h"
-#include "../poll.h"
-#include "../sync.h"
+#include "types.h"
+#include "poll.h"
+#include "sync.h"
 #include "backend.h"
-#include "../network/udp_proto.h"
-#include "include/connection_manager.h"
+#include "timesync.h"
+#include "network/udp_proto.h"
 
 class Peer2PeerBackend : public IQuarkBackend, IPollSink, Udp::Callbacks {
 public:
@@ -22,7 +22,7 @@ public:
 
 
 public:
-   int remoteplayerId    ;
+   int remoteplayerId;
    int remoteplayerQueueu;
    virtual GGPOErrorCode DoPoll(int timeout);
    virtual GGPOErrorCode AddPlayer(GGPOPlayer *player, GGPOPlayerHandle *handle);
@@ -30,14 +30,14 @@ public:
    virtual GGPOErrorCode SyncInput(void *values, int size, int *disconnect_flags);
    virtual GGPOErrorCode IncrementFrame(void);
    virtual GGPOErrorCode DisconnectPlayer(GGPOPlayerHandle handle);
-   virtual GGPOErrorCode GetNetworkStats(FGGPONetworkStats *stats, GGPOPlayerHandle handle);
+   virtual GGPOErrorCode GetNetworkStats(FGGPONetworkStats *stats, GGPOPlayerHandle handle) override;
    virtual GGPOErrorCode SetFrameDelay(GGPOPlayerHandle player, int delay);
    virtual GGPOErrorCode SetDisconnectTimeout(int timeout);
    virtual GGPOErrorCode SetDisconnectNotifyStart(int timeout);
-   virtual GGPOErrorCode TrySynchronizeLocal();
+   virtual GGPOErrorCode TrySynchronizeLocal() override;
 
 public:
-   virtual void OnMsg(int connection_id, UdpMsg *msg, int len);
+   virtual void OnMsg(int connection_id, UdpMsg *msg, int len) override;
 
 protected:
    GGPOErrorCode PlayerHandleToQueue(GGPOPlayerHandle player, int *queue);
@@ -60,7 +60,6 @@ protected:
    GGPOSessionCallbacks  _callbacks;
    Poll                  _poll;
    Sync                  _sync;
-   ConnectionManager*    _connection_manager;
    Udp                   _udp;
    UdpProtocol           *_endpoints;
    UdpProtocol           _spectators[GGPO_MAX_SPECTATORS];

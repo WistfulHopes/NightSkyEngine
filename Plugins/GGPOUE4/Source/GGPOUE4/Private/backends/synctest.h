@@ -8,13 +8,10 @@
 #ifndef _SYNCTEST_H
 #define _SYNCTEST_H
 
+#include "types.h"
 #include "backend.h"
-#include "../sync.h"
-#include "../ring_buffer.h"
-
-#ifdef _MSC_VER
-#pragma warning(disable: 4263 4264)
-#endif
+#include "sync.h"
+#include "ring_buffer.h"
 
 class SyncTestBackend : public IQuarkBackend {
 public:
@@ -26,7 +23,7 @@ public:
    virtual GGPOErrorCode AddLocalInput(GGPOPlayerHandle player, void *values, int size);
    virtual GGPOErrorCode SyncInput(void *values, int size, int *disconnect_flags);
    virtual GGPOErrorCode IncrementFrame(void);
-   virtual GGPOErrorCode Logv(const char *fmt, va_list list);
+   virtual GGPOErrorCode Logv(const char *fmt, va_list list) override;
 
 protected:
    struct SavedInfo {

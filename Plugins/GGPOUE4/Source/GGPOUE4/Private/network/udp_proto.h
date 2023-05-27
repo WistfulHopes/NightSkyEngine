@@ -8,14 +8,13 @@
 #ifndef _UDP_PROTO_H_
 #define _UDP_PROTO_H_
 
-#include "../poll.h"
+#include "poll.h"
 #include "udp.h"
 #include "udp_msg.h"
-#include "../game_input.h"
-#include "../timesync.h"
+#include "game_input.h"
+#include "timesync.h"
 #include "include/ggponet.h"
-#include "../ring_buffer.h"
-#include "include/connection_manager.h"
+#include "ring_buffer.h"
 
 class UdpProtocol : public IPollSink
 {
@@ -79,7 +78,7 @@ public:
   
    void GetNetworkStats(struct FGGPONetworkStats *stats);
    bool GetEvent(UdpProtocol::Event &e);
-   void FGGPONetworkStats(Stats *stats);
+   void GGPONetworkStats(Stats *stats);
    void SetLocalFrameNumber(int num);
    int RecommendFrameDelay();
 
@@ -129,7 +128,7 @@ protected:
     */
    ConnectionManager* connection_manager;
    Udp            *_udp;
-   int            _connection_id;
+   int             _connection_id; 
    uint16         _magic_number;
    int            _queue;
    uint16         _remote_magic_number;

@@ -10,16 +10,23 @@
 #include "backends/synctest.h"
 #include "backends/spectator.h"
 #include "include/ggponet.h"
-#include "include/connection_manager.h"
 
-#if defined(_WINDOWS)
-BOOL WINAPI
-DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
+void
+ggpo_log(GGPOSession *ggpo, const char *fmt, ...)
 {
-   srand(PlatformGGPO::GetCurrentTimeMS() + PlatformGGPO::GetProcessID());
-   return true;
+   va_list args;
+   va_start(args, fmt);
+   //GGPONet::ggpo_logv(ggpo, fmt, args);
+   va_end(args);
 }
-#endif
+
+void
+ggpo_logv(GGPOSession *ggpo, const char *fmt, va_list args)
+{
+   if (ggpo) {
+      ggpo->Logv(fmt, args);
+   }
+}
 
 GGPOErrorCode
 GGPONet::ggpo_start_session(GGPOSession **session,
@@ -173,13 +180,11 @@ GGPONet::ggpo_set_disconnect_notify_start(GGPOSession *ggpo, int timeout)
    return ggpo->SetDisconnectNotifyStart(timeout);
 }
 
-GGPOErrorCode
-GGPONet::ggpo_try_synchronize_local(GGPOSession* ggpo)
+GGPOErrorCode GGPONet::ggpo_try_synchronize_local(GGPOSession* ggpo)
 {
-    if (!ggpo) {
-        return GGPO_ERRORCODE_INVALID_SESSION;
-    }
-    return ggpo->TrySynchronizeLocal();
+   if (!ggpo)
+      return GGPO_ERRORCODE_INVALID_SESSION;
+   return ggpo->TrySynchronizeLocal();
 }
 
 GGPOErrorCode GGPONet::ggpo_start_spectating(GGPOSession **session,

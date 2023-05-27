@@ -29,32 +29,30 @@ void Log(const char *fmt, ...)
 
 void Logv(const char *fmt, va_list args)
 {
-   if (!PlatformGGPO::GetConfigBool("ggpo.log") || PlatformGGPO::GetConfigBool("ggpo.log.ignore")) {
+   if (!getenv("GGPO_LOG") || getenv("GGPO_LOG_IGNORE")) {
       return;
    }
    if (!logfile) {
-      sprintf_s(logbuf, ARRAY_SIZE(logbuf), "log-%lu.log", (unsigned long)PlatformGGPO::GetProcessID());
-      fopen_s(&logfile, logbuf, "w");
+      sprintf(logbuf, "log-%d.log", Platform::GetProcessID());
+      fopen(logbuf, "w");
    }
    Logv(logfile, fmt, args);
 }
 
 void Logv(FILE *fp, const char *fmt, va_list args)
 {
-   if (PlatformGGPO::GetConfigBool("ggpo.log.timestamps")) {
-      static int start = 0;
-      int t = 0;
-      if (!start) {
-         start = PlatformGGPO::GetCurrentTimeMS();
-      } else {
-         t = PlatformGGPO::GetCurrentTimeMS() - start;
-      }
-      fprintf(fp, "%d.%03d : ", t / 1000, t % 1000);
+   static int start = 0;
+   int t = 0;
+   if (!start) {
+      start = Platform::GetCurrentTimeMS();
+   } else {
+      t = Platform::GetCurrentTimeMS() - start;
    }
+   fprintf(fp, "%d.%03d : ", t / 1000, t % 1000);
 
    vfprintf(fp, fmt, args);
    fflush(fp);
    
-   vsprintf_s(logbuf, ARRAY_SIZE(logbuf), fmt, args);
+   vsprintf(logbuf, fmt, args);
 }
 

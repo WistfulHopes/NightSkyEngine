@@ -47,24 +47,17 @@ TimeSync::recommend_frame_wait_duration(bool require_idle_input)
    static int count = 0;
    count++;
 
+   // See if someone should take action.  The person furthest ahead
+   // needs to slow down so the other user can catch up.
+   // Only do this if both clients agree on who's ahead!!
+   if (advantage >= radvantage) {
+      return 0;
+   }
 
    // Both clients agree that we're the one ahead.  Split
    // the difference between the two to figure out how long to
    // sleep for.
    int sleep_frames = (int)(((radvantage - advantage) / 2) + 0.5);
-
-   // See if someone should take action.  The person furthest ahead
-   // needs to slow down so the other user can catch up.
-   // Only do this if both clients agree on who's ahead!!
-   if (advantage >= radvantage) {
-      Log("Frames ahead %d",sleep_frames);
-      UE_LOG(LogTemp,Warning,TEXT("Advantage:%d;%d;%d"),sleep_frames,advantage,radvantage);
-      sleep_frames*=-1;
-      if(sleep_frames>0)
-      return sleep_frames*-1;
-   }
-
- 
 
    Log("iteration %d:  sleep frames is %d\n", count, sleep_frames);
 

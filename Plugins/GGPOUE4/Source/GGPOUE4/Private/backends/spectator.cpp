@@ -6,8 +6,6 @@
  */
 
 #include "spectator.h"
-#include "include/connection_manager.h"
-#include "GGPOUE4.h"
 
 SpectatorBackend::SpectatorBackend(GGPOSessionCallbacks *cb,
                                    const char* gamename,
@@ -15,8 +13,8 @@ SpectatorBackend::SpectatorBackend(GGPOSessionCallbacks *cb,
                                    int num_players,
                                    int input_size,
                                    int connection_id) :
-   _num_players(num_players),
    _input_size(input_size),
+   _num_players(num_players),
    _next_input_to_send(0)
 {
    _callbacks = *cb;
@@ -27,7 +25,7 @@ SpectatorBackend::SpectatorBackend(GGPOSessionCallbacks *cb,
    }
 
    /*
-    * Initialize the UDP container
+    * Initialize the UDP port
     */
    _udp.Init(&_poll, this, connection_manager);
 
@@ -77,7 +75,7 @@ SpectatorBackend::SyncInput(void *values,
       return GGPO_ERRORCODE_GENERAL_FAILURE;
    }
 
-   check(size >= _input_size * _num_players);
+   ASSERT(size >= _input_size * _num_players);
    memcpy(values, input.bits, _input_size * _num_players);
    if (disconnect_flags) {
       *disconnect_flags = 0; // xxx: should get them from the host!
@@ -90,7 +88,7 @@ SpectatorBackend::SyncInput(void *values,
 GGPOErrorCode
 SpectatorBackend::IncrementFrame(void)
 {  
-   UE_LOG(GGPOLOG, Verbose, TEXT("End of frame (%d)..."), _next_input_to_send - 1);
+   Log("End of frame (%d)...\n", _next_input_to_send - 1);
    DoPoll(0);
    PollUdpProtocolEvents();
 

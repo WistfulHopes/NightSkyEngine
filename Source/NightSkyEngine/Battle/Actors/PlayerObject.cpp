@@ -593,7 +593,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		TotalProration = 10000;
 	Proration = Proration * TotalProration / 10000;
 	
-	if ((AttackFlags & ATK_ProrateOnce) == 0 || AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0)
+	if ((AttackFlags & ATK_ProrateOnce) == 0 || (AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0))
 		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
 	
 	int FinalDamage;
@@ -676,7 +676,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 				BufferedStateName.SetString("CrouchHitstun4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
 				BufferedStateName.SetString("CrouchHitstun5");
-				StunTime += 2;
+			StunTime += 2;
 		}
 		break;
 	case HACT_Crumple:
@@ -827,7 +827,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputBitmask BitmaskRight;
 		BitmaskRight.InputFlag = INP_Right;
 		Right.Sequence.Add(BitmaskRight);
-		if (CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight || GetCurrentStateName() == "AirBlock")
+		if ((CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight) || GetCurrentStateName() == "AirBlock")
 		{
 			Left.Method = EInputMethod::Once;
 			if (CheckInput(Left) && InstantBlockLockoutTimer == 0)

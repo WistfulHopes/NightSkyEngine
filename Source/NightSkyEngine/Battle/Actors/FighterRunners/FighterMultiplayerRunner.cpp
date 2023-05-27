@@ -105,7 +105,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	FString savedDir = FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir());
 
 	savedDir.Append(filename);
-	fopen_s(&fp, TCHAR_TO_ANSI(*savedDir), "w");
+	fopen(TCHAR_TO_ANSI(*savedDir), "w");
 	if (fp)
 	{
 		FRollbackData* rollbackdata = (FRollbackData*)malloc(sizeof(FRollbackData));
@@ -183,7 +183,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 
 void AFighterMultiplayerRunner::FreeBuffer(void* buffer)
 {
-	delete[] buffer;
+	delete[] static_cast<char*>(buffer);
 }
 
 bool AFighterMultiplayerRunner::AdvanceFrameCallback(int flag)

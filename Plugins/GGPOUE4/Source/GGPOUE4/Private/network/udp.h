@@ -8,12 +8,10 @@
 #ifndef _UDP_H
 #define _UDP_H
 
-#include "../poll.h"
+#include "poll.h"
+#include "udp_msg.h"
+#include "include/ggponet.h"
 #include "include/connection_manager.h"
-
-// Forward declarations
-struct UdpMsg;
-
 
 #define MAX_UDP_ENDPOINTS     16
 
@@ -33,10 +31,14 @@ public:
       virtual void OnMsg(int connection_id, UdpMsg *msg, int len) = 0;
    };
 
+
+protected:
+   void Log(const char *fmt, ...);
+
 public:
    Udp();
 
-   void Init(Poll *p, Callbacks *callbacks, ConnectionManager* connectionManager);
+   void Init(Poll *p, Callbacks *callbacks, ConnectionManager* connection_manager);
    
    void SendTo(char *buffer, int len, int flags, int connection_id);
 
@@ -46,7 +48,7 @@ public:
    ~Udp(void);
 
 protected:
-   ConnectionManager *_connection_manager;
+   ConnectionManager* _connection_manager;
 
    // state management
    Callbacks      *_callbacks;

@@ -5,8 +5,8 @@
  * in the LICENSE file.
  */
 
-#ifndef GGPO_TYPES_H
-#define GGPO_TYPES_H
+#ifndef _TYPES_H
+#define _TYPES_H
 /*
  * Keep the compiler happy
  */
@@ -20,32 +20,20 @@
  *   4389 - '!=' : signed/unsigned mismatch
  *   4800 - 'int' : forcing value to bool 'true' or 'false' (performance warning)
  */
-#ifdef _MSC_VER
 #pragma warning(disable: 4018 4100 4127 4201 4389 4800)
-#endif
 
- /*
+/*
  * Simple types
  */
-typedef unsigned char uint8;
-typedef unsigned short uint16;
-typedef unsigned int uint32;
 typedef unsigned char byte;
-typedef signed char int8;
-typedef short int16;
-typedef int int32;
 
 /*
  * Additional headers
  */
 #if defined(_WINDOWS)
 #  include "platform_windows.h"
-#elif defined(__linux__)
-#  include "platform_linux.h"
-#elif defined(_PS4)
-#  include "platform_ps4.h"
-#elif defined(_XBOX_ONE)
-#  include "platform_xboxone.h"
+#elif defined(__APPLE__) or defined(__GNUC__)
+#  include "platform_unix.h"
 #else
 #  error Unsupported platform
 #endif
@@ -61,12 +49,12 @@ typedef int int32;
    do {                                                     \
       if (!(x)) {                                           \
          char assert_buf[1024];                             \
-         snprintf(assert_buf, sizeof(assert_buf) - 1, "Assertion: %s @ %s:%d (pid:%lu)", #x, __FILE__, __LINE__, (unsigned long)PlatformGGPO::GetProcessID()); \
+         snprintf(assert_buf, sizeof(assert_buf) - 1, "Assertion: %s @ %s:%d (pid:%d)", #x, __FILE__, __LINE__, Platform::GetProcessID()); \
          Log("%s\n", assert_buf);                           \
          Log("\n");                                         \
          Log("\n");                                         \
          Log("\n");                                         \
-         PlatformGGPO::AssertFailed(assert_buf);                \
+         Platform::AssertFailed(assert_buf);                \
          exit(0);                                           \
       }                                                     \
    } while (false)
@@ -87,4 +75,4 @@ typedef int int32;
 #  define MIN(x, y)        (((x) < (y)) ? (x) : (y))
 #endif
 
-#endif // GGPO_TYPES_H
+#endif // _TYPES_H

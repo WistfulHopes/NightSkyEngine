@@ -6,11 +6,10 @@
  */
 
 #include "sync.h"
-#include "GGPOUE4.h"
 
 Sync::Sync(UdpMsg::connect_status *connect_status) :
- _local_connect_status(connect_status),
- _input_queues(NULL)
+ _input_queues(NULL),
+ _local_connect_status(connect_status)
 {
    _framecount = 0;
    _last_confirmed_frame = -1;
@@ -60,8 +59,7 @@ Sync::AddLocalInput(int queue, GameInput &input)
 {
    int frames_behind = _framecount - _last_confirmed_frame; 
    if (_framecount >= _max_prediction_frames && frames_behind >= _max_prediction_frames) {
-	  UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::AddLocalInput Rejecting input from emulator: reached prediction barrier."));
-
+      Log("Rejecting input from emulator: reached prediction barrier.\n");
       return false;
    }
 
@@ -69,7 +67,7 @@ Sync::AddLocalInput(int queue, GameInput &input)
       SaveCurrentFrame();
    }
 
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::AddLocalInput Sending undelayed local frame %d to queue %d."), _framecount, queue);
+   Log("Sending undelayed local frame %d to queue %d.\n", _framecount, queue);
    input.frame = _framecount;
    _input_queues[queue].AddInput(input);
 
@@ -88,7 +86,7 @@ Sync::GetConfirmedInputs(void *values, int size, int frame)
    int disconnect_flags = 0;
    char *output = (char *)values;
 
-   check(size >= _config.num_players * _config.input_size);
+   ASSERT(size >= _config.num_players * _config.input_size);
 
    memset(output, 0, size);
    for (int i = 0; i < _config.num_players; i++) {
@@ -110,7 +108,7 @@ Sync::SynchronizeInputs(void *values, int size)
    int disconnect_flags = 0;
    char *output = (char *)values;
 
-   check(size >= _config.num_players * _config.input_size);
+   ASSERT(size >= _config.num_players * _config.input_size);
 
    memset(output, 0, size);
    for (int i = 0; i < _config.num_players; i++) {
@@ -138,7 +136,6 @@ Sync::CheckSimulation(int timeout)
 void
 Sync::IncrementFrame(void)
 {
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::IncrementFrame %d"), _framecount);
    _framecount++;
    SaveCurrentFrame();
 }
@@ -149,14 +146,14 @@ Sync::AdjustSimulation(int seek_to)
    int framecount = _framecount;
    int count = _framecount - seek_to;
 
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::AdjustSimulation Catching up"));
+   Log("Catching up\n");
    _rollingback = true;
 
    /*
     * Flush our input queue and load the last frame.
     */
    LoadFrame(seek_to);
-   check(_framecount == seek_to);
+   ASSERT(_framecount == seek_to);
 
    /*
     * Advance frame by frame (stuffing notifications back to 
@@ -166,11 +163,11 @@ Sync::AdjustSimulation(int seek_to)
    for (int i = 0; i < count; i++) {
       _callbacks.advance_frame(0);
    }
-   check(_framecount == framecount);
+   ASSERT(_framecount == framecount);
 
    _rollingback = false;
 
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::AdjustSimulation ---"));
+   Log("---\n");   
 }
 
 void
@@ -178,8 +175,7 @@ Sync::LoadFrame(int frame)
 {
    // find the frame in question
    if (frame == _framecount) {
-
-	   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::LoadFrame Skipping NOP."));
+      Log("Skipping NOP.\n");
       return;
    }
 
@@ -187,11 +183,10 @@ Sync::LoadFrame(int frame)
    _savedstate.head = FindSavedFrameIndex(frame);
    SavedFrame *state = _savedstate.frames + _savedstate.head;
 
+   Log("=== Loading frame info %d (size: %d  checksum: %08x).\n",
+       state->frame, state->cbuf, state->checksum);
 
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::LoadFrame === Loading frame info %d (size: %d  checksum: %08x)."),
-	   state->frame, state->cbuf, state->checksum);
-
-   check(state->buf && state->cbuf);
+   ASSERT(state->buf && state->cbuf);
    _callbacks.load_game_state(state->buf, state->cbuf);
 
    // Reset framecount and the head of the state ring-buffer to point in
@@ -214,8 +209,8 @@ Sync::SaveCurrentFrame()
    }
    state->frame = _framecount;
    _callbacks.save_game_state(&state->buf, &state->cbuf, &state->checksum, state->frame);
-   UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::SaveCurrentFrame === Saved frame info %d (size: %d  checksum: %08x)."),
-	   state->frame, state->cbuf, state->checksum);
+
+   Log("=== Saved frame info %d (size: %d  checksum: %08x).\n", state->frame, state->cbuf, state->checksum);
    _savedstate.head = (_savedstate.head + 1) % ARRAY_SIZE(_savedstate.frames);
 }
 
@@ -240,7 +235,7 @@ Sync::FindSavedFrameIndex(int frame)
       }
    }
    if (i == count) {
-	   check(false);
+      ASSERT(FALSE);
    }
    return i;
 }
@@ -264,15 +259,15 @@ Sync::CheckSimulationConsistency(int *seekTo)
    int first_incorrect = GameInput::NullFrame;
    for (int i = 0; i < _config.num_players; i++) {
       int incorrect = _input_queues[i].GetFirstIncorrectFrame();
-	  UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::CheckSimulationConsistency considering incorrect frame %d reported by queue %d."),
-		  incorrect, i);
+      Log("considering incorrect frame %d reported by queue %d.\n", incorrect, i);
+
       if (incorrect != GameInput::NullFrame && (first_incorrect == GameInput::NullFrame || incorrect < first_incorrect)) {
          first_incorrect = incorrect;
       }
    }
 
    if (first_incorrect == GameInput::NullFrame) {
-	  UE_LOG(GGPOLOG, Verbose, TEXT("GGPOSync::CheckSimulationConsistency prediction ok.  proceeding."));
+      Log("prediction ok.  proceeding.\n");
       return true;
    }
    *seekTo = first_incorrect;

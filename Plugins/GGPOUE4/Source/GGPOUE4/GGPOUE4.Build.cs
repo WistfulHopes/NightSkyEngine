@@ -34,10 +34,6 @@ public class GGPOUE4 : ModuleRules
         {
 			PublicDefinitions.Add("MACOS");
 		}
-		else if (Target.Platform == UnrealTargetPlatform.Linux)
-        {
-			PublicDefinitions.Add("__GNUC__");
-		}
 	
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

@@ -157,7 +157,7 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 
 void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 {
-		if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && !OtherChar->InvulnFlags & INV_StrikeInvulnerable && !OtherChar->StrikeInvulnerableTimer && OtherChar != Player)
+		if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && !(OtherChar->InvulnFlags & INV_StrikeInvulnerable) && !OtherChar->StrikeInvulnerableTimer && OtherChar != Player)
 	{
 		if (!(AttackFlags & ATK_AttackHeadAttribute && OtherChar->InvulnFlags & INV_HeadInvulnerable) && !(AttackFlags & ATK_AttackProjectileAttribute && OtherChar->InvulnFlags & INV_ProjectileInvulnerable))
 		{
