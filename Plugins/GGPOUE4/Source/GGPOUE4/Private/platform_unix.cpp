@@ -4,6 +4,7 @@
  * Use of this software is governed by the MIT license that can be found
  * in the LICENSE file.
  */
+#ifdef __linux__
 
 #include "platform_unix.h"
 
@@ -31,3 +32,4 @@ void Platform::CreateDirectory(const char* pathname, const void* junk) {
 static void __attribute__((constructor)) DllMain() {
    srand(Platform::GetCurrentTimeMS() + Platform::GetProcessID());
 }
+#endif

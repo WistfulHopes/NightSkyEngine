@@ -571,9 +571,9 @@ namespace neosmart {
             uint64_t rounds = milliseconds / waitUnit;
             uint32_t remainder = milliseconds % waitUnit;
 
-            uint32_t result = WaitForMultipleObjects(count, handles, waitAll, remainder);
-            while (result == WAIT_TIMEOUT && rounds-- != 0) {
-                result = WaitForMultipleObjects(count, handles, waitAll, waitUnit);
+            uint32_t result2 = WaitForMultipleObjects(count, handles, waitAll, remainder);
+            while (result2 == WAIT_TIMEOUT && rounds-- != 0) {
+                result2 = WaitForMultipleObjects(count, handles, waitAll, waitUnit);
             }
         }
 

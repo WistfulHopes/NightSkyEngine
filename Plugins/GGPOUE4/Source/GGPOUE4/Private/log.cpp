@@ -33,7 +33,7 @@ void Logv(const char *fmt, va_list args)
       return;
    }
    if (!logfile) {
-      sprintf(logbuf, "log-%d.log", Platform::GetProcessID());
+      sprintf(logbuf, "log-%d.log", static_cast<int>(Platform::GetProcessID()));
       fopen(logbuf, "w");
    }
    Logv(logfile, fmt, args);

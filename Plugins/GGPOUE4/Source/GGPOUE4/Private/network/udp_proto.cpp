@@ -436,7 +436,7 @@ UdpProtocol::LogMsg(const char *prefix, UdpMsg *msg)
       Log("%s input ack.\n", prefix);
       break;
    default:
-      ASSERT(FALSE && "Unknown UdpMsg type.");
+      ASSERT(false && "Unknown UdpMsg type.");
    }
 }
 
@@ -453,7 +453,7 @@ UdpProtocol::LogEvent(const char *prefix, const UdpProtocol::Event &evt)
 bool
 UdpProtocol::OnInvalid(UdpMsg *msg, int len)
 {
-   ASSERT(FALSE && "Invalid msg in UdpProtocol");
+   ASSERT(false && "Invalid msg in UdpProtocol");
    return false;
 }
 

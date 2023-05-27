@@ -8,38 +8,6 @@
 #include "udp.h"
 #include "types.h"
 
-SOCKET
-CreateSocket(uint16 bind_port, int retries)
-{
-   SOCKET s;
-   sockaddr_in sin;
-   uint16 port;
-   int optval = 1;
-   struct linger loptval;
-   loptval.l_onoff = 0;
-   loptval.l_linger = 0;
-
-   s = socket(AF_INET, SOCK_DGRAM, 0);
-   setsockopt(s, SOL_SOCKET, SO_REUSEADDR, (const char *)&optval, sizeof optval);
-   setsockopt(s, SOL_SOCKET, SO_LINGER, (const char *)&loptval, sizeof loptval);
-
-   // non-blocking...
-   u_long iMode = 1;
-   ioctlsocket(s, FIONBIO, &iMode);
-
-   sin.sin_family = AF_INET;
-   sin.sin_addr.s_addr = htonl(INADDR_ANY);
-   for (port = bind_port; port <= bind_port + retries; port++) {
-      sin.sin_port = htons(port);
-      if (bind(s, (sockaddr *)&sin, sizeof sin) != SOCKET_ERROR) {
-         Log("Udp bound to port: %d.\n", port);
-         return s;
-      }
-   }
-   closesocket(s);
-   return INVALID_SOCKET;
-}
-
 Udp::Udp() :
    _connection_manager(),
    _callbacks(NULL),
@@ -89,7 +57,6 @@ Udp::OnLoopPoll(void *cookie)
          }
          break;
       } else if (len > 0) {
-         char src_ip[1024];
          Log("recvfrom returned (len:%d  from:%s).\n", len, _connection_manager->ToString(connection_id).c_str());
          UdpMsg *msg = (UdpMsg *)recv_buf;
          _callbacks->OnMsg(connection_id, msg, len);

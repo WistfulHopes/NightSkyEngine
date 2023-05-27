@@ -5,6 +5,8 @@
  * in the LICENSE file.
  */
 
+#ifdef __linux__
+
 #ifndef _GGPO_UNIX_H_
 #define _GGPO_UNIX_H_
 
@@ -54,4 +56,5 @@ public:  // functions
    static void CreateDirectory(const char* pathname, const void* junk);
 };
 
+#endif
 #endif
