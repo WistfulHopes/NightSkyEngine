@@ -469,7 +469,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	//handles pushing objects
-	void HandlePushCollision(const ABattleObject* OtherObj);
+	void HandlePushCollision(ABattleObject* OtherObj);
 	//handles hitting objects
 	void HandleHitCollision(APlayerObject* OtherChar);
 	//initializes hit data by attack level

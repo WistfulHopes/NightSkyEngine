@@ -39,6 +39,9 @@ void UNightSkyGameInstance::OnSessionInviteAccepted(bool bArg, int I,
 	TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
 	const FOnlineSessionSearchResult& OnlineSessionSearchResult)
 {
+	FighterRunner = Multiplayer;
+	PlayerIndex = 1;
+	
 	InviteResult = OnlineSessionSearchResult;
 	
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());

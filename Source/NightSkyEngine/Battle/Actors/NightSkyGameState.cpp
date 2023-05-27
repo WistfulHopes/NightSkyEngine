@@ -50,6 +50,7 @@ void ANightSkyGameState::Init()
 				{
 					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->PlayerList[i]);
 					Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
+					Players[i]->TeamIndex = i % MaxPlayerObjects / 2;
 					for (int j = 0; j < i; j++)
 					{
 						if (IsValid(GameInstance->PlayerList[j]))
@@ -536,6 +537,7 @@ void ANightSkyGameState::SetWallCollision()
 			if (Players[i]->PlayerFlags & PLF_IsOnScreen && Players[i]->MiscFlags & MISC_WallCollisionActive)
 			{
 				Players[i]->PlayerFlags |= PLF_TouchingWall;
+				Players[i]->WallTouchTimer++;
 				if (Players[i]->PosX >= 840000 + BattleState.CurrentScreenPos)
 				{
 					Players[i]->PosX = 840000 + BattleState.CurrentScreenPos;
@@ -547,6 +549,7 @@ void ANightSkyGameState::SetWallCollision()
 				else
 				{
 					Players[i]->PlayerFlags &= ~PLF_TouchingWall;
+				Players[i]->WallTouchTimer = 0;
 				}
 			}
 		}

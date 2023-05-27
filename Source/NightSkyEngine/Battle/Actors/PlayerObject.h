@@ -214,6 +214,8 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
+	UPROPERTY(BlueprintReadOnly)
+	int32 TeamIndex;
 
 	UPROPERTY(BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
@@ -231,6 +233,7 @@ public:
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	int32 RoundWinTimer = 300;
+	int32 WallTouchTimer;
 	
 	/*
 	 * Object pointers.
@@ -429,6 +432,9 @@ public:
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
+	//is in block or hitstun
+	UFUNCTION(BlueprintPure)
+	bool CheckIsStunned() const;
 	//temporarily adds air jump
 	UFUNCTION(BlueprintCallable)
 	void AddAirJump(int32 NewAirJump);

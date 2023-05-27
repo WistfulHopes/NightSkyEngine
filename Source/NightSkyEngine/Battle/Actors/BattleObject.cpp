@@ -109,7 +109,7 @@ void ABattleObject::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
+void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 {
 	if (MiscFlags & MISC_PushCollisionActive && OtherObj->MiscFlags & MISC_PushCollisionActive)
 	{
@@ -125,7 +125,18 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 					{
 						if (IsPlayer == OtherObj->IsPlayer)
 						{
-							IsPushLeft = Player->PlayerIndex > 0;
+							if (Player->WallTouchTimer == OtherObj->Player->WallTouchTimer)
+							{
+								IsPushLeft = Player->TeamIndex > 0;
+							}
+							else
+							{
+								IsPushLeft = Player->WallTouchTimer > OtherObj->Player->WallTouchTimer;
+								if (PosX > 0)
+								{
+									IsPushLeft = Player->WallTouchTimer <= OtherObj->Player->WallTouchTimer;
+								}
+							}
 						}
 						else
 						{
@@ -149,7 +160,8 @@ void ABattleObject::HandlePushCollision(const ABattleObject* OtherObj)
 				{
 					CollisionDepth = OtherObj->R - L;
 				}
-				PosX += CollisionDepth;
+				PosX += CollisionDepth / 2;
+				OtherObj->PosX -= CollisionDepth / 2;
 			}
 		}
 	}
@@ -202,25 +214,43 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								OtherChar->PlayerFlags |= PLF_IsStunned;
 								AttackFlags &= ~ATK_HitActive;
 								AttackFlags |= ATK_HasHit;
+								
 								int CollisionDepthX;
-								if (Hitbox.PosX < Hurtbox.PosX)
-									CollisionDepthX = Hurtbox.PosX - Hurtbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX / 2);
+								if (Hitbox.PosX < OtherChar->PosX)
+								{
+									CollisionDepthX = OtherChar->PosX - (Hitbox.PosX + Hitbox.SizeX / 2);
+									HitPosX = Hitbox.PosX + CollisionDepthX;
+								}
 								else
-									CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (Hurtbox.PosX + Hurtbox.SizeX / 2);
+								{
+									CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - OtherChar->PosX;
+									HitPosX = Hitbox.PosX - CollisionDepthX;
+								}
 								int CollisionDepthY;
-								if (Hitbox.PosY < Hurtbox.PosY)
-									CollisionDepthY = Hurtbox.PosY - Hurtbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY / 2);
+								int32 CenterPosY = OtherChar->PosY;
+								switch (OtherChar->Stance)
+								{
+								case ACT_Standing:
+								case ACT_Jumping:
+								default:
+									CenterPosY += 200000;
+									break;
+								case ACT_Crouching:
+									CenterPosY += 90000;
+									break;
+								}
+								if (Hitbox.PosY < CenterPosY)
+								{
+									CollisionDepthY = CenterPosY - (Hitbox.PosY + Hitbox.SizeY / 2);
+									HitPosY = Hitbox.PosY + CollisionDepthY;
+								}
 								else
-									CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (Hurtbox.PosY + Hurtbox.SizeY / 2);
-								HitPosX = Hitbox.PosX - CollisionDepthX / 2;
-								HitPosY = Hitbox.PosY - CollisionDepthY / 2;
+								{
+									CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
+									HitPosY = Hitbox.PosY - CollisionDepthY;
+								}
 								
 								TriggerEvent(EVT_HitOrBlock);
-
-								const FHitData Data = InitHitDataByAttackLevel(false);
-								const FHitData CounterData = InitHitDataByAttackLevel(true);
-								OtherChar->ReceivedHitCommon = HitCommon;
-								OtherChar->ReceivedHit = Data;
 								
 								if (OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 								{
@@ -228,9 +258,13 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									CreateCommonParticle("cmn_guard", POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Block);
 									
-									OtherChar->StunTime = HitCommon.Blockstun;
 									const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
 									OtherChar->CurrentHealth -= ChipDamage;
+									
+									const FHitData Data = InitHitDataByAttackLevel(false);
+									OtherChar->ReceivedHitCommon = HitCommon;
+									OtherChar->ReceivedHit = Data;
+									
 									if (OtherChar->CurrentHealth <= 0)
 									{
 										EHitAction HACT;
@@ -239,7 +273,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 											HACT = NormalHit.GroundHitAction;
 										else
 											HACT = NormalHit.AirHitAction;
-
+										
 										OtherChar->HandleHitAction(HACT);
 									}
 									else
@@ -257,8 +291,12 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								}
 								else if ((OtherChar->AttackFlags & ATK_IsAttacking) == 0)
 								{
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Hit);
+									
+									const FHitData Data = InitHitDataByAttackLevel(false);
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									OtherChar->ReceivedHitCommon = HitCommon;
+									OtherChar->ReceivedHit = Data;
 									EHitAction HACT;
 										
 									if (OtherChar->PosY == OtherChar->GroundHeight && !(OtherChar->PlayerFlags & PLF_IsKnockedDown))
@@ -270,10 +308,14 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								}
 								else
 								{
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
-									OtherChar->ReceivedHit = CounterData;
 									TriggerEvent(EVT_Hit);
 									TriggerEvent(EVT_CounterHit);
+									
+									const FHitData CounterData = InitHitDataByAttackLevel(true);
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									OtherChar->ReceivedHitCommon = HitCommon;
+									OtherChar->ReceivedHit = CounterData;
+									OtherChar->ReceivedHit = CounterData;
 									EHitAction HACT;
 										
 									if (OtherChar->PosY == OtherChar->GroundHeight && !(OtherChar->PlayerFlags & PLF_IsKnockedDown))
@@ -648,16 +690,26 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 						{
 							int CollisionDepthX;
 							if (Hitbox.PosX < OtherHitbox.PosX)
+							{
 								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX / 2);
+								HitPosX = Hitbox.PosX - CollisionDepthX;
+							}
 							else
+							{
 								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX / 2);
+								HitPosX = Hitbox.PosX + CollisionDepthX;
+							}
 							int CollisionDepthY;
 							if (Hitbox.PosY < OtherHitbox.PosY)
+							{
 								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY / 2);
+								HitPosY = Hitbox.PosY - CollisionDepthY;
+							}
 							else
+							{
 								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY / 2);
-							HitPosX = Hitbox.PosX - CollisionDepthX / 2;
-							HitPosY = Hitbox.PosY - CollisionDepthY / 2;
+								HitPosY = Hitbox.PosY + CollisionDepthY;
+							}
 							
 							if (IsPlayer && OtherObj->IsPlayer)
 							{
@@ -668,12 +720,12 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->HitPosX = HitPosX;
 								OtherObj->HitPosY = HitPosY;
 								Player->EnableAttacks();
-								// Player->AddWhiffCancelOption(Player->GetCurrentStateName());
-                                // Player->EnableWhiffCancel(true);
-								TriggerEvent(EVT_HitOrBlock);
+								Player->EnableCancelIntoSelf(true);
+								Player->EnableState(ENB_ForwardDash);
 								OtherObj->Player->EnableAttacks();
-								// OtherObj->Player->AddWhiffCancelOption(OtherObj->Player->GetCurrentStateName());
-                                // OtherObj->Player->EnableWhiffCancel(true);
+								OtherObj->Player->EnableCancelIntoSelf(true);
+								OtherObj->Player->EnableState(ENB_ForwardDash);
+								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 0, 0));
                                 // PlayCommonSound("HitClash");
@@ -745,7 +797,26 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 		break;
 	case POS_Center:
 		*OutPosX = PosX;
-		*OutPosY = PosY + PushHeight;
+		if (!IsPlayer)
+		{
+			*OutPosY = PosY;
+			break;
+		}
+		{
+			int32 CenterPosY = PosY;
+			switch (Player->Stance)
+			{
+			case ACT_Standing:
+			case ACT_Jumping:
+			default:
+				CenterPosY += 200000;
+				break;
+			case ACT_Crouching:
+				CenterPosY += 90000;
+				break;
+			}
+			*OutPosY = CenterPosY;
+		}
 		break;
 	case POS_Enemy:
 		*OutPosX = Player->Enemy->PosX;

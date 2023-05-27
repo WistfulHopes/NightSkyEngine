@@ -449,7 +449,7 @@ void APlayerObject::Update()
 	
 	if (StunTime > 0)
 		StunTime--;
-	if (StunTime == 1 && (PlayerFlags & PLF_IsDead) == 0)
+	if (StunTime == 0 && (PlayerFlags & PLF_IsDead) == 0 && CheckIsStunned())
 	{
 		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun)
 		{
@@ -758,7 +758,7 @@ void APlayerObject::SetHitValues()
 	case HACT_GroundNormal:
 	case HACT_ForceCrouch:
 	case HACT_ForceStand:
-		StunTime = ReceivedHit.Hitstun;
+		StunTime = ReceivedHit.Hitstun + 1;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
@@ -769,7 +769,7 @@ void APlayerObject::SetHitValues()
 	case HACT_AirFaceDown:
 		if (PosY < GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech;
+		StunTime = ReceivedHit.Untech + 1;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
@@ -781,7 +781,7 @@ void APlayerObject::SetHitValues()
 	case HACT_Blowback:
 		if (PosY < GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech;
+		StunTime = ReceivedHit.Untech + 1;
 		SpeedX = -FinalAirHitPushbackX * 3 / 2;
 		SpeedY = FinalAirHitPushbackY * 3 / 2;
 		Gravity = FinalGravity;
@@ -873,7 +873,7 @@ void APlayerObject::HandleBlockAction()
 {
 	Enemy->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = ReceivedHit.Hitstop + ReceivedHitCommon.EnemyBlockstopModifier;
-	StunTime = ReceivedHitCommon.Blockstun;
+	StunTime = ReceivedHitCommon.Blockstun + 1;
 
 	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
 
@@ -930,8 +930,6 @@ void APlayerObject::HandleBlockAction()
 
 void APlayerObject::HandleProximityBlock()
 {
-	if (!(EnableFlags & ENB_ProximityBlock))
-		return;
 	if (!(Enemy->AttackFlags & ATK_IsAttacking) || !IsCorrectBlock(Enemy->HitCommon.BlockType)
 		|| CalculateDistanceBetweenPoints(DIST_Distance, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > 360000)
 	{
@@ -952,7 +950,9 @@ void APlayerObject::HandleProximityBlock()
 		}
 		return;
 	}
-	
+	if (!(EnableFlags & ENB_ProximityBlock))
+		return;
+
 	FInputCondition Input1;
 	FInputBitmask BitmaskDownLeft;
 	BitmaskDownLeft.InputFlag = INP_DownLeft;
@@ -1626,6 +1626,7 @@ void APlayerObject::ResetForRound()
 	WhiffCancelOptions.Empty();
 	ExeStateName.SetString("");
 	BufferedStateName.SetString("");
+	WallTouchTimer = 0;
 	JumpToState("Stand");
 }
 
@@ -1774,6 +1775,11 @@ bool APlayerObject::CheckInput(const FInputCondition& Input)
 {
 	ReturnReg = StoredInputBuffer.CheckInputCondition(Input);
 	return ReturnReg;
+}
+
+bool APlayerObject::CheckIsStunned() const
+{
+	return PlayerFlags & PLF_IsStunned;
 }
 
 void APlayerObject::AddAirJump(int32 NewAirJump)
