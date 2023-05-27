@@ -80,4 +80,5 @@ JonbinsToColData.py
 
 # Final build
 WinBuild/*
+LinuxBuild/*
 NightSkyEngine.uproject
