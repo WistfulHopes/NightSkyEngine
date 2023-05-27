@@ -70,7 +70,8 @@ UdpProtocol::Init(Udp *udp,
    _udp = udp;
    _queue = queue;
    _local_connect_status = status;
-
+   
+   _connection_id = connection_id;
 
    do {
       _magic_number = (uint16)rand();
