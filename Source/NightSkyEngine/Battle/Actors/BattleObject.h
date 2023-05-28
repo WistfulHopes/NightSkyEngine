@@ -263,7 +263,7 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EFloatingCrumpleType> FloatingCrumpleType;
 	UPROPERTY(BlueprintReadWrite)
-	int32 KnockdownTime = 12;
+	int32 KnockdownTime = -1;
 	UPROPERTY(BlueprintReadWrite)
 	FGroundBounceData GroundBounce;
 	UPROPERTY(BlueprintReadWrite)
@@ -606,6 +606,9 @@ public:
 	//forcibly face opponent
 	UFUNCTION(BlueprintCallable)
 	void FaceOpponent();
+	//check if grounded
+	UFUNCTION(BlueprintPure)
+	bool CheckIsGrounded();
 	//enables hit
 	UFUNCTION(BlueprintCallable)
 	void EnableHit(bool Enabled);

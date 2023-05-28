@@ -663,6 +663,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.GroundHitAction = NormalHit.GroundHitAction;
 	if (CounterHit.AirHitAction == HACT_AirNormal)
 		CounterHit.AirHitAction = NormalHit.AirHitAction;
+
+	if (NormalHit.KnockdownTime == -1)
+		NormalHit.KnockdownTime = 12;
+	if (CounterHit.KnockdownTime == -1)
+		CounterHit.KnockdownTime = NormalHit.KnockdownTime;
 	
 	if (NormalHit.WallBounce.WallBounceXSpeed == 0)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
@@ -1365,6 +1370,11 @@ void ABattleObject::FaceOpponent()
 		SpeedX = -SpeedX;
 		Inertia = -Inertia;
 	}
+}
+
+bool ABattleObject::CheckIsGrounded()
+{
+	return PosY <= GroundHeight;
 }
 
 void ABattleObject::EnableHit(bool Enabled)

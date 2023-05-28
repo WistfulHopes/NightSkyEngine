@@ -240,6 +240,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		}
 	}
 
+	HandleHitCollision();
 	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
@@ -248,7 +249,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 			SortedObjects[i]->Update();
 	}
 	HandlePushCollision();
-	HandleHitCollision();
 	SetScreenBounds();
 	SetWallCollision();
 	HandleRoundWin();
