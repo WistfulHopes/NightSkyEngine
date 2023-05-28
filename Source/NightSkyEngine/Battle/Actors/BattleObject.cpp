@@ -33,6 +33,9 @@ void ABattleObject::BeginPlay()
 
 void ABattleObject::Move()
 {
+	if (IsPlayer)
+		Player->SetHitValuesOverTime();
+
 	//Set previous pos values
 	PrevPosX = PosX; 
 	PrevPosY = PosY;
@@ -623,6 +626,15 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	}
+
+	if (CounterHit.AirPushbackXOverTime.Value == -1)
+		CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
+	if (CounterHit.AirPushbackYOverTime.Value == -1)
+		CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
+	if (CounterHit.GravityOverTime.Value == -1)
+		CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
+	if (CounterHit.BlowbackLevel == -1)
+		CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
 	
 	if (CounterHit.Hitstun == -1)
 		CounterHit.Hitstun = NormalHit.Hitstun;
@@ -638,6 +650,34 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.AirPushbackY = NormalHit.AirPushbackY;
 	if (CounterHit.Gravity == -1)
 		CounterHit.Gravity = NormalHit.Gravity;
+
+	if (NormalHit.WallBounce.WallBounceXSpeed == 0)
+		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
+	if (NormalHit.WallBounce.WallBounceYSpeed == 0)
+		NormalHit.WallBounce.WallBounceYSpeed = NormalHit.AirPushbackY;
+	if (NormalHit.WallBounce.WallBounceGravity == 0)
+		NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
+
+	if (CounterHit.WallBounce.WallBounceXSpeed == 0)
+		CounterHit.WallBounce.WallBounceXSpeed = NormalHit.WallBounce.WallBounceXSpeed;
+	if (CounterHit.WallBounce.WallBounceYSpeed == 0)
+		CounterHit.WallBounce.WallBounceYSpeed = NormalHit.WallBounce.WallBounceYSpeed;
+	if (CounterHit.WallBounce.WallBounceGravity == 0)
+		CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
+	
+	if (NormalHit.GroundBounce.GroundBounceXSpeed == 0)
+		NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
+	if (NormalHit.GroundBounce.GroundBounceYSpeed == 0)
+		NormalHit.GroundBounce.GroundBounceYSpeed = NormalHit.AirPushbackY;
+	if (NormalHit.GroundBounce.GroundBounceGravity == 0)
+		NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
+
+	if (CounterHit.GroundBounce.GroundBounceXSpeed == 0)
+		CounterHit.GroundBounce.GroundBounceXSpeed = NormalHit.GroundBounce.GroundBounceXSpeed;
+	if (CounterHit.GroundBounce.GroundBounceYSpeed == 0)
+		CounterHit.GroundBounce.GroundBounceYSpeed = NormalHit.GroundBounce.GroundBounceYSpeed;
+	if (CounterHit.GroundBounce.GroundBounceGravity == 0)
+		CounterHit.GroundBounce.GroundBounceGravity = NormalHit.GroundBounce.GroundBounceGravity;
 	
 	FHitData Data;
 	if (!IsCounter)
@@ -880,6 +920,7 @@ void ABattleObject::LogForSyncTestFile(FILE* file)
 		fprintf(file,"\tPushHeightLow: %d\n", PushHeightLow);
 		fprintf(file,"\tPushWidth: %d\n", PushWidth);
 		fprintf(file,"\tStunTime: %d\n", StunTime);
+		fprintf(file,"\tStunTimeMax: %d\n", StunTimeMax);
 		fprintf(file,"\tHitstop: %d\n", Hitstop);
 		fprintf(file,"\tCelName: %s\n", CelName.GetString());
 		fprintf(file,"\tFacingRight: %d\n", AttackFlags);
@@ -896,7 +937,7 @@ void ABattleObject::UpdateVisualLocation()
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 }
 
-void ABattleObject::FuncCall(FName FuncName) const
+void ABattleObject::FuncCall(const FName& FuncName) const
 {
 	UState* CurrentState = ObjectState;
 	if (IsPlayer)
@@ -1112,6 +1153,7 @@ void ABattleObject::ResetObject()
 	ReceivedHit = FHitData();
 	AttackFlags = ATK_AttackProjectileAttribute;
 	StunTime = 0;
+	StunTimeMax = 0;
 	Hitstop = 0;
 	MiscFlags = 0;
 	Direction = DIR_Right;
@@ -1139,7 +1181,6 @@ void ABattleObject::ResetObject()
 	ObjectReg6 = 0;
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
-	IsPlayer = false;
 	SuperFreezeTimer = 0;
 	CelName.SetString("");
 	AnimName.SetString("");
@@ -1238,8 +1279,8 @@ void ABattleObject::AddSpeedXRaw(int InSpeedX)
 int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
 	EPosType Pos2)
 {
-	ABattleObject* Actor1 = GetBattleObject(Obj1);
-	ABattleObject* Actor2 = GetBattleObject(Obj2);
+	const ABattleObject* Actor1 = GetBattleObject(Obj1);
+	const ABattleObject* Actor2 = GetBattleObject(Obj2);
 	if (IsValid(Actor1) && IsValid(Actor2))
 	{
 		int32 PosX1 = 0;

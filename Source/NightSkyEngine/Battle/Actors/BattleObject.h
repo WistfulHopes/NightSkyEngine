@@ -131,6 +131,14 @@ enum EHitAction
 	HACT_GuardBreakStand UMETA(DisplayName="Guard Break Stand"),
 	HACT_GuardBreakCrouch UMETA(DisplayName="Guard Break Crouch"),
 	HACT_GuardBreakAir UMETA(DisplayName="Guard Break Air"),
+	HACT_FloatingCrumple UMETA(DisplayName="Floating Crumple"),
+};
+
+UENUM(BlueprintType)
+enum EFloatingCrumpleType
+{
+	FLT_Body,
+	FLT_Head,
 };
 
 USTRUCT(BlueprintType)
@@ -139,7 +147,7 @@ struct FWallBounceData
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceCount = 0;
+	int32 WallBounceCount = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceUntech = -1;
 	UPROPERTY(BlueprintReadWrite)
@@ -147,7 +155,7 @@ struct FWallBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceYSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceGravity = 1900;
+	int32 WallBounceGravity = -1;
 	UPROPERTY(BlueprintReadWrite)
 	bool WallBounceInCornerOnly = false;
 };
@@ -158,7 +166,7 @@ struct FGroundBounceData
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceCount = 0;
+	int32 GroundBounceCount = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceUntech = -1;
 	UPROPERTY(BlueprintReadWrite)
@@ -166,7 +174,20 @@ struct FGroundBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceYSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceGravity = 1900;
+	int32 GroundBounceGravity = -1;
+};
+
+USTRUCT(BlueprintType)
+struct FHitValueOverTime
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	int32 Value = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 BeginFrame = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 EndFrame = -1;
 };
 
 USTRUCT(BlueprintType)
@@ -199,9 +220,20 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	int32 Gravity = -1;
 	UPROPERTY(BlueprintReadWrite)
+	FHitValueOverTime AirPushbackXOverTime;
+	UPROPERTY(BlueprintReadWrite)
+	FHitValueOverTime AirPushbackYOverTime;
+	UPROPERTY(BlueprintReadWrite)
+	FHitValueOverTime GravityOverTime;
+	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> GroundHitAction = HACT_GroundNormal;
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> AirHitAction = HACT_AirFaceUp;
+	UPROPERTY(BlueprintReadWrite)
+	int32 BlowbackLevel = -1;
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<EFloatingCrumpleType> FloatingCrumpleType;
+	UPROPERTY(BlueprintReadWrite)
 	int32 KnockdownTime = 12;
 	UPROPERTY(BlueprintReadWrite)
 	FGroundBounceData GroundBounce;
@@ -347,6 +379,7 @@ public:
 	FHitDataCommon ReceivedHitCommon;
 	FHitData ReceivedHit;
 	uint32 StunTime = 0;
+	uint32 StunTimeMax = 0;
 	uint32 Hitstop = 0;
 	
 	/*
@@ -487,7 +520,7 @@ public:
 	
 protected:
 	void UpdateVisualLocation();
-	void FuncCall(FName FuncName) const;
+	void FuncCall(const FName& FuncName) const;
 	void GetBoxes();
 	
 public:	

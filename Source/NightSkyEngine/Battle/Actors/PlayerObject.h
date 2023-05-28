@@ -149,7 +149,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ComboRate = 60;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 OtgProration = 65;
+	int32 OtgProration = 80;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ForwardWalkMeterGain;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -211,6 +211,8 @@ public:
 	// If true, inputs will operate as if the character is facing the opposite direction.
 	UPROPERTY(BlueprintReadWrite)
 	bool FlipInputs;
+	UPROPERTY(EditAnywhere)
+	int32 MaxOTGCount;
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
@@ -360,6 +362,8 @@ public:
 	virtual void Update() override;	
 	//based on received hit action, choose state
 	void HandleHitAction(EHitAction HACT);
+	//set hit values over time
+	void SetHitValuesOverTime();
 	//check attack against block stance
 	bool IsCorrectBlock(EBlockType BlockType);
 	//jump to correct block state
@@ -374,7 +378,7 @@ public:
 	void DisableLastInput();
 	
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
-	void LoadForRollbackPlayer(unsigned char* Buffer);
+	void LoadForRollbackPlayer(const unsigned char* Buffer);
 	virtual void LogForSyncTestFile(FILE* file) override;
 
 	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
@@ -469,6 +473,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetThrowInvulnerable(bool Invulnerable);
 	UFUNCTION(BlueprintCallable)
+	//set stun time
+	void SetStunTime(int32 NewTime);
 	//based on received hit data, set values
 	void SetHitValues();
 	//force enables far proximity normals

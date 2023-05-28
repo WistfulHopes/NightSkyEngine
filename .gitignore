@@ -1,6 +1,9 @@
 # Visual Studio and Rider user specific files
 .vs/
 .idea/
+.vscode/
+NightSkyEngine.code-workspace
+Makefile
 Plugins/Developer/RiderLink/*
 Plugins/OnlineSubsystemRedpointEOS/*
 
