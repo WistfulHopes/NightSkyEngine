@@ -464,7 +464,8 @@ void APlayerObject::Update()
 				JumpToState("AirBlockEnd");
 			}
 		}
-		else if (PosY == GroundHeight && (PlayerFlags & PLF_IsKnockedDown) == 0)
+		else if (PosY == GroundHeight && GetCurrentStateName() != "FaceDownWakeUp"
+			&& GetCurrentStateName() != "FaceUpWakeUp" && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (Stance == ACT_Standing)
 			{
@@ -518,6 +519,7 @@ void APlayerObject::Update()
 		else if (StoredStateMachine.CurrentState->Name == "FaceUpLoop")
 			JumpToState("FaceUpWakeUp");
 		TotalProration = 10000;
+		PlayerFlags &= ~PLF_IsKnockedDown;
 	}
 
 	if (PlayerFlags & PLF_IsDead)
@@ -692,8 +694,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 				BufferedStateName.SetString("CrouchHitstun4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
 				BufferedStateName.SetString("CrouchHitstun5");
-			StunTime += 2;
-			StunTimeMax += 2;
+			StunTime += 1;
+			StunTimeMax += 1;
 		}
 		break;
 	case HACT_Crumple:
@@ -713,8 +715,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			BufferedStateName.SetString("CrouchHitstun4");
 		else if (ReceivedHitCommon.AttackLevel == 5)
 			BufferedStateName.SetString("CrouchHitstun5");
-		StunTime += 2;
-		StunTimeMax += 2;
+		StunTime += 1;
+		StunTimeMax += 1;
 		break;
 	case HACT_ForceStand:
 		Stance = ACT_Standing;
@@ -817,8 +819,8 @@ void APlayerObject::SetHitValues()
 	case HACT_ForceCrouch:
 	case HACT_ForceStand:
 	case HACT_FloatingCrumple:
-		StunTime = ReceivedHit.Hitstun + 1;
-		StunTimeMax = ReceivedHit.Hitstun + 1;
+		StunTime = ReceivedHit.Hitstun;
+		StunTimeMax = ReceivedHit.Hitstun;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
@@ -830,8 +832,8 @@ void APlayerObject::SetHitValues()
 	case HACT_AirFaceDown:
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech + 1;
-		StunTimeMax = ReceivedHit.Untech + 1;
+		StunTime = ReceivedHit.Untech;
+		StunTimeMax = ReceivedHit.Untech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
@@ -861,8 +863,8 @@ void APlayerObject::SetHitValues()
 		}
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech + 1;
-		StunTimeMax = ReceivedHit.Untech + 1;
+		StunTime = ReceivedHit.Untech;
+		StunTimeMax = ReceivedHit.Untech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		if (ReceivedHit.BlowbackLevel <= 0)
@@ -885,6 +887,9 @@ void APlayerObject::SetHitValues()
 		SpeedX = -30000;
 		SpeedY = 8000;
 		Gravity = 3500;
+		ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
+		ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
+		ReceivedHit.GravityOverTime = FHitValueOverTime();
 		ReceivedHit.KnockdownTime = 0;
 	}
 }
@@ -966,8 +971,8 @@ void APlayerObject::HandleBlockAction()
 {
 	Enemy->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = ReceivedHit.Hitstop + ReceivedHitCommon.EnemyBlockstopModifier;
-	StunTime = ReceivedHitCommon.Blockstun + 1;
-	StunTimeMax = ReceivedHitCommon.Blockstun + 1;
+	StunTime = ReceivedHitCommon.Blockstun;
+	StunTimeMax = ReceivedHitCommon.Blockstun;
 
 	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
 
