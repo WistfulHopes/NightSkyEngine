@@ -119,6 +119,7 @@ enum EHitAction
 {
 	HACT_None UMETA(DisplayName="None"),
 	HACT_GroundNormal UMETA(DisplayName="Ground Normal"),
+	HACT_AirNormal UMETA(DisplayName="Air Normal"),
 	HACT_Stagger  UMETA(DisplayName="Stagger"),
 	HACT_Crumple UMETA(DisplayName="Crumple"),
 	HACT_ForceCrouch UMETA(DisplayName="Force Crouch"),
@@ -137,8 +138,21 @@ enum EHitAction
 UENUM(BlueprintType)
 enum EFloatingCrumpleType
 {
+	FLT_None,
 	FLT_Body,
 	FLT_Head,
+};
+
+UENUM(BlueprintType)
+enum EHitPositionType
+{
+	HPT_Non,
+	HPT_Rel,
+	HPT_Abs,
+	HPT_Add,
+	HPT_RelNextFrame,
+	HPT_AbsNextFrame,
+	HPT_AddNextFrame,
 };
 
 USTRUCT(BlueprintType)
@@ -191,6 +205,19 @@ struct FHitValueOverTime
 };
 
 USTRUCT(BlueprintType)
+struct FHitPosition
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<EHitPositionType> Type;
+	UPROPERTY(BlueprintReadWrite)
+	int32 PosX = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 PosY = -1;
+};
+
+USTRUCT(BlueprintType)
 struct FHitData
 {
 	GENERATED_BODY()
@@ -226,9 +253,11 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	FHitValueOverTime GravityOverTime;
 	UPROPERTY(BlueprintReadWrite)
+	FHitPosition Position;
+	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> GroundHitAction = HACT_GroundNormal;
 	UPROPERTY(BlueprintReadWrite)
-	TEnumAsByte<EHitAction> AirHitAction = HACT_AirFaceUp;
+	TEnumAsByte<EHitAction> AirHitAction = HACT_AirNormal;
 	UPROPERTY(BlueprintReadWrite)
 	int32 BlowbackLevel = -1;
 	UPROPERTY(BlueprintReadWrite)

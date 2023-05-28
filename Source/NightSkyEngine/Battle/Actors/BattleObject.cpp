@@ -626,15 +626,6 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	}
-
-	if (CounterHit.AirPushbackXOverTime.Value == -1)
-		CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
-	if (CounterHit.AirPushbackYOverTime.Value == -1)
-		CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
-	if (CounterHit.GravityOverTime.Value == -1)
-		CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
-	if (CounterHit.BlowbackLevel == -1)
-		CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
 	
 	if (CounterHit.Hitstun == -1)
 		CounterHit.Hitstun = NormalHit.Hitstun;
@@ -650,7 +641,29 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.AirPushbackY = NormalHit.AirPushbackY;
 	if (CounterHit.Gravity == -1)
 		CounterHit.Gravity = NormalHit.Gravity;
+	if (CounterHit.AirPushbackXOverTime.Value == -1)
+		CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
+	if (CounterHit.AirPushbackYOverTime.Value == -1)
+		CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
+	if (CounterHit.GravityOverTime.Value == -1)
+		CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
+	if (CounterHit.BlowbackLevel == -1)
+		CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
+	if (CounterHit.FloatingCrumpleType == FLT_None)
+		CounterHit.FloatingCrumpleType = NormalHit.FloatingCrumpleType;
 
+	if (CounterHit.Position.Type == HPT_Non)
+		CounterHit.Position.Type = NormalHit.Position.Type;
+	if (CounterHit.Position.PosX == -1)
+		CounterHit.Position.PosX = NormalHit.Position.PosX;
+	if (CounterHit.Position.PosY == -1)
+		CounterHit.Position.PosY = NormalHit.Position.PosY;
+
+	if (CounterHit.GroundHitAction == HACT_GroundNormal)
+		CounterHit.GroundHitAction = NormalHit.GroundHitAction;
+	if (CounterHit.AirHitAction == HACT_AirNormal)
+		CounterHit.AirHitAction = NormalHit.AirHitAction;
+	
 	if (NormalHit.WallBounce.WallBounceXSpeed == 0)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
 	if (NormalHit.WallBounce.WallBounceYSpeed == 0)

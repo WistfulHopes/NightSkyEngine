@@ -472,10 +472,11 @@ public:
 	//sets throw invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetThrowInvulnerable(bool Invulnerable);
-	UFUNCTION(BlueprintCallable)
 	//set stun time
+	UFUNCTION(BlueprintCallable)
 	void SetStunTime(int32 NewTime);
 	//based on received hit data, set values
+	UFUNCTION(BlueprintCallable)
 	void SetHitValues();
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
