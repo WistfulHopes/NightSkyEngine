@@ -627,6 +627,9 @@ public:
 	//halts momentum
 	UFUNCTION(BlueprintCallable)
 	void HaltMomentum();
+	//should push collision be used?
+	UFUNCTION(BlueprintCallable)
+	void SetPushCollisionActive(bool Active);
 	//creates common particle
 	UFUNCTION(BlueprintCallable)
 	void CreateCommonParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);

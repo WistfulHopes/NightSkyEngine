@@ -133,15 +133,14 @@ protected:
 	void HandleHitCollision() const;
 	void HandleRoundWin();
 	void HandleMatchWin() const;
-	void SetScreenBounds(); //sets screen bounds
-	void SetWallCollision(); //forces wall collision
-
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
+	void SetScreenBounds(); //sets screen bounds
+	void SetWallCollision(); //forces wall collision
 	void UpdateCamera() const;
 	void UpdateUI();
 	int GetLocalInputs(int Index) const; //get local inputs from player controller

@@ -643,10 +643,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.Gravity = NormalHit.Gravity;
 	if (CounterHit.AirPushbackXOverTime.Value == -1)
 		CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
+	if (CounterHit.AirPushbackXOverTime.BeginFrame == -1)
+		CounterHit.AirPushbackXOverTime.BeginFrame = NormalHit.AirPushbackXOverTime.BeginFrame;
+	if (CounterHit.AirPushbackXOverTime.EndFrame == -1)
+		CounterHit.AirPushbackXOverTime.EndFrame = NormalHit.AirPushbackXOverTime.EndFrame;
 	if (CounterHit.AirPushbackYOverTime.Value == -1)
 		CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
+	if (CounterHit.AirPushbackYOverTime.BeginFrame == -1)
+		CounterHit.AirPushbackYOverTime.BeginFrame = NormalHit.AirPushbackYOverTime.BeginFrame;
+	if (CounterHit.AirPushbackYOverTime.EndFrame == -1)
+		CounterHit.AirPushbackYOverTime.EndFrame = NormalHit.AirPushbackYOverTime.EndFrame;
 	if (CounterHit.GravityOverTime.Value == -1)
 		CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
+	if (CounterHit.GravityOverTime.BeginFrame == -1)
+		CounterHit.GravityOverTime.BeginFrame = NormalHit.GravityOverTime.BeginFrame;
+	if (CounterHit.GravityOverTime.EndFrame == -1)
+		CounterHit.GravityOverTime.EndFrame = NormalHit.GravityOverTime.EndFrame;
 	if (CounterHit.BlowbackLevel == -1)
 		CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
 	if (CounterHit.FloatingCrumpleType == FLT_None)
@@ -750,23 +762,23 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 							if (Hitbox.PosX < OtherHitbox.PosX)
 							{
 								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX / 2);
-								HitPosX = Hitbox.PosX - CollisionDepthX;
+								HitPosX = Hitbox.PosX + CollisionDepthX;
 							}
 							else
 							{
 								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX / 2);
-								HitPosX = Hitbox.PosX + CollisionDepthX;
+								HitPosX = Hitbox.PosX - CollisionDepthX;
 							}
 							int CollisionDepthY;
 							if (Hitbox.PosY < OtherHitbox.PosY)
 							{
 								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY / 2);
-								HitPosY = Hitbox.PosY - CollisionDepthY;
+								HitPosY = Hitbox.PosY + CollisionDepthY;
 							}
 							else
 							{
 								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY / 2);
-								HitPosY = Hitbox.PosY + CollisionDepthY;
+								HitPosY = Hitbox.PosY - CollisionDepthY;
 							}
 							
 							if (IsPlayer && OtherObj->IsPlayer)
@@ -1131,11 +1143,11 @@ void ABattleObject::Update()
 			CelIndex++;
 		
 		GetBoxes();
+		GameState->SetScreenBounds();
+		GameState->SetWallCollision();
+		ActionTime++;
+		UpdateVisualLocation();
 	}
-
-	ActionTime++;
-	
-	UpdateVisualLocation();
 }
 
 void ABattleObject::ResetObject()
@@ -1458,6 +1470,14 @@ void ABattleObject::HaltMomentum()
 	SpeedZ = 0;
 	Gravity = 0;
 	Inertia = 0;
+}
+
+void ABattleObject::SetPushCollisionActive(bool Active)
+{
+	if (Active)
+		MiscFlags |= MISC_PushCollisionActive;
+	else
+		MiscFlags &= ~MISC_PushCollisionActive;
 }
 
 void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector Offset, FRotator Rotation)

@@ -403,6 +403,8 @@ void APlayerObject::Update()
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
+	
+	HandleBufferedState();
 
 	if (ActionTime == 4) //enable kara cancel after window end
 		CancelFlags |= CNC_EnableKaraCancel;
@@ -415,8 +417,6 @@ void APlayerObject::Update()
 	if (PosY > GroundHeight) //set jumping if above ground
 		Stance = ACT_Jumping;
 	
-	HandleBufferedState();
-	
 	if (ComboCounter > 0)
 		ComboTimer++;
 		
@@ -427,6 +427,8 @@ void APlayerObject::Update()
 
 	if (AirDashTimer > 0)
 		AirDashTimer--;
+	if (AirDashNoAttackTime == 1)
+		CallSubroutine("CmnAnyCancelAir");
 
 	if (AirDashNoAttackTime > 0)
 		AirDashNoAttackTime--;
@@ -507,6 +509,7 @@ void APlayerObject::Update()
 			&& Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Blockstun)
 			Pushback = 0;
 		PlayerFlags &= ~PLF_IsStunned;
+		DisableState(ENB_Tech);
 	}
 	
 	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
@@ -573,6 +576,12 @@ void APlayerObject::Update()
 		CelIndex++;
 	
 	GetBoxes();
+	
+	GameState->SetScreenBounds();
+	GameState->SetWallCollision();
+	ActionTime++;
+	
+	UpdateVisualLocation();
 }
 
 void APlayerObject::HandleHitAction(EHitAction HACT)
@@ -631,7 +640,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		PlayerFlags |= PLF_IsDead;
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
-			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal)
+			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal || HACT == HACT_FloatingCrumple)
 				BufferedStateName.SetString("BLaunch");
 			else if (HACT == HACT_AirVertical)
 				BufferedStateName.SetString("VLaunch");
@@ -818,9 +827,16 @@ void APlayerObject::SetHitValues()
 	case HACT_GroundNormal:
 	case HACT_ForceCrouch:
 	case HACT_ForceStand:
-	case HACT_FloatingCrumple:
 		StunTime = ReceivedHit.Hitstun;
 		StunTimeMax = ReceivedHit.Hitstun;
+		if (PlayerFlags & PLF_TouchingWall)
+		{
+			Enemy->Pushback = -FinalHitPushbackX;
+		}
+		break;
+	case HACT_FloatingCrumple:
+		StunTime = ReceivedHit.Untech;
+		StunTimeMax = ReceivedHit.Untech;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
@@ -1858,19 +1874,6 @@ void APlayerObject::DisableAll()
 	DisableState(ENB_ProximityBlock);
 }
 
-bool APlayerObject::CheckInputRaw(EInputFlags Input)
-{
-	if (Inputs & Input)
-	{
-		ReturnReg = true;
-	}
-	else
-	{
-		ReturnReg = false;
-	}
-	return ReturnReg;
-}
-
 bool APlayerObject::CheckInput(const FInputCondition& Input)
 {
 	ReturnReg = StoredInputBuffer.CheckInputCondition(Input);
@@ -1959,6 +1962,18 @@ void APlayerObject::EnableJumpCancel(bool Enable)
 	else
 	{
 		CancelFlags &= ~CNC_JumpCancel;
+	}
+}
+
+void APlayerObject::EnableForwardAirdashCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_FAirDashCancel;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_FAirDashCancel;
 	}
 }
 

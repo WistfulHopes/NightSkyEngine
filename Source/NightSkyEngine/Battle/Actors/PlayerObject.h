@@ -430,9 +430,6 @@ public:
 	//disable all state types besides tech
 	UFUNCTION(BlueprintCallable)
 	void DisableAll();
-	//checks raw inputs (after side switching)
-	UFUNCTION(BlueprintPure)
-	bool CheckInputRaw(EInputFlags Input);
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
@@ -461,8 +458,12 @@ public:
 	//sets whiff cancel options enabled. off by default
 	UFUNCTION(BlueprintCallable)
 	void EnableWhiffCancel(bool Enable);
+	//enables jump cnacel
 	UFUNCTION(BlueprintCallable)
 	void EnableJumpCancel(bool Enable);
+	//enables forward airdash cnacel
+	UFUNCTION(BlueprintCallable)
+	void EnableForwardAirdashCancel(bool Enable);
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
