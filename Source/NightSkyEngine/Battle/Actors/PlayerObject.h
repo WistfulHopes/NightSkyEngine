@@ -168,8 +168,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 MeterPercentOnReceiveHit = 40;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FString> DamageReactionCels;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool CanReverseBeat;
 	
 	/*
@@ -285,8 +283,8 @@ public:
 	 * Data to copy from blueprint TArray to internal object
 	 */
 	
-	UPROPERTY(EditAnywhere)
-	TArray<FString> DamageReactionCelsBP;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FString> DamageReactionCels;
 	TArray<FString> ChainCancelOptions;
 	TArray<FString> WhiffCancelOptions; 
 
@@ -384,8 +382,10 @@ public:
 	void HandleBlockAction();
 	//handles proximity blocking
 	void HandleProximityBlock();
-	//called whenever state changes
+	//called right before state changes
 	void OnStateChange();
+	//called right after state changes
+	void PostStateChange();
 	//resets object for next round
 	void ResetForRound();
 	//disables last input

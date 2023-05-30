@@ -60,6 +60,7 @@ bool FStateMachine::SetState(const FString Name)
 	Parent->OnStateChange();	
 
 	CurrentState = States[StateNames.Find(Name)];
+	Parent->PostStateChange();
 	Parent->TriggerEvent(EVT_Enter);
 	Update();
 
@@ -77,6 +78,7 @@ bool FStateMachine::ForceSetState(const FString Name)
 	Parent->OnStateChange();	
 
 	CurrentState = States[StateNames.Find(Name)];
+	Parent->PostStateChange();
 	Parent->TriggerEvent(EVT_Enter);
 	Update();
 

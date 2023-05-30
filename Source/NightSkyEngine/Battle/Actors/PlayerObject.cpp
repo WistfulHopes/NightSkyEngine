@@ -80,7 +80,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
         if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(StoredStateMachine.States[i]->Name)
             || FindWhiffCancelOption(StoredStateMachine.States[i]->Name)
-            || CheckReverseBeat(StoredStateMachine.States[i]->Name)
             || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             )) //check if the state is enabled, continue if not
         {
@@ -1278,6 +1277,8 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 	ReturnReg = false;
 	if (AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking && CancelFlags & CNC_ChainCancelEnabled)
 	{
+		if (CheckReverseBeat(Name))
+			return ReturnReg;
 		for (int i = 0; i < CancelArraySize; i++)
 		{
 			if (ChainCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptionsInternal[i] != INDEX_NONE)
@@ -1296,6 +1297,8 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 	ReturnReg = false;
 	if (CancelFlags & CNC_WhiffCancelEnabled)
 	{
+		if (CheckReverseBeat(Name))
+			return ReturnReg;
 		for (int i = 0; i < CancelArraySize; i++)
 		{
 			if (WhiffCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptionsInternal[i] != INDEX_NONE)
@@ -1336,15 +1339,6 @@ bool APlayerObject::CheckMovesUsedInCombo(const FString& Name)
 	if (Usages < StoredStateMachine.States[StoredStateMachine.GetStateIndex(Name)]->MaxChain
 		|| StoredStateMachine.States[StoredStateMachine.GetStateIndex(Name)]->MaxChain == -1)
 		ReturnReg = true;
-	
-	for (int i = 0; i < CancelArraySize; i++)
-	{
-		if (MovesUsedInCombo[i] == INDEX_NONE)
-		{
-			MovesUsedInCombo[i] = StoredStateMachine.GetStateIndex(Name);
-			break;
-		}
-	}
 	return ReturnReg;
 }
 
@@ -1672,6 +1666,18 @@ void APlayerObject::OnStateChange()
 	AnimName.SetString("");
 	AnimFrame = 0;
 	CelName.SetString("");
+}
+
+void APlayerObject::PostStateChange()
+{
+	for (int i = 0; i < CancelArraySize; i++)
+	{
+		if (MovesUsedInCombo[i] == INDEX_NONE)
+		{
+			MovesUsedInCombo[i] = StoredStateMachine.GetStateIndex(GetCurrentStateName());
+			break;
+		}
+	}
 }
 
 void APlayerObject::ResetForRound()
