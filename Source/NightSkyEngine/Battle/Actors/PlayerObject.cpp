@@ -523,6 +523,7 @@ void APlayerObject::Update()
 			JumpToState("FaceUpWakeUp");
 		TotalProration = 10000;
 		PlayerFlags &= ~PLF_IsKnockedDown;
+		DisableState(ENB_Tech);
 	}
 
 	if (PlayerFlags & PLF_IsDead)
@@ -1355,8 +1356,8 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.GroundBounce.GroundBounceCount = 0;
 				PlayerFlags &= ~PLF_TouchingWall;
 				ReceivedHit.WallBounce.WallBounceCount--;
-				ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed;
-				ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed;
+				ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed * ReceivedHit.WallBounce.WallBounceXRate / 100;
+				ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 				ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
 				if (ReceivedHit.WallBounce.WallBounceUntech > 0)
 					ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
@@ -1374,8 +1375,8 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GroundBounce.GroundBounceCount = 0;
 			PlayerFlags &= ~PLF_TouchingWall;
 			ReceivedHit.WallBounce.WallBounceCount--;
-			ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed;
-			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed;
+			ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed * ReceivedHit.WallBounce.WallBounceXRate / 100;
+			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 			ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
 			if (ReceivedHit.WallBounce.WallBounceUntech > 0)
 				ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
@@ -1391,10 +1392,10 @@ void APlayerObject::HandleGroundBounce()
 	CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	ReceivedHit.GroundBounce.GroundBounceCount--;
 	if (SpeedX > 0)
-		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed;
+		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
 	else
-		ReceivedHit.AirPushbackX = ReceivedHit.GroundBounce.GroundBounceXSpeed;
-	ReceivedHit.AirPushbackY = ReceivedHit.GroundBounce.GroundBounceYSpeed;
+		ReceivedHit.AirPushbackX = ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
+	ReceivedHit.AirPushbackY = ReceivedHit.GroundBounce.GroundBounceYSpeed * ReceivedHit.GroundBounce.GroundBounceYRate / 100;
 	ReceivedHit.Gravity = ReceivedHit.GroundBounce.GroundBounceGravity;
 	if (ReceivedHit.GroundBounce.GroundBounceUntech > 0)
 		ReceivedHit.Untech = ReceivedHit.GroundBounce.GroundBounceUntech;
@@ -1464,6 +1465,7 @@ FString APlayerObject::GetCurrentStateName() const
 
 bool APlayerObject::CheckStateEnabled(EStateType StateType)
 {
+	ReturnReg = false;
 	switch (StateType)
 	{
 	case EStateType::Standing:
@@ -1518,7 +1520,7 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 			ReturnReg = true;
 		break;
 	case EStateType::Tech:
-		if (EnableFlags & ENB_Tech)
+		if (EnableFlags & ENB_Tech && CheckIsStunned())
 			ReturnReg = true;
 		break;
 	case EStateType::Burst:

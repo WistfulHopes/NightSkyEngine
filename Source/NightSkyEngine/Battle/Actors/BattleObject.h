@@ -167,7 +167,11 @@ struct FWallBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceXSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
+	int32 WallBounceXRate = -1;
+	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceYSpeed = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 WallBounceYRate = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceGravity = -1;
 	UPROPERTY(BlueprintReadWrite)
@@ -186,7 +190,11 @@ struct FGroundBounceData
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceXSpeed = -1;
 	UPROPERTY(BlueprintReadWrite)
+	int32 GroundBounceXRate = -1;
+	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceYSpeed = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 GroundBounceYRate = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceGravity = -1;
 };

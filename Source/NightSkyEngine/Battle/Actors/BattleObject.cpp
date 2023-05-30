@@ -122,9 +122,9 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 			{
 				bool IsPushLeft;
 				int CollisionDepth;
-				if(PosX == OtherObj->PosX)
+				if(PrevPosX == OtherObj->PrevPosX)
 				{
-					if (PrevPosX == OtherObj->PrevPosX)
+					if (PosX == OtherObj->PosX)
 					{
 						if (IsPlayer == OtherObj->IsPlayer)
 						{
@@ -148,12 +148,12 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					}
 					else
 					{
-						IsPushLeft = PrevPosX < OtherObj->PrevPosX;
+						IsPushLeft = PosX < OtherObj->PosX;
 					}
 				}
 				else
 				{
-					IsPushLeft = PosX < OtherObj->PosX;
+					IsPushLeft = PrevPosX < OtherObj->PrevPosX;
 				}
 				if (IsPushLeft)
 				{
@@ -683,29 +683,45 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	
 	if (NormalHit.WallBounce.WallBounceXSpeed == 0)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
+	if (NormalHit.WallBounce.WallBounceXRate == -1)
+		NormalHit.WallBounce.WallBounceXRate = 33;
 	if (NormalHit.WallBounce.WallBounceYSpeed == 0)
 		NormalHit.WallBounce.WallBounceYSpeed = NormalHit.AirPushbackY;
+	if (NormalHit.WallBounce.WallBounceYRate == -1)
+		NormalHit.WallBounce.WallBounceYRate = 100;
 	if (NormalHit.WallBounce.WallBounceGravity == 0)
 		NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
 
 	if (CounterHit.WallBounce.WallBounceXSpeed == 0)
 		CounterHit.WallBounce.WallBounceXSpeed = NormalHit.WallBounce.WallBounceXSpeed;
+	if (CounterHit.WallBounce.WallBounceXRate == -1)
+		CounterHit.WallBounce.WallBounceXRate = NormalHit.WallBounce.WallBounceXRate;
 	if (CounterHit.WallBounce.WallBounceYSpeed == 0)
 		CounterHit.WallBounce.WallBounceYSpeed = NormalHit.WallBounce.WallBounceYSpeed;
+	if (CounterHit.WallBounce.WallBounceYRate == -1)
+		CounterHit.WallBounce.WallBounceYRate = NormalHit.WallBounce.WallBounceYRate;
 	if (CounterHit.WallBounce.WallBounceGravity == 0)
 		CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
 	
 	if (NormalHit.GroundBounce.GroundBounceXSpeed == 0)
 		NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
+	if (NormalHit.GroundBounce.GroundBounceXRate == -1)
+		NormalHit.GroundBounce.GroundBounceXRate = 100;
 	if (NormalHit.GroundBounce.GroundBounceYSpeed == 0)
 		NormalHit.GroundBounce.GroundBounceYSpeed = NormalHit.AirPushbackY;
+	if (NormalHit.GroundBounce.GroundBounceYRate == -1)
+		NormalHit.GroundBounce.GroundBounceYRate = 100;
 	if (NormalHit.GroundBounce.GroundBounceGravity == 0)
 		NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
 
 	if (CounterHit.GroundBounce.GroundBounceXSpeed == 0)
 		CounterHit.GroundBounce.GroundBounceXSpeed = NormalHit.GroundBounce.GroundBounceXSpeed;
+	if (CounterHit.GroundBounce.GroundBounceXRate == -1)
+		CounterHit.GroundBounce.GroundBounceXRate = NormalHit.GroundBounce.GroundBounceXRate;
 	if (CounterHit.GroundBounce.GroundBounceYSpeed == 0)
 		CounterHit.GroundBounce.GroundBounceYSpeed = NormalHit.GroundBounce.GroundBounceYSpeed;
+	if (CounterHit.GroundBounce.GroundBounceYRate == -1)
+		CounterHit.GroundBounce.GroundBounceYRate = NormalHit.GroundBounce.GroundBounceYRate;
 	if (CounterHit.GroundBounce.GroundBounceGravity == 0)
 		CounterHit.GroundBounce.GroundBounceGravity = NormalHit.GroundBounce.GroundBounceGravity;
 	
