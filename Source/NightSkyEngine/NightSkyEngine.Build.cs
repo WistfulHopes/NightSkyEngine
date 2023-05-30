@@ -21,6 +21,7 @@ public class NightSkyEngine : ModuleRules
 			"EnhancedInput",
 			"UMG",
 			"Niagara",
+			"Paper2D",
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { "GGPOUE4" });

@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/State.h"
 #include "NightSkyEngine/Battle/StateMachine.h"
 #include "NightSkyEngine/Data/CollisionData.h"
+#include "NightSkyEngine/Data/FlipbookData.h"
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
@@ -326,6 +327,9 @@ public:
 	UMaterialData* MaterialData;
 	UPROPERTY(BlueprintReadOnly)
 	int32 ColorIndex = 1;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UFlipbookData* FlipbookData;
 	
 	UPROPERTY(EditAnywhere)
 	UParticleData* CommonParticleData;

@@ -428,8 +428,7 @@ bool UNightSkyGameInstance::DestroyLobby()
 
 void UNightSkyGameInstance::SeamlessTravel()
 {
-	UGameplayStatics::OpenLevel(this, *StageURL, true, "listen");
-	//this->GetWorld()->ServerTravel(StageURL);
+	this->GetWorld()->ServerTravel(StageURL);
 }
 
 void UNightSkyGameInstance::HandleJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Arg)

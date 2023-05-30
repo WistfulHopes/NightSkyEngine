@@ -323,8 +323,8 @@ void APlayerObject::Update()
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
 		}
-		if (EnableFlags & ENB_Tech)
-			Inputs = INP_A;
+		if (CheckIsStunned())
+			Inputs = INP_A | INP_Left;
 		else
 			Inputs = INP_Neutral;
 	}
@@ -904,6 +904,7 @@ void APlayerObject::SetHitValues()
 		SpeedX = -30000;
 		SpeedY = 8000;
 		Gravity = 3500;
+		StunTime = 5;
 		ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
 		ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 		ReceivedHit.GravityOverTime = FHitValueOverTime();
@@ -1021,7 +1022,7 @@ void APlayerObject::HandleBlockAction()
 		GotoLabel("Lv3");
 		break;
 	}
-	if (PosY > GroundHeight || GetCurrentStateName() == "AirBlock")
+	if (Stance == ACT_Jumping || GetCurrentStateName() == "AirBlock")
 	{
 		JumpToState("AirBlock", true);
 		Stance = ACT_Jumping;
@@ -1036,7 +1037,7 @@ void APlayerObject::HandleBlockAction()
 		JumpToState("StandBlock", true);
 		Stance = ACT_Standing;
 	}
-	if (PosY > GroundHeight)
+	if (Stance == ACT_Jumping)
 	{
 		SpeedX = -ReceivedHitCommon.AirGuardPushbackX;
 		SpeedY = ReceivedHitCommon.AirGuardPushbackY;

@@ -223,12 +223,12 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								if (Hitbox.PosX < OtherChar->PosX)
 								{
 									CollisionDepthX = OtherChar->PosX - (Hitbox.PosX + Hitbox.SizeX / 2);
-									HitPosX = Hitbox.PosX + CollisionDepthX;
+									HitPosX = Hitbox.PosX + CollisionDepthX / 2;
 								}
 								else
 								{
 									CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - OtherChar->PosX;
-									HitPosX = Hitbox.PosX - CollisionDepthX;
+									HitPosX = Hitbox.PosX - CollisionDepthX / 2;
 								}
 								int CollisionDepthY;
 								int32 CenterPosY = OtherChar->PosY;
@@ -246,12 +246,12 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								if (Hitbox.PosY < CenterPosY)
 								{
 									CollisionDepthY = CenterPosY - (Hitbox.PosY + Hitbox.SizeY / 2);
-									HitPosY = Hitbox.PosY + CollisionDepthY;
+									HitPosY = Hitbox.PosY + CollisionDepthY / 2;
 								}
 								else
 								{
 									CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
-									HitPosY = Hitbox.PosY - CollisionDepthY;
+									HitPosY = Hitbox.PosY - CollisionDepthY / 2;
 								}
 								
 								TriggerEvent(EVT_HitOrBlock);
@@ -779,23 +779,23 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 							if (Hitbox.PosX < OtherHitbox.PosX)
 							{
 								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX / 2);
-								HitPosX = Hitbox.PosX + CollisionDepthX;
+								HitPosX = Hitbox.PosX - CollisionDepthX;
 							}
 							else
 							{
 								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX / 2);
-								HitPosX = Hitbox.PosX - CollisionDepthX;
+								HitPosX = Hitbox.PosX + CollisionDepthX;
 							}
 							int CollisionDepthY;
 							if (Hitbox.PosY < OtherHitbox.PosY)
 							{
 								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY / 2);
-								HitPosY = Hitbox.PosY + CollisionDepthY;
+								HitPosY = Hitbox.PosY - CollisionDepthY;
 							}
 							else
 							{
 								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY / 2);
-								HitPosY = Hitbox.PosY - CollisionDepthY;
+								HitPosY = Hitbox.PosY + CollisionDepthY;
 							}
 							
 							if (IsPlayer && OtherObj->IsPlayer)
