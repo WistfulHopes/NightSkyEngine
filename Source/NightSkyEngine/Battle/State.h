@@ -163,7 +163,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	bool IsFollowupState;
 	UPROPERTY(EditAnywhere)
-	int ObjectID;
+	int32 ObjectID;
+	UPROPERTY(EditAnywhere)
+	int32 MaxChain = -1;
 
 	void CallExec();
 	

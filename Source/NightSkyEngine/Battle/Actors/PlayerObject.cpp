@@ -80,6 +80,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
         if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(StoredStateMachine.States[i]->Name)
             || FindWhiffCancelOption(StoredStateMachine.States[i]->Name)
+            || CheckReverseBeat(StoredStateMachine.States[i]->Name)
             || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             )) //check if the state is enabled, continue if not
         {
@@ -403,10 +404,20 @@ void APlayerObject::Update()
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
+
+	//reset moves used in combo if not currently doing combo 
+	if (StoredStateMachine.CurrentState->StateType != EStateType::NormalAttack
+		&& StoredStateMachine.CurrentState->StateType != EStateType::NormalThrow
+		&& StoredStateMachine.CurrentState->StateType != EStateType::SpecialAttack
+		&& StoredStateMachine.CurrentState->StateType != EStateType::SuperAttack)
+	{
+		for (int32& Index : MovesUsedInCombo)
+			Index = -1;
+	}
 	
 	HandleBufferedState();
 
-	if (ActionTime == 4) //enable kara cancel after window end
+	if (ActionTime == 3) //enable kara cancel after window end
 		CancelFlags |= CNC_EnableKaraCancel;
 
 	if (StrikeInvulnerableTimer > 0)
@@ -1272,6 +1283,7 @@ bool APlayerObject::FindChainCancelOption(const FString& Name)
 			if (ChainCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptionsInternal[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
+				CheckMovesUsedInCombo(Name);
 				break;
 			}
 		}
@@ -1289,8 +1301,48 @@ bool APlayerObject::FindWhiffCancelOption(const FString& Name)
 			if (WhiffCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptionsInternal[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
+				CheckMovesUsedInCombo(Name);
 				break;
 			}
+		}
+	}
+	return ReturnReg;
+}
+
+bool APlayerObject::CheckReverseBeat(const FString& Name)
+{
+	ReturnReg = false;
+	if (!CanReverseBeat)
+		return ReturnReg;
+	
+	const int32 Index = StoredStateMachine.GetStateIndex(Name);
+	if (StoredStateMachine.CurrentState->StateType == EStateType::NormalAttack
+		&& Index != INDEX_NONE && StoredStateMachine.States[Index]->StateType == EStateType::NormalAttack)
+	{
+		CheckMovesUsedInCombo(Name);
+	}
+	return ReturnReg;
+}
+
+bool APlayerObject::CheckMovesUsedInCombo(const FString& Name)
+{
+	ReturnReg = false;
+	int32 Usages = 0;
+	for (const int32 Index : MovesUsedInCombo)
+	{
+		if (Index == StoredStateMachine.GetStateIndex(Name) && Index != INDEX_NONE)
+			Usages++;
+	}
+	if (Usages < StoredStateMachine.States[StoredStateMachine.GetStateIndex(Name)]->MaxChain
+		|| StoredStateMachine.States[StoredStateMachine.GetStateIndex(Name)]->MaxChain == -1)
+		ReturnReg = true;
+	
+	for (int i = 0; i < CancelArraySize; i++)
+	{
+		if (MovesUsedInCombo[i] == INDEX_NONE)
+		{
+			MovesUsedInCombo[i] = StoredStateMachine.GetStateIndex(Name);
+			break;
 		}
 	}
 	return ReturnReg;
@@ -1305,21 +1357,23 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 	}
 	
 	CancelFlags &= ~CNC_EnableKaraCancel; //prevents kara cancelling immediately after the last kara cancel
+
+	if (ActionTime >= 3)
+		return ReturnReg;
 	
 	//two checks: if it's an attack, and if the given state type has a higher or equal priority to the current state
 	if (InStateType == EStateType::NormalThrow && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack && ActionTime < 3
-		&& ComboTimer == 0)
+		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack)
 	{
 		ReturnReg = true;
 	}
 	if (InStateType == EStateType::SpecialAttack && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack && ActionTime < 3)
+		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack)
 	{
 		ReturnReg = true;
 	}
 	if (InStateType == EStateType::SuperAttack && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::SpecialAttack && ActionTime < 3)
+		&& StoredStateMachine.CurrentState->StateType >= EStateType::SpecialAttack)
 	{
 		ReturnReg = true;
 	}	

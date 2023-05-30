@@ -167,8 +167,11 @@ public:
 	int32 MeterPercentOnReceiveHitGuard = 10;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 MeterPercentOnReceiveHit = 40;
-	FixedString<32> DamageReactionCels[DamageReactionCelCount];
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FString> DamageReactionCels;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool CanReverseBeat;
+	
 	/*
 	 * Player registers. These are only touched by the engine to reset per round.
 	 * Use these to keep track of values (timers, toggles, counters, etc) that are character-specific.
@@ -263,11 +266,14 @@ protected:
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
+	FixedString<32> DamageReactionCelsInternal[DamageReactionCelCount];
 
 	//Chain cancels (copied from TArray to static array)
 	int32 ChainCancelOptionsInternal[CancelArraySize] = {};
 	//Whiff cancels (copied from TArray to static array)
 	int32 WhiffCancelOptionsInternal[CancelArraySize] = {};
+	//checks state indices for moves used in current combo
+	int32 MovesUsedInCombo[CancelArraySize] = {};
 	FixedString<64> ExeStateName;
 	FixedString<64> BufferedStateName;
 	
@@ -351,6 +357,10 @@ private:
 	bool FindChainCancelOption(const FString& Name);
 	//check if whiff cancel option exists
 	bool FindWhiffCancelOption(const FString& Name);
+	//check reverse beat
+	bool CheckReverseBeat(const FString& Name);
+	//checks moves used in combo
+	bool CheckMovesUsedInCombo(const FString& Name);
 	//checks kara cancel
 	bool CheckKaraCancel(EStateType InStateType);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
