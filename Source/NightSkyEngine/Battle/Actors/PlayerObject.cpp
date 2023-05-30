@@ -1363,7 +1363,11 @@ void APlayerObject::HandleWallBounce()
 					ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
 				else
 					ReceivedHit.Untech = StunTime;
-				JumpToState("FLaunch");
+				ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
+				ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
+				ReceivedHit.GravityOverTime = FHitValueOverTime();
+				HaltMomentum();
+				BufferedStateName.SetString("WallBounce");
 			}
 		}
 		return;
@@ -1382,7 +1386,11 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
 			else
 				ReceivedHit.Untech = StunTime;
-			BufferedStateName.SetString("FLaunch");
+			ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
+			ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
+			ReceivedHit.GravityOverTime = FHitValueOverTime();
+			HaltMomentum();
+			BufferedStateName.SetString("WallBounce");
 		}
 	}
 }
