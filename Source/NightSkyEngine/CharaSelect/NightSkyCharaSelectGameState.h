@@ -41,4 +41,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void AddPlayerObject(TSubclassOf<APlayerObject> InClass, bool IsP1 = true);
+	UFUNCTION(BlueprintCallable)
+	void AddColorIndex(int InColor, bool IsP1 = true);
 };

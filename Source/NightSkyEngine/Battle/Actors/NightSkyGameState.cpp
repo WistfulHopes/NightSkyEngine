@@ -51,13 +51,21 @@ void ANightSkyGameState::Init()
 					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->PlayerList[i]);
 					Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
 					Players[i]->TeamIndex = i % MaxPlayerObjects / 2;
+					if (GameInstance->ColorIndices.Num() > i)
+						Players[i]->ColorIndex = GameInstance->ColorIndices[i];
 					for (int j = 0; j < i; j++)
 					{
 						if (IsValid(GameInstance->PlayerList[j]))
 						{
 							if (Players[i]->IsA(GameInstance->PlayerList[j]))
 							{
-								Players[i]->ColorIndex = 2;
+								if (Players[i]->ColorIndex == Players[j]->ColorIndex)
+								{
+									if (Players[j]->ColorIndex > 1)
+										Players[i]->ColorIndex = 1;
+									else
+										Players[i]->ColorIndex = 2;
+								}
 								break;
 							}
 						}

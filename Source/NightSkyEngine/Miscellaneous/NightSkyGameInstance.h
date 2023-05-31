@@ -61,6 +61,8 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<TSubclassOf<APlayerObject>> PlayerList;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<int32> ColorIndices;
 	UPROPERTY(BlueprintReadWrite)
 	int PlayerIndex;
 	UPROPERTY(BlueprintReadWrite)

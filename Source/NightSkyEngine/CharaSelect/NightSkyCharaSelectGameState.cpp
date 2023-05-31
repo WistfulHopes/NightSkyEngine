@@ -60,3 +60,19 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 		GameInstance->PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
 	}
 }
+
+void ANightSkyCharaSelectGameState::AddColorIndex(int InColor, bool IsP1)
+{
+	if (IsP1)
+	{
+		if (P1Charas.Num() >= MaxPlayerObjects / 2)
+			return;
+		GameInstance->ColorIndices[P1Charas.Num() - 1] = InColor;
+	}
+	else
+	{
+		if (P2Charas.Num() >= MaxPlayerObjects / 2)
+			return;
+		GameInstance->ColorIndices[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InColor;
+	}
+}

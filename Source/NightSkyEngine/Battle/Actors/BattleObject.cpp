@@ -295,7 +295,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								if (OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 								{
 
-									CreateCommonParticle("cmn_guard", POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle("cmn_guard", POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Block);
 									
 									const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
@@ -334,7 +334,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									TriggerEvent(EVT_Hit);
 									
 									const FHitData Data = InitHitDataByAttackLevel(false);
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = Data;
 									EHitAction HACT;
@@ -352,7 +352,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									TriggerEvent(EVT_CounterHit);
 									
 									const FHitData CounterData = InitHitDataByAttackLevel(true);
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 0, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = CounterData;
 									OtherChar->ReceivedHit = CounterData;
@@ -850,7 +850,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->Player->EnableState(ENB_ForwardDash);
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 0, 0));
+								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
                                 // PlayCommonSound("HitClash");
 								return;
 							}
@@ -864,7 +864,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->HitPosY = HitPosY;
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 0, 0));
+								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
                                 //PlayCommonSound("HitClash");
 								return;
 							}

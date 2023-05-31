@@ -330,8 +330,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMaterialData* MaterialData;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 	int32 ColorIndex = 1;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 MaxColorIndex = 2;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UFlipbookData* FlipbookData;
