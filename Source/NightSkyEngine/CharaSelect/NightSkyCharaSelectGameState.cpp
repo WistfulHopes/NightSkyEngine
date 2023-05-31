@@ -13,12 +13,12 @@ ANightSkyCharaSelectGameState::ANightSkyCharaSelectGameState()
 	PrimaryActorTick.bCanEverTick = true;
 
 	P1Positions.Add(FVector(-150, -100, 0));
-	P1Positions.Add(FVector(-250, 50, 0));
-	P1Positions.Add(FVector(-350, 0, 0));
+	P1Positions.Add(FVector(-220, -50, 0));
+	P1Positions.Add(FVector(-300, 0, 0));
 	
 	P2Positions.Add(FVector(150, -100, 0));
-	P2Positions.Add(FVector(250, 50, 0));
-	P2Positions.Add(FVector(350, 0, 0));
+	P2Positions.Add(FVector(220, -50, 0));
+	P2Positions.Add(FVector(300, 0, 0));
 }
 
 // Called when the game starts or when spawned
