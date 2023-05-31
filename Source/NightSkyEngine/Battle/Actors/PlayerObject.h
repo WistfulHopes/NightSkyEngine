@@ -9,6 +9,7 @@
 #include "NightSkyEngine/Battle/StateMachine.h"
 #include "NightSkyEngine/Data/CollisionData.h"
 #include "NightSkyEngine/Data/FlipbookData.h"
+#include "NightSkyEngine/Data/SequenceData.h"
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
@@ -342,6 +343,11 @@ public:
 	UParticleData* CommonParticleData;
 	UPROPERTY(EditAnywhere)
 	UParticleData* CharaParticleData;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USequenceData* CommonSequenceData;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USequenceData* SequenceData;
 
 	UPROPERTY()
 	TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
@@ -504,6 +510,15 @@ public:
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
 	void ForceEnableFarNormal(bool Enable);
+	//plays common level sequence
+	UFUNCTION(BlueprintCallable)
+	void PlayCommonLevelSequence(FString Name);
+	//plays character level sequence
+	UFUNCTION(BlueprintCallable)
+	void PlayLevelSequence(FString Name);
+	//starts super freeze
+	UFUNCTION(BlueprintCallable)
+	void StartSuperFreeze(int Duration);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);

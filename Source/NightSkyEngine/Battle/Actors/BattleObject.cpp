@@ -119,10 +119,10 @@ void ABattleObject::Tick(float DeltaTime)
 		return;
 	}
 	
-	if (GameState->SequenceActor->SequencePlayer->IsPlaying())
+	if (GameState->BattleState.CurrentSequenceTime >= 0)
 	{
 		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 0;
+		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
 	}
 	else
 	{
@@ -130,7 +130,7 @@ void ABattleObject::Tick(float DeltaTime)
 			ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
 		else
 			ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
-		OrthoBlendActive = 1;
+		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 	}
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
 	GetComponents(Components);
@@ -364,31 +364,6 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 										HACT = CounterHit.AirHitAction;
 									
 									OtherChar->HandleHitAction(HACT);
-								}
-								if (OtherChar->CurrentHealth <= 0 && (OtherChar->PlayerFlags & PLF_DeathCamOverride) == 0 && (OtherChar->PlayerFlags & PLF_IsDead) == 0)
-								{
-									if (Player->CurrentHealth == 0)
-									{
-										return;
-									}
-									/*Player->BattleHudVisibility(false);
-									if (Player->Enemy->ReceivedAttackLevel < 2)
-									{
-										Player->StartSuperFreeze(40);
-										Player->PlayCommonLevelSequence("KO_Shake");
-									}
-									else if (Player->Enemy->ReceivedAttackLevel < 4)
-									{
-										Player->StartSuperFreeze(70);
-										Player->PlayCommonLevelSequence("KO_Zoom");
-									}
-									else
-									{
-										Player->StartSuperFreeze(110);
-										Player->PlayCommonLevelSequence("KO_Turnaround");
-									}*/
-									Player->Hitstop = 0;
-									Player->Enemy->Hitstop = 0;
 								}
 								return;
 							}
@@ -1161,6 +1136,7 @@ void ABattleObject::Update()
 		if (SuperFreezeTimer == 1)
 		{
 			TriggerEvent(EVT_SuperFreezeEnd);
+			Player->BattleHudVisibility(true);
 		}
 		SuperFreezeTimer--;
 		return;

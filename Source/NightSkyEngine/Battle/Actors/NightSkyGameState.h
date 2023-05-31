@@ -36,19 +36,20 @@ struct FBattleState
 	GENERATED_BODY()
 
 	char BattleStateSync;
-	int FrameNumber;
-	int TimeUntilRoundStart;
-	int CurrentScreenPos = 0;
+	int32 FrameNumber;
+	int32 TimeUntilRoundStart;
+	int32 CurrentScreenPos = 0;
 	UPROPERTY(BlueprintReadOnly)
-	int RoundTimer = 0;
+	int32 RoundTimer = 0;
 	bool PauseTimer;
 	bool PauseParticles;
-	int Meter[2] { 0 , 0 };
-	int MaxMeter[2] { 10000 , 10000 };
-	int P1RoundsWon;
-	int P2RoundsWon;
-	int RoundCount = 0;
-	int ActiveObjectCount;
+	int32 Meter[2] { 0 , 0 };
+	int32 MaxMeter[2] { 10000 , 10000 };
+	int32 P1RoundsWon;
+	int32 P2RoundsWon;
+	int32 RoundCount = 0;
+	int32 ActiveObjectCount;
+	int32 CurrentSequenceTime = -1;
 
 	char BattleStateSyncEnd;
 
@@ -141,7 +142,9 @@ public:
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
-	void UpdateCamera() const;
+	void StartSuperFreeze(int Duration);
+	void UpdateCamera();
+	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
 	void UpdateUI();
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	int GetLocalInputs(int Index) const; //get local inputs from player controller

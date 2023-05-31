@@ -2,6 +2,8 @@
 
 
 #include "NightSkyGameState.h"
+
+#include "EngineUtils.h"
 #include "LevelSequenceActor.h"
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
@@ -217,6 +219,9 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		BattleState.RoundTimer = 0;
 	BattleState.FrameNumber++;
 
+	if (BattleState.CurrentSequenceTime != -1)
+		BattleState.CurrentSequenceTime++;
+	
 	for (int i = 0; i < 2; i++)
 	{
 		if (BattleState.Meter[i] > BattleState.MaxMeter[i])
@@ -569,8 +574,15 @@ void ANightSkyGameState::SetWallCollision()
 	}
 }
 
+void ANightSkyGameState::StartSuperFreeze(int Duration)
+{
+	for (int i = 0; i < BattleState.ActiveObjectCount; i++)
+		SortedObjects[i]->SuperFreezeTimer = Duration;
+	BattleState.PauseTimer = true;
+}
 
-void ANightSkyGameState::UpdateCamera() const
+
+void ANightSkyGameState::UpdateCamera()
 {
 	if (CameraActor != nullptr)
 	{
@@ -582,10 +594,83 @@ void ANightSkyGameState::UpdateCamera() const
 		float NewZ = Average.Z + 150;
 		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
 		CameraActor->SetActorLocation(NewCameraLocation);
-		if (!SequenceActor->SequencePlayer->IsPlaying())
+		if (BattleState.CurrentSequenceTime == -1)
 		{
-			SequenceCameraActor->SetActorLocation(FVector(0, 840, 175));
+			SequenceCameraActor->SetActorLocation(FVector(0, 1080, 175));
 		}
+		else
+		{
+			for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
+			{
+				if (It->GetName().Contains("FighterCamera"))
+				{
+					CameraActor = (*It);
+					return;
+				}
+			}
+			if (BattleState.CurrentSequenceTime >= SequenceActor->SequencePlayer->GetEndTime().Time)
+			{
+				SequenceActor->SequencePlayer->Stop();
+				BattleState.CurrentSequenceTime = -1;
+				return;
+			}
+			const FMovieSceneSequencePlaybackParams Params = FMovieSceneSequencePlaybackParams(
+				FFrameTime(BattleState.CurrentSequenceTime),
+				EUpdatePositionMethod::Scrub);
+			SequenceActor->SequencePlayer->SetPlaybackPosition(Params);
+		}
+	}
+}
+
+void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence)
+{
+	if (SequenceActor != nullptr)
+	{
+		SequenceActor->SetSequence(Sequence);
+		TArray<FMovieSceneBinding> Bindings = Sequence->GetMovieScene()->GetBindings();
+		int NumBindings = Bindings.Num();
+		for (int i = 0; i < NumBindings; i++)
+		{
+			FMovieSceneBinding MovieSceneBinding = Bindings[i];
+			if (!MovieSceneBinding.GetName().Equals("Target"))
+			{
+				continue;
+			}
+
+			FMovieSceneObjectBindingID BindingId = FMovieSceneObjectBindingID(MovieSceneBinding.GetObjectGuid());
+			SequenceActor->SetBinding(BindingId, TArray<AActor*>{ Target });
+
+			break;
+		}
+		for (int i = 0; i < NumBindings; i++)
+		{
+			FMovieSceneBinding MovieSceneBinding = Bindings[i];
+			if (!MovieSceneBinding.GetName().Equals("CameraActor"))
+			{
+				continue;
+			}
+
+			FMovieSceneObjectBindingID BindingId = FMovieSceneObjectBindingID(MovieSceneBinding.GetObjectGuid());
+			SequenceActor->SetBinding(BindingId, TArray<AActor*>{ CameraActor });
+
+			break;
+		}
+		for (int i = 0; i < NumBindings; i++)
+		{
+			FMovieSceneBinding MovieSceneBinding = Bindings[i];
+			if (!MovieSceneBinding.GetName().Equals("SequenceCameraActor"))
+			{
+				continue;
+			}
+
+			FMovieSceneObjectBindingID BindingId = FMovieSceneObjectBindingID(MovieSceneBinding.GetObjectGuid());
+			SequenceActor->SetBinding(BindingId, TArray<AActor*>{ SequenceCameraActor });
+
+			break;
+		}
+		SequenceTarget = Target;
+		SequenceCameraActor->SetActorLocation(FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, SequenceCameraActor->GetActorLocation().Z));
+		BattleState.CurrentSequenceTime = 0;
 	}
 }
 

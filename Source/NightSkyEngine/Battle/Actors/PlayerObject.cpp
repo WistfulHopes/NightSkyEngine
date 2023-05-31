@@ -354,7 +354,7 @@ void APlayerObject::Update()
 		Inputs |= INP_Neutral;
 	else
 		Inputs = Inputs & ~INP_Neutral; //remove neutral input if directional input
-
+	
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
 		StoredInputBuffer.Tick(Inputs);
@@ -386,7 +386,7 @@ void APlayerObject::Update()
 		}
 		return;
 	}
-
+	
 	if (SuperFreezeTimer > 0)
 	{
 		GetBoxes();
@@ -401,6 +401,32 @@ void APlayerObject::Update()
 		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
+		
+		if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
+		{
+			PlayerFlags |= PLF_IsDead;
+			if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride))
+			{
+				BattleHudVisibility(false);
+				if (ReceivedHitCommon.AttackLevel < 2)
+				{
+					StartSuperFreeze(40);
+					PlayCommonLevelSequence("KO_Shake");
+				}
+				else if (ReceivedHitCommon.AttackLevel < 4)
+				{
+					StartSuperFreeze(75);
+					PlayCommonLevelSequence("KO_Zoom");
+				}
+				else
+				{
+					StartSuperFreeze(145);
+					PlayCommonLevelSequence("KO_Turnaround");
+				}
+				Hitstop = 0;
+				Enemy->Hitstop = 0;
+			}
+		}
 		return;
 	}
 
@@ -678,7 +704,6 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	}
 	if (CurrentHealth <= 0)
 	{
-		PlayerFlags |= PLF_IsDead;
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal || HACT == HACT_FloatingCrumple)
@@ -688,9 +713,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			else if (HACT == HACT_AirFaceDown)
 				BufferedStateName.SetString("FLaunch");
 			else if (HACT == HACT_Blowback)
-			{
 				BufferedStateName.SetString("Blowback");
-			}
 			else
 				BufferedStateName.SetString("Crumple");
 		}
@@ -962,6 +985,44 @@ void APlayerObject::ForceEnableFarNormal(bool Enable)
 	{
 		PlayerFlags &= ~PLF_ForceEnableFarNormal;
 	}
+}
+
+void APlayerObject::PlayCommonLevelSequence(FString Name)
+{
+	if (Direction == DIR_Left)
+		Name += "Flip";
+	if (CommonSequenceData != nullptr)
+	{
+		for (FSequenceStruct SequenceStruct : CommonSequenceData->SequenceStructs)
+		{
+			if (SequenceStruct.Name == Name)
+			{
+				GameState->PlayLevelSequence(this, SequenceStruct.Sequence);
+			}
+		}
+	}
+}
+
+void APlayerObject::PlayLevelSequence(FString Name)
+{
+	if (Direction == DIR_Left)
+		Name += "Flip";
+	if (SequenceData != nullptr)
+	{
+		for (FSequenceStruct SequenceStruct : SequenceData->SequenceStructs)
+		{
+			if (SequenceStruct.Name == Name)
+			{
+				GameState->PlayLevelSequence(this, SequenceStruct.Sequence);
+			}
+		}
+	}
+}
+
+void APlayerObject::StartSuperFreeze(int Duration)
+{
+	GameState->StartSuperFreeze(Duration);
+	TriggerEvent(EVT_SuperFreeze);
 }
 
 void APlayerObject::BattleHudVisibility(bool Visible)
