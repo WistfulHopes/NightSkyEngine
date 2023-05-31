@@ -39,6 +39,9 @@ void UNightSkyGameInstance::OnSessionInviteAccepted(bool bArg, int I,
 	TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
 	const FOnlineSessionSearchResult& OnlineSessionSearchResult)
 {
+	if (PlayerList.IsEmpty())
+		return;
+	
 	FighterRunner = Multiplayer;
 	PlayerIndex = 1;
 	
