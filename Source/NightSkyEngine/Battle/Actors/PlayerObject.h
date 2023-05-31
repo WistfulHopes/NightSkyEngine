@@ -223,6 +223,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
+	
 	int32 CurrentHealth;
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
@@ -371,7 +372,12 @@ private:
 public:
 	//initialize player for match/round start
 	void InitPlayer();
-	virtual void Update() override;	
+	//update object
+	virtual void Update() override;
+	//update object for non-battle modes (like character select)
+	void UpdateNotBattle();
+	//update object (editor only, compiled out otherwise)
+	void EditorUpdate();
 	//based on received hit action, choose state
 	void HandleHitAction(EHitAction HACT);
 	//set hit values over time

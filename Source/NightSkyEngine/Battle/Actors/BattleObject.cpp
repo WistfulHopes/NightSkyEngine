@@ -3,6 +3,8 @@
 
 #include "BattleObject.h"
 
+#include "LevelSequenceActor.h"
+#include "LevelSequencePlayer.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraSystem.h"
@@ -110,6 +112,39 @@ void ABattleObject::Move()
 void ABattleObject::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	if (!GameState)
+	{
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = 1;
+		return;
+	}
+	
+	if (GameState->SequenceActor->SequencePlayer->IsPlaying())
+	{
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = 0;
+	}
+	else
+	{
+		if (IsPlayer)
+			ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
+		else
+			ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
+		OrthoBlendActive = 1;
+	}
+	TInlineComponentArray<UPrimitiveComponent*> Components(this);
+	GetComponents(Components);
+	for (const auto Component : Components)
+	{
+		for (int64 i = 0; i < Component->GetNumMaterials(); i++)
+		{
+			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
+			{
+				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+			}
+		}
+	}
 }
 
 void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
@@ -212,6 +247,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
 								&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 							{
+								GameState->SetDrawPriorityFront(this);
 								OtherChar->StunTime = 2147483647;
 								OtherChar->FaceOpponent();
 								OtherChar->HaltMomentum();
@@ -1087,6 +1123,7 @@ void ABattleObject::InitObject()
 {
 	if (IsPlayer)
 		return;
+	GameState->SetDrawPriorityFront(this);
 	ObjectState->Parent = this;
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
 	if (Direction == DIR_Left)
@@ -1246,6 +1283,7 @@ void ABattleObject::ResetObject()
 	ObjectStateName.SetString("");
 	ObjectID = 0;
 	Player = nullptr;
+	GameState->SetDrawPriorityFront(this);
 }
 
 void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName)

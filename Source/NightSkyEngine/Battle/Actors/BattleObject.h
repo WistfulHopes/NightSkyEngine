@@ -514,14 +514,21 @@ public:
 	int32 SuperFreezeTimer;
 	bool IsPlayer;
 	bool IsActive;
+	int32 DrawPriority; //the lower the number, the farther in front the character will be drawn
+
 	//Pointer to player object. If this is not a player, it will point to the owning player.
 	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* Player; 
-
+	APlayerObject* Player;
+	
 	//Anything past here isn't saved or loaded for rollback.
 	unsigned char ObjSyncEnd;
 
 	uint32 ObjNumber;
+
+	UPROPERTY(BlueprintReadOnly)
+	float ScreenSpaceDepthOffset;
+	UPROPERTY(BlueprintReadOnly)
+	float OrthoBlendActive;
 	
 	UPROPERTY()
 	ANightSkyGameState* GameState;
@@ -563,6 +570,7 @@ protected:
 public:	
 	// Cannot be called on player objects. Initializes the object for use.
 	void InitObject();
+	//update object
 	virtual void Update();
 	
 	//resets object for next use

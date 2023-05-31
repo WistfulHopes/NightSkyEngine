@@ -143,6 +143,7 @@ public:
 	void SetWallCollision(); //forces wall collision
 	void UpdateCamera() const;
 	void UpdateUI();
+	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
 	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);

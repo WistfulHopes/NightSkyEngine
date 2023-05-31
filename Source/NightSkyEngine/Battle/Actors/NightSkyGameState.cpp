@@ -94,16 +94,21 @@ void ANightSkyGameState::Init()
 		Players[i]->InitPlayer();
 		Players[i]->GameState = this;
 		Players[i]->ObjNumber = i + MaxBattleObjects;
+		SortedObjects[i] = Players[i];
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass());
-		Objects[i]->ResetObject();
 		Objects[i]->GameState = this;
 		Objects[i]->ObjNumber = i;
 		SortedObjects[i + MaxPlayerObjects] = Objects[i];
 	}
 
+	for (int i = MaxBattleObjects + MaxPlayerObjects; i >= 0; i--)
+	{
+		SetDrawPriorityFront(SortedObjects[i]);
+	}
+	
 	FActorSpawnParameters SpawnParameters;
 	SpawnParameters.Owner = GetOwner();
 
@@ -602,6 +607,26 @@ void ANightSkyGameState::UpdateUI()
 			BattleHudActor->Widget->P1ComboCounter = Players[0]->ComboCounter;
 			BattleHudActor->Widget->P2ComboCounter = Players[3]->ComboCounter;
 		}
+	}
+}
+
+void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
+{
+	if (InObject->IsPlayer)
+	{
+		for (int i = 0; i < MaxPlayerObjects; i++)
+		{
+			if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
+				SortedObjects[i]->DrawPriority++;
+		}
+		InObject->DrawPriority = 0;
+		return;
+	}
+	for (int i = MaxPlayerObjects; i < BattleState.ActiveObjectCount; i++)
+	{
+		if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
+			SortedObjects[i]->DrawPriority++;
+		InObject->DrawPriority = MaxPlayerObjects;
 	}
 }
 

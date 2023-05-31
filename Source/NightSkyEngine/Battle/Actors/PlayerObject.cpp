@@ -595,6 +595,36 @@ void APlayerObject::Update()
 	UpdateVisualLocation();
 }
 
+void APlayerObject::UpdateNotBattle()
+{
+	Player->StoredStateMachine.Update();
+	
+	if (TimeUntilNextCel > 0)
+		TimeUntilNextCel--;
+	if (TimeUntilNextCel == 0)
+		CelIndex++;
+	GetBoxes();
+}
+
+void APlayerObject::EditorUpdate()
+{
+#if WITH_EDITOR
+	const int32 TempIndex = CelIndex;
+	CelIndex = 0;
+	TimeUntilNextCel = 0;
+	while (CelIndex != TempIndex)
+	{
+		Player->StoredStateMachine.Update();
+	
+		if (TimeUntilNextCel > 0)
+			TimeUntilNextCel--;
+		if (TimeUntilNextCel == 0)
+			CelIndex++;
+		GetBoxes();
+	}
+#endif
+}
+
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
 	Enemy->ComboCounter++;
