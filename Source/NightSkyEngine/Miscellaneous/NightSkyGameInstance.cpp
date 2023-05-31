@@ -431,7 +431,7 @@ bool UNightSkyGameInstance::DestroyLobby()
 
 void UNightSkyGameInstance::SeamlessTravel()
 {
-	this->GetWorld()->ServerTravel(StageURL);
+	this->GetWorld()->ServerTravel(StageURL, true);
 }
 
 void UNightSkyGameInstance::HandleJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Arg)

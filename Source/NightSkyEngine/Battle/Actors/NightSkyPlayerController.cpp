@@ -399,7 +399,7 @@ void ANightSkyPlayerController::SendCharaData()
 		}
 		else
 		{
-			NetworkPawns[0]->ServerGetCharaData(GameInstance->PlayerList[03]);
+			NetworkPawns[0]->ServerGetCharaData(GameInstance->PlayerList[3]);
 		}
 	}
 }

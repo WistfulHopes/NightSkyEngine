@@ -12,13 +12,13 @@ ANightSkyCharaSelectGameState::ANightSkyCharaSelectGameState()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	P1Positions.Add(FVector(-150, 0, 0));
-	P1Positions.Add(FVector(-200, 0, 0));
-	P1Positions.Add(FVector(-250, 0, 0));
+	P1Positions.Add(FVector(-150, -100, 0));
+	P1Positions.Add(FVector(-250, 50, 0));
+	P1Positions.Add(FVector(-350, 0, 0));
 	
-	P2Positions.Add(FVector(150, 0, 0));
-	P2Positions.Add(FVector(200, 0, 0));
-	P2Positions.Add(FVector(250, 0, 0));
+	P2Positions.Add(FVector(150, -100, 0));
+	P2Positions.Add(FVector(250, 50, 0));
+	P2Positions.Add(FVector(350, 0, 0));
 }
 
 // Called when the game starts or when spawned
@@ -57,6 +57,6 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 		P2Charas.Last()->InitPlayer();
 		P2Charas.Last()->SetActorLocation(P2Positions[P2Charas.Num() - 1]);
 		P2Charas.Last()->SetActorScale3D(FVector(-1, 1, 1));
-		GameInstance->PlayerList[P1Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
+		GameInstance->PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
 	}
 }
