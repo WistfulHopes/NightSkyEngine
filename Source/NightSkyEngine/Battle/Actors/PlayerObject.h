@@ -528,6 +528,13 @@ public:
 	//sets throw invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetThrowInvulnerable(bool Invulnerable);
+	//sets strike invulnerable enabled for time
+	UFUNCTION(BlueprintCallable)
+	void SetStrikeInvulnerableForTime(int32 Timer);
+	//sets throw invulnerable enabled for time
+	UFUNCTION(BlueprintCallable)
+	void SetThrowInvulnerableForTime(int32 Timer);
+	//sets projectile invulnerable enabled
 	//set stun time
 	UFUNCTION(BlueprintCallable)
 	void SetStunTime(int32 NewTime);

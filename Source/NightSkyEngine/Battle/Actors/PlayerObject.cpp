@@ -2337,6 +2337,16 @@ void APlayerObject::SetThrowInvulnerable(bool Invulnerable)
 	}
 }
 
+void APlayerObject::SetStrikeInvulnerableForTime(int32 Timer)
+{
+	StrikeInvulnerableTimer = Timer;
+}
+
+void APlayerObject::SetThrowInvulnerableForTime(int32 Timer)
+{
+	ThrowInvulnerableTimer = Timer;	
+}
+
 void APlayerObject::SetStunTime(int32 NewTime)
 {
 	StunTime = NewTime;
