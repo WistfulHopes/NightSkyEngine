@@ -874,9 +874,9 @@ void ABattleObject::HandleFlip()
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
 				Player->JumpToState("StandFlip");
-			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Crouching)
+			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
 				Player->JumpToState("CrouchFlip");
-			else if (Player->EnableFlags & ENB_Jumping)
+			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
 				Player->JumpToState("JumpFlip");
 		}
 	}
