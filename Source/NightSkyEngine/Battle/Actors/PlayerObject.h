@@ -193,6 +193,18 @@ public:
 	int32 PlayerReg8 = 0;
 
 	/*
+	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
+	 */
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg1 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg2 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg3 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg4 = 0;
+
+	/*
 	 * Action data.
 	 */
 
@@ -274,6 +286,7 @@ protected:
 	int32 WhiffCancelOptionsInternal[CancelArraySize] = {};
 	//checks state indices for moves used in current combo
 	int32 MovesUsedInCombo[CancelArraySize] = {};
+	FixedString<64> LastStateName;
 	FixedString<64> ExeStateName;
 	FixedString<64> BufferedStateName;
 	
@@ -285,7 +298,7 @@ public:
 	 * Data to copy from blueprint TArray to internal object
 	 */
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	TArray<FString> DamageReactionCels;
 	TArray<FString> ChainCancelOptions;
 	TArray<FString> WhiffCancelOptions; 
@@ -428,6 +441,9 @@ public:
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
 	void CallSubroutine(FString Name);
+	//calls subroutine
+	UFUNCTION(BlueprintCallable)
+	void CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
 	//set stance
 	UFUNCTION(BlueprintCallable)
 	void SetStance(EActionStance InStance);
@@ -437,6 +453,9 @@ public:
 	//gets current state name
 	UFUNCTION(BlueprintPure)
 	FString GetCurrentStateName() const;
+	//gets current state name
+	UFUNCTION(BlueprintPure)
+	FString GetLastStateName();
 	//check if state can be entered
 	UFUNCTION(BlueprintPure)
 	bool CheckStateEnabled(EStateType StateType);
@@ -522,6 +541,15 @@ public:
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
+	//creates common object
+	UFUNCTION(BlueprintCallable)
+	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	//creates object
+	UFUNCTION(BlueprintCallable)
+	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	//stores battle actor in slot
+	UFUNCTION(BlueprintCallable)
+	void AddBattleActorToStorage(ABattleObject* InActor, int Index);
 };
 #pragma pack(pop)
 

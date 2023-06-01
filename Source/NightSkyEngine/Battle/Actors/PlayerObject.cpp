@@ -885,22 +885,50 @@ void APlayerObject::SetHitValues()
 	default:
 		break;
 	}
+
+	int32 FinalHitstun = ReceivedHit.Hitstun;
+	int32 FinalUntech = ReceivedHit.Untech;
+	if (Enemy->ComboTimer >= 14 * 60)
+	{
+		FinalHitstun = FinalHitstun * 70 / 100;
+		FinalUntech = FinalUntech * 60 / 100;
+	}
+	else if (Enemy->ComboTimer >= 10 * 60)
+	{
+		FinalHitstun = FinalHitstun * 75 / 100;
+		FinalUntech = FinalUntech * 70 / 100;
+	}
+	else if (Enemy->ComboTimer >= 7 * 60)
+	{
+		FinalHitstun = FinalHitstun * 80 / 100;
+		FinalUntech = FinalUntech * 80 / 100;
+	}
+	else if (Enemy->ComboTimer >= 5 * 60)
+	{
+		FinalHitstun = FinalHitstun * 85 / 100;
+		FinalUntech = FinalUntech * 90 / 100;
+	}
+	else if (Enemy->ComboTimer >= 3 * 60)
+	{
+		FinalHitstun = FinalHitstun * 90 / 100;
+		FinalUntech = FinalUntech * 95 / 100;
+	}
 	
 	switch (HACT)
 	{
 	case HACT_GroundNormal:
 	case HACT_ForceCrouch:
 	case HACT_ForceStand:
-		StunTime = ReceivedHit.Hitstun;
-		StunTimeMax = ReceivedHit.Hitstun;
+		StunTime = FinalHitstun;
+		StunTimeMax = FinalHitstun;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
 		}
 		break;
 	case HACT_FloatingCrumple:
-		StunTime = ReceivedHit.Untech;
-		StunTimeMax = ReceivedHit.Untech;
+		StunTime = FinalUntech;
+		StunTimeMax = FinalUntech;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
@@ -912,8 +940,8 @@ void APlayerObject::SetHitValues()
 	case HACT_AirFaceDown:
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech;
-		StunTimeMax = ReceivedHit.Untech;
+		StunTime = FinalUntech;
+		StunTimeMax = FinalUntech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
@@ -943,8 +971,8 @@ void APlayerObject::SetHitValues()
 		}
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
-		StunTime = ReceivedHit.Untech;
-		StunTimeMax = ReceivedHit.Untech;
+		StunTime = FinalUntech;
+		StunTimeMax = FinalUntech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		if (ReceivedHit.BlowbackLevel <= 0)
@@ -1028,6 +1056,77 @@ void APlayerObject::StartSuperFreeze(int Duration)
 void APlayerObject::BattleHudVisibility(bool Visible)
 {
 	GameState->BattleHudVisibility(Visible);
+}
+
+ABattleObject* APlayerObject::AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset,
+	EPosType PosType)
+{
+	const int StateIndex = CommonObjectStateNames.Find(InStateName);
+	if (StateIndex != INDEX_NONE)
+	{
+		int32 FinalPosX, FinalPosY;
+		if (Direction == DIR_Left)
+			PosXOffset = -PosXOffset;
+
+		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		FinalPosX += PosXOffset;
+		FinalPosY += PosYOffset;
+		for (int i = 0; i < 32; i++)
+		{
+			if (ChildBattleObjects[i] == nullptr)
+			{
+				ChildBattleObjects[i] = GameState->AddBattleObject(CommonObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, this);
+				return ChildBattleObjects[i];
+			}
+			if (!ChildBattleObjects[i]->IsActive)
+			{
+				ChildBattleObjects[i] = GameState->AddBattleObject(CommonObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, this);
+				return ChildBattleObjects[i];
+			}
+		}
+	}
+	return nullptr;
+}
+
+ABattleObject* APlayerObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
+{
+	const int StateIndex = ObjectStateNames.Find(InStateName);
+	if (StateIndex != INDEX_NONE)
+	{
+		int32 FinalPosX, FinalPosY;
+		if (Direction == DIR_Left)
+			PosXOffset = -PosXOffset;
+
+		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		FinalPosX += PosXOffset;
+		FinalPosY += PosYOffset;
+		for (int i = 0; i < 32; i++)
+		{
+			if (ChildBattleObjects[i] == nullptr)
+			{
+				ChildBattleObjects[i] = GameState->AddBattleObject(ObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, this);
+				return ChildBattleObjects[i];
+			}
+			if (!ChildBattleObjects[i]->IsActive)
+			{
+				ChildBattleObjects[i] = GameState->AddBattleObject(ObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, this);
+				return ChildBattleObjects[i];
+			}
+		}
+	}
+	return nullptr;
+}
+
+void APlayerObject::AddBattleActorToStorage(ABattleObject* InActor, int Index)
+{
+	if (Index < 16)
+	{
+		StoredBattleObjects[Index] = InActor;
+	}
 }
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
@@ -1261,6 +1360,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 	{
 	case EStateCondition::None:
 		ReturnReg = true;
+		break;
 	case EStateCondition::AirJumpOk:
 		if (CurrentAirJumpCount > 0)
 			ReturnReg = true;
@@ -1281,10 +1381,13 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		break;
 	case EStateCondition::IsAttacking:
 		ReturnReg = AttackFlags & ATK_IsAttacking;
+		break;
 	case EStateCondition::HitstopCancel:
 		ReturnReg = Hitstop == 1 && AttackFlags & ATK_IsAttacking;
+		break;
 	case EStateCondition::IsStunned:
 		ReturnReg = PlayerFlags & PLF_IsStunned;
+		break;
 	case EStateCondition::CloseNormal:
 		if (abs(PosX - Enemy->PosX) < CloseNormalRange && (PlayerFlags & PLF_ForceEnableFarNormal) == 0)
 			ReturnReg = true;
@@ -1327,36 +1430,52 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		break;
 	case EStateCondition::PlayerReg1True:
 		ReturnReg = PlayerReg1 != 0;
+		break;
 	case EStateCondition::PlayerReg2True:
 		ReturnReg = PlayerReg2 != 0;
+		break;
 	case EStateCondition::PlayerReg3True:
 		ReturnReg = PlayerReg3 != 0;
+		break;
 	case EStateCondition::PlayerReg4True:
 		ReturnReg = PlayerReg4 != 0;
+		break;
 	case EStateCondition::PlayerReg5True:
 		ReturnReg = PlayerReg5 != 0;
+		break;
 	case EStateCondition::PlayerReg6True:
 		ReturnReg = PlayerReg6 != 0;
+		break;
 	case EStateCondition::PlayerReg7True:
 		ReturnReg = PlayerReg7 != 0;
+		break;
 	case EStateCondition::PlayerReg8True:
 		ReturnReg = PlayerReg8 != 0;
+		break;
 	case EStateCondition::PlayerReg1False:
 		ReturnReg = PlayerReg1 == 0;
+		break;
 	case EStateCondition::PlayerReg2False:
 		ReturnReg = PlayerReg2 == 0;
+		break;
 	case EStateCondition::PlayerReg3False:
 		ReturnReg = PlayerReg3 == 0;
+		break;
 	case EStateCondition::PlayerReg4False:
 		ReturnReg = PlayerReg4 == 0;
+		break;
 	case EStateCondition::PlayerReg5False:
 		ReturnReg = PlayerReg5 == 0;
+		break;
 	case EStateCondition::PlayerReg6False:
 		ReturnReg = PlayerReg6 == 0;
+		break;
 	case EStateCondition::PlayerReg7False:
 		ReturnReg = PlayerReg7 == 0;
+		break;
 	case EStateCondition::PlayerReg8False:
 		ReturnReg = PlayerReg8 == 0;
+		break;
 	default:
 		ReturnReg = false;
 	}
@@ -1579,6 +1698,23 @@ void APlayerObject::CallSubroutine(FString Name)
 		Subroutines[SubroutineNames.Find(Name)]->Exec();
 }
 
+void APlayerObject::CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
+{
+	SubroutineReg1 = Arg1;
+	SubroutineReg2 = Arg2;
+	SubroutineReg3 = Arg3;
+	SubroutineReg4 = Arg4;
+	
+	if (CommonSubroutineNames.Find(Name) != INDEX_NONE)
+	{
+		CommonSubroutines[CommonSubroutineNames.Find(Name)]->Exec();
+		return;
+	}
+
+	if (SubroutineNames.Find(Name) != INDEX_NONE)
+		Subroutines[SubroutineNames.Find(Name)]->Exec();
+}
+
 void APlayerObject::SetStance(EActionStance InStance)
 {
 	Stance = InStance;
@@ -1609,6 +1745,11 @@ void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 FString APlayerObject::GetCurrentStateName() const
 {
 	return StoredStateMachine.CurrentState->Name;
+}
+
+FString APlayerObject::GetLastStateName()
+{
+	return FString(LastStateName.GetString());
 }
 
 bool APlayerObject::CheckStateEnabled(EStateType StateType)
@@ -1757,6 +1898,7 @@ void APlayerObject::OnStateChange()
 	AnimName.SetString("");
 	AnimFrame = 0;
 	CelName.SetString("");
+	LastStateName.SetString(GetCurrentStateName());
 }
 
 void APlayerObject::PostStateChange()
@@ -1857,6 +1999,10 @@ void APlayerObject::ResetForRound()
 	PlayerReg6 = 0;
 	PlayerReg7 = 0;
 	PlayerReg8 = 0;
+	SubroutineReg1 = 0;
+	SubroutineReg2 = 0;
+	SubroutineReg3 = 0;
+	SubroutineReg4 = 0;
 	Inputs = 0;
 	FlipInputs = false;
 	Stance = ACT_Standing;
@@ -1902,6 +2048,7 @@ void APlayerObject::ResetForRound()
 		CancelOption = -1;
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
+	LastStateName.SetString("");
 	ExeStateName.SetString("");
 	BufferedStateName.SetString("");
 	WallTouchTimer = 0;

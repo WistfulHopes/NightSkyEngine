@@ -14,6 +14,7 @@
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Data/ParticleData.h"
+#include "NightSkyEngine/Miscellaneous/RandomManager.h"
 
 // Sets default values
 ABattleObject::ABattleObject()
@@ -934,6 +935,8 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 	UState* State = ObjectState;
 	if (IsPlayer)
 		State = Player->StoredStateMachine.CurrentState;
+	if (!IsValid(State))
+		return;
 	UFunction* const Func = State->FindFunction(FName(EventHandlers[EventType].FunctionName.GetString()));
 	if (IsValid(Func) && Func->ParmsSize == 0)
 	{
@@ -992,6 +995,23 @@ void ABattleObject::LogForSyncTestFile(FILE* file)
 
 void ABattleObject::UpdateVisualLocation()
 {
+	if (IsValid(LinkedParticle))
+	{
+		FVector FinalScale = ScaleForLink;
+		if (Direction == DIR_Left)
+			FinalScale.Y = -FinalScale.Y;
+		LinkedParticle->SetRelativeScale3D(FinalScale);
+	}
+	for (const auto LinkedMesh : LinkedMeshes)
+	{
+		if (IsValid(LinkedMesh))
+		{
+			FVector FinalScale = ScaleForLink;
+			if (Direction == DIR_Left)
+				FinalScale.Y = -FinalScale.Y;
+			LinkedMesh->SetRelativeScale3D(FinalScale);
+		}
+	}
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 }
 
@@ -1098,6 +1118,20 @@ void ABattleObject::InitObject()
 {
 	if (IsPlayer)
 		return;
+	if (IsValid(LinkedParticle))
+	{
+		LinkedParticle->Deactivate();
+		LinkedParticle = nullptr;
+	}
+	for (auto LinkedMesh : LinkedMeshes)
+	{
+		if (IsValid(LinkedMesh))
+		{
+			LinkedMesh->Deactivate();
+			LinkedMesh->SetRelativeLocation(FVector(0,0,-100000));
+			LinkedMesh = nullptr;
+		}
+	}
 	GameState->SetDrawPriorityFront(this);
 	ObjectState->Parent = this;
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
@@ -1184,6 +1218,20 @@ void ABattleObject::ResetObject()
 {
 	if (IsPlayer)
 		return;
+	if (IsValid(LinkedParticle))
+	{
+		LinkedParticle->SetVisibility(false);
+		LinkedParticle = nullptr;
+	}
+	for (auto LinkedMesh : LinkedMeshes)
+	{
+		if (IsValid(LinkedMesh))
+		{
+			LinkedMesh->SetVisibility(false);
+			LinkedMesh->SetRelativeLocation(FVector(0,0,-100000));
+			LinkedMesh = nullptr;
+		}
+	}
 	IsActive = false;
 	PosX = 0;
 	PosY = 0;
@@ -1528,17 +1576,15 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
-				if (UNiagaraSystem* NiagaraSystem = Cast<UNiagaraSystem>(ParticleStruct.ParticleSystem); IsValid(NiagaraSystem))
+				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
+				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
+				if (Direction == DIR_Left)
 				{
-					GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, NiagaraSystem, FinalLocation, Rotation, GetActorScale()));
-					UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
-					NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
 					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
-					if (Direction == DIR_Left)
-					{
-						NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
-						NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
-					}
 				}
 				break;
 			}
@@ -1560,23 +1606,99 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
-				if (UNiagaraSystem* NiagaraSystem = Cast<UNiagaraSystem>(ParticleStruct.ParticleSystem); IsValid(NiagaraSystem))
+				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
+				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
+				if (Direction == DIR_Left)
 				{
-					GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, NiagaraSystem, FinalLocation, Rotation, GetActorScale()));
-					UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
-					NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
-					if (Direction == DIR_Left)
-					{
-						NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
-						NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
-						NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
-					}
+					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
+					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				}
 				break;
 			}
 		}
 	}
+}
+
+void ABattleObject::LinkCommonParticle(FString Name)
+{
+	if (IsPlayer)
+		return;
+	if (Player->CommonParticleData != nullptr)
+	{
+		for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
+		{
+			if (ParticleStruct.Name == Name)
+			{
+				FVector Scale;
+				if (Direction == DIR_Left)
+				{
+					Scale = FVector(-1,1, 1);
+				}
+				else
+				{
+					Scale = FVector(1, 1, 1);
+				}
+				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale));
+				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetNiagaraVariableBool("NeedsRollback", true);
+				LinkedParticle = NiagaraComponent;
+				LinkedParticle->SetVisibility(false);
+				if (Direction == DIR_Left)
+					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+				break;
+			}
+		}
+	}
+}
+
+void ABattleObject::LinkCharaParticle(FString Name)
+{
+	if (IsPlayer)
+		return;
+	if (Player->CharaParticleData != nullptr)
+	{
+		for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
+		{
+			if (ParticleStruct.Name == Name)
+			{
+				FVector Scale;
+				if (Direction == DIR_Left)
+				{
+					Scale = FVector(-1,1, 1);
+				}
+				else
+				{
+					Scale = FVector(1, 1, 1);
+				}
+				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale));
+				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetNiagaraVariableBool("NeedsRollback", true);
+				LinkedParticle = NiagaraComponent;
+				LinkedParticle->SetVisibility(false);
+				if (Direction == DIR_Left)
+					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+				break;
+			}
+		}
+	}
+}
+
+int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
+{
+	if (Min > Max)
+	{
+		const int32 Temp = Max;
+		Max = Min;
+		Min = Temp;
+	}
+	int32 Result = FRandomManager::GenerateRandomNumber();
+	Result = Result % (Max - Min + 1);
+	return Result;
 }
 
 ABattleObject* ABattleObject::GetBattleObject(EObjType Type)

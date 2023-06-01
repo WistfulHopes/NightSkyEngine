@@ -47,7 +47,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 		P1Charas.Add(GetWorld()->SpawnActor<APlayerObject>(InClass));
 		P1Charas.Last()->InitPlayer();
 		P1Charas.Last()->SetActorLocation(P1Positions[P1Charas.Num() - 1]);
-		GameInstance->PlayerList[P1Charas.Num() - 1] = InClass;
+		GameInstance->BattleData.PlayerList[P1Charas.Num() - 1] = InClass;
 	}
 	else
 	{
@@ -57,7 +57,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 		P2Charas.Last()->InitPlayer();
 		P2Charas.Last()->SetActorLocation(P2Positions[P2Charas.Num() - 1]);
 		P2Charas.Last()->SetActorScale3D(FVector(-1, 1, 1));
-		GameInstance->PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
+		GameInstance->BattleData.PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
 	}
 }
 
@@ -67,12 +67,12 @@ void ANightSkyCharaSelectGameState::AddColorIndex(int InColor, bool IsP1)
 	{
 		if (P1Charas.Num() >= MaxPlayerObjects / 2)
 			return;
-		GameInstance->ColorIndices[P1Charas.Num() - 1] = InColor;
+		GameInstance->BattleData.ColorIndices[P1Charas.Num() - 1] = InColor;
 	}
 	else
 	{
 		if (P2Charas.Num() >= MaxPlayerObjects / 2)
 			return;
-		GameInstance->ColorIndices[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InColor;
+		GameInstance->BattleData.ColorIndices[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InColor;
 	}
 }

@@ -105,6 +105,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	bool bPauseGame;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsPlayingSequence;
+	
 	UPROPERTY()
 	class AFighterLocalRunner* FighterRunner;
 	UPROPERTY(BlueprintReadWrite)
@@ -143,6 +146,7 @@ public:
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
 	void StartSuperFreeze(int Duration);
+	ABattleObject* AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
 	void UpdateUI();

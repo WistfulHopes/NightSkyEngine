@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/FixedString.h"
 #include "BattleObject.generated.h"
 
+class UNiagaraComponent;
 class ANightSkyGameState;
 class UState;
 class APlayerObject;
@@ -516,6 +517,16 @@ public:
 	bool IsActive;
 	int32 DrawPriority; //the lower the number, the farther in front the character will be drawn
 
+	/*
+	 * Link data (for object)
+	 */
+	UPROPERTY(BlueprintReadWrite)
+	FVector ScaleForLink = FVector::One();
+	UPROPERTY()
+	UNiagaraComponent* LinkedParticle;
+	UPROPERTY()
+	USkeletalMeshComponent* LinkedMeshes[8];
+	
 	//Pointer to player object. If this is not a player, it will point to the owning player.
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* Player;
@@ -652,6 +663,15 @@ public:
 	//creates character particle
 	UFUNCTION(BlueprintCallable)
 	void CreateCharaParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	//creates common particle and attaches it to the object. can only be used with non-player objects.
+	UFUNCTION(BlueprintCallable)
+	void LinkCommonParticle(FString Name);
+	//creates character particle and attaches it to the object. can only be used with non-player objects.
+	UFUNCTION(BlueprintCallable)
+	void LinkCharaParticle(FString Name);
+	//initializes event handler
+	UFUNCTION(BlueprintCallable)
+	int32 GenerateRandomNumber(int32 Min, int32 Max);
 	//gets object by type
 	UFUNCTION(BlueprintPure)
 	ABattleObject* GetBattleObject(EObjType Type);

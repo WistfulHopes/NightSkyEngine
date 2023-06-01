@@ -65,7 +65,7 @@ public:
 	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client);
 	
 	UFUNCTION(BlueprintCallable)
-	void SendCharaData();
+	void SendBattleData();
 
 	UPROPERTY(BlueprintReadOnly)
 	ANetworkPawn* NetworkPawn;

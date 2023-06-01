@@ -6,6 +6,7 @@
 #include "FighterRunners.h"
 #include "OnlineLobbyInterface.h"
 #include "OnlineSessionSettings.h"
+#include "RandomManager.h"
 #include "Engine/GameInstance.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "NightSkyGameInstance.generated.h"
@@ -31,6 +32,22 @@ struct FSessionInfo
 	FOnlineSessionSearchResult Result;
 	UPROPERTY(BlueprintReadOnly)
 	FString ConnectInfo;
+};
+
+USTRUCT(BlueprintType)
+struct FBattleData
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<TSubclassOf<APlayerObject>> PlayerList;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<int32> ColorIndices;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	ERoundFormat RoundFormat;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 StartRoundTimer;
+	FRandomManager Random;
 };
 
 /**
@@ -59,18 +76,12 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 	void HandleCreateSessionComplete(FName Name, bool bArg);
 
 public:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<TSubclassOf<APlayerObject>> PlayerList;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<int32> ColorIndices;
 	UPROPERTY(BlueprintReadWrite)
 	int PlayerIndex;
 	UPROPERTY(BlueprintReadWrite)
 	FString StageURL = "TestMap_PL";
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	ERoundFormat RoundFormat;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int StartRoundTimer;
+	FBattleData BattleData;
 	
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
 	bool IsTraining = false;

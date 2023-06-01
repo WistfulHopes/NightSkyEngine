@@ -13,7 +13,7 @@ struct FParticleStruct
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FString Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	class UFXSystemAsset* ParticleSystem;
+	class UNiagaraSystem* ParticleSystem;
 };
 
 /**

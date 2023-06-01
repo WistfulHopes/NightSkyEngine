@@ -29,6 +29,11 @@ void ANightSkyPlayerController::BeginPlay()
 	Super::BeginPlay();
 	
 	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
+	if (const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState()); !IsValid(GameState))
+	{
+		const auto GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+		GameInstance->BattleData.Random.InitSeed(FGenericPlatformMath::Rand());
+	}
 }
 
 // Called every frame
@@ -380,7 +385,7 @@ void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Clien
 	}
 }
 
-void ANightSkyPlayerController::SendCharaData()
+void ANightSkyPlayerController::SendBattleData()
 {
 	int PlayerIndex = 0;
 	if (GetWorld()->GetNetMode() == NM_Client)
@@ -395,11 +400,11 @@ void ANightSkyPlayerController::SendCharaData()
 		UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 		if (PlayerIndex == 0)
 		{
-			NetworkPawns[1]->ClientGetCharaData(GameInstance->PlayerList[0], GameInstance->RoundFormat, GameInstance->StartRoundTimer);
+			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData);
 		}
 		else
 		{
-			NetworkPawns[0]->ServerGetCharaData(GameInstance->PlayerList[3]);
+			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData);
 		}
 	}
 }

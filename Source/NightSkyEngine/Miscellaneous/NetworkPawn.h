@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "NightSkyGameInstance.h"
 #include "NetworkPawn.generated.h"
 
 class APlayerObject;
@@ -36,9 +37,9 @@ public:
 	UFUNCTION( Client, Reliable )
 	void ClientChecksumCheck(uint32 Checksum, int32 InFrame);
 	UFUNCTION( Server, Reliable )
-	void ServerGetCharaData(TSubclassOf<APlayerObject> CharaClass);
+	void ServerGetBattleData(FBattleData InBattleData);
 	UFUNCTION( Client, Reliable )
-	void ClientGetCharaData(TSubclassOf<APlayerObject> CharaClass, enum ERoundFormat InRoundFormat, int InRoundTimer);
+	void ClientGetBattleData(FBattleData InBattleData);
 
 	UPROPERTY()
 	class AFighterMultiplayerRunner* FighterMultiplayerRunner=nullptr;
