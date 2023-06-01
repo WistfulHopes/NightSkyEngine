@@ -1686,6 +1686,36 @@ void ABattleObject::LinkCharaParticle(FString Name)
 	}
 }
 
+void ABattleObject::PlayCommonSound(FString Name)
+{
+	if (Player->CommonSoundData != nullptr)
+	{
+		for (FSoundStruct SoundStruct : Player->CommonSoundData->SoundDatas)
+		{
+			if (SoundStruct.Name == Name)
+			{
+				GameState->PlayCommonAudio(SoundStruct.SoundWave, SoundStruct.MaxDuration);
+				break;
+			}
+		}
+	}
+}
+
+void ABattleObject::PlayCharaSound(FString Name)
+{
+	if (Player->SoundData != nullptr)
+	{
+		for (FSoundStruct SoundStruct : Player->SoundData->SoundDatas)
+		{
+			if (SoundStruct.Name == Name)
+			{
+				GameState->PlayCharaAudio(SoundStruct.SoundWave, SoundStruct.MaxDuration);
+				break;
+			}
+		}
+	}
+}
+
 int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 {
 	if (Min > Max)

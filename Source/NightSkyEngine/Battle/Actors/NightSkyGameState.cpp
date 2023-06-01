@@ -2,13 +2,13 @@
 
 
 #include "NightSkyGameState.h"
-
 #include "EngineUtils.h"
 #include "LevelSequenceActor.h"
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
 #include "ParticleManager.h"
 #include "Camera/CameraActor.h"
+#include "Components/AudioComponent.h"
 #include "Components/SlateWrapperTypes.h"
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
@@ -792,6 +792,148 @@ void ANightSkyGameState::BattleHudVisibility(bool Visible) const
 		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Visible);
 	else
 		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Hidden);
+}
+
+void ANightSkyGameState::PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration)
+{
+	for (int i = 0; i < CommonAudioChannelCount; i++)
+	{
+		if (BattleState.CommonAudioChannels[i].Finished)
+		{
+			BattleState.CommonAudioChannels[i].SoundWave = InSoundWave;
+			BattleState.CommonAudioChannels[i].StartingFrame = BattleState.FrameNumber;
+			BattleState.CommonAudioChannels[i].MaxDuration = MaxDuration;
+			BattleState.CommonAudioChannels[i].Finished = false;
+			AudioManager->CommonAudioPlayers[i]->SetSound(InSoundWave);
+			AudioManager->CommonAudioPlayers[i]->Play();
+			return;
+		}
+	}
+}
+
+void ANightSkyGameState::PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration)
+{
+	for (int i = 0; i < CharaAudioChannelCount; i++)
+	{
+		if (BattleState.CharaAudioChannels[i].Finished)
+		{
+			BattleState.CharaAudioChannels[i].SoundWave = InSoundWave;
+			BattleState.CharaAudioChannels[i].StartingFrame = BattleState.FrameNumber;
+			BattleState.CharaAudioChannels[i].MaxDuration = MaxDuration;
+			BattleState.CharaAudioChannels[i].Finished = false;
+			AudioManager->CharaAudioPlayers[i]->SetSound(InSoundWave);
+			AudioManager->CharaAudioPlayers[i]->Play();
+			return;
+		}
+	}
+}
+
+void ANightSkyGameState::PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player)
+{
+	BattleState.CharaVoiceChannels[Player].SoundWave = InSoundWave;
+	BattleState.CharaVoiceChannels[Player].StartingFrame = BattleState.FrameNumber;
+	BattleState.CharaVoiceChannels[Player].MaxDuration = MaxDuration;
+	BattleState.CharaVoiceChannels[Player].Finished = false;
+	AudioManager->CharaVoicePlayers[Player]->SetSound(InSoundWave);
+	AudioManager->CharaVoicePlayers[Player]->Play();
+}
+
+void ANightSkyGameState::ManageAudio()
+{
+	for (int i = 0; i < CommonAudioChannelCount; i++)
+	{
+		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame;
+		if (!BattleState.CommonAudioChannels[i].Finished && static_cast<int>(BattleState.CommonAudioChannels[i].MaxDuration * 60) < CurrentAudioTime + 0.2)
+		{
+			BattleState.CommonAudioChannels[i].Finished = true;
+			AudioManager->CommonAudioPlayers[i]->Stop();
+			AudioManager->CommonAudioPlayers[i]->SetSound(nullptr);
+		}
+	}
+	for (int i = 0; i < CharaAudioChannelCount; i++)
+	{
+		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.CharaAudioChannels[i].StartingFrame;
+		if (!BattleState.CharaAudioChannels[i].Finished && static_cast<int>(BattleState.CharaAudioChannels[i].MaxDuration * 60) < CurrentAudioTime + 0.2)
+		{
+			BattleState.CharaAudioChannels[i].Finished = true;
+			AudioManager->CharaAudioPlayers[i]->Stop();
+			AudioManager->CharaAudioPlayers[i]->SetSound(nullptr);
+		}
+	}
+	for (int i = 0; i < CharaVoiceChannelCount; i++)
+	{
+		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.CharaVoiceChannels[i].StartingFrame;
+		if (!BattleState.CharaVoiceChannels[i].Finished && static_cast<int>(BattleState.CharaVoiceChannels[i].MaxDuration * 60) < CurrentAudioTime + 0.2)
+		{
+			BattleState.CharaVoiceChannels[i].Finished = true;
+			AudioManager->CharaVoicePlayers[i]->Stop();
+			AudioManager->CharaVoicePlayers[i]->SetSound(nullptr);
+		}
+	}
+	const int CurrentAudioTime = BattleState.FrameNumber - BattleState.AnnouncerVoiceChannel.StartingFrame;
+	if (!BattleState.AnnouncerVoiceChannel.Finished && static_cast<int>(BattleState.AnnouncerVoiceChannel.MaxDuration * 60) < CurrentAudioTime + 0.2)
+	{
+		BattleState.AnnouncerVoiceChannel.Finished = true;
+		AudioManager->AnnouncerVoicePlayer->Stop();
+		AudioManager->AnnouncerVoicePlayer->SetSound(nullptr);
+	}
+}
+
+void ANightSkyGameState::RollbackStartAudio() const
+{
+	for (int i = 0; i < CommonAudioChannelCount; i++)
+	{
+		if (BattleState.CommonAudioChannels[i].SoundWave != AudioManager->CommonAudioPlayers[i]->GetSound())
+		{
+			AudioManager->CommonAudioPlayers[i]->Stop();
+			AudioManager->CommonAudioPlayers[i]->SetSound(BattleState.CommonAudioChannels[i].SoundWave);
+			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame) / 60.f;
+			if (!BattleState.CommonAudioChannels[i].Finished && !AudioManager->CommonAudioPlayers[i]->IsPlaying())
+			{
+				//AudioManager->CommonAudioPlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
+				AudioManager->CommonAudioPlayers[i]->Play(CurrentAudioTime);
+			}
+		}
+	}
+	for (int i = 0; i < CharaAudioChannelCount; i++)
+	{
+		if (BattleState.CharaAudioChannels[i].SoundWave != AudioManager->CharaAudioPlayers[i]->GetSound())
+		{
+			AudioManager->CharaAudioPlayers[i]->Stop();
+			AudioManager->CharaAudioPlayers[i]->SetSound(BattleState.CharaAudioChannels[i].SoundWave);
+			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CharaAudioChannels[i].StartingFrame) / 60.f;
+			if (!BattleState.CharaAudioChannels[i].Finished && !AudioManager->CharaAudioPlayers[i]->IsPlaying())
+			{
+				//AudioManager->CharaAudioPlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
+				AudioManager->CharaAudioPlayers[i]->Play(CurrentAudioTime);
+			}
+		}
+	}
+	for (int i = 0; i < CharaVoiceChannelCount; i++)
+	{
+		if (BattleState.CharaVoiceChannels[i].SoundWave != AudioManager->CharaVoicePlayers[i]->GetSound())
+		{
+			AudioManager->CharaVoicePlayers[i]->Stop();
+			AudioManager->CharaVoicePlayers[i]->SetSound(BattleState.CharaVoiceChannels[i].SoundWave);
+			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CharaVoiceChannels[i].StartingFrame) / 60.f;
+			if (!BattleState.CharaVoiceChannels[i].Finished && !AudioManager->CharaVoicePlayers[i]->IsPlaying())
+			{
+				//AudioManager->CharaVoicePlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
+				AudioManager->CharaVoicePlayers[i]->Play(CurrentAudioTime);
+			}
+		}
+	}
+	if (BattleState.AnnouncerVoiceChannel.SoundWave != AudioManager->AnnouncerVoicePlayer->GetSound())
+	{
+		AudioManager->AnnouncerVoicePlayer->Stop();
+		AudioManager->AnnouncerVoicePlayer->SetSound(BattleState.AnnouncerVoiceChannel.SoundWave);
+		float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.AnnouncerVoiceChannel.StartingFrame) / 60.f;
+		if (!BattleState.AnnouncerVoiceChannel.Finished && !AudioManager->AnnouncerVoicePlayer->IsPlaying())
+		{
+			//AudioManager->AnnouncerVoicePlayer->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
+			AudioManager->AnnouncerVoicePlayer->Play(CurrentAudioTime);
+		}
+	}
 }
 
 void ANightSkyGameState::SaveGameState()

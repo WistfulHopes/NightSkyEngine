@@ -10,6 +10,7 @@
 #include "NightSkyEngine/Data/CollisionData.h"
 #include "NightSkyEngine/Data/FlipbookData.h"
 #include "NightSkyEngine/Data/SequenceData.h"
+#include "NightSkyEngine/Data/SoundData.h"
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
@@ -349,7 +350,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	UFlipbookData* FlipbookData;
 	
 	UPROPERTY(EditAnywhere)
@@ -361,6 +362,13 @@ public:
 	USequenceData* CommonSequenceData;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USequenceData* SequenceData;
+	
+	UPROPERTY(EditAnywhere)
+	USoundData* CommonSoundData;
+	UPROPERTY(EditAnywhere)
+	USoundData* SoundData;
+	UPROPERTY(EditAnywhere)
+	USoundData* VoiceData;
 
 	UPROPERTY()
 	TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
@@ -529,6 +537,9 @@ public:
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
 	void ForceEnableFarNormal(bool Enable);
+	//plays voice line
+	UFUNCTION(BlueprintCallable)
+	void PlayVoiceLine(FString Name);
 	//plays common level sequence
 	UFUNCTION(BlueprintCallable)
 	void PlayCommonLevelSequence(FString Name);

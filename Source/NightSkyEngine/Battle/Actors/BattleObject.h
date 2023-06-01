@@ -669,6 +669,12 @@ public:
 	//creates character particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	void LinkCharaParticle(FString Name);
+	//plays common sound
+	UFUNCTION(BlueprintCallable)
+	void PlayCommonSound(FString Name);
+	//plays chara sound
+	UFUNCTION(BlueprintCallable)
+	void PlayCharaSound(FString Name);
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
 	int32 GenerateRandomNumber(int32 Min, int32 Max);

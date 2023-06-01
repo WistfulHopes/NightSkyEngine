@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AudioManager.h"
 #include "PlayerObject.h"
 #include "GameFramework/GameStateBase.h"
 #include "NightSkyGameState.generated.h"
@@ -30,6 +31,18 @@ enum class ERoundFormat : uint8
 
 #pragma pack (push, 1)
 
+USTRUCT()
+struct FAudioChannel
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	USoundBase* SoundWave;
+	int StartingFrame;
+	float MaxDuration = 1.0f;
+	bool Finished = true;
+};
+
 USTRUCT(BlueprintType)
 struct FBattleState
 {
@@ -50,6 +63,10 @@ struct FBattleState
 	int32 RoundCount = 0;
 	int32 ActiveObjectCount;
 	int32 CurrentSequenceTime = -1;
+	FAudioChannel CommonAudioChannels[CommonAudioChannelCount];
+	FAudioChannel CharaAudioChannels[CharaAudioChannelCount];
+	FAudioChannel CharaVoiceChannels[CharaVoiceChannelCount];
+	FAudioChannel AnnouncerVoiceChannel;
 
 	char BattleStateSyncEnd;
 
@@ -93,6 +110,8 @@ public:
 
 	UPROPERTY()
 	class AParticleManager* ParticleManager;
+	UPROPERTY()
+	AAudioManager* AudioManager;
 	
 	UPROPERTY(BlueprintReadWrite)
 	class ALevelSequenceActor* SequenceActor;
@@ -146,16 +165,24 @@ public:
 	void SetScreenBounds(); //sets screen bounds
 	void SetWallCollision(); //forces wall collision
 	void StartSuperFreeze(int Duration);
+	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;
+	void SetDrawPriorityFront(ABattleObject* InObject) const;
+	void SaveGameState(); //saves game state
+	void LoadGameState(); //loads game state
+	
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
 	void UpdateUI();
-	void SetDrawPriorityFront(ABattleObject* InObject) const;
+	void BattleHudVisibility(bool Visible) const;
+	
+	void PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration);
+	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);
+	void PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player);
+	void ManageAudio();
+	void RollbackStartAudio() const;
+	
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
 	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);
-	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
-	void BattleHudVisibility(bool Visible) const;
-	void SaveGameState(); //saves game state
-	void LoadGameState(); //loads game state
 };

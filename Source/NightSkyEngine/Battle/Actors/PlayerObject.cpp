@@ -1015,6 +1015,21 @@ void APlayerObject::ForceEnableFarNormal(bool Enable)
 	}
 }
 
+void APlayerObject::PlayVoiceLine(FString Name)
+{
+	if (VoiceData != nullptr)
+	{
+		for (FSoundStruct SoundStruct : VoiceData->SoundDatas)
+		{
+			if (SoundStruct.Name == Name)
+			{
+				GameState->PlayVoiceLine(SoundStruct.SoundWave, SoundStruct.MaxDuration, ObjNumber - 400);
+				break;
+			}
+		}
+	}
+}
+
 void APlayerObject::PlayCommonLevelSequence(FString Name)
 {
 	if (Direction == DIR_Left)
