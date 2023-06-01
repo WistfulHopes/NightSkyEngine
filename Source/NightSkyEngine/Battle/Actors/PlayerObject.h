@@ -350,7 +350,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UFlipbookData* FlipbookData;
 	
 	UPROPERTY(EditAnywhere)
