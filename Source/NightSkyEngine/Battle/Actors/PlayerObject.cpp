@@ -1694,11 +1694,34 @@ void APlayerObject::AddState(FString Name, UState* State)
 	StoredStateMachine.AddState(Name, State);
 }
 
-void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine)
+void APlayerObject::AddObjectState(FString Name, UState* State, bool IsCommon)
+{
+	State->Parent = this;
+	if (IsCommon)
+	{
+		CommonObjectStates.Add(State);
+		CommonObjectStateNames.Add(Name);
+	}
+	else
+	{
+		ObjectStates.Add(State);
+		ObjectStateNames.Add(Name);
+	}
+}
+
+void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon)
 {
 	Subroutine->Parent = this;
-	Subroutines.Add(Subroutine);
-	SubroutineNames.Add(Name);
+	if (IsCommon)
+	{
+		CommonSubroutines.Add(Subroutine);
+		CommonSubroutineNames.Add(Name);
+	}
+	else
+	{
+		Subroutines.Add(Subroutine);
+		SubroutineNames.Add(Name);
+	}
 }
 
 void APlayerObject::CallSubroutine(FString Name)
@@ -1899,7 +1922,7 @@ void APlayerObject::OnStateChange()
 	ActionReg8 = 0;
 
 	// Miscellaneous resets
-	PushWidthFront = 0;
+	PushWidthExtend = 0;
 	FlipInputs = false;
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
@@ -1953,7 +1976,7 @@ void APlayerObject::ResetForRound()
 	PushHeight = 0;
 	PushHeightLow = 0;
 	PushWidth = 0;
-	PushWidthFront  = 0;
+	PushWidthExtend = 0;
 	Hitstop = 0;
 	L = 0;
 	R = 0;

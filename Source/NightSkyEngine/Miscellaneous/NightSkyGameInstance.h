@@ -11,6 +11,8 @@
 #include "Interfaces/OnlineSessionInterface.h"
 #include "NightSkyGameInstance.generated.h"
 
+inline FString GameVersion = "0.0.1A";
+
 class APlayerObject;
 enum class ERoundFormat : uint8;
 

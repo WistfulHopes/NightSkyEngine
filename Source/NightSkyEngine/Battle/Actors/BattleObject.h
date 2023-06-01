@@ -496,7 +496,7 @@ protected:
 	int32 PushHeight = 0;
 	int32 PushHeightLow = 0;
 	int32 PushWidth = 0;
-	int32 PushWidthFront = 0;
+	int32 PushWidthExtend = 0;
 
 	int32 L;
 	int32 R;
@@ -657,6 +657,9 @@ public:
 	//should push collision be used?
 	UFUNCTION(BlueprintCallable)
 	void SetPushCollisionActive(bool Active);
+	//set push width front
+	UFUNCTION(BlueprintCallable)
+	void SetPushWidthExtend(int32 Extend);
 	//creates common particle
 	UFUNCTION(BlueprintCallable)
 	void CreateCommonParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);

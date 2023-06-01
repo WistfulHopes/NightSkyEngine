@@ -1156,12 +1156,9 @@ void ABattleObject::Update()
 		SetActorScale3D(FVector(1, 1, 1));
 	}
 
-	L = PosX - PushWidth / 2; //sets pushboxes
-	R = PosX + PushWidth / 2;
-	if (Direction == DIR_Right)
-		R += PushWidthFront;
-	else
-		L -= PushWidthFront;
+	//sets pushbox
+	L = PosX - (PushWidth + PushWidthExtend) / 2; 
+	R = PosX + (PushWidth + PushWidthExtend) / 2;
 	T = PosY + PushHeight;
 	B = PosY - PushHeightLow;
 	
@@ -1248,7 +1245,7 @@ void ABattleObject::ResetObject()
 	PushHeight = 0;
 	PushHeightLow = 0;
 	PushWidth = 0;
-	PushWidthFront  = 0;
+	PushWidthExtend  = 0;
 	Hitstop = 0;
 	L = 0;
 	R = 0;
@@ -1557,6 +1554,11 @@ void ABattleObject::SetPushCollisionActive(bool Active)
 		MiscFlags |= MISC_PushCollisionActive;
 	else
 		MiscFlags &= ~MISC_PushCollisionActive;
+}
+
+void ABattleObject::SetPushWidthExtend(int32 Extend)
+{
+	PushWidthExtend = Extend;
 }
 
 void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector Offset, FRotator Rotation)

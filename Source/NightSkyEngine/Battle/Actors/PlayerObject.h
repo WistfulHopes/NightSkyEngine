@@ -443,9 +443,12 @@ public:
 	//add state to state machine
 	UFUNCTION(BlueprintCallable)
 	void AddState(FString Name, UState* State); 
+	//add object state
+	UFUNCTION(BlueprintCallable)
+	void AddObjectState(FString Name, UState* State, bool IsCommon); 
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddSubroutine(FString Name, USubroutine* Subroutine);
+	void AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon);
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
 	void CallSubroutine(FString Name);

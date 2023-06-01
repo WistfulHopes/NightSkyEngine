@@ -98,7 +98,7 @@ bool UNightSkyGameInstance::CreateSession()
 	// You *must* set at least one setting value, because you can not run FindSessions without any filters.
 	SessionSettings->Settings.Add(
 		FName(TEXT("Version")),
-		FOnlineSessionSetting(static_cast<int64>(FNetworkVersion::GetLocalNetworkVersion()), EOnlineDataAdvertisementType::ViaOnlineService));
+		FOnlineSessionSetting(GameVersion, EOnlineDataAdvertisementType::ViaOnlineService));
 
 	// Create a session and give the local name "MyLocalSessionName". This name is entirely local to the current player and isn't stored in EOS.
 	if (!Session->CreateSession(0, FName(TEXT("MyLocalSessionName")), *SessionSettings))
@@ -195,7 +195,7 @@ bool UNightSkyGameInstance::SearchForServer()
 	Search->QuerySettings.SearchParams.Add(
 		FName(TEXT("Version")), 
 		FOnlineSessionSearchParam(
-			static_cast<int64>(FNetworkVersion::GetLocalNetworkVersion()),
+			GameVersion,
 			EOnlineComparisonOp::Equals));
 
 	this->FindSessionsDelegateHandle =
