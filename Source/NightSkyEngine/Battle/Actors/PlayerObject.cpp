@@ -1653,7 +1653,7 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GroundBounce.GroundBounceCount = 0;
 			PlayerFlags &= ~PLF_TouchingWall;
 			ReceivedHit.WallBounce.WallBounceCount--;
-			ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed * ReceivedHit.WallBounce.WallBounceXRate / 100;
+			ReceivedHit.AirPushbackX = -SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 			ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
 			if (ReceivedHit.WallBounce.WallBounceUntech > 0)
@@ -1677,7 +1677,7 @@ void APlayerObject::HandleGroundBounce()
 		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
 	else
 		ReceivedHit.AirPushbackX = ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
-	ReceivedHit.AirPushbackY = ReceivedHit.GroundBounce.GroundBounceYSpeed * ReceivedHit.GroundBounce.GroundBounceYRate / 100;
+	ReceivedHit.AirPushbackY = -SpeedY * ReceivedHit.GroundBounce.GroundBounceYRate / 100;
 	ReceivedHit.Gravity = ReceivedHit.GroundBounce.GroundBounceGravity;
 	if (ReceivedHit.GroundBounce.GroundBounceUntech > 0)
 		ReceivedHit.Untech = ReceivedHit.GroundBounce.GroundBounceUntech;
