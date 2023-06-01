@@ -1579,12 +1579,11 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
+				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
 					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
 					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
-					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				}
 				break;
 			}
@@ -1609,12 +1608,11 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", Rotation.Pitch);
+				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
 					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
 					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
-					NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				}
 				break;
 			}
