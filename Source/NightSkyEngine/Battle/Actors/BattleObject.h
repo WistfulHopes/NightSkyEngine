@@ -577,7 +577,7 @@ public:
 	virtual void LogForSyncTestFile(FILE* file);
 	
 protected:
-	void UpdateVisualLocation();
+	void UpdateVisuals();
 	void FuncCall(const FName& FuncName) const;
 	void GetBoxes();
 	

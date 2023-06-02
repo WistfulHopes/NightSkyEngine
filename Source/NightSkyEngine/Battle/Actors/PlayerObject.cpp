@@ -618,7 +618,7 @@ void APlayerObject::Update()
 	GameState->SetWallCollision();
 	ActionTime++;
 	
-	UpdateVisualLocation();
+	UpdateVisuals();
 }
 
 void APlayerObject::UpdateNotBattle()
@@ -2272,6 +2272,32 @@ void APlayerObject::EnableJumpCancel(bool Enable)
 	else
 	{
 		CancelFlags &= ~CNC_JumpCancel;
+	}
+}
+
+void APlayerObject::EnableSpecialCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_SpecialCancel;
+		CancelFlags |= CNC_SuperCancel;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_SpecialCancel;
+		CancelFlags &= ~CNC_SuperCancel;
+	}
+}
+
+void APlayerObject::EnableSuperCancel(bool Enable)
+{
+	if (Enable)
+	{
+		CancelFlags |= CNC_SuperCancel;
+	}
+	else
+	{
+		CancelFlags &= ~CNC_SuperCancel;
 	}
 }
 

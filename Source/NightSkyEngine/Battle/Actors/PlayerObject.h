@@ -519,6 +519,12 @@ public:
 	//enables jump cnacel
 	UFUNCTION(BlueprintCallable)
 	void EnableJumpCancel(bool Enable);
+	//sets special cancel enabled. off by default
+	UFUNCTION(BlueprintCallable)
+	void EnableSpecialCancel(bool Enable);
+	//sets super cancel enabled. off by default
+	UFUNCTION(BlueprintCallable)
+	void EnableSuperCancel(bool Enable);
 	//enables forward airdash cnacel
 	UFUNCTION(BlueprintCallable)
 	void EnableForwardAirdashCancel(bool Enable);

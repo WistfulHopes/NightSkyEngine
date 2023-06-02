@@ -115,33 +115,6 @@ void ABattleObject::Tick(float DeltaTime)
 		OrthoBlendActive = 1;
 		return;
 	}
-	
-	if (GameState->BattleState.CurrentSequenceTime >= 0)
-	{
-		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
-	}
-	else
-	{
-		if (IsPlayer)
-			ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
-		else
-			ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
-		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
-	}
-	TInlineComponentArray<UPrimitiveComponent*> Components(this);
-	GetComponents(Components);
-	for (const auto Component : Components)
-	{
-		for (int64 i = 0; i < Component->GetNumMaterials(); i++)
-		{
-			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
-			{
-				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
-			}
-		}
-	}
 }
 
 void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
@@ -1140,7 +1113,7 @@ void ABattleObject::LogForSyncTestFile(FILE* file)
 	}
 }
 
-void ABattleObject::UpdateVisualLocation()
+void ABattleObject::UpdateVisuals()
 {
 	if (IsValid(LinkedParticle))
 	{
@@ -1162,6 +1135,33 @@ void ABattleObject::UpdateVisualLocation()
 		}
 	}
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+
+	if (GameState->BattleState.CurrentSequenceTime >= 0)
+	{
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+	}
+	else
+	{
+		if (IsPlayer)
+			ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
+		else
+			ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
+		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+	}
+	TInlineComponentArray<UPrimitiveComponent*> Components(this);
+	GetComponents(Components);
+	for (const auto Component : Components)
+	{
+		for (int64 i = 0; i < Component->GetNumMaterials(); i++)
+		{
+			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
+			{
+				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+			}
+		}
+	}
 }
 
 void ABattleObject::FuncCall(const FName& FuncName) const
@@ -1362,7 +1362,7 @@ void ABattleObject::Update()
 		GameState->SetScreenBounds();
 		GameState->SetWallCollision();
 		ActionTime++;
-		UpdateVisualLocation();
+		UpdateVisuals();
 	}
 }
 

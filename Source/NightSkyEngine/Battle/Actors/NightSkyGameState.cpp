@@ -206,8 +206,6 @@ void ANightSkyGameState::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	FighterRunner->Update(DeltaTime);
-	UpdateCamera();
-	UpdateUI();
 }
 
 void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
@@ -283,6 +281,10 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		GameInstance->UpdateReplay(Input1, Input2);
 	}
 	CollisionView();
+
+	// these aren't strictly game state related, but tying them to game state update makes things better
+	UpdateCamera();
+	UpdateUI();
 }
 
 void ANightSkyGameState::UpdateGameState()
