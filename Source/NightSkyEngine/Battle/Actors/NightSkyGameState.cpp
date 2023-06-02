@@ -10,6 +10,7 @@
 #include "Camera/CameraActor.h"
 #include "Components/AudioComponent.h"
 #include "Components/SlateWrapperTypes.h"
+#include "FighterRunners/FighterReplayRunner.h"
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Miscellaneous/FighterRunners.h"
@@ -129,7 +130,10 @@ void ANightSkyGameState::Init()
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 		break;
 	case Multiplayer:
-		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterMultiplayerRunner::StaticClass(),SpawnParameters);
+		if (GameInstance->IsReplay)
+			FighterRunner = GetWorld()->SpawnActor<AFighterReplayRunner>(AFighterReplayRunner::StaticClass(),SpawnParameters);
+		else
+			FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterMultiplayerRunner::StaticClass(),SpawnParameters);
 		break;
 	case SyncTest:
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterSynctestRunner::StaticClass(),SpawnParameters);
@@ -207,6 +211,7 @@ void ANightSkyGameState::Tick(float DeltaTime)
 
 void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 {
+	LocalFrame++;
 	ParticleManager->UpdateParticles();
 	if (!GameInstance->IsTraining && !BattleState.PauseTimer)
 	{
@@ -272,12 +277,15 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	SetWallCollision();
 	HandleRoundWin();
 	ParticleManager->PauseParticles();
+	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
+	{
+		GameInstance->UpdateReplay(Input1, Input2);
+	}
 }
 
 void ANightSkyGameState::UpdateGameState()
 {
 	RemoteFrame++;
-	LocalFrame++;
 	UpdateLocalInput();
 	UpdateGameState(LocalInputs[LocalFrame % MaxRollbackFrames][0], LocalInputs[LocalFrame % MaxRollbackFrames][1]);
 }
@@ -447,70 +455,85 @@ void ANightSkyGameState::HandleMatchWin() const
 	case ERoundFormat::FirstToOne:
 		if (BattleState.P1RoundsWon > 0 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P2RoundsWon > 0 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		return;
 	case ERoundFormat::FirstToTwo:
 		if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		return;
 	case ERoundFormat::FirstToThree:
 		if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P1RoundsWon == 4 && BattleState.P2RoundsWon == 4)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		return;
 	case ERoundFormat::FirstToFour:
 		if (BattleState.P1RoundsWon > 3 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P2RoundsWon > 3 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P1RoundsWon == 5 && BattleState.P2RoundsWon == 5)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		return;
 	case ERoundFormat::FirstToFive:
 		if (BattleState.P1RoundsWon > 4 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P2RoundsWon > 4 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		else if (BattleState.P1RoundsWon == 6 && BattleState.P2RoundsWon == 6)
 		{
+			GameInstance->EndRecordReplay();
 			UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		}
 		return;
@@ -887,7 +910,7 @@ void ANightSkyGameState::RollbackStartAudio() const
 		{
 			AudioManager->CommonAudioPlayers[i]->Stop();
 			AudioManager->CommonAudioPlayers[i]->SetSound(BattleState.CommonAudioChannels[i].SoundWave);
-			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame) / 60.f;
+			float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame) / 60.f;
 			if (!BattleState.CommonAudioChannels[i].Finished && !AudioManager->CommonAudioPlayers[i]->IsPlaying())
 			{
 				//AudioManager->CommonAudioPlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
@@ -901,7 +924,7 @@ void ANightSkyGameState::RollbackStartAudio() const
 		{
 			AudioManager->CharaAudioPlayers[i]->Stop();
 			AudioManager->CharaAudioPlayers[i]->SetSound(BattleState.CharaAudioChannels[i].SoundWave);
-			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CharaAudioChannels[i].StartingFrame) / 60.f;
+			const float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.CharaAudioChannels[i].StartingFrame) / 60.f;
 			if (!BattleState.CharaAudioChannels[i].Finished && !AudioManager->CharaAudioPlayers[i]->IsPlaying())
 			{
 				//AudioManager->CharaAudioPlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
@@ -915,7 +938,7 @@ void ANightSkyGameState::RollbackStartAudio() const
 		{
 			AudioManager->CharaVoicePlayers[i]->Stop();
 			AudioManager->CharaVoicePlayers[i]->SetSound(BattleState.CharaVoiceChannels[i].SoundWave);
-			float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.CharaVoiceChannels[i].StartingFrame) / 60.f;
+			const float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.CharaVoiceChannels[i].StartingFrame) / 60.f;
 			if (!BattleState.CharaVoiceChannels[i].Finished && !AudioManager->CharaVoicePlayers[i]->IsPlaying())
 			{
 				//AudioManager->CharaVoicePlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
@@ -927,7 +950,7 @@ void ANightSkyGameState::RollbackStartAudio() const
 	{
 		AudioManager->AnnouncerVoicePlayer->Stop();
 		AudioManager->AnnouncerVoicePlayer->SetSound(BattleState.AnnouncerVoiceChannel.SoundWave);
-		float CurrentAudioTime = float(BattleState.FrameNumber - BattleState.AnnouncerVoiceChannel.StartingFrame) / 60.f;
+		const float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.AnnouncerVoiceChannel.StartingFrame) / 60.f;
 		if (!BattleState.AnnouncerVoiceChannel.Finished && !AudioManager->AnnouncerVoicePlayer->IsPlaying())
 		{
 			//AudioManager->AnnouncerVoicePlayer->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);
@@ -981,4 +1004,6 @@ void ANightSkyGameState::LoadGameState()
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
+	GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
+	//RollbackStartAudio();
 }

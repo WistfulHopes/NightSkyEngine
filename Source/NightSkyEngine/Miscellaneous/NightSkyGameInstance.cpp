@@ -4,10 +4,9 @@
 #include "NightSkyGameInstance.h"
 #include "OnlineSubsystem.h"
 #include "OnlineSubsystemUtils.h"
+#include "ReplayInfo.h"
 #include "Interfaces/OnlineIdentityInterface.h"
 #include "Kismet/GameplayStatics.h"
-#include "NightSkyEngine/NightSkyEngineGameModeBase.h"
-
 
 bool UNightSkyGameInstance::Login()
 {
@@ -431,7 +430,96 @@ bool UNightSkyGameInstance::DestroyLobby()
 
 void UNightSkyGameInstance::SeamlessTravel()
 {
-	this->GetWorld()->ServerTravel(StageURL, true);
+	this->GetWorld()->ServerTravel(BattleData.StageURL, true);
+}
+
+void UNightSkyGameInstance::LoadReplay()
+{
+	BattleData = CurrentReplay->BattleData;
+	UGameplayStatics::OpenLevel(this, FName(BattleData.StageURL));
+}
+
+void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input)
+{
+	if (FrameNumber > CurrentReplay->LengthInFrames)
+	{
+		UGameplayStatics::OpenLevel(this, FName(TEXT("MainMenu_PL")));
+		return;
+	}
+	OutP1Input = CurrentReplay->InputsP1[FrameNumber];
+	OutP2Input = CurrentReplay->InputsP2[FrameNumber];
+}
+
+void UNightSkyGameInstance::RecordReplay()
+{
+	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::CreateSaveGameObject(UReplaySaveInfo::StaticClass()));
+	CurrentReplay->BattleData = BattleData;
+}
+
+void UNightSkyGameInstance::UpdateReplay(int32 InputsP1, int32 InputsP2) const
+{
+	CurrentReplay->LengthInFrames++;
+	CurrentReplay->InputsP1.Add(InputsP1);
+	CurrentReplay->InputsP2.Add(InputsP2);
+}
+
+void UNightSkyGameInstance::RollbackReplay(int32 FramesToRollback) const
+{
+	for (int i = 0; i < FramesToRollback; i++)
+	{
+		CurrentReplay->LengthInFrames--;
+		CurrentReplay->InputsP1.Pop();
+		CurrentReplay->InputsP2.Pop();
+	}
+}
+
+void UNightSkyGameInstance::EndRecordReplay() const
+{
+	FString ReplayName = "REPLAY";
+	for (int i = 0; i < MaxReplays; i++)
+	{
+		ReplayName = "REPLAY";
+		ReplayName.AppendInt(i);
+		if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+		{
+			break;
+		}
+	}
+	UGameplayStatics::SaveGameToSlot(CurrentReplay, ReplayName, 0);
+}
+
+void UNightSkyGameInstance::PlayReplayFromBP(FString ReplayName)
+{
+	FighterRunner = Multiplayer;
+	IsReplay = true;
+	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0));
+	LoadReplay();
+}
+
+void UNightSkyGameInstance::FindReplays()
+{
+	ReplayList.Empty();
+	FString ReplayName = "REPLAY";
+	for (int i = 0; i < MaxReplays; i++)
+	{
+		ReplayName = "REPLAY";
+		ReplayName.AppendInt(i);
+		if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+		{
+			break;
+		}
+		ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
+	}
+	BP_OnFindReplaysComplete(ReplayList);
+}
+
+void UNightSkyGameInstance::DeleteReplay(const FString& ReplayName)
+{
+	if (UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+	{
+		UGameplayStatics::DeleteGameInSlot(ReplayName, 0);
+	}
+	FindReplays();
 }
 
 void UNightSkyGameInstance::HandleJoinSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Arg)

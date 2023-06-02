@@ -211,6 +211,11 @@ bool AFighterMultiplayerRunner::OnEventCallback(GGPOEvent* info)
 		break;
 	case GGPO_EVENTCODE_SYNCHRONIZED_WITH_PEER:
 		UE_LOG(LogTemp, Warning, TEXT("GGPO_EVENTCODE_SYNCHRONIZED_WITH_PEER"));
+		if (GameState->GameInstance->FighterRunner == Multiplayer && !GameState->GameInstance->IsReplay)
+		{
+			GameState->GameInstance->EndRecordReplay();
+			GameState->GameInstance->RecordReplay();
+		}
 	//synchronized = true;
 		break;
 	case GGPO_EVENTCODE_RUNNING:
@@ -222,6 +227,7 @@ bool AFighterMultiplayerRunner::OnEventCallback(GGPOEvent* info)
 	// connectionLost = true;
 	// FightGameInstance->ErrorMessage = FString("Connection interrupted");
 	// EndOnline(true);
+		UGameplayStatics::OpenLevel(GetGameInstance(), FName(TEXT("MainMenu_PL")));
 		break;
 	case GGPO_EVENTCODE_CONNECTION_RESUMED:
 		//connectionLost = false;

@@ -8,7 +8,7 @@ public class NightSkyEngine : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[]
+		PublicDependencyModuleNames.AddRange(new[]
 		{
 			"Core", 
 			"CoreUObject", 
@@ -24,7 +24,7 @@ public class NightSkyEngine : ModuleRules
 			"Paper2D",
 		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "GGPOUE4" });
+		PrivateDependencyModuleNames.AddRange(new[] { "GGPOUE4", "Json" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

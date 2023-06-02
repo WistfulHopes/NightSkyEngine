@@ -12,8 +12,10 @@
 #include "NightSkyGameInstance.generated.h"
 
 inline FString GameVersion = "0.0.1A";
+constexpr int32 MaxReplays = 999;
 
 class APlayerObject;
+class UReplaySaveInfo;
 enum class ERoundFormat : uint8;
 
 USTRUCT(BlueprintType)
@@ -49,7 +51,10 @@ struct FBattleData
 	ERoundFormat RoundFormat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 StartRoundTimer;
+	UPROPERTY()
 	FRandomManager Random;
+	UPROPERTY(BlueprintReadWrite)
+	FString StageURL = "TestMap_PL";
 };
 
 /**
@@ -67,7 +72,9 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 	FDelegateHandle CreateSessionDelegateHandle;
 	int SessionIndex;
 	TSharedPtr<const FOnlineLobbyId> LobbyID;
-
+	UPROPERTY()
+	UReplaySaveInfo* CurrentReplay;
+	
 	void OnSessionInviteAccepted(bool bArg, int I, TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId, const FOnlineSessionSearchResult& OnlineSessionSearchResult);
 	void HandleLoginComplete(int I, bool bArg, const FUniqueNetId& UniqueNetId, const FString& String);
 	void OnReadComplete(int I, bool bArg, const FString& String, const FString& String1);
@@ -77,20 +84,26 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 	void HandleDestroySessionComplete(FName Name, bool bArg);
 	void HandleCreateSessionComplete(FName Name, bool bArg);
 
+protected:
+	UFUNCTION(BlueprintImplementableEvent, Category = "Replays")  
+	void BP_OnFindReplaysComplete(const TArray<UReplaySaveInfo*> &AllReplays);
+	
 public:
+	UPROPERTY()
+	TArray<UReplaySaveInfo*> ReplayList;
 	UPROPERTY(BlueprintReadWrite)
 	int PlayerIndex;
-	UPROPERTY(BlueprintReadWrite)
-	FString StageURL = "TestMap_PL";
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FBattleData BattleData;
 	
-	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool IsTraining = false;
-	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool IsCPUBattle = false;
+	UPROPERTY(BlueprintReadWrite)
+	bool IsReplay = false;
 	
-	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TEnumAsByte<EFighterRunners> FighterRunner;	
 	UPROPERTY(BlueprintReadOnly)
 	TArray<FFriendInfo> FriendInfos;
@@ -124,4 +137,24 @@ public:
 	bool DestroyLobby();
 	UFUNCTION(BlueprintCallable)
 	void SeamlessTravel();
+
+	void LoadReplay();
+	void PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input);
+	
+	void RecordReplay();
+	void UpdateReplay(int32 InputsP1, int32 InputsP2) const;
+	void RollbackReplay(int32 FramesToRollback) const;
+	void EndRecordReplay() const;
+	
+	/** Start playback for a previously recorded Replay, from blueprint */   
+	UFUNCTION(BlueprintCallable, Category = "Replays")   
+	void PlayReplayFromBP(FString ReplayName);   
+  
+	/** Start looking for/finding replays on the hard drive */  
+	UFUNCTION(BlueprintCallable, Category = "Replays")  
+	void FindReplays(); 
+  
+	/** Delete a previously recorded replay */
+	UFUNCTION(BlueprintCallable, Category = "Replays")
+	void DeleteReplay(const FString &ReplayName);
 };
