@@ -32,6 +32,7 @@ void ANightSkyGameState::BeginPlay()
 
 	FActorSpawnParameters SpawnParameters;
 	ParticleManager = GetWorld()->SpawnActor<AParticleManager>();
+	AudioManager = GetWorld()->SpawnActor<AAudioManager>();
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	Init();
 }
@@ -1005,5 +1006,5 @@ void ANightSkyGameState::LoadGameState()
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
 	GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
-	//RollbackStartAudio();
+	RollbackStartAudio();
 }
