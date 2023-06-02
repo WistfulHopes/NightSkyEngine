@@ -1297,6 +1297,7 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
+	UpdateVisuals();
 	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
 	{
 		ResetObject();
