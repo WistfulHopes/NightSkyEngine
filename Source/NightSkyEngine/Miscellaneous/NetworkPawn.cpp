@@ -48,6 +48,9 @@ void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData)
 	GameInstance->BattleData.PlayerList[0] = InBattleData.PlayerList[0];
 	GameInstance->BattleData.PlayerList[1] = InBattleData.PlayerList[1];
 	GameInstance->BattleData.PlayerList[2] = InBattleData.PlayerList[2];
+	GameInstance->BattleData.ColorIndices[0] = InBattleData.ColorIndices[0];
+	GameInstance->BattleData.ColorIndices[1] = InBattleData.ColorIndices[1];
+	GameInstance->BattleData.ColorIndices[2] = InBattleData.ColorIndices[2];
 	GameInstance->BattleData.RoundFormat = InBattleData.RoundFormat;
 	GameInstance->BattleData.StartRoundTimer = InBattleData.StartRoundTimer;
 	GameInstance->BattleData.Random = InBattleData.Random;
@@ -60,6 +63,9 @@ void ANetworkPawn::ServerGetBattleData_Implementation(FBattleData InBattleData)
 	GameInstance->BattleData.PlayerList[3] = InBattleData.PlayerList[3];
 	GameInstance->BattleData.PlayerList[4] = InBattleData.PlayerList[4];
 	GameInstance->BattleData.PlayerList[5] = InBattleData.PlayerList[5];
+	GameInstance->BattleData.ColorIndices[3] = InBattleData.ColorIndices[3];
+	GameInstance->BattleData.ColorIndices[4] = InBattleData.ColorIndices[4];
+	GameInstance->BattleData.ColorIndices[5] = InBattleData.ColorIndices[5];
 	CharaDataReceived = true;
 }
 
