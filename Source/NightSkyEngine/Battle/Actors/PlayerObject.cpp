@@ -692,6 +692,16 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	
 	EnableCancelIntoSelf(true);
 	
+	switch (ReceivedHit.Position.Type)
+	{
+	case HPT_Add:
+		AddPosXWithDir(ReceivedHit.Position.PosX);
+		PosY += ReceivedHit.Position.PosY;
+		break;
+	default:
+		break;
+	}
+	
 	for (int i = 0; i < 32; i++)
 	{
 		if (IsValid(ChildBattleObjects[i]))
@@ -839,9 +849,10 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 
 void APlayerObject::SetHitValuesOverTime()
 {
-	if (StoredStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY > GroundHeight)
+	if (StoredStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY > GroundHeight
+		&& GetCurrentStateName() != "FloatingCrumpleBody" && GetCurrentStateName() != "FloatingCrumpleHead")
 	{
-		int32 CurrentStunTime = StunTimeMax - StunTime;
+		const int32 CurrentStunTime = StunTimeMax - StunTime;
 		if (ReceivedHit.AirPushbackXOverTime.BeginFrame <= CurrentStunTime
 			&& ReceivedHit.AirPushbackXOverTime.EndFrame > CurrentStunTime)
 		{
@@ -975,11 +986,6 @@ void APlayerObject::SetHitValues()
 		StunTimeMax = FinalUntech;
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
-		if (ReceivedHit.BlowbackLevel <= 0)
-		{
-			SpeedX = SpeedX * 3 / 2;
-			SpeedY = SpeedY * 3 / 2;
-		}
 		Gravity = FinalGravity;
 		if (PlayerFlags & PLF_TouchingWall)
 		{
@@ -1244,11 +1250,13 @@ void APlayerObject::HandleBlockAction()
 	}
 	else if (CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock")
 	{
+		PosY = 0;
 		JumpToState("CrouchBlock", true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
+		PosY = 0;
 		JumpToState("StandBlock", true);
 		Stance = ACT_Standing;
 	}
@@ -1630,7 +1638,8 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.GroundBounce.GroundBounceCount = 0;
 				PlayerFlags &= ~PLF_TouchingWall;
 				ReceivedHit.WallBounce.WallBounceCount--;
-				ReceivedHit.AirPushbackX = -ReceivedHit.WallBounce.WallBounceXSpeed * ReceivedHit.WallBounce.WallBounceXRate / 100;
+				ReceivedHit.GroundPushbackX = 0;
+				ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 				ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 				ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
 				if (ReceivedHit.WallBounce.WallBounceUntech > 0)
@@ -1653,7 +1662,8 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GroundBounce.GroundBounceCount = 0;
 			PlayerFlags &= ~PLF_TouchingWall;
 			ReceivedHit.WallBounce.WallBounceCount--;
-			ReceivedHit.AirPushbackX = -SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
+			ReceivedHit.GroundPushbackX = 0;
+			ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 			ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
 			if (ReceivedHit.WallBounce.WallBounceUntech > 0)
@@ -1673,6 +1683,7 @@ void APlayerObject::HandleGroundBounce()
 {
 	CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	ReceivedHit.GroundBounce.GroundBounceCount--;
+	ReceivedHit.GroundPushbackX = 0;
 	if (SpeedX > 0)
 		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
 	else
