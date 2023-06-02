@@ -562,15 +562,9 @@ public:
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
-	//creates common object
-	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
-	//creates object
-	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
 	//stores battle actor in slot
 	UFUNCTION(BlueprintCallable)
-	void AddBattleActorToStorage(ABattleObject* InActor, int Index);
+	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
 };
 #pragma pack(pop)
 

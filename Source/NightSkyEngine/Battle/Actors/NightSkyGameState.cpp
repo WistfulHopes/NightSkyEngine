@@ -282,6 +282,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	{
 		GameInstance->UpdateReplay(Input1, Input2);
 	}
+	CollisionView();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -539,6 +540,17 @@ void ANightSkyGameState::HandleMatchWin() const
 		}
 		return;
 	default: ;
+	}
+}
+
+void ANightSkyGameState::CollisionView() const
+{
+	if (bViewCollision)
+	{
+		for (int i = 0; i < BattleState.ActiveObjectCount; i++)
+		{
+			SortedObjects[i]->CollisionView();
+		}
 	}
 }
 

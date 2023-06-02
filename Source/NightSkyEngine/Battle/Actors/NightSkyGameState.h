@@ -123,6 +123,8 @@ public:
 	APlayerObject* SequenceTarget;
 	UPROPERTY(BlueprintReadWrite)
 	bool bPauseGame;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bViewCollision;
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsPlayingSequence;
@@ -156,6 +158,7 @@ protected:
 	void HandleHitCollision() const;
 	void HandleRoundWin();
 	void HandleMatchWin() const;
+	void CollisionView() const;
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

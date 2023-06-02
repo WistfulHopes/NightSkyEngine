@@ -2,12 +2,8 @@
 
 
 #include "BattleObject.h"
-
-#include "LevelSequenceActor.h"
-#include "LevelSequencePlayer.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
-#include "NiagaraSystem.h"
 #include "NightSkyGameState.h"
 #include "ParticleManager.h"
 #include "PlayerObject.h"
@@ -944,6 +940,157 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 	}
 }
 
+//for collision viewer
+
+template<typename T>
+constexpr auto min(T a, T b)
+{
+	return a < b ? a : b;
+}
+
+template<typename T>
+constexpr auto max(T a, T b)
+{
+	return a > b ? a : b;
+}
+static void clip_line_y(
+	const FVector2D &line_a, const FVector2D &line_b,
+	float min_x, float max_x,
+	float *min_y, float *max_y)
+{
+	const auto delta = line_b - line_a;
+
+	if (abs(delta.X) > FLT_EPSILON) {
+		const auto slope = delta.Y / delta.X;
+		const auto intercept = line_a.Y - slope * line_a.X;
+		*min_y = slope * min_x + intercept;
+		*max_y = slope * max_x + intercept;
+	} else {
+		*min_y = line_a.Y;
+		*max_y = line_b.Y;
+	}
+
+	if (*min_y > *max_y)
+		std::swap(*min_y, *max_y);
+}
+
+bool line_box_intersection(
+	const FVector2D &box_min, const FVector2D &box_max,
+	const FVector2D &line_a, const FVector2D &line_b,
+	float *entry_fraction, float *exit_fraction)
+{
+	// No intersection if line runs along the edge of the box
+	if (line_a.X == line_b.X && (line_a.X == box_min.X || line_a.X == box_max.X))
+		return false;
+
+	if (line_a.Y == line_b.Y && (line_a.Y == box_min.Y || line_a.Y == box_max.Y))
+		return false;
+
+	// Clip X values to segment within box_min.X and box_max.X
+	const auto min_x = max(min(line_a.X, line_b.X), box_min.X);
+	const auto max_x = min(max(line_a.X, line_b.X), box_max.X);
+
+	// Check if the line is in the bounds of the box on the X axis
+	if (min_x > max_x)
+		return false;
+
+	// Clip Y values to segment within min_x and max_x
+	float min_y, max_y;
+	clip_line_y(line_a, line_b, min_x, max_x, &min_y, &max_y);
+
+	// Clip Y values to segment within box_min.Y and box_max.Y
+	min_y = max(min_y, (float)box_min.Y);
+	max_y = min(max_y, (float)box_max.Y);
+
+	// Check if the clipped line is in the bounds of the box on the Y axis
+	if (min_y > max_y)
+		return false;
+
+	const FVector2D entry(
+		line_a.X < line_b.X ? min_x : max_x,
+		line_a.Y < line_b.Y ? min_y : max_y);
+
+	const FVector2D exit(
+		line_a.X > line_b.X ? min_x : max_x,
+		line_a.Y > line_b.Y ? min_y : max_y);
+
+	const auto length = (line_b - line_a).Size();
+	*entry_fraction = (entry - line_a).Size() / length;
+	*exit_fraction = (exit - line_a).Size() / length;
+
+	return true;
+}
+
+void ABattleObject::CollisionView()
+{
+	TArray<TArray<FVector2D>> Corners;
+	TArray<TArray<TArray<FVector2D>>> Lines; 
+	for (auto Box : Boxes)
+	{
+		TArray<FVector2D> CurrentCorners;
+		if (Direction == DIR_Right)
+		{
+			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+		}
+		else
+		{
+			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+		}
+		Corners.Add(CurrentCorners);
+		TArray<TArray<FVector2D>> CurrentLines;
+		for (int j = 0; j < 4; j++)
+		{
+			CurrentLines.Add(TArray { CurrentCorners[j] , CurrentCorners[(j + 1) % 4] } );
+		}
+		Lines.Add(CurrentLines);
+		FLinearColor color;
+		if (Box.Type == BOX_Hit)
+			color = FLinearColor(1.f, 0.f, 0.f, .25f);
+		else if (AttackFlags & ATK_IsAttacking)
+			color = FLinearColor(0.f, 1.f, 1.f, .25f);
+		else
+			color = FLinearColor(0.f, 1.f, 0.f, .25f);
+		for (const auto LineSet : Lines.Last())
+		{
+			auto start = LineSet[0];
+			auto end = LineSet[1];
+			DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false, 1 / 60, 255, 2.f);
+		}
+	}
+	TArray<FVector2D> CurrentCorners;
+	CurrentCorners.Add(FVector2D(L / COORD_SCALE, B / COORD_SCALE));
+	CurrentCorners.Add(FVector2D(R / COORD_SCALE, B / COORD_SCALE));
+	CurrentCorners.Add(FVector2D(R / COORD_SCALE, T / COORD_SCALE));
+	CurrentCorners.Add(FVector2D(L / COORD_SCALE, T / COORD_SCALE));
+	TArray<TArray<FVector2D>> CurrentLines;
+	for (int j = 0; j < 4; j++)
+	{
+		CurrentLines.Add(TArray { CurrentCorners[j] , CurrentCorners[(j + 1) % 4] } );
+	}
+	FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
+
+	for (const auto LineSet : CurrentLines)
+	{
+		auto start = LineSet[0];
+		auto end = LineSet[1];
+		DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,1 / 60, 255, 2.f);
+	}
+}
+
 void ABattleObject::SaveForRollback(unsigned char* Buffer) const
 {
 	FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
@@ -999,8 +1146,9 @@ void ABattleObject::UpdateVisualLocation()
 	{
 		FVector FinalScale = ScaleForLink;
 		if (Direction == DIR_Left)
-			FinalScale.Y = -FinalScale.Y;
+			FinalScale.X = -FinalScale.X;
 		LinkedParticle->SetRelativeScale3D(FinalScale);
+		LinkedParticle->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 	}
 	for (const auto LinkedMesh : LinkedMeshes)
 	{
@@ -1008,8 +1156,9 @@ void ABattleObject::UpdateVisualLocation()
 		{
 			FVector FinalScale = ScaleForLink;
 			if (Direction == DIR_Left)
-				FinalScale.Y = -FinalScale.Y;
+				FinalScale.X = -FinalScale.X;
 			LinkedMesh->SetRelativeScale3D(FinalScale);
+			LinkedMesh->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 		}
 	}
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
@@ -1134,6 +1283,7 @@ void ABattleObject::InitObject()
 	}
 	GameState->SetDrawPriorityFront(this);
 	ObjectState->Parent = this;
+	TriggerEvent(EVT_Enter);
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
 	if (Direction == DIR_Left)
 	{
@@ -1147,6 +1297,11 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
+	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
+	{
+		ResetObject();
+		return;
+	}
 	if (Direction == DIR_Left)
 	{
 		SetActorScale3D(FVector(-1, 1, 1));
@@ -1239,7 +1394,7 @@ void ABattleObject::ResetObject()
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
-	Gravity = 1900;
+	Gravity = 0;
 	Inertia = 0;
 	ActionTime = 0;
 	PushHeight = 0;
@@ -1632,6 +1787,8 @@ void ABattleObject::LinkCommonParticle(FString Name)
 		{
 			if (ParticleStruct.Name == Name)
 			{
+				if (IsValid(LinkedParticle))
+					LinkedParticle->Deactivate();
 				FVector Scale;
 				if (Direction == DIR_Left)
 				{
@@ -1641,14 +1798,11 @@ void ABattleObject::LinkCommonParticle(FString Name)
 				{
 					Scale = FVector(1, 1, 1);
 				}
-				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale));
-				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
-				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				NiagaraComponent->SetNiagaraVariableBool("NeedsRollback", true);
-				LinkedParticle = NiagaraComponent;
-				LinkedParticle->SetVisibility(false);
+				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
+				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
 				if (Direction == DIR_Left)
-					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
 				break;
 			}
 		}
@@ -1665,6 +1819,8 @@ void ABattleObject::LinkCharaParticle(FString Name)
 		{
 			if (ParticleStruct.Name == Name)
 			{
+				if (IsValid(LinkedParticle))
+					LinkedParticle->Deactivate();
 				FVector Scale;
 				if (Direction == DIR_Left)
 				{
@@ -1674,14 +1830,11 @@ void ABattleObject::LinkCharaParticle(FString Name)
 				{
 					Scale = FVector(1, 1, 1);
 				}
-				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale));
-				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
-				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				NiagaraComponent->SetNiagaraVariableBool("NeedsRollback", true);
-				LinkedParticle = NiagaraComponent;
-				LinkedParticle->SetVisibility(false);
+				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
+				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
 				if (Direction == DIR_Left)
-					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
 				break;
 			}
 		}
@@ -1824,4 +1977,67 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 	default:
 		return nullptr;
 	}
+}
+
+ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset,
+	EPosType PosType)
+{
+	const int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
+	if (StateIndex != INDEX_NONE)
+	{
+		int32 FinalPosX, FinalPosY;
+		if (Direction == DIR_Left)
+			PosXOffset = -PosXOffset;
+
+		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		FinalPosX += PosXOffset;
+		FinalPosY += PosYOffset;
+		for (int i = 0; i < 32; i++)
+		{
+			if (Player->ChildBattleObjects[i] == nullptr)
+			{
+				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, Player);
+				return Player->ChildBattleObjects[i];
+			}
+			if (!Player->ChildBattleObjects[i]->IsActive)
+			{
+				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, Player);
+				return Player->ChildBattleObjects[i];
+			}
+		}
+	}
+	return nullptr;
+}
+
+ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
+{
+	const int StateIndex = Player->ObjectStateNames.Find(InStateName);
+	if (StateIndex != INDEX_NONE)
+	{
+		int32 FinalPosX, FinalPosY;
+		if (Direction == DIR_Left)
+			PosXOffset = -PosXOffset;
+
+		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		FinalPosX += PosXOffset;
+		FinalPosY += PosYOffset;
+		for (int i = 0; i < 32; i++)
+		{
+			if (Player->ChildBattleObjects[i] == nullptr)
+			{
+				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->ObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, Player);
+				return Player->ChildBattleObjects[i];
+			}
+			if (!Player->ChildBattleObjects[i]->IsActive)
+			{
+				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->ObjectStates[StateIndex],
+					FinalPosX, FinalPosY, Direction, Player);
+				return Player->ChildBattleObjects[i];
+			}
+		}
+	}
+	return nullptr;
 }

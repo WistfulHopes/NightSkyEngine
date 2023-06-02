@@ -884,8 +884,11 @@ void APlayerObject::SetHitValues()
 		HACT = ReceivedHit.GroundHitAction;
 	else
 		HACT = ReceivedHit.AirHitAction;
-	
-	Pushback = -FinalHitPushbackX;
+
+	if (FinalHitPushbackX != -1)
+		Pushback = -FinalHitPushbackX;
+	else
+		Pushback = 0;
 
 	switch (ReceivedHit.Position.Type)
 	{
@@ -932,17 +935,19 @@ void APlayerObject::SetHitValues()
 	case HACT_ForceStand:
 		StunTime = FinalHitstun;
 		StunTimeMax = FinalHitstun;
-		if (PlayerFlags & PLF_TouchingWall)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
+			Pushback = 0;
 		}
 		break;
 	case HACT_FloatingCrumple:
 		StunTime = FinalUntech;
 		StunTimeMax = FinalUntech;
-		if (PlayerFlags & PLF_TouchingWall)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
+			Pushback = 0;
 		}
 		break;
 	case HACT_AirNormal:
@@ -956,9 +961,10 @@ void APlayerObject::SetHitValues()
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
-		if (PlayerFlags & PLF_TouchingWall)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
+			Pushback = 0;
 		}
 		break;
 	case HACT_Blowback:
@@ -987,9 +993,10 @@ void APlayerObject::SetHitValues()
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
-		if (PlayerFlags & PLF_TouchingWall)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
 			Enemy->Pushback = -FinalHitPushbackX;
+			Pushback = 0;
 		}
 	default:
 		break;
@@ -1079,70 +1086,7 @@ void APlayerObject::BattleHudVisibility(bool Visible)
 	GameState->BattleHudVisibility(Visible);
 }
 
-ABattleObject* APlayerObject::AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset,
-	EPosType PosType)
-{
-	const int StateIndex = CommonObjectStateNames.Find(InStateName);
-	if (StateIndex != INDEX_NONE)
-	{
-		int32 FinalPosX, FinalPosY;
-		if (Direction == DIR_Left)
-			PosXOffset = -PosXOffset;
-
-		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
-		FinalPosX += PosXOffset;
-		FinalPosY += PosYOffset;
-		for (int i = 0; i < 32; i++)
-		{
-			if (ChildBattleObjects[i] == nullptr)
-			{
-				ChildBattleObjects[i] = GameState->AddBattleObject(CommonObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, this);
-				return ChildBattleObjects[i];
-			}
-			if (!ChildBattleObjects[i]->IsActive)
-			{
-				ChildBattleObjects[i] = GameState->AddBattleObject(CommonObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, this);
-				return ChildBattleObjects[i];
-			}
-		}
-	}
-	return nullptr;
-}
-
-ABattleObject* APlayerObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
-{
-	const int StateIndex = ObjectStateNames.Find(InStateName);
-	if (StateIndex != INDEX_NONE)
-	{
-		int32 FinalPosX, FinalPosY;
-		if (Direction == DIR_Left)
-			PosXOffset = -PosXOffset;
-
-		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
-		FinalPosX += PosXOffset;
-		FinalPosY += PosYOffset;
-		for (int i = 0; i < 32; i++)
-		{
-			if (ChildBattleObjects[i] == nullptr)
-			{
-				ChildBattleObjects[i] = GameState->AddBattleObject(ObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, this);
-				return ChildBattleObjects[i];
-			}
-			if (!ChildBattleObjects[i]->IsActive)
-			{
-				ChildBattleObjects[i] = GameState->AddBattleObject(ObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, this);
-				return ChildBattleObjects[i];
-			}
-		}
-	}
-	return nullptr;
-}
-
-void APlayerObject::AddBattleActorToStorage(ABattleObject* InActor, int Index)
+void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
 {
 	if (Index < 16)
 	{
@@ -1638,7 +1582,7 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.GroundBounce.GroundBounceCount = 0;
 				PlayerFlags &= ~PLF_TouchingWall;
 				ReceivedHit.WallBounce.WallBounceCount--;
-				ReceivedHit.GroundPushbackX = 0;
+				ReceivedHit.GroundPushbackX = -1;
 				ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 				ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 				ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
@@ -1662,7 +1606,7 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GroundBounce.GroundBounceCount = 0;
 			PlayerFlags &= ~PLF_TouchingWall;
 			ReceivedHit.WallBounce.WallBounceCount--;
-			ReceivedHit.GroundPushbackX = 0;
+			ReceivedHit.GroundPushbackX = -1;
 			ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate / 100;
 			ReceivedHit.Gravity = ReceivedHit.WallBounce.WallBounceGravity;
@@ -1683,7 +1627,7 @@ void APlayerObject::HandleGroundBounce()
 {
 	CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	ReceivedHit.GroundBounce.GroundBounceCount--;
-	ReceivedHit.GroundPushbackX = 0;
+	ReceivedHit.GroundPushbackX = -1;
 	if (SpeedX > 0)
 		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.GroundBounceXRate / 100;
 	else
@@ -1980,7 +1924,7 @@ void APlayerObject::ResetForRound()
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
-	Gravity = 1900;
+	Gravity = JumpGravity;
 	Inertia = 0;
 	Pushback = 0;
 	ActionTime = 0;
@@ -2024,6 +1968,14 @@ void APlayerObject::ResetForRound()
 	ActionReg6 = 0;
 	ActionReg7 = 0;
 	ActionReg8 = 0;
+	ObjectReg1 = 0;
+	ObjectReg2 = 0;
+	ObjectReg3 = 0;
+	ObjectReg4 = 0;
+	ObjectReg5 = 0;
+	ObjectReg6 = 0;
+	ObjectReg7 = 0;
+	ObjectReg8 = 0;
 	IsPlayer = true;
 	SuperFreezeTimer = 0;
 	CelName.SetString("");

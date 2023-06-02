@@ -569,6 +569,9 @@ public:
 	//gets position from pos type
 	void PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const;
 	void TriggerEvent(EEventType EventType);
+
+	void CollisionView();
+	
 	void SaveForRollback(unsigned char* Buffer) const;
 	void LoadForRollback(const unsigned char* Buffer);
 	virtual void LogForSyncTestFile(FILE* file);
@@ -684,6 +687,12 @@ public:
 	//gets object by type
 	UFUNCTION(BlueprintPure)
 	ABattleObject* GetBattleObject(EObjType Type);
+	//creates common object
+	UFUNCTION(BlueprintCallable)
+	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	//creates object
+	UFUNCTION(BlueprintCallable)
+	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
 	// Cannot be called on player objects. Deactivates the object and returns it to the pool.
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
