@@ -439,7 +439,7 @@ void UNightSkyGameInstance::LoadReplay()
 	UGameplayStatics::OpenLevel(this, FName(BattleData.StageURL));
 }
 
-void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input)
+void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const
 {
 	if (FrameNumber > CurrentReplay->LengthInFrames)
 	{
@@ -509,6 +509,11 @@ void UNightSkyGameInstance::FindReplays()
 			break;
 		}
 		ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
+		if (ReplayList.Last()->Version != GameVersion)
+		{
+			ReplayList.Pop();
+			UGameplayStatics::DeleteGameInSlot(ReplayName, 0);
+		}
 	}
 	BP_OnFindReplaysComplete(ReplayList);
 }

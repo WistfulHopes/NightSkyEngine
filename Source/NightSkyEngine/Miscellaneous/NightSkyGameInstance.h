@@ -139,7 +139,7 @@ public:
 	void SeamlessTravel();
 
 	void LoadReplay();
-	void PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input);
+	void PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const;
 	
 	void RecordReplay();
 	void UpdateReplay(int32 InputsP1, int32 InputsP2) const;
