@@ -441,7 +441,7 @@ void UNightSkyGameInstance::LoadReplay()
 
 void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const
 {
-	if (FrameNumber > CurrentReplay->LengthInFrames)
+	if (FrameNumber >= CurrentReplay->LengthInFrames)
 	{
 		UGameplayStatics::OpenLevel(this, FName(TEXT("MainMenu_PL")));
 		return;
