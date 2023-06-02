@@ -11,7 +11,7 @@
 #include "Interfaces/OnlineSessionInterface.h"
 #include "NightSkyGameInstance.generated.h"
 
-inline FString GameVersion = "0.0.1A";
+inline FString GameVersion = "0.0.2A";
 constexpr int32 MaxReplays = 999;
 
 class APlayerObject;
