@@ -509,7 +509,7 @@ void UNightSkyGameInstance::FindReplays()
 			break;
 		}
 		ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
-		if (ReplayList.Last()->Version != GameVersion)
+		if (ReplayList.Last()->Version != BattleVersion)
 		{
 			ReplayList.Pop();
 			UGameplayStatics::DeleteGameInSlot(ReplayName, 0);

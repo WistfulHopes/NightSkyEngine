@@ -20,7 +20,7 @@ public:
 	{  
 		Timestamp = FDateTime::Now();
 		BattleData = FBattleData();  
-		Version = GameVersion;
+		Version = BattleVersion;
 		LengthInFrames = 0;
 	}
 	

@@ -12,6 +12,7 @@
 #include "NightSkyGameInstance.generated.h"
 
 inline FString GameVersion = "0.0.3A";
+inline FString BattleVersion = "0.0.3A";
 constexpr int32 MaxReplays = 999;
 
 class APlayerObject;

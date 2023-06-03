@@ -796,7 +796,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
-                                // PlayCommonSound("HitClash");
+                                PlayCommonSound("HitClash");
 								return;
 							}
 							if (!IsPlayer && !OtherObj->IsPlayer)
@@ -807,10 +807,10 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->AttackFlags &= ~ATK_HitActive;
 								OtherObj->HitPosX = HitPosX;
 								OtherObj->HitPosY = HitPosY;
-								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								TriggerEvent(EVT_HitOrBlock);
+								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
-                                //PlayCommonSound("HitClash");
+                                PlayCommonSound("HitClash");
 								return;
 							}
 							return;
@@ -1037,7 +1037,7 @@ void ABattleObject::CollisionView()
 			color = FLinearColor(0.f, 1.f, 1.f, .25f);
 		else
 			color = FLinearColor(0.f, 1.f, 0.f, .25f);
-		for (const auto LineSet : Lines.Last())
+		for (const auto& LineSet : Lines.Last())
 		{
 			auto start = LineSet[0];
 			auto end = LineSet[1];
@@ -1056,7 +1056,7 @@ void ABattleObject::CollisionView()
 	}
 	FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
 
-	for (const auto LineSet : CurrentLines)
+	for (const auto& LineSet : CurrentLines)
 	{
 		auto start = LineSet[0];
 		auto end = LineSet[1];
