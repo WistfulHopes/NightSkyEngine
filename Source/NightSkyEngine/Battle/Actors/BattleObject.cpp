@@ -608,6 +608,24 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	}
+
+	if (NormalHit.EnemyHitstopModifier == -1)
+		NormalHit.EnemyHitstopModifier = 0;
+	if (NormalHit.MinimumDamagePercent == -1)
+		NormalHit.MinimumDamagePercent = 0;
+	if (NormalHit.InitialProration == -1)
+		NormalHit.InitialProration = 100;
+	if (NormalHit.ForcedProration == -1)
+		NormalHit.ForcedProration = 90;
+	
+	if (CounterHit.EnemyHitstopModifier == -1)
+		CounterHit.EnemyHitstopModifier = NormalHit.EnemyHitstopModifier;
+	if (CounterHit.MinimumDamagePercent == -1)
+		CounterHit.MinimumDamagePercent = NormalHit.MinimumDamagePercent;
+	if (CounterHit.InitialProration == -1)
+		CounterHit.InitialProration = NormalHit.InitialProration;
+	if (CounterHit.ForcedProration == -1)
+		CounterHit.ForcedProration = NormalHit.ForcedProration;
 	
 	if (CounterHit.Hitstun == -1)
 		CounterHit.Hitstun = NormalHit.Hitstun;

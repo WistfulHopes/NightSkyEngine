@@ -2054,6 +2054,7 @@ void APlayerObject::ResetForRound()
 	BufferedStateName.SetString("");
 	WallTouchTimer = 0;
 	JumpToState("Stand");
+	GameState->BattleState.MaxMeter[PlayerIndex] = MaxMeter;
 }
 
 void APlayerObject::DisableLastInput()

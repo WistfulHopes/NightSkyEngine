@@ -238,15 +238,15 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	int32 Untech = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 EnemyHitstopModifier = 0;
+	int32 EnemyHitstopModifier = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 Damage = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 MinimumDamagePercent = 0;
+	int32 MinimumDamagePercent = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 InitialProration = 100;
+	int32 InitialProration = -1;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ForcedProration = 90;
+	int32 ForcedProration = -1;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundPushbackX = -1;
 	UPROPERTY(BlueprintReadWrite)

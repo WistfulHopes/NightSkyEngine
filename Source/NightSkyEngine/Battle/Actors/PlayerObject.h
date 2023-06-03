@@ -150,6 +150,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 MaxHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 MaxMeter = 10000;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ComboRate = 60;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 OtgProration = 80;
