@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/FixedString.h"
 #include "BattleObject.generated.h"
 
+class UPaperFlipbookComponent;
 class UNiagaraComponent;
 class ANightSkyGameState;
 class UState;
@@ -525,6 +526,8 @@ public:
 	UPROPERTY()
 	UNiagaraComponent* LinkedParticle;
 	UPROPERTY()
+	UPaperFlipbookComponent* LinkedFlipbook;
+	UPROPERTY()
 	USkeletalMeshComponent* LinkedMeshes[8];
 	
 	//Pointer to player object. If this is not a player, it will point to the owning player.
@@ -675,6 +678,12 @@ public:
 	//creates character particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	void LinkCharaParticle(FString Name);
+	//creates common flipbook and attaches it to the object. can only be used with non-player objects.
+	UFUNCTION(BlueprintCallable)
+	void LinkCommonFlipbook(FString Name);
+	//creates character flipbook and attaches it to the object. can only be used with non-player objects.
+	UFUNCTION(BlueprintCallable)
+	void LinkCharaFlipbook(FString Name);
 	//plays common sound
 	UFUNCTION(BlueprintCallable)
 	void PlayCommonSound(FString Name);

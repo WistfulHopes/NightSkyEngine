@@ -5,6 +5,7 @@
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NightSkyGameState.h"
+#include "PaperFlipbookComponent.h"
 #include "ParticleManager.h"
 #include "PlayerObject.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
@@ -27,6 +28,10 @@ void ABattleObject::BeginPlay()
 	if (IsPlayer)
 	{
 		Player = Cast<APlayerObject>(this);
+	}
+	else
+	{
+		LinkedFlipbook = NewObject<UPaperFlipbookComponent>();
 	}
 }
 
@@ -217,7 +222,6 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
 								&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 							{
-								GameState->SetDrawPriorityFront(this);
 								OtherChar->StunTime = 2147483647;
 								OtherChar->FaceOpponent();
 								OtherChar->HaltMomentum();
@@ -1141,6 +1145,17 @@ void ABattleObject::UpdateVisuals()
 		LinkedParticle->SetRelativeScale3D(FinalScale);
 		LinkedParticle->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 	}
+	if (IsValid(LinkedFlipbook))
+	{
+		if (IsValid(LinkedFlipbook->GetFlipbook()))
+		{
+			FVector FinalScale = ScaleForLink;
+			if (Direction == DIR_Left)
+				FinalScale.X = -FinalScale.X;
+			LinkedParticle->SetRelativeScale3D(FinalScale);
+			LinkedFlipbook->SetPlaybackPositionInFrames(AnimFrame, true);
+		}
+	}
 	for (const auto LinkedMesh : LinkedMeshes)
 	{
 		if (IsValid(LinkedMesh))
@@ -1393,6 +1408,10 @@ void ABattleObject::ResetObject()
 	{
 		LinkedParticle->SetVisibility(false);
 		LinkedParticle = nullptr;
+	}
+	if (IsValid(LinkedFlipbook))
+	{
+		LinkedFlipbook->SetFlipbook(nullptr);
 	}
 	for (auto LinkedMesh : LinkedMeshes)
 	{
@@ -1855,6 +1874,38 @@ void ABattleObject::LinkCharaParticle(FString Name)
 				if (Direction == DIR_Left)
 					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
 				break;
+			}
+		}
+	}
+}
+
+void ABattleObject::LinkCommonFlipbook(FString Name)
+{
+	if (IsPlayer)
+		return;
+	if (Player->CommonFlipbookData != nullptr)
+	{
+		for (FFlipbookStruct FlipbookStruct : Player->CommonFlipbookData->FlipbookStructs)
+		{
+			if (FlipbookStruct.Name == Name)
+			{
+				LinkedFlipbook->SetFlipbook(FlipbookStruct.Flipbook);
+			}
+		}
+	}
+}
+
+void ABattleObject::LinkCharaFlipbook(FString Name)
+{
+	if (IsPlayer)
+		return;
+	if (Player->FlipbookData != nullptr)
+	{
+		for (FFlipbookStruct FlipbookStruct : Player->FlipbookData->FlipbookStructs)
+		{
+			if (FlipbookStruct.Name == Name)
+			{
+				LinkedFlipbook->SetFlipbook(FlipbookStruct.Flipbook);
 			}
 		}
 	}

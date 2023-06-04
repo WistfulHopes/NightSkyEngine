@@ -725,7 +725,9 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			else if (HACT == HACT_Blowback)
 				BufferedStateName.SetString("Blowback");
 			else
+			{
 				BufferedStateName.SetString("Crumple");
+			}
 		}
 		else
 		{
@@ -873,6 +875,9 @@ void APlayerObject::SetHitValuesOverTime()
 
 void APlayerObject::SetHitValues()
 {
+	if (!Enemy->CheckIsStunned())
+		GameState->SetDrawPriorityFront(Enemy);
+	
 	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Enemy->ComboCounter * ReceivedHit.GroundPushbackX / 60;
 	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Enemy->ComboCounter * ReceivedHit.AirPushbackX / 60;
 	const int32 FinalAirHitPushbackY = ReceivedHit.AirPushbackY - Enemy->ComboCounter * ReceivedHit.AirPushbackY / 120;
@@ -942,6 +947,22 @@ void APlayerObject::SetHitValues()
 		}
 		break;
 	case HACT_FloatingCrumple:
+		if (CurrentHealth <= 0)
+		{
+			if (PosY <= GroundHeight)
+				PosY = GroundHeight + 1;
+			StunTime = FinalUntech;
+			StunTimeMax = FinalUntech;
+			SpeedX = -FinalAirHitPushbackX;
+			SpeedY = FinalAirHitPushbackY;
+			Gravity = FinalGravity;
+			if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+			{
+				Enemy->Pushback = -FinalHitPushbackX;
+				Pushback = 0;
+			}
+			break;
+		}
 		StunTime = FinalUntech;
 		StunTimeMax = FinalUntech;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)

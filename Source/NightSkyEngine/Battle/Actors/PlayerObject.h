@@ -281,7 +281,6 @@ protected:
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
-	FixedString<32> DamageReactionCelsInternal[DamageReactionCelCount];
 
 	//Chain cancels (copied from TArray to static array)
 	int32 ChainCancelOptionsInternal[CancelArraySize] = {};
@@ -297,12 +296,13 @@ public:
 	//Anything past here isn't saved or loaded for rollback.
 	unsigned char PlayerSyncEnd; 
 
+	UPROPERTY(EditAnywhere)
+	TArray<FString> DamageReactionCels;
+
 	/*
 	 * Data to copy from blueprint TArray to internal object
 	 */
 	
-	UPROPERTY(EditAnywhere)
-	TArray<FString> DamageReactionCels;
 	TArray<FString> ChainCancelOptions;
 	TArray<FString> WhiffCancelOptions; 
 
@@ -352,6 +352,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;
 	
+	UPROPERTY(EditAnywhere)
+	UFlipbookData* CommonFlipbookData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UFlipbookData* FlipbookData;
 	
