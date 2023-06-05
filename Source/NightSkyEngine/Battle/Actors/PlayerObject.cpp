@@ -1881,6 +1881,7 @@ void APlayerObject::OnStateChange()
 	// Reset action data
 	ActionTime = 0;
 	AnimFrame = 0;
+	BlendAnimFrame = 0;
 	CelIndex = 0;
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
@@ -1910,8 +1911,9 @@ void APlayerObject::OnStateChange()
 	NormalHit = FHitData();
 	CounterHit = FHitData();
 	AnimName.SetString("");
-	AnimFrame = 0;
 	CelName.SetString("");
+	BlendAnimName.SetString("");
+	BlendCelName.SetString("");
 	LastStateName.SetString(GetCurrentStateName());
 }
 
@@ -2000,8 +2002,12 @@ void APlayerObject::ResetForRound()
 	IsPlayer = true;
 	SuperFreezeTimer = 0;
 	CelName.SetString("");
+	BlendCelName.SetString("");
 	AnimName.SetString("");
 	AnimFrame = 0;
+	BlendAnimFrame = 0;
+	FrameBlendPosition = 0;
+	AnimBlendPosition = 0;
 	CelIndex = 0;
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)

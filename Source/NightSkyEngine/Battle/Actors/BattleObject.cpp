@@ -1195,6 +1195,7 @@ void ABattleObject::UpdateVisuals()
 			}
 		}
 	}
+	FrameBlendPosition = static_cast<float>(MaxCelTime - TimeUntilNextCel) / static_cast<float>(MaxCelTime);
 }
 
 void ABattleObject::FuncCall(const FName& FuncName) const
@@ -1212,6 +1213,14 @@ void ABattleObject::FuncCall(const FName& FuncName) const
 
 void ABattleObject::GetBoxes()
 {
+	for (int j = 0; j < CollisionArraySize; j++)
+	{
+		Boxes[j].Type = BOX_Hurt;
+		Boxes[j].PosX = -10000000;
+		Boxes[j].PosY = -10000000;
+		Boxes[j].SizeX = 0;
+		Boxes[j].SizeY = 0;
+	}
 	if (Player->CommonCollisionData != nullptr)
 	{
 		for (int i = 0; i < Player->CommonCollisionData->CollisionFrames.Num(); i++)
@@ -1241,16 +1250,12 @@ void ABattleObject::GetBoxes()
 						Boxes[j].SizeY = 0;
 					}
 				}
-				return;
 			}
-		}
-		for (int j = 0; j < CollisionArraySize; j++)
-		{
-			Boxes[j].Type = BOX_Hurt;
-			Boxes[j].PosX = -10000000;
-			Boxes[j].PosY = -10000000;
-			Boxes[j].SizeX = 0;
-			Boxes[j].SizeY = 0;
+			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName.GetString())
+			{
+				BlendAnimName.SetString(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+			}
 		}
 	}
 	if (Player->CollisionData != nullptr)
@@ -1282,16 +1287,12 @@ void ABattleObject::GetBoxes()
 						Boxes[j].SizeY = 0;
 					}
 				}
-				return;
 			}
-		}
-		for (int j = 0; j < CollisionArraySize; j++)
-		{
-			Boxes[j].Type = BOX_Hurt;
-			Boxes[j].PosX = -10000000;
-			Boxes[j].PosY = -10000000;
-			Boxes[j].SizeX = 0;
-			Boxes[j].SizeY = 0;
+			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName.GetString())
+			{
+				BlendAnimName.SetString(Player->CollisionData->CollisionFrames[i].AnimName);
+				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+			}
 		}
 	}
 }
@@ -1330,6 +1331,7 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
+    AnimBlendPosition = FMath::Lerp(AnimBlendPosition, 1, 0.2);
 	UpdateVisuals();
 	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
 	{
@@ -1481,9 +1483,12 @@ void ABattleObject::ResetObject()
 	ObjectReg8 = 0;
 	SuperFreezeTimer = 0;
 	CelName.SetString("");
+	BlendCelName.SetString("");
 	AnimName.SetString("");
 	AnimFrame = 0;
-	CelIndex = 0;
+	BlendAnimFrame = 0;
+	FrameBlendPosition = 0;
+	AnimBlendPosition = 0;
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
@@ -1520,6 +1525,11 @@ FString ABattleObject::GetAnimName()
 	return AnimName.GetString();
 }
 
+FString ABattleObject::GetBlendAnimName()
+{
+	return BlendAnimName.GetString();
+}
+
 FString ABattleObject::GetLabelName()
 {
 	return LabelName.GetString();
@@ -1528,6 +1538,13 @@ FString ABattleObject::GetLabelName()
 void ABattleObject::SetCelName(FString InName)
 {
 	CelName.SetString(InName);
+	SetBlendCelName("");
+}
+
+void ABattleObject::SetBlendCelName(FString InName)
+{
+	BlendCelName.SetString(InName);
+	FrameBlendPosition = 0;
 }
 
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
@@ -1537,6 +1554,11 @@ void ABattleObject::GotoLabel(FString InName, bool ResetState)
 		Player->JumpToState(Player->GetCurrentStateName(), true);
 	else
 		GotoLabelActive = true;
+}
+
+void ABattleObject::SetTimeUntilNextCel(int32 InTime)
+{
+	TimeUntilNextCel = MaxCelTime = InTime;
 }
 
 void ABattleObject::AddPosXWithDir(int InPosX)

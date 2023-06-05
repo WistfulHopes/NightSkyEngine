@@ -472,16 +472,25 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 ActionTime;
 	FixedString<32> CelName;
+	FixedString<32> BlendCelName;
 	FixedString<32> LabelName;
 	FixedString<32> AnimName;
+	FixedString<32> BlendAnimName;
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive;
 	UPROPERTY(BlueprintReadWrite)
 	int32 AnimFrame = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 CelIndex = 0;
+	int32 BlendAnimFrame = 0;
 	UPROPERTY(BlueprintReadWrite)
+	float FrameBlendPosition = 0;
+	UPROPERTY(BlueprintReadWrite)
+	float AnimBlendPosition = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CelIndex = 0;
+	UPROPERTY(BlueprintReadOnly)
 	int32 TimeUntilNextCel = 0;
+	int32 MaxCelTime = 0;
 	FEventHandler EventHandlers[EVT_NUM];
 
 	/*
@@ -609,15 +618,24 @@ public:
 	//gets anim name
 	UFUNCTION(BlueprintPure)
 	FString GetAnimName();
+	//gets blend anim name
+	UFUNCTION(BlueprintPure)
+	FString GetBlendAnimName();
 	//gets label name
 	UFUNCTION(BlueprintPure)
 	FString GetLabelName();
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
 	void SetCelName(FString InName);
+	//sets cel name
+	UFUNCTION(BlueprintCallable)
+	void SetBlendCelName(FString InName);
 	//jumps to label
 	UFUNCTION(BlueprintCallable)
 	void GotoLabel(FString InName, bool ResetState = true);
+	//sets time until next cel
+	UFUNCTION(BlueprintCallable)
+	void SetTimeUntilNextCel(int32 InTime);
 	//adds x position
 	UFUNCTION(BlueprintCallable)
 	void AddPosXWithDir(int InPosX);
