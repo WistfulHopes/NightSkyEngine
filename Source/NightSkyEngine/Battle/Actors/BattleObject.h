@@ -485,8 +485,6 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	float FrameBlendPosition = 0;
 	UPROPERTY(BlueprintReadWrite)
-	float AnimBlendPosition = 0;
-	UPROPERTY(BlueprintReadWrite)
 	int32 CelIndex = 0;
 	UPROPERTY(BlueprintReadOnly)
 	int32 TimeUntilNextCel = 0;

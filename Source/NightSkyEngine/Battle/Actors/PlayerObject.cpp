@@ -389,6 +389,8 @@ void APlayerObject::Update()
 	
 	if (SuperFreezeTimer > 0)
 	{
+		if (PlayerFlags & PLF_IsStunned)
+			HandleBufferedState();
 		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
@@ -630,6 +632,8 @@ void APlayerObject::UpdateNotBattle()
 	if (TimeUntilNextCel == 0)
 		CelIndex++;
 	GetBoxes();
+    
+    UpdateVisuals();
 }
 
 void APlayerObject::EditorUpdate()
@@ -2007,7 +2011,6 @@ void APlayerObject::ResetForRound()
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;
-	AnimBlendPosition = 0;
 	CelIndex = 0;
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)

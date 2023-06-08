@@ -1167,20 +1167,28 @@ void ABattleObject::UpdateVisuals()
 			LinkedMesh->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 		}
 	}
-	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 
-	if (GameState->BattleState.CurrentSequenceTime >= 0)
+	if (IsValid(GameState))
 	{
-		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+		SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+		if (GameState->BattleState.CurrentSequenceTime >= 0)
+		{
+			ScreenSpaceDepthOffset = 0;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+		}
+		else
+		{
+			if (IsPlayer)
+				ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
+			else
+				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+		}
 	}
 	else
 	{
-		if (IsPlayer)
-			ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
-		else
-			ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
-		OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = 1;
 	}
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
 	GetComponents(Components);
@@ -1331,7 +1339,6 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
-    AnimBlendPosition = FMath::Lerp(AnimBlendPosition, 1, 0.2);
 	UpdateVisuals();
 	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
 	{
@@ -1488,7 +1495,7 @@ void ABattleObject::ResetObject()
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;
-	AnimBlendPosition = 0;
+	CelIndex = 0;
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
