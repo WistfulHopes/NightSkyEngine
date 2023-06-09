@@ -80,7 +80,8 @@ void APlayerObject::HandleStateMachine(bool Buffer)
         if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(StoredStateMachine.States[i]->Name)
             || FindWhiffCancelOption(StoredStateMachine.States[i]->Name)
-            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
+            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState
+            	&& i > StoredStateMachine.GetStateIndex(GetCurrentStateName())) 
             )) //check if the state is enabled, continue if not
         {
             continue;
@@ -676,7 +677,12 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
 	
 	if (PlayerFlags & PLF_IsKnockedDown)
+	{
+		if (PosY <= GroundHeight)
+			PosY = GroundHeight + 1;
+
 		OTGCount++;
+	}
 		
 	int FinalDamage;
 	if (Enemy->ComboCounter == 1)
@@ -1558,18 +1564,19 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 		return ReturnReg;
 	
 	//two checks: if it's an attack, and if the given state type has a higher or equal priority to the current state
-	if (InStateType == EStateType::NormalThrow && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack)
+	if (InStateType == EStateType::NormalAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SpecialAttack && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack)
+	if (InStateType == EStateType::NormalThrow && StoredStateMachine.CurrentState->StateType <= InStateType)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SuperAttack && StoredStateMachine.CurrentState->StateType < InStateType
-		&& StoredStateMachine.CurrentState->StateType >= EStateType::SpecialAttack)
+	if (InStateType == EStateType::SpecialAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
+	{
+		ReturnReg = true;
+	}
+	if (InStateType == EStateType::SuperAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
 	{
 		ReturnReg = true;
 	}	
