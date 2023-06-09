@@ -275,6 +275,8 @@ struct FHitData
 	UPROPERTY(BlueprintReadWrite)
 	int32 KnockdownTime = -1;
 	UPROPERTY(BlueprintReadWrite)
+	int32 HardKnockdown = -1;
+	UPROPERTY(BlueprintReadWrite)
 	FGroundBounceData GroundBounce;
 	UPROPERTY(BlueprintReadWrite)
 	FWallBounceData WallBounce;

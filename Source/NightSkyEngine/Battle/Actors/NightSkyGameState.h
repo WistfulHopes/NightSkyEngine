@@ -166,7 +166,7 @@ public:
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void SetScreenBounds(); //sets screen bounds
-	void SetWallCollision(); //forces wall collision
+	void SetWallCollision() const; //forces wall collision
 	void StartSuperFreeze(int Duration);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;

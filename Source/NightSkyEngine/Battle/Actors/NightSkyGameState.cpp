@@ -585,7 +585,7 @@ void ANightSkyGameState::SetScreenBounds()
 	}
 }
 
-void ANightSkyGameState::SetWallCollision()
+void ANightSkyGameState::SetWallCollision() const
 {
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{

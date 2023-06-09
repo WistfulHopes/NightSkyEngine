@@ -445,7 +445,7 @@ void APlayerObject::Update()
 	
 	HandleBufferedState();
 
-	if (ActionTime == 3) //enable kara cancel after window end
+	if (!(AttackFlags & ATK_IsAttacking)) //enable kara cancel when not attacking
 		CancelFlags |= CNC_EnableKaraCancel;
 
 	if (StrikeInvulnerableTimer > 0)
@@ -520,7 +520,7 @@ void APlayerObject::Update()
 		}
 		else
 		{
-			if (((PlayerFlags & PLF_IsKnockedDown) == 0 || (PlayerFlags & PLF_IsHardKnockedDown) == 0) && (PlayerFlags & PLF_IsDead) == 0)
+			if ((PlayerFlags & PLF_IsKnockedDown) == 0 && (PlayerFlags & PLF_IsHardKnockedDown) == 0 && (PlayerFlags & PLF_IsDead) == 0)
 				EnableState(ENB_Tech);
 		}
 	}
@@ -550,7 +550,10 @@ void APlayerObject::Update()
 		PlayerFlags &= ~PLF_IsStunned;
 		DisableState(ENB_Tech);
 	}
-	
+
+	if (!(PlayerFlags & PLF_IsHardKnockedDown))
+		ReceivedHit.KnockdownTime = 3;
+
 	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
@@ -1034,6 +1037,12 @@ void APlayerObject::SetHitValues()
 	}
 	AirDashTimer = 0;
 	AirDashNoAttackTime = 0;
+
+	if (ReceivedHit.HardKnockdown)
+		PlayerFlags |= PLF_IsHardKnockedDown;
+	else
+		PlayerFlags &= ~PLF_IsHardKnockedDown;
+	
 	if (OTGCount > MaxOTGCount)
 	{
 		SpeedX = -30000;
@@ -1043,7 +1052,7 @@ void APlayerObject::SetHitValues()
 		ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
 		ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 		ReceivedHit.GravityOverTime = FHitValueOverTime();
-		ReceivedHit.KnockdownTime = 0;
+		PlayerFlags &= ~PLF_IsHardKnockedDown;
 	}
 }
 

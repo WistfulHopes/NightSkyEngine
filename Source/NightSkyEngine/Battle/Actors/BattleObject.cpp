@@ -174,7 +174,6 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				PosX += CollisionDepth / 2;
-				OtherObj->PosX -= CollisionDepth / 2;
 			}
 		}
 	}
@@ -684,6 +683,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		NormalHit.KnockdownTime = 12;
 	if (CounterHit.KnockdownTime == -1)
 		CounterHit.KnockdownTime = NormalHit.KnockdownTime;
+	
+	if (NormalHit.HardKnockdown == -1)
+		NormalHit.HardKnockdown = 0;
+	if (CounterHit.HardKnockdown == -1)
+		CounterHit.HardKnockdown = NormalHit.HardKnockdown;
 	
 	if (NormalHit.WallBounce.WallBounceXSpeed == -1)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
@@ -1382,6 +1386,9 @@ void ABattleObject::Update()
 
 	TriggerEvent(EVT_Update);
 	Move();
+	
+	GameState->SetScreenBounds();
+	GameState->SetWallCollision();
 	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
