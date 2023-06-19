@@ -174,6 +174,7 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				PosX += CollisionDepth / 2;
+				OtherObj->PosX -= CollisionDepth / 2;
 			}
 		}
 	}
@@ -267,8 +268,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								
 								if (OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 								{
-
-									CreateCommonParticle("cmn_guard", POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle("cmn_guard", POS_Enemy, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Block);
 									
 									const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
@@ -308,6 +308,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									
 									const FHitData Data = InitHitDataByAttackLevel(false);
 									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = Data;
 									EHitAction HACT;
@@ -326,6 +327,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									
 									const FHitData CounterData = InitHitDataByAttackLevel(true);
 									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = CounterData;
 									OtherChar->ReceivedHit = CounterData;
@@ -399,6 +401,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
 			break;
 		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchS");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickS");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashS");
+			break;
+		}
 		break;
 	case 1:
 		if (HitCommon.BlockstopModifier == -1)
@@ -439,6 +453,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			break;
 		case EHitVFXType::VFX_Special:
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchS");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickS");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashS");
 			break;
 		}
 		break;
@@ -483,6 +509,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
 			break;
 		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchM");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickM");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashM");
+			break;
+		}
 		break;
 	case 3:
 		if (HitCommon.BlockstopModifier == -1)
@@ -523,6 +561,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			break;
 		case EHitVFXType::VFX_Special:
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchM");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickM");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashM");
 			break;
 		}
 		break;
@@ -567,6 +617,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
 			break;
 		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchL");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickL");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashL");
+			break;
+		}
 		break;
 	case 5:
 		if (HitCommon.BlockstopModifier == -1)
@@ -607,6 +669,18 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 			break;
 		case EHitVFXType::VFX_Special:
 			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			break;
+		}
+		switch (HitCommon.SFXType)
+		{
+		case EHitSFXType::SFX_Punch:
+			HitCommon.HitSFXOverride.SetString("HitPunchL");
+			break;
+		case EHitSFXType::SFX_Kick:
+			HitCommon.HitSFXOverride.SetString("HitKickL");
+			break;
+		case EHitSFXType::SFX_Slash:
+			HitCommon.HitSFXOverride.SetString("HitSlashL");
 			break;
 		}
 		break;
@@ -1392,7 +1466,8 @@ void ABattleObject::Update()
 	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
-		TriggerEvent(EVT_Landing);
+		if (!IsPlayer)
+			TriggerEvent(EVT_Landing);
 		SpeedX = 0;
 	}
 
@@ -1949,6 +2024,8 @@ void ABattleObject::LinkCharaFlipbook(FString Name)
 
 void ABattleObject::PlayCommonSound(FString Name)
 {
+	if (!IsValid(GameState))
+		return;
 	if (Player->CommonSoundData != nullptr)
 	{
 		for (FSoundStruct SoundStruct : Player->CommonSoundData->SoundDatas)
@@ -1964,6 +2041,8 @@ void ABattleObject::PlayCommonSound(FString Name)
 
 void ABattleObject::PlayCharaSound(FString Name)
 {
+	if (!IsValid(GameState))
+		return;
 	if (Player->SoundData != nullptr)
 	{
 		for (FSoundStruct SoundStruct : Player->SoundData->SoundDatas)

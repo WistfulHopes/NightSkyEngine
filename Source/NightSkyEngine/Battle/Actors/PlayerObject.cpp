@@ -585,6 +585,7 @@ void APlayerObject::Update()
 			JumpToState("JumpLanding");
 		}
 		SetStance(ACT_Standing);
+		TriggerEvent(EVT_Landing);
 		CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	}
 
@@ -1070,6 +1071,8 @@ void APlayerObject::ForceEnableFarNormal(bool Enable)
 
 void APlayerObject::PlayVoiceLine(FString Name)
 {
+	if (!IsValid(GameState))
+		return;
 	if (VoiceData != nullptr)
 	{
 		for (FSoundStruct SoundStruct : VoiceData->SoundDatas)

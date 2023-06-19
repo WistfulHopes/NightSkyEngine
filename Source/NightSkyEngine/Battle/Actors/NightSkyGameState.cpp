@@ -285,6 +285,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	// these aren't strictly game state related, but tying them to game state update makes things better
 	UpdateCamera();
 	UpdateUI();
+	ManageAudio();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -1019,6 +1020,7 @@ void ANightSkyGameState::LoadGameState()
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
-	GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
+	if (!FighterRunner->IsA(AFighterSynctestRunner::StaticClass()))
+		GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
 	RollbackStartAudio();
 }
