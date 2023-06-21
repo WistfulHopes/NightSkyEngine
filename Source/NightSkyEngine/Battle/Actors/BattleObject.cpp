@@ -38,7 +38,12 @@ void ABattleObject::BeginPlay()
 void ABattleObject::Move()
 {
 	if (IsPlayer)
+	{
+		if (Player->PlayerFlags & PLF_IsThrowLock)
+			return;
 		Player->SetHitValuesOverTime();
+	}
+	
 
 	//Set previous pos values
 	PrevPosX = PosX; 
@@ -1215,6 +1220,45 @@ void ABattleObject::LogForSyncTestFile(FILE* file)
 
 void ABattleObject::UpdateVisuals()
 {
+	if (IsValid(GameState))
+	{
+		if (Direction == DIR_Left)
+		{
+			SetActorScale3D(FVector(-1, 1, 1));
+		}
+		else
+		{
+			SetActorScale3D(FVector(1, 1, 1));
+		}
+		if (!strcmp(SocketName.GetString(), "")) //only set visual location if not attached to socket
+			SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+		else
+		{
+			FVector FinalSocketOffset = SocketOffset;
+			if (Direction != DIR_Right)
+				FinalSocketOffset.Y = -SocketOffset.Y;
+			SetActorLocation(FinalSocketOffset);
+		}
+		if (GameState->BattleState.CurrentSequenceTime >= 0)
+		{
+			ScreenSpaceDepthOffset = 0;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+		}
+		else
+		{
+			if (IsPlayer)
+				ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
+			else
+				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+		}
+	}
+	else
+	{
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = 1;
+	}
+	
 	if (IsValid(LinkedParticle))
 	{
 		FVector FinalScale = ScaleForLink;
@@ -1246,28 +1290,6 @@ void ABattleObject::UpdateVisuals()
 		}
 	}
 
-	if (IsValid(GameState))
-	{
-		SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
-		if (GameState->BattleState.CurrentSequenceTime >= 0)
-		{
-			ScreenSpaceDepthOffset = 0;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
-		}
-		else
-		{
-			if (IsPlayer)
-				ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
-			else
-				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
-		}
-	}
-	else
-	{
-		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
-	}
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
 	GetComponents(Components);
 	for (const auto Component : Components)
@@ -1417,19 +1439,10 @@ void ABattleObject::InitObject()
 
 void ABattleObject::Update()
 {
-	UpdateVisuals();
 	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
 	{
 		ResetObject();
 		return;
-	}
-	if (Direction == DIR_Left)
-	{
-		SetActorScale3D(FVector(-1, 1, 1));
-	}
-	else
-	{
-		SetActorScale3D(FVector(1, 1, 1));
 	}
 
 	//sets pushbox
@@ -1443,17 +1456,24 @@ void ABattleObject::Update()
 		if (SuperFreezeTimer == 1)
 		{
 			TriggerEvent(EVT_SuperFreezeEnd);
+			Player->PauseRoundTimer(false);
 			Player->BattleHudVisibility(true);
 		}
 		SuperFreezeTimer--;
+		UpdateVisuals();
 		return;
 	}
 		
 	if (Hitstop > 0) //break if hitstop active.
 	{
 		Hitstop--;
+		UpdateVisuals();
 		return;
 	}
+
+	if (IsPlayer)
+		if (Player->PlayerFlags & PLF_IsThrowLock)
+			return;
 	
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
@@ -1591,6 +1611,10 @@ void ABattleObject::ResetObject()
 	ObjectStateName.SetString("");
 	ObjectID = 0;
 	Player = nullptr;
+	SocketName.SetString("");
+	SocketObj = OBJ_Self;
+	SocketOffset = FVector::ZeroVector;
+	ScaleForLink = FVector::OneVector;
 	GameState->SetDrawPriorityFront(this);
 }
 
@@ -2056,6 +2080,20 @@ void ABattleObject::PlayCharaSound(FString Name)
 	}
 }
 
+void ABattleObject::AttachToSocketOfObject(FString InSocketName, FVector Offset, EObjType ObjType)
+{
+	SocketName.SetString(InSocketName);
+	SocketObj = ObjType;
+	SocketOffset = Offset;
+}
+
+void ABattleObject::DetachFromSocket()
+{
+	SocketName.SetString("");
+	SocketObj = OBJ_Self;
+	SocketOffset = FVector::ZeroVector;
+}
+
 int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 {
 	if (Min > Max)
@@ -2067,6 +2105,11 @@ int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 	int32 Result = FRandomManager::GenerateRandomNumber();
 	Result = Result % (Max - Min + 1);
 	return Result;
+}
+
+void ABattleObject::SetObjectID(int InObjectID)
+{
+	ObjectID = InObjectID;
 }
 
 ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
@@ -2225,4 +2268,36 @@ ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOff
 		}
 	}
 	return nullptr;
+}
+
+void ABattleObject::DeactivateIfBeyondBounds()
+{
+	if (IsPlayer)
+		return;
+	if (PosX > 1080000 + GameState->BattleState.CurrentScreenPos || PosX < -1080000 + GameState->BattleState.CurrentScreenPos)
+		DeactivateObject();
+}
+
+void ABattleObject::EnableDeactivateOnStateChange(bool Enable)
+{
+	if (Enable)
+	{
+		MiscFlags |= MISC_DeactivateOnStateChange;
+	}
+	else
+	{
+		AttackFlags &= ~MISC_DeactivateOnStateChange;
+	}
+}
+
+void ABattleObject::EnableDeactivateOnReceiveHit(bool Enable)
+{
+	if (Enable)
+	{
+		MiscFlags |= MISC_DeactivateOnReceiveHit;
+	}
+	else
+	{
+		AttackFlags &= ~MISC_DeactivateOnReceiveHit;
+	}
 }

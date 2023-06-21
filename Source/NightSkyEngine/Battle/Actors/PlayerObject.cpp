@@ -360,31 +360,40 @@ void APlayerObject::Update()
 	{
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
-		if (ActionTime < ThrowTechWindow)
+		if (ActionTime < ThrowTechTimer)
 		{
-			FInputCondition ConditionA;
-			FInputBitmask BitmaskA;
-			BitmaskA.InputFlag = INP_A;
-			ConditionA.Sequence.Add(BitmaskA);
-			ConditionA.Method = EInputMethod::Once;
-			FInputCondition ConditionD;
-			FInputBitmask BitmaskD;
-			BitmaskD.InputFlag = INP_D;
-			ConditionD.Sequence.Add(BitmaskD);
-			ConditionD.Method = EInputMethod::Once;
-			if ((CheckInput(ConditionA) && CheckInput(ConditionD)) || (CheckInput(ConditionD) && CheckInput(ConditionA)))
+			if (StoredStateMachine.GetStateIndex("Throw") != INDEX_NONE)
 			{
-				JumpToState("GuardBreak");
-				Enemy->JumpToState("GuardBreak");
-				PlayerFlags &= ~PLF_IsThrowLock;
-				Pushback = -35000;
-				Enemy->Pushback = -35000;
-				HitPosX = (PosX + Enemy->PosX) / 2;
-				HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
-				CreateCommonParticle("cmn_throwtech", POS_Hit);
-				return;
+				const auto ThrowState = StoredStateMachine.States[StoredStateMachine.GetStateIndex("Throw")];
+				bool IsTech = true;
+				for (auto InputConditionList : ThrowState->InputConditionList)
+				{
+					IsTech = true;
+					for (auto InputCondition : InputConditionList.InputConditions)
+					{
+						if (!CheckInput(InputCondition))
+						{
+							IsTech = false;
+							break;
+						}
+					}
+				}
+				if (IsTech)
+				{
+					JumpToState("GuardBreak");
+					Enemy->JumpToState("GuardBreak");
+					PlayerFlags &= ~PLF_IsThrowLock;
+					Pushback = -35000;
+					Enemy->Pushback = -35000;
+					HitPosX = (PosX + Enemy->PosX) / 2;
+					HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
+					CreateCommonParticle("cmn_throwtech", POS_Hit);
+					return;
+				}
 			}
 		}
+		GetBoxes();
+		UpdateVisuals();
 		return;
 	}
 	
@@ -620,6 +629,8 @@ void APlayerObject::Update()
 		CelIndex++;
 	
 	GetBoxes();
+	
+	HandleThrowCollision();
 	
 	GameState->SetScreenBounds();
 	GameState->SetWallCollision();
@@ -875,11 +886,12 @@ void APlayerObject::SetHitValuesOverTime()
 			SpeedX = SpeedX * ReceivedHit.AirPushbackXOverTime.Value / 100;
 		}
 		if (ReceivedHit.AirPushbackYOverTime.BeginFrame <= CurrentStunTime
-			&& ReceivedHit.AirPushbackYOverTime.EndFrame > CurrentStunTime)
+			&& ReceivedHit.AirPushbackYOverTime.EndFrame > CurrentStunTime
+			&& SpeedY > 0)
 		{
 			SpeedY = SpeedY * ReceivedHit.AirPushbackYOverTime.Value / 100;
 		}
-		if (ReceivedHit.GravityOverTime.BeginFrame < CurrentStunTime
+		if (ReceivedHit.GravityOverTime.BeginFrame <= CurrentStunTime
 			&& ReceivedHit.GravityOverTime.EndFrame > CurrentStunTime)
 		{
 			Gravity += ReceivedHit.GravityOverTime.Value;
@@ -1069,6 +1081,52 @@ void APlayerObject::ForceEnableFarNormal(bool Enable)
 	}
 }
 
+void APlayerObject::SetThrowActive(bool Active)
+{
+	if (Active)
+	{
+		PlayerFlags |= PLF_ThrowActive;
+	}
+	else
+	{
+		PlayerFlags &= ~PLF_ThrowActive;
+	}
+}
+
+void APlayerObject::ThrowEnd()
+{
+	if (!Enemy) return;
+	Enemy->PlayerFlags &= ~PLF_IsThrowLock;
+}
+
+void APlayerObject::SetThrowRange(int32 InThrowRange)
+{
+	ThrowRange = InThrowRange;
+}
+
+void APlayerObject::SetThrowExeState(FString ExeState)
+{
+	ExeStateName.SetString(ExeState);
+}
+
+void APlayerObject::SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY)
+{
+	if (!Enemy) return;
+	if (Direction == DIR_Right)
+		Enemy->PosX = R + ThrowPosX;
+	else
+		Enemy->PosX = L - ThrowPosX;
+	Enemy->PosY = PosY + ThrowPosY;
+}
+
+void APlayerObject::SetDamageReactionCel(int32 Index)
+{
+	if (Index < Enemy->DamageReactionCels.Num())
+	{
+		Enemy->SetCelName(Enemy->DamageReactionCels[Index]);
+	}
+}
+
 void APlayerObject::PlayVoiceLine(FString Name)
 {
 	if (!IsValid(GameState))
@@ -1127,6 +1185,11 @@ void APlayerObject::StartSuperFreeze(int Duration)
 void APlayerObject::BattleHudVisibility(bool Visible)
 {
 	GameState->BattleHudVisibility(Visible);
+}
+
+void APlayerObject::PauseRoundTimer(bool Pause)
+{
+	GameState->BattleState.PauseTimer = Pause;
 }
 
 void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
@@ -1560,6 +1623,36 @@ bool APlayerObject::CheckMovesUsedInCombo(const FString& Name)
 		|| StoredStateMachine.States[StoredStateMachine.GetStateIndex(Name)]->MaxChain == -1)
 		ReturnReg = true;
 	return ReturnReg;
+}
+
+void APlayerObject::ThrowExe()
+{
+	JumpToState(ExeStateName.GetString());
+	PlayerFlags &= ~PLF_ThrowActive;
+}
+
+void APlayerObject::HandleThrowCollision()
+{
+	if (AttackFlags & ATK_IsAttacking && PlayerFlags & PLF_ThrowActive
+		&& (Enemy->InvulnFlags & INV_ThrowInvulnerable) == 0
+		&& !Enemy->ThrowInvulnerableTimer && !Enemy->CheckIsStunned()
+		&& ((Enemy->PosY <= GroundHeight && PosY <= GroundHeight)
+		|| (Enemy->PosY > GroundHeight && PosY > GroundHeight)))
+	{
+		int ThrowPosX;
+		if (Direction == DIR_Right)
+			ThrowPosX = R + ThrowRange;
+		else
+			ThrowPosX = L - ThrowRange;
+		if ((PosX <= Enemy->PosX && ThrowPosX >= Enemy->L || PosX > Enemy->PosX && ThrowPosX <= Enemy->R)
+			&& T >= Enemy->B && B <= Enemy->T)
+		{
+			Enemy->JumpToState("Hitstun0");
+			Enemy->PlayerFlags |= PLF_IsThrowLock;
+			Enemy->ThrowTechTimer = ThrowTechWindow;
+			ThrowExe();
+		}
+	}
 }
 
 bool APlayerObject::CheckKaraCancel(EStateType InStateType)

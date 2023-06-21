@@ -281,6 +281,8 @@ protected:
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
+	int32 ThrowRange;
+	int32 ThrowTechTimer;
 
 	//Chain cancels (copied from TArray to static array)
 	int32 ChainCancelOptionsInternal[CancelArraySize] = {};
@@ -393,6 +395,10 @@ private:
 	bool CheckReverseBeat(const FString& Name);
 	//checks moves used in combo
 	bool CheckMovesUsedInCombo(const FString& Name);
+	//upon successful throw, jump to state
+	void ThrowExe();
+	//handles throwing objects
+	void HandleThrowCollision();
 	//checks kara cancel
 	bool CheckKaraCancel(EStateType InStateType);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
@@ -557,6 +563,24 @@ public:
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
 	void ForceEnableFarNormal(bool Enable);
+	//initiate throw
+	UFUNCTION(BlueprintCallable)
+	void SetThrowActive(bool Active);
+	//end throw
+	UFUNCTION(BlueprintCallable)
+	void ThrowEnd(); 
+	//initiate throw range
+	UFUNCTION(BlueprintCallable)
+	void SetThrowRange(int32 InThrowRange);
+	//sets throw execution state
+	UFUNCTION(BlueprintCallable)
+	void SetThrowExeState(FString ExeState);
+	//sets grip position for throw
+	UFUNCTION(BlueprintCallable)
+	void SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY);
+	//sets grip position for throw
+	UFUNCTION(BlueprintCallable)
+	void SetDamageReactionCel(int32 Index);
 	//plays voice line
 	UFUNCTION(BlueprintCallable)
 	void PlayVoiceLine(FString Name);
@@ -572,6 +596,9 @@ public:
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
+	//pauses round timer
+	UFUNCTION(BlueprintCallable)
+	void PauseRoundTimer(bool Pause);
 	//stores battle actor in slot
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);

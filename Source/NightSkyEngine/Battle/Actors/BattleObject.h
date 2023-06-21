@@ -517,6 +517,14 @@ protected:
 
 public:
 	/*
+	 * Socket data
+	 */
+	//for socket attachment
+	FixedString<64> SocketName; 
+	EObjType SocketObj = OBJ_Self;
+	FVector SocketOffset = FVector::ZeroVector;
+	
+	/*
 	 * Miscellaneous data
 	 */
 	int32 HitPosX;
@@ -708,9 +716,18 @@ public:
 	//plays chara sound
 	UFUNCTION(BlueprintCallable)
 	void PlayCharaSound(FString Name);
-	//initializes event handler
+	//attaches object to skeletal socket
+	UFUNCTION(BlueprintCallable)
+	void AttachToSocketOfObject(FString InSocketName, FVector Offset, EObjType ObjType);
+	//detaches object from skeletal socket
+	UFUNCTION(BlueprintCallable)
+	void DetachFromSocket();
+	//generate random number
 	UFUNCTION(BlueprintCallable)
 	int32 GenerateRandomNumber(int32 Min, int32 Max);
+	//sets object id
+	UFUNCTION(BlueprintCallable)
+	void SetObjectID(int InObjectID);
 	//gets object by type
 	UFUNCTION(BlueprintPure)
 	ABattleObject* GetBattleObject(EObjType Type);
@@ -720,6 +737,15 @@ public:
 	//creates object
 	UFUNCTION(BlueprintCallable)
 	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	//if object goes beyond screen bounds, deactivate
+	UFUNCTION(BlueprintCallable)
+	void DeactivateIfBeyondBounds();
+	//if player changes state, deactivate
+	UFUNCTION(BlueprintCallable)
+	void EnableDeactivateOnStateChange(bool Enable);
+	//if player receives hit, deactivate
+	UFUNCTION(BlueprintCallable)
+	void EnableDeactivateOnReceiveHit(bool Enable);
 	// Cannot be called on player objects. Deactivates the object and returns it to the pool.
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
