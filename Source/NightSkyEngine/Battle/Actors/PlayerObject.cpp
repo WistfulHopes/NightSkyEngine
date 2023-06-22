@@ -316,7 +316,7 @@ void APlayerObject::Update()
 	CallSubroutine("CmnOnUpdate");
 	CallSubroutine("OnUpdate");
 
-	if (GameState->GameInstance->IsTraining && PlayerIndex == 1)
+	if (GameState->GameInstance->IsTraining)
 	{
 		if ((PlayerFlags & PLF_IsStunned) == 0)
 			CurrentHealth = MaxHealth;
@@ -324,10 +324,13 @@ void APlayerObject::Update()
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
 		}
-		if (CheckIsStunned())
-			Inputs = INP_A | INP_Left;
-		else
-			Inputs = INP_Neutral;
+		if (PlayerIndex == 1)
+		{
+			if (CheckIsStunned())
+				Inputs = INP_A | INP_Left;
+			else
+				Inputs = INP_Neutral;
+		}
 	}
 	
 	if (GameState->BattleState.TimeUntilRoundStart > 0)
@@ -384,7 +387,7 @@ void APlayerObject::Update()
 					Enemy->JumpToState("GuardBreak");
 					PlayerFlags &= ~PLF_IsThrowLock;
 					Pushback = -35000;
-					Enemy->Pushback = -35000;
+					AttackOwner->Pushback = -35000;
 					HitPosX = (PosX + Enemy->PosX) / 2;
 					HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
 					CreateCommonParticle("cmn_throwtech", POS_Hit);
@@ -467,7 +470,10 @@ void APlayerObject::Update()
 	
 	if (ComboCounter > 0)
 		ComboTimer++;
-		
+
+	if (MeterCooldownTimer > 0)
+		MeterCooldownTimer--;
+
 	if ((PlayerFlags & PLF_RoundWinInputLock) == 0)
 		StoredInputBuffer.Tick(Inputs);
 	else
@@ -475,7 +481,7 @@ void APlayerObject::Update()
 
 	if (AirDashTimer > 0)
 		AirDashTimer--;
-	if (AirDashNoAttackTime == 1)
+	if (AirDashTimer == 1)
 		CallSubroutine("CmnAnyCancelAir");
 
 	if (AirDashNoAttackTime > 0)
@@ -485,13 +491,18 @@ void APlayerObject::Update()
 	
 	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
-		if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
-			HandleGroundBounce();
-		else if (GetCurrentStateName() != "FloatingCrumpleBody" && GetCurrentStateName() != "FloatingCrumpleHead")
+		if (GetCurrentStateName() != "FloatingCrumpleBody" && GetCurrentStateName() != "FloatingCrumpleHead")
 		{
-			StunTime = 0;
-			StunTimeMax = 0;
-			PlayerFlags |= PLF_IsKnockedDown;
+			if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
+        		HandleGroundBounce();
+			else
+			{
+				StunTime = 0;
+				StunTimeMax = 0;
+				PlayerFlags |= PLF_IsKnockedDown;
+				if (!(PlayerFlags & PLF_IsHardKnockedDown))
+					EnableState(ENB_Tech);
+        	}
 		}
 	}
 	
@@ -541,7 +552,8 @@ void APlayerObject::Update()
 
 	if (PlayerFlags & PLF_TouchingWall && Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun && Pushback != 0)
 	{
-		Enemy->Pushback = Pushback;
+		if (IsValid(AttackOwner))
+			AttackOwner->Pushback = Pushback;
 		Pushback = 0;
 	}
 		
@@ -697,6 +709,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			PosY = GroundHeight + 1;
 
 		OTGCount++;
+		PlayerFlags &= ~PLF_IsKnockedDown;
 	}
 		
 	int FinalDamage;
@@ -714,6 +727,9 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	CurrentHealth -= FinalDamage;
 	if (GameState->GameInstance->IsTraining && CurrentHealth < 1)
 		CurrentHealth = 1;
+
+	AddMeter(FinalDamage * MeterPercentOnReceiveHit / 100);
+	Enemy->AddMeter(FinalDamage * Enemy->MeterPercentOnHit / 100);
 	
 	EnableCancelIntoSelf(true);
 	
@@ -739,6 +755,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	}
 	if (CurrentHealth <= 0)
 	{
+		CurrentHealth = 0;
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal || HACT == HACT_FloatingCrumple)
@@ -968,7 +985,7 @@ void APlayerObject::SetHitValues()
 		StunTimeMax = FinalHitstun;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
-			Enemy->Pushback = -FinalHitPushbackX;
+			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
 		break;
@@ -984,7 +1001,7 @@ void APlayerObject::SetHitValues()
 			Gravity = FinalGravity;
 			if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 			{
-				Enemy->Pushback = -FinalHitPushbackX;
+				AttackOwner->Pushback = -FinalHitPushbackX;
 				Pushback = 0;
 			}
 			break;
@@ -993,7 +1010,7 @@ void APlayerObject::SetHitValues()
 		StunTimeMax = FinalUntech;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
-			Enemy->Pushback = -FinalHitPushbackX;
+			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
 		break;
@@ -1010,7 +1027,7 @@ void APlayerObject::SetHitValues()
 		Gravity = FinalGravity;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
-			Enemy->Pushback = -FinalHitPushbackX;
+			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
 		break;
@@ -1042,7 +1059,7 @@ void APlayerObject::SetHitValues()
 		Gravity = FinalGravity;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
 		{
-			Enemy->Pushback = -FinalHitPushbackX;
+			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
 	default:
@@ -1219,7 +1236,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 			Left.Method = EInputMethod::Once;
 			if (CheckInput(Left) && InstantBlockLockoutTimer == 0)
 			{
-				//AddMeter(800);
+				AddMeter(800);
 			}
 			return true;
 		}
@@ -1235,7 +1252,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 			Input1.Method = EInputMethod::OnceStrict;
 			if (CheckInput(Input1) && InstantBlockLockoutTimer == 0)
 			{
-				//AddMeter(800);
+				AddMeter(800);
 			}
 			return true;
 		}
@@ -1248,7 +1265,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 			Input4.Method = EInputMethod::OnceStrict;
 			if (CheckInput(Input4) && InstantBlockLockoutTimer == 0)
 			{
-				//AddMeter(800);
+				AddMeter(800);
 			}
 			return true;
 		}
@@ -1712,7 +1729,7 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (PosX >= 1920000 || PosX <= -1920000)
+		if (PosX >= 1680000 + 840000 || PosX <= -1680000 - 840000)
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{
@@ -1843,6 +1860,23 @@ void APlayerObject::CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2,
 
 	if (SubroutineNames.Find(Name) != INDEX_NONE)
 		Subroutines[SubroutineNames.Find(Name)]->Exec();
+}
+
+void APlayerObject::UseMeter(int Use)
+{
+	GameState->BattleState.Meter[PlayerIndex] -= Use;
+}
+
+void APlayerObject::AddMeter(int Meter)
+{
+	if (MeterCooldownTimer > 0)
+		Meter /= 10;
+	GameState->BattleState.Meter[PlayerIndex] += Meter;
+}
+
+void APlayerObject::SetMeterCooldownTimer(int Timer)
+{
+	MeterCooldownTimer = Timer;	
 }
 
 void APlayerObject::SetStance(EActionStance InStance)
@@ -2128,6 +2162,16 @@ void APlayerObject::ResetForRound()
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
 	EventHandlers[EVT_Enter].FunctionName.SetString("Init");
+	SocketName.SetString("");
+	SocketObj = OBJ_Self;
+	SocketOffset = FVector::ZeroVector;
+	ScaleForLink = FVector::OneVector;
+	AddColor = FLinearColor(0,0,0,1);
+	MulColor = FLinearColor(1,1,1,1);
+	AddFadeColor = FLinearColor(0,0,0,1);
+	MulFadeColor = FLinearColor(1,1,1,1);
+	AddFadeSpeed = 0;
+	MulFadeSpeed = 0;
 	HitPosX = 0;
 	HitPosY = 0;
 	for (auto& Box : Boxes)
@@ -2230,35 +2274,22 @@ void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 	}
 }
 
-void APlayerObject::LogForSyncTestFile(FILE* file)
+void APlayerObject::LogForSyncTestFile(std::ofstream& file)
 {
 	Super::LogForSyncTestFile(file);
 	if(file)
 	{
-		fprintf(file,"PlayerCharacter:\n");
-		fprintf(file,"\tEnableFlags: %d\n", EnableFlags);
-		fprintf(file,"\tCurrentAirJumpCount: %d\n", CurrentAirJumpCount);
-		fprintf(file,"\tCurrentAirDashCount: %d\n", CurrentAirDashCount);
-		fprintf(file,"\tAirDashTimerMax: %d\n", AirDashTimerMax);
-		fprintf(file,"\tCurrentHealth: %d\n", CurrentHealth);
-		fprintf(file,"\tCancelFlags: %d\n", CancelFlags);
-		fprintf(file,"\tInputs: %d\n", StoredInputBuffer.InputBufferInternal[89]);
-		fprintf(file,"\tStance: %d\n", Stance.GetValue());
-		fprintf(file,"\tAirDashTimer: %d\n", AirDashTimer);
-		fprintf(file,"\tPlayerFlags: %d\n", PlayerFlags);
-		int ChainCancelChecksum = 0;
-		for (int i = 0; i < 0x20; i++)
-		{
-			ChainCancelChecksum += ChainCancelOptionsInternal[i];
-		}
-		fprintf(file,"\tChainCancelOptions: %d\n", ChainCancelChecksum);
-		int WhiffCancelChecksum = 0;
-		for (int i = 0; i < 0x20; i++)
-		{
-			WhiffCancelChecksum += WhiffCancelOptionsInternal[i];
-		}
-		fprintf(file,"\tChainCancelOptions: %d\n", WhiffCancelChecksum);
-		fprintf(file,"\tEnemy: %p\n", Enemy);
+		file << "PlayerObject:\n";
+		file << "\tEnableFlags: " << EnableFlags << std::endl;
+		file << "\tCurrentAirJumpCount: " << CurrentAirJumpCount << std::endl;
+		file << "\tCurrentAirDashCount: " << CurrentAirDashCount << std::endl;
+		file << "\tAirDashTimer: " << AirDashTimer << std::endl;
+		file << "\tAirDashTimerMax: " << AirDashTimerMax << std::endl;
+		file << "\tCurrentHealth: " << CurrentHealth << std::endl;
+		file << "\tCancelFlags: " << CancelFlags << std::endl;
+		file << "\tPlayerFlags: " << PlayerFlags << std::endl;
+		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[89] << std::endl;
+		file << "\tStance: " << Stance.GetValue() << std::endl;
 	}
 }
 

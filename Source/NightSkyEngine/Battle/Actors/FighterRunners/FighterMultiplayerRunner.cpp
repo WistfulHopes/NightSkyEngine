@@ -2,10 +2,14 @@
 
 
 #include "FighterMultiplayerRunner.h"
+
+#include <fstream>
+
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
+#include <iostream>
 
 // Sets default values
 AFighterMultiplayerRunner::AFighterMultiplayerRunner()
@@ -105,78 +109,89 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	FString savedDir = FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir());
 
 	savedDir.Append(filename);
-	fopen(TCHAR_TO_ANSI(*savedDir), "w");
-	if (fp)
+	std::ofstream file;
+	file.open(TCHAR_TO_ANSI(*savedDir));
+	if (file.is_open())
 	{
 		FRollbackData* rollbackdata = (FRollbackData*)malloc(sizeof(FRollbackData));
 		memcpy(rollbackdata, buffer, sizeof(FRollbackData));
-		fprintf(fp, "GameState:\n");
+		file << "GameState:\n";
 		FBattleState BattleState;
 		FMemory::Memcpy(&BattleState, rollbackdata->BattleStateBuffer, SizeOfBattleState);
-		fprintf(fp, "\tFrameNumber:%d\n", BattleState.FrameNumber);
-		fprintf(fp, "\tActiveObjectCount:%d\n", BattleState.ActiveObjectCount);
+		file << "\tFrameNumber: " << BattleState.FrameNumber << std::endl;
+		file << "\tActiveObjectCount: " << BattleState.ActiveObjectCount << std::endl;
 		for (int i = 0; i < MaxBattleObjects; i++)
 		{
 			if (rollbackdata->ObjActive[i])
 			{
 				ABattleObject* BattleActor = NewObject<ABattleObject>();
-				FMemory::Memcpy((char*)BattleActor + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
-				BattleActor->LogForSyncTestFile(fp);
+				FMemory::Memcpy(reinterpret_cast<char*>(BattleActor) + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
+				BattleActor->LogForSyncTestFile(file);
 			}
 		}
 		for (int i = MaxBattleObjects; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{
 			APlayerObject* PlayerCharacter = NewObject<APlayerObject>();
-			FMemory::Memcpy((char*)PlayerCharacter + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
-			FMemory::Memcpy((char*)PlayerCharacter + offsetof(APlayerObject, PlayerSync), rollbackdata->CharBuffer[i - MaxBattleObjects], SizeOfPlayerObject);
-			PlayerCharacter->LogForSyncTestFile(fp);
+			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
+			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(APlayerObject, PlayerSync), rollbackdata->CharBuffer[i - MaxBattleObjects], SizeOfPlayerObject);
+			PlayerCharacter->LogForSyncTestFile(file);
 		}
-
-		fprintf(fp,"RawRollbackData:\n");
-		fprintf(fp, "\tObjBuffer:\n");
+		
+		file << "RawRollbackData:\n";
+		file << "\tObjBuffer:\n";
 		for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{
-			fprintf(fp, "Object %d\n", i);
+			file << "Object " << i << ":\n";
+			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfBattleObject; x++)
 			{
-				fprintf(fp, " %x", rollbackdata->ObjBuffer[i][x]);	
+				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->ObjBuffer[i][x]) << " ";
+				if(x % 16 == 0)
+				{
+					file << "\n\t" << std::hex << std::uppercase << x << ": ";
+				}
 			}
-			fprintf(fp, "\n");
+			file << "\n";
 		}
-		fprintf(fp, "\n");
-		fprintf(fp, "\tObjActive:\n");
+		file << "\n";
+		file << "\tObjActive:\n";
 		for (int i = 0; i < MaxBattleObjects; i++)
 		{
-			fprintf(fp, " %x", rollbackdata->ObjActive[i]);
+			file << rollbackdata->ObjActive[i] << " ";
 		}
-		fprintf(fp, "\n");
-		fprintf(fp, "\tCharBuffer:\n");
+		file << "\n";
+		file << "\tPlayerBuffer:\n";
 		for (int i = 0; i < MaxPlayerObjects; i++)
 		{
-			fprintf(fp, "Character %d\n", i);
+			file << "Player " << i << ":\n";
+			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfPlayerObject; x++)
 			{
-				fprintf(fp, " %x", rollbackdata->CharBuffer[i][x]);	
+				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->CharBuffer[i][x]) << " ";
+				if(x % 16 == 0)
+				{
+					file << "\n\t" << std::hex << std::uppercase << x << ": ";
+				}
 			}
-			fprintf(fp, "\n");
+			file << "\n";
 		}
-		fprintf(fp, "\n");
+		file << "\n";
 
 		int checksum = fletcher32_checksum((short*)buffer, sizeof(FRollbackData) / 2);
-		fprintf(fp,"RawBuffer:\n");
-		fprintf(fp, "\tFletcher32Checksum:%d\n", checksum);
-		fprintf(fp, "\tBuffer:\n\t0: ");
+		file << "RawBuffer:\n";
+		file << "\tFletcher32Checksum: " << checksum << "\n";
+		file << "\tBuffer:\n\t0: ";
 		for (int i = 0; i < sizeof(FRollbackData); i++)
 		{
-			fprintf(fp, " %x", buffer[i]);
-			if((i%20)==0)
+			file << std::hex << std::uppercase << static_cast<int>(buffer[i]) << " ";
+			if(i % 16 == 0)
 			{
-				fprintf(fp, "\n\t%x: ",i);
+				file << "\n\t" << std::hex << std::uppercase << i << ": ";
 			}
 		}
 		
 		delete[] buffer;
-		fclose(fp);
+		file.close();
 	}
 	return true;
 }

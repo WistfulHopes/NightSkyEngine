@@ -17,8 +17,10 @@ public:
 	// Sets default values for this actor's properties
 	ANightSkyBattleHudActor();
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	UNightSkyBattleWidget* Widget;
+	UPROPERTY(BlueprintReadWrite)
+	UNightSkyBattleWidget* TopWidget;
+	UPROPERTY(BlueprintReadWrite)
+	UNightSkyBattleWidget* BottomWidget;
 
 protected:
 	// Called when the game starts or when spawned

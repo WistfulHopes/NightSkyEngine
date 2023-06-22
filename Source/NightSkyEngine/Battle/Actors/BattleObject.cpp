@@ -227,12 +227,14 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
 								&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 							{
+								OtherChar->AttackOwner = this;
 								OtherChar->StunTime = 2147483647;
 								OtherChar->FaceOpponent();
 								OtherChar->HaltMomentum();
 								OtherChar->PlayerFlags |= PLF_IsStunned;
 								AttackFlags &= ~ATK_HitActive;
 								AttackFlags |= ATK_HasHit;
+								AttackTarget = OtherChar;
 								
 								int CollisionDepthX;
 								if (Hitbox.PosX < OtherChar->PosX)
@@ -304,8 +306,8 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 											OtherChar->Pushback = 0;
 										}
 									}
-									// OtherChar->AddMeter(HitEffect.HitDamage * OtherChar->MeterPercentOnReceiveHitGuard / 100);
-									// Player->AddMeter(HitEffect.HitDamage * Player->MeterPercentOnHitGuard / 100);
+									OtherChar->AddMeter(NormalHit.Damage * OtherChar->MeterPercentOnReceiveHitGuard / 100);
+									Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
 								}
 								else if ((OtherChar->AttackFlags & ATK_IsAttacking) == 0)
 								{
@@ -329,7 +331,12 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								{
 									TriggerEvent(EVT_Hit);
 									TriggerEvent(EVT_CounterHit);
-									
+
+									OtherChar->AddColor = FLinearColor(5,0.2,0.2,1);
+									OtherChar->MulColor = FLinearColor(1,0.1,0.1,1);
+									OtherChar->AddFadeSpeed = 0.1;
+									OtherChar->MulFadeSpeed = 0.1;
+
 									const FHitData CounterData = InitHitDataByAttackLevel(true);
 									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
 									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
@@ -1188,33 +1195,36 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 	}
 }
 
-void ABattleObject::LogForSyncTestFile(FILE* file)
+void ABattleObject::LogForSyncTestFile(std::ofstream& file)
 {
 	if(file)
 	{
-		fprintf(file,"BattleActor:\n");
-		fprintf(file,"\tPosX: %d\n", PosX);
-		fprintf(file,"\tPosY: %d\n", PosY);
-		fprintf(file,"\tPrevPosX: %d\n", PrevPosX);
-		fprintf(file,"\tPrevPosY: %d\n", PrevPosY);
-		fprintf(file,"\tSpeedX: %d\n", SpeedX);
-		fprintf(file,"\tSpeedY: %d\n", SpeedY);
-		fprintf(file,"\tGravity: %d\n", Gravity);
-		fprintf(file,"\tInertia: %d\n", Inertia);
-		fprintf(file,"\tActionTime: %d\n", ActionTime);
-		fprintf(file,"\tPushHeight: %d\n", PushHeight);
-		fprintf(file,"\tPushHeightLow: %d\n", PushHeightLow);
-		fprintf(file,"\tPushWidth: %d\n", PushWidth);
-		fprintf(file,"\tStunTime: %d\n", StunTime);
-		fprintf(file,"\tStunTimeMax: %d\n", StunTimeMax);
-		fprintf(file,"\tHitstop: %d\n", Hitstop);
-		fprintf(file,"\tCelName: %s\n", CelName.GetString());
-		fprintf(file,"\tFacingRight: %d\n", AttackFlags);
-		fprintf(file,"\tDirection: %d\n", static_cast<int>(Direction));
-		fprintf(file,"\tMiscFlags: %d\n", MiscFlags);
-		fprintf(file,"\tCelIndex: %d\n", CelIndex);
-		fprintf(file,"\tTimeUntilNextCel: %d\n", TimeUntilNextCel);
-		fprintf(file,"\tAnimFrame: %d\n", AnimFrame);
+		file << "BattleObject:\n";
+		file << "\tPosX: " << PosX << std::endl;
+		file << "\tPosY: " << PosY << std::endl;
+		file << "\tPosZ: " << PosZ << std::endl;
+		file << "\tPrevPosX: " << PrevPosX << std::endl;
+		file << "\tPrevPosY: " << PrevPosY << std::endl;
+		file << "\tPrevPosZ: " << PrevPosZ << std::endl;
+		file << "\tSpeedX: " << SpeedX << std::endl;
+		file << "\tSpeedY: " << SpeedY << std::endl;
+		file << "\tSpeedZ: " << SpeedZ << std::endl;
+		file << "\tGravity: " << Gravity << std::endl;
+		file << "\tInertia: " << Inertia << std::endl;
+		file << "\tActionTime: " << ActionTime << std::endl;
+		file << "\tPushHeight: " << PushHeight << std::endl;
+		file << "\tPushHeightLow: " << PushHeightLow << std::endl;
+		file << "\tPushWidth: " << PushWidth << std::endl;
+		file << "\tStunTime: " << StunTime << std::endl;
+		file << "\tStunTimeMax: " << StunTimeMax << std::endl;
+		file << "\tHitstop: " << Hitstop << std::endl;
+		file << "\tCelName: " << CelName.GetString() << std::endl;
+		file << "\tAttackFlags: " << AttackFlags << std::endl;
+		file << "\tDirection: " << Direction << std::endl;
+		file << "\tMiscFlags: " << MiscFlags << std::endl;
+		file << "\tCelIndex: " << CelIndex << std::endl;
+		file << "\tTimeUntilNextCel: " << TimeUntilNextCel << std::endl;
+		file << "\tAnimFrame: " << AnimFrame << std::endl;
 	}
 }
 
@@ -1289,6 +1299,9 @@ void ABattleObject::UpdateVisuals()
 			LinkedMesh->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 		}
 	}
+	
+	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
+	MulColor = FMath::Lerp(MulColor, MulFadeColor, MulFadeSpeed);
 
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
 	GetComponents(Components);
@@ -1300,6 +1313,8 @@ void ABattleObject::UpdateVisuals()
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
 			}
 		}
 	}
@@ -1423,7 +1438,6 @@ void ABattleObject::InitObject()
 			LinkedMesh = nullptr;
 		}
 	}
-	GameState->SetDrawPriorityFront(this);
 	ObjectState->Parent = this;
 	TriggerEvent(EVT_Enter);
 	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
@@ -1517,20 +1531,17 @@ void ABattleObject::ResetObject()
 		return;
 	if (IsValid(LinkedParticle))
 	{
-		LinkedParticle->SetVisibility(false);
-		LinkedParticle = nullptr;
+		LinkedParticle->Deactivate();
 	}
 	if (IsValid(LinkedFlipbook))
 	{
-		LinkedFlipbook->SetFlipbook(nullptr);
+		LinkedFlipbook->Deactivate();
 	}
-	for (auto LinkedMesh : LinkedMeshes)
+	for (const auto LinkedMesh : LinkedMeshes)
 	{
 		if (IsValid(LinkedMesh))
 		{
-			LinkedMesh->SetVisibility(false);
-			LinkedMesh->SetRelativeLocation(FVector(0,0,-100000));
-			LinkedMesh = nullptr;
+			LinkedMesh->Deactivate();
 		}
 	}
 	IsActive = false;
@@ -1599,6 +1610,7 @@ void ABattleObject::ResetObject()
 	FrameBlendPosition = 0;
 	CelIndex = 0;
 	TimeUntilNextCel = 0;
+	MaxCelTime = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
 	EventHandlers[EVT_Enter].FunctionName.SetString("Init");	
@@ -1615,7 +1627,12 @@ void ABattleObject::ResetObject()
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
 	ScaleForLink = FVector::OneVector;
-	GameState->SetDrawPriorityFront(this);
+	AddColor = FLinearColor(0,0,0,1);
+	MulColor = FLinearColor(1,1,1,1);
+	AddFadeColor = FLinearColor(0,0,0,1);
+	MulFadeColor = FLinearColor(1,1,1,1);
+	AddFadeSpeed = 0;
+	MulFadeSpeed = 0;
 }
 
 void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName)
@@ -1817,6 +1834,7 @@ void ABattleObject::SetAttacking(bool Attacking)
 		AttackFlags &= ~ATK_IsAttacking;
 	}
 	AttackFlags &= ~ATK_HasHit;
+	AttackFlags &= ~ATK_HitActive;
 }
 
 void ABattleObject::DeactivateObject()
@@ -1909,6 +1927,7 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetDesiredAge(0);
 				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
@@ -1938,6 +1957,7 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				NiagaraComponent->SetDesiredAge(0);
 				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
@@ -1973,6 +1993,7 @@ void ABattleObject::LinkCommonParticle(FString Name)
 				}
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				LinkedParticle->SetDesiredAge(0);
 				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
 				if (Direction == DIR_Left)
 					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
@@ -2274,7 +2295,7 @@ void ABattleObject::DeactivateIfBeyondBounds()
 {
 	if (IsPlayer)
 		return;
-	if (PosX > 1080000 + GameState->BattleState.CurrentScreenPos || PosX < -1080000 + GameState->BattleState.CurrentScreenPos)
+	if (PosX > 1680000 + GameState->BattleState.CurrentScreenPos || PosX < -1680000 + GameState->BattleState.CurrentScreenPos)
 		DeactivateObject();
 }
 

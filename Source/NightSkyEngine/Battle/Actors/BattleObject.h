@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <fstream>
+
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
@@ -523,7 +525,21 @@ public:
 	FixedString<64> SocketName; 
 	EObjType SocketObj = OBJ_Self;
 	FVector SocketOffset = FVector::ZeroVector;
-	
+
+	//material parameters
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor MulColor = FLinearColor(1,1,1,1);
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor AddColor = FLinearColor(0,0,0,1);
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor MulFadeColor;
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor AddFadeColor;
+	UPROPERTY(BlueprintReadWrite)
+	float MulFadeSpeed;
+	UPROPERTY(BlueprintReadWrite)
+	float AddFadeSpeed;
+
 	/*
 	 * Miscellaneous data
 	 */
@@ -540,6 +556,20 @@ public:
 	 */
 	UPROPERTY(BlueprintReadWrite)
 	FVector ScaleForLink = FVector::One();
+	
+	//Pointer to player object. If this is not a player, it will point to the owning player.
+	UPROPERTY(BlueprintReadOnly)
+	APlayerObject* Player;
+	
+	UPROPERTY(BlueprintReadOnly)
+	ABattleObject* AttackTarget;
+	
+	//Anything past here isn't saved or loaded for rollback.
+	unsigned char ObjSyncEnd;
+
+	/*
+	 * Link data (for object), not serialized
+	 */
 	UPROPERTY()
 	UNiagaraComponent* LinkedParticle;
 	UPROPERTY()
@@ -547,13 +577,6 @@ public:
 	UPROPERTY()
 	USkeletalMeshComponent* LinkedMeshes[8];
 	
-	//Pointer to player object. If this is not a player, it will point to the owning player.
-	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* Player;
-	
-	//Anything past here isn't saved or loaded for rollback.
-	unsigned char ObjSyncEnd;
-
 	uint32 ObjNumber;
 
 	UPROPERTY(BlueprintReadOnly)
@@ -594,7 +617,7 @@ public:
 	
 	void SaveForRollback(unsigned char* Buffer) const;
 	void LoadForRollback(const unsigned char* Buffer);
-	virtual void LogForSyncTestFile(FILE* file);
+	virtual void LogForSyncTestFile(std::ofstream& file);
 	
 protected:
 	void UpdateVisuals();

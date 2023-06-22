@@ -262,6 +262,8 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* Enemy;
+	UPROPERTY(BlueprintReadOnly)
+	ABattleObject* AttackOwner;
 	UPROPERTY()
 	ABattleObject* ChildBattleObjects[32];
 	UPROPERTY()
@@ -438,7 +440,7 @@ public:
 	
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
 	void LoadForRollbackPlayer(const unsigned char* Buffer);
-	virtual void LogForSyncTestFile(FILE* file) override;
+	virtual void LogForSyncTestFile(std::ofstream& file) override;
 
 	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
 	UFUNCTION(BlueprintImplementableEvent)
@@ -465,6 +467,15 @@ public:
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
 	void CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
+	//use meter
+	UFUNCTION(BlueprintCallable)
+	void UseMeter(int Use);
+	//add meter
+	UFUNCTION(BlueprintCallable)
+	void AddMeter(int Meter);
+	//sets meter gain cooldoown timer
+	UFUNCTION(BlueprintCallable)
+	void SetMeterCooldownTimer(int Timer);
 	//set stance
 	UFUNCTION(BlueprintCallable)
 	void SetStance(EActionStance InStance);

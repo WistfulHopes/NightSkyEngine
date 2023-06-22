@@ -40,6 +40,7 @@ void AParticleManager::UpdateParticles()
 		}
 		NiagaraComponent->SetPaused(false);
 		NiagaraComponent->AdvanceSimulation(1, OneFrame);
+		NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge() + OneFrame);
 		i++;
 	}
 	for (const int Index : IndicesToDelete)

@@ -571,13 +571,13 @@ void ANightSkyGameState::SetScreenBounds()
 					{
 						const int NewScreenPos = (Players[i]->PosX + Players[j]->PosX) / 2;
 						BattleState.CurrentScreenPos = BattleState.CurrentScreenPos + (NewScreenPos - BattleState.CurrentScreenPos) * 5 / 100;
-						if (BattleState.CurrentScreenPos > 1080000)
+						if (BattleState.CurrentScreenPos > 1680000)
 						{
-							BattleState.CurrentScreenPos = 1080000;
+							BattleState.CurrentScreenPos = 1680000;
 						}
-						else if (BattleState.CurrentScreenPos < -1080000)
+						else if (BattleState.CurrentScreenPos < -1680000)
 						{
-							BattleState.CurrentScreenPos = -1080000;
+							BattleState.CurrentScreenPos = -1680000;
 						}
 					}
 				}
@@ -648,11 +648,15 @@ void ANightSkyGameState::UpdateCamera()
 	if (CameraActor != nullptr)
 	{
 		FVector Average = (Players[0]->GetActorLocation() + Players[3]->GetActorLocation()) / 2;
-		float NewX = FMath::Clamp(-Average.X,-540, 540);
+		float NewX = FMath::Clamp(-Average.X,-840, 840);
 		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).X));
-		Distance = FMath::Clamp(Distance,20, 25);
-		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 25), TRange<float>(0, 840), Distance);
-		float NewZ = Average.Z + 150;
+		Distance = FMath::Clamp(Distance,16, 24);
+		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 24), TRange<float>(0, 840), Distance);
+		float NewZ;
+		if (Players[0]->GetActorLocation().Z > Players[3]->GetActorLocation().Z)
+			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.25) + 125;
+		else
+			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.75) + 125;
 		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (BattleState.CurrentSequenceTime == -1)
@@ -741,27 +745,30 @@ void ANightSkyGameState::UpdateUI()
 {
 	if (BattleHudActor != nullptr)
 	{
-		if (BattleHudActor->Widget != nullptr)
+		if (BattleHudActor->TopWidget != nullptr)
 		{
-			if (BattleHudActor->Widget->P1Health.Num() >= 3)
+			if (BattleHudActor->TopWidget->P1Health.Num() >= 3)
 			{
-				BattleHudActor->Widget->P1Health[0] = static_cast<float>(Players[0]->CurrentHealth) / static_cast<float>(Players[0]->MaxHealth);
-				BattleHudActor->Widget->P1Health[1] = static_cast<float>(Players[1]->CurrentHealth) / static_cast<float>(Players[1]->MaxHealth);
-				BattleHudActor->Widget->P1Health[2] = static_cast<float>(Players[2]->CurrentHealth) / static_cast<float>(Players[2]->MaxHealth);
+				BattleHudActor->TopWidget->P1Health[0] = static_cast<float>(Players[0]->CurrentHealth) / static_cast<float>(Players[0]->MaxHealth);
+				BattleHudActor->TopWidget->P1Health[1] = static_cast<float>(Players[1]->CurrentHealth) / static_cast<float>(Players[1]->MaxHealth);
+				BattleHudActor->TopWidget->P1Health[2] = static_cast<float>(Players[2]->CurrentHealth) / static_cast<float>(Players[2]->MaxHealth);
 			}
-			if (BattleHudActor->Widget->P2Health.Num() >= 3)
+			if (BattleHudActor->TopWidget->P2Health.Num() >= 3)
 			{
-				BattleHudActor->Widget->P2Health[0] = static_cast<float>(Players[3]->CurrentHealth) / static_cast<float>(Players[3]->MaxHealth);
-				BattleHudActor->Widget->P2Health[1] = static_cast<float>(Players[4]->CurrentHealth) / static_cast<float>(Players[4]->MaxHealth);
-				BattleHudActor->Widget->P2Health[2] = static_cast<float>(Players[5]->CurrentHealth) / static_cast<float>(Players[5]->MaxHealth);
+				BattleHudActor->TopWidget->P2Health[0] = static_cast<float>(Players[3]->CurrentHealth) / static_cast<float>(Players[3]->MaxHealth);
+				BattleHudActor->TopWidget->P2Health[1] = static_cast<float>(Players[4]->CurrentHealth) / static_cast<float>(Players[4]->MaxHealth);
+				BattleHudActor->TopWidget->P2Health[2] = static_cast<float>(Players[5]->CurrentHealth) / static_cast<float>(Players[5]->MaxHealth);
 			}
-			BattleHudActor->Widget->P1RoundsWon = BattleState.P1RoundsWon;
-			BattleHudActor->Widget->P2RoundsWon = BattleState.P2RoundsWon;
-			BattleHudActor->Widget->Timer = ceil(static_cast<float>(BattleState.RoundTimer) / 60);
-			BattleHudActor->Widget->P1Meter = static_cast<float>(BattleState.Meter[0]) / 10000;
-			BattleHudActor->Widget->P2Meter = static_cast<float>(BattleState.Meter[1]) / 10000;
-			BattleHudActor->Widget->P1ComboCounter = Players[0]->ComboCounter;
-			BattleHudActor->Widget->P2ComboCounter = Players[3]->ComboCounter;
+			BattleHudActor->TopWidget->P1RoundsWon = BattleState.P1RoundsWon;
+			BattleHudActor->TopWidget->P2RoundsWon = BattleState.P2RoundsWon;
+			BattleHudActor->TopWidget->Timer = ceil(static_cast<float>(BattleState.RoundTimer) / 60);
+			BattleHudActor->TopWidget->P1ComboCounter = Players[0]->ComboCounter;
+			BattleHudActor->TopWidget->P2ComboCounter = Players[3]->ComboCounter;
+		}
+		if (BattleHudActor->BottomWidget != nullptr)
+		{
+			BattleHudActor->BottomWidget->P1Meter = static_cast<float>(BattleState.Meter[0]) / 10000;
+			BattleHudActor->BottomWidget->P2Meter = static_cast<float>(BattleState.Meter[1]) / 10000;
 		}
 	}
 }
@@ -822,15 +829,15 @@ void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
 
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
-	*OutX = BattleState.CurrentScreenPos - 840000 + 1800000 * X / 100;
+	*OutX = BattleState.CurrentScreenPos - 840000 + 1680000 * 2 * X / 100;
 }
 
 void ANightSkyGameState::BattleHudVisibility(bool Visible) const
 {
 	if (Visible)
-		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Visible);
+		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Visible);
 	else
-		BattleHudActor->Widget->SetVisibility(ESlateVisibility::Hidden);
+		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Hidden);
 }
 
 void ANightSkyGameState::PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration)
