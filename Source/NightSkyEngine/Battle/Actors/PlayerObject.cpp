@@ -409,6 +409,33 @@ void APlayerObject::Update()
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
+	
+	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
+	{
+		PlayerFlags |= PLF_IsDead;
+		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride))
+		{
+			BattleHudVisibility(false);
+			if (ReceivedHitCommon.AttackLevel < 2)
+			{
+				StartSuperFreeze(40);
+				PlayCommonLevelSequence("KO_Shake");
+			}
+			else if (ReceivedHitCommon.AttackLevel < 4)
+			{
+				StartSuperFreeze(75);
+				PlayCommonLevelSequence("KO_Zoom");
+			}
+			else
+			{
+				StartSuperFreeze(145);
+				PlayCommonLevelSequence("KO_Turnaround");
+			}
+			Hitstop = 0;
+			Enemy->Hitstop = 0;
+		}
+	}
+
 	if (Hitstop > 0)
 	{
 		if (PlayerFlags & PLF_IsStunned)
@@ -416,32 +443,6 @@ void APlayerObject::Update()
 		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
-		
-		if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
-		{
-			PlayerFlags |= PLF_IsDead;
-			if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride))
-			{
-				BattleHudVisibility(false);
-				if (ReceivedHitCommon.AttackLevel < 2)
-				{
-					StartSuperFreeze(40);
-					PlayCommonLevelSequence("KO_Shake");
-				}
-				else if (ReceivedHitCommon.AttackLevel < 4)
-				{
-					StartSuperFreeze(75);
-					PlayCommonLevelSequence("KO_Zoom");
-				}
-				else
-				{
-					StartSuperFreeze(145);
-					PlayCommonLevelSequence("KO_Turnaround");
-				}
-				Hitstop = 0;
-				Enemy->Hitstop = 0;
-			}
-		}
 		return;
 	}
 
