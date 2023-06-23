@@ -4,7 +4,6 @@
 #include "ParticleManager.h"
 #include "NiagaraComponent.h"
 #include "NightSkyGameState.h"
-#include "Particles/ParticleSystemComponent.h"
 
 
 // Sets default values
@@ -41,6 +40,8 @@ void AParticleManager::UpdateParticles()
 		NiagaraComponent->SetPaused(false);
 		NiagaraComponent->AdvanceSimulation(1, OneFrame);
 		NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge() + OneFrame);
+		if (NiagaraComponent->IsComplete())
+			NiagaraComponent->Deactivate();
 		i++;
 	}
 	for (const int Index : IndicesToDelete)

@@ -599,6 +599,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	//calculate pushbox
+	void CalculatePushbox();
 	//handles pushing objects
 	void HandlePushCollision(ABattleObject* OtherObj);
 	//handles hitting objects

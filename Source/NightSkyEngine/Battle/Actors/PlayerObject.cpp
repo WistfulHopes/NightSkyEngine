@@ -1730,7 +1730,7 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (PosX >= 1680000 + 840000 || PosX <= -1680000 - 840000)
+		if (PosX >= 2520000 || PosX <= -2520000)
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{

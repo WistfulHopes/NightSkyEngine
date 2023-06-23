@@ -284,7 +284,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 
 	// these aren't strictly game state related, but tying them to game state update makes things better
 	UpdateCamera();
-	UpdateUI();
+	UpdateHUD();
 	ManageAudio();
 }
 
@@ -657,7 +657,7 @@ void ANightSkyGameState::UpdateCamera()
 			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.25) + 125;
 		else
 			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.75) + 125;
-		FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.15);
+		const FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.1);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
@@ -669,7 +669,7 @@ void ANightSkyGameState::UpdateCamera()
 			{
 				if (It->GetName().Contains("FighterCamera"))
 				{
-					CameraActor = (*It);
+					CameraActor = *It;
 					return;
 				}
 			}
@@ -741,7 +741,7 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 	}
 }
 
-void ANightSkyGameState::UpdateUI()
+void ANightSkyGameState::UpdateHUD() const
 {
 	if (BattleHudActor != nullptr)
 	{
@@ -835,9 +835,15 @@ void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int3
 void ANightSkyGameState::BattleHudVisibility(bool Visible) const
 {
 	if (Visible)
+	{
 		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Visible);
+		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Visible);
+	}
 	else
+	{
 		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Hidden);
+		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Hidden);
+	}
 }
 
 void ANightSkyGameState::PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration)

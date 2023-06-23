@@ -37,5 +37,4 @@ public:
 	int P1ComboCounter;
 	UPROPERTY(BlueprintReadOnly)
 	int P2ComboCounter;
-
 };

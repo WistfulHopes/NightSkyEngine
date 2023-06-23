@@ -176,7 +176,7 @@ public:
 	
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
-	void UpdateUI();
+	void UpdateHUD() const;
 	void BattleHudVisibility(bool Visible) const;
 	
 	void PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration);

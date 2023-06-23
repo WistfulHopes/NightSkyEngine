@@ -123,8 +123,15 @@ void ABattleObject::Tick(float DeltaTime)
 	{
 		ScreenSpaceDepthOffset = 0;
 		OrthoBlendActive = 1;
-		return;
 	}
+}
+
+void ABattleObject::CalculatePushbox()
+{
+	L = PosX - (PushWidth + PushWidthExtend) / 2; 
+	R = PosX + (PushWidth + PushWidthExtend) / 2;
+	T = PosY + PushHeight;
+	B = PosY - PushHeightLow;
 }
 
 void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
@@ -136,8 +143,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 			if (T >= OtherObj->B && B <= OtherObj->T && R >= OtherObj->L && L <= OtherObj->R)
 			{
 				bool IsPushLeft;
-				int CollisionDepth;
-				if(PrevPosX == OtherObj->PrevPosX)
+				int32 CollisionDepth;
+				if (PrevPosX == OtherObj->PrevPosX)
 				{
 					if (PosX == OtherObj->PosX)
 					{
@@ -178,8 +185,19 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 				{
 					CollisionDepth = OtherObj->R - L;
 				}
-				PosX += CollisionDepth / 2;
-				OtherObj->PosX -= CollisionDepth / 2;
+				
+				if (OtherObj->PosX <= -2520000 || OtherObj->PosX >= 2520000)
+				{
+					PosX += CollisionDepth * 2;
+				}
+				else
+				{
+					OtherObj->PosX -= CollisionDepth / 2;
+					PosX += CollisionDepth / 2;
+				}
+				
+				CalculatePushbox();
+				OtherObj->CalculatePushbox();
 			}
 		}
 	}
@@ -1459,11 +1477,7 @@ void ABattleObject::Update()
 		return;
 	}
 
-	//sets pushbox
-	L = PosX - (PushWidth + PushWidthExtend) / 2; 
-	R = PosX + (PushWidth + PushWidthExtend) / 2;
-	T = PosY + PushHeight;
-	B = PosY - PushHeightLow;
+	CalculatePushbox();
 	
 	if (SuperFreezeTimer > 0)
 	{
