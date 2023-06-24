@@ -367,18 +367,40 @@ void APlayerObject::Update()
 		{
 			if (StoredStateMachine.GetStateIndex("Throw") != INDEX_NONE)
 			{
-				const auto ThrowState = StoredStateMachine.States[StoredStateMachine.GetStateIndex("Throw")];
 				bool IsTech = true;
-				for (auto InputConditionList : ThrowState->InputConditionList)
+				if (!CanProximityThrow)
 				{
-					IsTech = true;
-					for (auto InputCondition : InputConditionList.InputConditions)
+					const auto ThrowState = StoredStateMachine.States[StoredStateMachine.GetStateIndex("Throw")];
+					for (auto InputConditionList : ThrowState->InputConditionList)
 					{
-						if (!CheckInput(InputCondition))
+						IsTech = true;
+						for (auto InputCondition : InputConditionList.InputConditions)
 						{
-							IsTech = false;
-							break;
+							if (!CheckInput(InputCondition))
+							{
+								IsTech = false;
+								break;
+							}
 						}
+					}
+				}
+				else
+				{
+					FInputCondition Left;
+					FInputBitmask BitmaskLeft;
+					BitmaskLeft.InputFlag = INP_Left;
+					BitmaskLeft.Lenience = 1;
+					Left.Sequence.Add(BitmaskLeft);
+					Left.Method = EInputMethod::Strict;
+					FInputCondition Right;
+					FInputBitmask BitmaskRight;
+					BitmaskRight.InputFlag = INP_Right;
+					BitmaskRight.Lenience = 1;
+					Right.Sequence.Add(BitmaskRight);
+					Right.Method = EInputMethod::Strict;
+					if (!CheckInput(ProximityThrowInput) || !CheckInput(Left) || !CheckInput(Right))
+					{
+						IsTech = false;
 					}
 				}
 				if (IsTech)
@@ -1651,20 +1673,57 @@ void APlayerObject::ThrowExe()
 
 void APlayerObject::HandleThrowCollision()
 {
-	if (AttackFlags & ATK_IsAttacking && PlayerFlags & PLF_ThrowActive
-		&& (Enemy->InvulnFlags & INV_ThrowInvulnerable) == 0
+	if ((Enemy->InvulnFlags & INV_ThrowInvulnerable) == 0
 		&& !Enemy->ThrowInvulnerableTimer && !Enemy->CheckIsStunned()
 		&& ((Enemy->PosY <= GroundHeight && PosY <= GroundHeight)
 		|| (Enemy->PosY > GroundHeight && PosY > GroundHeight)))
 	{
+		FInputCondition Left;
+		FInputBitmask BitmaskLeft;
+		BitmaskLeft.InputFlag = INP_Left;
+		BitmaskLeft.Lenience = 1;
+		Left.Sequence.Add(BitmaskLeft);
+		Left.Method = EInputMethod::Strict;
+		Left.bInputAllowDisable = false;
+
+		if (CanProximityThrow)
+		{
+			if (ActionTime == 0 && StoredStateMachine.CurrentState->StateType == EStateType::NormalAttack)
+			{
+				FInputCondition Right;
+				FInputBitmask BitmaskRight;
+				BitmaskRight.InputFlag = INP_Right;
+				BitmaskRight.Lenience = 1;
+				Right.Sequence.Add(BitmaskRight);
+				Right.Method = EInputMethod::Strict;
+				Right.bInputAllowDisable = false;
+
+				if (CheckInput(ProximityThrowInput) && (CheckInput(Left) || CheckInput(Right)))
+				{
+					if (PosY <= GroundHeight)
+						CallSubroutine("ThrowParamGround");
+					else
+						CallSubroutine("ThrowParamAir");
+				}
+			}
+			else
+			{
+				SetThrowActive(false);
+			}
+		}
+		
 		int ThrowPosX;
 		if (Direction == DIR_Right)
 			ThrowPosX = R + ThrowRange;
 		else
 			ThrowPosX = L - ThrowRange;
-		if ((PosX <= Enemy->PosX && ThrowPosX >= Enemy->L || PosX > Enemy->PosX && ThrowPosX <= Enemy->R)
+		if (AttackFlags & ATK_IsAttacking && PlayerFlags & PLF_ThrowActive
+			&& (PosX <= Enemy->PosX && ThrowPosX >= Enemy->L
+			|| PosX > Enemy->PosX && ThrowPosX <= Enemy->R)
 			&& T >= Enemy->B && B <= Enemy->T)
 		{
+			if (CheckInput(Left))
+				FlipCharacter();
 			Enemy->JumpToState("Hitstun0");
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;

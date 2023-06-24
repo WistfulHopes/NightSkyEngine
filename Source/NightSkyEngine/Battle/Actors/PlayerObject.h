@@ -173,6 +173,12 @@ public:
 	int32 MeterPercentOnReceiveHit = 40;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool CanReverseBeat;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool CanProximityThrow;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FInputCondition ProximityThrowInput;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ThrowTechWindow = 6;
 	
 	/*
 	 * Player registers. These are only touched by the engine to reset per round.
@@ -244,7 +250,6 @@ public:
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
 	int32 ComboTimer;
-	int32 ThrowTechWindow = 6;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
 	uint32 EnableFlags = 0;
