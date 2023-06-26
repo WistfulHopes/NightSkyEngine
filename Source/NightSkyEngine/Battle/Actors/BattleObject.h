@@ -17,24 +17,28 @@ class UState;
 class APlayerObject;
 constexpr int32 CollisionArraySize = 64;
 
-/*
- * Event handler data
- */
 #pragma pack (push, 1)
 
+// Event handler data.
+
+/*
+ * Event type. When a function is registered with an event handler, 
+ * it will trigger at the event type specified.
+ */
+ 
 UENUM()
 enum EEventType
 {
-	EVT_Enter,
-	EVT_Update,
-	EVT_Exit,
-	EVT_Landing,
-	EVT_Hit,
-	EVT_Block,
-	EVT_HitOrBlock,
-	EVT_CounterHit,
-	EVT_SuperFreeze,
-	EVT_SuperFreezeEnd,
+	EVT_Enter UMETA(DisplayName="Enter"),
+	EVT_Update UMETA(DisplayName="Update"),
+	EVT_Exit UMETA(DisplayName="Exit"),
+	EVT_Landing UMETA(DisplayName="Landing"),
+	EVT_Hit UMETA(DisplayName="Hit"),
+	EVT_Block UMETA(DisplayName="Block"),
+	EVT_HitOrBlock UMETA(DisplayName="Hit or Block"),
+	EVT_CounterHit UMETA(DisplayName="Counter Hit"),
+	EVT_SuperFreeze UMETA(DisplayName="Super Freeze"),
+	EVT_SuperFreezeEnd UMETA(DisplayName="Super Freeze End"),
 	EVT_NUM UMETA(Hidden)
 };
 
@@ -46,10 +50,9 @@ struct FEventHandler
 	FixedString<32> FunctionName;
 };
 
-/*
- * Hit related data
- */
+// Hit related data.
 
+// How the opponent must block the attack.
 UENUM()
 enum EBlockType
 {
@@ -59,21 +62,29 @@ enum EBlockType
 	BLK_None UMETA(DisplayName="Unblockable"),
 };
 
+// Hit sound effect type.
 UENUM()
 enum class EHitSFXType : uint8
 {
-	SFX_Punch,
-	SFX_Kick,
-	SFX_Slash,
+	SFX_Punch UMETA(DisplayName="Punch"),
+	SFX_Kick UMETA(DisplayName="Kick"),
+	SFX_Slash UMETA(DisplayName="Slash"),
 };
 
+// Hit visual effect type.
 UENUM()
 enum class EHitVFXType : uint8
 {
-	VFX_Strike,
-	VFX_Slash,
-	VFX_Special,
+	VFX_Strike UMETA(DisplayName="Strike"),
+	VFX_Slash UMETA(DisplayName="Slash"),
+	VFX_Special UMETA(DisplayName="Special"),
 };
+
+/*
+ * Common data for attacks.
+ * These values will be used for blocking, normal hit, and counter hit.
+ * Values that are set to -1 will be replaced by a default value depending on attack level.
+ */
 
 USTRUCT(BlueprintType)
 struct FHitDataCommon
@@ -83,41 +94,65 @@ struct FHitDataCommon
 	/*
 	 * This controls default values for hit data.
 	 * The minimum attack level is 0, and the maximum is 5.
-	 * Any values that are set to -1 by default will take on data from the attack level.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 AttackLevel = 0; 
+	int32 AttackLevel = 0;
+	// How the opponent must block the attack.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EBlockType> BlockType = BLK_Mid;
+	// Hitstop modifier for self on block, relative to normal hit's hitstop.
 	UPROPERTY(BlueprintReadWrite)
 	int32 BlockstopModifier = -1;
+	// Hitstop modifier for opponent on block, relative to normal hit's hitstop.
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyBlockstopModifier = 0;
+	// How long the opponent will be stunned while blocking.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Blockstun = -1;
+	// The percent of normal hit damage the opponent will take when blocking this attack.
 	UPROPERTY(BlueprintReadWrite)
 	int32 ChipDamagePercent = 0;
+	/*
+	 * Ground pushback for blocking.
+	 * If the opponent is in the corner, this will instead apply to self,
+	 * even if you are airborne.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundGuardPushbackX = -1;
+	// Air x pushback for blocking.
 	UPROPERTY(BlueprintReadWrite)
 	int32 AirGuardPushbackX = -1;
+	// Air y pushback for blocking.
 	UPROPERTY(BlueprintReadWrite)
 	int32 AirGuardPushbackY = -1;
+	// Gravity for blocking.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GuardGravity = -1;
+	// The angle at which hit effects will spawn.
 	UPROPERTY(BlueprintReadWrite)
 	int32 HitAngle = 0;
+	// Sound effect type.
 	UPROPERTY(BlueprintReadWrite)
 	EHitSFXType SFXType = EHitSFXType::SFX_Punch;
+	// Visual effect type.
 	UPROPERTY(BlueprintReadWrite)
 	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
-
+	
+	// Guard sound effect name.
 	FixedString<32> GuardSFXOverride;
+	// Guard visual effect name.
 	FixedString<32> GuardVFXOverride;
+	// Hit sound effect name.
 	FixedString<32> HitSFXOverride;
+	// Hit visual effect name.
 	FixedString<32> HitVFXOverride;
 };
 
+/*
+ * List of hit actions.
+ * Depending on the hit action, animations and behavior will change.
+ */
+ 
 UENUM()
 enum EHitAction
 {
@@ -139,70 +174,129 @@ enum EHitAction
 	HACT_FloatingCrumple UMETA(DisplayName="Floating Crumple"),
 };
 
+// Used with the Floating Crumple hit action.
 UENUM(BlueprintType)
 enum EFloatingCrumpleType
 {
-	FLT_None,
-	FLT_Body,
-	FLT_Head,
+	FLT_None UMETA(DisplayName="None"),
+	FLT_Body UMETA(DisplayName="Body"),
+	FLT_Head UMETA(DisplayName="Head"),
 };
 
+// Determines how the opponent's position immediately after hit will be calculated.
 UENUM(BlueprintType)
 enum EHitPositionType
 {
-	HPT_Non,
+	HPT_Non UMETA(DisplayName="None"),
 	HPT_Rel,
 	HPT_Abs,
-	HPT_Add,
+	HPT_Add UMETA(DisplayName="Add"),
 	HPT_RelNextFrame,
 	HPT_AbsNextFrame,
-	HPT_AddNextFrame,
+	HPT_AddNextFrame UMETA(DisplayName="Add Next Frame"),
 };
 
+/*
+ * Data for wall bounce.
+ * Values that are set to -1 will be replaced by a default value.
+ */
 USTRUCT(BlueprintType)
 struct FWallBounceData
 {
 	GENERATED_BODY()
 
+	// How many times the opponent will wall bounce.
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceCount = -1;
+	// If this value is not -1, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceUntech = -1;
+	/*
+	 * Wall bounce x speed.
+	 * If this value is -1, it will be set to the current x speed.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceXSpeed = -1;
+	/*
+	 * The percent of wall bounce x speed.
+	 * If this value is -1, it will be set to 33%.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceXRate = -1;
+	/*
+	 * Wall bounce y speed.
+	 * If this value is -1, it will be set to the received y pushback.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceYSpeed = -1;
+	/*
+     * The percent of wall bounce y speed.
+     * If this value is -1, it will be set to 100%.
+     */
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceYRate = -1;
+	/*
+	 * Wall bounce gravity.
+	 * If this value is -1, it will be set to the received hit gravity.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceGravity = -1;
+	// Determines if wall bounce can happen anywhere, or only in stage corner.
 	UPROPERTY(BlueprintReadWrite)
 	bool WallBounceInCornerOnly = false;
 };
 
+/*
+ * Data for ground bounce.
+ * Values that are set to -1 will be replaced by a default value.
+ */
 USTRUCT(BlueprintType)
 struct FGroundBounceData
 {
 	GENERATED_BODY()
 
+	// How many times the opponent will ground bounce.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceCount = -1;
+	// If this value is not -1, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceUntech = -1;
+	/*
+	 * Ground bounce x speed.
+	 * If this value is -1, it will be set to the received x pushback.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceXSpeed = -1;
+	/*
+	 * The percent of ground bounce x speed.
+	 * If this value is -1, it will be set to 100%.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceXRate = -1;
+	/*
+	 * Ground bounce y speed.
+	 * If this value is -1, it will be set to the current y speed.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceYSpeed = -1;
+	/*
+	 * The percent of ground bounce y speed.
+	 * If this value is -1, it will be set to 100%.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceYRate = -1;
+	/*
+	 * Ground bounce gravity.
+	 * If this value is -1, it will be set to the received hit gravity.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceGravity = -1;
 };
 
+/*
+ * Value is added to the specified hit value every frame,
+ * from BeginFrame to EndFrame.
+ */
 USTRUCT(BlueprintType)
 struct FHitValueOverTime
 {
@@ -216,6 +310,7 @@ struct FHitValueOverTime
 	int32 EndFrame = -1;
 };
 
+// Determines the opponent's position after being hit.
 USTRUCT(BlueprintType)
 struct FHitPosition
 {
@@ -229,65 +324,118 @@ struct FHitPosition
 	int32 PosY = -1;
 };
 
+/*
+ * Hit data.
+ * There is one for normal hit, and one for counter hit.
+ * For normal hit, values that are set to -1 will be replaced by a default value depending on attack level.
+ * For counter hit, values that are set to -1 will be replaced by the normal hit's value.
+ */
 USTRUCT(BlueprintType)
 struct FHitData
 {
 	GENERATED_BODY()
 
+	// Hitstop duration for attacker and defender.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Hitstop = -1;
+	// How long the opponent will be stunned if hit grounded.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Hitstun = -1;
+	// How long the opponent will be stunned if hit airborne.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Untech = -1;
+	// Hitstop modifier for the opponent on hit.
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyHitstopModifier = -1;
+	// How much damage the opponent will take.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Damage = -1;
+	/*
+	 * The minimum damage percent.
+	 * Damage scaling cannot bring damage lower than this.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 MinimumDamagePercent = -1;
+	/*
+	 * Initial proration for hit.
+	 * This is scaling that is applied only as the first hit of a combo.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 InitialProration = -1;
+	/*
+	 * Initial proration for hit.
+	 * This is scaling that is applied every hit.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 ForcedProration = -1;
+	/*
+	 * Ground pushback for hit.
+     * If the opponent is in the corner, this will instead apply to self,
+	 * even if you are airborne.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundPushbackX = -1;
+	// Air x pushback for hit.
 	UPROPERTY(BlueprintReadWrite)
 	int32 AirPushbackX = -1;
+	// Air y pushback for hit.
 	UPROPERTY(BlueprintReadWrite)
 	int32 AirPushbackY = -1;
+	// Gravity for hit.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Gravity = -1;
+	/*
+	 * The hit value over time for air pushback x.
+	 * The value is a percentage.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	FHitValueOverTime AirPushbackXOverTime;
+	/*
+	 * The hit value over time for air pushback y.
+	 * The value is a percentage.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	FHitValueOverTime AirPushbackYOverTime;
+	/*
+	 * The hit value over time for gravity.
+	 * The value is added to current gravity.
+	 */
 	UPROPERTY(BlueprintReadWrite)
 	FHitValueOverTime GravityOverTime;
+	// Opponent position after hit.
 	UPROPERTY(BlueprintReadWrite)
 	FHitPosition Position;
+	// Ground hit action.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> GroundHitAction = HACT_GroundNormal;
+	// Air hit action.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> AirHitAction = HACT_AirNormal;
+	// Blowback animation level. Used with the Blowback hit action.
 	UPROPERTY(BlueprintReadWrite)
 	int32 BlowbackLevel = -1;
+	// Floating crumple type. Used with the Floating Crumple hit action.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EFloatingCrumpleType> FloatingCrumpleType;
+	// How long the opponent will be knocked down for before recovery. Defaults to 12 frames.
 	UPROPERTY(BlueprintReadWrite)
 	int32 KnockdownTime = -1;
+	// Determines if the opponent can tech after being knocked down. Default is soft knockdown.
 	UPROPERTY(BlueprintReadWrite)
 	int32 HardKnockdown = -1;
+	// Ground bounce data.
 	UPROPERTY(BlueprintReadWrite)
 	FGroundBounceData GroundBounce;
+	// Wall bounce data.
 	UPROPERTY(BlueprintReadWrite)
 	FWallBounceData WallBounce;
 };
 
 /*
- * Miscellaneous data
+ * Miscellaneous data.
  */
 
+// The character's facing direction.
 UENUM()
 enum EObjDir
 {
@@ -295,6 +443,7 @@ enum EObjDir
 	DIR_Left,
 };
 
+// Used for distance calculations.
 UENUM()
 enum EDistanceType
 {
@@ -304,6 +453,7 @@ enum EDistanceType
 	DIST_FrontDistanceX,
 };
 
+// Used for homing calculations.
 UENUM()
 enum EHomingType
 {
@@ -312,6 +462,7 @@ enum EHomingType
 	HOMING_ToSpeed,
 };
 
+// Determines the position type to check.
 UENUM()
 enum EPosType
 {
@@ -322,6 +473,7 @@ enum EPosType
 	POS_Hit,
 };
 
+// Determines object type.
 UENUM()
 enum EObjType
 {
@@ -347,6 +499,10 @@ enum EObjType
 	OBJ_Null,
 };
 
+/*
+ * A battle object.
+ * These are any objects that affect gameplay, or need values to change after being spawned.
+ */
 UCLASS()
 class NIGHTSKYENGINE_API ABattleObject : public APawn
 {
@@ -400,7 +556,7 @@ public:
 	int32 GroundHeight;
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EObjDir> Direction;
-	// Ground hit pushback
+	// Ground hit pushback.
 	int32 Pushback;
 	
 	/*
@@ -475,11 +631,26 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	int32 ActionTime;
+	/*
+	 * The current cel name.
+	 * Cels map to collision data.
+	 * The collision frame also stores animation data.
+	 */
 	FixedString<32> CelName;
+	/*
+	 * The blend cel name.
+	 * This is used to make traditional 3D animations.
+	 */
 	FixedString<32> BlendCelName;
+	/*
+	 * The name of the label that is currently being jumped to.
+	 */
 	FixedString<32> LabelName;
+	// The current animation name.
 	FixedString<32> AnimName;
+	// The current blend animation name.
 	FixedString<32> BlendAnimName;
+	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive;
 	UPROPERTY(BlueprintReadWrite)
@@ -488,11 +659,15 @@ public:
 	int32 BlendAnimFrame = 0;
 	UPROPERTY(BlueprintReadWrite)
 	float FrameBlendPosition = 0;
+	// The index of the current cel in blueprint.
 	UPROPERTY(BlueprintReadWrite)
 	int32 CelIndex = 0;
+	// How long until the next cel activates.
 	UPROPERTY(BlueprintReadOnly)
 	int32 TimeUntilNextCel = 0;
+	// Max time of the cel.
 	int32 MaxCelTime = 0;
+	// Event handlers for every function.
 	FEventHandler EventHandlers[EVT_NUM];
 
 	/*
@@ -521,7 +696,6 @@ public:
 	/*
 	 * Socket data
 	 */
-	//for socket attachment
 	FixedString<64> SocketName; 
 	EObjType SocketObj = OBJ_Self;
 	FVector SocketOffset = FVector::ZeroVector;
