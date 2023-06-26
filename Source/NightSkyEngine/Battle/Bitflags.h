@@ -59,8 +59,9 @@ enum EMiscFlags
 	MISC_FloorCollisionActive = 0x8,
 	MISC_PushCollisionActive = 0x10,
 	MISC_DeactivateOnNextUpdate = 0x20,
-	MISC_DeactivateOnStateChange = 0x40,
-	MISC_DeactivateOnReceiveHit = 0x80,
+	MISC_DeactivateIfBeyondBounds = 0x40,
+	MISC_DeactivateOnStateChange = 0x80,
+	MISC_DeactivateOnReceiveHit = 0x100,
 };
 
 UENUM()

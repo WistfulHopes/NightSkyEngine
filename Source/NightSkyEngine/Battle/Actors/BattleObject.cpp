@@ -1536,6 +1536,9 @@ void ABattleObject::Update()
 		GameState->SetWallCollision();
 		ActionTime++;
 		UpdateVisuals();
+		
+		if (PosX > 960000 + GameState->BattleState.CurrentScreenPos || PosX < -960000 + GameState->BattleState.CurrentScreenPos)
+			DeactivateObject();
 	}
 }
 
@@ -1792,7 +1795,7 @@ void ABattleObject::SetFacing(EObjDir NewDir)
 	Direction = NewDir;
 }
 
-void ABattleObject::FlipCharacter()
+void ABattleObject::FlipObject()
 {
 	if (Direction == DIR_Right)
 		Direction = DIR_Left;
@@ -2305,12 +2308,16 @@ ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOff
 	return nullptr;
 }
 
-void ABattleObject::DeactivateIfBeyondBounds()
+void ABattleObject::EnableDeactivateIfBeyondBounds(bool Enable)
 {
-	if (IsPlayer)
-		return;
-	if (PosX > 1680000 + GameState->BattleState.CurrentScreenPos || PosX < -1680000 + GameState->BattleState.CurrentScreenPos)
-		DeactivateObject();
+	if (Enable)
+	{
+		MiscFlags |= MISC_DeactivateIfBeyondBounds;
+	}
+	else
+	{
+		AttackFlags &= ~MISC_DeactivateIfBeyondBounds;
+	}
 }
 
 void ABattleObject::EnableDeactivateOnStateChange(bool Enable)

@@ -554,7 +554,7 @@ public:
 	// The minimum Y position before considered grounded.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundHeight;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadOnly)
 	TEnumAsByte<EObjDir> Direction;
 	// Ground hit pushback.
 	int32 Pushback;
@@ -586,7 +586,6 @@ public:
 	*/
 
 	//This value stores the return value for functions.
-	UPROPERTY(BlueprintReadOnly)
 	bool ReturnReg;
 
 	//The following values are per-action registers. Shared between the player and its child objects.
@@ -860,7 +859,7 @@ public:
 	void SetFacing(EObjDir NewDir);
 	//flips character
 	UFUNCTION(BlueprintCallable)
-	void FlipCharacter();
+	void FlipObject();
 	//forcibly face opponent
 	UFUNCTION(BlueprintCallable)
 	void FaceOpponent();
@@ -888,7 +887,7 @@ public:
 	//should push collision be used?
 	UFUNCTION(BlueprintCallable)
 	void SetPushCollisionActive(bool Active);
-	//set push width front
+	//set push width extend
 	UFUNCTION(BlueprintCallable)
 	void SetPushWidthExtend(int32 Extend);
 	//creates common particle
@@ -922,7 +921,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DetachFromSocket();
 	//generate random number
-	UFUNCTION(BlueprintCallable)
 	int32 GenerateRandomNumber(int32 Min, int32 Max);
 	//sets object id
 	UFUNCTION(BlueprintCallable)
@@ -938,7 +936,7 @@ public:
 	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
 	//if object goes beyond screen bounds, deactivate
 	UFUNCTION(BlueprintCallable)
-	void DeactivateIfBeyondBounds();
+	void EnableDeactivateIfBeyondBounds(bool Enable);
 	//if player changes state, deactivate
 	UFUNCTION(BlueprintCallable)
 	void EnableDeactivateOnStateChange(bool Enable);

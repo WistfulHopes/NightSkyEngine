@@ -1723,7 +1723,7 @@ void APlayerObject::HandleThrowCollision()
 			&& T >= Enemy->B && B <= Enemy->T)
 		{
 			if (CheckInput(Left))
-				FlipCharacter();
+				FlipObject();
 			Enemy->JumpToState("Hitstun0");
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;
