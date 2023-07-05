@@ -243,7 +243,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int32 TeamIndex;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
 	
 	int32 CurrentHealth;
@@ -265,7 +265,7 @@ public:
 	 * Object pointers.
 	 */
 	
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	APlayerObject* Enemy;
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackOwner;

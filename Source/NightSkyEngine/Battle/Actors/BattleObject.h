@@ -519,18 +519,18 @@ public:
 	 * Movement and position values
 	 */
 	
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 PosX;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 PosY;
 	UPROPERTY(BlueprintReadWrite)
 	int32 PosZ;
 	int32 PrevPosX;
 	int32 PrevPosY;
 	int32 PrevPosZ;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 SpeedX;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 SpeedY;
 	UPROPERTY(BlueprintReadWrite)
 	int32 SpeedZ;
@@ -552,9 +552,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	int32 Inertia;
 	// The minimum Y position before considered grounded.
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 GroundHeight;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EObjDir> Direction;
 	// Ground hit pushback.
 	int32 Pushback;

@@ -827,6 +827,25 @@ void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
 	OtherChecksumFrame = InFrame;
 }
 
+TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
+{
+	if (IsP1)
+	{
+		TArray<APlayerObject*> PlayerObjects;
+		for (int i = 0; i < MaxPlayerObjects / 2; i++)
+		{
+			PlayerObjects.Add(Players[i]);
+		}
+		return PlayerObjects;
+	}
+	TArray<APlayerObject*> PlayerObjects;
+	for (int i = MaxPlayerObjects / 2; i < MaxPlayerObjects; i++)
+	{
+		PlayerObjects.Add(Players[i]);
+	}
+	return PlayerObjects;
+}
+
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
 	*OutX = BattleState.CurrentScreenPos - 840000 + 1680000 * 2 * X / 100;

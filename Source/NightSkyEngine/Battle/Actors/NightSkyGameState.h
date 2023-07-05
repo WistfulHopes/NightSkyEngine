@@ -188,4 +188,7 @@ public:
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
 	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);
+
+	UFUNCTION(BlueprintCallable)
+	TArray<APlayerObject*> GetTeam(bool IsP1) const;
 };

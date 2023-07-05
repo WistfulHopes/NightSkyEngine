@@ -848,7 +848,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 
 void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 {
-	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && OtherObj != Player && OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
+	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && OtherObj->Player != Player
+		&& OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
 	{
 		for (int i = 0; i < CollisionArraySize; i++)
 		{

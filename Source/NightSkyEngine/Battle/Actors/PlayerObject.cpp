@@ -454,7 +454,7 @@ void APlayerObject::Update()
 				PlayCommonLevelSequence("KO_Turnaround");
 			}
 			Hitstop = 0;
-			Enemy->Hitstop = 0;
+			AttackOwner->Hitstop = 0;
 		}
 	}
 
@@ -711,7 +711,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	Enemy->ComboCounter++;
 	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 	
-	Enemy->Hitstop = ReceivedHit.Hitstop;
+	AttackOwner->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = FinalHitstop;
 	
 	int32 Proration = ReceivedHit.ForcedProration;
@@ -1298,7 +1298,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 
 void APlayerObject::HandleBlockAction()
 {
-	Enemy->Hitstop = ReceivedHit.Hitstop;
+	AttackOwner->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = ReceivedHit.Hitstop + ReceivedHitCommon.EnemyBlockstopModifier;
 	StunTime = ReceivedHitCommon.Blockstun;
 	StunTimeMax = ReceivedHitCommon.Blockstun;
@@ -1718,8 +1718,8 @@ void APlayerObject::HandleThrowCollision()
 		else
 			ThrowPosX = L - ThrowRange;
 		if (AttackFlags & ATK_IsAttacking && PlayerFlags & PLF_ThrowActive
-			&& (PosX <= Enemy->PosX && ThrowPosX >= Enemy->L
-			|| PosX > Enemy->PosX && ThrowPosX <= Enemy->R)
+			&& ((PosX <= Enemy->PosX && ThrowPosX >= Enemy->L)
+			|| (PosX > Enemy->PosX && ThrowPosX <= Enemy->R))
 			&& T >= Enemy->B && B <= Enemy->T)
 		{
 			if (CheckInput(Left))
