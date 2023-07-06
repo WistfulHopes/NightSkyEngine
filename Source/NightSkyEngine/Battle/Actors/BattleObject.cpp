@@ -1260,13 +1260,17 @@ void ABattleObject::UpdateVisuals()
 			SetActorScale3D(FVector(1, 1, 1));
 		}
 		if (!strcmp(SocketName.GetString(), "")) //only set visual location if not attached to socket
-			SetActorRelativeLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+		{
+			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+			SetActorLocation(Location);
+		}
 		else
 		{
 			FVector FinalSocketOffset = SocketOffset;
 			if (Direction != DIR_Right)
 				FinalSocketOffset.Y = -SocketOffset.Y;
-			SetActorRelativeLocation(FinalSocketOffset);
+			SetActorLocation(FinalSocketOffset);
 		}
 		if (GameState->BattleState.CurrentSequenceTime >= 0)
 		{
@@ -1294,7 +1298,9 @@ void ABattleObject::UpdateVisuals()
 		if (Direction == DIR_Left)
 			FinalScale.X = -FinalScale.X;
 		LinkedParticle->SetRelativeScale3D(FinalScale);
-		LinkedParticle->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+		FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+		Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+		LinkedParticle->SetWorldLocation(Location);
 	}
 	if (IsValid(LinkedFlipbook))
 	{
@@ -1315,7 +1321,9 @@ void ABattleObject::UpdateVisuals()
 			if (Direction == DIR_Left)
 				FinalScale.X = -FinalScale.X;
 			LinkedMesh->SetRelativeScale3D(FinalScale);
-			LinkedMesh->SetWorldLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+			LinkedMesh->SetWorldLocation(Location);
 		}
 	}
 	
@@ -1453,13 +1461,16 @@ void ABattleObject::InitObject()
 		if (IsValid(LinkedMesh))
 		{
 			LinkedMesh->Deactivate();
-			LinkedMesh->SetRelativeLocation(FVector(0,0,-100000));
+			LinkedMesh->SetWorldLocation(FVector(0,0,-100000));
 			LinkedMesh = nullptr;
 		}
 	}
 	ObjectState->Parent = this;
 	TriggerEvent(EVT_Enter);
-	SetActorRelativeLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
+	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+	SetActorLocation(Location);
+	SetActorRotation(GameState->BattleSceneTransform.GetRotation());
 	if (Direction == DIR_Left)
 	{
 		SetActorScale3D(FVector(-1, 1, 1));
@@ -1941,7 +1952,8 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				int32 TmpPosX;
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
-				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
@@ -1971,7 +1983,8 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				int32 TmpPosX;
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
-				const FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
 				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);

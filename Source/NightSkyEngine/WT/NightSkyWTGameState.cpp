@@ -3,6 +3,7 @@
 
 #include "NightSkyWTGameState.h"
 
+#include "Camera/CameraActor.h"
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "NightSkyEngine/Battle/Actors/FighterRunners/FighterLocalRunner.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
@@ -31,13 +32,24 @@ void ANightSkyWTGameState::BeginPlay()
 void ANightSkyWTGameState::HandleMatchWin()
 {
 	bIsBattling = false;
+	
+	for (const auto Object : Objects)
+		Object->Destroy();
+	Players[1]->Destroy();
+	Players[2]->Destroy();
+	Players[4]->Destroy();
+	Players[5]->Destroy();
 	FighterRunner->Destroy();
+	
+	BattleState = FBattleState();
+	
 	OnBattleEndDelegate.Broadcast();
 }
 
 void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 {
 	bIsBattling = true;
+	
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
 		StoredRollbackData.Add(FRollbackData());
@@ -51,12 +63,13 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 				Players[i] = P1;
 			else
 				Players[i] = P2;
+			Players[i]->SetActorTransform(BattleSceneTransform);
 			Players[i]->TeamIndex = 0;
 			Players[i]->ColorIndex = 1;
 			Players[i]->PlayerFlags |= PLF_IsOnScreen;
 		}
 		else
-			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass());
+			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
 		Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
 		Players[i]->InitPlayer();
 		Players[i]->GameState = this;
@@ -66,7 +79,7 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass());
+		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform);
 		Objects[i]->GameState = this;
 		Objects[i]->ObjNumber = i;
 		SortedObjects[i + MaxPlayerObjects] = Objects[i];
@@ -85,6 +98,14 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 	BattleState.RoundFormat = ERoundFormat::FirstToOne;
 	BattleState.RoundTimer = 99 * 60;
 	
+	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
+	CameraRotation.Yaw -= 90;
+	
+	CameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	CameraActor->SetActorRotation(CameraRotation);
+	SequenceCameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	SequenceCameraActor->SetActorRotation(CameraRotation);
+
 	RoundInit();
 }
 
@@ -96,4 +117,3 @@ void ANightSkyWTGameState::Tick(float DeltaTime)
 	if (bIsBattling && IsValid(FighterRunner))
 		FighterRunner->Update(DeltaTime);
 }
-

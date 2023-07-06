@@ -18,9 +18,6 @@ public:
 	// Sets default values for this actor's properties
 	ANightSkyWTGameState();
 
-	UPROPERTY(BlueprintReadWrite)
-	FTransform BattleSceneTransform;
-
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsBattling;
 

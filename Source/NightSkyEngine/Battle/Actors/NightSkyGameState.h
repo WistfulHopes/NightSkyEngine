@@ -103,7 +103,10 @@ protected:
 public:
 	// Sets default values for this actor's properties
 	ANightSkyGameState();
-
+	
+	UPROPERTY(BlueprintReadWrite)
+	FTransform BattleSceneTransform;
+	
 	UPROPERTY()
 	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects];
 

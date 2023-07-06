@@ -20,8 +20,8 @@ void AWTCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	GameState = Cast<ANightSkyWTGameState>(GetWorld()->GetGameState());
-
-	GameState->OnBattleEndDelegate.AddUniqueDynamic(this, &AWTCharacter::EndBattle);
+	if (GameState)
+		GameState->OnBattleEndDelegate.AddUniqueDynamic(this, &AWTCharacter::EndBattle);
 	
 	BattlePlayer = GetWorld()->SpawnActor<APlayerObject>(BattlePlayerClass);
 	BattlePlayer->SetActorHiddenInGame(true);

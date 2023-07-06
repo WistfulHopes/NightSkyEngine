@@ -13,6 +13,7 @@
 #include "FighterRunners/FighterReplayRunner.h"
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Miscellaneous/FighterRunners.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
@@ -52,7 +53,7 @@ void ANightSkyGameState::Init()
 			{
 				if (GameInstance->BattleData.PlayerList[i] != nullptr)
 				{
-					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->BattleData.PlayerList[i]);
+					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->BattleData.PlayerList[i], BattleSceneTransform);
 					Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
 					Players[i]->TeamIndex = i % MaxPlayerObjects / 2;
 					Players[i]->ColorIndex = 1;
@@ -78,7 +79,7 @@ void ANightSkyGameState::Init()
 				}
 				else
 				{
-					Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass());
+					Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
 				}
 				if (i % 3 == 0)
 				{
@@ -87,7 +88,7 @@ void ANightSkyGameState::Init()
 			}
 			else
 			{
-				Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass());
+				Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
 				if (i % 3 == 0)
 				{
 					Players[i]->PlayerFlags |= PLF_IsOnScreen;
@@ -97,7 +98,7 @@ void ANightSkyGameState::Init()
 		}
 		else
 		{
-			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass());
+			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
 			if (i % 3 == 0)
 			{
 				Players[i]->PlayerFlags |= PLF_IsOnScreen;
@@ -111,7 +112,7 @@ void ANightSkyGameState::Init()
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass());
+		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform);
 		Objects[i]->GameState = this;
 		Objects[i]->ObjNumber = i;
 		SortedObjects[i + MaxPlayerObjects] = Objects[i];
@@ -143,6 +144,14 @@ void ANightSkyGameState::Init()
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 		break;
 	}
+
+	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
+	CameraRotation.Yaw -= 90;
+	
+	CameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	CameraActor->SetActorRotation(CameraRotation);
+	SequenceCameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	SequenceCameraActor->SetActorRotation(CameraRotation);
 	
 	BattleState.RoundFormat = GameInstance->BattleData.RoundFormat;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
@@ -646,21 +655,24 @@ void ANightSkyGameState::UpdateCamera()
 {
 	if (CameraActor != nullptr)
 	{
-		FVector Average = (Players[0]->GetActorLocation() + Players[3]->GetActorLocation()) / 2;
-		float NewX = FMath::Clamp(-Average.X,-840, 840);
-		float Distance = sqrt(abs((Players[0]->GetActorLocation() - Players[3]->GetActorLocation()).X));
+		FVector P1Location = FVector(static_cast<float>(Players[0]->PosX) / COORD_SCALE, static_cast<float>(Players[0]->PosZ) / COORD_SCALE, static_cast<float>(Players[0]->PosY) / COORD_SCALE);
+		FVector P2Location = FVector(static_cast<float>(Players[3]->PosX) / COORD_SCALE, static_cast<float>(Players[3]->PosZ) / COORD_SCALE, static_cast<float>(Players[3]->PosY) / COORD_SCALE);
+		FVector Average = (P1Location + P2Location) / 2;
+		const float NewX = FMath::Clamp(-Average.X,-840, 840);
+		float Distance = sqrt(abs((P1Location - P2Location).X));
 		Distance = FMath::Clamp(Distance,16, 24);
-		float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 24), TRange<float>(0, 840), Distance);
+		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 24), TRange<float>(0, 840), Distance);
 		float NewZ;
-		if (Players[0]->GetActorLocation().Z > Players[3]->GetActorLocation().Z)
-			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.25) + 125;
+		if (P1Location.Z > P2Location.Z)
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 125;
 		else
-			NewZ = FMath::Lerp(Players[0]->GetActorLocation().Z, Players[3]->GetActorLocation().Z, 0.75) + 125;
-		const FVector NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), FVector(-NewX, NewY, NewZ), 0.1);
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75) + 125;
+		FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
+		NewCameraLocation = FMath::Lerp(CameraActor->GetActorLocation(), NewCameraLocation, 0.1);
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
-			SequenceCameraActor->SetActorLocation(FVector(0, 1080, 175));
+			SequenceCameraActor->SetActorLocation(CameraActor->GetActorLocation());
 		}
 		else
 		{
