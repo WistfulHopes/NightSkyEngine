@@ -672,7 +672,8 @@ void ANightSkyGameState::UpdateCamera()
 		CameraActor->SetActorLocation(NewCameraLocation);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
-			SequenceCameraActor->SetActorLocation(CameraActor->GetActorLocation());
+			FVector SequenceCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
+			SequenceCameraActor->SetActorLocation(SequenceCameraLocation);
 		}
 		else
 		{
