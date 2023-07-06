@@ -1260,13 +1260,13 @@ void ABattleObject::UpdateVisuals()
 			SetActorScale3D(FVector(1, 1, 1));
 		}
 		if (!strcmp(SocketName.GetString(), "")) //only set visual location if not attached to socket
-			SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
+			SetActorRelativeLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE));
 		else
 		{
 			FVector FinalSocketOffset = SocketOffset;
 			if (Direction != DIR_Right)
 				FinalSocketOffset.Y = -SocketOffset.Y;
-			SetActorLocation(FinalSocketOffset);
+			SetActorRelativeLocation(FinalSocketOffset);
 		}
 		if (GameState->BattleState.CurrentSequenceTime >= 0)
 		{
@@ -1459,7 +1459,7 @@ void ABattleObject::InitObject()
 	}
 	ObjectState->Parent = this;
 	TriggerEvent(EVT_Enter);
-	SetActorLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
+	SetActorRelativeLocation(FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE)); //set visual location and scale in unreal
 	if (Direction == DIR_Left)
 	{
 		SetActorScale3D(FVector(-1, 1, 1));

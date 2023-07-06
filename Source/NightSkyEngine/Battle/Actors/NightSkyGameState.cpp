@@ -453,7 +453,7 @@ void ANightSkyGameState::HandleRoundWin()
 	}
 }
 
-void ANightSkyGameState::HandleMatchWin() const
+void ANightSkyGameState::HandleMatchWin()
 {
 	switch (BattleState.RoundFormat)
 	{
@@ -641,7 +641,6 @@ ABattleObject* ANightSkyGameState::AddBattleObject(UState* InState, int PosX, in
 	}
 	return nullptr;
 }
-
 
 void ANightSkyGameState::UpdateCamera()
 {
