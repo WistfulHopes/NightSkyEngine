@@ -356,7 +356,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UMaterialData* MaterialData;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ColorIndex = 1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;

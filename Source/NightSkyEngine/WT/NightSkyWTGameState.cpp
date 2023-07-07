@@ -64,13 +64,12 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 			else
 				Players[i] = P2;
 			Players[i]->SetActorTransform(BattleSceneTransform);
-			Players[i]->TeamIndex = 0;
-			Players[i]->ColorIndex = 1;
 			Players[i]->PlayerFlags |= PLF_IsOnScreen;
 		}
 		else
 			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
 		Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
+		Players[i]->TeamIndex = i % MaxPlayerObjects / 2;
 		Players[i]->InitPlayer();
 		Players[i]->GameState = this;
 		Players[i]->ObjNumber = MaxBattleObjects + i;
@@ -95,16 +94,17 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 
 	FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 	
-	BattleState.RoundFormat = ERoundFormat::FirstToOne;
-	BattleState.RoundTimer = 99 * 60;
-	
+	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 	CameraRotation.Yaw -= 90;
 	
-	CameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	CameraActor->SetActorLocation(NewCameraLocation);
 	CameraActor->SetActorRotation(CameraRotation);
-	SequenceCameraActor->SetActorLocation(BattleSceneTransform.GetLocation());
+	SequenceCameraActor->SetActorLocation(NewCameraLocation);
+	
 	SequenceCameraActor->SetActorRotation(CameraRotation);
+	BattleState.RoundFormat = ERoundFormat::FirstToOne;
+	BattleState.RoundTimer = 99 * 60;
 
 	RoundInit();
 }
