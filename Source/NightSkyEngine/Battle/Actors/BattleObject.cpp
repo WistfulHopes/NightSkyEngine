@@ -1301,6 +1301,7 @@ void ABattleObject::UpdateVisuals()
 		FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 		Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
 		LinkedParticle->SetWorldLocation(Location);
+		LinkedParticle->SetWorldRotation(GetActorRotation());
 	}
 	if (IsValid(LinkedFlipbook))
 	{
@@ -1310,6 +1311,10 @@ void ABattleObject::UpdateVisuals()
 			if (Direction == DIR_Left)
 				FinalScale.X = -FinalScale.X;
 			LinkedParticle->SetRelativeScale3D(FinalScale);
+			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+			LinkedFlipbook->SetWorldLocation(Location);
+			LinkedFlipbook->SetWorldRotation(GetActorRotation());
 			LinkedFlipbook->SetPlaybackPositionInFrames(AnimFrame, true);
 		}
 	}
@@ -1949,6 +1954,7 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 					Rotation.Pitch = -Rotation.Pitch;
 					Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
 				}
+				Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
 				int32 TmpPosX;
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
@@ -1980,6 +1986,7 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 			{
 				if (Direction == DIR_Left)
 					Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+				Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
 				int32 TmpPosX;
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);

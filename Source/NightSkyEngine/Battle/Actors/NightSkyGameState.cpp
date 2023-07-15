@@ -748,7 +748,9 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 			break;
 		}
 		SequenceTarget = Target;
-		SequenceCameraActor->SetActorLocation(FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z + 175));
+		FVector SequenceLocation = FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z) + BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
+		SequenceCameraActor->SetActorLocation(SequenceLocation);
+		SequenceActor->SetActorRotation(Target->GetActorRotation());
 		BattleState.CurrentSequenceTime = 0;
 		bIsPlayingSequence = true;
 	}
