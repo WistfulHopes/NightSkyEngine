@@ -14,8 +14,6 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
-class UParticleData;
-class UMaterialData;
 constexpr int32 DamageReactionCelCount = 64;
 constexpr int32 ExtraGaugeCount = 5;
 constexpr int32 CancelArraySize = 64;
@@ -23,6 +21,8 @@ constexpr int32 MaxComponentCount = 64;
 
 class USubroutineData;
 class UStateData;
+class UParticleData;
+class UMaterialData;
 
 #pragma pack (push, 1)
 

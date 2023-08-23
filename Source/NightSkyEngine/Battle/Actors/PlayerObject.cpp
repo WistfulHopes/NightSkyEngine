@@ -595,9 +595,6 @@ void APlayerObject::Update()
 		DisableState(ENB_Tech);
 	}
 
-	if (!(PlayerFlags & PLF_IsHardKnockedDown))
-		ReceivedHit.KnockdownTime = 3;
-
 	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
