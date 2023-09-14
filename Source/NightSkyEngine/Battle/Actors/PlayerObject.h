@@ -25,8 +25,6 @@ class UStateData;
 class UParticleData;
 class UMaterialData;
 
-#pragma pack (push, 1)
-
 UENUM(BlueprintType)
 enum EActionStance
 {
@@ -622,6 +620,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
 };
-#pragma pack(pop)
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

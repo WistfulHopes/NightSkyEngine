@@ -29,8 +29,6 @@ enum class ERoundFormat : uint8
 	ThreeVsThreeKOF,
 };
 
-#pragma pack (push, 1)
-
 USTRUCT()
 struct FAudioChannel
 {
@@ -84,7 +82,6 @@ struct FRollbackData
 	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
 	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
 };
-#pragma pack(pop)
 
 UCLASS()
 class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase

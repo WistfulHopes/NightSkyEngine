@@ -5,7 +5,6 @@
 #include "StateMachine.generated.h"
 
 class APlayerObject;
-#pragma pack (push, 1)
 
 /**
  * 
@@ -43,4 +42,3 @@ struct FStateMachine
 	
 	void Update() const;
 };
-#pragma pack(pop)

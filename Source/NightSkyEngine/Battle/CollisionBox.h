@@ -9,7 +9,6 @@ enum EBoxType
 	BOX_Hurt,
 	BOX_Hit,
 };
-#pragma pack (push, 1)
 
 USTRUCT()
 struct FCollisionBox
@@ -33,4 +32,3 @@ struct FCollisionBox
 			|| this->SizeX != OtherBox.SizeX || this->SizeY != OtherBox.SizeY;
 	}
 };
-#pragma pack(pop)

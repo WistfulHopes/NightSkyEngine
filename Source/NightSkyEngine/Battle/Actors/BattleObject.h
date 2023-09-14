@@ -17,8 +17,6 @@ class UState;
 class APlayerObject;
 constexpr int32 CollisionArraySize = 64;
 
-#pragma pack (push, 1)
-
 // Event handler data.
 
 /*
@@ -949,6 +947,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
 };
-#pragma pack(pop)
 
 constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);
