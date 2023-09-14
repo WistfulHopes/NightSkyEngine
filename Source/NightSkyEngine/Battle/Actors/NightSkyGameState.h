@@ -77,15 +77,12 @@ struct FBattleState
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
 	FBattleState, BattleStateSync);
 
-USTRUCT()
 struct FRollbackData
 {
-	GENERATED_BODY()
-
-	uint8 ObjBuffer[MaxBattleObjects + MaxPlayerObjects][SizeOfBattleObject] = {{0}};
-	bool ObjActive[MaxBattleObjects] = {false};
-	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = {{0}};
-	uint8 BattleStateBuffer[SizeOfBattleState] = {0};
+	uint8 ObjBuffer[MaxBattleObjects + MaxPlayerObjects][SizeOfBattleObject] = { { 0 } };
+	bool ObjActive[MaxBattleObjects] = { false };
+	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
+	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
 };
 #pragma pack(pop)
 
