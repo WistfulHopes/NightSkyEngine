@@ -756,6 +756,16 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 	}
 }
 
+void ANightSkyGameState::CameraShake(TSubclassOf<UCameraShakeBase> Pattern, float Scale) const
+{
+	if (Pattern)
+	{
+		const auto PlayerCameraManager = UGameplayStatics::GetPlayerCameraManager(this, 0);
+		PlayerCameraManager->StopAllCameraShakes();
+		PlayerCameraManager->StartCameraShake(Pattern, Scale);
+	}
+}
+
 void ANightSkyGameState::UpdateHUD() const
 {
 	if (BattleHudActor != nullptr)

@@ -10,6 +10,7 @@
 #include "PlayerObject.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
+#include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
 
@@ -90,11 +91,11 @@ void ABattleObject::Move()
 	if (IsPlayer && Player != nullptr)
 	{
 		if (Player->AirDashTimer == 0 || (SpeedY > 0 && ActionTime < 5)) // only set y speed if not airdashing/airdash startup not done
-			{
+		{
 			PosY += FinalSpeedY;
 			if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
 				SpeedY -= Gravity;
-			}
+		}
 		else
 		{
 			SpeedY = 0;
@@ -2151,6 +2152,18 @@ void ABattleObject::DetachFromSocket()
 	SocketName.SetString("");
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
+}
+
+void ABattleObject::CameraShake(FString PatternName, int32 Scale)
+{
+	if (IsValid(Player->CameraShakeData))
+	{
+		for (auto [Name, CameraShake] : Player->CameraShakeData->CamerShakeStructs)
+		{
+			if (Name == PatternName)
+				GameState->CameraShake(CameraShake, static_cast<float>(Scale) / 1000);
+		}
+	}
 }
 
 int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)

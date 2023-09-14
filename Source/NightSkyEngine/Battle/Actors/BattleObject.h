@@ -920,7 +920,9 @@ public:
 	//detaches object from skeletal socket
 	UFUNCTION(BlueprintCallable)
 	void DetachFromSocket();
-	//generate random number
+	UFUNCTION(BlueprintCallable)
+	void CameraShake(FString PatternName, int32 Scale);
+	//generate random number. DOES NOT WORK YET
 	int32 GenerateRandomNumber(int32 Min, int32 Max);
 	//sets object id
 	UFUNCTION(BlueprintCallable)

@@ -14,6 +14,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
+class UCameraShakeData;
 constexpr int32 DamageReactionCelCount = 64;
 constexpr int32 ExtraGaugeCount = 5;
 constexpr int32 CancelArraySize = 64;
@@ -375,7 +376,9 @@ public:
 	USequenceData* CommonSequenceData;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USequenceData* SequenceData;
-	
+	UPROPERTY(EditAnywhere)
+	UCameraShakeData* CameraShakeData;
+
 	UPROPERTY(EditAnywhere)
 	USoundData* CommonSoundData;
 	UPROPERTY(EditAnywhere)

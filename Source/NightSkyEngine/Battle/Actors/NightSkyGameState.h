@@ -182,6 +182,8 @@ public:
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
+	void CameraShake(TSubclassOf<UCameraShakeBase> Pattern, float Scale) const;
+
 	void UpdateHUD() const;
 	void BattleHudVisibility(bool Visible) const;
 
