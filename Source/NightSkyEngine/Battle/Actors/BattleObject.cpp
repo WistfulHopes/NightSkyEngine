@@ -45,11 +45,21 @@ void ABattleObject::Move()
 		Player->SetHitValuesOverTime();
 	}
 	
-
-	//Set previous pos values
+	// Set previous pos values
 	PrevPosX = PosX; 
 	PrevPosY = PosY;
 
+	if (BlendOffset && FString(BlendCelName.GetString()) != "")
+	{
+		const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+		const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+
+		UE_LOG(LogTemp, Warning, TEXT("%d"), TmpOffsetX)
+		
+		AddPosXWithDir(TmpOffsetX);
+		PosY += TmpOffsetY;
+	}
+	
 	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
 	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
 	SpeedZ = SpeedZ * SpeedZRatePerFrame / 100;
@@ -1411,6 +1421,16 @@ void ABattleObject::GetBoxes()
 			{
 				BlendAnimName.SetString(Player->CommonCollisionData->CollisionFrames[i].AnimName);
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+				for (int j = 0; j < CollisionArraySize; j++)
+				{
+					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
+					{
+						if (Player->CommonCollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
+
+						NextOffsetX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosX;
+						NextOffsetY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosY;
+					}
+				}
 			}
 		}
 	}
@@ -1448,6 +1468,16 @@ void ABattleObject::GetBoxes()
 			{
 				BlendAnimName.SetString(Player->CollisionData->CollisionFrames[i].AnimName);
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+				for (int j = 0; j < CollisionArraySize; j++)
+				{
+					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
+					{
+						if (Player->CommonCollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
+
+						NextOffsetX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosX;
+						NextOffsetY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosY;
+					}
+				}
 			}
 		}
 	}
@@ -1549,7 +1579,6 @@ void ABattleObject::Update()
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
 		
-		GetBoxes();
 		GameState->SetScreenBounds();
 		GameState->SetWallCollision();
 		ActionTime++;
@@ -1586,6 +1615,8 @@ void ABattleObject::ResetObject()
 	PrevPosX = 0;
 	PrevPosY = 0;
 	PrevPosZ = 0;
+	PrevOffsetX = 0;
+	PrevOffsetY = 0;
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
@@ -1704,12 +1735,29 @@ void ABattleObject::SetCelName(FString InName)
 {
 	CelName.SetString(InName);
 	SetBlendCelName("");
+
+	GetBoxes();
+
+	// Get position offset from boxes
+	for (auto Box : Boxes)
+	{
+		if (Box.Type == BOX_Offset)
+		{
+			AddPosXWithDir(Box.PosX - PrevOffsetX);
+			PosY += Box.PosY - PrevOffsetY;
+
+			PrevOffsetX = Box.PosX;
+			PrevOffsetY = Box.PosY;
+		}
+	}
 }
 
 void ABattleObject::SetBlendCelName(FString InName)
 {
 	BlendCelName.SetString(InName);
 	FrameBlendPosition = 0;
+	
+	GetBoxes();
 }
 
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
@@ -1965,11 +2013,11 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
-				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
+				NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
-					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
-					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
+					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				break;
 			}
@@ -1997,11 +2045,11 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
-				NiagaraComponent->SetNiagaraVariableFloat("SpriteRotate", -Rotation.Pitch);
+				NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
 				if (Direction == DIR_Left)
 				{
-					NiagaraComponent->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
-					NiagaraComponent->SetNiagaraVariableVec2("PivotOffset", FVector2D(0, 0.5));
+					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				break;
 			}
@@ -2035,7 +2083,7 @@ void ABattleObject::LinkCommonParticle(FString Name)
 				LinkedParticle->SetDesiredAge(0);
 				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
 				if (Direction == DIR_Left)
-					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;
 			}
 		}
@@ -2067,7 +2115,7 @@ void ABattleObject::LinkCharaParticle(FString Name)
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
 				if (Direction == DIR_Left)
-					LinkedParticle->SetNiagaraVariableVec2("UVScale", FVector2D(-1, 1));
+					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;
 			}
 		}

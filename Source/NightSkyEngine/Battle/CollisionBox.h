@@ -8,6 +8,7 @@ enum EBoxType
 	BOX_Push,
 	BOX_Hurt,
 	BOX_Hit,
+	BOX_Offset,
 };
 
 USTRUCT()

@@ -511,27 +511,33 @@ public:
 	ABattleObject();
 	
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync; 
+	unsigned char ObjSync = 0;
 
 	/*
 	 * Movement and position values
 	 */
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosX;
+	int32 PosX = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosY;
+	int32 PosY = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 PosZ;
-	int32 PrevPosX;
-	int32 PrevPosY;
-	int32 PrevPosZ;
+	int32 PosZ = 0;
+	int32 PrevPosX = 0;
+	int32 PrevPosY = 0;
+	int32 PrevPosZ = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool BlendOffset;
+	int32 PrevOffsetX = 0;
+	int32 PrevOffsetY = 0;
+	int32 NextOffsetX = 0;
+	int32 NextOffsetY = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedX;
+	int32 SpeedX = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedY;
+	int32 SpeedY = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZ;
+	int32 SpeedZ = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 SpeedXRate = 100;
 	UPROPERTY(BlueprintReadWrite)
@@ -548,33 +554,33 @@ public:
 	int32 Gravity = 1900;
 	// Inertia adds to the position every frame, but also decays every frame until it reaches zero.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Inertia;
+	int32 Inertia = 0;
 	// The minimum Y position before considered grounded.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 GroundHeight;
+	int32 GroundHeight = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TEnumAsByte<EObjDir> Direction;
+	TEnumAsByte<EObjDir> Direction = DIR_Right;
 	// Ground hit pushback.
-	int32 Pushback;
+	int32 Pushback = 0;
 	
 	/*
 	 * Attack data
 	 */
 	
 	UPROPERTY(BlueprintReadWrite)
-	FHitDataCommon HitCommon;
+	FHitDataCommon HitCommon = {};
 	UPROPERTY(BlueprintReadWrite)
-	FHitData NormalHit;
+	FHitData NormalHit = {};
 	UPROPERTY(BlueprintReadWrite)
-	FHitData CounterHit;
-	uint32 AttackFlags;
+	FHitData CounterHit = {};
+	uint32 AttackFlags = 0;
 
 	/*
 	 * Received attack data
 	 */
 
-	FHitDataCommon ReceivedHitCommon;
-	FHitData ReceivedHit;
+	FHitDataCommon ReceivedHitCommon = {};
+	FHitData ReceivedHit = {};
 	uint32 StunTime = 0;
 	uint32 StunTimeMax = 0;
 	uint32 Hitstop = 0;
@@ -584,72 +590,72 @@ public:
 	*/
 
 	//This value stores the return value for functions.
-	bool ReturnReg;
+	bool ReturnReg = false;
 
 	//The following values are per-action registers. Shared between the player and its child objects.
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg1;
+	int32 ActionReg1 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg2;
+	int32 ActionReg2 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg3;
+	int32 ActionReg3 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg4;
+	int32 ActionReg4 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg5;
+	int32 ActionReg5 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg6;
+	int32 ActionReg6 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg7;
+	int32 ActionReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg8;
+	int32 ActionReg8 = 0;
 
 	//The following values are per-object registers.
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg1;
+	int32 ObjectReg1 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg2;
+	int32 ObjectReg2 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg3;
+	int32 ObjectReg3 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg4;
+	int32 ObjectReg4 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg5;
+	int32 ObjectReg5 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg6;
+	int32 ObjectReg6 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg7;
+	int32 ObjectReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg8;
+	int32 ObjectReg8 = 0;
 
 	/*
 	 * Action data
 	 */
 
 	UPROPERTY(BlueprintReadOnly)
-	int32 ActionTime;
+	int32 ActionTime = 0;
 	/*
 	 * The current cel name.
 	 * Cels map to collision data.
 	 * The collision frame also stores animation data.
 	 */
-	FixedString<32> CelName;
+	FixedString<32> CelName = {};
 	/*
 	 * The blend cel name.
 	 * This is used to make traditional 3D animations.
 	 */
-	FixedString<32> BlendCelName;
+	FixedString<32> BlendCelName = {};
 	/*
 	 * The name of the label that is currently being jumped to.
 	 */
-	FixedString<32> LabelName;
+	FixedString<32> LabelName = {};
 	// The current animation name.
-	FixedString<32> AnimName;
+	FixedString<32> AnimName = {};
 	// The current blend animation name.
-	FixedString<32> BlendAnimName;
+	FixedString<32> BlendAnimName = {};
 	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
-	bool GotoLabelActive;
+	bool GotoLabelActive = false;
 	UPROPERTY(BlueprintReadWrite)
 	int32 AnimFrame = 0;
 	UPROPERTY(BlueprintReadWrite)
@@ -665,13 +671,13 @@ public:
 	// Max time of the cel.
 	int32 MaxCelTime = 0;
 	// Event handlers for every function.
-	FEventHandler EventHandlers[EVT_NUM];
+	FEventHandler EventHandlers[EVT_NUM] = {};
 
 	/*
 	 * Action data for objects only.
 	 */
-	FixedString<32> ObjectStateName;
-	uint32 ObjectID;
+	FixedString<32> ObjectStateName = {};
+	uint32 ObjectID = 0;
 	
 protected:
 	/*
@@ -682,10 +688,10 @@ protected:
 	int32 PushWidth = 0;
 	int32 PushWidthExtend = 0;
 
-	int32 L;
-	int32 R;
-	int32 T;
-	int32 B;
+	int32 L = 0;
+	int32 R = 0;
+	int32 T = 0;
+	int32 B = 0;
 	
 	FCollisionBox Boxes[CollisionArraySize] = {};
 
@@ -693,7 +699,7 @@ public:
 	/*
 	 * Socket data
 	 */
-	FixedString<64> SocketName; 
+	FixedString<64> SocketName = {}; 
 	EObjType SocketObj = OBJ_Self;
 	FVector SocketOffset = FVector::ZeroVector;
 
@@ -703,24 +709,24 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	FLinearColor AddColor = FLinearColor(0,0,0,1);
 	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulFadeColor;
+	FLinearColor MulFadeColor = {};
 	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddFadeColor;
+	FLinearColor AddFadeColor = {};
 	UPROPERTY(BlueprintReadWrite)
-	float MulFadeSpeed;
+	float MulFadeSpeed = 0;
 	UPROPERTY(BlueprintReadWrite)
-	float AddFadeSpeed;
+	float AddFadeSpeed = 0;
 
 	/*
 	 * Miscellaneous data
 	 */
-	int32 HitPosX;
-	int32 HitPosY;
-	int32 MiscFlags;
-	int32 SuperFreezeTimer;
-	bool IsPlayer;
-	bool IsActive;
-	int32 DrawPriority; //the lower the number, the farther in front the character will be drawn
+	int32 HitPosX = 0;
+	int32 HitPosY = 0;
+	int32 MiscFlags = 0;
+	int32 SuperFreezeTimer = 0;
+	bool IsPlayer = false;
+	bool IsActive = false;
+	int32 DrawPriority = 0; //the lower the number, the farther in front the character will be drawn
 
 	/*
 	 * Link data (for object)
@@ -730,36 +736,36 @@ public:
 	
 	//Pointer to player object. If this is not a player, it will point to the owning player.
 	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* Player;
+	APlayerObject* Player = nullptr;
 	
 	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackTarget;
+	ABattleObject* AttackTarget = nullptr;
 	
 	//Anything past here isn't saved or loaded for rollback.
-	unsigned char ObjSyncEnd;
+	unsigned char ObjSyncEnd = 0;
 
 	/*
 	 * Link data (for object), not serialized
 	 */
 	UPROPERTY()
-	UNiagaraComponent* LinkedParticle;
+	TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
 	UPROPERTY()
-	UPaperFlipbookComponent* LinkedFlipbook;
+	TObjectPtr<UPaperFlipbookComponent> LinkedFlipbook = nullptr;
 	UPROPERTY()
-	USkeletalMeshComponent* LinkedMeshes[8];
+	TObjectPtr<USkeletalMeshComponent> LinkedMeshes[8] = {};
 	
-	uint32 ObjNumber;
+	uint32 ObjNumber = 0;
 
 	UPROPERTY(BlueprintReadOnly)
-	float ScreenSpaceDepthOffset;
+	float ScreenSpaceDepthOffset = 0;
 	UPROPERTY(BlueprintReadOnly)
-	float OrthoBlendActive;
+	float OrthoBlendActive = 0;
 	
 	UPROPERTY()
-	ANightSkyGameState* GameState;
+	TObjectPtr<ANightSkyGameState> GameState = nullptr;
 	
 	UPROPERTY()
-	UState* ObjectState;
+	TObjectPtr<UState> ObjectState = nullptr;
 	
 protected:
 	// Called when the game starts or when spawned

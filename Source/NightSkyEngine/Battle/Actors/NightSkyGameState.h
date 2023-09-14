@@ -59,7 +59,7 @@ struct FBattleState
 	int32 P1RoundsWon;
 	int32 P2RoundsWon;
 	int32 RoundCount = 0;
-	int32 ActiveObjectCount;
+	int32 ActiveObjectCount = MaxPlayerObjects;
 	int32 CurrentSequenceTime = -1;
 	FAudioChannel CommonAudioChannels[CommonAudioChannelCount];
 	FAudioChannel CharaAudioChannels[CharaAudioChannelCount];

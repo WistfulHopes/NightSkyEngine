@@ -417,7 +417,6 @@ void APlayerObject::Update()
 				}
 			}
 		}
-		GetBoxes();
 		UpdateVisuals();
 		return;
 	}
@@ -426,7 +425,6 @@ void APlayerObject::Update()
 	{
 		if (PlayerFlags & PLF_IsStunned)
 			HandleBufferedState();
-		GetBoxes();
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		return;
@@ -2079,6 +2077,10 @@ void APlayerObject::OnStateChange()
 	MiscFlags |= MISC_InertiaEnable;
 	InvulnFlags = 0;
 
+	// Reset prev offset, as the offset should be applied
+	PrevOffsetX = 0;
+	PrevOffsetY = 0;
+	
 	// Reset speed modifiers
 	SpeedXRate = 100;
 	SpeedXRatePerFrame = 100;
