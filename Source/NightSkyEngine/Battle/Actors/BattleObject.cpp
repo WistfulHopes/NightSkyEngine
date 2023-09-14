@@ -1470,12 +1470,12 @@ void ABattleObject::GetBoxes()
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
-					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
+					if (j < Player->CollisionData->CollisionFrames[i].Boxes.Num())
 					{
-						if (Player->CommonCollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
+						if (Player->CollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
 
-						NextOffsetX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosX;
-						NextOffsetY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosY;
+						NextOffsetX = Player->CollisionData->CollisionFrames[i].Boxes[j].PosX;
+						NextOffsetY = Player->CollisionData->CollisionFrames[i].Boxes[j].PosY;
 					}
 				}
 			}
