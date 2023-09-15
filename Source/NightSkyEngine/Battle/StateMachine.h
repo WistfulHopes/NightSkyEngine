@@ -24,7 +24,7 @@ struct FStateMachine
 	APlayerObject* Parent;
 	
 	void Initialize();	
-	void AddState(const FString Name, UState* Config);
+	void AddState(const FString& Name, UState* Config);
 	
 	bool IsCurrentState(const FString Name) const
 	{

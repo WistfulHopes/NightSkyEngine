@@ -792,6 +792,7 @@ public:
 	void PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const;
 	void TriggerEvent(EEventType EventType);
 
+	UFUNCTION(BlueprintCallable)
 	void CollisionView();
 	
 	void SaveForRollback(unsigned char* Buffer) const;

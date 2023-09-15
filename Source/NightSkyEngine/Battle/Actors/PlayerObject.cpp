@@ -685,19 +685,10 @@ void APlayerObject::UpdateNotBattle()
 void APlayerObject::EditorUpdate()
 {
 #if WITH_EDITOR
-	const int32 TempIndex = CelIndex;
-	CelIndex = 0;
-	TimeUntilNextCel = 0;
-	while (CelIndex != TempIndex)
-	{
-		Player->StoredStateMachine.Update();
-	
-		if (TimeUntilNextCel > 0)
-			TimeUntilNextCel--;
-		if (TimeUntilNextCel == 0)
-			CelIndex++;
-		GetBoxes();
-	}
+	Player = this;
+
+	GetBoxes();
+	UpdateVisuals();
 #endif
 }
 
@@ -773,6 +764,9 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	}
 	if (CurrentHealth <= 0)
 	{
+		if (!(PlayerFlags & PLF_IsDead))
+			StartSuperFreeze(0);
+		
 		CurrentHealth = 0;
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
@@ -1214,7 +1208,7 @@ void APlayerObject::PlayLevelSequence(FString Name)
 void APlayerObject::StartSuperFreeze(int Duration)
 {
 	GameState->StartSuperFreeze(Duration);
-	TriggerEvent(EVT_SuperFreeze);
+	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
 }
 
 void APlayerObject::BattleHudVisibility(bool Visible)

@@ -16,7 +16,7 @@ void FStateMachine::Initialize()
 	}
 }
 
-void FStateMachine::AddState(const FString Name, UState* Config)
+void FStateMachine::AddState(const FString& Name, UState* Config)
 {
 	Config->Parent = Parent;
 	States.Add(Config);
