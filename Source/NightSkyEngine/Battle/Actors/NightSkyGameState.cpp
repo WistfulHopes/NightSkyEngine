@@ -283,7 +283,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	}
 	HandlePushCollision();
 	SetScreenBounds();
-	SetWallCollision();
+	SetStageBounds();
 	HandleRoundWin();
 	ParticleManager->PauseParticles();
 	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
@@ -567,7 +567,7 @@ void ANightSkyGameState::CollisionView() const
 	}
 }
 
-void ANightSkyGameState::SetScreenBounds()
+void ANightSkyGameState::SetStageBounds()
 {
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
@@ -579,15 +579,15 @@ void ANightSkyGameState::SetScreenBounds()
 				{
 					if (Players[i]->PlayerFlags & PLF_IsOnScreen && Players[j]->PlayerFlags & PLF_IsOnScreen)
 					{
-						const int NewScreenPos = (Players[i]->PosX + Players[j]->PosX) / 2;
+						const int32 NewScreenPos = (Players[i]->PosX + Players[j]->PosX) / 2;
 						BattleState.CurrentScreenPos = BattleState.CurrentScreenPos + (NewScreenPos - BattleState.CurrentScreenPos) * 5 / 100;
-						if (BattleState.CurrentScreenPos > 1680000)
+						if (BattleState.CurrentScreenPos > BattleState.StageBounds)
 						{
-							BattleState.CurrentScreenPos = 1680000;
+							BattleState.CurrentScreenPos = BattleState.StageBounds;
 						}
-						else if (BattleState.CurrentScreenPos < -1680000)
+						else if (BattleState.CurrentScreenPos < -BattleState.StageBounds)
 						{
-							BattleState.CurrentScreenPos = -1680000;
+							BattleState.CurrentScreenPos = -BattleState.StageBounds;
 						}
 					}
 				}
@@ -596,28 +596,35 @@ void ANightSkyGameState::SetScreenBounds()
 	}
 }
 
-void ANightSkyGameState::SetWallCollision() const
+void ANightSkyGameState::SetScreenBounds() const
 {
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < BattleState.ActiveObjectCount; i++)
 	{
-		if (Players[i] != nullptr)
+		if (SortedObjects[i] != nullptr)
 		{
-			if (Players[i]->PlayerFlags & PLF_IsOnScreen && Players[i]->MiscFlags & MISC_WallCollisionActive)
+			if (SortedObjects[i]->MiscFlags & MISC_WallCollisionActive)
 			{
-				Players[i]->PlayerFlags |= PLF_TouchingWall;
-				Players[i]->WallTouchTimer++;
-				if (Players[i]->PosX >= 840000 + BattleState.CurrentScreenPos)
+				if (const auto Player = Cast<APlayerObject>(SortedObjects[i]))
 				{
-					Players[i]->PosX = 840000 + BattleState.CurrentScreenPos;
+					if (!(Player->PlayerFlags & PLF_IsOnScreen)) continue;
+					Player->PlayerFlags |= PLF_TouchingWall;
+					Player->WallTouchTimer++;
 				}
-				else if (Players[i]->PosX <= -840000 + BattleState.CurrentScreenPos)
+				if (SortedObjects[i]->PosX > BattleState.ScreenBounds + BattleState.CurrentScreenPos)
 				{
-					Players[i]->PosX = -840000 + BattleState.CurrentScreenPos;
+					SortedObjects[i]->PosX = BattleState.ScreenBounds + BattleState.CurrentScreenPos;
+				}
+				else if (SortedObjects[i]->PosX < -BattleState.ScreenBounds + BattleState.CurrentScreenPos)
+				{
+					SortedObjects[i]->PosX = -BattleState.ScreenBounds + BattleState.CurrentScreenPos;
 				}
 				else
 				{
-					Players[i]->PlayerFlags &= ~PLF_TouchingWall;
-				Players[i]->WallTouchTimer = 0;
+					if (const auto Player = Cast<APlayerObject>(SortedObjects[i]))
+					{
+						Player->PlayerFlags &= ~PLF_TouchingWall;
+						Player->WallTouchTimer = 0;
+					}
 				}
 			}
 		}
@@ -659,10 +666,10 @@ void ANightSkyGameState::UpdateCamera()
 		FVector P1Location = FVector(static_cast<float>(Players[0]->PosX) / COORD_SCALE, static_cast<float>(Players[0]->PosZ) / COORD_SCALE, static_cast<float>(Players[0]->PosY) / COORD_SCALE);
 		FVector P2Location = FVector(static_cast<float>(Players[3]->PosX) / COORD_SCALE, static_cast<float>(Players[3]->PosZ) / COORD_SCALE, static_cast<float>(Players[3]->PosY) / COORD_SCALE);
 		FVector Average = (P1Location + P2Location) / 2;
-		const float NewX = FMath::Clamp(-Average.X,-840, 840);
+		const float NewX = FMath::Clamp(-Average.X,-BattleState.ScreenBounds / 1000, BattleState.ScreenBounds / 1000);
 		float Distance = sqrt(abs((P1Location - P2Location).X));
-		Distance = FMath::Clamp(Distance,16, 24);
-		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(0, 24), TRange<float>(0, 840), Distance);
+		Distance = FMath::Clamp(Distance,16, BattleState.ScreenBounds / 37800);
+		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 37800), TRange<float>(0, BattleState.ScreenBounds / 1000), Distance);
 		float NewZ;
 		if (P1Location.Z > P2Location.Z)
 			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 125;
@@ -873,7 +880,7 @@ TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
 {
-	*OutX = BattleState.CurrentScreenPos - 840000 + 1680000 * 2 * X / 100;
+	*OutX = BattleState.CurrentScreenPos - BattleState.ScreenBounds + BattleState.StageBounds * 2 * X / 100;
 }
 
 void ANightSkyGameState::BattleHudVisibility(bool Visible) const

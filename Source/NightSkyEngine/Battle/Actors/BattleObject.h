@@ -527,7 +527,7 @@ public:
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool BlendOffset;
+	bool BlendOffset = false;
 	int32 PrevOffsetX = 0;
 	int32 PrevOffsetY = 0;
 	int32 NextOffsetX = 0;

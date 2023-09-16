@@ -663,7 +663,7 @@ void APlayerObject::Update()
 	HandleThrowCollision();
 	
 	GameState->SetScreenBounds();
-	GameState->SetWallCollision();
+	GameState->SetStageBounds();
 	ActionTime++;
 	
 	UpdateVisuals();
@@ -2136,11 +2136,11 @@ void APlayerObject::ResetForRound()
 {
 	if (PlayerIndex == 0)
 	{
-		PosX = -360000;
+		PosX = -GameState->BattleState.RoundStartPos;
 	}
 	else
 	{
-		PosX = 360000;
+		PosX = GameState->BattleState.RoundStartPos;
 	}
 	PosY = 0;
 	PosZ = 0;

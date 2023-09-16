@@ -46,7 +46,7 @@ void ABattleObject::Move()
 	}
 	
 	// Set previous pos values
-	PrevPosX = PosX; 
+	PrevPosX = PosX;
 	PrevPosY = PosY;
 
 	if (BlendOffset && FString(BlendCelName.GetString()) != "")
@@ -1558,7 +1558,7 @@ void ABattleObject::Update()
 	Move();
 	
 	GameState->SetScreenBounds();
-	GameState->SetWallCollision();
+	GameState->SetStageBounds();
 	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
@@ -1580,12 +1580,16 @@ void ABattleObject::Update()
 			CelIndex++;
 		
 		GameState->SetScreenBounds();
-		GameState->SetWallCollision();
+		GameState->SetStageBounds();
 		ActionTime++;
 		UpdateVisuals();
-		
-		if (PosX > 960000 + GameState->BattleState.CurrentScreenPos || PosX < -960000 + GameState->BattleState.CurrentScreenPos)
-			DeactivateObject();
+
+		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
+		{
+			if (PosX > GameState->BattleState.ScreenBounds + 120000 + GameState->BattleState.CurrentScreenPos
+				|| PosX < -(GameState->BattleState.ScreenBounds + 120000) + GameState->BattleState.CurrentScreenPos)
+				DeactivateObject();
+		}
 	}
 }
 
@@ -2398,7 +2402,7 @@ void ABattleObject::EnableDeactivateIfBeyondBounds(bool Enable)
 	}
 	else
 	{
-		AttackFlags &= ~MISC_DeactivateIfBeyondBounds;
+		MiscFlags &= ~MISC_DeactivateIfBeyondBounds;
 	}
 }
 
@@ -2410,7 +2414,7 @@ void ABattleObject::EnableDeactivateOnStateChange(bool Enable)
 	}
 	else
 	{
-		AttackFlags &= ~MISC_DeactivateOnStateChange;
+		MiscFlags &= ~MISC_DeactivateOnStateChange;
 	}
 }
 
@@ -2422,6 +2426,6 @@ void ABattleObject::EnableDeactivateOnReceiveHit(bool Enable)
 	}
 	else
 	{
-		AttackFlags &= ~MISC_DeactivateOnReceiveHit;
+		MiscFlags &= ~MISC_DeactivateOnReceiveHit;
 	}
 }

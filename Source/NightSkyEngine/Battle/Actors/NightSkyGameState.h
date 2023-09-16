@@ -49,7 +49,13 @@ struct FBattleState
 	char BattleStateSync;
 	int32 FrameNumber;
 	int32 TimeUntilRoundStart;
+	UPROPERTY(EditAnywhere)
+	int32 RoundStartPos = 297500;
 	int32 CurrentScreenPos = 0;
+	UPROPERTY(EditAnywhere)
+	int32 ScreenBounds = 840000;
+	UPROPERTY(EditAnywhere)
+	int32 StageBounds = 1680000;
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundTimer = 0;
 	bool PauseTimer;
@@ -134,6 +140,7 @@ public:
 	ANightSkyBattleHudActor* BattleHudActor;
 
 	TArray<FRollbackData> StoredRollbackData;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FBattleState BattleState;
 	int32 LocalFrame;
 	int32 RemoteFrame;
@@ -165,8 +172,8 @@ public:
 
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
-	void SetScreenBounds(); //sets screen bounds
-	void SetWallCollision() const; //forces wall collision
+	void SetStageBounds(); //sets screen bounds
+	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int Duration);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;
