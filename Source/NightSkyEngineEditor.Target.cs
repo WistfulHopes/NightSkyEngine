@@ -8,7 +8,7 @@ public class NightSkyEngineEditorTarget : TargetRules
 	public NightSkyEngineEditorTarget( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
+		DefaultBuildSettings = BuildSettingsVersion.V4;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("NightSkyEngine");
 	}
