@@ -610,11 +610,11 @@ void ANightSkyGameState::SetScreenBounds() const
 					Player->PlayerFlags |= PLF_TouchingWall;
 					Player->WallTouchTimer++;
 				}
-				if (SortedObjects[i]->PosX > BattleState.ScreenBounds + BattleState.CurrentScreenPos)
+				if (SortedObjects[i]->PosX >= BattleState.ScreenBounds + BattleState.CurrentScreenPos)
 				{
 					SortedObjects[i]->PosX = BattleState.ScreenBounds + BattleState.CurrentScreenPos;
 				}
-				else if (SortedObjects[i]->PosX < -BattleState.ScreenBounds + BattleState.CurrentScreenPos)
+				else if (SortedObjects[i]->PosX <= -BattleState.ScreenBounds + BattleState.CurrentScreenPos)
 				{
 					SortedObjects[i]->PosX = -BattleState.ScreenBounds + BattleState.CurrentScreenPos;
 				}

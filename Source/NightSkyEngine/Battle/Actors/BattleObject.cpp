@@ -197,9 +197,10 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				
-				if (OtherObj->PosX <= -2520000 || OtherObj->PosX >= 2520000)
+				if (OtherObj->PosX <= -(GameState->BattleState.StageBounds + GameState->BattleState.ScreenBounds)
+					|| OtherObj->PosX >= GameState->BattleState.StageBounds + GameState->BattleState.ScreenBounds)
 				{
-					PosX += CollisionDepth * 2;
+					PosX += CollisionDepth;
 				}
 				else
 				{
