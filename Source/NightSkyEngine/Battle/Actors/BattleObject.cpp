@@ -49,12 +49,10 @@ void ABattleObject::Move()
 	PrevPosX = PosX;
 	PrevPosY = PosY;
 
-	if (BlendOffset && FString(BlendCelName.GetString()) != "")
+	if (BlendOffset && FString(BlendCelName.GetString()) != "" && MaxCelTime)
 	{
 		const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
-
-		UE_LOG(LogTemp, Warning, TEXT("%d"), TmpOffsetX)
 		
 		AddPosXWithDir(TmpOffsetX);
 		PosY += TmpOffsetY;

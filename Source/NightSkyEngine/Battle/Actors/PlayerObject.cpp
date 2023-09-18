@@ -2071,9 +2071,11 @@ void APlayerObject::OnStateChange()
 	MiscFlags |= MISC_InertiaEnable;
 	InvulnFlags = 0;
 
-	// Reset prev offset, as the offset should be applied
+	// Reset offset, as the offset should be applied
 	PrevOffsetX = 0;
 	PrevOffsetY = 0;
+	NextOffsetX = 0;
+	NextOffsetY = 0;
 	
 	// Reset speed modifiers
 	SpeedXRate = 100;
