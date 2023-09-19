@@ -1620,6 +1620,8 @@ void ABattleObject::ResetObject()
 	PrevPosZ = 0;
 	PrevOffsetX = 0;
 	PrevOffsetY = 0;
+	NextOffsetX = 0;
+	NextOffsetY = 0;
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;

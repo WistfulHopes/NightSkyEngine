@@ -491,6 +491,7 @@ void UNightSkyGameInstance::EndRecordReplay() const
 void UNightSkyGameInstance::PlayReplayFromBP(FString ReplayName)
 {
 	FighterRunner = Multiplayer;
+	IsTraining = false;
 	IsReplay = true;
 	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0));
 	LoadReplay();
@@ -506,7 +507,7 @@ void UNightSkyGameInstance::FindReplays()
 		ReplayName.AppendInt(i);
 		if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
 		{
-			break;
+			continue;
 		}
 		ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
 		if (ReplayList.Last()->Version != BattleVersion)
