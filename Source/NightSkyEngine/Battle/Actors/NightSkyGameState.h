@@ -56,6 +56,7 @@ struct FBattleState
 	int32 ScreenBounds = 840000;
 	UPROPERTY(EditAnywhere)
 	int32 StageBounds = 1680000;
+	FVector CameraPosition;
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundTimer = 0;
 	bool PauseTimer;

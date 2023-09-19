@@ -675,8 +675,9 @@ void ANightSkyGameState::UpdateCamera()
 			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 125;
 		else
 			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75) + 125;
-		const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
-		CameraActor->SetActorLocation(NewCameraLocation);
+		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
+		BattleState.CameraPosition = FMath::Lerp(CameraActor->GetActorLocation(), BattleState.CameraPosition, 0.1);
+		CameraActor->SetActorLocation(BattleState.CameraPosition);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
 			const FVector SequenceCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
