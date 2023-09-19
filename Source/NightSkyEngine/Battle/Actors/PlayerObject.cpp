@@ -382,6 +382,7 @@ void APlayerObject::Update()
 								break;
 							}
 						}
+						if (IsTech == true) break;
 					}
 				}
 				else
@@ -398,18 +399,29 @@ void APlayerObject::Update()
 					BitmaskRight.Lenience = 1;
 					Right.Sequence.Add(BitmaskRight);
 					Right.Method = EInputMethod::Strict;
-					if (!CheckInput(ProximityThrowInput) || !CheckInput(Left) || !CheckInput(Right))
+					if (!CheckInput(ProximityThrowInput) || (!CheckInput(Left) && !CheckInput(Right)))
 					{
 						IsTech = false;
 					}
 				}
 				if (IsTech)
 				{
-					JumpToState("GuardBreak");
-					Enemy->JumpToState("GuardBreak");
 					PlayerFlags &= ~PLF_IsThrowLock;
-					Pushback = -35000;
-					AttackOwner->Pushback = -35000;
+					FaceOpponent();
+					if (Enemy->Stance != ACT_Jumping)
+					{
+						JumpToState("GuardBreakStand");
+						Enemy->JumpToState("GuardBreakStand");
+						InitEventHandler(EVT_Update, "ThrowTech");
+						Enemy->InitEventHandler(EVT_Update, "ThrowTech");
+					}
+					else
+					{
+						JumpToState("GuardBreakAir");
+						Enemy->JumpToState("GuardBreakAir");
+						InitEventHandler(EVT_Update, "ThrowTechAir");
+						Enemy->InitEventHandler(EVT_Update, "ThrowTechAir");
+					}
 					HitPosX = (PosX + Enemy->PosX) / 2;
 					HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
 					CreateCommonParticle("cmn_throwtech", POS_Hit);
@@ -418,6 +430,7 @@ void APlayerObject::Update()
 			}
 		}
 		UpdateVisuals();
+		ActionTime++;
 		return;
 	}
 	
@@ -694,7 +707,6 @@ void APlayerObject::EditorUpdate()
 
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
-	Enemy->ComboCounter++;
 	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 	
 	AttackOwner->Hitstop = ReceivedHit.Hitstop;
@@ -709,8 +721,12 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		TotalProration = 10000;
 	Proration = Proration * TotalProration / 10000;
 	
-	if ((AttackFlags & ATK_ProrateOnce) == 0 || (AttackFlags & ATK_ProrateOnce && (AttackFlags & ATK_HasHit) == 0))
-		TotalProration = TotalProration * ReceivedHit.ForcedProration / 100;
+	if ((AttackFlags & ATK_ProrateOnce) == 0 || (AttackFlags & ATK_ProrateOnce && Enemy->ComboCounter == 0))
+		TotalProration = Proration;
+	else
+		Proration = TotalProration;
+	
+	Enemy->ComboCounter++;
 	
 	if (PlayerFlags & PLF_IsKnockedDown)
 	{
@@ -1713,9 +1729,10 @@ void APlayerObject::HandleThrowCollision()
 		{
 			if (CheckInput(Left))
 				FlipObject();
-			Enemy->JumpToState("Hitstun0");
+			Enemy->JumpToState("ThrowLock");
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;
+			Enemy->AttackOwner = this;
 			ThrowExe();
 		}
 	}
@@ -2421,7 +2438,7 @@ bool APlayerObject::CheckInput(const FInputCondition& Input)
 
 bool APlayerObject::CheckIsStunned() const
 {
-	return PlayerFlags & PLF_IsStunned;
+	return PlayerFlags & PLF_IsStunned || PlayerFlags & PLF_IsThrowLock;
 }
 
 void APlayerObject::AddAirJump(int32 NewAirJump)

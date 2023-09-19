@@ -269,7 +269,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackOwner;
 	UPROPERTY()
-	ABattleObject* ChildBattleObjects[64];
+	ABattleObject* ChildBattleObjects[32];
 	UPROPERTY()
 	ABattleObject* StoredBattleObjects[16];
 

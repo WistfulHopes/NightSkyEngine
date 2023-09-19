@@ -814,6 +814,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (NormalHit.WallBounce.WallBounceGravity == -1)
 		NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
 
+	if (CounterHit.WallBounce.WallBounceCount == -1)
+		CounterHit.WallBounce.WallBounceCount = NormalHit.WallBounce.WallBounceCount;
 	if (CounterHit.WallBounce.WallBounceXSpeed == -1)
 		CounterHit.WallBounce.WallBounceXSpeed = NormalHit.WallBounce.WallBounceXSpeed;
 	if (CounterHit.WallBounce.WallBounceXRate == -1)
@@ -836,6 +838,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (NormalHit.GroundBounce.GroundBounceGravity == -1)
 		NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
 
+	if (CounterHit.GroundBounce.GroundBounceCount == -1)
+		CounterHit.GroundBounce.GroundBounceCount = NormalHit.GroundBounce.GroundBounceCount;
 	if (CounterHit.GroundBounce.GroundBounceXSpeed == -1)
 		CounterHit.GroundBounce.GroundBounceXSpeed = NormalHit.GroundBounce.GroundBounceXSpeed;
 	if (CounterHit.GroundBounce.GroundBounceXRate == -1)

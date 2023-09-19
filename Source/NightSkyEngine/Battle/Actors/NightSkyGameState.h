@@ -61,6 +61,7 @@ struct FBattleState
 	int32 RoundTimer = 0;
 	bool PauseTimer;
 	bool PauseParticles;
+	bool IsPlayingSequence;
 	int32 Meter[2]{0, 0};
 	int32 MaxMeter[2]{10000, 10000};
 	int32 P1RoundsWon;

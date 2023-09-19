@@ -697,7 +697,7 @@ void ANightSkyGameState::UpdateCamera()
 			{
 				SequenceActor->SequencePlayer->Stop();
 				BattleState.CurrentSequenceTime = -1;
-				bIsPlayingSequence = false;
+				BattleState.IsPlayingSequence = false;
 				return;
 			}
 			const FMovieSceneSequencePlaybackParams Params = FMovieSceneSequencePlaybackParams(
@@ -706,6 +706,7 @@ void ANightSkyGameState::UpdateCamera()
 			SequenceActor->SequencePlayer->SetPlaybackPosition(Params);
 		}
 	}
+	bIsPlayingSequence = BattleState.IsPlayingSequence;
 }
 
 void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence)
@@ -759,7 +760,7 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 		SequenceCameraActor->SetActorLocation(SequenceLocation);
 		SequenceActor->SetActorRotation(Target->GetActorRotation());
 		BattleState.CurrentSequenceTime = 0;
-		bIsPlayingSequence = true;
+		BattleState.IsPlayingSequence = true;
 	}
 }
 
