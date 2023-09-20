@@ -37,4 +37,8 @@ public:
 	int P1ComboCounter;
 	UPROPERTY(BlueprintReadOnly)
 	int P2ComboCounter;
+	UPROPERTY(BlueprintReadOnly)
+	int Ping;
+	UPROPERTY(BlueprintReadOnly)
+	int RollbackFrames;
 };

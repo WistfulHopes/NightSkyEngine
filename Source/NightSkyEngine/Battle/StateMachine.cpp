@@ -97,7 +97,7 @@ bool FStateMachine::ForceRollbackState(const FString Name)
 	return true;
 }
 
-bool FStateMachine::CheckStateEntryCondition(const EEntryState EntryState, const int ActionFlags)
+bool FStateMachine::CheckStateStanceCondition(const EEntryState EntryState, const int ActionFlags)
 {
 	if ((EntryState == EEntryState::Standing && ActionFlags == ACT_Standing)
 	|| (EntryState == EEntryState::Standing && ActionFlags == ACT_Crouching)

@@ -6,6 +6,7 @@
 #include "AudioManager.h"
 #include "PlayerObject.h"
 #include "GameFramework/GameStateBase.h"
+#include "include/ggponet.h"
 #include "NightSkyGameState.generated.h"
 
 constexpr int32 MaxRollbackFrames = 1;
@@ -13,7 +14,10 @@ constexpr float OneFrame = 0.0166666666;
 constexpr int32 MaxBattleObjects = 101;
 constexpr int32 MaxPlayerObjects = 6;
 
+class UGGPONetwork;
 class ANightSkyBattleHudActor;
+
+// Battle data
 
 UENUM()
 enum class ERoundFormat : uint8
@@ -91,6 +95,21 @@ struct FRollbackData
 	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
 };
 
+// Network
+
+USTRUCT(BlueprintType)
+struct FNetworkStats
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadOnly)
+	int32 Ping;
+	UPROPERTY(BlueprintReadOnly)
+	int32 RollbackFrames;
+};
+
+// Main class
+
 UCLASS()
 class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase
 {
@@ -154,7 +173,8 @@ private:
 	uint32 OtherChecksum;
 	int32 OtherChecksumFrame;
 	int32 PrevOtherChecksumFrame;
-
+	FNetworkStats NetworkStats;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -167,7 +187,8 @@ protected:
 	void HandleRoundWin();
 	virtual void HandleMatchWin();
 	void CollisionView() const;
-
+	FGGPONetworkStats GetNetworkStats() const;
+	
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -178,7 +199,7 @@ public:
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int Duration);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
-	ABattleObject* AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;
+	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	void SaveGameState(); //saves game state
 	void LoadGameState(); //loads game state

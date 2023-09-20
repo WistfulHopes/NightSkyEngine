@@ -291,7 +291,19 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		GameInstance->UpdateReplay(Input1, Input2);
 	}
 	CollisionView();
+	
+	const FGGPONetworkStats Network = GetNetworkStats();
+	NetworkStats.Ping = Network.network.ping;
+	const int32 LocalFramesBehind = Network.timesync.local_frames_behind;
+	const int32 RemoteFramesBehind = Network.timesync.remote_frames_behind;
 
+	if (LocalFramesBehind < 0 && RemoteFramesBehind < 0)
+		NetworkStats.RollbackFrames = abs(abs(LocalFramesBehind) - abs(RemoteFramesBehind));
+	else if (LocalFramesBehind > 0 && RemoteFramesBehind > 0)
+		NetworkStats.RollbackFrames = 0;
+	else
+		NetworkStats.RollbackFrames = abs(LocalFramesBehind) + abs(RemoteFramesBehind);
+	
 	// these aren't strictly game state related, but tying them to game state update makes things better
 	UpdateCamera();
 	UpdateHUD();
@@ -567,6 +579,22 @@ void ANightSkyGameState::CollisionView() const
 	}
 }
 
+FGGPONetworkStats ANightSkyGameState::GetNetworkStats() const
+{
+	AFighterMultiplayerRunner* Runner = Cast<AFighterMultiplayerRunner>(FighterRunner);
+	if (IsValid(Runner))
+	{
+		FGGPONetworkStats Stats = { };
+		if (Runner->Players[0]->type == GGPO_PLAYERTYPE_REMOTE)
+			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[0], &Stats);
+		else
+			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[1], &Stats);
+		return Stats;
+	}
+	constexpr FGGPONetworkStats Stats = { };
+	return Stats;
+}
+
 void ANightSkyGameState::SetStageBounds()
 {
 	for (int i = 0; i < MaxPlayerObjects; i++)
@@ -638,8 +666,8 @@ void ANightSkyGameState::StartSuperFreeze(int Duration)
 	BattleState.PauseTimer = true;
 }
 
-ABattleObject* ANightSkyGameState::AddBattleObject(UState* InState, int PosX, int PosY, EObjDir Dir,
-	APlayerObject* Parent) const
+ABattleObject* ANightSkyGameState::AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir,
+                                                   APlayerObject* Parent) const
 {
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
@@ -663,9 +691,9 @@ void ANightSkyGameState::UpdateCamera()
 {
 	if (CameraActor != nullptr)
 	{
-		FVector P1Location = FVector(static_cast<float>(Players[0]->PosX) / COORD_SCALE, static_cast<float>(Players[0]->PosZ) / COORD_SCALE, static_cast<float>(Players[0]->PosY) / COORD_SCALE);
-		FVector P2Location = FVector(static_cast<float>(Players[3]->PosX) / COORD_SCALE, static_cast<float>(Players[3]->PosZ) / COORD_SCALE, static_cast<float>(Players[3]->PosY) / COORD_SCALE);
-		FVector Average = (P1Location + P2Location) / 2;
+		const FVector P1Location = FVector(static_cast<float>(Players[0]->PosX) / COORD_SCALE, static_cast<float>(Players[0]->PosZ) / COORD_SCALE, static_cast<float>(Players[0]->PosY) / COORD_SCALE);
+		const FVector P2Location = FVector(static_cast<float>(Players[3]->PosX) / COORD_SCALE, static_cast<float>(Players[3]->PosZ) / COORD_SCALE, static_cast<float>(Players[3]->PosY) / COORD_SCALE);
+		const FVector Average = (P1Location + P2Location) / 2;
 		const float NewX = FMath::Clamp(-Average.X,-BattleState.ScreenBounds / 1000, BattleState.ScreenBounds / 1000);
 		float Distance = sqrt(abs((P1Location - P2Location).X));
 		Distance = FMath::Clamp(Distance,16, BattleState.ScreenBounds / 37800);
@@ -797,6 +825,8 @@ void ANightSkyGameState::UpdateHUD() const
 			BattleHudActor->TopWidget->Timer = ceil(static_cast<float>(BattleState.RoundTimer) / 60);
 			BattleHudActor->TopWidget->P1ComboCounter = Players[0]->ComboCounter;
 			BattleHudActor->TopWidget->P2ComboCounter = Players[3]->ComboCounter;
+			BattleHudActor->TopWidget->Ping = NetworkStats.Ping;
+			BattleHudActor->TopWidget->RollbackFrames = NetworkStats.RollbackFrames;
 		}
 		if (BattleHudActor->BottomWidget != nullptr)
 		{
@@ -991,7 +1021,7 @@ void ANightSkyGameState::RollbackStartAudio() const
 		{
 			AudioManager->CommonAudioPlayers[i]->Stop();
 			AudioManager->CommonAudioPlayers[i]->SetSound(BattleState.CommonAudioChannels[i].SoundWave);
-			float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame) / 60.f;
+			const float CurrentAudioTime = static_cast<float>(BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame) / 60.f;
 			if (!BattleState.CommonAudioChannels[i].Finished && !AudioManager->CommonAudioPlayers[i]->IsPlaying())
 			{
 				//AudioManager->CommonAudioPlayers[i]->SetFloatParameter(FName(TEXT("Start Time")), CurrentAudioTime);

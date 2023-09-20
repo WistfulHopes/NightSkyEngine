@@ -91,7 +91,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 			continue;
 		}
         //check current character state against entry state condition, continue if not entry state
-		if (!StoredStateMachine.CheckStateEntryCondition(StoredStateMachine.States[i]->EntryState, Stance))
+		if (!StoredStateMachine.CheckStateStanceCondition(StoredStateMachine.States[i]->EntryState, Stance))
         {
             continue;
         }

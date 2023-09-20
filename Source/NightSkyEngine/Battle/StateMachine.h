@@ -38,7 +38,7 @@ struct FStateMachine
 	bool ForceSetState(const FString Name);
 	bool ForceRollbackState(const FString Name);
 		
-	static bool CheckStateEntryCondition(const EEntryState EntryState, const int ActionFlags);
+	static bool CheckStateStanceCondition(const EEntryState EntryState, const int ActionFlags);
 	
 	void Update() const;
 };
