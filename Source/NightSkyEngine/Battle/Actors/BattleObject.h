@@ -740,6 +740,9 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackTarget = nullptr;
+
+	int32 ObjectStateIndex = 0;
+	bool bIsCommonState = false;
 	
 	//Anything past here isn't saved or loaded for rollback.
 	unsigned char ObjSyncEnd = 0;

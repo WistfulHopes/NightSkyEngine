@@ -7,38 +7,97 @@
 class APlayerObject;
 
 /**
- * 
+ * @brief The player object's state machine.
+ *
+ * Contains all player states and state names, as well as the currently active state.
  */
 USTRUCT()
 struct FStateMachine
 {
 	GENERATED_BODY()
 
+	/**
+	 * The currently active state.
+	 */
 	UPROPERTY()
 	UState* CurrentState;
+	/**
+	 * An array of all player states.
+	 */
 	UPROPERTY()
 	TArray<UState*> States;
+	/**
+	 * An array of all player state names.
+	 * Used to lookup states.
+	 */
 	UPROPERTY()
 	TArray<FString> StateNames;
+	/**
+	 * The parent of this state machine.
+	 */
 	UPROPERTY()
 	APlayerObject* Parent;
-	
-	void Initialize();	
+
+	/**
+	 * Adds a state to the state machine.
+	 * If no current state is set, the input state will be used as the current state.
+	 * Only call at the beginning of a match!
+	 */	
 	void AddState(const FString& Name, UState* Config);
-	
-	bool IsCurrentState(const FString Name) const
+
+	/**
+	 * Checks a name against the current state name.
+	 */	
+	FORCEINLINE bool IsCurrentState(const FString& Name) const
 	{
 		return CurrentState->Name == Name;
 	}
-
+	
+	/**
+	 * Gets the current state name.
+	 */	
 	FString GetStateName(int Index);
-	int GetStateIndex(FString Name);
-	
+	/**
+	 * Gets the current state index.
+	 */	
+	int GetStateIndex(FString Name) const;
+
+	/**
+	 * Sets the current state.
+	 * If attempting to set the state to the same as the current state, nothing will happen.
+	 * 
+	 * @param Name The state to set as current.
+	 * @return If the state was successfully set, return true. Otherwise return false.
+	 */
 	bool SetState(const FString Name);
+	/**
+	 * Sets the current state.
+	 * If the state to set is the same as the current state, the state will be reset.
+	 * 
+	 * @param Name The state to set as current.
+	 * @return If the state was successfully set, return true. Otherwise return false.
+	 */
 	bool ForceSetState(const FString Name);
+	/**
+	 * Sets the current state for rollback.
+	 * Code called when entering a state normally will not be called.
+	 * 
+	 * @param Name The state to set as current.
+	 * @return If the state was successfully set, return true. Otherwise return false.
+	 */
 	bool ForceRollbackState(const FString Name);
-		
-	static bool CheckStateStanceCondition(const EEntryState EntryState, const int ActionFlags);
-	
+
+	/**
+	 * Checks if the state allows the player's current stance.
+	 * 
+	 * @param StateStance The state's required stance.
+	 * @param PlayerStance The current player's stance.
+	 * @return If the state stance allows the player's stance, return true. Otherwise return false.
+	 */
+	static bool CheckStateStanceCondition(const EEntryStance StateStance, const int PlayerStance);
+
+	/**
+	 * Calls the current state's exec function.
+	 */
 	void Update() const;
 };

@@ -1505,6 +1505,10 @@ void ABattleObject::InitObject()
 		}
 	}
 	ObjectState->Parent = this;
+	if (bIsCommonState)
+		Player->CommonObjectStateUsed[ObjectStateIndex] = true;
+	else
+		Player->ObjectStateUsed[ObjectStateIndex] = true;
 	TriggerEvent(EVT_Enter);
 	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
@@ -1614,6 +1618,13 @@ void ABattleObject::ResetObject()
 		{
 			LinkedMesh->Deactivate();
 		}
+	}
+	if (Player)
+	{
+		if (bIsCommonState)
+			Player->CommonObjectStateUsed[ObjectStateIndex] = false;
+		else
+			Player->ObjectStateUsed[ObjectStateIndex] = false;
 	}
 	IsActive = false;
 	PosX = 0;
@@ -2339,9 +2350,15 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset,
 	EPosType PosType)
 {
-	const int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
+	int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
 	if (StateIndex != INDEX_NONE)
 	{
+		while (Player->CommonObjectStateUsed[StateIndex])
+		{
+			++StateIndex;
+			if (Player->CommonObjectStateNames[StateIndex] != InStateName) return nullptr;
+		}
+		
 		int32 FinalPosX, FinalPosY;
 		if (Direction == DIR_Left)
 			PosXOffset = -PosXOffset;
@@ -2354,13 +2371,13 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 P
 			if (Player->ChildBattleObjects[i] == nullptr)
 			{
 				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, Player);
+					FinalPosX, FinalPosY, Direction, StateIndex, true, Player);
 				return Player->ChildBattleObjects[i];
 			}
 			if (!Player->ChildBattleObjects[i]->IsActive)
 			{
 				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, Player);
+					FinalPosX, FinalPosY, Direction, StateIndex, true, Player);
 				return Player->ChildBattleObjects[i];
 			}
 		}
@@ -2370,9 +2387,15 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 P
 
 ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
 {
-	const int StateIndex = Player->ObjectStateNames.Find(InStateName);
+	int StateIndex = Player->ObjectStateNames.Find(InStateName);
 	if (StateIndex != INDEX_NONE)
 	{
+		while (Player->ObjectStateUsed[StateIndex])
+		{
+			++StateIndex;
+			if (Player->ObjectStateNames[StateIndex] != InStateName) return nullptr;
+		}
+		
 		int32 FinalPosX, FinalPosY;
 		if (Direction == DIR_Left)
 			PosXOffset = -PosXOffset;
@@ -2385,13 +2408,13 @@ ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOff
 			if (Player->ChildBattleObjects[i] == nullptr)
 			{
 				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->ObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, Player);
+					FinalPosX, FinalPosY, Direction, StateIndex, false, Player);
 				return Player->ChildBattleObjects[i];
 			}
 			if (!Player->ChildBattleObjects[i]->IsActive)
 			{
 				Player->ChildBattleObjects[i] = GameState->AddBattleObject(Player->ObjectStates[StateIndex],
-					FinalPosX, FinalPosY, Direction, Player);
+					FinalPosX, FinalPosY, Direction, StateIndex, false, Player);
 				return Player->ChildBattleObjects[i];
 			}
 		}

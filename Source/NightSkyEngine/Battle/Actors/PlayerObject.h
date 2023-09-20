@@ -328,9 +328,11 @@ public:
 	UPROPERTY()
 	TArray<UState*> CommonObjectStates;
 	TArray<FString> CommonObjectStateNames;	
+	TArray<bool> CommonObjectStateUsed;	
 	UPROPERTY()
 	TArray<UState*> ObjectStates;
 	TArray<FString> ObjectStateNames;	
+	TArray<bool> ObjectStateUsed;	
 
 	/*
 	 * Data assets

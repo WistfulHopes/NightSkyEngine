@@ -107,7 +107,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
                 {
                     continue;
                 }
-				for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionList)
+				for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionLists)
 				{
 					for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
 					{
@@ -132,13 +132,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 									GotoLabelActive = false;
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
-									case EEntryState::Standing:
+									case EEntryStance::Standing:
 										Stance = ACT_Standing;
 										break;
-									case EEntryState::Crouching:
+									case EEntryStance::Crouching:
 										Stance = ACT_Crouching;
 										break;
-									case EEntryState::Jumping:
+									case EEntryStance::Jumping:
 										Stance = ACT_Jumping;
 										break;
 									default:
@@ -159,13 +159,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 									GotoLabelActive = false;
 									switch (StoredStateMachine.States[i]->EntryState)
 									{
-									case EEntryState::Standing:
+									case EEntryStance::Standing:
 										Stance = ACT_Standing;
 										break;
-									case EEntryState::Crouching:
+									case EEntryStance::Crouching:
 										Stance = ACT_Crouching;
 										break;
-									case EEntryState::Jumping:
+									case EEntryStance::Jumping:
 										Stance = ACT_Jumping;
 										break;
 									default:
@@ -188,13 +188,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							GotoLabelActive = false;
 							switch (StoredStateMachine.States[i]->EntryState)
 							{
-							case EEntryState::Standing:
+							case EEntryStance::Standing:
 								Stance = ACT_Standing;
 								break;
-							case EEntryState::Crouching:
+							case EEntryStance::Crouching:
 								Stance = ACT_Crouching;
 								break;
-							case EEntryState::Jumping:
+							case EEntryStance::Jumping:
 								Stance = ACT_Jumping;
 								break;
 							default:
@@ -209,7 +209,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 		}
 		else
 		{
-			for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionList)
+			for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionLists)
 			{
 				for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
 				{
@@ -234,13 +234,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								GotoLabelActive = false;
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
-								case EEntryState::Standing:
+								case EEntryStance::Standing:
 									Stance = ACT_Standing;
 									break;
-								case EEntryState::Crouching:
+								case EEntryStance::Crouching:
 									Stance = ACT_Crouching;
 									break;
-								case EEntryState::Jumping:
+								case EEntryStance::Jumping:
 									Stance = ACT_Jumping;
 									break;
 								default:
@@ -261,13 +261,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								GotoLabelActive = false;
 								switch (StoredStateMachine.States[i]->EntryState)
 								{
-								case EEntryState::Standing:
+								case EEntryStance::Standing:
 									Stance = ACT_Standing;
 									break;
-								case EEntryState::Crouching:
+								case EEntryStance::Crouching:
 									Stance = ACT_Crouching;
 									break;
-								case EEntryState::Jumping:
+								case EEntryStance::Jumping:
 									Stance = ACT_Jumping;
 									break;
 								default:
@@ -290,13 +290,13 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 						GotoLabelActive = false;
 						switch (StoredStateMachine.States[i]->EntryState)
 						{
-						case EEntryState::Standing:
+						case EEntryStance::Standing:
 							Stance = ACT_Standing;
 							break;
-						case EEntryState::Crouching:
+						case EEntryStance::Crouching:
 							Stance = ACT_Crouching;
 							break;
-						case EEntryState::Jumping:
+						case EEntryStance::Jumping:
 							Stance = ACT_Jumping;
 							break;
 						default:
@@ -371,7 +371,7 @@ void APlayerObject::Update()
 				if (!CanProximityThrow)
 				{
 					const auto ThrowState = StoredStateMachine.States[StoredStateMachine.GetStateIndex("Throw")];
-					for (auto InputConditionList : ThrowState->InputConditionList)
+					for (auto InputConditionList : ThrowState->InputConditionLists)
 					{
 						IsTech = true;
 						for (auto InputCondition : InputConditionList.InputConditions)
@@ -1432,13 +1432,13 @@ void APlayerObject::HandleBufferedState()
 				GotoLabelActive = false;
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
-				case EEntryState::Standing:
+				case EEntryStance::Standing:
 					Stance = ACT_Standing;
 					break;
-				case EEntryState::Crouching:
+				case EEntryStance::Crouching:
 					Stance = ACT_Crouching;
 					break;
-				case EEntryState::Jumping:
+				case EEntryStance::Jumping:
 					Stance = ACT_Jumping;
 					break;
 				default:
@@ -1454,13 +1454,13 @@ void APlayerObject::HandleBufferedState()
 				GotoLabelActive = false;
 				switch (StoredStateMachine.CurrentState->EntryState)
 				{
-				case EEntryState::Standing:
+				case EEntryStance::Standing:
 					Stance = ACT_Standing;
 					break;
-				case EEntryState::Crouching:
+				case EEntryStance::Crouching:
 					Stance = ACT_Crouching;
 					break;
-				case EEntryState::Jumping:
+				case EEntryStance::Jumping:
 					Stance = ACT_Jumping;
 					break;
 				default:
@@ -1876,11 +1876,13 @@ void APlayerObject::AddObjectState(FString Name, UState* State, bool IsCommon)
 	{
 		CommonObjectStates.Add(State);
 		CommonObjectStateNames.Add(Name);
+		CommonObjectStateUsed.Add(false);
 	}
 	else
 	{
 		ObjectStates.Add(State);
 		ObjectStateNames.Add(Name);
+		ObjectStateUsed.Add(false);
 	}
 }
 
@@ -1957,13 +1959,13 @@ void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 	{
 		switch (StoredStateMachine.CurrentState->EntryState)
 		{
-		case EEntryState::Standing:
+		case EEntryStance::Standing:
 			Stance = ACT_Standing;
 			break;
-		case EEntryState::Crouching:
+		case EEntryStance::Crouching:
 			Stance = ACT_Crouching;
 			break;
-		case EEntryState::Jumping:
+		case EEntryStance::Jumping:
 			Stance = ACT_Jumping;
 			break;
 		default:

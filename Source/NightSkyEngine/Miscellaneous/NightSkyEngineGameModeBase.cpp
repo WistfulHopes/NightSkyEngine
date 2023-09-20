@@ -5,7 +5,7 @@
 #include "OnlineSubsystem.h"
 #include "OnlineSubsystemUtils.h"
 #include "Kismet/GameplayStatics.h"
-#include "Miscellaneous/NightSkyGameInstance.h"
+#include "NightSkyGameInstance.h"
 
 void ANightSkyEngineGameModeBase::RegisterExistingPlayers()
 {

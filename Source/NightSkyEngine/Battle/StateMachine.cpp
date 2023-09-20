@@ -1,21 +1,6 @@
 ﻿#include "StateMachine.h"
 #include "Actors/PlayerObject.h"
 
-void FStateMachine::Initialize()
-{
-	for (auto State : States)
-	{
-		State->Parent = Parent;
-		StateNames.Add(State->Name);
-		if (CurrentState == nullptr)
-		{
-			CurrentState = State;
-			Parent->TriggerEvent(EVT_Enter);
-			Update();
-		}
-	}
-}
-
 void FStateMachine::AddState(const FString& Name, UState* Config)
 {
 	Config->Parent = Parent;
@@ -38,7 +23,7 @@ FString FStateMachine::GetStateName(int Index)
 	return "";
 }
 
-int FStateMachine::GetStateIndex(FString Name)
+int FStateMachine::GetStateIndex(FString Name) const
 {
 	return StateNames.Find(Name);
 }
@@ -97,14 +82,14 @@ bool FStateMachine::ForceRollbackState(const FString Name)
 	return true;
 }
 
-bool FStateMachine::CheckStateStanceCondition(const EEntryState EntryState, const int ActionFlags)
+bool FStateMachine::CheckStateStanceCondition(const EEntryStance StateStance, const int PlayerStance)
 {
-	if ((EntryState == EEntryState::Standing && ActionFlags == ACT_Standing)
-	|| (EntryState == EEntryState::Standing && ActionFlags == ACT_Crouching)
-	|| (EntryState == EEntryState::Crouching && ActionFlags == ACT_Standing)
-	|| (EntryState == EEntryState::Crouching && ActionFlags == ACT_Crouching)
-	|| (EntryState == EEntryState::Jumping && ActionFlags == ACT_Jumping)
-	|| EntryState == EEntryState::None)
+	if ((StateStance == EEntryStance::Standing && PlayerStance == ACT_Standing)
+	|| (StateStance == EEntryStance::Standing && PlayerStance == ACT_Crouching)
+	|| (StateStance == EEntryStance::Crouching && PlayerStance == ACT_Standing)
+	|| (StateStance == EEntryStance::Crouching && PlayerStance == ACT_Crouching)
+	|| (StateStance == EEntryStance::Jumping && PlayerStance == ACT_Jumping)
+	|| StateStance == EEntryStance::None)
 	{
 		return true;
 	}

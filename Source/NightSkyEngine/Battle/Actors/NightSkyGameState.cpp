@@ -666,8 +666,14 @@ void ANightSkyGameState::StartSuperFreeze(int Duration)
 	BattleState.PauseTimer = true;
 }
 
-ABattleObject* ANightSkyGameState::AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir,
-                                                   APlayerObject* Parent) const
+ABattleObject* ANightSkyGameState::AddBattleObject(
+	const UState* InState,
+	int PosX,
+	int PosY,
+	EObjDir Dir,
+	int32 ObjectStateIndex,
+	bool bIsCommonState,
+	APlayerObject* Parent) const
 {
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
@@ -680,6 +686,8 @@ ABattleObject* ANightSkyGameState::AddBattleObject(const UState* InState, int Po
 			Objects[i]->Player = Parent;
 			Objects[i]->PosX = PosX;
 			Objects[i]->PosY = PosY;
+			Objects[i]->ObjectStateIndex = ObjectStateIndex;
+			Objects[i]->bIsCommonState = bIsCommonState;
 			Objects[i]->InitObject();
 			return Objects[i];
 		}
