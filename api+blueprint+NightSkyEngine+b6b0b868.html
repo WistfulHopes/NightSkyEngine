@@ -1,0 +1,3534 @@
+  <!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="color-scheme" content="light dark">
+
+
+  <meta name="generator" content="surreal-docs-"/>
+
+  <title>Battle Object - Night Sky Engine Docs</title>
+
+  <link rel="stylesheet" href="localres/styles/udocs_processor/theme1.css"
+      type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&family=Red+Hat+Mono:wght@300;400;500;600;700&family=Red+Hat+Text:wght@300;400;500;600;700&display=block" rel="stylesheet">
+</head>
+<body>
+<script>
+  let currentTheme = localStorage.getItem("theme");
+  if (!currentTheme) {
+    currentTheme = "light";
+    localStorage.setItem("theme", currentTheme);
+  }
+  document.body.dataset.theme = currentTheme;
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="big-header" id="big-header">
+  <aside class="big-header-content">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="brand">
+      <div class="brand-container">
+        <a class="brand-link" href="docs+cb2fdb5b.html">
+          <span class="brand-text">NightSkyEngine</span>
+        </a>
+        <span class="version-picker
+" id="version-picker">
+          <span class="version-picker-text
+              "
+>
+            1.0.0
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </aside>
+</div>
+
+
+<div class="page">
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      <div class="sidebar-sticky">
+        <div class="sidebar-tree">
+              <p class="caption" role="heading">
+                <span class="caption-text">Getting started</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+cb2fdb5b.html">Night Sky Engine</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+f8be04f5.html">About Night Sky Engine</a>
+  
+</li>
+
+<li class="toctree-l1 has-children
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+d3f96377.html">Quick Start Guide</a>
+  
+  <input class="toctree-checkbox" id="toctree-checkbox-2"
+         name="toctree-checkbox-2" role="switch" type="checkbox"
+         />
+  <label for="toctree-checkbox-2">
+    <div class="visually-hidden">Toggle child pages in navigation</div>
+    <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label>
+  <ul>
+    <li class="toctree-l2 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+d3f96377+2d17a2ea.html">Install</a>
+  
+</li>
+
+<li class="toctree-l2 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+d3f96377+34b8aec3.html">Getting your bearings</a>
+  
+</li>
+
+
+  </ul>
+  
+</li>
+
+
+            </ul>
+              <p class="caption" role="heading">
+                <span class="caption-text">Documentation</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="api+cpp.html">C++ API Reference</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="api+blueprint.html">Blueprint API Reference</a>
+  
+</li>
+
+
+            </ul>
+              <p class="caption" role="heading">
+                <span class="caption-text">Socials</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  external" target="_blank"
+  href="https://twitter.com/WistfulHopes">Follow me on Twitter</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  external" target="_blank"
+  href="https://discord.gg/mJTU9PV7jH">Join the Discord server</a>
+  
+</li>
+
+
+            </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="main-article" class="">
+          <ul class="breadcrumbs"><!--
+         --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              --><a href="api+blueprint.html" title="Blueprint API Reference">Blueprint API Reference</a></li><!--
+          --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              --><a href="api+blueprint+NightSkyEngine.html" title="NightSkyEngine">NightSkyEngine</a></li><!--
+          --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              -->Battle Object</li><!--
+          --><!--
+          --></ul>
+<section id="actor" class="api-article">
+    <div class="api-header">
+    <p class="api-enity-type"><!--
+    -->Native-defined blueprint <!--
+    -->actor</p>
+<p class="api-counterpart">
+  <a href="api+cpp+NightSkyEngine+e03943b7.html">
+    [go to native definition]
+  </a>
+</p>
+    </div>
+    <h1><span class="api-name">Battle Object</span><a class="headerlink"
+        href="#actor"
+        title="Permalink to this heading">#</a>
+    </h1>
+    <ul class="api-definition-options"><!--
+     --><!--
+        --><span class="api-definition-option">Inherits
+Pawn</span><!--
+     --><li class="api-definition-option">Blueprint type</li><li class="api-definition-option">Blueprintable</li><!--
+    --></ul>
+        <ul><li>A battle object.</li><li>These are any objects that affect gameplay, or need values to change after being spawned.</li></ul>
+    <section id="functions">
+        <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+        <ul class="api-sub-index api-sub-index-blueprint">
+            <li class="api-blueprint-function-preview">
+                <div class="api-access">public<div class="api-line"></div></div>
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f91bb3e5.html"><!--
+                      --><span class="api-name">Add Battle Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+25ee4a3.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f91bb3e5.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Add Battle Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/f91bb3e5.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates object</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+743b77b1.html"><!--
+                      --><span class="api-name">Add Common Battle Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+ea1937e3.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+743b77b1.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Add Common Battle Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/743b77b1.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates common object</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+52f90080.html"><!--
+                      --><span class="api-name">Add Pos XWith Dir<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+7b386696.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+52f90080.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Add Pos XWith Dir" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/52f90080.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>adds x position</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+35ed2391.html"><!--
+                      --><span class="api-name">Add Speed XRaw<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+fef377ae.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+35ed2391.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Add Speed XRaw" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/35ed2391.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>adds x speed</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+645cd7d4.html"><!--
+                      --><span class="api-name">Attach to Socket Of Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+68192c2f.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+645cd7d4.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Attach to Socket Of Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/645cd7d4.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>attaches object to skeletal socket</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+7801406a.html"><!--
+                      --><span class="api-name">Calculate Distance Between Points<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+9469858a.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+7801406a.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Calculate Distance Between Points" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/7801406a.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>calculates distance between points</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9b06f209.html"><!--
+                      --><span class="api-name">Call Subroutine<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+d9506653.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9b06f209.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Call Subroutine" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/9b06f209.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+a976d148.html"><!--
+                      --><span class="api-name">Call Subroutine with Args<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+aa8bb9c6.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+a976d148.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Call Subroutine with Args" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/a976d148.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>calls subroutine</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+db190f88.html"><!--
+                      --><span class="api-name">Camera Shake<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+d56c5256.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+db190f88.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Camera Shake" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/db190f88.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+5f8e1fb0.html"><!--
+                      --><span class="api-name">Check Is Grounded<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+9b86ac9c.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+5f8e1fb0.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Check Is Grounded" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/5f8e1fb0.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>check if grounded</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6fff3f54.html"><!--
+                      --><span class="api-name">Collision View<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+521290f8.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6fff3f54.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Collision View" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/6fff3f54.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f469e892.html"><!--
+                      --><span class="api-name">Create Chara Particle<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+56f010a8.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f469e892.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Create Chara Particle" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/f469e892.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates character particle</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e0de576c.html"><!--
+                      --><span class="api-name">Create Common Particle<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+26ebf64a.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e0de576c.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Create Common Particle" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e0de576c.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates common particle</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9a271191.html"><!--
+                      --><span class="api-name">Deactivate Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+c1f2a3ca.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9a271191.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Deactivate Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/9a271191.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>Cannot be called on player objects. Deactivates the object and returns it to the pool.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+a1d4b615.html"><!--
+                      --><span class="api-name">Detach from Socket<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+c86597f0.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+a1d4b615.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Detach from Socket" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/a1d4b615.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>detaches object from skeletal socket</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+b7bf05b.html"><!--
+                      --><span class="api-name">Disable Inertia<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+3de419e6.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+b7bf05b.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Disable Inertia" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/b7bf05b.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>disables inertia</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+b70ecd54.html"><!--
+                      --><span class="api-name">Enable Deactivate if Beyond Bounds<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+7b5fe345.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+b70ecd54.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Deactivate if Beyond Bounds" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/b70ecd54.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>if object goes beyond screen bounds, deactivate</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+11b1c7a3.html"><!--
+                      --><span class="api-name">Enable Deactivate on Receive Hit<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+4daa17c0.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+11b1c7a3.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Deactivate on Receive Hit" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/11b1c7a3.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>if player receives hit, deactivate</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+5e7096e9.html"><!--
+                      --><span class="api-name">Enable Deactivate on State Change<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+b60f5df9.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+5e7096e9.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Deactivate on State Change" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/5e7096e9.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>if player changes state, deactivate</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f4fb5547.html"><!--
+                      --><span class="api-name">Enable Flip<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+87d59e5d.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f4fb5547.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Flip" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/f4fb5547.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>enables flip</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+45f43c90.html"><!--
+                      --><span class="api-name">Enable Hit<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+f8b3c602.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+45f43c90.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Hit" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/45f43c90.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>enables hit</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+75fe7be.html"><!--
+                      --><span class="api-name">Enable Inertia<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+212190aa.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+75fe7be.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Enable Inertia" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/75fe7be.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>enables inertia</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+806d921b.html"><!--
+                      --><span class="api-name">Face Opponent<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+2fba4f2c.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+806d921b.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Face Opponent" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/806d921b.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>forcibly face opponent</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9a6eb088.html"><!--
+                      --><span class="api-name">Flip Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+8853baca.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+9a6eb088.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Flip Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/9a6eb088.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>flips character</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+aebc5e1b.html"><!--
+                      --><span class="api-name">Get Anim Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+cdbd2d63.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+aebc5e1b.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Get Anim Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/aebc5e1b.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>gets anim name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e3548b72.html"><!--
+                      --><span class="api-name">Get Battle Object<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+b7e882a6.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e3548b72.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Get Battle Object" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e3548b72.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>gets object by type</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e81cdcc5.html"><!--
+                      --><span class="api-name">Get Blend Anim Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+ad5d422.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e81cdcc5.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Get Blend Anim Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e81cdcc5.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>gets blend anim name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6dd87a9c.html"><!--
+                      --><span class="api-name">Get Cel Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+d29653a6.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6dd87a9c.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Get Cel Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/6dd87a9c.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>gets cel name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+fabef312.html"><!--
+                      --><span class="api-name">Get Label Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+cd906727.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+fabef312.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Get Label Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/fabef312.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>gets label name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+2f22eca8.html"><!--
+                      --><span class="api-name">Goto Label<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+d08bc817.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+2f22eca8.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Goto Label" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/2f22eca8.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>jumps to label</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+3ba7ac64.html"><!--
+                      --><span class="api-name">Halt Momentum<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+392c54e1.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+3ba7ac64.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Halt Momentum" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/3ba7ac64.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>halts momentum</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f32cb37c.html"><!--
+                      --><span class="api-name">Init Event Handler<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+237d3033.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+f32cb37c.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Init Event Handler" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/f32cb37c.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>initializes event handler</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+40f87b4d.html"><!--
+                      --><span class="api-name">Link Chara Flipbook<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+4a33f8ee.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+40f87b4d.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Link Chara Flipbook" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/40f87b4d.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates character flipbook and attaches it to the object. can only be used with non-player objects.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+8d55d2f2.html"><!--
+                      --><span class="api-name">Link Chara Particle<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+879e5151.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+8d55d2f2.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Link Chara Particle" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/8d55d2f2.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates character particle and attaches it to the object. can only be used with non-player objects.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+4ccc518b.html"><!--
+                      --><span class="api-name">Link Common Flipbook<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+604b850d.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+4ccc518b.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Link Common Flipbook" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/4ccc518b.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates common flipbook and attaches it to the object. can only be used with non-player objects.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+8161f834.html"><!--
+                      --><span class="api-name">Link Common Particle<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+ade62cb2.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+8161f834.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Link Common Particle" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/8161f834.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>creates common particle and attaches it to the object. can only be used with non-player objects.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e97deb08.html"><!--
+                      --><span class="api-name">Play Chara Sound<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+b3db30f1.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e97deb08.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Play Chara Sound" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e97deb08.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>plays chara sound</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+59e0f43f.html"><!--
+                      --><span class="api-name">Play Common Sound<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+fdb31680.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+59e0f43f.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Play Common Sound" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/59e0f43f.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>plays common sound</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e8aafe89.html"><!--
+                      --><span class="api-name">Remove Event Handler<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+b41f94a9.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e8aafe89.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Remove Event Handler" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e8aafe89.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>initializes event handler</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e2fcdfce.html"><!--
+                      --><span class="api-name">Set Attacking<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+327dd4dd.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+e2fcdfce.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Attacking" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/e2fcdfce.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+c848e525.html"><!--
+                      --><span class="api-name">Set Blend Cel Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+b6e1f8e4.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+c848e525.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Blend Cel Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/c848e525.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets cel name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+cadc44ab.html"><!--
+                      --><span class="api-name">Set Cel Name<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+19a279ba.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+cadc44ab.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Cel Name" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/cadc44ab.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets cel name</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+964a9ba0.html"><!--
+                      --><span class="api-name">Set Facing<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+ce3b1f55.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+964a9ba0.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Facing" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/964a9ba0.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets direction</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+eeb477a9.html"><!--
+                      --><span class="api-name">Set Ignore OTG<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+7c95a87d.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+eeb477a9.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Ignore OTG" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/eeb477a9.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6a2704e0.html"><!--
+                      --><span class="api-name">Set Object ID<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+1f24819b.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6a2704e0.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Object ID" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/6a2704e0.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets object id</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+c00bc89e.html"><!--
+                      --><span class="api-name">Set Projectile Attribute<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+5724808c.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+c00bc89e.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Projectile Attribute" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/c00bc89e.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+703828b7.html"><!--
+                      --><span class="api-name">Set Prorate Once<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+3397b8c4.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+703828b7.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Prorate Once" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/703828b7.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+</div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+fa7a72ff.html"><!--
+                      --><span class="api-name">Set Push Collision Active<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+637b45d5.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+fa7a72ff.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Push Collision Active" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/fa7a72ff.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>should push collision be used?</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+1b2525e9.html"><!--
+                      --><span class="api-name">Set Push Width Extend<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+cbaac4f0.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+1b2525e9.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Push Width Extend" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/1b2525e9.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>set push width extend</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+29c425a2.html"><!--
+                      --><span class="api-name">Set Speed XRaw<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+a5d41640.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+29c425a2.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Speed XRaw" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/29c425a2.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets x speed</p></div>
+            </li>
+            <li class="api-blueprint-function-preview">
+                <ul class="api-options">
+                    <li class="api-option"><!--
+                    --><a class="api-index-link api-index-link-blueprint"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6236f270.html"><!--
+                      --><span class="api-name">Set Time Until Next Cel<!--
+                    --><span class="api-end-select">&</span></span></a><!--
+                      --></li><!--                    --><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+cpp+NightSkyEngine+e03943b7+68eda528.html">Native definition</a>
+</li>
+                </ul>
+                <div class="api-blueprint-function"><!--
+                    --><a class="api-index-link api-index-link-blueprint
+"
+                          href="api+blueprint+NightSkyEngine+b6b0b868+6236f270.html"><!--
+                    --><div class="api-blueprint-function-signature"><!--
+                    --><img alt="Set Time Until Next Cel" srcset="images/generated/api/blueprint/NightSkyEngine/b6b0b868/6236f270.png 2.7x"
+                             class="api-blueprint-function-signature-image"/><!--
+                    --></div></a>
+                </div>
+                <div class="api-sub-index-description">
+<p>sets time until next cel</p></div>
+            </li>
+        </ul>
+    </section>
+<section id="properties">
+    <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
+    <ul class="api-sub-index api-sub-index-blueprint">
+        <li>
+            <div class="api-access">public<div class="api-line"></div></div>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 1<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 1</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>The following values are per-action registers. Shared between the player and its child objects.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 2<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 2</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 3<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 3</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 4<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 4</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 5<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 5</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 6<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 6</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 7<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 7</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Reg 8<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Reg 8</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Action Time<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Action Time</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <ul><li>Action data</li></ul>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Add Color<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span>Linear Color Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Add Color</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Add Fade Color<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span>Linear Color Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Add Fade Color</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Add Fade Speed<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_float_.png"/></span><span>Float</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Add Fade Speed</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0.0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Anim Frame<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Anim Frame</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Attack Target<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/actor_object_.png"/></span><span><a href="api+blueprint+NightSkyEngine+b6b0b868.html" title="Battle Object">Battle Object</a> Object Reference</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Attack Target</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">None</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Blend Anim Frame<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Blend Anim Frame</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Blend Offset<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_bool_.png"/></span><span>Boolean</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Blend Offset</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">false</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Cel Index<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Cel Index</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>The index of the current cel in blueprint.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Counter Hit<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span><a href="api+blueprint+NightSkyEngine+de63967b.html" title="Hit Data">Hit Data</a> Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Counter Hit</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Direction<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_enum_.png"/></span><span>EObj Dir Enum</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Direction</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">DIR_Right</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Frame Blend Position<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_float_.png"/></span><span>Float</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Frame Blend Position</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0.0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Goto Label Active<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_bool_.png"/></span><span>Boolean</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Goto Label Active</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">false</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>Are we jumping to a label right now?</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Gravity<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Gravity</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">1900</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Ground Height<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Ground Height</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>The minimum Y position before considered grounded.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Hit Common<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span><a href="api+blueprint+NightSkyEngine+67f1c3c7.html" title="Hit Data Common">Hit Data Common</a> Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Hit Common</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <ul><li>Attack data</li></ul>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Inertia<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Inertia</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>Inertia adds to the position every frame, but also decays every frame until it reaches zero.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Mul Color<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span>Linear Color Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Mul Color</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>material parameters</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Mul Fade Color<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span>Linear Color Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Mul Fade Color</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Mul Fade Speed<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_float_.png"/></span><span>Float</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Mul Fade Speed</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0.0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Normal Hit<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_struct_.png"/></span><span><a href="api+blueprint+NightSkyEngine+de63967b.html" title="Hit Data">Hit Data</a> Struct</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Normal Hit</span></span><!--
+                    --><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 1<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 1</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>The following values are per-object registers.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 2<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 2</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 3<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 3</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 4<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 4</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 5<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 5</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 6<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 6</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 7<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 7</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Object Reg 8<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Object Reg 8</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Ortho Blend Active<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_float_.png"/></span><span>Float</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Ortho Blend Active</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0.0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Player<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/actor_object_.png"/></span><span><a href="api+blueprint+NightSkyEngine+ec14237d.html" title="Player Object">Player Object</a> Object Reference</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Player</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">None</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>Pointer to player object. If this is not a player, it will point to the owning player.</p>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Pos X<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Pos X</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <ul><li>Movement and position values</li></ul>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Pos Y<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Pos Y</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Pos Z<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Pos Z</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Scale for Link<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_vector_.png"/></span><span>Vector</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Scale for Link</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">1, 1, 1</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <ul><li>Link data (for object)</li></ul>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Screen Space Depth Offset<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_float_.png"/></span><span>Float</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Screen Space Depth Offset</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0.0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed X<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed X</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed XRate<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed XRate</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed XRate Per Frame<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed XRate Per Frame</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed Y<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                --><span class="api-option">Instance and archetype editable</span><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed Y</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed YRate<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed YRate</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed YRate Per Frame<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed YRate Per Frame</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed Z<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed Z</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed ZRate<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed ZRate</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Speed ZRate Per Frame<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Speed ZRate Per Frame</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">100</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Subroutine Reg 1<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Subroutine Reg 1</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <ul><li>Subroutine registers. These are set when calling a subroutine, and reset upon round end.</li></ul>
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Subroutine Reg 2<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Subroutine Reg 2</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Subroutine Reg 3<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Subroutine Reg 3</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Subroutine Reg 4<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Subroutine Reg 4</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+            </div>
+        </li>
+        <li>
+            <ul class="api-options">
+                <li class="api-option"><span class="api-name">Time Until Next Cel<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                --><!--
+                --><li class="api-option">Read-only</li><!--
+                --><!--
+                --><!--
+                -->            </ul>
+            <div class="api-blueprint-property">
+                <div class="api-preview-definition-bp">
+                    <span class="api-blueprint-parameter-type"><span class="api-blueprint-type"><!--
+--><span class="api-blueprint-type-type"><!--
+--><span class="api-blueprint-type-image-wrapper"><!--
+--><img class="api-blueprint-type-image"
+        src="images/generated/plain_integer_.png"/></span><span>Integer</span></span><!--
+--><!--
+--></span><!--
+--></span>
+<!--
+                    --><span class="api-blueprint-parameter-name"><!--
+                    --><span class="api-name">Time Until Next Cel</span></span><!--
+                    --><!--
+                       --><span class="api-blueprint-parameter-default api-spaces"><!--
+                        --> = <span class="api-name">0</span><!--
+                    --></span><!--
+                    -->                </div>
+            </div>
+            <div class="api-sub-index-description">
+                    <p>How long until the next cel activates.</p>
+            </div>
+        </li>
+    </ul>
+</section>
+</section>
+        </article>
+      </div>
+      <footer>
+        <div class="related-pages">
+        </div>
+<div class="last-updated">
+          Last updated 
+    22
+    September
+    
+    2023
+
+
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright © 2023, WistfulHopes
+            </div>
+            <div class="powered-by">
+            🗲 Powered by
+            <a href="https://surrealdocs.com" class="reference">Surreal Docs</a>
+            </div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+
+            </div>
+            <div style="padding: 1em; background-color: red;height: 1em;color: white; display: flex; align-items: center; justify-content: center;">
+              This page is generated by&nbsp;<a href="https://medelfor.com" target="_blank" style="color: white; text-decoration-color: white;">Surreal Docs</a>&nbsp;for free
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree" id="toc-tree"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+<ul class="available-versions" id="available-versions">
+</ul>
+<!-- You aren't allowed to be here -->
+<script src="localres/scripts/udocs_processor/theme/theme1/theme1.bundle.js"></script>
+</body>
+</html>
