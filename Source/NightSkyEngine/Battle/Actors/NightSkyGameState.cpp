@@ -740,12 +740,25 @@ void ANightSkyGameState::UpdateCamera()
 				FFrameTime(BattleState.CurrentSequenceTime),
 				EUpdatePositionMethod::Scrub);
 			SequenceActor->SequencePlayer->SetPlaybackPosition(Params);
+			if (SequenceTarget->Direction == DIR_Left)
+			{
+				auto NewCamLocation = SequenceCameraActor->GetActorLocation();
+				NewCamLocation.X = -(NewCamLocation.X - SequenceTarget->GetActorLocation().X) + SequenceTarget->GetActorLocation().X;
+				SequenceCameraActor->SetActorLocation(NewCamLocation);
+				auto NewCamRotation = SequenceCameraActor->GetActorRotation();
+				NewCamRotation.Yaw = -NewCamRotation.Yaw - 180;
+				SequenceCameraActor->SetActorRotation(NewCamRotation);
+
+				auto NewEnemyLocation = SequenceEnemy->GetActorLocation();
+				NewEnemyLocation.X = -(NewEnemyLocation.X - static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE) + static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE;
+				SequenceEnemy->SetActorLocation(NewEnemyLocation);
+			}
 		}
 	}
 	bIsPlayingSequence = BattleState.IsPlayingSequence;
 }
 
-void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence)
+void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence)
 {
 	if (SequenceActor != nullptr)
 	{
@@ -762,6 +775,19 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 
 			FMovieSceneObjectBindingID BindingId = FMovieSceneObjectBindingID(MovieSceneBinding.GetObjectGuid());
 			SequenceActor->SetBinding(BindingId, TArray<AActor*>{ Target });
+
+			break;
+		}
+		for (int i = 0; i < NumBindings; i++)
+		{
+			FMovieSceneBinding MovieSceneBinding = Bindings[i];
+			if (!MovieSceneBinding.GetName().Equals("Enemy"))
+			{
+				continue;
+			}
+
+			FMovieSceneObjectBindingID BindingId = FMovieSceneObjectBindingID(MovieSceneBinding.GetObjectGuid());
+			SequenceActor->SetBinding(BindingId, TArray<AActor*>{ Enemy });
 
 			break;
 		}
@@ -792,6 +818,7 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, ULevelSequence
 			break;
 		}
 		SequenceTarget = Target;
+		SequenceEnemy = Enemy;
 		FVector SequenceLocation = FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z) + BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
 		SequenceCameraActor->SetActorLocation(SequenceLocation);
 		SequenceActor->SetActorRotation(Target->GetActorRotation());

@@ -498,6 +498,8 @@ void APlayerObject::Update()
 		StrikeInvulnerableTimer--;
 	if (ThrowInvulnerableTimer > 0)
 		ThrowInvulnerableTimer--;
+	if (ThrowResistTimer > 0)
+		ThrowResistTimer--;
 	
 	if (PosY > GroundHeight) //set jumping if above ground
 		Stance = ACT_Jumping;
@@ -579,7 +581,7 @@ void APlayerObject::Update()
 		}
 	}
 	
-	if (StoredStateMachine.CurrentState->StateType == EStateType::Tech)
+	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
 	{
 		OTGCount = 0;
 	}
@@ -1191,15 +1193,13 @@ void APlayerObject::PlayVoiceLine(FString Name)
 
 void APlayerObject::PlayCommonLevelSequence(FString Name)
 {
-	if (Direction == DIR_Left)
-		Name += "Flip";
 	if (CommonSequenceData != nullptr)
 	{
 		for (FSequenceStruct SequenceStruct : CommonSequenceData->SequenceStructs)
 		{
 			if (SequenceStruct.Name == Name)
 			{
-				GameState->PlayLevelSequence(this, SequenceStruct.Sequence);
+				GameState->PlayLevelSequence(this, Enemy, SequenceStruct.Sequence);
 			}
 		}
 	}
@@ -1207,15 +1207,13 @@ void APlayerObject::PlayCommonLevelSequence(FString Name)
 
 void APlayerObject::PlayLevelSequence(FString Name)
 {
-	if (Direction == DIR_Left)
-		Name += "Flip";
 	if (SequenceData != nullptr)
 	{
 		for (FSequenceStruct SequenceStruct : SequenceData->SequenceStructs)
 		{
 			if (SequenceStruct.Name == Name)
 			{
-				GameState->PlayLevelSequence(this, SequenceStruct.Sequence);
+				GameState->PlayLevelSequence(this, Enemy, SequenceStruct.Sequence);
 			}
 		}
 	}
@@ -1678,8 +1676,8 @@ void APlayerObject::ThrowExe()
 
 void APlayerObject::HandleThrowCollision()
 {
-	if ((Enemy->InvulnFlags & INV_ThrowInvulnerable) == 0
-		&& !Enemy->ThrowInvulnerableTimer && !Enemy->CheckIsStunned()
+	if ((Enemy->InvulnFlags & INV_ThrowInvulnerable) == 0 && !Enemy->ThrowInvulnerableTimer
+		&& !Enemy->ThrowResistTimer && !Enemy->CheckIsStunned()
 		&& ((Enemy->PosY <= GroundHeight && PosY <= GroundHeight)
 		|| (Enemy->PosY > GroundHeight && PosY > GroundHeight)))
 	{
@@ -1899,35 +1897,6 @@ void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine, bool Is
 		Subroutines.Add(Subroutine);
 		SubroutineNames.Add(Name);
 	}
-}
-
-void APlayerObject::CallSubroutine(FString Name)
-{
-	if (CommonSubroutineNames.Find(Name) != INDEX_NONE)
-	{
-		CommonSubroutines[CommonSubroutineNames.Find(Name)]->Exec();
-		return;
-	}
-
-	if (SubroutineNames.Find(Name) != INDEX_NONE)
-		Subroutines[SubroutineNames.Find(Name)]->Exec();
-}
-
-void APlayerObject::CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
-{
-	SubroutineReg1 = Arg1;
-	SubroutineReg2 = Arg2;
-	SubroutineReg3 = Arg3;
-	SubroutineReg4 = Arg4;
-	
-	if (CommonSubroutineNames.Find(Name) != INDEX_NONE)
-	{
-		CommonSubroutines[CommonSubroutineNames.Find(Name)]->Exec();
-		return;
-	}
-
-	if (SubroutineNames.Find(Name) != INDEX_NONE)
-		Subroutines[SubroutineNames.Find(Name)]->Exec();
 }
 
 void APlayerObject::UseMeter(int Use)
@@ -2225,6 +2194,8 @@ void APlayerObject::ResetForRound()
 	ObjectReg8 = 0;
 	IsPlayer = true;
 	SuperFreezeTimer = 0;
+	Timer0 = 0;
+	Timer1 = 0;
 	CelName.SetString("");
 	BlendCelName.SetString("");
 	AnimName.SetString("");
@@ -2285,6 +2256,7 @@ void APlayerObject::ResetForRound()
 	PlayerFlags |= PLF_DefaultLandingAction;
 	StrikeInvulnerableTimer = 0;
 	ThrowInvulnerableTimer = 0;
+	ThrowResistTimer = 0;
 	for (auto& Gauge : ExtraGauges)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
@@ -2471,6 +2443,7 @@ void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
 
 void APlayerObject::AddChainCancelOption(FString Option)
 {
+	if (ChainCancelOptions.Find(Option) != INDEX_NONE) return;
 	ChainCancelOptions.Add(Option);
 	if (ChainCancelOptions.Num() > 0)
 	{
@@ -2480,10 +2453,29 @@ void APlayerObject::AddChainCancelOption(FString Option)
 
 void APlayerObject::AddWhiffCancelOption(FString Option)
 {
+	if (WhiffCancelOptions.Find(Option) != INDEX_NONE) return;
 	WhiffCancelOptions.Add(Option);
 	if (WhiffCancelOptions.Num() > 0)
 	{
 		WhiffCancelOptionsInternal[WhiffCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(Option);
+	}
+}
+
+void APlayerObject::RemoveChainCancelOption(FString Option)
+{
+	if (const auto Index = ChainCancelOptions.Find(Option); Index != INDEX_NONE)
+	{
+		ChainCancelOptions[Index] = "";
+		ChainCancelOptionsInternal[Index] = -1;
+	}
+}
+
+void APlayerObject::RemoveWhiffCancelOption(FString Option)
+{
+	if (const auto Index = WhiffCancelOptions.Find(Option); Index != INDEX_NONE)
+	{
+		WhiffCancelOptions[Index] = "";
+		WhiffCancelOptionsInternal[Index] = -1;
 	}
 }
 
@@ -2605,6 +2597,11 @@ void APlayerObject::SetStrikeInvulnerableForTime(int32 Timer)
 void APlayerObject::SetThrowInvulnerableForTime(int32 Timer)
 {
 	ThrowInvulnerableTimer = Timer;	
+}
+
+void APlayerObject::SetThrowResistForTime(int32 Timer)
+{
+	ThrowResistTimer = Timer;
 }
 
 void APlayerObject::SetStunTime(int32 NewTime)

@@ -10,6 +10,7 @@
 #include "PlayerObject.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
+#include "NightSkyEngine/Battle/Subroutine.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
@@ -1046,6 +1047,27 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
+	if (const auto SubroutineName = FString(EventHandlers[EventType].SubroutineName.GetString()); SubroutineName != "")
+	{
+		USubroutine* Subroutine = nullptr;
+		
+		if (const auto CommonIndex = Player->CommonSubroutineNames.Find(SubroutineName); CommonIndex != INDEX_NONE)
+			Subroutine = Player->CommonSubroutines[CommonIndex];
+
+		else if (const auto Index = Player->SubroutineNames.Find(SubroutineName); Index != INDEX_NONE)
+			Subroutine = Player->Subroutines[Index];
+
+		if (!Subroutine) return;
+
+		UFunction* const Func = Subroutine->FindFunction(FName(EventHandlers[EventType].FunctionName.GetString()));
+		if (IsValid(Func) && Func->ParmsSize == 0)
+		{
+			Subroutine->Parent = this;
+			Subroutine->ProcessEvent(Func, nullptr);
+		}
+		return;
+	}
+	
 	UState* State = ObjectState;
 	if (IsPlayer)
 		State = Player->StoredStateMachine.CurrentState;
@@ -1533,6 +1555,17 @@ void ABattleObject::Update()
 	}
 
 	CalculatePushbox();
+
+	if (Timer0 > 0)
+	{
+		--Timer0;
+		if (Timer0 == 0) TriggerEvent(EVT_Timer0);
+	}
+	if (Timer1 > 0)
+	{
+		--Timer1;
+		if (Timer1 == 0) TriggerEvent(EVT_Timer1);
+	}
 	
 	if (SuperFreezeTimer > 0)
 	{
@@ -1688,6 +1721,8 @@ void ABattleObject::ResetObject()
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
 	SuperFreezeTimer = 0;
+	Timer0 = 0;
+	Timer1 = 0;
 	CelName.SetString("");
 	BlendCelName.SetString("");
 	AnimName.SetString("");
@@ -1721,14 +1756,51 @@ void ABattleObject::ResetObject()
 	MulFadeSpeed = 0;
 }
 
-void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName)
+void ABattleObject::CallSubroutine(FString Name)
 {
+	if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
+	{
+		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Parent = this;
+		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Exec();
+		return;
+	}
+
+	if (Player->SubroutineNames.Find(Name) != INDEX_NONE)
+	{
+		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Parent = this;
+		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Exec();
+	}
+}
+
+void ABattleObject::CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
+{
+	SubroutineReg1 = Arg1;
+	SubroutineReg2 = Arg2;
+	SubroutineReg3 = Arg3;
+	SubroutineReg4 = Arg4;
+	CallSubroutine(Name);
+}
+
+void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FString SubroutineName)
+{
+	switch (EventType)
+	{
+	case EVT_Timer0:
+		Timer0 = Value;
+		break;
+	case EVT_Timer1:
+		Timer1 = Value;
+		break;
+	default: break;
+	}
 	EventHandlers[EventType].FunctionName.SetString(FuncName.ToString());
+	EventHandlers[EventType].SubroutineName.SetString(SubroutineName);
 }
 
 void ABattleObject::RemoveEventHandler(EEventType EventType)
 {
 	EventHandlers[EventType].FunctionName.SetString("");
+	EventHandlers[EventType].SubroutineName.SetString("");
 }
 
 FString ABattleObject::GetCelName()

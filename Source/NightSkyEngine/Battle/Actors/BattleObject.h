@@ -24,7 +24,7 @@ constexpr int32 CollisionArraySize = 64;
  * it will trigger at the event type specified.
  */
  
-UENUM()
+UENUM(BlueprintType)
 enum EEventType
 {
 	EVT_Enter UMETA(DisplayName="Enter"),
@@ -37,6 +37,8 @@ enum EEventType
 	EVT_CounterHit UMETA(DisplayName="Counter Hit"),
 	EVT_SuperFreeze UMETA(DisplayName="Super Freeze"),
 	EVT_SuperFreezeEnd UMETA(DisplayName="Super Freeze End"),
+	EVT_Timer0 UMETA(DisplayName="Timer #0"),
+	EVT_Timer1 UMETA(DisplayName="Timer #1"),
 	EVT_NUM UMETA(Hidden)
 };
 
@@ -46,6 +48,7 @@ struct FEventHandler
 	GENERATED_BODY()
 
 	FixedString<32> FunctionName;
+	FixedString<32> SubroutineName;
 };
 
 // Hit related data.
@@ -627,6 +630,18 @@ public:
 	int32 ObjectReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 ObjectReg8 = 0;
+	
+	/*
+	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
+	 */
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg1 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg2 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg3 = 0;
+	UPROPERTY(BlueprintReadOnly)
+	int32 SubroutineReg4 = 0;
 
 	/*
 	 * Action data
@@ -724,6 +739,8 @@ public:
 	int32 HitPosY = 0;
 	int32 MiscFlags = 0;
 	int32 SuperFreezeTimer = 0;
+	int32 Timer0 = 0;
+	int32 Timer1 = 0;
 	bool IsPlayer = false;
 	bool IsActive = false;
 	int32 DrawPriority = 0; //the lower the number, the farther in front the character will be drawn
@@ -819,10 +836,16 @@ public:
 	/*
 	 * Blueprint callable functions.
 	 */
-
+	
+	//calls subroutine
+	UFUNCTION(BlueprintCallable)
+	void CallSubroutine(FString Name);
+	//calls subroutine
+	UFUNCTION(BlueprintCallable)
+	void CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
-	void InitEventHandler(EEventType EventType, FName FuncName);
+	void InitEventHandler(EEventType EventType, FName FuncName, int32 Value = 0, FString SubroutineName = "");
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
 	void RemoveEventHandler(EEventType EventType);

@@ -147,6 +147,8 @@ public:
 	ACameraActor* SequenceCameraActor;
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* SequenceTarget;
+	UPROPERTY(BlueprintReadOnly)
+	APlayerObject* SequenceEnemy;
 	UPROPERTY(BlueprintReadWrite)
 	bool bPauseGame;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -205,7 +207,7 @@ public:
 	void LoadGameState(); //loads game state
 
 	void UpdateCamera();
-	void PlayLevelSequence(APlayerObject* Target, ULevelSequence* Sequence);
+	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);
 	void CameraShake(TSubclassOf<UCameraShakeBase> Pattern, float Scale) const;
 
 	void UpdateHUD() const;

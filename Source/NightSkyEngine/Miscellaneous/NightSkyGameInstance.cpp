@@ -10,57 +10,58 @@
 
 bool UNightSkyGameInstance::Login()
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface();
 
 	this->LoginDelegateHandle = Identity->AddOnLoginCompleteDelegate_Handle(
-	0,
-	FOnLoginComplete::FDelegate::CreateUObject(
-		this,
-		&UNightSkyGameInstance::HandleLoginComplete));
+		0,
+		FOnLoginComplete::FDelegate::CreateUObject(
+			this,
+			&UNightSkyGameInstance::HandleLoginComplete));
 
 	FOnlineAccountCredentials Credentials;
 	Credentials.Id = "";
 	Credentials.Token = "";
 	Credentials.Type = "accountportal";
-	
+
 	if (!Identity->Login(0 /* LocalUserNum */, Credentials))
 	{
 		return false;
 	}
-	
+
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 	Session->OnSessionUserInviteAcceptedDelegates.AddUObject(this, &UNightSkyGameInstance::OnSessionInviteAccepted);
 	return true;
 }
 
 void UNightSkyGameInstance::OnSessionInviteAccepted(bool bArg, int I,
-	TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
-	const FOnlineSessionSearchResult& OnlineSessionSearchResult)
+                                                    TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
+                                                    const FOnlineSessionSearchResult& OnlineSessionSearchResult)
 {
 	if (BattleData.PlayerList.IsEmpty())
 		return;
-	
+
 	FighterRunner = Multiplayer;
 	PlayerIndex = 1;
-	
+
 	InviteResult = OnlineSessionSearchResult;
-	
+
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	this->JoinSessionDelegateHandle =
 		Session->AddOnJoinSessionCompleteDelegate_Handle(FOnJoinSessionComplete::FDelegate::CreateUObject(
-				this,
-				&UNightSkyGameInstance::HandleJoinInviteSessionComplete));
+			this,
+			&UNightSkyGameInstance::HandleJoinInviteSessionComplete));
 
 	// "MyLocalSessionName" is the local name of the session for this player. It doesn't have to match the name the server gave their session.
 	Session->JoinSession(0, FName(TEXT("MyLocalSessionName")), OnlineSessionSearchResult);
 }
 
-void UNightSkyGameInstance::HandleLoginComplete(int I, bool bArg, const FUniqueNetId& UniqueNetId, const FString& String)
+void UNightSkyGameInstance::HandleLoginComplete(int I, bool bArg, const FUniqueNetId& UniqueNetId,
+                                                const FString& String)
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface();
 	Identity->ClearOnLoginCompleteDelegate_Handle(0, this->LoginDelegateHandle);
 	this->LoginDelegateHandle.Reset();
@@ -68,13 +69,13 @@ void UNightSkyGameInstance::HandleLoginComplete(int I, bool bArg, const FUniqueN
 
 bool UNightSkyGameInstance::GetFriendsList()
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineFriendsPtr Friends = Subsystem->GetFriendsInterface();
-	
+
 	return Friends->ReadFriendsList(
-	0 /* LocalUserNum */,
-	TEXT("") /* ListName, unused by EOS */,
-	FOnReadFriendsListComplete::CreateUObject(this, &UNightSkyGameInstance::OnReadComplete)
+		0 /* LocalUserNum */,
+		TEXT("") /* ListName, unused by EOS */,
+		FOnReadFriendsListComplete::CreateUObject(this, &UNightSkyGameInstance::OnReadComplete)
 	);
 }
 
@@ -82,7 +83,7 @@ bool UNightSkyGameInstance::CreateSession()
 {
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
-	
+
 	this->CreateSessionDelegateHandle =
 		Session->AddOnCreateSessionCompleteDelegate_Handle(FOnCreateSessionComplete::FDelegate::CreateUObject(
 			this,
@@ -90,9 +91,10 @@ bool UNightSkyGameInstance::CreateSession()
 	TSharedRef<FOnlineSessionSettings> SessionSettings = MakeShared<FOnlineSessionSettings>();
 
 	SessionSettings->NumPublicConnections = 2; // The number of players.
-	SessionSettings->bShouldAdvertise = true;  // Set to true to make this session discoverable with FindSessions.
-	SessionSettings->bUsesPresence = true;    // Set to true if you want this session to be discoverable by presence (Epic Social Overlay).
-	SessionSettings->bAllowInvites = true;    // Set to true if you want this session to be allow invites.
+	SessionSettings->bShouldAdvertise = true; // Set to true to make this session discoverable with FindSessions.
+	SessionSettings->bUsesPresence = true;
+	// Set to true if you want this session to be discoverable by presence (Epic Social Overlay).
+	SessionSettings->bAllowInvites = true; // Set to true if you want this session to be allow invites.
 
 	// You *must* set at least one setting value, because you can not run FindSessions without any filters.
 	SessionSettings->Settings.Add(
@@ -114,13 +116,13 @@ bool UNightSkyGameInstance::CreateLobby()
 	TSharedPtr<IOnlineLobby, ESPMode::ThreadSafe> Lobby = Online::GetLobbyInterface(Subsystem);
 
 	TSharedPtr<const FUniqueNetId> LocalUserId = Identity->GetUniquePlayerId(0);
-	
+
 	if (!LocalUserId.Get())
 	{
 		UE_LOG(LogTemp, Error, TEXT("Failed to get unique net id!"))
 		return false;
 	}
-	
+
 	TSharedPtr<FOnlineLobbyTransaction> Txn = Lobby->MakeCreateLobbyTransaction(*LocalUserId.Get());
 	Txn->SetMetadata.Add(TEXT("LobbySetting"), TEXT("SettingValue"));
 
@@ -135,25 +137,25 @@ bool UNightSkyGameInstance::CreateLobby()
 	Txn->Locked = false;
 
 	if (!Lobby->CreateLobby(
-	*LocalUserId.Get(),
-	*Txn,
-	FOnLobbyCreateOrConnectComplete::CreateLambda([&](
-		const FOnlineError & Error,
-		const FUniqueNetId & UserId,
-		const TSharedPtr<class FOnlineLobby> & CreatedLobby)
-	{
-		if (Error.WasSuccessful())
-		{
-			// The lobby was created successfully and is now in CreatedLobby.
-			LobbyID = CreatedLobby->Id;
-			UE_LOG(LogTemp, Display, TEXT("Successfully created lobby! %s"), *LobbyID->ToString())
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to create lobby! %s"), *Error.ErrorRaw);
-			LobbyID = nullptr;
-		}
-	})))
+		*LocalUserId.Get(),
+		*Txn,
+		FOnLobbyCreateOrConnectComplete::CreateLambda([&](
+			const FOnlineError& Error,
+			const FUniqueNetId& UserId,
+			const TSharedPtr<class FOnlineLobby>& CreatedLobby)
+			{
+				if (Error.WasSuccessful())
+				{
+					// The lobby was created successfully and is now in CreatedLobby.
+					LobbyID = CreatedLobby->Id;
+					UE_LOG(LogTemp, Display, TEXT("Successfully created lobby! %s"), *LobbyID->ToString())
+				}
+				else
+				{
+					UE_LOG(LogTemp, Error, TEXT("Failed to create lobby! %s"), *Error.ErrorRaw);
+					LobbyID = nullptr;
+				}
+			})))
 	{
 		LobbyID = nullptr;
 	}
@@ -163,10 +165,10 @@ bool UNightSkyGameInstance::CreateLobby()
 void UNightSkyGameInstance::OnReadComplete(int I, bool bArg, const FString& String, const FString& String1)
 {
 	FriendInfos.Empty();
-	
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineFriendsPtr Friends = Subsystem->GetFriendsInterface();
-	
+
 	TArray<TSharedRef<FOnlineFriend>> FriendsArr;
 	Friends->GetFriendsList(
 		0 /* LocalUserNum */,
@@ -186,28 +188,28 @@ bool UNightSkyGameInstance::SearchForServer()
 {
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
-	
+
 	TSharedRef<FOnlineSessionSearch> Search = MakeShared<FOnlineSessionSearch>();
 	// Remove the default search parameters that FOnlineSessionSearch sets up.
 	Search->QuerySettings.SearchParams.Empty();
-	
+
 	Search->QuerySettings.SearchParams.Add(
-		FName(TEXT("Version")), 
+		FName(TEXT("Version")),
 		FOnlineSessionSearchParam(
 			GameVersion,
 			EOnlineComparisonOp::Equals));
 
 	this->FindSessionsDelegateHandle =
-	Session->AddOnFindSessionsCompleteDelegate_Handle(FOnFindSessionsComplete::FDelegate::CreateUObject(
-		this,
-		&UNightSkyGameInstance::HandleFindSessionsComplete,
-		Search));
-	
+		Session->AddOnFindSessionsCompleteDelegate_Handle(FOnFindSessionsComplete::FDelegate::CreateUObject(
+			this,
+			&UNightSkyGameInstance::HandleFindSessionsComplete,
+			Search));
+
 	if (!Session->FindSessions(0, Search))
 	{
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -223,51 +225,52 @@ bool UNightSkyGameInstance::SearchForLobby()
 	// To search by settings, add a LobbySetting and SettingValue to search for:
 	Search->Filters.Add(
 		FOnlineLobbySearchQueryFilter(
-		FString(TEXT("LobbySetting")),
-		FString(TEXT("SettingValue")),
-		EOnlineLobbySearchQueryFilterComparator::Equal));
+			FString(TEXT("LobbySetting")),
+			FString(TEXT("SettingValue")),
+			EOnlineLobbySearchQueryFilterComparator::Equal));
 
 	if (!LocalUserId.Get())
 		return false;
-	
+
 	if (!Lobby->Search(
 		*LocalUserId.Get(),
 		*Search,
-		FOnLobbySearchComplete::CreateLambda([&](const FOnlineError &Error,
-			const FUniqueNetId &UserId,
-		    const TArray<TSharedRef<const FOnlineLobbyId>> &Lobbies)
-		{
-			if (Error.WasSuccessful())
+		FOnLobbySearchComplete::CreateLambda([&](const FOnlineError& Error,
+		                                         const FUniqueNetId& UserId,
+		                                         const TArray<TSharedRef<const FOnlineLobbyId>>& Lobbies)
 			{
-				// The search was successful, access the results
-				// via the "Lobbies" parameter.
-				LobbyInfos = Lobbies;
-				LobbyIDs.Empty();
-				UE_LOG(LogTemp, Display, TEXT("%d lobbies found."), Lobbies.Num());
-				for (auto Info : LobbyInfos)
+				if (Error.WasSuccessful())
 				{
-					LobbyIDs.Add(Info.Get().ToString());
+					// The search was successful, access the results
+					// via the "Lobbies" parameter.
+					LobbyInfos = Lobbies;
+					LobbyIDs.Empty();
+					UE_LOG(LogTemp, Display, TEXT("%d lobbies found."), Lobbies.Num());
+					for (auto Info : LobbyInfos)
+					{
+						LobbyIDs.Add(Info.Get().ToString());
+					}
+				}
+				else
+				{
+					UE_LOG(LogTemp, Error, TEXT("Failed to find lobbies! %s"), *Error.ErrorRaw);
+					LobbyIDs.Empty();
+					LobbyInfos.Empty();
 				}
 			}
-			else
-			{
-				UE_LOG(LogTemp, Error, TEXT("Failed to find lobbies! %s"), *Error.ErrorRaw);
-				LobbyIDs.Empty();
-				LobbyInfos.Empty();
-			}
-		}
-	)))
+		)))
 	{
 		LobbyIDs.Empty();
 		LobbyInfos.Empty();
 	}
-	
+
 	return !LobbyInfos.IsEmpty();;
 }
 
-void UNightSkyGameInstance::HandleFindSessionsComplete(bool bArg, TSharedRef<FOnlineSessionSearch, ESPMode::ThreadSafe> Shared)
+void UNightSkyGameInstance::HandleFindSessionsComplete(
+	bool bArg, TSharedRef<FOnlineSessionSearch, ESPMode::ThreadSafe> Shared)
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	if (bArg)
@@ -284,7 +287,7 @@ void UNightSkyGameInstance::HandleFindSessionsComplete(bool bArg, TSharedRef<FOn
 					SessionInfo.ConnectInfo = ConnectInfo;
 
 					bool Duplicate = false;
-					
+
 					for (auto StoredSession : SessionInfos)
 					{
 						if (StoredSession.ConnectInfo == ConnectInfo)
@@ -302,7 +305,7 @@ void UNightSkyGameInstance::HandleFindSessionsComplete(bool bArg, TSharedRef<FOn
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("Session count: %d"), SessionInfos.Num())
-	
+
 	Session->ClearOnFindSessionsCompleteDelegate_Handle(this->FindSessionsDelegateHandle);
 	this->FindSessionsDelegateHandle.Reset();
 }
@@ -322,16 +325,16 @@ bool UNightSkyGameInstance::JoinServer(FString ConnectInfo)
 		if (i == i < SessionInfos.Num() - 1)
 			return false;
 	}
-	
+
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	this->JoinSessionDelegateHandle =
 		Session->AddOnJoinSessionCompleteDelegate_Handle(FOnJoinSessionComplete::FDelegate::CreateUObject(
-				this,
-				&UNightSkyGameInstance::HandleJoinSessionComplete));
+			this,
+			&UNightSkyGameInstance::HandleJoinSessionComplete));
 
-		// "MyLocalSessionName" is the local name of the session for this player. It doesn't have to match the name the server gave their session.
+	// "MyLocalSessionName" is the local name of the session for this player. It doesn't have to match the name the server gave their session.
 	if (!Session->JoinSession(0, FName(TEXT("MyLocalSessionName")), SearchResult))
 	{
 		return false;
@@ -348,27 +351,27 @@ bool UNightSkyGameInstance::JoinLobby(FString InLobbyID)
 
 	if (!LocalUserId.Get())
 		return false;
-	
+
 	for (FString ID : LobbyIDs)
 	{
 		if (!Lobby->ConnectLobby(
 			*LocalUserId.Get(),
 			*LobbyInfos[LobbyIDs.Find(ID)],
 			FOnLobbyCreateOrConnectComplete::CreateLambda([&, ID](
-				const FOnlineError & Error,
-				const FUniqueNetId & UserId,
-				const TSharedPtr<class FOnlineLobby> & CreatedLobby)
-			{
-				if (Error.WasSuccessful())
+				const FOnlineError& Error,
+				const FUniqueNetId& UserId,
+				const TSharedPtr<class FOnlineLobby>& CreatedLobby)
 				{
-					LobbyID = LobbyInfos[LobbyIDs.Find(ID)];
-				}
-				else
-				{
-					UE_LOG(LogTemp, Error, TEXT("Failed to join lobby! %s"), *Error.ErrorRaw);
-					LobbyID = nullptr;
-				}
-			})))
+					if (Error.WasSuccessful())
+					{
+						LobbyID = LobbyInfos[LobbyIDs.Find(ID)];
+					}
+					else
+					{
+						UE_LOG(LogTemp, Error, TEXT("Failed to join lobby! %s"), *Error.ErrorRaw);
+						LobbyID = nullptr;
+					}
+				})))
 		{
 			LobbyID = nullptr;
 		}
@@ -382,7 +385,7 @@ bool UNightSkyGameInstance::DestroySession()
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	this->DestroySessionDelegateHandle =
-	Session->AddOnDestroySessionCompleteDelegate_Handle(FOnDestroySessionComplete::FDelegate::CreateUObject(
+		Session->AddOnDestroySessionCompleteDelegate_Handle(FOnDestroySessionComplete::FDelegate::CreateUObject(
 			this,
 			&UNightSkyGameInstance::HandleDestroySessionComplete));
 
@@ -397,35 +400,35 @@ bool UNightSkyGameInstance::DestroyLobby()
 {
 	if (LobbyID == nullptr)
 		return false;
-	
+
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface();
 	TSharedPtr<IOnlineLobby, ESPMode::ThreadSafe> Lobby = Online::GetLobbyInterface(Subsystem);
 	TSharedPtr<const FUniqueNetId> LocalUserId = Identity->GetUniquePlayerId(0);
-	
+
 	if (!LocalUserId.Get())
 		return false;
-	
+
 	if (!Lobby->DeleteLobby(
-	*LocalUserId.Get(),
-	*LobbyID,
-	FOnLobbyOperationComplete::CreateLambda([&](
-		const FOnlineError & Error,
-		const FUniqueNetId & UserId)
-	{
-		if (Error.WasSuccessful())
-		{
-			LobbyID = nullptr;
-		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("Failed to destroy lobby! %s"), *Error.ErrorRaw);
-		}
-	})))
+		*LocalUserId.Get(),
+		*LobbyID,
+		FOnLobbyOperationComplete::CreateLambda([&](
+			const FOnlineError& Error,
+			const FUniqueNetId& UserId)
+			{
+				if (Error.WasSuccessful())
+				{
+					LobbyID = nullptr;
+				}
+				else
+				{
+					UE_LOG(LogTemp, Error, TEXT("Failed to destroy lobby! %s"), *Error.ErrorRaw);
+				}
+			})))
 	{
 	}
 
-	return LobbyID == nullptr;	
+	return LobbyID == nullptr;
 }
 
 void UNightSkyGameInstance::SeamlessTravel()
@@ -554,7 +557,7 @@ void UNightSkyGameInstance::HandleJoinSessionComplete(FName Name, EOnJoinSession
 		// FindSessions so you know the result is valid.
 	}
 
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	Session->ClearOnJoinSessionCompleteDelegate_Handle(this->JoinSessionDelegateHandle);
@@ -563,7 +566,7 @@ void UNightSkyGameInstance::HandleJoinSessionComplete(FName Name, EOnJoinSession
 
 void UNightSkyGameInstance::HandleJoinInviteSessionComplete(FName Name, EOnJoinSessionCompleteResult::Type Arg)
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
 	if (Arg == EOnJoinSessionCompleteResult::Success ||
@@ -604,7 +607,7 @@ void UNightSkyGameInstance::HandleJoinInviteSessionComplete(FName Name, EOnJoinS
 
 void UNightSkyGameInstance::HandleDestroySessionComplete(FName Name, bool bArg)
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 	Session->ClearOnDestroySessionCompleteDelegate_Handle(this->DestroySessionDelegateHandle);
 	this->DestroySessionDelegateHandle.Reset();
@@ -612,7 +615,7 @@ void UNightSkyGameInstance::HandleDestroySessionComplete(FName Name, bool bArg)
 
 void UNightSkyGameInstance::HandleCreateSessionComplete(FName Name, bool bArg)
 {
-	IOnlineSubsystem *Subsystem = Online::GetSubsystem(this->GetWorld());
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 	Session->ClearOnCreateSessionCompleteDelegate_Handle(this->CreateSessionDelegateHandle);
 	this->CreateSessionDelegateHandle.Reset();

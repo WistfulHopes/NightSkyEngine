@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameStateBase.h"
-#include "NightSkyEngine/Data/CharaSelectData.h"
 #include "NightSkyCharaSelectGameState.generated.h"
 
+class UNightSkyGameInstance;
+class UCharaSelectData;
+class UStageData;
 class APlayerObject;
 
 UCLASS()
@@ -15,7 +17,7 @@ class NIGHTSKYENGINE_API ANightSkyCharaSelectGameState : public AGameStateBase
 	GENERATED_BODY()
 
 	UPROPERTY()
-	class UNightSkyGameInstance* GameInstance;
+	TObjectPtr<UNightSkyGameInstance> GameInstance;
 public:
 	// Sets default values for this actor's properties
 	ANightSkyCharaSelectGameState();
@@ -29,7 +31,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<FVector> P2Positions;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UCharaSelectData* Data;
+	TObjectPtr<UCharaSelectData> CharaData;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TObjectPtr<UStageData> StageData;
 
 protected:
 	// Called when the game starts or when spawned

@@ -55,7 +55,7 @@ struct FBattleData
 	UPROPERTY()
 	FRandomManager Random;
 	UPROPERTY(BlueprintReadWrite)
-	FString StageURL = "TestMap_PL";
+	FString StageURL = "FieldOfFate_PL";
 };
 
 /**

@@ -178,6 +178,8 @@ public:
 	FInputCondition ProximityThrowInput;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ThrowTechWindow = 6;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ThrowResistAfterWakeUp = 5;	
 	
 	/*
 	 * Player registers. These are only touched by the engine to reset per round.
@@ -199,19 +201,7 @@ public:
 	int32 PlayerReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 PlayerReg8 = 0;
-
-	/*
-	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
-	 */
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg1 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg2 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg3 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg4 = 0;
-
+	
 	/*
 	 * Action data.
 	 */
@@ -254,6 +244,7 @@ public:
 	uint32 EnableFlags = 0;
 	uint32 StrikeInvulnerableTimer = 0;
 	uint32 ThrowInvulnerableTimer = 0;
+	uint32 ThrowResistTimer = 0;
 	FExtraGauge ExtraGauges[ExtraGaugeCount];
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
@@ -470,19 +461,13 @@ public:
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
 	void AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon);
-	//calls subroutine
-	UFUNCTION(BlueprintCallable)
-	void CallSubroutine(FString Name);
-	//calls subroutine
-	UFUNCTION(BlueprintCallable)
-	void CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
 	//use meter
 	UFUNCTION(BlueprintCallable)
 	void UseMeter(int Use);
 	//add meter
 	UFUNCTION(BlueprintCallable)
 	void AddMeter(int Meter);
-	//sets meter gain cooldoown timer
+	//sets meter gain cooldown timer
 	UFUNCTION(BlueprintCallable)
 	void SetMeterCooldownTimer(int Timer);
 	//set stance
@@ -536,11 +521,18 @@ public:
 	//set air dash timer (set is forward for forward airdashes)
 	UFUNCTION(BlueprintCallable)
 	void SetAirDashNoAttackTimer(bool IsForward);
+	//add chain cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
 	void AddChainCancelOption(FString Option);
-	//add whiff cancel option, use this in OnEntry
+	//add whiff cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
 	void AddWhiffCancelOption(FString Option);
+	//add chain cancel option, use this in Init
+	UFUNCTION(BlueprintCallable)
+	void RemoveChainCancelOption(FString Option);
+	//add whiff cancel option, use this in Init
+	UFUNCTION(BlueprintCallable)
+	void RemoveWhiffCancelOption(FString Option);
 	UFUNCTION(BlueprintCallable)
 	void EnableChainCancel(bool Enable);
 	//sets whiff cancel options enabled. off by default
@@ -573,6 +565,9 @@ public:
 	//sets throw invulnerable enabled for time
 	UFUNCTION(BlueprintCallable)
 	void SetThrowInvulnerableForTime(int32 Timer);
+	//sets throw resist enabled for time
+	UFUNCTION(BlueprintCallable)
+	void SetThrowResistForTime(int32 Timer);
 	//sets projectile invulnerable enabled
 	//set stun time
 	UFUNCTION(BlueprintCallable)
