@@ -91,7 +91,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 			continue;
 		}
         //check current character state against entry state condition, continue if not entry state
-		if (!StoredStateMachine.CheckStateStanceCondition(StoredStateMachine.States[i]->EntryState, Stance))
+		if (!StoredStateMachine.CheckStateStanceCondition(StoredStateMachine.States[i]->EntryStance, Stance))
         {
             continue;
         }
@@ -130,7 +130,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
 									GotoLabelActive = false;
-									switch (StoredStateMachine.States[i]->EntryState)
+									switch (StoredStateMachine.States[i]->EntryStance)
 									{
 									case EEntryStance::Standing:
 										Stance = ACT_Standing;
@@ -157,7 +157,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 								if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 								{
 									GotoLabelActive = false;
-									switch (StoredStateMachine.States[i]->EntryState)
+									switch (StoredStateMachine.States[i]->EntryStance)
 									{
 									case EEntryStance::Standing:
 										Stance = ACT_Standing;
@@ -186,7 +186,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 						if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 						{
 							GotoLabelActive = false;
-							switch (StoredStateMachine.States[i]->EntryState)
+							switch (StoredStateMachine.States[i]->EntryStance)
 							{
 							case EEntryStance::Standing:
 								Stance = ACT_Standing;
@@ -232,7 +232,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							if (StoredStateMachine.ForceSetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
 								GotoLabelActive = false;
-								switch (StoredStateMachine.States[i]->EntryState)
+								switch (StoredStateMachine.States[i]->EntryStance)
 								{
 								case EEntryStance::Standing:
 									Stance = ACT_Standing;
@@ -259,7 +259,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 							if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 							{
 								GotoLabelActive = false;
-								switch (StoredStateMachine.States[i]->EntryState)
+								switch (StoredStateMachine.States[i]->EntryStance)
 								{
 								case EEntryStance::Standing:
 									Stance = ACT_Standing;
@@ -288,7 +288,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 					if (StoredStateMachine.SetState(StoredStateMachine.States[i]->Name)) //if state set successful...
 					{
 						GotoLabelActive = false;
-						switch (StoredStateMachine.States[i]->EntryState)
+						switch (StoredStateMachine.States[i]->EntryStance)
 						{
 						case EEntryStance::Standing:
 							Stance = ACT_Standing;
@@ -729,7 +729,13 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		Proration = TotalProration;
 	
 	Enemy->ComboCounter++;
-	
+
+	if (ReceivedHitCommon.DeathCamOverride)
+		PlayerFlags |= PLF_DeathCamOverride;
+
+	else
+		PlayerFlags &= ~PLF_DeathCamOverride;
+
 	if (PlayerFlags & PLF_IsKnockedDown)
 	{
 		if (PosY <= GroundHeight)
@@ -748,7 +754,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
 		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
 
-	if (OTGCount > MaxOTGCount)
+	if (OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
 		FinalDamage = FinalDamage * OtgProration / 100;
 		
 	CurrentHealth -= FinalDamage;
@@ -765,6 +771,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	case HPT_Add:
 		AddPosXWithDir(ReceivedHit.Position.PosX);
 		PosY += ReceivedHit.Position.PosY;
+		if (PosY < GroundHeight)
+			PosY = GroundHeight;
 		break;
 	default:
 		break;
@@ -973,6 +981,8 @@ void APlayerObject::SetHitValues()
 	case HPT_AddNextFrame:
 		AddPosXWithDir(ReceivedHit.Position.PosX);
 		PosY += ReceivedHit.Position.PosY;
+		if (PosY < GroundHeight)
+			PosY = GroundHeight;
 		break;
 	default:
 		break;
@@ -1103,7 +1113,7 @@ void APlayerObject::SetHitValues()
 	else
 		PlayerFlags &= ~PLF_IsHardKnockedDown;
 	
-	if (OTGCount > MaxOTGCount)
+	if (OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
 	{
 		SpeedX = -30000;
 		SpeedY = 8000;
@@ -1126,6 +1136,14 @@ void APlayerObject::ForceEnableFarNormal(bool Enable)
 	{
 		PlayerFlags &= ~PLF_ForceEnableFarNormal;
 	}
+}
+
+void APlayerObject::SetHeadAttribute(bool Attribute)
+{
+	if (Attribute)
+		AttackFlags |= ATK_AttackHeadAttribute;
+	else
+		AttackFlags &= ~ATK_AttackHeadAttribute;
 }
 
 void APlayerObject::SetThrowActive(bool Active)
@@ -1363,8 +1381,8 @@ void APlayerObject::HandleBlockAction()
 
 void APlayerObject::HandleProximityBlock()
 {
-	if (!(Enemy->AttackFlags & ATK_IsAttacking) || !IsCorrectBlock(Enemy->HitCommon.BlockType)
-		|| CalculateDistanceBetweenPoints(DIST_Distance, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > 360000)
+	if (!(Enemy->AttackFlags & ATK_HitActive) || !IsCorrectBlock(Enemy->HitCommon.BlockType)
+		|| CalculateDistanceBetweenPoints(DIST_Distance, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > 240000)
 	{
 		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun && StunTime == 0)
 		{
@@ -1428,7 +1446,7 @@ void APlayerObject::HandleBufferedState()
 			if (StoredStateMachine.ForceSetState(BufferedStateName.GetString()))
 			{
 				GotoLabelActive = false;
-				switch (StoredStateMachine.CurrentState->EntryState)
+				switch (StoredStateMachine.CurrentState->EntryStance)
 				{
 				case EEntryStance::Standing:
 					Stance = ACT_Standing;
@@ -1450,7 +1468,7 @@ void APlayerObject::HandleBufferedState()
 			if (StoredStateMachine.SetState(BufferedStateName.GetString()))
 			{
 				GotoLabelActive = false;
-				switch (StoredStateMachine.CurrentState->EntryState)
+				switch (StoredStateMachine.CurrentState->EntryStance)
 				{
 				case EEntryStance::Standing:
 					Stance = ACT_Standing;
@@ -1926,7 +1944,7 @@ void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 	GotoLabelActive = IsLabel;
 	if (StoredStateMachine.ForceSetState(NewName) && StoredStateMachine.CurrentState != nullptr)
 	{
-		switch (StoredStateMachine.CurrentState->EntryState)
+		switch (StoredStateMachine.CurrentState->EntryStance)
 		{
 		case EEntryStance::Standing:
 			Stance = ACT_Standing;
@@ -2586,6 +2604,30 @@ void APlayerObject::SetThrowInvulnerable(bool Invulnerable)
 	else
 	{
 		InvulnFlags &= ~INV_ThrowInvulnerable;
+	}
+}
+
+void APlayerObject::SetHeadInvulnerable(bool Invulnerable)
+{
+	if (Invulnerable)
+	{
+		InvulnFlags |= INV_HeadInvulnerable;
+	}
+	else
+	{
+		InvulnFlags &= ~INV_HeadInvulnerable;
+	}
+}
+
+void APlayerObject::SetProjectileInvulnerable(bool Invulnerable)
+{
+	if (Invulnerable)
+	{
+		InvulnFlags |= INV_ProjectileInvulnerable;
+	}
+	else
+	{
+		InvulnFlags &= ~INV_ProjectileInvulnerable;
 	}
 }
 

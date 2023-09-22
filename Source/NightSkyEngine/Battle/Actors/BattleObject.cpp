@@ -216,9 +216,11 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 
 void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 {
-	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && !(OtherChar->InvulnFlags & INV_StrikeInvulnerable) && !OtherChar->StrikeInvulnerableTimer && OtherChar != Player)
+	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive &&
+		!(OtherChar->InvulnFlags & INV_StrikeInvulnerable) && !OtherChar->StrikeInvulnerableTimer && OtherChar != Player)
 	{
-		if (!(AttackFlags & ATK_AttackHeadAttribute && OtherChar->InvulnFlags & INV_HeadInvulnerable) && !(AttackFlags & ATK_AttackProjectileAttribute && OtherChar->InvulnFlags & INV_ProjectileInvulnerable))
+		if (!(AttackFlags & ATK_AttackHeadAttribute && OtherChar->InvulnFlags & INV_HeadInvulnerable)
+			&& !(AttackFlags & ATK_AttackProjectileAttribute && OtherChar->InvulnFlags & INV_ProjectileInvulnerable))
 		{
 			for (int i = 0; i < CollisionArraySize; i++)
 			{
@@ -304,7 +306,9 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								
 								if (OtherChar->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 								{
-									CreateCommonParticle("cmn_guard", POS_Enemy, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle("cmn_guard", POS_Enemy,
+										FVector(0, 100, 0),
+										FRotator(HitCommon.HitAngle, 0, 0));
 									TriggerEvent(EVT_Block);
 									
 									const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
@@ -343,7 +347,9 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									TriggerEvent(EVT_Hit);
 									
 									const FHitData Data = InitHitDataByAttackLevel(false);
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit,
+										FVector(0, 100, 0),
+										FRotator(HitCommon.HitAngle, 0, 0));
 									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = Data;
@@ -699,7 +705,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.AirPushbackY == -1)
 			NormalHit.AirPushbackY = 30200;
 		if (NormalHit.Gravity == -1)
-			NormalHit.Gravity = 30250;
+			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == -1)
 			CounterHit.Hitstop = NormalHit.Hitstop + 16;
 		switch (HitCommon.VFXType)
@@ -1980,7 +1986,7 @@ void ABattleObject::FaceOpponent()
 	}
 }
 
-bool ABattleObject::CheckIsGrounded()
+bool ABattleObject::CheckIsGrounded() const
 {
 	return PosY <= GroundHeight;
 }
@@ -1996,6 +2002,15 @@ void ABattleObject::EnableHit(bool Enabled)
 		AttackFlags &= ~ATK_HitActive;
 	}
 	AttackFlags &= ~ATK_HasHit;
+	
+	if (!IsPlayer)
+	{
+		SetProjectileAttribute(true);
+	}
+	else if (Player->StoredStateMachine.CurrentState->EntryStance == EEntryStance::Jumping)
+	{
+		Player->SetHeadAttribute(true);
+	}
 }
 
 void ABattleObject::SetAttacking(bool Attacking)
@@ -2010,6 +2025,30 @@ void ABattleObject::SetAttacking(bool Attacking)
 	}
 	AttackFlags &= ~ATK_HasHit;
 	AttackFlags &= ~ATK_HitActive;
+}
+
+void ABattleObject::SetProjectileAttribute(bool Attribute)
+{
+	if (Attribute)
+		AttackFlags |= ATK_AttackProjectileAttribute;
+	else
+		AttackFlags &= ~ATK_AttackProjectileAttribute;
+}
+
+void ABattleObject::SetProrateOnce(bool Once)
+{
+	if (Once)
+		AttackFlags |= ATK_ProrateOnce;
+	else
+		AttackFlags &= ~ATK_ProrateOnce;
+}
+
+void ABattleObject::SetIgnoreOTG(bool Ignore)
+{
+	if (Ignore)
+		AttackFlags |= ATK_IgnoreOTG;
+	else
+		AttackFlags &= ~ATK_IgnoreOTG;
 }
 
 void ABattleObject::DeactivateObject()

@@ -248,7 +248,7 @@ public:
 	FExtraGauge ExtraGauges[ExtraGaugeCount];
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
-	int32 RoundWinTimer = 300;
+	int32 RoundWinTimer = 180;
 	int32 WallTouchTimer;
 	
 	/*
@@ -559,6 +559,10 @@ public:
 	//sets throw invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetThrowInvulnerable(bool Invulnerable);
+	UFUNCTION(BlueprintCallable)
+	void SetHeadInvulnerable(bool Invulnerable);
+	UFUNCTION(BlueprintCallable)
+	void SetProjectileInvulnerable(bool Invulnerable);
 	//sets strike invulnerable enabled for time
 	UFUNCTION(BlueprintCallable)
 	void SetStrikeInvulnerableForTime(int32 Timer);
@@ -578,6 +582,8 @@ public:
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
 	void ForceEnableFarNormal(bool Enable);
+	UFUNCTION(BlueprintCallable)
+	void SetHeadAttribute(bool Attribute);
 	//initiate throw
 	UFUNCTION(BlueprintCallable)
 	void SetThrowActive(bool Active);

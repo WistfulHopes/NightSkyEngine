@@ -131,6 +131,10 @@ enum EAttackFlags
 	 * Flag sets if object will only prorate once this state.
 	 */
 	ATK_ProrateOnce = 0x20 UMETA(DisplayName = "Prorate Once"),
+	/**
+	 * Flag sets if object will ignore OTG limits and proration.
+	 */
+	ATK_IgnoreOTG = 0x20 UMETA(DisplayName = "Ignore OTG"),
 };
 
 /**

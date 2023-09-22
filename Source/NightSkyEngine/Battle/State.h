@@ -252,7 +252,7 @@ public:
 	 * Only used on player states.
 	 */
 	UPROPERTY(EditAnywhere)
-	EEntryStance EntryState;
+	EEntryStance EntryStance;
 	/**
 	 * An array of input condition lists.
 	 * Only the success of one input condition list is required to enter the state.

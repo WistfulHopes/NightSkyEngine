@@ -61,6 +61,7 @@ struct FBattleState
 	UPROPERTY(EditAnywhere)
 	int32 StageBounds = 1680000;
 	FVector CameraPosition;
+	bool bHUDVisible;
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundTimer = 0;
 	bool PauseTimer;
@@ -211,7 +212,7 @@ public:
 	void CameraShake(TSubclassOf<UCameraShakeBase> Pattern, float Scale) const;
 
 	void UpdateHUD() const;
-	void BattleHudVisibility(bool Visible) const;
+	void BattleHudVisibility(bool Visible);
 
 	void PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);

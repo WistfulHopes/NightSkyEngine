@@ -176,6 +176,14 @@ void ANightSkyGameState::RoundInit()
 	
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 	BattleState.CurrentScreenPos = 0;
+	BattleState.bHUDVisible = true;
+	
+	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
+	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
+	CameraRotation.Yaw -= 90;
+	
+	CameraActor->SetActorLocation(NewCameraLocation);
+	CameraActor->SetActorRotation(CameraRotation);
 }
 
 void ANightSkyGameState::UpdateLocalInput()
@@ -383,7 +391,8 @@ void ANightSkyGameState::HandleRoundWin()
 		{
 			if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
 				BattleState.P1RoundsWon++;
-			Players[0]->RoundWinTimer--;
+			if (!(Players[0]->AttackFlags & ATK_IsAttacking))
+				Players[0]->RoundWinTimer--;
 			Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
 			BattleState.PauseTimer = true;
 			if (Players[0]->RoundWinTimer == 0)
@@ -397,7 +406,8 @@ void ANightSkyGameState::HandleRoundWin()
 		{
 			if ((Players[3]->PlayerFlags & PLF_RoundWinInputLock) == 0)
 				BattleState.P2RoundsWon++;
-			Players[3]->RoundWinTimer--;
+			if (!(Players[3]->AttackFlags & ATK_IsAttacking))
+				Players[3]->RoundWinTimer--;
 			Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
 			BattleState.PauseTimer = true;
 			if (Players[3]->RoundWinTimer == 0)
@@ -415,7 +425,9 @@ void ANightSkyGameState::HandleRoundWin()
 				BattleState.P2RoundsWon++;
 			}
 			Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
-			Players[0]->RoundWinTimer--;
+			Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
+			if (!(Players[0]->AttackFlags & ATK_IsAttacking))
+				Players[0]->RoundWinTimer--;
 			BattleState.PauseTimer = true;
 			if (Players[0]->RoundWinTimer == 0)
 			{
@@ -430,8 +442,10 @@ void ANightSkyGameState::HandleRoundWin()
 			{
 				if ((Players[0]->PlayerFlags & PLF_RoundWinInputLock) == 0)
 					BattleState.P1RoundsWon++;
-				Players[0]->RoundWinTimer--;
+				if (!(Players[0]->AttackFlags & ATK_IsAttacking))
+					Players[0]->RoundWinTimer--;
 				Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
+				Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
 				BattleState.PauseTimer = true;
 				if (Players[0]->RoundWinTimer == 0)
 				{
@@ -444,7 +458,9 @@ void ANightSkyGameState::HandleRoundWin()
 			{
 				if ((Players[3]->PlayerFlags & PLF_RoundWinInputLock) == 0)
 					BattleState.P2RoundsWon++;
-				Players[3]->RoundWinTimer--;
+				if (!(Players[3]->AttackFlags & ATK_IsAttacking))
+					Players[3]->RoundWinTimer--;
+				Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
 				Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
 				BattleState.PauseTimer = true;
 				if (Players[3]->RoundWinTimer == 0)
@@ -462,7 +478,9 @@ void ANightSkyGameState::HandleRoundWin()
 					BattleState.P2RoundsWon++;
 				}
 				Players[0]->PlayerFlags |= PLF_RoundWinInputLock;
-				Players[0]->RoundWinTimer--;
+				Players[3]->PlayerFlags |= PLF_RoundWinInputLock;
+				if (!(Players[0]->AttackFlags & ATK_IsAttacking))
+					Players[0]->RoundWinTimer--;
 				BattleState.PauseTimer = true;
 				if (Players[0]->RoundWinTimer == 0)
 				{
@@ -819,7 +837,9 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject*
 		}
 		SequenceTarget = Target;
 		SequenceEnemy = Enemy;
-		FVector SequenceLocation = FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z) + BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
+		FVector SequenceLocation =
+			FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z)
+			+ BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
 		SequenceCameraActor->SetActorLocation(SequenceLocation);
 		SequenceActor->SetActorRotation(Target->GetActorRotation());
 		BattleState.CurrentSequenceTime = 0;
@@ -839,6 +859,17 @@ void ANightSkyGameState::CameraShake(TSubclassOf<UCameraShakeBase> Pattern, floa
 
 void ANightSkyGameState::UpdateHUD() const
 {
+	if (BattleState.bHUDVisible)
+	{
+		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Visible);
+		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Visible);
+	}
+	else
+	{
+		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Hidden);
+		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Hidden);
+	}
+	
 	if (BattleHudActor != nullptr)
 	{
 		if (BattleHudActor->TopWidget != nullptr)
@@ -949,18 +980,9 @@ void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int3
 	*OutX = BattleState.CurrentScreenPos - BattleState.ScreenBounds + BattleState.StageBounds * 2 * X / 100;
 }
 
-void ANightSkyGameState::BattleHudVisibility(bool Visible) const
+void ANightSkyGameState::BattleHudVisibility(bool Visible)
 {
-	if (Visible)
-	{
-		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Visible);
-		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Visible);
-	}
-	else
-	{
-		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Hidden);
-		BattleHudActor->BottomWidget->SetVisibility(ESlateVisibility::Hidden);
-	}
+	BattleState.bHUDVisible = Visible;
 }
 
 void ANightSkyGameState::PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration)

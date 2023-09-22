@@ -138,6 +138,8 @@ struct FHitDataCommon
 	// Visual effect type.
 	UPROPERTY(BlueprintReadWrite)
 	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
+	UPROPERTY(BlueprintReadWrite)
+	bool DeathCamOverride = false;
 	
 	// Guard sound effect name.
 	FixedString<32> GuardSFXOverride;
@@ -883,7 +885,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddSpeedXRaw(int InSpeedX);
 	//calculates distance between points
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
 	//sets direction
 	UFUNCTION(BlueprintCallable)
@@ -896,13 +898,19 @@ public:
 	void FaceOpponent();
 	//check if grounded
 	UFUNCTION(BlueprintPure)
-	bool CheckIsGrounded();
+	bool CheckIsGrounded() const;
 	//enables hit
 	UFUNCTION(BlueprintCallable)
 	void EnableHit(bool Enabled);
 	//sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
 	UFUNCTION(BlueprintCallable)
 	void SetAttacking(bool Attacking);
+	UFUNCTION(BlueprintCallable)
+	void SetProjectileAttribute(bool Attribute);
+	UFUNCTION(BlueprintCallable)
+	void SetProrateOnce(bool Once);
+	UFUNCTION(BlueprintCallable)
+	void SetIgnoreOTG(bool Ignore);
 	//enables flip
 	UFUNCTION(BlueprintCallable)
 	void EnableFlip(bool Enabled);
