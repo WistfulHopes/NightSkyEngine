@@ -1,0 +1,1863 @@
+  <!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="color-scheme" content="light dark">
+
+
+  <meta name="generator" content="surreal-docs-"/>
+
+  <title>UNightSkyGameInstance - Night Sky Engine Docs</title>
+
+  <link rel="stylesheet" href="localres/styles/udocs_processor/theme1.css"
+      type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&family=Red+Hat+Mono:wght@300;400;500;600;700&family=Red+Hat+Text:wght@300;400;500;600;700&display=block" rel="stylesheet">
+</head>
+<body>
+<script>
+  let currentTheme = localStorage.getItem("theme");
+  if (!currentTheme) {
+    currentTheme = "light";
+    localStorage.setItem("theme", currentTheme);
+  }
+  document.body.dataset.theme = currentTheme;
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<div class="big-header" id="big-header">
+  <aside class="big-header-content">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="brand">
+      <div class="brand-container">
+        <a class="brand-link" href="docs+450abb80.html">
+          <span class="brand-text">NightSkyEngine</span>
+        </a>
+        <span class="version-picker
+" id="version-picker">
+          <span class="version-picker-text
+              "
+>
+            1.0.0
+          </span>
+        </span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </aside>
+</div>
+
+
+<div class="page">
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      <div class="sidebar-sticky">
+        <div class="sidebar-tree">
+              <p class="caption" role="heading">
+                <span class="caption-text">Getting started</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+450abb80.html">Night Sky Engine</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+769b642e.html">About Night Sky Engine</a>
+  
+</li>
+
+<li class="toctree-l1 has-children
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+5ddc03ac.html">Quick Start Guide</a>
+  
+  <input class="toctree-checkbox" id="toctree-checkbox-2"
+         name="toctree-checkbox-2" role="switch" type="checkbox"
+         />
+  <label for="toctree-checkbox-2">
+    <div class="visually-hidden">Toggle child pages in navigation</div>
+    <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label>
+  <ul>
+    <li class="toctree-l2 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+5ddc03ac+a332c231.html">Installing Night Sky Engine</a>
+  
+</li>
+
+<li class="toctree-l2 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+5ddc03ac+ba9dce18.html">Getting Your Bearings</a>
+  
+</li>
+
+<li class="toctree-l2 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="docs+5ddc03ac+4ea31850.html">Your First State</a>
+  
+</li>
+
+
+  </ul>
+  
+</li>
+
+
+            </ul>
+              <p class="caption" role="heading">
+                <span class="caption-text">Documentation</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="api+cpp.html">C++ API Reference</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  internal"
+  href="api+blueprint.html">Blueprint API Reference</a>
+  
+</li>
+
+
+            </ul>
+              <p class="caption" role="heading">
+                <span class="caption-text">Socials</span>
+              </p>
+            <ul >
+            <li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  external" target="_blank"
+  href="https://twitter.com/WistfulHopes">Follow me on Twitter</a>
+  
+</li>
+
+<li class="toctree-l1 
+
+">
+  <a class="reference
+  
+  
+  external" target="_blank"
+  href="https://discord.gg/mJTU9PV7jH">Join the Discord server</a>
+  
+</li>
+
+
+            </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="main-article" class="native-class-article">
+          <ul class="breadcrumbs"><!--
+         --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              --><a href="api+cpp.html" title="C++ API Reference">C++ API Reference</a></li><!--
+          --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              --><a href="api+cpp+NightSkyEngine.html" title="NightSkyEngine">NightSkyEngine</a></li><!--
+          --><!--
+         --><li class="breadcrumb"><!--
+              --><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i><!--
+              -->UNightSkyGameInstance</li><!--
+          --><!--
+          --></ul>
+<section id="class" class="api-article">
+    <div class="api-header">
+        <p class="api-enity-type">Native class</p>
+<p class="api-counterpart">
+  <a href="api+blueprint+NightSkyEngine+b5e8ff5b.html">
+    [go to Blueprint definition]
+  </a>
+</p>
+    </div>
+    <h1><span class="api-name">UNightSkyGameInstance</span><a class="headerlink" href="#class"
+           title="Permalink to this heading">#</a>
+    </h1>
+    <ul class="api-definition-options">
+<!--
+--><li class="api-definition-option"><!--
+  -->Declared in <span class="api-path">"NightSkyGameInstance.h"</span><!--
+--></li><!--
+-->    </ul>
+    <div class="api-native-definition">
+<div class="api-mc">
+  <div class="api-native-definition-column">
+    <span class="api-keyword api-definition-umacro">UCLASS</span>(
+  </div>
+  <div class="api-native-definition-column">
+    )
+  </div>
+</div>
+        <span class="api-keyword">
+class        </span>
+<span class="api-keyword">NIGHTSKYENGINE_API</span>
+<!--
+        --><span class="api-name">UNightSkyGameInstance</span><!--
+        -->            :
+                    <span class="api-keyword">public&nbsp;</span><!--
+                    --><!--
+                -->UGameInstance    </div>
+    <section id="methods">
+        <h2>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h2>
+        <ul class="api-sub-index api-sub-index-native">
+            <li>
+                <div class="api-access">public<div class="api-line"></div></div>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">CreateLobby<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+322a0bf5.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+29e79efc.html"><span class="api-name"><!--
+                            -->CreateLobby</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">CreateSession<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+f70644cd.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+dee9ecc4.html"><span class="api-name"><!--
+                            -->CreateSession</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">DeleteReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+e6f356c0.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+557d42c.html"><span class="api-name"><!--
+                            -->DeleteReplay</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">const FString&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">ReplayName</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                    <p>Delete a previously recorded replay</p>
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">DestroyLobby<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+727eca5e.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+3d7ff4d.html"><span class="api-name"><!--
+                            -->DestroyLobby</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">DestroySession<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+eb5bd384.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+e56ba698.html"><span class="api-name"><!--
+                            -->DestroySession</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">EndRecordReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+c06c6e95.html"><span class="api-name"><!--
+                            -->EndRecordReplay</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+&#32;const                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">FindReplays<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+67c87eb.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+32edc915.html"><span class="api-name"><!--
+                            -->FindReplays</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                    <p>Start looking for/finding replays on the hard drive</p>
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">GetFriendsList<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+27ddbb65.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+708dea5f.html"><span class="api-name"><!--
+                            -->GetFriendsList</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">JoinLobby<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+2900ebcc.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+7c97e477.html"><span class="api-name"><!--
+                            -->JoinLobby</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FString</span><!--
+                                -->&#32;<span class="api-name">InLobbyID</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">JoinServer<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+42a200a1.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+696b4e5c.html"><span class="api-name"><!--
+                            -->JoinServer</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FString</span><!--
+                                -->&#32;<span class="api-name">ConnectInfo</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">LoadReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+5052d351.html"><span class="api-name"><!--
+                            -->LoadReplay</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">Login<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+1e53f771.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+1e53f771.html"><span class="api-name"><!--
+                            -->Login</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">PlayReplayFromBP<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+e84c6c76.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+74720808.html"><span class="api-name"><!--
+                            -->PlayReplayFromBP</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FString</span><!--
+                                -->&#32;<span class="api-name">ReplayName</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                    <p>Start playback for a previously recorded Replay, from blueprint</p>
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">PlayReplayToGameState<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+e3f599c1.html"><span class="api-name"><!--
+                            -->PlayReplayToGameState</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">int32</span><!--
+                                -->&#32;<span class="api-name">FrameNumber</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">int32&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">OutP1Input</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">int32&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">OutP2Input</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+&#32;const                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">RecordReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+90ca91ab.html"><span class="api-name"><!--
+                            -->RecordReplay</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">RollbackReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+afd52115.html"><span class="api-name"><!--
+                            -->RollbackReplay</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">int32</span><!--
+                                -->&#32;<span class="api-name">FramesToRollback</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+&#32;const                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">SeamlessTravel<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+1537fa0.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+ed1950d2.html"><span class="api-name"><!--
+                            -->SeamlessTravel</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">SearchForLobby<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+b27021b5.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+9be5d131.html"><span class="api-name"><!--
+                            -->SearchForLobby</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">SearchForServer<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+4b13ffaa.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintCallable</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">bool</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+e56c63d.html"><span class="api-name"><!--
+                            -->SearchForServer</span></a>(&#8203;<!--
+                                --><span class="api-params"></span>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">UpdateReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+adc5a5f5.html"><span class="api-name"><!--
+                            -->UpdateReplay</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">int32</span><!--
+                                -->&#32;<span class="api-name">InputsP1</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">int32</span><!--
+                                -->&#32;<span class="api-name">InputsP2</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+&#32;const                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <div class="api-access">protected<div class="api-line"></div></div>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">BP_OnFindReplaysComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    --><li class="api-option-counterpart api-option"><!--
+    --><a href="api+blueprint+NightSkyEngine+b5e8ff5b+b0dee91e.html">Blueprint definition</a>
+</li>
+                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+                        <p class="api-umacro">
+                            UFUNCTION(&#8203;<span class="api-preview-nk">BlueprintImplementableEvent</span
+                        ></span>)
+                        </p>
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+8a4f951.html"><span class="api-name"><!--
+                            -->BP_OnFindReplaysComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">const TArray&#8302;&lt;&#8302;<a href="api+cpp+NightSkyEngine+f950c7b0.html" title="UReplaySaveInfo">UReplaySaveInfo</a>&#8302;*&gt;&amp;</span><!--
+                                -->&#32;<span class="api-name">AllReplays</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <div class="api-access">private<div class="api-line"></div></div>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleCreateSessionComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+24b79cb3.html"><span class="api-name"><!--
+                            -->HandleCreateSessionComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FName</span><!--
+                                -->&#32;<span class="api-name">Name</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleDestroySessionComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+e94fd97d.html"><span class="api-name"><!--
+                            -->HandleDestroySessionComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FName</span><!--
+                                -->&#32;<span class="api-name">Name</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleFindSessionsComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+5e21e9ba.html"><span class="api-name"><!--
+                            -->HandleFindSessionsComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">TSharedRef&#8302;&lt;&#8302;FOnlineSessionSearch&#8302;, ESPMode::ThreadSafe&#8302;&gt;</span><!--
+                                -->&#32;<span class="api-name">Shared</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleJoinInviteSessionComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+efec1991.html"><span class="api-name"><!--
+                            -->HandleJoinInviteSessionComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FName</span><!--
+                                -->&#32;<span class="api-name">Name</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">EOnJoinSessionCompleteResult::Type</span><!--
+                                -->&#32;<span class="api-name">Arg</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleJoinSessionComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+92e2e2f6.html"><span class="api-name"><!--
+                            -->HandleJoinSessionComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">FName</span><!--
+                                -->&#32;<span class="api-name">Name</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">EOnJoinSessionCompleteResult::Type</span><!--
+                                -->&#32;<span class="api-name">Arg</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">HandleLoginComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+cafc7681.html"><span class="api-name"><!--
+                            -->HandleLoginComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">int</span><!--
+                                -->&#32;<span class="api-name">I</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">const FUniqueNetId&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">UniqueNetId</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">const FString&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">String</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">OnReadComplete<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+cb711110.html"><span class="api-name"><!--
+                            -->OnReadComplete</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">int</span><!--
+                                -->&#32;<span class="api-name">I</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">const FString&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">String</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">const FString&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">String1</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options">
+                    <li class="api-option"><span class="api-name">OnSessionInviteAccepted<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                    -->                </ul>
+                <div class="api-native-function">
+                    <div class="api-preview-definition">
+<!--
+                        --><span class="api-native-pre-func">                        <span class="api-preview-nk api-name">void</span></span>
+                        <div class="api-mc">
+                            <div class="api-tab2"></div>
+                            <div>
+                        <a class="api-index-link api-index-link-native"
+                                       href="api+cpp+NightSkyEngine+2575c01a+7278d271.html"><span class="api-name"><!--
+                            -->OnSessionInviteAccepted</span></a>(&#8203;<div class="api-mc">
+                            <div class="api-tab4"></div>
+                            <div>
+<!--
+                                --><span class="api-params"><span class="api-preview-nk"><span class="api-name">bool</span><!--
+                                -->&#32;<span class="api-name">bArg</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">int</span><!--
+                                -->&#32;<span class="api-name">I</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">TSharedPtr&#8302;&lt;const FUniqueNetId&#8302;, ESPMode::ThreadSafe&#8302;&gt;</span><!--
+                                -->&#32;<span class="api-name">UniqueNetId</span><!--
+                                --></span><span class="api-name">,<br><span class="api-preview-nk"><span class="api-name">const FOnlineSessionSearchResult&#8302;&amp;</span><!--
+                                -->&#32;<span class="api-name">OnlineSessionSearchResult</span><!--
+                                --></span><span class="api-name"></span></div></div>)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="fields">
+        <h2>Fields<a class="headerlink" href="#fields"
+                     title="Permalink to this heading">#</a></h2>
+        <ul class="api-sub-index api-sub-index-native">
+            <li>
+                <div class="api-access">public<div class="api-line"></div></div>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">BattleData<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite, EditAnywhere</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                <a href="api+cpp+NightSkyEngine+d0bd0010.html" title="FBattleData">FBattleData</a>
+                                <span class="api-name">BattleData</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">FighterRunner<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite, EditAnywhere</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TEnumAsByte&#8302;&lt;&#8302;<a href="api+cpp+NightSkyEngine+FighterRunners.h+c6242c9.html" title="EFighterRunners">EFighterRunners</a>&#8302;&gt;
+                                <span class="api-name">FighterRunner</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">FriendInfos<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadOnly</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TArray&#8302;&lt;&#8302;<a href="api+cpp+NightSkyEngine+7868fcb0.html" title="FFriendInfo">FFriendInfo</a>&#8302;&gt;
+                                <span class="api-name">FriendInfos</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">InviteResult<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FOnlineSessionSearchResult
+                                <span class="api-name">InviteResult</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">IsCPUBattle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite, EditAnywhere</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                bool
+                                <span class="api-name">IsCPUBattle</span>
+<span class="api-native-default">= false</span><!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">IsReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                bool
+                                <span class="api-name">IsReplay</span>
+<span class="api-native-default">= false</span><!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">IsTraining<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite, EditAnywhere</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                bool
+                                <span class="api-name">IsTraining</span>
+<span class="api-native-default">= false</span><!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">LobbyIDs<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadOnly</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TArray&#8302;&lt;&#8302;FString&#8302;&gt;
+                                <span class="api-name">LobbyIDs</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">LobbyInfos<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TArray&#8302;&lt;&#8302;TSharedRef&#8302;&lt;const FOnlineLobbyId&#8302;&gt;&gt;
+                                <span class="api-name">LobbyInfos</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">PlayerIndex<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadWrite</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                int
+                                <span class="api-name">PlayerIndex</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">ReplayList<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk"></span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TArray&#8302;&lt;&#8302;<a href="api+cpp+NightSkyEngine+f950c7b0.html" title="UReplaySaveInfo">UReplaySaveInfo</a>&#8302;*&gt;
+                                <span class="api-name">ReplayList</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">SessionInfos<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk">BlueprintReadOnly</span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TArray&#8302;&lt;&#8302;<a href="api+cpp+NightSkyEngine+c76934f.html" title="FSessionInfo">FSessionInfo</a>&#8302;&gt;
+                                <span class="api-name">SessionInfos</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <div class="api-access">private<div class="api-line"></div></div>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">CreateSessionDelegateHandle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FDelegateHandle
+                                <span class="api-name">CreateSessionDelegateHandle</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">CurrentReplay<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+                            <p class="api-umacro">
+                                UPROPERTY(<span class="api-preview-nk"></span
+                            ></span>)
+                            </p>
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                <a href="api+cpp+NightSkyEngine+f950c7b0.html" title="UReplaySaveInfo">UReplaySaveInfo</a>&#8302;*
+                                <span class="api-name">CurrentReplay</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">DestroySessionDelegateHandle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FDelegateHandle
+                                <span class="api-name">DestroySessionDelegateHandle</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">FindSessionsDelegateHandle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FDelegateHandle
+                                <span class="api-name">FindSessionsDelegateHandle</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">JoinSessionDelegateHandle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FDelegateHandle
+                                <span class="api-name">JoinSessionDelegateHandle</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">LobbyID<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                TSharedPtr&#8302;&lt;const FOnlineLobbyId&#8302;&gt;
+                                <span class="api-name">LobbyID</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">LoginDelegateHandle<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                FDelegateHandle
+                                <span class="api-name">LoginDelegateHandle</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+            <li>
+                <ul class="api-options"><!--
+                    --><li class="api-option"><span class="api-name">SessionIndex<!--
+                    --><span class="api-end-select">&</span></span></li><!--
+                    --><!--
+                    --><!--
+                --></ul>
+                <div class="api-native-property">
+                    <div class="api-preview-definition">
+<!--
+                            --><span><!--
+                            --></span><!--
+                            --><span class="api-preview-nk api-name">
+                                int
+                                <span class="api-name">SessionIndex</span>
+<!--
+                            --></span>
+                    </div>
+                </div>
+                <div class="api-sub-index-description">
+                </div>
+            </li>
+        </ul>
+    </section>
+</section>
+        </article>
+      </div>
+      <footer>
+        <div class="related-pages">
+        </div>
+<div class="last-updated">
+          Last updated 
+    23
+    September
+    
+    2023
+
+
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright © 2023, WistfulHopes
+            </div>
+            <div class="powered-by">
+            🗲 Powered by
+            <a href="https://surrealdocs.com" class="reference">Surreal Docs</a>
+            </div>
+          </div>
+          <div class="right-details">
+            <div class="icons">
+
+            </div>
+            <div style="padding: 1em; background-color: red;height: 1em;color: white; display: flex; align-items: center; justify-content: center;">
+              This page is generated by&nbsp;<a href="https://medelfor.com" target="_blank" style="color: white; text-decoration-color: white;">Surreal Docs</a>&nbsp;for free
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree" id="toc-tree"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+<ul class="available-versions" id="available-versions">
+</ul>
+<!-- You aren't allowed to be here -->
+<script src="localres/scripts/udocs_processor/theme/theme1/theme1.bundle.js"></script>
+</body>
+</html>
