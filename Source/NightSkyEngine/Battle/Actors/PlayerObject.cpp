@@ -741,7 +741,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
 
-		OTGCount++;
+		if (!(AttackOwner->AttackFlags & ATK_IgnoreOTG))
+			OTGCount++;
 		PlayerFlags &= ~PLF_IsKnockedDown;
 	}
 		
@@ -1122,6 +1123,7 @@ void APlayerObject::SetHitValues()
 		ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
 		ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 		ReceivedHit.GravityOverTime = FHitValueOverTime();
+		ReceivedHit.KnockdownTime = 0;
 		PlayerFlags &= ~PLF_IsHardKnockedDown;
 	}
 }
