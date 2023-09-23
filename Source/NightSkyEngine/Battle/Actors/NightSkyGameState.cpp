@@ -8,6 +8,8 @@
 #include "NightSkyPlayerController.h"
 #include "ParticleManager.h"
 #include "Camera/CameraActor.h"
+#include "CineCameraActor.h"
+#include "Camera/CameraComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/SlateWrapperTypes.h"
 #include "FighterRunners/FighterReplayRunner.h"
@@ -35,6 +37,10 @@ void ANightSkyGameState::BeginPlay()
 	ParticleManager = GetWorld()->SpawnActor<AParticleManager>();
 	AudioManager = GetWorld()->SpawnActor<AAudioManager>();
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	CameraActor = GetWorld()->SpawnActor<ACameraActor>(ACameraActor::StaticClass());
+	CameraActor->GetCameraComponent()->SetFieldOfView(54);
+	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
+	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 	Init();
 }
 
@@ -739,17 +745,13 @@ void ANightSkyGameState::UpdateCamera()
 		{
 			const FVector SequenceCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 			SequenceCameraActor->SetActorLocation(SequenceCameraLocation);
+			if (const auto PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0); IsValid(PlayerController))
+			{
+				PlayerController->SetViewTargetWithBlend(CameraActor);	
+			}
 		}
 		else
 		{
-			for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
-			{
-				if (It->GetName().Contains("FighterCamera"))
-				{
-					CameraActor = *It;
-					return;
-				}
-			}
 			if (BattleState.CurrentSequenceTime >= SequenceActor->SequencePlayer->GetEndTime().Time)
 			{
 				SequenceActor->SequencePlayer->Stop();

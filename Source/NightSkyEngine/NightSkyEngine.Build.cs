@@ -24,7 +24,7 @@ public class NightSkyEngine : ModuleRules
 			"Paper2D",
 		});
 
-		PrivateDependencyModuleNames.AddRange(new[] { "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags" });
+		PrivateDependencyModuleNames.AddRange(new[] { "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
