@@ -19,7 +19,7 @@ APlayerObject::APlayerObject()
 	FDashInitSpeed = 13000;
 	FDashAccel = 600;
 	FDashFriction = 95;
-	FDashMaxSpeed = 20000;
+	FDashMaxSpeed = 38500;
 	BDashSpeed = 14000;
 	BDashHeight = 5200;
 	BDashGravity = 700;
