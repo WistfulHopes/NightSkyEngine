@@ -287,9 +287,9 @@ protected:
 	int32 WhiffCancelOptionsInternal[CancelArraySize] = {};
 	//checks state indices for moves used in current combo
 	int32 MovesUsedInCombo[CancelArraySize] = {};
-	FixedString<64> LastStateName;
-	FixedString<64> ExeStateName;
-	FixedString<64> BufferedStateName;
+	FName LastStateName;
+	FName ExeStateName;
+	FName BufferedStateName;
 	
 public:
 	//Anything past here isn't saved or loaded for rollback.
@@ -302,8 +302,8 @@ public:
 	 * Data to copy from blueprint TArray to internal object
 	 */
 	
-	TArray<FString> ChainCancelOptions;
-	TArray<FString> WhiffCancelOptions; 
+	TArray<FName> ChainCancelOptions;
+	TArray<FName> WhiffCancelOptions; 
 
 	/*
 	 * States and subroutines
@@ -311,18 +311,18 @@ public:
 	
 	UPROPERTY()
 	TArray<USubroutine*> CommonSubroutines;
-	TArray<FString> CommonSubroutineNames;
+	TArray<FName> CommonSubroutineNames;
 	UPROPERTY()
 	TArray<USubroutine*> Subroutines;
-	TArray<FString> SubroutineNames;
+	TArray<FName> SubroutineNames;
 	
 	UPROPERTY()
 	TArray<UState*> CommonObjectStates;
-	TArray<FString> CommonObjectStateNames;	
+	TArray<FName> CommonObjectStateNames;	
 	TArray<bool> CommonObjectStateUsed;	
 	UPROPERTY()
 	TArray<UState*> ObjectStates;
-	TArray<FString> ObjectStateNames;	
+	TArray<FName> ObjectStateNames;	
 	TArray<bool> ObjectStateUsed;	
 
 	/*
@@ -389,13 +389,13 @@ private:
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
-	bool FindChainCancelOption(const FString& Name);
+	bool FindChainCancelOption(const FName Name);
 	//check if whiff cancel option exists
-	bool FindWhiffCancelOption(const FString& Name);
+	bool FindWhiffCancelOption(const FName Name);
 	//check reverse beat
-	bool CheckReverseBeat(const FString& Name);
+	bool CheckReverseBeat(const FName Name);
 	//checks moves used in combo
-	bool CheckMovesUsedInCombo(const FString& Name);
+	bool CheckMovesUsedInCombo(const FName Name);
 	//upon successful throw, jump to state
 	void ThrowExe();
 	//handles throwing objects

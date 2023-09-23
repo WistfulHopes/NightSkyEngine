@@ -17,6 +17,7 @@ AFighterMultiplayerRunner::AFighterMultiplayerRunner()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = false;
+	connectionManager = nullptr;
 }
 
 // Called when the game starts or when spawned
@@ -24,7 +25,7 @@ void AFighterMultiplayerRunner::BeginPlay()
 {
 	Super::BeginPlay();
 	GGPOSessionCallbacks cb = CreateCallbacks();
-	connectionManager = new RpcConnectionManager(); //TODO delete on match end to prevent memleak
+	connectionManager = new RpcConnectionManager();
 	GGPONet::ggpo_start_session(&ggpo, &cb, connectionManager,"", 2, sizeof(int));
 	GGPONet::ggpo_set_disconnect_timeout(ggpo, 45000);
 	GGPONet::ggpo_set_disconnect_notify_start(ggpo, 15000);
@@ -105,7 +106,6 @@ bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int
 
 bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char* buffer, int len)
 {
-	FILE* fp = nullptr;
 	FString savedDir = FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir());
 
 	savedDir.Append(filename);

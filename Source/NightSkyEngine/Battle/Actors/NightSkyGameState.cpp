@@ -41,6 +41,16 @@ void ANightSkyGameState::BeginPlay()
 	CameraActor->GetCameraComponent()->SetFieldOfView(54);
 	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
+	
+	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
+	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
+	CameraRotation.Yaw -= 90;
+	
+	CameraActor->SetActorLocation(NewCameraLocation);
+	CameraActor->SetActorRotation(CameraRotation);
+	SequenceCameraActor->SetActorLocation(NewCameraLocation);
+	SequenceCameraActor->SetActorRotation(CameraRotation);
+	
 	Init();
 }
 
@@ -150,15 +160,6 @@ void ANightSkyGameState::Init()
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 		break;
 	}
-
-	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
-	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
-	CameraRotation.Yaw -= 90;
-	
-	CameraActor->SetActorLocation(NewCameraLocation);
-	CameraActor->SetActorRotation(CameraRotation);
-	SequenceCameraActor->SetActorLocation(NewCameraLocation);
-	SequenceCameraActor->SetActorRotation(CameraRotation);
 	
 	BattleState.RoundFormat = GameInstance->BattleData.RoundFormat;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;

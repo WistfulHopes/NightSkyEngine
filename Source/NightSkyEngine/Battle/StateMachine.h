@@ -31,7 +31,7 @@ struct FStateMachine
 	 * Used to lookup states.
 	 */
 	UPROPERTY()
-	TArray<FString> StateNames;
+	TArray<FName> StateNames;
 	/**
 	 * The parent of this state machine.
 	 */
@@ -43,12 +43,12 @@ struct FStateMachine
 	 * If no current state is set, the input state will be used as the current state.
 	 * Only call at the beginning of a match!
 	 */	
-	void AddState(const FString& Name, UState* Config);
+	void AddState(const FName& Name, UState* Config);
 
 	/**
 	 * Checks a name against the current state name.
 	 */	
-	FORCEINLINE bool IsCurrentState(const FString& Name) const
+	FORCEINLINE bool IsCurrentState(const FName& Name) const
 	{
 		return CurrentState->Name == Name;
 	}
@@ -56,11 +56,11 @@ struct FStateMachine
 	/**
 	 * Gets the current state name.
 	 */	
-	FString GetStateName(int Index);
+	FName GetStateName(int Index);
 	/**
 	 * Gets the current state index.
 	 */	
-	int GetStateIndex(FString Name) const;
+	int GetStateIndex(FName Name) const;
 
 	/**
 	 * Sets the current state.
@@ -69,7 +69,7 @@ struct FStateMachine
 	 * @param Name The state to set as current.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool SetState(const FString Name);
+	bool SetState(const FName Name);
 	/**
 	 * Sets the current state.
 	 * If the state to set is the same as the current state, the state will be reset.
@@ -77,7 +77,7 @@ struct FStateMachine
 	 * @param Name The state to set as current.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool ForceSetState(const FString Name);
+	bool ForceSetState(const FName Name);
 	/**
 	 * Sets the current state for rollback.
 	 * Code called when entering a state normally will not be called.
@@ -85,7 +85,7 @@ struct FStateMachine
 	 * @param Name The state to set as current.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool ForceRollbackState(const FString Name);
+	bool ForceRollbackState(const FName Name);
 
 	/**
 	 * Checks if the state allows the player's current stance.

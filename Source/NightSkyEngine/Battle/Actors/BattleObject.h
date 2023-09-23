@@ -7,7 +7,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
-#include "NightSkyEngine/Battle/FixedString.h"
 #include "BattleObject.generated.h"
 
 class UPaperFlipbookComponent;
@@ -47,8 +46,8 @@ struct FEventHandler
 {
 	GENERATED_BODY()
 
-	FixedString<32> FunctionName;
-	FixedString<32> SubroutineName;
+	FName FunctionName;
+	FName SubroutineName;
 };
 
 // Hit related data.
@@ -142,13 +141,13 @@ struct FHitDataCommon
 	bool DeathCamOverride = false;
 	
 	// Guard sound effect name.
-	FixedString<32> GuardSFXOverride;
+	FName GuardSFXOverride;
 	// Guard visual effect name.
-	FixedString<32> GuardVFXOverride;
+	FName GuardVFXOverride;
 	// Hit sound effect name.
-	FixedString<32> HitSFXOverride;
+	FName HitSFXOverride;
 	// Hit visual effect name.
-	FixedString<32> HitVFXOverride;
+	FName HitVFXOverride;
 };
 
 /*
@@ -656,20 +655,20 @@ public:
 	 * Cels map to collision data.
 	 * The collision frame also stores animation data.
 	 */
-	FixedString<32> CelName = {};
+	FName CelName = {};
 	/*
 	 * The blend cel name.
 	 * This is used to make traditional 3D animations.
 	 */
-	FixedString<32> BlendCelName = {};
+	FName BlendCelName = {};
 	/*
 	 * The name of the label that is currently being jumped to.
 	 */
-	FixedString<32> LabelName = {};
+	FName LabelName = {};
 	// The current animation name.
-	FixedString<32> AnimName = {};
+	FName AnimName = {};
 	// The current blend animation name.
-	FixedString<32> BlendAnimName = {};
+	FName BlendAnimName = {};
 	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive = false;
@@ -693,7 +692,7 @@ public:
 	/*
 	 * Action data for objects only.
 	 */
-	FixedString<32> ObjectStateName = {};
+	FName ObjectStateName = {};
 	uint32 ObjectID = 0;
 	
 protected:
@@ -716,7 +715,7 @@ public:
 	/*
 	 * Socket data
 	 */
-	FixedString<64> SocketName = {}; 
+	FName SocketName = {}; 
 	EObjType SocketObj = OBJ_Self;
 	FVector SocketOffset = FVector::ZeroVector;
 
@@ -857,16 +856,16 @@ public:
 	void RemoveEventHandler(EEventType EventType);
 	//gets cel name
 	UFUNCTION(BlueprintPure)
-	FString GetCelName();
+	FString GetCelName() const;
 	//gets anim name
 	UFUNCTION(BlueprintPure)
-	FString GetAnimName();
+	FString GetAnimName() const;
 	//gets blend anim name
 	UFUNCTION(BlueprintPure)
-	FString GetBlendAnimName();
+	FString GetBlendAnimName() const;
 	//gets label name
 	UFUNCTION(BlueprintPure)
-	FString GetLabelName();
+	FString GetLabelName() const;
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
 	void SetCelName(FString InName);

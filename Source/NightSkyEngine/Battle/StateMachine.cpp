@@ -1,7 +1,7 @@
 ﻿#include "StateMachine.h"
 #include "Actors/PlayerObject.h"
 
-void FStateMachine::AddState(const FString& Name, UState* Config)
+void FStateMachine::AddState(const FName& Name, UState* Config)
 {
 	Config->Parent = Parent;
 	States.Add(Config);
@@ -14,21 +14,21 @@ void FStateMachine::AddState(const FString& Name, UState* Config)
 	}
 }
 
-FString FStateMachine::GetStateName(int Index)
+FName FStateMachine::GetStateName(int Index)
 {
 	if (Index > 0 && Index < States.Num())
 	{
-		return States[Index]->Name;
+		return FName(States[Index]->Name);
 	}
 	return "";
 }
 
-int FStateMachine::GetStateIndex(FString Name) const
+int FStateMachine::GetStateIndex(FName Name) const
 {
 	return StateNames.Find(Name);
 }
 
-bool FStateMachine::SetState(const FString Name)
+bool FStateMachine::SetState(const FName Name)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
@@ -52,7 +52,7 @@ bool FStateMachine::SetState(const FString Name)
 	return true;
 }
 
-bool FStateMachine::ForceSetState(const FString Name)
+bool FStateMachine::ForceSetState(const FName Name)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
@@ -70,7 +70,7 @@ bool FStateMachine::ForceSetState(const FString Name)
 	return true;
 }
 
-bool FStateMachine::ForceRollbackState(const FString Name)
+bool FStateMachine::ForceRollbackState(const FName Name)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{

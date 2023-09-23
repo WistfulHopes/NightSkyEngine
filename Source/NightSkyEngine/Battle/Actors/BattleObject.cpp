@@ -13,7 +13,6 @@
 #include "NightSkyEngine/Battle/Subroutine.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
-#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
 
 // Sets default values
@@ -51,7 +50,7 @@ void ABattleObject::Move()
 	PrevPosX = PosX;
 	PrevPosY = PosY;
 
-	if (BlendOffset && FString(BlendCelName.GetString()) != "" && MaxCelTime)
+	if (BlendOffset && BlendCelName != FName("None") && MaxCelTime)
 	{
 		const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
@@ -348,10 +347,10 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									TriggerEvent(EVT_Hit);
 									
 									const FHitData Data = InitHitDataByAttackLevel(false);
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit,
+									CreateCommonParticle(HitCommon.HitVFXOverride.ToString(), POS_Hit,
 										FVector(0, 100, 0),
 										FRotator(HitCommon.HitAngle, 0, 0));
-									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
+									PlayCommonSound(HitCommon.HitSFXOverride.ToString());
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = Data;
 									EHitAction HACT;
@@ -374,8 +373,8 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									OtherChar->MulFadeSpeed = 0.1;
 
 									const FHitData CounterData = InitHitDataByAttackLevel(true);
-									CreateCommonParticle(HitCommon.HitVFXOverride.GetString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
-									PlayCommonSound(HitCommon.HitSFXOverride.GetString());
+									CreateCommonParticle(HitCommon.HitVFXOverride.ToString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+									PlayCommonSound(HitCommon.HitSFXOverride.ToString());
 									OtherChar->ReceivedHitCommon = HitCommon;
 									OtherChar->ReceivedHit = CounterData;
 									OtherChar->ReceivedHit = CounterData;
@@ -443,22 +442,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_s");
+			HitCommon.HitVFXOverride = FName("cmn_hit_s");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchS");
+			HitCommon.HitSFXOverride = FName("HitPunchS");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickS");
+			HitCommon.HitSFXOverride = FName("HitKickS");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashS");
+			HitCommon.HitSFXOverride = FName("HitSlashS");
 			break;
 		}
 		break;
@@ -497,22 +496,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_s");
+			HitCommon.HitVFXOverride = FName("cmn_hit_s");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchS");
+			HitCommon.HitSFXOverride = FName("HitPunchS");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickS");
+			HitCommon.HitSFXOverride = FName("HitKickS");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashS");
+			HitCommon.HitSFXOverride = FName("HitSlashS");
 			break;
 		}
 		break;
@@ -551,22 +550,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_m");
+			HitCommon.HitVFXOverride = FName("cmn_hit_m");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchM");
+			HitCommon.HitSFXOverride = FName("HitPunchM");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickM");
+			HitCommon.HitSFXOverride = FName("HitKickM");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashM");
+			HitCommon.HitSFXOverride = FName("HitSlashM");
 			break;
 		}
 		break;
@@ -605,22 +604,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_m");
+			HitCommon.HitVFXOverride = FName("cmn_hit_m");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchM");
+			HitCommon.HitSFXOverride = FName("HitPunchM");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickM");
+			HitCommon.HitSFXOverride = FName("HitKickM");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashM");
+			HitCommon.HitSFXOverride = FName("HitSlashM");
 			break;
 		}
 		break;
@@ -659,22 +658,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_l");
+			HitCommon.HitVFXOverride = FName("cmn_hit_l");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchL");
+			HitCommon.HitSFXOverride = FName("HitPunchL");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickL");
+			HitCommon.HitSFXOverride = FName("HitKickL");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashL");
+			HitCommon.HitSFXOverride = FName("HitSlashL");
 			break;
 		}
 		break;
@@ -713,22 +712,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_l");
+			HitCommon.HitVFXOverride = FName("cmn_hit_l");
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride.SetString("cmn_hit_sp");
+			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride.SetString("HitPunchL");
+			HitCommon.HitSFXOverride = FName("HitPunchL");
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride.SetString("HitKickL");
+			HitCommon.HitSFXOverride = FName("HitKickL");
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride.SetString("HitSlashL");
+			HitCommon.HitSFXOverride = FName("HitSlashL");
 			break;
 		}
 		break;
@@ -1054,7 +1053,7 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
-	if (const auto SubroutineName = FString(EventHandlers[EventType].SubroutineName.GetString()); SubroutineName != "")
+	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FName("None"))
 	{
 		USubroutine* Subroutine = nullptr;
 		
@@ -1066,7 +1065,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 
 		if (!Subroutine) return;
 
-		UFunction* const Func = Subroutine->FindFunction(FName(EventHandlers[EventType].FunctionName.GetString()));
+		UFunction* const Func = Subroutine->FindFunction(FName(EventHandlers[EventType].FunctionName.ToString()));
 		if (IsValid(Func) && Func->ParmsSize == 0)
 		{
 			Subroutine->Parent = this;
@@ -1080,7 +1079,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 		State = Player->StoredStateMachine.CurrentState;
 	if (!IsValid(State))
 		return;
-	UFunction* const Func = State->FindFunction(FName(EventHandlers[EventType].FunctionName.GetString()));
+	UFunction* const Func = State->FindFunction(FName(EventHandlers[EventType].FunctionName.ToString()));
 	if (IsValid(Func) && Func->ParmsSize == 0)
 	{
 		State->ProcessEvent(Func, nullptr);
@@ -1248,7 +1247,7 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 	FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
 	if (!IsPlayer)
 	{
-		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName.GetString());
+		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName);
 		if (StateIndex != INDEX_NONE)
 		{
 			ObjectState = DuplicateObject(Player->ObjectStates[StateIndex], this);
@@ -1280,7 +1279,7 @@ void ABattleObject::LogForSyncTestFile(std::ofstream& file)
 		file << "\tStunTime: " << StunTime << std::endl;
 		file << "\tStunTimeMax: " << StunTimeMax << std::endl;
 		file << "\tHitstop: " << Hitstop << std::endl;
-		file << "\tCelName: " << CelName.GetString() << std::endl;
+		file << "\tCelName: " << TCHAR_TO_ANSI(*CelName.ToString()) << std::endl;
 		file << "\tAttackFlags: " << AttackFlags << std::endl;
 		file << "\tDirection: " << Direction << std::endl;
 		file << "\tMiscFlags: " << MiscFlags << std::endl;
@@ -1302,7 +1301,7 @@ void ABattleObject::UpdateVisuals()
 		{
 			SetActorScale3D(FVector(1, 1, 1));
 		}
-		if (!strcmp(SocketName.GetString(), "")) //only set visual location if not attached to socket
+		if (SocketName == FName("None")) //only set visual location if not attached to socket
 		{
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
@@ -1423,9 +1422,9 @@ void ABattleObject::GetBoxes()
 	{
 		for (int i = 0; i < Player->CommonCollisionData->CollisionFrames.Num(); i++)
 		{
-			if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName.GetString())
+			if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName.ToString())
 			{
-				AnimName.SetString(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				AnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1449,9 +1448,9 @@ void ABattleObject::GetBoxes()
 					}
 				}
 			}
-			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName.GetString())
+			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName.ToString())
 			{
-				BlendAnimName.SetString(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				BlendAnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1470,9 +1469,9 @@ void ABattleObject::GetBoxes()
 	{
 		for (int i = 0; i < Player->CollisionData->CollisionFrames.Num(); i++)
 		{
-			if (Player->CollisionData->CollisionFrames[i].CelName == CelName.GetString())
+			if (Player->CollisionData->CollisionFrames[i].CelName == CelName.ToString())
 			{
-				AnimName.SetString(Player->CollisionData->CollisionFrames[i].AnimName);
+				AnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1496,9 +1495,9 @@ void ABattleObject::GetBoxes()
 					}
 				}
 			}
-			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName.GetString())
+			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName.ToString())
 			{
-				BlendAnimName.SetString(Player->CollisionData->CollisionFrames[i].AnimName);
+				BlendAnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1730,9 +1729,9 @@ void ABattleObject::ResetObject()
 	SuperFreezeTimer = 0;
 	Timer0 = 0;
 	Timer1 = 0;
-	CelName.SetString("");
-	BlendCelName.SetString("");
-	AnimName.SetString("");
+	CelName = FName();
+	BlendCelName = FName();
+	AnimName = FName();
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;
@@ -1741,17 +1740,17 @@ void ABattleObject::ResetObject()
 	MaxCelTime = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
-	EventHandlers[EVT_Enter].FunctionName.SetString("Init");	
+	EventHandlers[EVT_Enter].FunctionName = FName("Init");	
 	HitPosX = 0;
 	HitPosY = 0;
 	for (auto& Box : Boxes)
 	{
 		Box = FCollisionBox();
 	}
-	ObjectStateName.SetString("");
+	ObjectStateName = FName();
 	ObjectID = 0;
 	Player = nullptr;
-	SocketName.SetString("");
+	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
 	ScaleForLink = FVector::OneVector;
@@ -1765,7 +1764,7 @@ void ABattleObject::ResetObject()
 
 bool ABattleObject::IsStopped() const
 {
-	return SuperFreezeTimer > 0 || Hitstop > 0 || IsPlayer && Player->PlayerFlags & PLF_IsThrowLock;
+	return SuperFreezeTimer > 0 || Hitstop > 0 || (IsPlayer && Player->PlayerFlags & PLF_IsThrowLock);
 }
 
 bool ABattleObject::IsTimerPaused() const
@@ -1775,17 +1774,17 @@ bool ABattleObject::IsTimerPaused() const
 
 void ABattleObject::CallSubroutine(FString Name)
 {
-	if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
+	if (Player->CommonSubroutineNames.Find(FName(Name)) != INDEX_NONE)
 	{
-		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Parent = this;
-		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Exec();
+		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(FName(Name))]->Parent = this;
+		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(FName(Name))]->Exec();
 		return;
 	}
 
-	if (Player->SubroutineNames.Find(Name) != INDEX_NONE)
+	if (Player->SubroutineNames.Find(FName(Name)) != INDEX_NONE)
 	{
-		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Parent = this;
-		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Exec();
+		Player->Subroutines[Player->SubroutineNames.Find(FName(Name))]->Parent = this;
+		Player->Subroutines[Player->SubroutineNames.Find(FName(Name))]->Exec();
 	}
 }
 
@@ -1810,39 +1809,39 @@ void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32
 		break;
 	default: break;
 	}
-	EventHandlers[EventType].FunctionName.SetString(FuncName.ToString());
-	EventHandlers[EventType].SubroutineName.SetString(SubroutineName);
+	EventHandlers[EventType].FunctionName = FName(FuncName.ToString());
+	EventHandlers[EventType].SubroutineName = FName(SubroutineName);
 }
 
 void ABattleObject::RemoveEventHandler(EEventType EventType)
 {
-	EventHandlers[EventType].FunctionName.SetString("");
-	EventHandlers[EventType].SubroutineName.SetString("");
+	EventHandlers[EventType].FunctionName = FName();
+	EventHandlers[EventType].SubroutineName = FName();
 }
 
-FString ABattleObject::GetCelName()
+FString ABattleObject::GetCelName() const
 {
-	return CelName.GetString();
+	return CelName.ToString();
 }
 
-FString ABattleObject::GetAnimName()
+FString ABattleObject::GetAnimName() const
 {
-	return AnimName.GetString();
+	return AnimName.ToString();
 }
 
-FString ABattleObject::GetBlendAnimName()
+FString ABattleObject::GetBlendAnimName() const
 {
-	return BlendAnimName.GetString();
+	return BlendAnimName.ToString();
 }
 
-FString ABattleObject::GetLabelName()
+FString ABattleObject::GetLabelName() const
 {
-	return LabelName.GetString();
+	return LabelName.ToString();
 }
 
 void ABattleObject::SetCelName(FString InName)
 {
-	CelName.SetString(InName);
+	CelName = FName(InName);
 	SetBlendCelName("");
 
 	GetBoxes();
@@ -1863,7 +1862,7 @@ void ABattleObject::SetCelName(FString InName)
 
 void ABattleObject::SetBlendCelName(FString InName)
 {
-	BlendCelName.SetString(InName);
+	BlendCelName = FName(InName);
 	FrameBlendPosition = 0;
 	
 	GetBoxes();
@@ -1871,7 +1870,7 @@ void ABattleObject::SetBlendCelName(FString InName)
 
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
 {
-	LabelName.SetString(InName);
+	LabelName = FName(InName);
 	if (IsPlayer && ResetState)
 		Player->JumpToState(Player->GetCurrentStateName(), true);
 	else
@@ -2332,14 +2331,14 @@ void ABattleObject::PlayCharaSound(FString Name)
 
 void ABattleObject::AttachToSocketOfObject(FString InSocketName, FVector Offset, EObjType ObjType)
 {
-	SocketName.SetString(InSocketName);
+	SocketName = FName(InSocketName);
 	SocketObj = ObjType;
 	SocketOffset = Offset;
 }
 
 void ABattleObject::DetachFromSocket()
 {
-	SocketName.SetString("");
+	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
 }
@@ -2472,7 +2471,7 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset,
 	EPosType PosType)
 {
-	int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
+	int StateIndex = Player->CommonObjectStateNames.Find(FName(InStateName));
 	if (StateIndex != INDEX_NONE)
 	{
 		while (Player->CommonObjectStateUsed[StateIndex])
@@ -2509,7 +2508,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 P
 
 ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
 {
-	int StateIndex = Player->ObjectStateNames.Find(InStateName);
+	int StateIndex = Player->ObjectStateNames.Find(FName(InStateName));
 	if (StateIndex != INDEX_NONE)
 	{
 		while (Player->ObjectStateUsed[StateIndex])
