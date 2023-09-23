@@ -451,17 +451,17 @@ void APlayerObject::Update()
 			BattleHudVisibility(false);
 			if (ReceivedHitCommon.AttackLevel < 2)
 			{
-				StartSuperFreeze(40);
+				StartSuperFreeze(40, 40);
 				PlayCommonLevelSequence("KO_Shake");
 			}
 			else if (ReceivedHitCommon.AttackLevel < 4)
 			{
-				StartSuperFreeze(75);
+				StartSuperFreeze(75, 75);
 				PlayCommonLevelSequence("KO_Zoom");
 			}
 			else
 			{
-				StartSuperFreeze(145);
+				StartSuperFreeze(145, 145);
 				PlayCommonLevelSequence("KO_Turnaround");
 			}
 			Hitstop = 0;
@@ -1237,9 +1237,10 @@ void APlayerObject::PlayLevelSequence(FString Name)
 	}
 }
 
-void APlayerObject::StartSuperFreeze(int Duration)
+void APlayerObject::StartSuperFreeze(int Duration, int SelfDuration)
 {
-	GameState->StartSuperFreeze(Duration);
+	SuperFreezeTimer = SelfDuration;
+	GameState->StartSuperFreeze(Duration, this);
 	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
 }
 
@@ -1258,6 +1259,19 @@ void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
 	if (Index < 16)
 	{
 		StoredBattleObjects[Index] = InActor;
+	}
+}
+
+void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visible)
+{
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (int i = 0; i < Components.Num(); i++)
+	{
+		if (const auto Component = Components[i]; Component->GetName() == ComponentName)
+		{
+			ComponentVisible[i] = Visible;
+		}
 	}
 }
 
@@ -1879,6 +1893,24 @@ void APlayerObject::HandleGroundBounce()
 	BufferedStateName.SetString("BLaunch");
 }
 
+void APlayerObject::SetComponentVisibility() const
+{
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (int i = 0; i < Components.Num(); i++)
+	{
+		UPrimitiveComponent* Component = Components[i];
+		Component->SetVisibility(ComponentVisible[i]);
+	}
+}
+
+void APlayerObject::UpdateVisuals()
+{
+	Super::UpdateVisuals();
+
+	SetComponentVisibility();
+}
+
 void APlayerObject::AddState(FString Name, UState* State)
 {
 	StoredStateMachine.Parent = this;
@@ -2305,6 +2337,7 @@ void APlayerObject::ResetForRound()
 	WallTouchTimer = 0;
 	JumpToState("Stand");
 	GameState->BattleState.MaxMeter[PlayerIndex] = MaxMeter;
+	SetDefaultComponentVisibility();
 }
 
 void APlayerObject::DisableLastInput()

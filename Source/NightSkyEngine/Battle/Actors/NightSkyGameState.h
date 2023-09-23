@@ -200,7 +200,7 @@ public:
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void SetStageBounds(); //sets screen bounds
 	void SetScreenBounds() const; //forces wall collision
-	void StartSuperFreeze(int Duration);
+	void StartSuperFreeze(int Duration, APlayerObject* CallingPlayer);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;

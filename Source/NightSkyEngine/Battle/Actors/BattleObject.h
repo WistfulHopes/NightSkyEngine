@@ -822,7 +822,7 @@ public:
 	virtual void LogForSyncTestFile(std::ofstream& file);
 	
 protected:
-	void UpdateVisuals();
+	virtual void UpdateVisuals();
 	void FuncCall(const FName& FuncName) const;
 	void GetBoxes();
 	
@@ -838,7 +838,11 @@ public:
 	/*
 	 * Blueprint callable functions.
 	 */
-	
+
+	UFUNCTION(BlueprintPure)
+	bool IsStopped() const;
+	UFUNCTION(BlueprintPure)
+	bool IsTimerPaused() const;
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
 	void CallSubroutine(FString Name);

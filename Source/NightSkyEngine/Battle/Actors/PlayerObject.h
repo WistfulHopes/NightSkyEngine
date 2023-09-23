@@ -408,6 +408,8 @@ private:
 	void HandleWallBounce();
 	//handles ground bounce
 	void HandleGroundBounce();
+	void SetComponentVisibility() const;
+	virtual void UpdateVisuals() override;
 
 public:
 	//initialize player for match/round start
@@ -613,7 +615,7 @@ public:
 	void PlayLevelSequence(FString Name);
 	//starts super freeze
 	UFUNCTION(BlueprintCallable)
-	void StartSuperFreeze(int Duration);
+	void StartSuperFreeze(int Duration, int SelfDuration = 0);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
@@ -623,6 +625,10 @@ public:
 	//stores battle actor in slot
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
+	UFUNCTION(BlueprintCallable)
+	void ToggleComponentVisibility(FString ComponentName, bool Visible);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
+	void SetDefaultComponentVisibility();
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

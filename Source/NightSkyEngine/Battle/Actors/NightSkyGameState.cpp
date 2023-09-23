@@ -677,10 +677,13 @@ void ANightSkyGameState::SetScreenBounds() const
 	}
 }
 
-void ANightSkyGameState::StartSuperFreeze(int Duration)
+void ANightSkyGameState::StartSuperFreeze(int Duration, APlayerObject* CallingPlayer)
 {
 	for (int i = 0; i < BattleState.ActiveObjectCount; i++)
+	{
+		if (SortedObjects[i] == Cast<ABattleObject>(CallingPlayer)) continue;
 		SortedObjects[i]->SuperFreezeTimer = Duration;
+	}
 	BattleState.PauseTimer = true;
 }
 

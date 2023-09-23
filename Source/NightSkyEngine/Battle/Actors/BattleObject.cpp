@@ -13,6 +13,7 @@
 #include "NightSkyEngine/Battle/Subroutine.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
 
 // Sets default values
@@ -1561,17 +1562,6 @@ void ABattleObject::Update()
 	}
 
 	CalculatePushbox();
-
-	if (Timer0 > 0)
-	{
-		--Timer0;
-		if (Timer0 == 0) TriggerEvent(EVT_Timer0);
-	}
-	if (Timer1 > 0)
-	{
-		--Timer1;
-		if (Timer1 == 0) TriggerEvent(EVT_Timer1);
-	}
 	
 	if (SuperFreezeTimer > 0)
 	{
@@ -1597,6 +1587,17 @@ void ABattleObject::Update()
 		if (Player->PlayerFlags & PLF_IsThrowLock)
 			return;
 	
+	if (Timer0 > 0)
+	{
+		--Timer0;
+		if (Timer0 == 0) TriggerEvent(EVT_Timer0);
+	}
+	if (Timer1 > 0)
+	{
+		--Timer1;
+		if (Timer1 == 0) TriggerEvent(EVT_Timer1);
+	}
+
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
 
@@ -1760,6 +1761,16 @@ void ABattleObject::ResetObject()
 	MulFadeColor = FLinearColor(1,1,1,1);
 	AddFadeSpeed = 0;
 	MulFadeSpeed = 0;
+}
+
+bool ABattleObject::IsStopped() const
+{
+	return SuperFreezeTimer > 0 || Hitstop > 0 || IsPlayer && Player->PlayerFlags & PLF_IsThrowLock;
+}
+
+bool ABattleObject::IsTimerPaused() const
+{
+	return GameState->BattleState.PauseTimer;
 }
 
 void ABattleObject::CallSubroutine(FString Name)
