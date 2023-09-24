@@ -433,13 +433,17 @@ bool UNightSkyGameInstance::DestroyLobby()
 
 void UNightSkyGameInstance::SeamlessTravel()
 {
+	this->GetWorld()->ServerTravel("VSInfo_PL", true);
+}
+
+void UNightSkyGameInstance::TravelToBattleMap() const
+{
 	this->GetWorld()->ServerTravel(BattleData.StageURL, true);
 }
 
 void UNightSkyGameInstance::LoadReplay()
 {
 	BattleData = CurrentReplay->BattleData;
-	UGameplayStatics::OpenLevel(this, FName(BattleData.StageURL));
 }
 
 void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const
@@ -513,6 +517,7 @@ void UNightSkyGameInstance::FindReplays()
 			continue;
 		}
 		ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
+		ReplayList.Last()->ReplayIndex = i;
 		if (ReplayList.Last()->Version != BattleVersion)
 		{
 			ReplayList.Pop();

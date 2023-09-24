@@ -17,10 +17,11 @@ class NIGHTSKYENGINE_API UReplaySaveInfo : public UNightSkySaveInfo
 
 public:
 	UReplaySaveInfo()  
-	{  
+	{
 		Timestamp = FDateTime::Now();
 		BattleData = FBattleData();  
 		Version = BattleVersion;
+		ReplayIndex = -1;
 		LengthInFrames = 0;
 	}
 	
@@ -30,6 +31,8 @@ public:
 	FBattleData BattleData;
 	UPROPERTY(BlueprintReadOnly)  
 	FString Version;
+	UPROPERTY(BlueprintReadOnly)
+	int32 ReplayIndex;
 	UPROPERTY()
 	int32 LengthInFrames;
 	UPROPERTY()

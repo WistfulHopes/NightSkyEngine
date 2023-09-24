@@ -11,8 +11,8 @@
 #include "Interfaces/OnlineSessionInterface.h"
 #include "NightSkyGameInstance.generated.h"
 
-inline FString GameVersion = "0.0.3A";
-inline FString BattleVersion = "0.0.3A";
+inline FString GameVersion = "0.0.4";
+inline FString BattleVersion = "0.0.4";
 constexpr int32 MaxReplays = 999;
 
 class APlayerObject;
@@ -55,7 +55,7 @@ struct FBattleData
 	UPROPERTY()
 	FRandomManager Random;
 	UPROPERTY(BlueprintReadWrite)
-	FString StageURL = "FieldOfFate_PL";
+	FString StageURL = "/Game/Maps/FieldOfFate/FieldOfFate_PL";
 };
 
 /**
@@ -90,6 +90,8 @@ protected:
 	void BP_OnFindReplaysComplete(const TArray<UReplaySaveInfo*> &AllReplays);
 	
 public:
+	bool FinishedLoadingForNetworkBattle = false;
+
 	UPROPERTY()
 	TArray<UReplaySaveInfo*> ReplayList;
 	UPROPERTY(BlueprintReadWrite)
@@ -113,7 +115,6 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	TArray<FString> LobbyIDs;
 	TArray<TSharedRef<const FOnlineLobbyId>> LobbyInfos;
-
 	FOnlineSessionSearchResult InviteResult;
 
 	UFUNCTION(BlueprintCallable)
@@ -138,6 +139,8 @@ public:
 	bool DestroyLobby();
 	UFUNCTION(BlueprintCallable)
 	void SeamlessTravel();
+	
+	void TravelToBattleMap() const;
 
 	void LoadReplay();
 	void PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const;

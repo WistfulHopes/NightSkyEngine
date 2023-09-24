@@ -30,6 +30,13 @@ void ANetworkPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	DOREPLIFETIME(ANetworkPawn, CharaDataReceived)
 }
 
+void ANetworkPawn::ServerGetFinishedLoading_Implementation(bool Finished)
+{
+	const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	if (Finished == true && Finished == GameInstance->FinishedLoadingForNetworkBattle)
+		GameInstance->TravelToBattleMap();
+}
+
 void ANetworkPawn::SendGgpoToClient_Implementation(const TArray<int8> &GgpoMessage)
 {
 	 if(FighterMultiplayerRunner)

@@ -40,9 +40,12 @@ public:
 	void ServerGetBattleData(FBattleData InBattleData);
 	UFUNCTION( Client, Reliable )
 	void ClientGetBattleData(FBattleData InBattleData);
+	UFUNCTION( Server, Reliable )
+	void ServerGetFinishedLoading(bool Finished);
 
 	UPROPERTY()
-	class AFighterMultiplayerRunner* FighterMultiplayerRunner=nullptr;
+	class AFighterMultiplayerRunner* FighterMultiplayerRunner = nullptr;
+	
 	UFUNCTION( Server, Unreliable )
 	void SendGgpoToServer(const TArray<int8> &GgpoMessage);
 	UFUNCTION( Client, Unreliable )
