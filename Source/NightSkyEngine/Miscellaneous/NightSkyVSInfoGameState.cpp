@@ -62,7 +62,7 @@ void ANightSkyVSInfoGameState::Tick(float DeltaSeconds)
 }
 
 void ANightSkyVSInfoGameState::OnMapPackageLoaded(const FName& PackageName, UPackage* LoadedPackage,
-                                               EAsyncLoadingResult::Type Result)
+	EAsyncLoadingResult::Type Result)
 {
 	MapLoaded = true;
 	Packages.Add(LoadedPackage);
