@@ -382,10 +382,7 @@ public:
 
 private:
 	virtual void BeginPlay() override;
-	void HandleStateMachine(bool Buffer);
-
-	//buffer state
-	void HandleBufferedState();
+	
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
@@ -416,6 +413,10 @@ public:
 	void InitPlayer();
 	//update object
 	virtual void Update() override;
+	// handle state machine
+	void HandleStateMachine(bool Buffer);
+	//buffer state
+	void HandleBufferedState();
 	//update object for non-battle modes (like character select)
 	void UpdateNotBattle();
 	//update object (editor only, compiled out otherwise)

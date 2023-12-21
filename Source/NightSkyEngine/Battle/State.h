@@ -164,7 +164,7 @@ struct FInputBitmask
 	 * How much time is allowed between inputs.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Lenience = 8;
+	int32 Lenience = 5;
 };
 
 /**

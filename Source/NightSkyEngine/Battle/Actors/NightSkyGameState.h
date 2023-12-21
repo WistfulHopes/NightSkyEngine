@@ -51,29 +51,44 @@ struct FBattleState
 	GENERATED_BODY()
 
 	char BattleStateSync;
+	
 	int32 FrameNumber;
 	int32 TimeUntilRoundStart;
+	
 	UPROPERTY(EditAnywhere)
 	int32 RoundStartPos = 297500;
 	int32 CurrentScreenPos = 0;
+	
 	UPROPERTY(EditAnywhere)
 	int32 ScreenBounds = 840000;
 	UPROPERTY(EditAnywhere)
 	int32 StageBounds = 1680000;
+	
 	FVector CameraPosition;
 	bool bHUDVisible;
+	
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundTimer = 0;
+	
 	bool PauseTimer;
 	bool PauseParticles;
 	bool IsPlayingSequence;
+	
 	int32 Meter[2]{0, 0};
 	int32 MaxMeter[2]{10000, 10000};
+
+	int32 SuperFreezeDuration;
+	int32 SuperFreezeSelfDuration;
+	UPROPERTY()
+	APlayerObject* SuperFreezeCaller;
+	
 	int32 P1RoundsWon;
 	int32 P2RoundsWon;
 	int32 RoundCount = 0;
+	
 	int32 ActiveObjectCount = MaxPlayerObjects;
 	int32 CurrentSequenceTime = -1;
+	
 	FAudioChannel CommonAudioChannels[CommonAudioChannelCount];
 	FAudioChannel CharaAudioChannels[CharaAudioChannelCount];
 	FAudioChannel CharaVoiceChannels[CharaVoiceChannelCount];
@@ -200,7 +215,7 @@ public:
 	void UpdateGameState(int32 Input1, int32 Input2);
 	void SetStageBounds(); //sets screen bounds
 	void SetScreenBounds() const; //forces wall collision
-	void StartSuperFreeze(int Duration, APlayerObject* CallingPlayer);
+	void StartSuperFreeze(int32 Duration, int32 SelfDuration, APlayerObject* CallingPlayer);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;

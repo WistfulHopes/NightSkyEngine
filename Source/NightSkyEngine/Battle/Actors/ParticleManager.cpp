@@ -30,11 +30,15 @@ void AParticleManager::UpdateParticles()
 {
 	TArray<int> IndicesToDelete;
 	int i = 0;
-	for (UNiagaraComponent* NiagaraComponent : NiagaraComponents)
+	for (const auto [NiagaraComponent, ParticleOwner] : BattleParticles)
 	{
 		if (!IsValid(NiagaraComponent))
 		{
 			IndicesToDelete.Add(i);
+			continue;
+		}
+		if (IsValid(ParticleOwner) && ParticleOwner->IsStopped())
+		{
 			continue;
 		}
 		NiagaraComponent->SetPaused(false);
@@ -46,22 +50,23 @@ void AParticleManager::UpdateParticles()
 	}
 	for (const int Index : IndicesToDelete)
 	{
-		NiagaraComponents.RemoveAt(Index);
+		BattleParticles.RemoveAt(Index);
 	}
 }
 
 void AParticleManager::PauseParticles()
 {
-	for (UNiagaraComponent* NiagaraComponent : NiagaraComponents)
+	for (const auto BattleParticle : BattleParticles)
 	{
-		NiagaraComponent->SetPaused(true);
+		BattleParticle.NiagaraComponent->SetPaused(true);
 	}
 }
 
 void AParticleManager::RollbackParticles(int RollbackFrames)
 {
-	for (UNiagaraComponent* NiagaraComponent : NiagaraComponents)
+	for (const auto BattleParticle : BattleParticles)
 	{
+		const auto NiagaraComponent = BattleParticle.NiagaraComponent;
 		const int32 RollbackTime = NiagaraComponent->GetDesiredAge() * (1 / OneFrame) - RollbackFrames;
 		if (RollbackTime < 0)
 		{

@@ -45,6 +45,14 @@ void ABattleObject::Move()
 			return;
 		Player->SetHitValuesOverTime();
 	}
+	else if (PositionLinkObj)
+	{
+		PrevPosX = PositionLinkObj->PrevPosX;
+		PrevPosY = PositionLinkObj->PrevPosY;
+		PosX = PositionLinkObj->PosX;
+		PosY = PositionLinkObj->PosY;
+		return;
+	}
 	
 	// Set previous pos values
 	PrevPosX = PosX;
@@ -1553,32 +1561,24 @@ void ABattleObject::InitObject()
 }
 
 void ABattleObject::Update()
-{
-	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
-	{
-		ResetObject();
-		return;
-	}
-
+{	
 	CalculatePushbox();
-	
-	if (SuperFreezeTimer > 0)
+
+	if (!IsPlayer && StopLinkObj)
 	{
-		if (SuperFreezeTimer == 1)
-		{
-			TriggerEvent(EVT_SuperFreezeEnd);
-			Player->PauseRoundTimer(false);
-			Player->BattleHudVisibility(true);
-		}
-		SuperFreezeTimer--;
-		UpdateVisuals();
-		return;
+		Hitstop = StopLinkObj->Hitstop;
 	}
-		
+	
 	if (Hitstop > 0) //break if hitstop active.
 	{
 		Hitstop--;
 		UpdateVisuals();
+		return;
+	}
+	
+	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
+	{
+		ResetObject();
 		return;
 	}
 
@@ -1726,7 +1726,6 @@ void ABattleObject::ResetObject()
 	ObjectReg6 = 0;
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
-	SuperFreezeTimer = 0;
 	Timer0 = 0;
 	Timer1 = 0;
 	CelName = FName();
@@ -1750,6 +1749,10 @@ void ABattleObject::ResetObject()
 	ObjectStateName = FName();
 	ObjectID = 0;
 	Player = nullptr;
+	AttackTarget = nullptr;
+	StopLinkObj = nullptr;
+	PositionLinkObj = nullptr;
+	MaterialLinkObj = nullptr;
 	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
@@ -1764,7 +1767,10 @@ void ABattleObject::ResetObject()
 
 bool ABattleObject::IsStopped() const
 {
-	return SuperFreezeTimer > 0 || Hitstop > 0 || (IsPlayer && Player->PlayerFlags & PLF_IsThrowLock);
+	if (!IsPlayer && IsValid(StopLinkObj) && StopLinkObj->IsStopped()) return true;
+	if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller) return true;
+	if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller) return true;
+	return Hitstop > 0 || (IsPlayer && Player->PlayerFlags & PLF_IsThrowLock);
 }
 
 bool ABattleObject::IsTimerPaused() const
@@ -2150,8 +2156,8 @@ void ABattleObject::CreateCommonParticle(FString Name, EPosType PosType, FVector
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
 				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
-				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
-				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
 				NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
@@ -2182,8 +2188,8 @@ void ABattleObject::CreateCharaParticle(FString Name, EPosType PosType, FVector 
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
 				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
-				GameState->ParticleManager->NiagaraComponents.Add(UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale()));
-				UNiagaraComponent* NiagaraComponent = Cast<UNiagaraComponent>(GameState->ParticleManager->NiagaraComponents.Last());
+				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
 				NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
@@ -2222,7 +2228,7 @@ void ABattleObject::LinkCommonParticle(FString Name)
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				LinkedParticle->SetDesiredAge(0);
-				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, nullptr));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;
@@ -2254,7 +2260,7 @@ void ABattleObject::LinkCharaParticle(FString Name)
 				}
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				GameState->ParticleManager->NiagaraComponents.Add(LinkedParticle);
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, nullptr));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;

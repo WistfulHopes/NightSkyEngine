@@ -6,6 +6,29 @@
 #include "GameFramework/Actor.h"
 #include "ParticleManager.generated.h"
 
+class UNiagaraComponent;
+class ABattleObject;
+
+USTRUCT()
+struct FBattleParticle
+{
+	GENERATED_BODY()
+	
+	FBattleParticle()
+	{
+		NiagaraComponent = nullptr;
+		ParticleOwner = nullptr;
+	}
+	
+	FBattleParticle(UNiagaraComponent* InNiagaraComponent, ABattleObject* InOwner)
+		: NiagaraComponent(InNiagaraComponent), ParticleOwner(InOwner) {}
+	
+	UPROPERTY()
+	UNiagaraComponent* NiagaraComponent;
+	UPROPERTY()
+	ABattleObject* ParticleOwner;
+};
+
 UCLASS()
 class NIGHTSKYENGINE_API AParticleManager : public AActor
 {
@@ -13,7 +36,7 @@ class NIGHTSKYENGINE_API AParticleManager : public AActor
 
 public:
 	UPROPERTY()
-	TArray<class UNiagaraComponent*> NiagaraComponents;
+	TArray<FBattleParticle> BattleParticles;
 
 	// Sets default values for this actor's properties
 	AParticleManager();

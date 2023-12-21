@@ -2,7 +2,6 @@
 
 
 #include "NightSkyGameState.h"
-#include "EngineUtils.h"
 #include "LevelSequenceActor.h"
 #include "LevelSequencePlayer.h"
 #include "NightSkyPlayerController.h"
@@ -170,6 +169,11 @@ void ANightSkyGameState::Init()
 void ANightSkyGameState::RoundInit()
 {
 	BattleState.RoundCount++;
+
+	BattleState.SuperFreezeSelfDuration = 0;
+	BattleState.SuperFreezeDuration = 0;
+	BattleState.SuperFreezeCaller = nullptr;
+	
 	if (!GameInstance->IsTraining)
 		BattleState.TimeUntilRoundStart = 180;
 	for (int i = 0; i < MaxBattleObjects; i++)
@@ -289,13 +293,47 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	}
 
 	HandleHitCollision();
+	
 	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
+		if ((BattleState.SuperFreezeSelfDuration && SortedObjects[i] == BattleState.SuperFreezeCaller)
+			|| (BattleState.SuperFreezeDuration && SortedObjects[i] != BattleState.SuperFreezeCaller))
+		{
+			if (SortedObjects[i]->IsPlayer)
+			{
+				if (SortedObjects[i]->Player->PlayerFlags & PLF_IsStunned)
+					SortedObjects[i]->Player->HandleBufferedState();
+				SortedObjects[i]->Player->StoredInputBuffer.Tick(SortedObjects[i]->Player->Inputs);
+				SortedObjects[i]->Player->HandleStateMachine(true); //handle state transitions
+
+			}
+			SortedObjects[i]->UpdateVisuals();
+			continue;
+		}
 		if (!SortedObjects[i]->IsPlayer || SortedObjects[i]->Player->PlayerFlags & PLF_IsOnScreen)
 			SortedObjects[i]->Update();
 	}
+
+	if (BattleState.SuperFreezeSelfDuration == 1)
+	{
+		BattleState.SuperFreezeCaller->TriggerEvent(EVT_SuperFreezeEnd);
+	}
+	if (BattleState.SuperFreezeDuration == 1)
+	{
+		for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
+		{
+			SortedObjects[i]->TriggerEvent(EVT_SuperFreezeEnd);
+		}
+
+		BattleState.PauseTimer = false;
+		BattleHudVisibility(true);
+	}
+	
+	if (BattleState.SuperFreezeSelfDuration) BattleState.SuperFreezeSelfDuration--;
+	if (BattleState.SuperFreezeDuration) BattleState.SuperFreezeDuration--;
+	
 	HandlePushCollision();
 	SetScreenBounds();
 	SetStageBounds();
@@ -684,13 +722,11 @@ void ANightSkyGameState::SetScreenBounds() const
 	}
 }
 
-void ANightSkyGameState::StartSuperFreeze(int Duration, APlayerObject* CallingPlayer)
+void ANightSkyGameState::StartSuperFreeze(int32 Duration, int32 SelfDuration, APlayerObject* CallingPlayer)
 {
-	for (int i = 0; i < BattleState.ActiveObjectCount; i++)
-	{
-		if (SortedObjects[i] == Cast<ABattleObject>(CallingPlayer)) continue;
-		SortedObjects[i]->SuperFreezeTimer = Duration;
-	}
+	BattleState.SuperFreezeDuration = Duration;
+	BattleState.SuperFreezeSelfDuration = SelfDuration;
+	BattleState.SuperFreezeCaller = CallingPlayer;
 	BattleState.PauseTimer = true;
 }
 

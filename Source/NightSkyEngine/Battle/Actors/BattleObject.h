@@ -739,26 +739,34 @@ public:
 	int32 HitPosX = 0;
 	int32 HitPosY = 0;
 	int32 MiscFlags = 0;
-	int32 SuperFreezeTimer = 0;
 	int32 Timer0 = 0;
 	int32 Timer1 = 0;
 	bool IsPlayer = false;
 	bool IsActive = false;
-	int32 DrawPriority = 0; //the lower the number, the farther in front the character will be drawn
+	int32 DrawPriority = 0; // the lower the number, the farther in front the object will be drawn
 
 	/*
 	 * Link data (for object)
 	 */
 	UPROPERTY(BlueprintReadWrite)
 	FVector ScaleForLink = FVector::One();
+
+	/*
+	 * Object pointers.
+	 */
 	
-	//Pointer to player object. If this is not a player, it will point to the owning player.
+	// Pointer to player object. If this is not a player, it will point to the owning player.
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* Player = nullptr;
-	
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackTarget = nullptr;
-
+	UPROPERTY(BlueprintReadWrite)
+	ABattleObject* PositionLinkObj = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	ABattleObject* StopLinkObj = nullptr;
+	UPROPERTY(BlueprintReadWrite)
+	ABattleObject* MaterialLinkObj = nullptr;
+	
 	int32 ObjectStateIndex = 0;
 	bool bIsCommonState = false;
 	
@@ -821,17 +829,18 @@ public:
 	virtual void LogForSyncTestFile(std::ofstream& file);
 	
 protected:
-	virtual void UpdateVisuals();
 	void FuncCall(const FName& FuncName) const;
 	void GetBoxes();
 	
 public:	
 	// Cannot be called on player objects. Initializes the object for use.
 	void InitObject();
-	//update object
+	// update object
 	virtual void Update();
+	// update visuals
+	virtual void UpdateVisuals();
 	
-	//resets object for next use
+	// resets object for next use
 	void ResetObject();
 	
 	/*

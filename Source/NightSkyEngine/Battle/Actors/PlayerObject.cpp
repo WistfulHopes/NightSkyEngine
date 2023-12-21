@@ -434,15 +434,6 @@ void APlayerObject::Update()
 		return;
 	}
 	
-	if (SuperFreezeTimer > 0)
-	{
-		if (PlayerFlags & PLF_IsStunned)
-			HandleBufferedState();
-		StoredInputBuffer.Tick(Inputs);
-		HandleStateMachine(true); //handle state transitions
-		return;
-	}
-	
 	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		PlayerFlags |= PLF_IsDead;
@@ -1241,8 +1232,7 @@ void APlayerObject::PlayLevelSequence(FString Name)
 
 void APlayerObject::StartSuperFreeze(int Duration, int SelfDuration)
 {
-	SuperFreezeTimer = SelfDuration;
-	GameState->StartSuperFreeze(Duration, this);
+	GameState->StartSuperFreeze(Duration, SelfDuration, this);
 	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
 }
 
@@ -2245,7 +2235,11 @@ void APlayerObject::ResetForRound()
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
 	IsPlayer = true;
-	SuperFreezeTimer = 0;
+	AttackTarget = nullptr;
+	AttackOwner = nullptr;
+	StopLinkObj = nullptr;
+	PositionLinkObj = nullptr;
+	MaterialLinkObj = nullptr;
 	Timer0 = 0;
 	Timer1 = 0;
 	CelName = FName();
