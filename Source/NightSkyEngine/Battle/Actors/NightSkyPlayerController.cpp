@@ -326,38 +326,6 @@ void ANightSkyPlayerController::PauseGame()
 	}
 }
 
-void ANightSkyPlayerController::UpdateInput(int Input[], int32 InFrame) const
-{
-	const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
-	TArray<ANetworkPawn*> NetworkPawns;
-	for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
-	{
-		NetworkPawns.Add(*It);
-	}
-	TArray<int32> SendInputs;
-	for (int i = 0; i < MaxRollbackFrames; i++)
-	{
-		SendInputs.Add(Input[i]);
-	}
-	if (NetworkPawns.Num() > 1)
-	{
-		if (PlayerIndex == 0)
-		{
-			for (int i = 0; i < MaxRollbackFrames; i++)
-			{
-				NetworkPawns[1]->SendToClient(SendInputs, InFrame);
-			}
-		}
-		else
-		{
-			for (int i = 0; i < MaxRollbackFrames; i++)
-			{
-				NetworkPawns[0]->SendToServer(SendInputs, InFrame);
-			}
-		}
-	}
-}
-
 void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Client)
 {
 	if(InNetworkPawn->FighterMultiplayerRunner==nullptr)//TODO: CHECK IF MULTIPLAYERRUNNER IS SPAWNED BEFORE THIS, IF SO DO THIS IN BEGINPLAY
@@ -374,7 +342,7 @@ void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Clien
 	{
 		while(InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.Num()>0)
 		{
-			auto SendVal = InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.GetTail();
+			const auto SendVal = InNetworkPawn->FighterMultiplayerRunner->connectionManager->sendSchedule.GetTail();
 			if(Client)
 			{
 				InNetworkPawn->SendGgpoToClient(SendVal->GetValue());

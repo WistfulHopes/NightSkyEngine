@@ -33,6 +33,7 @@ protected:
 	 * Updated by the input being checked.
 	 */
 	bool bInputAllowDisable = true;
+	
 public:
 	/**
 	 * All stored inputs.

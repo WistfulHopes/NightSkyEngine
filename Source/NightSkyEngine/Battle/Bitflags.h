@@ -134,7 +134,15 @@ enum EAttackFlags
 	/**
 	 * Flag sets if object will ignore OTG limits and proration.
 	 */
-	ATK_IgnoreOTG = 0x20 UMETA(DisplayName = "Ignore OTG"),
+	ATK_IgnoreOTG = 0x40 UMETA(DisplayName = "Ignore OTG"),
+	/**
+	 * Flag sets if object will ignore pushback scaling.
+	 */
+	ATK_IgnorePushbackScaling = 0x80 UMETA(DisplayName = "Ignore Pushback Scaling"),
+	/**
+	 * Flag sets if object will ignore hitstun scaling.
+	 */
+	ATK_IgnoreHitstunScaling = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling"),
 };
 
 /**

@@ -98,36 +98,3 @@ void ANetworkPawn::ClientChecksumCheck_Implementation(uint32 Checksum, int32 InF
 		}
 	}
 }
-
-void ANetworkPawn::SendToClient_Implementation(const TArray<int32> &InInputs, int32 InFrame)
-{
-	if (ANightSkyGameState* GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState()))
-	{
-		if (GameState != nullptr)
-		{
-			int SendInputs[MaxRollbackFrames];
-			for (int i = 0; i < MaxRollbackFrames; i++)
-			{
-				SendInputs[i] = InInputs[i];
-			}
-			GameState->UpdateRemoteInput(SendInputs, InFrame);
-		}
-	}
-}
-
-void ANetworkPawn::SendToServer_Implementation(const TArray<int32> &InInputs, int32 InFrame)
-{
-	if (ANightSkyGameState* GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState()))
-	{
-		if (GameState != nullptr)
-		{
-			int SendInputs[MaxRollbackFrames];
-			for (int i = 0; i < MaxRollbackFrames; i++)
-			{
-				SendInputs[i] = InInputs[i];
-			}
-			GameState->UpdateRemoteInput(SendInputs, InFrame);
-		}
-	}
-}
-

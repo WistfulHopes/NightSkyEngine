@@ -818,6 +818,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (CounterHit.HardKnockdown == -1)
 		CounterHit.HardKnockdown = NormalHit.HardKnockdown;
 	
+	if (NormalHit.WallBounce.WallBounceStop == -1)
+		NormalHit.WallBounce.WallBounceStop = NormalHit.Hitstop;
 	if (NormalHit.WallBounce.WallBounceXSpeed == -1)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
 	if (NormalHit.WallBounce.WallBounceXRate == -1)
@@ -829,6 +831,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (NormalHit.WallBounce.WallBounceGravity == -1)
 		NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
 
+	if (CounterHit.WallBounce.WallBounceStop == -1)
+		CounterHit.WallBounce.WallBounceStop = NormalHit.WallBounce.WallBounceStop;
 	if (CounterHit.WallBounce.WallBounceCount == -1)
 		CounterHit.WallBounce.WallBounceCount = NormalHit.WallBounce.WallBounceCount;
 	if (CounterHit.WallBounce.WallBounceXSpeed == -1)
@@ -841,7 +845,9 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.WallBounce.WallBounceYRate = NormalHit.WallBounce.WallBounceYRate;
 	if (CounterHit.WallBounce.WallBounceGravity == -1)
 		CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
-	
+
+	if (NormalHit.GroundBounce.GroundBounceStop == -1)
+		NormalHit.GroundBounce.GroundBounceStop = NormalHit.Hitstop;
 	if (NormalHit.GroundBounce.GroundBounceXSpeed == -1)
 		NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
 	if (NormalHit.GroundBounce.GroundBounceXRate == -1)
@@ -853,6 +859,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (NormalHit.GroundBounce.GroundBounceGravity == -1)
 		NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
 
+	if (CounterHit.GroundBounce.GroundBounceStop == -1)
+		CounterHit.GroundBounce.GroundBounceStop = NormalHit.GroundBounce.GroundBounceStop;
 	if (CounterHit.GroundBounce.GroundBounceCount == -1)
 		CounterHit.GroundBounce.GroundBounceCount = NormalHit.GroundBounce.GroundBounceCount;
 	if (CounterHit.GroundBounce.GroundBounceXSpeed == -1)
@@ -2065,6 +2073,22 @@ void ABattleObject::SetIgnoreOTG(bool Ignore)
 		AttackFlags |= ATK_IgnoreOTG;
 	else
 		AttackFlags &= ~ATK_IgnoreOTG;
+}
+
+void ABattleObject::SetIgnorePushbackScaling(bool Ignore)
+{
+	if (Ignore)
+		AttackFlags |= ATK_IgnorePushbackScaling;
+	else
+		AttackFlags &= ~ATK_IgnorePushbackScaling;
+}
+
+void ABattleObject::SetIgnoreHitstunScaling(bool Ignore)
+{
+	if (Ignore)
+		AttackFlags |= ATK_IgnoreHitstunScaling;
+	else
+		AttackFlags &= ~ATK_IgnoreHitstunScaling;
 }
 
 void ABattleObject::DeactivateObject()

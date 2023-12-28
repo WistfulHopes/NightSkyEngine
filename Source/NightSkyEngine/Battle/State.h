@@ -89,6 +89,12 @@ enum class EStateCondition : uint8
 	MeterThreeBars,
 	MeterFourBars,
 	MeterFiveBars,
+	FirstGaugeOneBar,
+	FirstGaugeTwoBars,
+	FirstGaugeThreeBars,
+	FirstGaugeFourBars,
+	FirstGaugeFiveBars,
+	FirstGaugeSixBars,
 	PlayerReg1True,
 	PlayerReg2True,
 	PlayerReg3True,
@@ -160,11 +166,18 @@ struct FInputBitmask
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = EInputFlags))
 	int InputFlag;
+	
+	/**
+	 * How much buffer time there is for the input.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Lenience = 5;
+	
 	/**
 	 * How much time is allowed between inputs.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Lenience = 5;
+	int32 TimeBetweenInputs = 5;
 };
 
 /**

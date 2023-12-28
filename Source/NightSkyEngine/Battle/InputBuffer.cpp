@@ -73,7 +73,7 @@ bool FInputBuffer::CheckInputSequence() const
 		{
 			NoMatches = false;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 		}
 	}
@@ -113,7 +113,7 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 		{
 			NoMatches = false;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 			continue;
 		}
@@ -124,7 +124,7 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 				continue;
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 		}
 	}
@@ -165,7 +165,7 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 		}
 	}
@@ -207,7 +207,7 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 			continue;
 		}
@@ -217,7 +217,7 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 				continue;
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = 0; //reset last match
+			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
 			i--;
 		}
 	}

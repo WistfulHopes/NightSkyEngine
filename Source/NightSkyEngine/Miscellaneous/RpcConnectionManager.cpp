@@ -6,6 +6,7 @@
 
 RpcConnectionManager::RpcConnectionManager()
 {
+	playerIndex = 0;
 }
 
 RpcConnectionManager::~RpcConnectionManager()
@@ -14,7 +15,7 @@ RpcConnectionManager::~RpcConnectionManager()
 
 int RpcConnectionManager::SendTo(const char* buffer, int len, int flags, int connection_id)
 {
-	TArray<int8> scheduledMessage((int8*)buffer,len);
+	const TArray scheduledMessage((int8*)buffer,len);
 	sendSchedule.AddTail(scheduledMessage);
 
 	return 0;

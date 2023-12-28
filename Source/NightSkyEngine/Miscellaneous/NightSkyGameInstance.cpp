@@ -7,6 +7,7 @@
 #include "ReplayInfo.h"
 #include "Interfaces/OnlineIdentityInterface.h"
 #include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Battle/Actors/PlayerObject.h"
 
 bool UNightSkyGameInstance::Login()
 {
@@ -38,8 +39,17 @@ void UNightSkyGameInstance::OnSessionInviteAccepted(bool bArg, int I,
                                                     TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
                                                     const FOnlineSessionSearchResult& OnlineSessionSearchResult)
 {
-	if (BattleData.PlayerList.IsEmpty())
-		return;
+	bool bIsCharaSelected = false;
+	for (auto Player : BattleData.PlayerList)
+	{
+		if (IsValid(Player))
+		{
+			bIsCharaSelected = true;
+			break;
+		}
+	}
+	
+	if (!bIsCharaSelected) return;
 
 	FighterRunner = Multiplayer;
 	PlayerIndex = 1;
@@ -334,6 +344,8 @@ bool UNightSkyGameInstance::JoinServer(FString ConnectInfo)
 			this,
 			&UNightSkyGameInstance::HandleJoinSessionComplete));
 
+	PlayerIndex = 1;
+	
 	// "MyLocalSessionName" is the local name of the session for this player. It doesn't have to match the name the server gave their session.
 	if (!Session->JoinSession(0, FName(TEXT("MyLocalSessionName")), SearchResult))
 	{
@@ -381,6 +393,8 @@ bool UNightSkyGameInstance::JoinLobby(FString InLobbyID)
 
 bool UNightSkyGameInstance::DestroySession()
 {
+	PlayerIndex = 0;
+	
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineSessionPtr Session = Subsystem->GetSessionInterface();
 
@@ -403,7 +417,7 @@ bool UNightSkyGameInstance::DestroyLobby()
 
 	IOnlineSubsystem* Subsystem = Online::GetSubsystem(this->GetWorld());
 	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface();
-	TSharedPtr<IOnlineLobby, ESPMode::ThreadSafe> Lobby = Online::GetLobbyInterface(Subsystem);
+	TSharedPtr<IOnlineLobby> Lobby = Online::GetLobbyInterface(Subsystem);
 	TSharedPtr<const FUniqueNetId> LocalUserId = Identity->GetUniquePlayerId(0);
 
 	if (!LocalUserId.Get())

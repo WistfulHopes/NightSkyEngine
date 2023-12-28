@@ -29,10 +29,6 @@ public:
 	bool CharaDataReceived;
 	
 	UFUNCTION( Server, Reliable )
-	void SendToServer(const TArray<int32> &InInputs, int32 InFrame);
-	UFUNCTION( Client, Reliable )
-	void SendToClient(const TArray<int32> &InInputs, int32 InFrame);
-	UFUNCTION( Server, Reliable )
 	void ServerChecksumCheck(uint32 Checksum, int32 InFrame);
 	UFUNCTION( Client, Reliable )
 	void ClientChecksumCheck(uint32 Checksum, int32 InFrame);
@@ -46,8 +42,8 @@ public:
 	UPROPERTY()
 	class AFighterMultiplayerRunner* FighterMultiplayerRunner = nullptr;
 	
-	UFUNCTION( Server, Unreliable )
+	UFUNCTION( Server, Reliable )
 	void SendGgpoToServer(const TArray<int8> &GgpoMessage);
-	UFUNCTION( Client, Unreliable )
+	UFUNCTION( Client, Reliable )
 	void SendGgpoToClient(const TArray<int8> &GgpoMessage);
 };

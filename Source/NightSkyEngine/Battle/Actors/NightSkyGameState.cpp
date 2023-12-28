@@ -15,6 +15,7 @@
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Globals.h"
+#include "NightSkyEngine/Data/BattleExtensionData.h"
 #include "NightSkyEngine/Miscellaneous/FighterRunners.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
@@ -58,6 +59,16 @@ void ANightSkyGameState::Init()
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
 		StoredRollbackData.Add(FRollbackData());
+	}
+
+	if (IsValid(BattleExtensionData))
+	{
+		for (auto Extension : BattleExtensionData->ExtensionArray)
+		{
+			BattleExtensions.Add(NewObject<UBattleExtension>(this, Extension));
+			BattleExtensions.Last()->Parent = this;
+			BattleExtensionNames.Add(*BattleExtensions.Last()->Name);
+		}
 	}
 	
 	for (int i = 0; i < MaxPlayerObjects; i++)
@@ -167,7 +178,7 @@ void ANightSkyGameState::Init()
 }
 
 void ANightSkyGameState::RoundInit()
-{
+{	
 	BattleState.RoundCount++;
 
 	BattleState.SuperFreezeSelfDuration = 0;
@@ -184,6 +195,9 @@ void ANightSkyGameState::RoundInit()
 
 	Players[0]->PlayerFlags = PLF_IsOnScreen;
 	Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
+
+	BattleState.MaxMeter[0] = Players[0]->MaxMeter;
+	BattleState.MaxMeter[1] = Players[MaxPlayerObjects / 2]->MaxMeter;
 	
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 	BattleState.CurrentScreenPos = 0;
@@ -195,6 +209,8 @@ void ANightSkyGameState::RoundInit()
 	
 	CameraActor->SetActorLocation(NewCameraLocation);
 	CameraActor->SetActorRotation(CameraRotation);
+
+	CallBattleExtension("RoundInit");
 }
 
 void ANightSkyGameState::UpdateLocalInput()
@@ -206,26 +222,15 @@ void ANightSkyGameState::UpdateLocalInput()
 		return;
 	}
 	const int PlayerIndex = GameInstance->PlayerIndex;
-	int SendInputs[MaxRollbackFrames] = { 16 };
 	if (PlayerIndex == 0)
 	{
 		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] = GetLocalInputs(0);
-		for (int i = 0; i < MaxRollbackFrames; i++)
-		{
-			SendInputs[i] = LocalInputs[i][0];
-		}
-		Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->UpdateInput(SendInputs, LocalFrame);
 		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[RemoteFrame % MaxRollbackFrames][1];
 	}
 	else
 	{
 		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[RemoteFrame % MaxRollbackFrames][0];
 		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] = GetLocalInputs(0);
-		for (int i = 0; i < MaxRollbackFrames; i++)
-		{
-			SendInputs[i] = LocalInputs[i][1];
-		}
-		Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->UpdateInput(SendInputs, LocalFrame);
 	}
 }
 
@@ -255,14 +260,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 
 	if (BattleState.CurrentSequenceTime != -1)
 		BattleState.CurrentSequenceTime++;
-	
-	for (int i = 0; i < 2; i++)
-	{
-		if (BattleState.Meter[i] > BattleState.MaxMeter[i])
-			BattleState.Meter[i] = BattleState.MaxMeter[i];
-		if (BattleState.Meter[i] < 0)
-			BattleState.Meter[i] = 0;
-	}
 	
 	SortObjects();
 
@@ -361,6 +358,24 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	UpdateCamera();
 	UpdateHUD();
 	ManageAudio();
+	
+	CallBattleExtension("Update");
+	
+	for (int i = 0; i < 2; i++)
+	{
+		if (BattleState.Meter[i] > BattleState.MaxMeter[i])
+			BattleState.Meter[i] = BattleState.MaxMeter[i];
+		if (BattleState.Meter[i] < 0)
+			BattleState.Meter[i] = 0;
+
+		for (int j = 0; j < GaugeCount; j++)
+		{
+			if (BattleState.Gauge[i][j] > BattleState.MaxGauge[j])
+				BattleState.Gauge[i][j] = BattleState.MaxGauge[j];
+			if (BattleState.Gauge[i][j] < 0)
+				BattleState.Gauge[i][j] = 0;
+		}
+	}
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -940,6 +955,15 @@ void ANightSkyGameState::UpdateHUD() const
 		{
 			BattleHudActor->BottomWidget->P1Meter = static_cast<float>(BattleState.Meter[0]) / 10000;
 			BattleHudActor->BottomWidget->P2Meter = static_cast<float>(BattleState.Meter[1]) / 10000;
+
+			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty()) BattleHudActor->BottomWidget->P1Gauge.SetNum(GaugeCount);
+			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty()) BattleHudActor->BottomWidget->P2Gauge.SetNum(GaugeCount);
+			
+			for (int j = 0; j < GaugeCount; j++)
+			{
+				BattleHudActor->BottomWidget->P1Gauge[j] = static_cast<float>(BattleState.Gauge[0][j]) / BattleState.MaxGauge[j];
+				BattleHudActor->BottomWidget->P2Gauge[j] = static_cast<float>(BattleState.Gauge[1][j]) / BattleState.MaxGauge[j];
+			}
 		}
 	}
 }
@@ -1015,6 +1039,49 @@ TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 		PlayerObjects.Add(Players[i]);
 	}
 	return PlayerObjects;
+}
+
+APlayerObject* ANightSkyGameState::GetMainPlayer(bool IsP1) const
+{
+	if (IsP1) return Players[0];
+	return Players[3];
+}
+
+void ANightSkyGameState::CallBattleExtension(FString Name)
+{
+	if (BattleExtensionNames.Find(FName(Name)) != INDEX_NONE)
+	{
+		BattleExtensions[BattleExtensionNames.Find(FName(Name))]->Exec();
+	}
+}
+
+int32 ANightSkyGameState::GetGauge(bool IsP1, int32 GaugeIndex)
+{
+	if (GaugeIndex < GaugeCount)
+	{
+		if (IsP1) return BattleState.Gauge[0][GaugeIndex];
+		return BattleState.Gauge[1][GaugeIndex];
+	}
+	
+	return -1;
+}
+
+void ANightSkyGameState::SetGauge(bool IsP1, int32 GaugeIndex, int32 Value)
+{
+	if (GaugeIndex < GaugeCount)
+	{
+		if (IsP1) BattleState.Gauge[0][GaugeIndex] = Value;
+		else BattleState.Gauge[1][GaugeIndex] = Value;
+	}
+}
+
+void ANightSkyGameState::UseGauge(bool IsP1, int32 GaugeIndex, int32 Value)
+{
+	if (GaugeIndex < GaugeCount)
+	{
+		if (IsP1) BattleState.Gauge[0][GaugeIndex] -= Value;
+		else BattleState.Gauge[1][GaugeIndex] -= Value;
+	}
 }
 
 void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const

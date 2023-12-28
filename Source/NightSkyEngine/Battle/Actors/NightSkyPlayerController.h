@@ -61,7 +61,6 @@ public:
 
 	void PauseGame();
 	
-	void UpdateInput(int Input[], int32 InFrame) const;
 	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client);
 	
 	UFUNCTION(BlueprintCallable)

@@ -9,10 +9,14 @@
 #include "include/ggponet.h"
 #include "NightSkyGameState.generated.h"
 
+class UBattleExtensionData;
+class UBattleExtension;
 constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
 constexpr int32 MaxBattleObjects = 101;
 constexpr int32 MaxPlayerObjects = 6;
+constexpr int32 GaugeCount = 3;
+
 
 class UGGPONetwork;
 class ANightSkyBattleHudActor;
@@ -76,6 +80,10 @@ struct FBattleState
 	
 	int32 Meter[2]{0, 0};
 	int32 MaxMeter[2]{10000, 10000};
+
+	int32 Gauge[2][GaugeCount];
+	UPROPERTY(EditAnywhere)
+	int32 MaxGauge[GaugeCount];
 
 	int32 SuperFreezeDuration;
 	int32 SuperFreezeSelfDuration;
@@ -179,8 +187,17 @@ public:
 	ANightSkyBattleHudActor* BattleHudActor;
 
 	TArray<FRollbackData> StoredRollbackData;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FBattleState BattleState;
+	
+	UPROPERTY()
+	TArray<UBattleExtension*> BattleExtensions;
+	TArray<FName> BattleExtensionNames;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UBattleExtensionData* BattleExtensionData;
+	
 	int32 LocalFrame;
 	int32 RemoteFrame;
 
@@ -241,4 +258,14 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	TArray<APlayerObject*> GetTeam(bool IsP1) const;
+	UFUNCTION(BlueprintCallable)
+	APlayerObject* GetMainPlayer(bool IsP1) const;
+	UFUNCTION(BlueprintCallable)
+	void CallBattleExtension(FString Name);
+	UFUNCTION(BlueprintPure)
+	int32 GetGauge(bool IsP1, int32 GaugeIndex);
+	UFUNCTION(BlueprintCallable)
+	void SetGauge(bool IsP1, int32 GaugeIndex, int32 Value);
+	UFUNCTION(BlueprintCallable)
+	void UseGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 };

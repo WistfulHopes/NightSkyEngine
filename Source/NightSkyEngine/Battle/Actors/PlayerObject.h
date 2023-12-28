@@ -14,6 +14,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
+class USubroutine;
 class UCameraShakeData;
 constexpr int32 DamageReactionCelCount = 64;
 constexpr int32 ExtraGaugeCount = 5;
@@ -260,7 +261,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackOwner;
 	UPROPERTY()
-	ABattleObject* ChildBattleObjects[32];
+	ABattleObject* ChildBattleObjects[64];
 	UPROPERTY()
 	ABattleObject* StoredBattleObjects[16];
 
@@ -473,6 +474,12 @@ public:
 	//sets meter gain cooldown timer
 	UFUNCTION(BlueprintCallable)
 	void SetMeterCooldownTimer(int Timer);
+	UFUNCTION(BlueprintPure)
+	int32 GetGauge(int32 Index) const;
+	UFUNCTION(BlueprintCallable)
+	void SetGauge(int32 Index, int Value);
+	UFUNCTION(BlueprintCallable)
+	void UseGauge(int32 Index, int Use);
 	//set stance
 	UFUNCTION(BlueprintCallable)
 	void SetStance(EActionStance InStance);
@@ -509,7 +516,9 @@ public:
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
-	//is in block or hitstun
+	//is attacking
+	UFUNCTION(BlueprintPure)
+	bool CheckIsAttacking() const;
 	UFUNCTION(BlueprintPure)
 	bool CheckIsStunned() const;
 	//temporarily adds air jump

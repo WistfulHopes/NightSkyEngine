@@ -950,11 +950,26 @@ void APlayerObject::SetHitValues()
 {
 	if (!Enemy->CheckIsStunned())
 		GameState->SetDrawPriorityFront(Enemy);
+
+	int32 FinalHitPushbackX;
+	int32 FinalAirHitPushbackX;
+	int32 FinalAirHitPushbackY;
+	int32 FinalGravity;
 	
-	const int32 FinalHitPushbackX = ReceivedHit.GroundPushbackX + Enemy->ComboCounter * ReceivedHit.GroundPushbackX / 60;
-	const int32 FinalAirHitPushbackX = ReceivedHit.AirPushbackX + Enemy->ComboCounter * ReceivedHit.AirPushbackX / 60;
-	const int32 FinalAirHitPushbackY = ReceivedHit.AirPushbackY - Enemy->ComboCounter * ReceivedHit.AirPushbackY / 120;
-	const int32 FinalGravity = ReceivedHit.Gravity - Enemy->ComboCounter * ReceivedHit.Gravity / 60;
+	if (!(AttackFlags & ATK_IgnorePushbackScaling) && Enemy->ComboCounter > 5)
+	{
+		FinalHitPushbackX = ReceivedHit.GroundPushbackX + (Enemy->ComboCounter - 5) * 700;
+		FinalAirHitPushbackX = ReceivedHit.AirPushbackX + (Enemy->ComboCounter - 5) * 350;
+		FinalAirHitPushbackY = ReceivedHit.AirPushbackY - (Enemy->ComboCounter - 5) * 350;
+		FinalGravity = ReceivedHit.Gravity + (Enemy->ComboCounter - 5) * 25;
+	}
+	else
+	{
+		FinalHitPushbackX = ReceivedHit.GroundPushbackX;
+		FinalAirHitPushbackX = ReceivedHit.AirPushbackX;
+		FinalAirHitPushbackY = ReceivedHit.AirPushbackY;
+		FinalGravity = ReceivedHit.Gravity;
+	}
 	
 	EHitAction HACT;
 	
@@ -982,30 +997,33 @@ void APlayerObject::SetHitValues()
 
 	int32 FinalHitstun = ReceivedHit.Hitstun;
 	int32 FinalUntech = ReceivedHit.Untech;
-	if (Enemy->ComboTimer >= 14 * 60)
+	if (!(AttackFlags & ATK_IgnoreHitstunScaling))
 	{
-		FinalHitstun = FinalHitstun * 70 / 100;
-		FinalUntech = FinalUntech * 60 / 100;
-	}
-	else if (Enemy->ComboTimer >= 10 * 60)
-	{
-		FinalHitstun = FinalHitstun * 75 / 100;
-		FinalUntech = FinalUntech * 70 / 100;
-	}
-	else if (Enemy->ComboTimer >= 7 * 60)
-	{
-		FinalHitstun = FinalHitstun * 80 / 100;
-		FinalUntech = FinalUntech * 80 / 100;
-	}
-	else if (Enemy->ComboTimer >= 5 * 60)
-	{
-		FinalHitstun = FinalHitstun * 85 / 100;
-		FinalUntech = FinalUntech * 90 / 100;
-	}
-	else if (Enemy->ComboTimer >= 3 * 60)
-	{
-		FinalHitstun = FinalHitstun * 90 / 100;
-		FinalUntech = FinalUntech * 95 / 100;
+		if (Enemy->ComboTimer >= 14 * 60)
+		{
+			FinalHitstun = FinalHitstun * 50 / 100;
+			FinalUntech = FinalUntech * 60 / 100;
+		}
+		else if (Enemy->ComboTimer >= 10 * 60)
+		{
+			FinalHitstun = FinalHitstun * 60 / 100;
+			FinalUntech = FinalUntech * 70 / 100;
+		}
+		else if (Enemy->ComboTimer >= 7 * 60)
+		{
+			FinalHitstun = FinalHitstun * 70 / 100;
+			FinalUntech = FinalUntech * 85 / 100;
+		}
+		else if (Enemy->ComboTimer >= 5 * 60)
+		{
+			FinalHitstun = FinalHitstun * 80 / 100;
+			FinalUntech = FinalUntech * 90 / 100;
+		}
+		else if (Enemy->ComboTimer >= 3 * 60)
+		{
+			FinalHitstun = FinalHitstun * 90 / 100;
+			FinalUntech = FinalUntech * 95 / 100;
+		}
 	}
 	
 	switch (HACT)
@@ -1496,6 +1514,7 @@ void APlayerObject::HandleBufferedState()
 
 bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 {
+	ReturnReg = false;
 	switch(StateCondition)
 	{
 	case EStateCondition::None:
@@ -1568,6 +1587,30 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		if (GameState->BattleState.Meter[PlayerIndex] >= 50000)
 			ReturnReg = true;
 		break;
+	case EStateCondition::FirstGaugeOneBar:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 10000)
+			ReturnReg = true;
+		break;
+	case EStateCondition::FirstGaugeTwoBars:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 20000)
+			ReturnReg = true;
+		break;
+	case EStateCondition::FirstGaugeThreeBars:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 30000)
+			ReturnReg = true;
+		break;
+	case EStateCondition::FirstGaugeFourBars:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 40000)
+			ReturnReg = true;
+		break;
+	case EStateCondition::FirstGaugeFiveBars:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 50000)
+			ReturnReg = true;
+		break;
+	case EStateCondition::FirstGaugeSixBars:
+		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 60000)
+			ReturnReg = true;
+		break;
 	case EStateCondition::PlayerReg1True:
 		ReturnReg = PlayerReg1 != 0;
 		break;
@@ -1618,6 +1661,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		break;
 	default:
 		ReturnReg = false;
+		break;
 	}
 	return ReturnReg;
 }
@@ -1832,6 +1876,7 @@ void APlayerObject::HandleWallBounce()
 					ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
 				else
 					ReceivedHit.Untech = StunTime;
+				ReceivedHit.Hitstop = ReceivedHit.WallBounce.WallBounceStop;
 				ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
 				ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 				ReceivedHit.GravityOverTime = FHitValueOverTime();
@@ -1856,6 +1901,7 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.Untech = ReceivedHit.WallBounce.WallBounceUntech;
 			else
 				ReceivedHit.Untech = StunTime;
+			ReceivedHit.Hitstop = ReceivedHit.WallBounce.WallBounceStop;
 			ReceivedHit.AirPushbackXOverTime = FHitValueOverTime();
 			ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 			ReceivedHit.GravityOverTime = FHitValueOverTime();
@@ -1880,6 +1926,7 @@ void APlayerObject::HandleGroundBounce()
 		ReceivedHit.Untech = ReceivedHit.GroundBounce.GroundBounceUntech;
 	else
 		ReceivedHit.Untech = StunTime;
+	ReceivedHit.Hitstop = ReceivedHit.GroundBounce.GroundBounceStop;
 	ReceivedHit.GroundHitAction = HACT_AirFaceUp;
 	EnableCancelIntoSelf(true);
 	BufferedStateName = FName("BLaunch");
@@ -1956,6 +2003,21 @@ void APlayerObject::AddMeter(int Meter)
 void APlayerObject::SetMeterCooldownTimer(int Timer)
 {
 	MeterCooldownTimer = Timer;	
+}
+
+int32 APlayerObject::GetGauge(int32 Index) const
+{
+	return GameState->GetGauge(PlayerIndex == 0, Index);
+}
+
+void APlayerObject::SetGauge(int32 Index, int Value)
+{
+	GameState->SetGauge(PlayerIndex == 0, Index, Value);
+}
+
+void APlayerObject::UseGauge(int32 Index, int Use)
+{
+	GameState->UseGauge(PlayerIndex == 0, Index, Use);
 }
 
 void APlayerObject::SetStance(EActionStance InStance)
@@ -2089,11 +2151,7 @@ void APlayerObject::OnStateChange()
 	PlayerFlags &= ~PLF_LockOpponentBurst;
 	PlayerFlags &= ~PLF_ForceEnableFarNormal;
 	PlayerFlags |= PLF_DefaultLandingAction;
-	AttackFlags &= ~ATK_IsAttacking;
-	AttackFlags &= ~ATK_ProrateOnce;
-	AttackFlags &= ~ATK_AttackHeadAttribute;
-	AttackFlags &= ~ATK_AttackProjectileAttribute;
-	AttackFlags &= ~ATK_HasHit;
+	AttackFlags = 0;
 	MiscFlags = 0;
 	MiscFlags |= MISC_PushCollisionActive;
 	MiscFlags |= MISC_WallCollisionActive;
@@ -2455,6 +2513,11 @@ bool APlayerObject::CheckInput(const FInputCondition& Input)
 {
 	ReturnReg = StoredInputBuffer.CheckInputCondition(Input);
 	return ReturnReg;
+}
+
+bool APlayerObject::CheckIsAttacking() const
+{
+	return AttackFlags & ATK_IsAttacking;
 }
 
 bool APlayerObject::CheckIsStunned() const

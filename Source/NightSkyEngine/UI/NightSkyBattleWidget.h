@@ -26,9 +26,9 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	float P2Meter;
 	UPROPERTY(BlueprintReadOnly)
-	float P1Gauge2;
+	TArray<float> P1Gauge;
 	UPROPERTY(BlueprintReadOnly)
-	float P2Gauge2;
+	TArray<float> P2Gauge;
 	UPROPERTY(BlueprintReadOnly)
 	int P1RoundsWon;
 	UPROPERTY(BlueprintReadOnly)

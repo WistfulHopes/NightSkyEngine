@@ -213,6 +213,9 @@ struct FWallBounceData
 	// If this value is not -1, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceUntech = -1;
+	// The hitstop upon wall bounce.
+	UPROPERTY(BlueprintReadWrite)
+	int32 WallBounceStop = -1;
 	/*
 	 * Wall bounce x speed.
 	 * If this value is -1, it will be set to the current x speed.
@@ -263,6 +266,9 @@ struct FGroundBounceData
 	// If this value is not -1, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceUntech = -1;
+	// The hitstop upon ground bounce.
+	UPROPERTY(BlueprintReadWrite)
+	int32 GroundBounceStop = -1;
 	/*
 	 * Ground bounce x speed.
 	 * If this value is -1, it will be set to the received x pushback.
@@ -923,6 +929,10 @@ public:
 	void SetProrateOnce(bool Once);
 	UFUNCTION(BlueprintCallable)
 	void SetIgnoreOTG(bool Ignore);
+	UFUNCTION(BlueprintCallable)
+	void SetIgnorePushbackScaling(bool Ignore);
+	UFUNCTION(BlueprintCallable)
+	void SetIgnoreHitstunScaling(bool Ignore);
 	//enables flip
 	UFUNCTION(BlueprintCallable)
 	void EnableFlip(bool Enabled);
