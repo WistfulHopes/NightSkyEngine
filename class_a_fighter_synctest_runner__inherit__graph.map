@@ -1,0 +1,9 @@
+<map id="AFighterSynctestRunner" name="AFighterSynctestRunner">
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,225,175,251"/>
+<area shape="rect" id="Node000002" href="$class_a_fighter_multiplayer_runner.html" title=" " alt="" coords="5,152,180,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,192,95,225,90,225,90,192"/>
+<area shape="rect" id="Node000003" href="$class_a_fighter_local_runner.html" title=" " alt="" coords="21,79,164,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,119,95,151,90,151,90,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="61,5,124,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,45,95,78,90,78,90,45"/>
+</map>

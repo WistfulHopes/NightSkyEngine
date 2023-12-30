@@ -1,0 +1,15 @@
+<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/InputBuffer.h" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/InputBuffer.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,5,187,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,269,111,295"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,76,72,99,63,123,57,158,55,194,57,254,52,255,49,194,52,158,58,122,67,97,79,74"/>
+<area shape="rect" id="Node000003" href="$_state_8h.html" title=" " alt="" coords="73,123,137,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,75,107,108,102,108,102,75"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="161,123,315,148"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="155,73,211,112,208,116,152,78"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="103,149,86,197,68,256,63,255,81,195,98,148"/>
+<area shape="rect" id="Node000004" href="$_bitflags_8h.html" title=" " alt="" coords="96,196,172,221"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="112,147,126,181,121,183,107,149"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="197,196,322,221"/>
+<area shape="poly" id="edge6_Node000003_Node000005" title=" " alt="" coords="132,146,221,187,219,192,130,151"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="123,224,83,261,79,257,119,220"/>
+</map>

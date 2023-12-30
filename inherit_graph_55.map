@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,75,80"/>
+<area shape="rect" id="Node000001" href="$class_u_battle_extension.html" title="A customizable extension to the battle ruleset." alt="" coords="123,5,245,31"/>
+<area shape="poly" id="edge40_Node000000_Node000001" title=" " alt="" coords="88,48,144,29,145,34,89,53"/>
+<area shape="rect" id="Node000002" href="$class_u_state.html" title="A character state that determines behavior." alt="" coords="153,55,215,80"/>
+<area shape="poly" id="edge41_Node000000_Node000002" title=" " alt="" coords="90,65,152,65,152,70,90,70"/>
+<area shape="rect" id="Node000003" href="$class_u_subroutine.html" title="A subroutine callable from any player or object state." alt="" coords="137,104,231,129"/>
+<area shape="poly" id="edge42_Node000000_Node000003" title=" " alt="" coords="89,81,145,101,144,106,88,86"/>
+</map>

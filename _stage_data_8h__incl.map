@@ -1,0 +1,9 @@
+<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/StageData.h" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/StageData.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,318,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,111,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,63,92,103,89,98,158,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="135,108,274,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,61,207,93,202,93,202,61"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="298,108,453,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="259,58,340,99,338,103,257,63"/>
+</map>

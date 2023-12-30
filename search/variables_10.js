@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['r_0',['R',['../class_a_battle_object.html#a1bd234d1a5c70f6ab830ebe473affa1b',1,'ABattleObject']]],
+  ['random_1',['Random',['../struct_f_battle_data.html#a4df4cee8133d154740a63034192d82b1',1,'FBattleData']]],
+  ['receivedhit_2',['ReceivedHit',['../class_a_battle_object.html#ad9b0d0bae4f1365158a744fbeb866d7e',1,'ABattleObject']]],
+  ['receivedhitcommon_3',['ReceivedHitCommon',['../class_a_battle_object.html#a3f6b0f385a417b7ab902892ed62a8daa',1,'ABattleObject']]],
+  ['receiveschedule_4',['receiveSchedule',['../class_rpc_connection_manager.html#ab8875fff9f406a4913668382e904840e',1,'RpcConnectionManager']]],
+  ['remoteframe_5',['RemoteFrame',['../class_a_night_sky_game_state.html#a1872b0356bf03b3bcc7944e5842c903c',1,'ANightSkyGameState']]],
+  ['replayindex_6',['ReplayIndex',['../class_u_replay_save_info.html#acd15d57cabaef38debf8870752420d41',1,'UReplaySaveInfo']]],
+  ['replaylist_7',['ReplayList',['../class_u_night_sky_game_instance.html#a8a4ed3fd5bf379650c3a9b1f976b2bf1',1,'UNightSkyGameInstance']]],
+  ['result_8',['Result',['../struct_f_session_info.html#a7a93c3b1cd2b398b2fa668a3ce121f3a',1,'FSessionInfo']]],
+  ['returnreg_9',['ReturnReg',['../class_a_battle_object.html#a75b4d26f67e30c7bbe12a59d1d5ef51f',1,'ABattleObject']]],
+  ['rollbackframes_10',['RollbackFrames',['../struct_f_network_stats.html#a4f2e7a760eac482034fbf50506775415',1,'FNetworkStats::RollbackFrames'],['../class_u_night_sky_battle_widget.html#a70db704afa4ecb5d400037c2105ed360',1,'UNightSkyBattleWidget::RollbackFrames']]],
+  ['roundcount_11',['RoundCount',['../struct_f_battle_state.html#a2f646b6f7ba4d416b289ae8b1aad0ca9',1,'FBattleState']]],
+  ['roundformat_12',['RoundFormat',['../struct_f_battle_state.html#a55df1bcb18d78897b7ae96247c62c09c',1,'FBattleState::RoundFormat'],['../struct_f_battle_data.html#af4f9d3a796ff1a9728cc1f146ad45573',1,'FBattleData::RoundFormat']]],
+  ['roundstartpos_13',['RoundStartPos',['../struct_f_battle_state.html#a815de92efc6ef8ea55e4ac21ede7b9fb',1,'FBattleState']]],
+  ['roundtimer_14',['RoundTimer',['../struct_f_battle_state.html#a6564152690a6b83907283227f4b7a7c8',1,'FBattleState']]],
+  ['roundwintimer_15',['RoundWinTimer',['../class_a_player_object.html#afb255fa5b65eeffc2439b88fdce8ae5f',1,'APlayerObject']]]
+];

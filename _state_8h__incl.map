@@ -1,0 +1,10 @@
+<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.h" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,179,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,196,111,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,77,58,99,49,123,46,153,52,181,46,182,41,153,43,122,54,97,67,74"/>
+<area shape="rect" id="Node000003" href="$_bitflags_8h.html" title=" " alt="" coords="59,123,135,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,75,99,108,94,108,94,75"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="159,123,285,148"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="144,73,196,112,193,116,141,77"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="93,150,74,184,69,182,88,147"/>
+</map>

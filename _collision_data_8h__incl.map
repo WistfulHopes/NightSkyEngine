@@ -1,0 +1,13 @@
+<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="189,5,391,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,130,111,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,78,100,126,98,121,210,73"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="135,130,274,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,77,226,120,222,117,259,73"/>
+<area shape="rect" id="Node000004" href="$_collision_box_8h.html" title=" " alt="" coords="299,123,452,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="321,73,351,109,347,113,317,77"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="477,130,647,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="383,73,517,122,515,127,382,78"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="292,211,459,236"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="378,163,378,196,373,196,373,163"/>
+</map>

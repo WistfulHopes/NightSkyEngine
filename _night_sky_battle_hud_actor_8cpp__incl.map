@@ -1,0 +1,11 @@
+<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.cpp" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,331,75"/>
+<area shape="rect" id="Node000002" href="$_night_sky_battle_hud_actor_8h.html" title=" " alt="" coords="131,123,305,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,75,221,108,215,108,215,75"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,196,111,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="192,151,99,192,97,187,190,146"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="135,196,301,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="221,148,221,181,215,181,215,148"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="326,196,561,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="257,146,392,189,391,194,255,151"/>
+</map>

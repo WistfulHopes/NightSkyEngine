@@ -1,0 +1,27 @@
+var struct_f_hit_data =
+[
+    [ "AirHitAction", "struct_f_hit_data.html#a087792dd178e69d5b8b10140be8a0a7d", null ],
+    [ "AirPushbackX", "struct_f_hit_data.html#aa829ffb18575849f1ee75d55bb10519b", null ],
+    [ "AirPushbackXOverTime", "struct_f_hit_data.html#a1aafdd75f864abd3cbdf70cf236661cd", null ],
+    [ "AirPushbackY", "struct_f_hit_data.html#a3b46e8b4dca69d4faf7463e7dc04372f", null ],
+    [ "AirPushbackYOverTime", "struct_f_hit_data.html#a2d8cdcd2514c16ccf6bc155fead9ffb4", null ],
+    [ "BlowbackLevel", "struct_f_hit_data.html#af79bf86184e24460754e886905023a57", null ],
+    [ "Damage", "struct_f_hit_data.html#a914a5773d0dbbd2e447ad1ac4613ece8", null ],
+    [ "EnemyHitstopModifier", "struct_f_hit_data.html#a389900d03a7ed916f2e13a0203407ae7", null ],
+    [ "FloatingCrumpleType", "struct_f_hit_data.html#a9a72a3ed32c4e668a8d007c951e92255", null ],
+    [ "ForcedProration", "struct_f_hit_data.html#aa14a8ba169021417e4b97fc9f5fcc67a", null ],
+    [ "Gravity", "struct_f_hit_data.html#a76b2fc5c9dcb663483b034414e6eed80", null ],
+    [ "GravityOverTime", "struct_f_hit_data.html#a12b02612dd8ce09c1f6fb3f66305b8c8", null ],
+    [ "GroundBounce", "struct_f_hit_data.html#a2d0bf3ac47662a6a116e3e37c71c4452", null ],
+    [ "GroundHitAction", "struct_f_hit_data.html#a43ac529e99d005364e83141e6c17b3a1", null ],
+    [ "GroundPushbackX", "struct_f_hit_data.html#aa708a2f1a78b0d9a4cecec19602fd0dd", null ],
+    [ "HardKnockdown", "struct_f_hit_data.html#af2f56616f640484bc472e4a1befb0713", null ],
+    [ "Hitstop", "struct_f_hit_data.html#aa0ab6200690833217faea2f6dc506417", null ],
+    [ "Hitstun", "struct_f_hit_data.html#a945da7ef006d5f3b7088a59b6b9d0147", null ],
+    [ "InitialProration", "struct_f_hit_data.html#a4c1f7b952adba43b0ed9cd92ef92f011", null ],
+    [ "KnockdownTime", "struct_f_hit_data.html#a05fcbe40c84029aa80617158764bc7e2", null ],
+    [ "MinimumDamagePercent", "struct_f_hit_data.html#a4923aaf64d9f56451b2283874eb50c94", null ],
+    [ "Position", "struct_f_hit_data.html#a4f9a455c83e9ae0a90c6043ef44f697e", null ],
+    [ "Untech", "struct_f_hit_data.html#a1acc2a33a56d5ca40c1a832b13292824", null ],
+    [ "WallBounce", "struct_f_hit_data.html#a26e13cf9ed7916382ad6f32f9d3322a7", null ]
+];
