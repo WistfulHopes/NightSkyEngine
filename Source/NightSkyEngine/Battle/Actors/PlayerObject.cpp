@@ -688,7 +688,7 @@ void APlayerObject::UpdateNotBattle()
     UpdateVisuals();
 }
 
-void APlayerObject::EditorUpdate()
+void APlayerObject::EditorUpdate_Implementation()
 {
 #if WITH_EDITOR
 	Player = this;

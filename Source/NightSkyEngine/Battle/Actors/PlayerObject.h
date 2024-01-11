@@ -421,7 +421,7 @@ public:
 	//update object for non-battle modes (like character select)
 	void UpdateNotBattle();
 	//update object (editor only, compiled out otherwise)
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void EditorUpdate();
 	//based on received hit action, choose state
 	void HandleHitAction(EHitAction HACT);
