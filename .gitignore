@@ -92,3 +92,5 @@ JonbinsToColData.py
 WinBuild/*
 LinuxBuild/*
 AndroidBuild/*
+
+Doxygen/
