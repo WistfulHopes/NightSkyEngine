@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SerializableObj.h"
 #include "UObject/Object.h"
 #include "Subroutine.generated.h"
 
@@ -14,7 +15,7 @@ class ABattleObject;
  * Allows encapsulating commonly used code that can be reused in states.
  */
 UCLASS(BlueprintType, Blueprintable)
-class USubroutine : public UObject
+class USubroutine : public USerializableObj
 {
 	GENERATED_BODY()
 public:

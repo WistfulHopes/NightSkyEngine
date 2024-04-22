@@ -2,6 +2,7 @@
 .vs/
 .idea/
 .vscode/
+.vsconfig
 NightSkyEngine.code-workspace
 Makefile
 

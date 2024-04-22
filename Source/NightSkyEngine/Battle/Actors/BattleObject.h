@@ -462,7 +462,7 @@ enum EDistanceType
 };
 
 // Used for homing calculations.
-UENUM()
+UENUM(BlueprintType)
 enum EHomingType
 {
 	HOMING_DistanceAccel,
@@ -471,7 +471,7 @@ enum EHomingType
 };
 
 // Determines the position type to check.
-UENUM()
+UENUM(BlueprintType)
 enum EPosType
 {
 	POS_Player,
@@ -482,7 +482,7 @@ enum EPosType
 };
 
 // Determines object type.
-UENUM()
+UENUM(BlueprintType)
 enum EObjType
 {
 	OBJ_Self,
@@ -505,6 +505,27 @@ enum EObjType
 	OBJ_Child14,
 	OBJ_Child15,
 	OBJ_Null,
+};
+
+USTRUCT(BlueprintType)
+struct FHomingParams
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<EHomingType> Type;
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<EObjType> Target = OBJ_Null;
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<EPosType> Pos;
+	UPROPERTY(BlueprintReadWrite)
+	int32 OffsetX;
+	UPROPERTY(BlueprintReadWrite)
+	int32 OffsetY;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ParamA;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ParamB;
 };
 
 /*
@@ -715,7 +736,7 @@ protected:
 	int32 T = 0;
 	int32 B = 0;
 	
-	FCollisionBox Boxes[CollisionArraySize] = {};
+	FCollisionBox Boxes[CollisionArraySize];
 
 public:
 	/*
@@ -751,6 +772,9 @@ public:
 	bool IsActive = false;
 	int32 DrawPriority = 0; // the lower the number, the farther in front the object will be drawn
 
+	UPROPERTY(BlueprintReadWrite)
+	FHomingParams HomingParams = FHomingParams();
+	
 	/*
 	 * Link data (for object)
 	 */
@@ -807,7 +831,13 @@ protected:
 	virtual void BeginPlay() override;
 	// Moves object
 	void Move();
+	void CalculateHoming();
 
+	// static helpers
+	static int32 Vec2Angle_x1000(int32 x, int32 y);
+	static int32 Cos_x1000(int32 Deg_x10);
+	static int32 Sin_x1000(int32 Deg_x10);
+	
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -905,6 +935,9 @@ public:
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
+	//calculates angle between points
+	UFUNCTION(BlueprintPure)
+	int32 CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
 	//sets direction
 	UFUNCTION(BlueprintCallable)
 	void SetFacing(EObjDir NewDir);
@@ -945,6 +978,9 @@ public:
 	//halts momentum
 	UFUNCTION(BlueprintCallable)
 	void HaltMomentum();
+	//should wall collision be used?
+	UFUNCTION(BlueprintCallable)
+	void SetWallCollisionActive(bool Active);
 	//should push collision be used?
 	UFUNCTION(BlueprintCallable)
 	void SetPushCollisionActive(bool Active);
@@ -983,8 +1019,9 @@ public:
 	void DetachFromSocket();
 	UFUNCTION(BlueprintCallable)
 	void CameraShake(FString PatternName, int32 Scale);
-	//generate random number. DOES NOT WORK YET
-	int32 GenerateRandomNumber(int32 Min, int32 Max);
+	//generate random number
+	UFUNCTION(BlueprintPure)
+	static int32 GenerateRandomNumber(int32 Min, int32 Max);
 	//sets object id
 	UFUNCTION(BlueprintCallable)
 	void SetObjectID(int InObjectID);

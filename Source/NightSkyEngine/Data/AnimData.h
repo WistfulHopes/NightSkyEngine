@@ -14,7 +14,7 @@ struct FAnimStruct
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FString Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	UAnimSequence* AnimSequence;
+	UAnimSequenceBase* AnimSequence;
 };
 
 /**

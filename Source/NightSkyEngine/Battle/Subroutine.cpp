@@ -5,5 +5,5 @@
 
 void USubroutine::Exec_Implementation()
 {
-	//TODO implement Night Sky Script
+	ResetToCDO();
 }

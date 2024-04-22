@@ -10,7 +10,7 @@
 #define _GGPO_WINDOWS_H_
 
 #include "Windows/AllowWindowsPlatformTypes.h"
-#include "Windows/PreWindowsApi.h"
+#include "Windows/WindowsHWrapper.h"
 
 #include <winsock2.h>
 #include <WS2tcpip.h>
@@ -32,7 +32,7 @@ public:  // functions
    static void CreateDirectory(const char* pathname, const void* junk) { CreateDirectoryA(pathname, (LPSECURITY_ATTRIBUTES)junk); }
 };
 
-#include "Windows/PostWindowsApi.h"
+#include "Windows/WindowsHWrapper.h"
 #include "Windows/HideWindowsPlatformTypes.h"
 
 #endif

@@ -7,16 +7,16 @@
 #include "PlayerObject.h"
 #include "GameFramework/GameStateBase.h"
 #include "include/ggponet.h"
+#include "NightSkyEngine/Miscellaneous/RandomManager.h"
 #include "NightSkyGameState.generated.h"
 
 class UBattleExtensionData;
 class UBattleExtension;
 constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
-constexpr int32 MaxBattleObjects = 101;
+constexpr int32 MaxBattleObjects = 400;
 constexpr int32 MaxPlayerObjects = 6;
 constexpr int32 GaugeCount = 3;
-
 
 class UGGPONetwork;
 class ANightSkyBattleHudActor;
@@ -56,8 +56,8 @@ struct FBattleState
 
 	char BattleStateSync;
 	
-	int32 FrameNumber;
-	int32 TimeUntilRoundStart;
+	int32 FrameNumber = 0;
+	int32 TimeUntilRoundStart = 0;
 	
 	UPROPERTY(EditAnywhere)
 	int32 RoundStartPos = 297500;
@@ -68,30 +68,36 @@ struct FBattleState
 	UPROPERTY(EditAnywhere)
 	int32 StageBounds = 1680000;
 	
-	FVector CameraPosition;
-	bool bHUDVisible;
+	FVector CameraPosition = FVector();
+	FVector PrevCameraPosition = FVector();
+	bool bHUDVisible = true;
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundTimer = 0;
 	
-	bool PauseTimer;
-	bool PauseParticles;
-	bool IsPlayingSequence;
+	bool PauseTimer = false;
+	bool PauseParticles = false;
+	bool IsPlayingSequence = false;
 	
-	int32 Meter[2]{0, 0};
-	int32 MaxMeter[2]{10000, 10000};
+	FRandomManager RandomManager;
+	
+	int32 Meter[2] {0, 0};
+	int32 MaxMeter[2] {10000, 10000};
 
 	int32 Gauge[2][GaugeCount];
 	UPROPERTY(EditAnywhere)
 	int32 MaxGauge[GaugeCount];
 
-	int32 SuperFreezeDuration;
-	int32 SuperFreezeSelfDuration;
-	UPROPERTY()
-	APlayerObject* SuperFreezeCaller;
+	int32 SuperFreezeDuration = 0;
+	int32 SuperFreezeSelfDuration = 0;
 	
-	int32 P1RoundsWon;
-	int32 P2RoundsWon;
+	UPROPERTY()
+	APlayerObject* SuperFreezeCaller = nullptr;
+	UPROPERTY()
+	APlayerObject* MainPlayer[2];
+	
+	int32 P1RoundsWon = 0;
+	int32 P2RoundsWon = 0;
 	int32 RoundCount = 0;
 	
 	int32 ActiveObjectCount = MaxPlayerObjects;
@@ -117,6 +123,16 @@ struct FRollbackData
 	bool ObjActive[MaxBattleObjects] = { false };
 	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
 	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
+	uint64 SizeOfBPRollbackData;
+};
+
+struct FBPRollbackData
+{
+	TArray<TArray<uint8>> PlayerData;
+	TArray<TArray<uint8>> StateData;
+	TArray<TArray<uint8>> ExtensionData;
+
+	void Serialize(FArchive& Ar);
 };
 
 // Network
@@ -186,7 +202,8 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ANightSkyBattleHudActor* BattleHudActor;
 
-	TArray<FRollbackData> StoredRollbackData;
+	TArray<FRollbackData> MainRollbackData;
+	TArray<FBPRollbackData> BPRollbackData;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FBattleState BattleState;
@@ -230,18 +247,22 @@ public:
 
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2);
+
 	void SetStageBounds(); //sets screen bounds
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int32 Duration, int32 SelfDuration, APlayerObject* CallingPlayer);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
+	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
+	bool CanTag(APlayerObject* InPlayer, int TeamIndex) const;
+	
 	void SaveGameState(); //saves game state
 	void LoadGameState(); //loads game state
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);
-	void CameraShake(TSubclassOf<UCameraShakeBase> Pattern, float Scale) const;
+	void CameraShake(const TSubclassOf<UCameraShakeBase>& Pattern, float Scale) const;
 
 	void UpdateHUD() const;
 	void BattleHudVisibility(bool Visible);
@@ -263,7 +284,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void CallBattleExtension(FString Name);
 	UFUNCTION(BlueprintPure)
-	int32 GetGauge(bool IsP1, int32 GaugeIndex);
+	int32 GetGauge(bool IsP1, int32 GaugeIndex) const;
 	UFUNCTION(BlueprintCallable)
 	void SetGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 	UFUNCTION(BlueprintCallable)

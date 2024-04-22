@@ -12,7 +12,7 @@ class APlayerObject;
  * Contains all player states and state names, as well as the currently active state.
  */
 USTRUCT()
-struct FStateMachine
+struct NIGHTSKYENGINE_API FStateMachine
 {
 	GENERATED_BODY()
 
