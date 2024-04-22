@@ -6,5 +6,6 @@ var searchData=
   ['manageaudio_3',['ManageAudio',['../class_a_night_sky_game_state.html#a8de81b84d109ae61792a6de30ae2df73',1,'ANightSkyGameState']]],
   ['max_4',['max',['../_battle_object_8cpp.html#a3bff7fd1f80069d3279ae5277188e090',1,'BattleObject.cpp']]],
   ['min_5',['min',['../_battle_object_8cpp.html#a1fc2b1bb2c2486dcfa641c5843a479af',1,'BattleObject.cpp']]],
-  ['move_6',['Move',['../class_a_battle_object.html#a57daeb3282a63e056463465919852856',1,'ABattleObject']]]
+  ['montage_5fadvance_6',['Montage_Advance',['../class_u_night_sky_anim_instance.html#a43706f606c9cb584b1184db4d9631ef0',1,'UNightSkyAnimInstance']]],
+  ['move_7',['Move',['../class_a_battle_object.html#a57daeb3282a63e056463465919852856',1,'ABattleObject']]]
 ];

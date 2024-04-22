@@ -43,6 +43,7 @@ var hierarchy =
     [ "FBattleData", "struct_f_battle_data.html", null ],
     [ "FBattleParticle", "struct_f_battle_particle.html", null ],
     [ "FBattleState", "struct_f_battle_state.html", null ],
+    [ "FBPRollbackData", "struct_f_b_p_rollback_data.html", null ],
     [ "FCameraShakeStruct", "struct_f_camera_shake_struct.html", null ],
     [ "FCharaSelectStruct", "struct_f_chara_select_struct.html", null ],
     [ "FCollisionBox", "struct_f_collision_box.html", null ],
@@ -56,6 +57,7 @@ var hierarchy =
     [ "FHitDataCommon", "struct_f_hit_data_common.html", null ],
     [ "FHitPosition", "struct_f_hit_position.html", null ],
     [ "FHitValueOverTime", "struct_f_hit_value_over_time.html", null ],
+    [ "FHomingParams", "struct_f_homing_params.html", null ],
     [ "FInputActionBindingHandle", "struct_f_input_action_binding_handle.html", null ],
     [ "FInputBitmask", "struct_f_input_bitmask.html", null ],
     [ "FInputBuffer", "struct_f_input_buffer.html", null ],
@@ -91,6 +93,9 @@ var hierarchy =
       [ "FOnlineLobbyMemberTransaction", "class_f_online_lobby_member_transaction.html", null ],
       [ "FOnlineLobbyTransaction", "class_f_online_lobby_transaction.html", null ]
     ] ],
+    [ "UAnimInstance", null, [
+      [ "UNightSkyAnimInstance", "class_u_night_sky_anim_instance.html", null ]
+    ] ],
     [ "UCommonActivatableWidget", null, [
       [ "UExtendedCommonActivatableWidget", "class_u_extended_common_activatable_widget.html", null ]
     ] ],
@@ -113,9 +118,11 @@ var hierarchy =
       [ "UNightSkyGameInstance", "class_u_night_sky_game_instance.html", null ]
     ] ],
     [ "UObject", null, [
-      [ "UBattleExtension", "class_u_battle_extension.html", null ],
-      [ "UState", "class_u_state.html", null ],
-      [ "USubroutine", "class_u_subroutine.html", null ]
+      [ "USerializableObj", "class_u_serializable_obj.html", [
+        [ "UBattleExtension", "class_u_battle_extension.html", null ],
+        [ "UState", "class_u_state.html", null ],
+        [ "USubroutine", "class_u_subroutine.html", null ]
+      ] ]
     ] ],
     [ "USaveGame", null, [
       [ "UNightSkySaveInfo", "class_u_night_sky_save_info.html", [

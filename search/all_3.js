@@ -57,9 +57,10 @@ var searchData=
   ['boxes_54',['Boxes',['../class_a_battle_object.html#a58d37b2bd591dc5babd4836136184bab',1,'ABattleObject::Boxes'],['../struct_f_collision_struct.html#a0e605c59e61a6444c6f0334df314832c',1,'FCollisionStruct::Boxes']]],
   ['bp_5fonfindreplayscomplete_55',['BP_OnFindReplaysComplete',['../class_u_night_sky_game_instance.html#a25772e4fd499df189eb0695ebbc3400e',1,'UNightSkyGameInstance']]],
   ['bpausegame_56',['bPauseGame',['../class_a_night_sky_game_state.html#ad66d0d0039f0c7c20947d058ddc17d9f',1,'ANightSkyGameState']]],
-  ['bsuperjumpspeed_57',['BSuperJumpSpeed',['../class_a_player_object.html#a7b34a2855c6e11972abc00edb9d16d0f',1,'APlayerObject']]],
-  ['bufferedstatename_58',['BufferedStateName',['../class_a_player_object.html#a0e29f45d15bc2295068545f26c3ef9e8',1,'APlayerObject']]],
-  ['burst_59',['Burst',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2',1,'State.h']]],
-  ['bviewcollision_60',['bViewCollision',['../class_a_night_sky_game_state.html#a80288ec5e5294572daab40c7e4786ea0',1,'ANightSkyGameState']]],
-  ['bwalkspeed_61',['BWalkSpeed',['../class_a_player_object.html#ab46f60f82a78d6657d161fb7da3dc6ac',1,'APlayerObject']]]
+  ['bprollbackdata_57',['BPRollbackData',['../class_a_night_sky_game_state.html#afaae76e90e8efb5d900b5144a9d2ded7',1,'ANightSkyGameState']]],
+  ['bsuperjumpspeed_58',['BSuperJumpSpeed',['../class_a_player_object.html#a7b34a2855c6e11972abc00edb9d16d0f',1,'APlayerObject']]],
+  ['bufferedstatename_59',['BufferedStateName',['../class_a_player_object.html#a0e29f45d15bc2295068545f26c3ef9e8',1,'APlayerObject']]],
+  ['burst_60',['Burst',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2',1,'State.h']]],
+  ['bviewcollision_61',['bViewCollision',['../class_a_night_sky_game_state.html#a80288ec5e5294572daab40c7e4786ea0',1,'ANightSkyGameState']]],
+  ['bwalkspeed_62',['BWalkSpeed',['../class_a_player_object.html#ab46f60f82a78d6657d161fb7da3dc6ac',1,'APlayerObject']]]
 ];

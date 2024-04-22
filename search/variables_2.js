@@ -66,8 +66,9 @@ var searchData=
   ['crouchpushwidth_63',['CrouchPushWidth',['../class_a_player_object.html#ad7c8299fc524d2dafd16e772cebdd6c7',1,'APlayerObject']]],
   ['currentairdashcount_64',['CurrentAirDashCount',['../class_a_player_object.html#a45338bf7ed0ceb21ce781446ff71947c',1,'APlayerObject']]],
   ['currentairjumpcount_65',['CurrentAirJumpCount',['../class_a_player_object.html#a87ba08944178df46ebcafa6d72d1401c',1,'APlayerObject']]],
-  ['currenthealth_66',['CurrentHealth',['../class_a_player_object.html#a74e868dc9a2d853fd9b389536538c275',1,'APlayerObject']]],
-  ['currentscreenpos_67',['CurrentScreenPos',['../struct_f_battle_state.html#a903b6fe466270d21b81fdc8c6d382b61',1,'FBattleState']]],
-  ['currentsequencetime_68',['CurrentSequenceTime',['../struct_f_battle_state.html#a5c6eecd8e789a3f3a39daf5684b820c5',1,'FBattleState']]],
-  ['currentstate_69',['CurrentState',['../struct_f_state_machine.html#ae92d46791f56ad407756e945cfa61057',1,'FStateMachine']]]
+  ['currentanimtime_66',['CurrentAnimTime',['../class_u_night_sky_anim_instance.html#add7aa6c6caff67e49f170c8d3d662a85',1,'UNightSkyAnimInstance']]],
+  ['currenthealth_67',['CurrentHealth',['../class_a_player_object.html#a74e868dc9a2d853fd9b389536538c275',1,'APlayerObject']]],
+  ['currentscreenpos_68',['CurrentScreenPos',['../struct_f_battle_state.html#a903b6fe466270d21b81fdc8c6d382b61',1,'FBattleState']]],
+  ['currentsequencetime_69',['CurrentSequenceTime',['../struct_f_battle_state.html#a5c6eecd8e789a3f3a39daf5684b820c5',1,'FBattleState']]],
+  ['currentstate_70',['CurrentState',['../struct_f_state_machine.html#ae92d46791f56ad407756e945cfa61057',1,'FStateMachine']]]
 ];

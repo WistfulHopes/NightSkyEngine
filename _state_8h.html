@@ -101,20 +101,28 @@ $(function(){initNavTree('_state_8h.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_serializable_obj_8h_source.html">SerializableObj.h</a>&quot;</code><br />
 <code>#include &quot;State.generated.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for State.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_state_8h__incl.png" border="0" usemap="#a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" alt=""/></div>
 <map name="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" id="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h">
-<area shape="rect" title=" " alt="" coords="15,5,179,75"/>
+<area shape="rect" title=" " alt="" coords="53,5,217,75"/>
 <area shape="rect" title=" " alt="" coords="5,196,111,221"/>
-<area shape="poly" title=" " alt="" coords="72,77,58,99,49,123,46,153,52,181,46,182,41,153,43,122,54,97,67,74"/>
-<area shape="rect" href="_bitflags_8h.html" title=" " alt="" coords="59,123,135,148"/>
-<area shape="poly" title=" " alt="" coords="99,75,99,108,94,108,94,75"/>
-<area shape="rect" title=" " alt="" coords="159,123,285,148"/>
-<area shape="poly" title=" " alt="" coords="144,73,196,112,193,116,141,77"/>
-<area shape="poly" title=" " alt="" coords="93,150,74,184,69,182,88,147"/>
+<area shape="poly" title=" " alt="" coords="69,77,44,98,26,124,22,139,24,154,40,183,35,186,19,155,17,138,21,122,41,95,66,73"/>
+<area shape="rect" href="_bitflags_8h.html" title=" " alt="" coords="36,123,112,148"/>
+<area shape="poly" title=" " alt="" coords="115,77,92,112,87,109,111,74"/>
+<area shape="rect" href="_serializable_obj_8h.html" title=" " alt="" coords="137,123,257,148"/>
+<area shape="poly" title=" " alt="" coords="160,74,183,109,179,112,156,77"/>
+<area shape="rect" title=" " alt="" coords="281,123,406,148"/>
+<area shape="poly" title=" " alt="" coords="213,73,305,114,303,119,211,78"/>
+<area shape="poly" title=" " alt="" coords="74,149,66,182,61,181,69,148"/>
+<area shape="poly" title=" " alt="" coords="174,151,95,191,93,187,172,146"/>
+<area shape="rect" title=" " alt="" coords="135,196,258,221"/>
+<area shape="poly" title=" " alt="" coords="199,148,199,181,194,181,194,148"/>
+<area shape="rect" title=" " alt="" coords="282,196,463,221"/>
+<area shape="poly" title=" " alt="" coords="228,146,331,188,329,193,226,151"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -251,42 +259,45 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba2b4af719c81415707e6dae6cd2087683">CloseNormal</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba3a158cf4f2fbb6a937a10f66cdf3423b">FarNormal</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07">MeterNotZero</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba07420de750c21d32c509e77b0a65d610">CanTag2nd</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba2bb59fea722601f7f185731fa95ba747">CanTag3rd</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07">MeterNotZero</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbad62854f56785ef384cd4e0758c999a4e">MeterQuarterBar</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e">MeterHalfBar</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e">MeterHalfBar</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba55743cd95a54e852e8a6560e36c93447">MeterOneBar</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba8e4837c4ad82ac7a79393cec82e8abbe">MeterTwoBars</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba8e4837c4ad82ac7a79393cec82e8abbe">MeterTwoBars</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba567dce4db66dff974d7ef8aea7593835">MeterThreeBars</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba23ea3495403079bc20cc97e6c3c502f4">MeterFourBars</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba23ea3495403079bc20cc97e6c3c502f4">MeterFourBars</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbab3c67780411d0db28de77c5f9cd3f6c4">MeterFiveBars</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba02292bad41893add7b072d94f1c2c834">FirstGaugeOneBar</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba02292bad41893add7b072d94f1c2c834">FirstGaugeOneBar</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba5843e7597c3411cd158fc50c63e1bdb4">FirstGaugeTwoBars</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cbaf5536e1b5b610e6f11a4296c82dc10f7">FirstGaugeThreeBars</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cbaf5536e1b5b610e6f11a4296c82dc10f7">FirstGaugeThreeBars</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba2f83df768a2ddd4dd820a22ae946f698">FirstGaugeFourBars</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba181351076370618fed0429b9c8b7683a">FirstGaugeFiveBars</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba181351076370618fed0429b9c8b7683a">FirstGaugeFiveBars</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbabd38b3a0efe2f96c43f0a460f141912c">FirstGaugeSixBars</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba26c7d69b8416bf26e3aba1355d521acf">PlayerReg1True</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba26c7d69b8416bf26e3aba1355d521acf">PlayerReg1True</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbadde6046bde788e567ad7d20d693a8654">PlayerReg2True</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba4727a7753bc58aa121980fbfbc2ae0ca">PlayerReg3True</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba4727a7753bc58aa121980fbfbc2ae0ca">PlayerReg3True</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba42ea4ca24340829f884941ac17f70499">PlayerReg4True</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba8775b36f60f83152386d66443467697c">PlayerReg5True</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba8775b36f60f83152386d66443467697c">PlayerReg5True</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba9702daf545da0cabc07a6ea843606ce2">PlayerReg6True</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba464d0b3df79e015fd816e0c780ea514f">PlayerReg7True</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba464d0b3df79e015fd816e0c780ea514f">PlayerReg7True</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbad293e9bc58306de20ab3a51070676e90">PlayerReg8True</a>
-, <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba6e62abad3d8d806d7a254589b7b95240">PlayerReg1False</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba6e62abad3d8d806d7a254589b7b95240">PlayerReg1False</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba07fbe8c151d63171d4e92e468eea819d">PlayerReg2False</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba3a26e0cb6aa4760b0f78d3a136a01c5e">PlayerReg3False</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba30c17a8ad2535be21d911ed692e0aeba">PlayerReg4False</a>
 , <br />
-&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba4dbcb6f6fc0316c41a0ee4c53e405684">PlayerReg5False</a>
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cba3a26e0cb6aa4760b0f78d3a136a01c5e">PlayerReg3False</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba30c17a8ad2535be21d911ed692e0aeba">PlayerReg4False</a>
+, <a class="el" href="#af1917f42ed524567f2f378796c3f37cba4dbcb6f6fc0316c41a0ee4c53e405684">PlayerReg5False</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cba6f3804fdbbad96e824f30de56acab69b">PlayerReg6False</a>
-, <a class="el" href="#af1917f42ed524567f2f378796c3f37cbac867a122cae448f805971ff755122e56">PlayerReg7False</a>
+, <br />
+&#160;&#160;<a class="el" href="#af1917f42ed524567f2f378796c3f37cbac867a122cae448f805971ff755122e56">PlayerReg7False</a>
 , <a class="el" href="#af1917f42ed524567f2f378796c3f37cbac7670205cdf8a96312933f86f9f7d2a0">PlayerReg8False</a>
 <br />
  }</td></tr>
@@ -330,7 +341,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00017">17</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00018">18</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -361,7 +372,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436" name="aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436"></a>OnceStrict&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00120">120</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00123">123</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -397,6 +408,8 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba20808d06fcc749ccd64bd3bc858ad599" name="af1917f42ed524567f2f378796c3f37cba20808d06fcc749ccd64bd3bc858ad599"></a>IsStunned&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba2b4af719c81415707e6dae6cd2087683" name="af1917f42ed524567f2f378796c3f37cba2b4af719c81415707e6dae6cd2087683"></a>CloseNormal&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba3a158cf4f2fbb6a937a10f66cdf3423b" name="af1917f42ed524567f2f378796c3f37cba3a158cf4f2fbb6a937a10f66cdf3423b"></a>FarNormal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba07420de750c21d32c509e77b0a65d610" name="af1917f42ed524567f2f378796c3f37cba07420de750c21d32c509e77b0a65d610"></a>CanTag2nd&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba2bb59fea722601f7f185731fa95ba747" name="af1917f42ed524567f2f378796c3f37cba2bb59fea722601f7f185731fa95ba747"></a>CanTag3rd&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07" name="af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07"></a>MeterNotZero&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cbad62854f56785ef384cd4e0758c999a4e" name="af1917f42ed524567f2f378796c3f37cbad62854f56785ef384cd4e0758c999a4e"></a>MeterQuarterBar&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e" name="af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e"></a>MeterHalfBar&#160;</td><td class="fielddoc"></td></tr>
@@ -429,7 +442,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cbac7670205cdf8a96312933f86f9f7d2a0" name="af1917f42ed524567f2f378796c3f37cbac7670205cdf8a96312933f86f9f7d2a0"></a>PlayerReg8False&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00072">72</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00073">73</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -476,7 +489,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2" name="ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2"></a>Burst&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00042">42</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00043">43</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>

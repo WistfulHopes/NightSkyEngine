@@ -17,7 +17,7 @@ var searchData=
   ['getcelname_14',['GetCelName',['../class_a_battle_object.html#a83263d7a276cacc2d3a3abc272961deb',1,'ABattleObject']]],
   ['getcurrentstatename_15',['GetCurrentStateName',['../class_a_player_object.html#aa97eafef2f43ef7d8ec88e8825c12259',1,'APlayerObject']]],
   ['getfriendslist_16',['GetFriendsList',['../class_u_night_sky_game_instance.html#aa71817195bd8b2e46ccf01bfd5d3f333',1,'UNightSkyGameInstance']]],
-  ['getgauge_17',['GetGauge',['../class_a_night_sky_game_state.html#aa91508a5ffd5b137a844026aa38daebe',1,'ANightSkyGameState::GetGauge()'],['../class_a_player_object.html#a7d790f751cf3efdf91d4a9300b327d99',1,'APlayerObject::GetGauge()']]],
+  ['getgauge_17',['GetGauge',['../class_a_night_sky_game_state.html#a926c073b249026a0f6dfecff445e3d42',1,'ANightSkyGameState::GetGauge()'],['../class_a_player_object.html#a7d790f751cf3efdf91d4a9300b327d99',1,'APlayerObject::GetGauge()']]],
   ['getlabelname_18',['GetLabelName',['../class_a_battle_object.html#a41f3f4c607249c893dcae71acaf248c2',1,'ABattleObject']]],
   ['getlaststatename_19',['GetLastStateName',['../class_a_player_object.html#a039b6c966beb4feecf92f27fd30b0e44',1,'APlayerObject']]],
   ['getlifetimereplicatedprops_20',['GetLifetimeReplicatedProps',['../class_a_network_pawn.html#a13bc8c7675b9581b2c6236f86b67ae1c',1,'ANetworkPawn']]],
@@ -58,7 +58,8 @@ var searchData=
   ['groundheight_55',['GroundHeight',['../class_a_battle_object.html#a78b61893affd9b6a1ed33475512e7b02',1,'ABattleObject']]],
   ['groundhitaction_56',['GroundHitAction',['../struct_f_hit_data.html#a43ac529e99d005364e83141e6c17b3a1',1,'FHitData']]],
   ['groundpushbackx_57',['GroundPushbackX',['../struct_f_hit_data.html#aa708a2f1a78b0d9a4cecec19602fd0dd',1,'FHitData']]],
-  ['guardgravity_58',['GuardGravity',['../struct_f_hit_data_common.html#a692824894165061792238949e01dbd0b',1,'FHitDataCommon']]],
-  ['guardsfxoverride_59',['GuardSFXOverride',['../struct_f_hit_data_common.html#aeba8ea4cccb86413f90688ef931e712a',1,'FHitDataCommon']]],
-  ['guardvfxoverride_60',['GuardVFXOverride',['../struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e',1,'FHitDataCommon']]]
+  ['gsintable_58',['gSinTable',['../_globals_8h.html#a47803990afbdb74bcadf329bf215c554',1,'Globals.h']]],
+  ['guardgravity_59',['GuardGravity',['../struct_f_hit_data_common.html#a692824894165061792238949e01dbd0b',1,'FHitDataCommon']]],
+  ['guardsfxoverride_60',['GuardSFXOverride',['../struct_f_hit_data_common.html#aeba8ea4cccb86413f90688ef931e712a',1,'FHitDataCommon']]],
+  ['guardvfxoverride_61',['GuardVFXOverride',['../struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e',1,'FHitDataCommon']]]
 ];

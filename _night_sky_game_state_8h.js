@@ -3,6 +3,7 @@ var _night_sky_game_state_8h =
     [ "FAudioChannel", "struct_f_audio_channel.html", "struct_f_audio_channel" ],
     [ "FBattleState", "struct_f_battle_state.html", "struct_f_battle_state" ],
     [ "FRollbackData", "struct_f_rollback_data.html", "struct_f_rollback_data" ],
+    [ "FBPRollbackData", "struct_f_b_p_rollback_data.html", "struct_f_b_p_rollback_data" ],
     [ "FNetworkStats", "struct_f_network_stats.html", "struct_f_network_stats" ],
     [ "ANightSkyGameState", "class_a_night_sky_game_state.html", "class_a_night_sky_game_state" ],
     [ "ERoundFormat", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7", [

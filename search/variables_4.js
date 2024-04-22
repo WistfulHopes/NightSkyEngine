@@ -10,6 +10,7 @@ var searchData=
   ['eventhandlers_7',['EventHandlers',['../class_a_battle_object.html#a55e7f238d7c294ecfc36bcb3c246dd69',1,'ABattleObject']]],
   ['exestatename_8',['ExeStateName',['../class_a_player_object.html#ac3032757112e99ebc9e3570f54a775cf',1,'APlayerObject']]],
   ['extensionarray_9',['ExtensionArray',['../class_u_battle_extension_data.html#a3014b666462b3029011a4db9e7dd2718',1,'UBattleExtensionData']]],
-  ['extragaugecount_10',['ExtraGaugeCount',['../_player_object_8h.html#a5f9882996cb998eac9c9a50ea2c756df',1,'PlayerObject.h']]],
-  ['extragauges_11',['ExtraGauges',['../class_a_player_object.html#a2c7b0f872455d9d58536cb60370b7a2f',1,'APlayerObject']]]
+  ['extensiondata_10',['ExtensionData',['../struct_f_b_p_rollback_data.html#a767cd85abfeefb5945054ae6a7594216',1,'FBPRollbackData']]],
+  ['extragaugecount_11',['ExtraGaugeCount',['../_player_object_8h.html#a5f9882996cb998eac9c9a50ea2c756df',1,'PlayerObject.h']]],
+  ['extragauges_12',['ExtraGauges',['../class_a_player_object.html#a2c7b0f872455d9d58536cb60370b7a2f',1,'APlayerObject']]]
 ];

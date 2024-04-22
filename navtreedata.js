@@ -80,11 +80,12 @@ var NAVTREEINDEX =
 [
 "_anim_data_8h.html",
 "_fighter_synctest_runner_8h_source.html",
-"_state_machine_8cpp.html",
-"class_a_fighter_multiplayer_runner.html#adea5a0a815a0f265616ec3d5173445ec",
-"class_a_player_object.html#a5916d9780241031d7d8bb99c4c34f4fb",
-"class_u_chara_select_data.html#a2c9bfe0ab8f77a8bf09f606e0022bf1d",
-"struct_f_battle_data.html#af4f9d3a796ff1a9728cc1f146ad45573"
+"_state_8h.html#af1917f42ed524567f2f378796c3f37cbabd38b3a0efe2f96c43f0a460f141912c",
+"class_a_fighter_multiplayer_runner.html#a3e808c7a3b14deb5a69c919b317f42f5",
+"class_a_player_object.html#a3ffe753b4d76789c1c0d7bd5fb39abf3",
+"class_night_sky_engine.html",
+"globals_vars.html",
+"struct_f_sound_struct.html#a734e276f8c9339f3e390a50de9519293"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

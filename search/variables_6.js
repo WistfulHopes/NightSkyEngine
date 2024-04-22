@@ -22,7 +22,8 @@ var searchData=
   ['groundheight_19',['GroundHeight',['../class_a_battle_object.html#a78b61893affd9b6a1ed33475512e7b02',1,'ABattleObject']]],
   ['groundhitaction_20',['GroundHitAction',['../struct_f_hit_data.html#a43ac529e99d005364e83141e6c17b3a1',1,'FHitData']]],
   ['groundpushbackx_21',['GroundPushbackX',['../struct_f_hit_data.html#aa708a2f1a78b0d9a4cecec19602fd0dd',1,'FHitData']]],
-  ['guardgravity_22',['GuardGravity',['../struct_f_hit_data_common.html#a692824894165061792238949e01dbd0b',1,'FHitDataCommon']]],
-  ['guardsfxoverride_23',['GuardSFXOverride',['../struct_f_hit_data_common.html#aeba8ea4cccb86413f90688ef931e712a',1,'FHitDataCommon']]],
-  ['guardvfxoverride_24',['GuardVFXOverride',['../struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e',1,'FHitDataCommon']]]
+  ['gsintable_22',['gSinTable',['../_globals_8h.html#a47803990afbdb74bcadf329bf215c554',1,'Globals.h']]],
+  ['guardgravity_23',['GuardGravity',['../struct_f_hit_data_common.html#a692824894165061792238949e01dbd0b',1,'FHitDataCommon']]],
+  ['guardsfxoverride_24',['GuardSFXOverride',['../struct_f_hit_data_common.html#aeba8ea4cccb86413f90688ef931e712a',1,'FHitDataCommon']]],
+  ['guardvfxoverride_25',['GuardVFXOverride',['../struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e',1,'FHitDataCommon']]]
 ];

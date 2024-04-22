@@ -19,11 +19,12 @@ var searchData=
   ['removechaincanceloption_16',['RemoveChainCancelOption',['../class_a_player_object.html#ad5a17a476e5e6da25654bd5482b15d78',1,'APlayerObject']]],
   ['removeeventhandler_17',['RemoveEventHandler',['../class_a_battle_object.html#a926a04bef4633c32d3cc8692e34f84f2',1,'ABattleObject']]],
   ['removewhiffcanceloption_18',['RemoveWhiffCancelOption',['../class_a_player_object.html#a221ab2704f54936eeb0aed2033493598',1,'APlayerObject']]],
-  ['resetforround_19',['ResetForRound',['../class_a_player_object.html#a7d1d11540dacc67efeb6ba6f11abecdc',1,'APlayerObject']]],
+  ['resetforround_19',['ResetForRound',['../class_a_player_object.html#a5a3411860f1741d4885575354481c09c',1,'APlayerObject']]],
   ['resetobject_20',['ResetObject',['../class_a_battle_object.html#ae7c76cafaf183502a772cac4a2c0fd26',1,'ABattleObject']]],
-  ['rollbackparticles_21',['RollbackParticles',['../class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb',1,'AParticleManager']]],
-  ['rollbackreplay_22',['RollbackReplay',['../class_u_night_sky_game_instance.html#ad8e09e15d7ae2ab67ce5441c54812b5f',1,'UNightSkyGameInstance']]],
-  ['rollbackstartaudio_23',['RollbackStartAudio',['../class_a_night_sky_game_state.html#a2c4516ceba4dedfc4aab9d7784dc23fc',1,'ANightSkyGameState']]],
-  ['roundinit_24',['RoundInit',['../class_a_night_sky_game_state.html#a5c7bc7a88758184be99f2a72bc3f422d',1,'ANightSkyGameState']]],
-  ['rpcconnectionmanager_25',['RpcConnectionManager',['../class_rpc_connection_manager.html#a72851be126eaa55174afeadb7e3b5285',1,'RpcConnectionManager']]]
+  ['resettocdo_21',['ResetToCDO',['../class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5',1,'USerializableObj']]],
+  ['rollbackparticles_22',['RollbackParticles',['../class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb',1,'AParticleManager']]],
+  ['rollbackreplay_23',['RollbackReplay',['../class_u_night_sky_game_instance.html#ad8e09e15d7ae2ab67ce5441c54812b5f',1,'UNightSkyGameInstance']]],
+  ['rollbackstartaudio_24',['RollbackStartAudio',['../class_a_night_sky_game_state.html#a2c4516ceba4dedfc4aab9d7784dc23fc',1,'ANightSkyGameState']]],
+  ['roundinit_25',['RoundInit',['../class_a_night_sky_game_state.html#a5c7bc7a88758184be99f2a72bc3f422d',1,'ANightSkyGameState']]],
+  ['rpcconnectionmanager_26',['RpcConnectionManager',['../class_rpc_connection_manager.html#a72851be126eaa55174afeadb7e3b5285',1,'RpcConnectionManager']]]
 ];

@@ -1,12 +1,19 @@
 <map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.cpp" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="15,5,179,75"/>
-<area shape="rect" id="Node000002" href="$_state_8h.html" title=" " alt="" coords="65,123,129,148"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,75,99,108,94,108,94,75"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="53,5,217,75"/>
+<area shape="rect" id="Node000002" href="$_state_8h.html" title=" " alt="" coords="103,123,167,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,75,138,108,133,108,133,75"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,269,111,295"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,150,64,171,49,197,45,226,51,255,46,256,40,227,43,195,60,167,80,147"/>
-<area shape="rect" id="Node000004" href="$_bitflags_8h.html" title=" " alt="" coords="59,196,135,221"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="99,148,99,181,94,181,94,148"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="159,196,285,221"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="119,146,190,186,187,191,117,151"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="93,223,74,257,69,255,88,220"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,147,61,165,41,179,26,197,21,212,24,227,40,257,35,260,19,229,16,211,21,195,37,175,58,160,102,142"/>
+<area shape="rect" id="Node000004" href="$_bitflags_8h.html" title=" " alt="" coords="36,196,112,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="127,150,96,186,92,183,123,147"/>
+<area shape="rect" id="Node000005" href="$_serializable_obj_8h.html" title=" " alt="" coords="137,196,257,221"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="147,147,179,183,175,186,143,150"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="281,196,406,221"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="169,145,295,188,294,193,167,150"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="74,222,66,255,61,254,69,221"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="174,224,95,265,93,260,172,220"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="135,269,258,295"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="199,222,199,254,194,254,194,222"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="282,269,463,295"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="228,220,331,261,329,266,226,224"/>
 </map>

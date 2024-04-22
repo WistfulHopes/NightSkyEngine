@@ -23,12 +23,14 @@ var searchData=
   ['objnumber_20',['ObjNumber',['../class_a_battle_object.html#a2326d8a53900939f376b53fff9a51133',1,'ABattleObject']]],
   ['objsync_21',['ObjSync',['../class_a_battle_object.html#af751b1b742a8e707f38a17b422d7f81f',1,'ABattleObject']]],
   ['objsyncend_22',['ObjSyncEnd',['../class_a_battle_object.html#a2fbdddf039ae96be900657639c104c49',1,'ABattleObject']]],
-  ['onbattleenddelegate_23',['OnBattleEndDelegate',['../class_a_night_sky_w_t_game_state.html#a7b99ae27713d5ec961eda12af6497a8d',1,'ANightSkyWTGameState']]],
-  ['oneframe_24',['OneFrame',['../_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e',1,'NightSkyGameState.h']]],
-  ['orthoblendactive_25',['OrthoBlendActive',['../class_a_battle_object.html#aad3a6f279d70e4ea2915c91ec2553241',1,'ABattleObject']]],
-  ['otgcount_26',['OTGCount',['../class_a_player_object.html#af14b158e9a7e6d27b92e14c4297c51c9',1,'APlayerObject']]],
-  ['otgproration_27',['OtgProration',['../class_a_player_object.html#a3ef28585fc86cec84b24f29cea2975a3',1,'APlayerObject']]],
-  ['outer_28',['Outer',['../struct_f_object_record.html#a6f21329d1ee6878d33e847ec0c801a29',1,'FObjectRecord']]],
-  ['outerid_29',['OuterID',['../struct_f_object_record.html#abab943ff8797483822bff7ed3d2807e7',1,'FObjectRecord']]],
-  ['ownerid_30',['OwnerId',['../class_f_online_lobby.html#a83337a7e87b99957d6f21b5330d0d130',1,'FOnlineLobby']]]
+  ['offsetx_23',['OffsetX',['../struct_f_homing_params.html#a1655960098e78c308a72a7077088f7f2',1,'FHomingParams']]],
+  ['offsety_24',['OffsetY',['../struct_f_homing_params.html#a59af4ce5473c377cf17be2e03e07ad1b',1,'FHomingParams']]],
+  ['onbattleenddelegate_25',['OnBattleEndDelegate',['../class_a_night_sky_w_t_game_state.html#a7b99ae27713d5ec961eda12af6497a8d',1,'ANightSkyWTGameState']]],
+  ['oneframe_26',['OneFrame',['../_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e',1,'NightSkyGameState.h']]],
+  ['orthoblendactive_27',['OrthoBlendActive',['../class_a_battle_object.html#aad3a6f279d70e4ea2915c91ec2553241',1,'ABattleObject']]],
+  ['otgcount_28',['OTGCount',['../class_a_player_object.html#af14b158e9a7e6d27b92e14c4297c51c9',1,'APlayerObject']]],
+  ['otgproration_29',['OtgProration',['../class_a_player_object.html#a3ef28585fc86cec84b24f29cea2975a3',1,'APlayerObject']]],
+  ['outer_30',['Outer',['../struct_f_object_record.html#a6f21329d1ee6878d33e847ec0c801a29',1,'FObjectRecord']]],
+  ['outerid_31',['OuterID',['../struct_f_object_record.html#abab943ff8797483822bff7ed3d2807e7',1,'FObjectRecord']]],
+  ['ownerid_32',['OwnerId',['../class_f_online_lobby.html#a83337a7e87b99957d6f21b5330d0d130',1,'FOnlineLobby']]]
 ];

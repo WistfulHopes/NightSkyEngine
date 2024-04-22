@@ -7,6 +7,7 @@ var _battle_object_8h =
     [ "FHitValueOverTime", "struct_f_hit_value_over_time.html", "struct_f_hit_value_over_time" ],
     [ "FHitPosition", "struct_f_hit_position.html", "struct_f_hit_position" ],
     [ "FHitData", "struct_f_hit_data.html", "struct_f_hit_data" ],
+    [ "FHomingParams", "struct_f_homing_params.html", "struct_f_homing_params" ],
     [ "ABattleObject", "class_a_battle_object.html", "class_a_battle_object" ],
     [ "EBlockType", "_battle_object_8h.html#a1c94ee5203465c50283dfb3090fbfd2f", [
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],

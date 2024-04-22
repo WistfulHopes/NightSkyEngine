@@ -32,7 +32,7 @@ var searchData=
   ['animdatas_29',['AnimDatas',['../class_u_anim_data.html#ab1b33614b8b7691e9890d98d4557bc6b',1,'UAnimData']]],
   ['animframe_30',['AnimFrame',['../class_a_battle_object.html#ab3b1781a1dac04fc0634d28bd80484bb',1,'ABattleObject::AnimFrame'],['../struct_f_collision_struct.html#a69fa827bc8ebcb7e7cfb1af2da6f618e',1,'FCollisionStruct::AnimFrame']]],
   ['animname_31',['AnimName',['../class_a_battle_object.html#a348bd3133f0c42d2001d08976d050b1b',1,'ABattleObject::AnimName'],['../struct_f_collision_struct.html#ad1f846a8d84f4a6f84fa99031488258d',1,'FCollisionStruct::AnimName']]],
-  ['animsequence_32',['AnimSequence',['../struct_f_anim_struct.html#a8f91be2bb5b309fb234b805d7af8037e',1,'FAnimStruct']]],
+  ['animsequence_32',['AnimSequence',['../struct_f_anim_struct.html#ad4e19b451a22836a03fdce49b8241615',1,'FAnimStruct']]],
   ['announcervoicechannel_33',['AnnouncerVoiceChannel',['../struct_f_battle_state.html#a14bad861936194c3ebf9f365a9c56596',1,'FBattleState']]],
   ['announcervoiceplayer_34',['AnnouncerVoicePlayer',['../class_a_audio_manager.html#a6e5b8f9fcb4630ba7c2b7a9e4ca4d575',1,'AAudioManager']]],
   ['attackflags_35',['AttackFlags',['../class_a_battle_object.html#aed2d9ef8c5bcd8ef6f83b43ce943d6e4',1,'ABattleObject']]],

@@ -27,6 +27,8 @@ var _state_8h =
       [ "IsStunned", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba20808d06fcc749ccd64bd3bc858ad599", null ],
       [ "CloseNormal", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba2b4af719c81415707e6dae6cd2087683", null ],
       [ "FarNormal", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba3a158cf4f2fbb6a937a10f66cdf3423b", null ],
+      [ "CanTag2nd", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba07420de750c21d32c509e77b0a65d610", null ],
+      [ "CanTag3rd", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba2bb59fea722601f7f185731fa95ba747", null ],
       [ "MeterNotZero", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07", null ],
       [ "MeterQuarterBar", "_state_8h.html#af1917f42ed524567f2f378796c3f37cbad62854f56785ef384cd4e0758c999a4e", null ],
       [ "MeterHalfBar", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e", null ],
