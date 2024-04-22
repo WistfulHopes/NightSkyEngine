@@ -1,6 +1,6 @@
 # GGPOUE4
 
-A port of [GGPO](http://ggpo.net) to an Unreal Engine 4 plugin. This was branched from BwdYeti's great initial work on this repo [here](https://github.com/BwdYeti/GGPOUE4).
+A port of [GGPO](http://ggpo.net) to an Unreal Engine 4 plugin. This was branched from ErebusWolf's ggpo repo with network abstraction [here](https://github.com/erebuswolf/ggpo-Unreal-Plugin-with-Network-Abstraction), which was in turn branched from BwdYeti's great initial work on this repo [here](https://github.com/BwdYeti/GGPOUE4).
 
 ## Setup & Usage
 
