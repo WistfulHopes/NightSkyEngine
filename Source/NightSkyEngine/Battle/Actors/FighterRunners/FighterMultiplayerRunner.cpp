@@ -11,6 +11,8 @@
 #include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
 #include <iostream>
 
+#include "Serialization/BufferArchive.h"
+
 // Sets default values
 AFighterMultiplayerRunner::AFighterMultiplayerRunner()
 {
@@ -87,10 +89,19 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 {
 	GameState->SaveGameState();
 	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
-	FRollbackData rollbackdata = GameState->StoredRollbackData[BackupFrame];
-	*len = sizeof(FRollbackData);
+	FRollbackData rollbackdata = GameState->MainRollbackData[BackupFrame];
+	FBPRollbackData bprollbackdata = GameState->BPRollbackData[BackupFrame];
+	FBufferArchive Ar(false);
+	Ar.SetWantBinaryPropertySerialization(true);
+	bprollbackdata.Serialize(Ar);
+	rollbackdata.SizeOfBPRollbackData = Ar.Num();
+
+	*len = sizeof(FRollbackData) + Ar.Num();
 	*buffer = new unsigned char[*len];
-	FMemory::Memcpy(*buffer, &rollbackdata, *len);
+	
+	FMemory::Memcpy(*buffer, &rollbackdata, sizeof(FRollbackData));
+	FMemory::Memcpy(*buffer + sizeof(FRollbackData), Ar.GetData(), Ar.Num());
+	
 	*checksum = fletcher32_checksum((short*)*buffer, *len / 2);
 	return true;
 }
@@ -98,8 +109,19 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int32 len)
 {
 	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
-	FRollbackData* rollbackdata = &GameState->StoredRollbackData[BackupFrame];
-	FMemory::Memcpy(rollbackdata, buffer, len);
+	FRollbackData* rollbackdata = &GameState->MainRollbackData[BackupFrame];
+	FBPRollbackData* bprollbackdata = &GameState->BPRollbackData[BackupFrame];
+	
+	FMemory::Memcpy(rollbackdata, buffer, sizeof(FRollbackData));
+
+	uint8* BPBuffer = new uint8[len - sizeof(FRollbackData)];
+	FMemory::Memcpy(BPBuffer, buffer + sizeof(FRollbackData), len - sizeof(FRollbackData));
+
+	const TArray BPArray(BPBuffer, rollbackdata->SizeOfBPRollbackData);
+	FMemoryReader Ar(BPArray);
+	Ar.SetWantBinaryPropertySerialization(true);
+	bprollbackdata->Serialize(Ar);
+	
 	GameState->LoadGameState();
 	return true;
 }
@@ -138,6 +160,17 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		}
 		
 		file << "RawRollbackData:\n";
+		file << "\tStateBuffer:\n";
+		file << "\n\t0: ";
+		for (int x = 0; x < SizeOfBattleState; x++)
+		{
+			file << std::hex << std::uppercase << static_cast<int>(rollbackdata->BattleStateBuffer[x]) << " ";
+			if(x % 16 == 0)
+			{
+				file << "\n\t" << std::hex << std::uppercase << x << ": ";
+			}
+		}
+		file << "\n";
 		file << "\tObjBuffer:\n";
 		for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{

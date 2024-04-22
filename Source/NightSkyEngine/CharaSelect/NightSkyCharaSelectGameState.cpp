@@ -35,7 +35,10 @@ void ANightSkyCharaSelectGameState::Tick(float DeltaTime)
 	for (const auto Chara : P1Charas)
 		Chara->UpdateNotBattle();
 	for (const auto Chara : P2Charas)
+	{
 		Chara->UpdateNotBattle();
+		Chara->SetActorScale3D(FVector(-1, 1, 1));
+	}
 }
 
 void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> InClass, bool IsP1)
@@ -46,6 +49,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 			return;
 		P1Charas.Add(GetWorld()->SpawnActor<APlayerObject>(InClass));
 		P1Charas.Last()->InitPlayer();
+		P1Charas.Last()->PlayerFlags = PLF_IsOnScreen;
 		P1Charas.Last()->SetActorLocation(P1Positions[P1Charas.Num() - 1]);
 		GameInstance->BattleData.PlayerList[P1Charas.Num() - 1] = InClass;
 	}
@@ -55,6 +59,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 			return;
 		P2Charas.Add(GetWorld()->SpawnActor<APlayerObject>(InClass));
 		P2Charas.Last()->InitPlayer();
+		P2Charas.Last()->PlayerFlags = PLF_IsOnScreen;
 		P2Charas.Last()->SetActorLocation(P2Positions[P2Charas.Num() - 1]);
 		P2Charas.Last()->SetActorScale3D(FVector(-1, 1, 1));
 		GameInstance->BattleData.PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;

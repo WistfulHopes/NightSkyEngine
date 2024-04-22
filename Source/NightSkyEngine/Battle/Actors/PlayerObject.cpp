@@ -6,6 +6,8 @@
 #include "NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
+#include "Serialization/ObjectReader.h"
+#include "Serialization/ObjectWriter.h"
 
 APlayerObject::APlayerObject()
 {
@@ -312,6 +314,12 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 
 void APlayerObject::Update()
 {
+	if ((PlayerFlags & PLF_IsOnScreen) == 0)
+	{
+		UpdateVisuals();
+		return;
+	}
+	
 	Super::Update();
 	CallSubroutine("CmnOnUpdate");
 	CallSubroutine("OnUpdate");
@@ -501,7 +509,8 @@ void APlayerObject::Update()
 	if (MeterCooldownTimer > 0)
 		MeterCooldownTimer--;
 
-	if ((PlayerFlags & PLF_RoundWinInputLock) == 0)
+	if ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >= ERoundFormat::TwoVsTwo &&
+		GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree))
 		StoredInputBuffer.Tick(Inputs);
 	else
 		StoredInputBuffer.Tick(INP_Neutral);
@@ -688,14 +697,12 @@ void APlayerObject::UpdateNotBattle()
     UpdateVisuals();
 }
 
-void APlayerObject::EditorUpdate()
+void APlayerObject::EditorUpdate_Implementation()
 {
-#if WITH_EDITOR
 	Player = this;
 
 	GetBoxes();
 	UpdateVisuals();
-#endif
 }
 
 void APlayerObject::HandleHitAction(EHitAction HACT)
@@ -948,6 +955,7 @@ void APlayerObject::SetHitValuesOverTime()
 
 void APlayerObject::SetHitValues()
 {
+	if (!GameState) return;
 	if (!Enemy->CheckIsStunned())
 		GameState->SetDrawPriorityFront(Enemy);
 
@@ -1250,17 +1258,20 @@ void APlayerObject::PlayLevelSequence(FString Name)
 
 void APlayerObject::StartSuperFreeze(int Duration, int SelfDuration)
 {
+	if (!GameState) return;
 	GameState->StartSuperFreeze(Duration, SelfDuration, this);
 	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
 }
 
 void APlayerObject::BattleHudVisibility(bool Visible)
 {
+	if (!GameState) return;
 	GameState->BattleHudVisibility(Visible);
 }
 
 void APlayerObject::PauseRoundTimer(bool Pause)
 {
+	if (!GameState) return;
 	GameState->BattleState.PauseTimer = Pause;
 }
 
@@ -1270,6 +1281,20 @@ void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
 	{
 		StoredBattleObjects[Index] = InActor;
 	}
+}
+
+APlayerObject* APlayerObject::SwitchMainPlayer(int NewTeamIndex)
+{
+	if (!GameState) return nullptr;
+	return GameState->SwitchMainPlayer(this, NewTeamIndex);
+}
+
+void APlayerObject::SetOnScreen(bool OnScreen)
+{
+	if (OnScreen)
+		PlayerFlags |= PLF_IsOnScreen;
+	else
+		PlayerFlags &= ~PLF_IsOnScreen;
 }
 
 void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visible)
@@ -1553,6 +1578,14 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		break;
 	case EStateCondition::FarNormal:
 		if (abs(PosX - Enemy->PosX) > CloseNormalRange || PlayerFlags & PLF_ForceEnableFarNormal)
+			ReturnReg = true;
+		break;
+	case EStateCondition::CanTag2nd:
+		if (GameState->CanTag(this, 1))
+			ReturnReg = true;
+		break;
+	case EStateCondition::CanTag3rd:
+		if (GameState->CanTag(this, 2))
 			ReturnReg = true;
 		break;
 	case EStateCondition::MeterNotZero:
@@ -1990,11 +2023,13 @@ void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine, bool Is
 
 void APlayerObject::UseMeter(int Use)
 {
+	if (!GameState) return;
 	GameState->BattleState.Meter[PlayerIndex] -= Use;
 }
 
 void APlayerObject::AddMeter(int Meter)
 {
+	if (!GameState) return;
 	if (MeterCooldownTimer > 0)
 		Meter /= 10;
 	GameState->BattleState.Meter[PlayerIndex] += Meter;
@@ -2007,16 +2042,19 @@ void APlayerObject::SetMeterCooldownTimer(int Timer)
 
 int32 APlayerObject::GetGauge(int32 Index) const
 {
+	if (!GameState) return 0;
 	return GameState->GetGauge(PlayerIndex == 0, Index);
 }
 
 void APlayerObject::SetGauge(int32 Index, int Value)
 {
+	if (!GameState) return;
 	GameState->SetGauge(PlayerIndex == 0, Index, Value);
 }
 
 void APlayerObject::UseGauge(int32 Index, int Use)
 {
+	if (!GameState) return;
 	GameState->UseGauge(PlayerIndex == 0, Index, Use);
 }
 
@@ -2027,6 +2065,7 @@ void APlayerObject::SetStance(EActionStance InStance)
 
 void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 {
+	if (!GameState) return;
 	GotoLabelActive = IsLabel;
 	if (StoredStateMachine.ForceSetState(FName(NewName)) && StoredStateMachine.CurrentState != nullptr)
 	{
@@ -2208,6 +2247,7 @@ void APlayerObject::OnStateChange()
 	BlendAnimName = FName();
 	BlendCelName = FName();
 	LastStateName = FName(GetCurrentStateName());
+	HomingParams = FHomingParams();
 }
 
 void APlayerObject::PostStateChange()
@@ -2220,9 +2260,10 @@ void APlayerObject::PostStateChange()
 			break;
 		}
 	}
+	StoredStateMachine.CurrentState->ResetToCDO();
 }
 
-void APlayerObject::ResetForRound()
+void APlayerObject::ResetForRound(bool ResetHealth)
 {
 	if (PlayerIndex == 0)
 	{
@@ -2300,6 +2341,7 @@ void APlayerObject::ResetForRound()
 	MaterialLinkObj = nullptr;
 	Timer0 = 0;
 	Timer1 = 0;
+	HomingParams = FHomingParams();
 	CelName = FName();
 	BlendCelName = FName();
 	AnimName = FName();
@@ -2342,7 +2384,8 @@ void APlayerObject::ResetForRound()
 	Inputs = 0;
 	FlipInputs = false;
 	Stance = ACT_Standing;
-	CurrentHealth = MaxHealth;
+	if (ResetHealth) 
+		CurrentHealth = MaxHealth;
 	TotalProration = 10000;
 	ComboCounter = 0;
 	ComboTimer = 0;
@@ -2404,6 +2447,15 @@ void APlayerObject::SaveForRollbackPlayer(unsigned char* Buffer) const
 	FMemory::Memcpy(Buffer, &PlayerSync, SizeOfPlayerObject);
 }
 
+TArray<uint8> APlayerObject::SaveForRollbackBP()
+{
+	TArray<uint8> SaveData;
+	FObjectWriter Writer(SaveData);
+	Writer.ArIsSaveGame = true;
+	GetClass()->SerializeBin(Writer, this);
+	return SaveData;
+}
+
 void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 {
 	FMemory::Memcpy(&PlayerSync, Buffer, SizeOfPlayerObject);
@@ -2423,6 +2475,13 @@ void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 			}
 		}
 	}
+}
+
+void APlayerObject::LoadForRollbackBP(TArray<uint8> InBytes)
+{
+	FObjectReader Reader(InBytes);
+	Reader.ArIsSaveGame = true;
+	GetClass()->SerializeBin(Reader, this);
 }
 
 void APlayerObject::LogForSyncTestFile(std::ofstream& file)

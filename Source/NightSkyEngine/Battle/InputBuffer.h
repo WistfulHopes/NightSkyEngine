@@ -6,8 +6,6 @@
 #include "State.h"
 #include "InputBuffer.generated.h"
 
-#pragma pack (push, 1)
-
 /**
  * @brief The input buffer for a player object.
  *
@@ -99,5 +97,3 @@ public:
 	 */
 	void FlipInputsInBuffer();
 };
-
-#pragma pack(pop)

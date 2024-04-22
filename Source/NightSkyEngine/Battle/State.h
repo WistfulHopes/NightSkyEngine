@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Bitflags.h"
+#include "SerializableObj.h"
 #include "State.generated.h"
 
 class APlayerObject;
@@ -81,6 +82,8 @@ enum class EStateCondition : uint8
 	IsStunned,
 	CloseNormal,
 	FarNormal,
+	CanTag2nd,
+	CanTag3rd,
 	MeterNotZero,
 	MeterQuarterBar,
 	MeterHalfBar,
@@ -235,7 +238,7 @@ struct FInputConditionList
  * Provides functionality for the current character behavior, such as frame data, animations, and more.
  */
 UCLASS(BlueprintType, Blueprintable)
-class UState : public UObject
+class UState : public USerializableObj
 {
 	GENERATED_BODY()
 

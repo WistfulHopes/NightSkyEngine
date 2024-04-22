@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.3",
+	"EngineAssociation": "5.4",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -11,6 +11,20 @@
 			"AdditionalDependencies": [
 				"Engine",
 				"CommonUI"
+			]
+		},
+		{
+			"Name": "HitboxEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"AdditionalDependencies": [
+				"Engine",
+				"UnrealEd",
+				"CoreUObject",
+				"EditorStyle",
+				"EditorWidgets",
+				"Slate",
+				"SlateCore"
 			]
 		}
 	],

@@ -5,7 +5,7 @@
 /**
  * The type of collision box.
  */
-UENUM()
+UENUM(BlueprintType)
 enum EBoxType
 {
 	/**

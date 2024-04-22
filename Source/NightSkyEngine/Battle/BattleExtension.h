@@ -13,7 +13,7 @@
  * Allows modifying some general battle behavior.
  */
 UCLASS(BlueprintType, Blueprintable)
-class NIGHTSKYENGINE_API UBattleExtension : public UObject
+class NIGHTSKYENGINE_API UBattleExtension : public USerializableObj
 {
 	GENERATED_BODY()
 

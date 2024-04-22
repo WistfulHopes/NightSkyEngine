@@ -421,7 +421,7 @@ public:
 	//update object for non-battle modes (like character select)
 	void UpdateNotBattle();
 	//update object (editor only, compiled out otherwise)
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintNativeEvent)
 	void EditorUpdate();
 	//based on received hit action, choose state
 	void HandleHitAction(EHitAction HACT);
@@ -438,12 +438,14 @@ public:
 	//called right after state changes
 	void PostStateChange();
 	//resets object for next round
-	void ResetForRound();
+	void ResetForRound(bool ResetHealth);
 	//disables last input
 	void DisableLastInput();
 	
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
+	TArray<uint8> SaveForRollbackBP();
 	void LoadForRollbackPlayer(const unsigned char* Buffer);
+	void LoadForRollbackBP(TArray<uint8> InBytes);
 	virtual void LogForSyncTestFile(std::ofstream& file) override;
 
 	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
@@ -635,6 +637,10 @@ public:
 	//stores battle actor in slot
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
+	UFUNCTION(BlueprintCallable)
+	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
+	UFUNCTION(BlueprintCallable)
+	void SetOnScreen(bool OnScreen);
 	UFUNCTION(BlueprintCallable)
 	void ToggleComponentVisibility(FString ComponentName, bool Visible);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)

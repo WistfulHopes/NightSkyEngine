@@ -5,7 +5,6 @@
 
 void UState::Exec_Implementation()
 {
-	// TODO implement Night Sky Script
 }
 
 void UState::CallExec()

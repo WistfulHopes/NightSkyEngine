@@ -52,7 +52,7 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 	
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
-		StoredRollbackData.Add(FRollbackData());
+		MainRollbackData.Add(FRollbackData());
 	}
 
 	for (int i = 0 ; i < MaxPlayerObjects; i++)
