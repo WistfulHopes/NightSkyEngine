@@ -169,6 +169,7 @@ enum EHitAction
 	HACT_AirVertical UMETA(DisplayName="Air Vertical"),
 	HACT_AirFaceDown UMETA(DisplayName="Air Face Down"),
 	HACT_Blowback UMETA(DisplayName="Blowback"),
+	HACT_Tailspin UMETA(DisplayName="Tailspin"),
 	HACT_GuardBreak UMETA(DisplayName="Guard Break"),
 	HACT_GuardBreakStand UMETA(DisplayName="Guard Break Stand"),
 	HACT_GuardBreakCrouch UMETA(DisplayName="Guard Break Crouch"),
@@ -775,6 +776,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	FHomingParams HomingParams = FHomingParams();
 	
+	UPROPERTY(BlueprintReadOnly)
+	int32 UpdateTime = 0;
+	
 	/*
 	 * Link data (for object)
 	 */
@@ -866,7 +870,6 @@ public:
 	
 protected:
 	void FuncCall(const FName& FuncName) const;
-	void GetBoxes();
 	
 public:	
 	// Cannot be called on player objects. Initializes the object for use.
@@ -875,6 +878,8 @@ public:
 	virtual void Update();
 	// update visuals
 	virtual void UpdateVisuals();
+	
+	void GetBoxes();
 	
 	// resets object for next use
 	void ResetObject();

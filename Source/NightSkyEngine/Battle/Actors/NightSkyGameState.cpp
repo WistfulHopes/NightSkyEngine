@@ -191,6 +191,15 @@ void ANightSkyGameState::Init()
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 	
 	RoundInit();
+	PlayIntros();
+}
+
+void ANightSkyGameState::PlayIntros()
+{
+	if (GameInstance->IsTraining) return;
+	BattleState.CurrentIntroSide = INT_P1;
+	GetMainPlayer(true)->JumpToState("Intro");
+	BattleHudVisibility(false);
 }
 
 void ANightSkyGameState::RoundInit()
@@ -314,7 +323,24 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 {
 	LocalFrame++;
 	ParticleManager->UpdateParticles();
-	if (!GameInstance->IsTraining && !BattleState.PauseTimer)
+
+	if (BattleState.CurrentIntroSide != INT_None)
+	{
+		if (BattleState.CurrentIntroSide == INT_P1 && GetMainPlayer(true)->GetCurrentStateName() != "Intro")
+		{
+			GetMainPlayer(false)->JumpToState("Intro");
+			BattleState.CurrentIntroSide = INT_P2;
+		}
+		else if (BattleState.CurrentIntroSide == INT_P2 && GetMainPlayer(false)->GetCurrentStateName() != "Intro")
+		{
+			GetMainPlayer(true)->JumpToState("Stand");
+			GetMainPlayer(false)->JumpToState("Stand");
+			BattleState.CurrentIntroSide = INT_None;
+			BattleHudVisibility(true);
+		}
+	}
+	
+	else if (!GameInstance->IsTraining && !BattleState.PauseTimer)
 	{
 		if (BattleState.TimeUntilRoundStart > 0)
 			BattleState.TimeUntilRoundStart--;
@@ -361,9 +387,9 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 			{
 				if (SortedObjects[i]->Player->PlayerFlags & PLF_IsStunned)
 					SortedObjects[i]->Player->HandleBufferedState();
+				SortedObjects[i]->GetBoxes();
 				SortedObjects[i]->Player->StoredInputBuffer.Tick(SortedObjects[i]->Player->Inputs);
 				SortedObjects[i]->Player->HandleStateMachine(true); //handle state transitions
-
 			}
 			SortedObjects[i]->UpdateVisuals();
 			continue;
@@ -863,15 +889,15 @@ void ANightSkyGameState::UpdateCamera()
 		                                   static_cast<float>(BattleState.MainPlayer[1]->PosZ) / COORD_SCALE,
 		                                   static_cast<float>(BattleState.MainPlayer[1]->PosY) / COORD_SCALE);
 		const FVector Average = (P1Location + P2Location) / 2;
-		const float NewX = FMath::Clamp(-Average.X,-BattleState.ScreenBounds / 1000, BattleState.ScreenBounds / 1000);
+		const float NewX = FMath::Clamp(-Average.X,-BattleState.ScreenBounds / 1170, BattleState.ScreenBounds / 1170);
 		float Distance = sqrt(abs((P1Location - P2Location).X));
-		Distance = FMath::Clamp(Distance,16, BattleState.ScreenBounds / 37800);
-		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 37800), TRange<float>(0, BattleState.ScreenBounds / 1000), Distance);
+		Distance = FMath::Clamp(Distance,16, BattleState.ScreenBounds / 42600);
+		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 42600), TRange<float>(0, BattleState.ScreenBounds / 1000), Distance);
 		float NewZ;
 		if (P1Location.Z > P2Location.Z)
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 125;
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 150;
 		else
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75) + 125;
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75) + 150;
 		BattleState.PrevCameraPosition = BattleState.CameraPosition;
 		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
 		BattleState.CameraPosition = FMath::Lerp(BattleState.PrevCameraPosition, BattleState.CameraPosition, 0.25);
@@ -978,7 +1004,7 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject*
 		SequenceTarget = Target;
 		SequenceEnemy = Enemy;
 		FVector SequenceLocation =
-			FVector(Target->GetActorLocation().X, SequenceCameraActor->GetActorLocation().Y, Target->GetActorLocation().Z)
+			FVector(Target->PosX / COORD_SCALE, SequenceCameraActor->GetActorLocation().Y, Target->PosZ / COORD_SCALE)
 			+ BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
 		SequenceCameraActor->SetActorLocation(SequenceLocation);
 		SequenceActor->SetActorRotation(Target->GetActorRotation());

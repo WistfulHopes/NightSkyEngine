@@ -37,6 +37,13 @@ enum class ERoundFormat : uint8
 	ThreeVsThreeKOF,
 };
 
+enum EIntroSide
+{
+	INT_P1,
+	INT_P2,
+	INT_None,
+};
+
 USTRUCT()
 struct FAudioChannel
 {
@@ -99,6 +106,8 @@ struct FBattleState
 	int32 P1RoundsWon = 0;
 	int32 P2RoundsWon = 0;
 	int32 RoundCount = 0;
+
+	EIntroSide CurrentIntroSide = INT_None;
 	
 	int32 ActiveObjectCount = MaxPlayerObjects;
 	int32 CurrentSequenceTime = -1;
@@ -231,6 +240,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Init();
+	void PlayIntros();
 	void RoundInit();
 	void UpdateLocalInput(); //updates local input
 	void SortObjects();

@@ -81,6 +81,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 	{
         if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
             || FindChainCancelOption(FName(StoredStateMachine.States[i]->Name))
+            || FindAutoComboCancelOption(FName(StoredStateMachine.States[i]->Name))
             || FindWhiffCancelOption(FName(StoredStateMachine.States[i]->Name))
             || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState
             	&& i > StoredStateMachine.GetStateIndex(FName(GetCurrentStateName()))) 
@@ -109,207 +110,170 @@ void APlayerObject::HandleStateMachine(bool Buffer)
                 {
                     continue;
                 }
-				for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionLists)
+				if (HandleAutoCombo(i)) return;
+				if (HandleStateInputs(i, Buffer))
 				{
-					for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
-					{
-						//check input condition against input buffer, if not met break.
-	                    if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v]))
-	                    {
-	                        break;
-	                    }
-						if (v == List.InputConditions.Num() - 1) //have all conditions been met?
-						{
-							if (FindChainCancelOption(FName(StoredStateMachine.States[i]->Name))
-								|| FindWhiffCancelOption(FName(StoredStateMachine.States[i]->Name))
-								|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
-							{
-								if (Buffer)
-								{
-									BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-									return;
-								}
-								if (StoredStateMachine.ForceSetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-								{
-									GotoLabelActive = false;
-									switch (StoredStateMachine.States[i]->EntryStance)
-									{
-									case EEntryStance::Standing:
-										Stance = ACT_Standing;
-										break;
-									case EEntryStance::Crouching:
-										Stance = ACT_Crouching;
-										break;
-									case EEntryStance::Jumping:
-										Stance = ACT_Jumping;
-										break;
-									default:
-										break;
-									}
-									return; //don't try to enter another state
-								}
-							}
-							else
-							{
-								if (Buffer)
-								{
-									BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-									return;
-								}
-								if (StoredStateMachine.SetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-								{
-									GotoLabelActive = false;
-									switch (StoredStateMachine.States[i]->EntryStance)
-									{
-									case EEntryStance::Standing:
-										Stance = ACT_Standing;
-										break;
-									case EEntryStance::Crouching:
-										Stance = ACT_Crouching;
-										break;
-									case EEntryStance::Jumping:
-										Stance = ACT_Jumping;
-										break;
-									default:
-										break;
-									}
-									return; //don't try to enter another state
-								}
-							}
-						}
-					}
-					if (List.InputConditions.Num() == 0) //if no input conditions, set state
-					{
-						if (Buffer)
-						{
-							BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-							return;
-						}
-						if (StoredStateMachine.SetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-						{
-							GotoLabelActive = false;
-							switch (StoredStateMachine.States[i]->EntryStance)
-							{
-							case EEntryStance::Standing:
-								Stance = ACT_Standing;
-								break;
-							case EEntryStance::Crouching:
-								Stance = ACT_Crouching;
-								break;
-							case EEntryStance::Jumping:
-								Stance = ACT_Jumping;
-								break;
-							default:
-								break;
-							}
-							return; //don't try to enter another state
-							}
-						}
-					}
-                continue; //this is unneeded but here for clarity.
+					bIsAutoCombo = false;
+					return;
+				}
 			}
 		}
 		else
 		{
-			for (FInputConditionList& List : StoredStateMachine.States[i]->InputConditionLists)
+			if (HandleAutoCombo(i)) return;
+			if (HandleStateInputs(i, Buffer))
 			{
-				for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
-				{
-					//check input condition against input buffer, if not met break.
-					if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v]))
-					{
-						break;
-					}
-					if (v == List.InputConditions.Num() - 1) //have all conditions been met?
-					{
-						if (FindChainCancelOption(FName(StoredStateMachine.States[i]->Name))
-							|| FindWhiffCancelOption(FName(StoredStateMachine.States[i]->Name))
-							|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
-						{
-							if (Buffer)
-							{
-								BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-								return;
-							}
-							if (StoredStateMachine.ForceSetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-							{
-								GotoLabelActive = false;
-								switch (StoredStateMachine.States[i]->EntryStance)
-								{
-								case EEntryStance::Standing:
-									Stance = ACT_Standing;
-									break;
-								case EEntryStance::Crouching:
-									Stance = ACT_Crouching;
-									break;
-								case EEntryStance::Jumping:
-									Stance = ACT_Jumping;
-									break;
-								default:
-									break;
-								}
-								return; //don't try to enter another state
-							}
-						}
-						else
-						{
-							if (Buffer)
-							{
-								BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-								return;
-							}
-							if (StoredStateMachine.SetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-							{
-								GotoLabelActive = false;
-								switch (StoredStateMachine.States[i]->EntryStance)
-								{
-								case EEntryStance::Standing:
-									Stance = ACT_Standing;
-									break;
-								case EEntryStance::Crouching:
-									Stance = ACT_Crouching;
-									break;
-								case EEntryStance::Jumping:
-									Stance = ACT_Jumping;
-									break;
-								default:
-									break;
-								}
-								return; //don't try to enter another state
-							}
-						}
-					}
-				}
-				if (List.InputConditions.Num() == 0) //if no input conditions, set state
-				{
-					if (Buffer)
-					{
-						BufferedStateName = FName(StoredStateMachine.States[i]->Name);
-						return;
-					}
-					if (StoredStateMachine.SetState(FName(StoredStateMachine.States[i]->Name))) //if state set successful...
-					{
-						GotoLabelActive = false;
-						switch (StoredStateMachine.States[i]->EntryStance)
-						{
-						case EEntryStance::Standing:
-							Stance = ACT_Standing;
-							break;
-						case EEntryStance::Crouching:
-							Stance = ACT_Crouching;
-							break;
-						case EEntryStance::Jumping:
-							Stance = ACT_Jumping;
-							break;
-						default:
-							break;
-						}
-						return; //don't try to enter another state
-					}
-				}
+				bIsAutoCombo = false;
+				return;
 			}
 		}
 	}
+}
+
+bool APlayerObject::HandleAutoCombo(int32 StateIndex)
+{
+	if (!FindAutoComboCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))) return false;
+
+	bool AutoComboSuccess = false;
+	for (int i = 0; i < 8; i++)
+	{
+		const auto AutoComboCancel = AutoComboCancels[i];
+		if (AutoComboCancel != StateIndex) continue;
+
+		EInputFlags Button;
+		switch (i)
+		{
+		case 0:
+			Button = INP_A;
+			break;
+		case 1:
+			Button = INP_A;
+			break;
+		case 2:
+			Button = INP_A;
+			break;
+		case 3:
+			Button = INP_A;
+			break;
+		case 4:
+			Button = INP_A;
+			break;
+		case 5:
+			Button = INP_A;
+			break;
+		case 6:
+			Button = INP_A;
+			break;
+		case 7:
+			Button = INP_A;
+			break;
+		default:
+			Button = INP_A;
+			break;
+		}
+		
+		FInputCondition AutoComboCondition;
+		AutoComboCondition.Sequence.Add(FInputBitmask(Button));
+		AutoComboCondition.Sequence.Last().Lenience = 0;
+		AutoComboCondition.Method = EInputMethod::Once;
+
+		if (CheckInput(AutoComboCondition))
+		{
+			AutoComboSuccess = true;
+			break;
+		}
+	}
+
+	if (!AutoComboSuccess) return false;
+	
+	bIsAutoCombo = HandleStateTransition(StateIndex, true);
+	return bIsAutoCombo;
+}
+
+bool APlayerObject::HandleStateInputs(int32 StateIndex, bool Buffer)
+{
+	for (FInputConditionList& List : StoredStateMachine.States[StateIndex]->InputConditionLists)
+	{
+		for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
+		{
+			//check input condition against input buffer, if not met break.
+			if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v]))
+			{
+				break;
+			}
+			if (v == List.InputConditions.Num() - 1) //have all conditions been met?
+			{
+				return HandleStateTransition(StateIndex, Buffer);
+			}
+		}
+		if (List.InputConditions.Num() == 0) //if no input conditions, set state
+		{
+			return HandleStateTransition(StateIndex, Buffer);
+		}
+	}
+	return false;
+}
+
+bool APlayerObject::HandleStateTransition(int32 StateIndex, bool Buffer)
+{
+	if (FindChainCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
+	|| FindAutoComboCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
+	|| FindWhiffCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
+	|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
+	{
+		if (Buffer)
+		{
+			BufferedStateName = FName(StoredStateMachine.States[StateIndex]->Name);
+			return true; //don't try to enter another state
+		}
+		if (StoredStateMachine.ForceSetState(FName(StoredStateMachine.States[StateIndex]->Name))) //if state set successful...
+		{
+			GotoLabelActive = false;
+			switch (StoredStateMachine.States[StateIndex]->EntryStance)
+			{
+			case EEntryStance::Standing:
+				Stance = ACT_Standing;
+				break;
+			case EEntryStance::Crouching:
+				Stance = ACT_Crouching;
+				break;
+			case EEntryStance::Jumping:
+				Stance = ACT_Jumping;
+				break;
+			default:
+				break;
+			}
+			return true; //don't try to enter another state
+		}
+	}
+	else
+	{
+		if (Buffer)
+		{
+			BufferedStateName = FName(StoredStateMachine.States[StateIndex]->Name);
+			return true; //don't try to enter another state
+		}
+		if (StoredStateMachine.SetState(FName(StoredStateMachine.States[StateIndex]->Name))) //if state set successful...
+		{
+			GotoLabelActive = false;
+			switch (StoredStateMachine.States[StateIndex]->EntryStance)
+			{
+			case EEntryStance::Standing:
+				Stance = ACT_Standing;
+				break;
+			case EEntryStance::Crouching:
+				Stance = ACT_Crouching;
+				break;
+			case EEntryStance::Jumping:
+				Stance = ACT_Jumping;
+				break;
+			default:
+				break;
+			}
+			return true; //don't try to enter another state
+		}
+	}
+	return false; //state couldn't be entered
 }
 
 void APlayerObject::Update()
@@ -360,6 +324,8 @@ void APlayerObject::Update()
 	{
 		Enemy->ComboCounter = 0;
 		Enemy->ComboTimer = 0;
+		Enemy->CallSubroutine("CmnOnComboEnd");
+		Enemy->CallSubroutine("OnComboEnd");
 		TotalProration = 10000;
 	}
 	if (Inputs << 27 == 0) //if no direction, set neutral input
@@ -640,6 +606,8 @@ void APlayerObject::Update()
 		}
 		SetStance(ACT_Standing);
 		TriggerEvent(EVT_Landing);
+		CallSubroutine("CmnOnLanding");
+		CallSubroutine("OnLanding");
 		CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	}
 
@@ -667,6 +635,7 @@ void APlayerObject::Update()
 	HandleStateMachine(false);
 	
 	Player->StoredStateMachine.Update();
+	TriggerEvent(EVT_Update);
 	
 	if (TimeUntilNextCel > 0)
 		TimeUntilNextCel--;
@@ -767,8 +736,18 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	
 	switch (ReceivedHit.Position.Type)
 	{
-	case HPT_Add:
+	case HPT_Rel:
 		AddPosXWithDir(ReceivedHit.Position.PosX);
+		PosY += ReceivedHit.Position.PosY;
+		if (PosY < GroundHeight)
+			PosY = GroundHeight;
+		break;
+	case HPT_Abs:
+		PosX = ReceivedHit.Position.PosX;
+		PosY = ReceivedHit.Position.PosY;
+		break;
+	case HPT_Add:
+		PosX += ReceivedHit.Position.PosX;
 		PosY += ReceivedHit.Position.PosY;
 		if (PosY < GroundHeight)
 			PosY = GroundHeight;
@@ -803,6 +782,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 				BufferedStateName = FName("FLaunch");
 			else if (HACT == HACT_Blowback)
 				BufferedStateName = FName("Blowback");
+			else if (HACT == HACT_Tailspin)
+				BufferedStateName = FName("Tailspin");
 			else
 			{
 				BufferedStateName = FName("Crumple");
@@ -820,6 +801,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 				BufferedStateName = FName("FLaunch");
 			else if (HACT == HACT_Blowback)
 				BufferedStateName = FName("Blowback");
+			else if (HACT == HACT_Tailspin)
+				BufferedStateName = FName("Tailspin");
 			else
 				BufferedStateName = FName("BLaunch");
 		}
@@ -916,6 +899,9 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	case HACT_Blowback:
 		BufferedStateName = FName("Blowback");
 		break;
+	case HACT_Tailspin:
+		BufferedStateName = FName("Tailspin");
+		break;
 	case HACT_FloatingCrumple:
 		if (ReceivedHit.FloatingCrumpleType == FLT_Body)
 			BufferedStateName = FName("FloatingCrumpleBody");
@@ -993,6 +979,16 @@ void APlayerObject::SetHitValues()
 
 	switch (ReceivedHit.Position.Type)
 	{
+	case HPT_RelNextFrame:
+		AddPosXWithDir(ReceivedHit.Position.PosX);
+		PosY += ReceivedHit.Position.PosY;
+		if (PosY < GroundHeight)
+			PosY = GroundHeight;
+		break;
+	case HPT_AbsNextFrame:
+		PosX = ReceivedHit.Position.PosX;
+		PosY = ReceivedHit.Position.PosY;
+		break;
 	case HPT_AddNextFrame:
 		AddPosXWithDir(ReceivedHit.Position.PosX);
 		PosY += ReceivedHit.Position.PosY;
@@ -1076,6 +1072,7 @@ void APlayerObject::SetHitValues()
 	case HACT_AirFaceUp:
 	case HACT_AirVertical:
 	case HACT_AirFaceDown:
+	case HACT_Tailspin:
 		if (PosY <= GroundHeight)
 			PosY = GroundHeight + 1;
 		StunTime = FinalUntech;
@@ -1489,6 +1486,7 @@ void APlayerObject::HandleBufferedState()
 	if (BufferedStateName != FName())
 	{
 		if (FindChainCancelOption(BufferedStateName)
+			|| FindAutoComboCancelOption(BufferedStateName)
 			|| FindWhiffCancelOption(BufferedStateName)
 			|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
 		{
@@ -1709,6 +1707,24 @@ bool APlayerObject::FindChainCancelOption(const FName Name)
 		for (int i = 0; i < CancelArraySize; i++)
 		{
 			if (ChainCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptionsInternal[i] != INDEX_NONE)
+			{
+				ReturnReg = true;
+				CheckMovesUsedInCombo(Name);
+				break;
+			}
+		}
+	}
+	return ReturnReg;
+}
+
+bool APlayerObject::FindAutoComboCancelOption(const FName Name)
+{
+	ReturnReg = false;
+	if (AttackFlags & ATK_HasHit && CancelFlags & CNC_ChainCancelEnabled)
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			if (AutoComboCancels[i] == StoredStateMachine.GetStateIndex(Name) && AutoComboCancels[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
 				CheckMovesUsedInCombo(Name);
@@ -2157,7 +2173,11 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 			ReturnReg = true;
 		break;
 	case EStateType::Burst:
-		if (Enemy->Player->PlayerFlags & PLF_LockOpponentBurst && (PlayerFlags & PLF_IsDead) == 0)
+		if (EnableFlags & ENB_Burst && Enemy->Player->PlayerFlags & PLF_LockOpponentBurst && (PlayerFlags & PLF_IsDead) == 0)
+			ReturnReg = true;
+		break;
+	case EStateType::SuperDash:
+		if (EnableFlags & ENB_SuperDash)
 			ReturnReg = true;
 		break;
 	default:
@@ -2235,6 +2255,8 @@ void APlayerObject::OnStateChange()
 	FlipInputs = false;
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
+	for (int32& CancelOption : AutoComboCancels)
+		CancelOption = -1;
 	for (int32& CancelOption : ChainCancelOptionsInternal)
 		CancelOption = -1;
 	for (int32& CancelOption : WhiffCancelOptionsInternal)
@@ -2377,6 +2399,14 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	PlayerReg6 = 0;
 	PlayerReg7 = 0;
 	PlayerReg8 = 0;
+	CmnPlayerReg1 = 0;
+	CmnPlayerReg2 = 0;
+	CmnPlayerReg3 = 0;
+	CmnPlayerReg4 = 0;
+	CmnPlayerReg5 = 0;
+	CmnPlayerReg6 = 0;
+	CmnPlayerReg7 = 0;
+	CmnPlayerReg8 = 0;
 	SubroutineReg1 = 0;
 	SubroutineReg2 = 0;
 	SubroutineReg3 = 0;
@@ -2548,6 +2578,8 @@ void APlayerObject::EnableAll()
 	EnableState(ENB_SuperAttack);
 	EnableState(ENB_Block);
 	EnableState(ENB_ProximityBlock);
+	EnableState(ENB_Burst);
+	EnableState(ENB_SuperDash);
 }
 
 void APlayerObject::DisableAll()
@@ -2566,6 +2598,8 @@ void APlayerObject::DisableAll()
 	DisableState(ENB_SuperAttack);
 	DisableState(ENB_Block);
 	DisableState(ENB_ProximityBlock);
+	DisableState(ENB_Burst);
+	DisableState(ENB_SuperDash);
 }
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)
@@ -2620,6 +2654,41 @@ void APlayerObject::AddChainCancelOption(FString Option)
 	}
 }
 
+void APlayerObject::AddAutoComboCancel(FString Option, EInputFlags Button)
+{
+	int32 Index;
+	switch (Button)
+	{
+	case INP_A:
+		Index = 0;
+		break;
+	case INP_B:
+		Index = 1;
+		break;
+	case INP_C:
+		Index = 2;
+		break;
+	case INP_D:
+		Index = 3;
+		break;
+	case INP_E:
+		Index = 4;
+		break;
+	case INP_F:
+		Index = 5;
+		break;
+	case INP_G:
+		Index = 6;
+		break;
+	case INP_H:
+		Index = 7;
+		break;
+	default: return;
+	}
+	
+	AutoComboCancels[Index] = StoredStateMachine.GetStateIndex(FName(Option));
+}
+
 void APlayerObject::AddWhiffCancelOption(FString Option)
 {
 	if (WhiffCancelOptions.Find(FName(Option)) != INDEX_NONE) return;
@@ -2637,6 +2706,41 @@ void APlayerObject::RemoveChainCancelOption(FString Option)
 		ChainCancelOptions[Index] = "";
 		ChainCancelOptionsInternal[Index] = -1;
 	}
+}
+
+void APlayerObject::RemoveAutoComboCancel(EInputFlags Button)
+{
+	int32 Index;
+	switch (Button)
+	{
+	case INP_A:
+		Index = 0;
+		break;
+	case INP_B:
+		Index = 1;
+		break;
+	case INP_C:
+		Index = 2;
+		break;
+	case INP_D:
+		Index = 3;
+		break;
+	case INP_E:
+		Index = 4;
+		break;
+	case INP_F:
+		Index = 5;
+		break;
+	case INP_G:
+		Index = 6;
+		break;
+	case INP_H:
+		Index = 7;
+		break;
+	default: return;
+	}
+	
+	AutoComboCancels[Index] = -1;
 }
 
 void APlayerObject::RemoveWhiffCancelOption(FString Option)

@@ -190,22 +190,24 @@ void ABattleObject::CalculateHoming()
 			const bool TargetFacingRight = Target->Direction == DIR_Right;
 			int32 HomingOffsetX = -HomingParams.OffsetX;
 			if (!TargetFacingRight)
-				HomingOffsetX = -HomingOffsetX;
+				HomingOffsetX = HomingParams.OffsetX;
 			
 			if (HomingParams.Type == HOMING_DistanceAccel)
 			{
+				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
+				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
 				SpeedXRatePerFrame = HomingParams.ParamB;
 				SpeedYRatePerFrame = HomingParams.ParamB;
-				AddSpeedXRaw(HomingParams.ParamA * (TargetPosX - PosX) / 100);
-				SpeedY += HomingParams.ParamA * (TargetPosY - PosY) / 100;
+				AddSpeedXRaw(HomingParams.ParamA * TmpPosX / 100);
+				SpeedY += HomingParams.ParamA * TmpPosY / 100;
 			}
 			else if (HomingParams.Type == HOMING_FixAccel)
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
 				int32 Angle = Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
-				SpeedXRatePerFrame = HomingParams.ParamB;
-				SpeedYRatePerFrame = HomingParams.ParamB;
+				SpeedXRate = HomingParams.ParamB;
+				SpeedYRate = HomingParams.ParamB;
 				int32 CosParamA = HomingParams.ParamA * Cos_x1000(Angle) / 1000; 
 				int32 SinParamA = HomingParams.ParamA * Sin_x1000(Angle) / 1000; 
 				AddSpeedXRaw(CosParamA);
@@ -216,161 +218,159 @@ void ABattleObject::CalculateHoming()
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
 				int32 Angle = Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
-				int32 CosParamA = HomingParams.ParamA * Cos_x1000(Angle) / 1000; 
-				int32 SinParamA = HomingParams.ParamA * Sin_x1000(Angle) / 1000; 
-				if (HomingParams.ParamB <= 0)
+				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) * Cos_x1000(Angle) / 1000;
+				int32 SinParamA = HomingParams.ParamA * Sin_x1000(Angle) / 1000;
+				int32 TmpParamB = Direction == DIR_Right ? HomingParams.ParamB : -HomingParams.ParamB;
+				int32 TmpSpeedX = Direction == DIR_Right ? SpeedX : -SpeedX;
+				if (TmpParamB <= 0)
 				{
-					if (HomingParams.ParamB >= 0)
+					if (TmpParamB >= 0)
 					{
-						CosParamA = SpeedX;
+						CosParamA = TmpSpeedX;
 					}
-					else if (SpeedX < CosParamA)
+					else if (TmpSpeedX < CosParamA && -TmpSpeedX > CosParamA)
 					{
-						CosParamA = HomingParams.ParamB + SpeedX;
+						CosParamA = TmpParamB + TmpSpeedX;
 					}
-					int32 TmpParamB = HomingParams.ParamB;
-					while (SpeedX - CosParamA <= TmpParamB)
+					while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 					{
-						SetSpeedXRaw(CosParamA);
-						if (TmpParamB <= 0)
+						SetSpeedXRaw(-CosParamA);
+						if (HomingParams.ParamB <= 0)
 						{
-							if (TmpParamB >= 0)
+							if (HomingParams.ParamB >= 0)
 							{
 								return;
 							}
 							if (SpeedY < SinParamA)
 							{
-								SinParamA = SpeedY + TmpParamB;
+								SinParamA = SpeedY + HomingParams.ParamB;
 							}
 							SpeedY = SinParamA;
 							return;
 						}
 						if (SpeedY < SinParamA)
 						{
-							if (SinParamA - SpeedY > TmpParamB)
+							if (SinParamA - SpeedY > HomingParams.ParamB)
 							{
-								SinParamA = SpeedY + TmpParamB;
+								SinParamA = SpeedY + HomingParams.ParamB;
 							}
 						}
-						if (SpeedY - SinParamA <= TmpParamB)
+						if (SpeedY - SinParamA <= HomingParams.ParamB)
 						{
 							SpeedY = SinParamA;
 							return;
 						}
-						SinParamA = SpeedY - TmpParamB;
+						SinParamA = SpeedY - HomingParams.ParamB;
 						SpeedY = SinParamA;
 						return;
 					}
 				}
 				else
 				{
-					if (SpeedX < CosParamA)
+					if (TmpSpeedX < CosParamA)
 					{
-						if (CosParamA - SpeedX > HomingParams.ParamB)
+						if (CosParamA - TmpSpeedX > TmpParamB)
 						{
-							CosParamA = HomingParams.ParamB + SpeedX;
+							CosParamA = TmpParamB + TmpSpeedX;
 						}
-						int32 TmpParamB = HomingParams.ParamB;
-						while (SpeedX - CosParamA <= TmpParamB)
+						while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 						{
 							SetSpeedXRaw(CosParamA);
-							if (TmpParamB <= 0)
+							if (HomingParams.ParamB <= 0)
 							{
-								if (TmpParamB >= 0)
+								if (HomingParams.ParamB >= 0)
 								{
 									SinParamA = SpeedY;
 								}
 								if (SpeedY < SinParamA)
 								{
-									SinParamA = SpeedY + TmpParamB;
+									SinParamA = SpeedY + HomingParams.ParamB;
 								}
 								SpeedY = SinParamA;
 								return;
 							}
 							if (SpeedY < SinParamA)
 							{
-								if (SinParamA - SpeedY > TmpParamB)
+								if (SinParamA - SpeedY > HomingParams.ParamB)
 								{
-									SinParamA = SpeedY + TmpParamB;
+									SinParamA = SpeedY + HomingParams.ParamB;
 								}
 							}
-							if (SpeedY - SinParamA <= TmpParamB)
+							if (SpeedY - SinParamA <= HomingParams.ParamB)
 							{
 								SpeedY = SinParamA;
 								return;
 							}
-							SinParamA = SpeedY - TmpParamB;
+							SinParamA = SpeedY - HomingParams.ParamB;
 							SpeedY = SinParamA;
 							return;
 						}
 					}
-					if (SpeedX - CosParamA <= HomingParams.ParamB)
+					if (TmpSpeedX - CosParamA <= TmpParamB)
 					{
-						int32 TmpParamB = HomingParams.ParamB;
-						while (SpeedX - CosParamA <= TmpParamB)
+						while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 						{
 							SetSpeedXRaw(CosParamA);
-							if (TmpParamB <= 0)
+							if (HomingParams.ParamB <= 0)
 							{
-								if (TmpParamB >= 0)
+								if (HomingParams.ParamB >= 0)
 								{
 									SinParamA = SpeedY;
 								}
 								if (SpeedY < SinParamA)
 								{
-									SinParamA = SpeedY + TmpParamB;
+									SinParamA = SpeedY + HomingParams.ParamB;
 								}
 								SpeedY = SinParamA;
 								return;
 							}
 							if (SpeedY < SinParamA)
 							{
-								if (SinParamA - SpeedY > TmpParamB)
+								if (SinParamA - SpeedY > HomingParams.ParamB)
 								{
-									SinParamA = SpeedY + TmpParamB;
+									SinParamA = SpeedY + HomingParams.ParamB;
 								}
 							}
-							if (SpeedY - SinParamA <= TmpParamB)
+							if (SpeedY - SinParamA <= HomingParams.ParamB)
 							{
 								SpeedY = SinParamA;
 								return;
 							}
-							SinParamA = SpeedY - TmpParamB;
+							SinParamA = SpeedY - HomingParams.ParamB;
 							SpeedY = SinParamA;
 							return;
 						}
 					}
 				}
-				int32 TmpParamB = HomingParams.ParamB;
-				while (SpeedX - CosParamA <= TmpParamB)
+				while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 				{
 					SetSpeedXRaw(CosParamA);
-					if (TmpParamB <= 0)
+					if (HomingParams.ParamB <= 0)
 					{
-						if (TmpParamB >= 0)
+						if (HomingParams.ParamB >= 0)
 						{
 							SinParamA = SpeedY;
 						}
 						if (SpeedY < SinParamA)
 						{
-							SinParamA = SpeedY + TmpParamB;
+							SinParamA = SpeedY + HomingParams.ParamB;
 						}
 						SpeedY = SinParamA;
 						return;
 					}
 					if (SpeedY < SinParamA)
 					{
-						if (SinParamA - SpeedY > TmpParamB)
+						if (SinParamA - SpeedY > HomingParams.ParamB)
 						{
-							SinParamA = SpeedY + TmpParamB;
+							SinParamA = SpeedY + HomingParams.ParamB;
 						}
 					}
-					if (SpeedY - SinParamA <= TmpParamB)
+					if (SpeedY - SinParamA <= HomingParams.ParamB)
 					{
 						SpeedY = SinParamA;
 						return;
 					}
-					SinParamA = SpeedY - TmpParamB;
+					SinParamA = SpeedY - HomingParams.ParamB;
 					SpeedY = SinParamA;
 					return;
 				}
@@ -1315,6 +1315,7 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
+	if (EventType == EVT_Update) UpdateTime++;
 	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FName("None"))
 	{
 		USubroutine* Subroutine = nullptr;
@@ -1858,8 +1859,7 @@ void ABattleObject::Update()
 
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
-
-	TriggerEvent(EVT_Update);
+		
 	Move();
 	
 	GameState->SetScreenBounds();
@@ -1880,6 +1880,7 @@ void ABattleObject::Update()
 		}
 		
 		ObjectState->CallExec();
+		TriggerEvent(EVT_Update);
 		TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
@@ -2076,6 +2077,8 @@ void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32
 	case EVT_Timer1:
 		Timer1 = Value;
 		break;
+	case EVT_Update:
+		UpdateTime = 0;
 	default: break;
 	}
 	EventHandlers[EventType].FunctionName = FName(FuncName.ToString());
@@ -2086,6 +2089,8 @@ void ABattleObject::RemoveEventHandler(EEventType EventType)
 {
 	EventHandlers[EventType].FunctionName = FName();
 	EventHandlers[EventType].SubroutineName = FName();
+	if (EventType == EVT_Update)
+		UpdateTime = 0;
 }
 
 FString ABattleObject::GetCelName() const
@@ -2139,6 +2144,7 @@ void ABattleObject::SetBlendCelName(FString InName)
 
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
 {
+	if (!GameState) return;
 	LabelName = FName(InName);
 	if (IsPlayer && ResetState)
 		Player->JumpToState(Player->GetCurrentStateName(), true);
@@ -2222,7 +2228,7 @@ int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType
 				{
 					DirFlag = -1;
 				}
-				ObjDist = abs(PosX2 - PosX1) * DirFlag;
+				ObjDist = (PosX2 - PosX1) * DirFlag;
 			}
 			break;
 		default:

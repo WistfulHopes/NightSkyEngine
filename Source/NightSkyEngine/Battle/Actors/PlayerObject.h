@@ -204,6 +204,27 @@ public:
 	int32 PlayerReg8 = 0;
 	
 	/*
+	 * Common player registers. These are only touched by the engine to reset per round.
+	 * These are meant to be used by any character.
+	 */
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg1 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg2 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg3 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg4 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg5 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg6 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg7 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 CmnPlayerReg8 = 0;
+
+	/*
 	 * Action data.
 	 */
 
@@ -284,10 +305,15 @@ protected:
 
 	//Chain cancels (copied from TArray to static array)
 	int32 ChainCancelOptionsInternal[CancelArraySize] = {};
+	//Auto combo cancels
+	int32 AutoComboCancels[8] = {};
 	//Whiff cancels (copied from TArray to static array)
 	int32 WhiffCancelOptionsInternal[CancelArraySize] = {};
 	//checks state indices for moves used in current combo
 	int32 MovesUsedInCombo[CancelArraySize] = {};
+
+	UPROPERTY(BlueprintReadOnly)
+	bool bIsAutoCombo;
 	FName LastStateName;
 	FName ExeStateName;
 	FName BufferedStateName;
@@ -388,6 +414,8 @@ private:
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
 	bool FindChainCancelOption(const FName Name);
+	//check if chain cancel option exists
+	bool FindAutoComboCancelOption(const FName Name);
 	//check if whiff cancel option exists
 	bool FindWhiffCancelOption(const FName Name);
 	//check reverse beat
@@ -416,6 +444,12 @@ public:
 	virtual void Update() override;
 	// handle state machine
 	void HandleStateMachine(bool Buffer);
+	// handle auto combos for state transition
+	bool HandleAutoCombo(int32 StateIndex);
+	// handle input conditions for state transition
+	bool HandleStateInputs(int32 StateIndex, bool Buffer);
+	// handle state transition
+	bool HandleStateTransition(int32 StateIndex, bool Buffer);
 	//buffer state
 	void HandleBufferedState();
 	//update object for non-battle modes (like character select)
@@ -538,13 +572,19 @@ public:
 	//add chain cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
 	void AddChainCancelOption(FString Option);
+	//add auto combo option, use this in Init
+	UFUNCTION(BlueprintCallable)
+	void AddAutoComboCancel(FString Option, EInputFlags Button);
 	//add whiff cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
 	void AddWhiffCancelOption(FString Option);
-	//add chain cancel option, use this in Init
+	//remove chain cancel option
 	UFUNCTION(BlueprintCallable)
 	void RemoveChainCancelOption(FString Option);
-	//add whiff cancel option, use this in Init
+	//remove auto combo cancel
+	UFUNCTION(BlueprintCallable)
+	void RemoveAutoComboCancel(EInputFlags Button);
+	//remove whiff cancel option
 	UFUNCTION(BlueprintCallable)
 	void RemoveWhiffCancelOption(FString Option);
 	UFUNCTION(BlueprintCallable)
