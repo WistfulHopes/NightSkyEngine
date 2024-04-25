@@ -52,7 +52,8 @@ void ANightSkyGameState::BeginPlay()
 	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 	CameraRotation.Yaw -= 90;
-	
+
+	BattleState.PrevCameraPosition = NewCameraLocation;
 	CameraActor->SetActorLocation(NewCameraLocation);
 	CameraActor->SetActorRotation(CameraRotation);
 	SequenceCameraActor->SetActorLocation(NewCameraLocation);
@@ -234,7 +235,8 @@ void ANightSkyGameState::RoundInit()
 		const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 		FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 		CameraRotation.Yaw -= 90;
-	
+
+		BattleState.PrevCameraPosition = NewCameraLocation;
 		CameraActor->SetActorLocation(NewCameraLocation);
 		CameraActor->SetActorRotation(CameraRotation);
 
@@ -282,7 +284,8 @@ void ANightSkyGameState::RoundInit()
 		const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 		FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 		CameraRotation.Yaw -= 90;
-	
+
+		BattleState.PrevCameraPosition = NewCameraLocation;
 		CameraActor->SetActorLocation(NewCameraLocation);
 		CameraActor->SetActorRotation(CameraRotation);
 
@@ -438,11 +441,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	else
 		NetworkStats.RollbackFrames = abs(LocalFramesBehind) + abs(RemoteFramesBehind);
 	
-	// these aren't strictly game state related, but tying them to game state update makes things better
-	UpdateCamera();
-	UpdateHUD();
-	ManageAudio();
-	
 	CallBattleExtension("Update");
 	
 	for (int i = 0; i < 2; i++)
@@ -460,6 +458,11 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 				BattleState.Gauge[i][j] = 0;
 		}
 	}
+	
+	// these aren't strictly game state related, but tying them to game state update makes things better
+	UpdateCamera();
+	UpdateHUD();
+	ManageAudio();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -889,15 +892,22 @@ void ANightSkyGameState::UpdateCamera()
 		                                   static_cast<float>(BattleState.MainPlayer[1]->PosZ) / COORD_SCALE,
 		                                   static_cast<float>(BattleState.MainPlayer[1]->PosY) / COORD_SCALE);
 		const FVector Average = (P1Location + P2Location) / 2;
-		const float NewX = FMath::Clamp(-Average.X,-BattleState.ScreenBounds / 1170, BattleState.ScreenBounds / 1170);
-		float Distance = sqrt(abs((P1Location - P2Location).X));
-		Distance = FMath::Clamp(Distance,16, BattleState.ScreenBounds / 42600);
-		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 42600), TRange<float>(0, BattleState.ScreenBounds / 1000), Distance);
+		float DistanceForX = sqrt(abs((P1Location - P2Location).X));
+		DistanceForX = FMath::Clamp(DistanceForX,16, BattleState.ScreenBounds / 37800);
+		DistanceForX = FMath::GetMappedRangeValueClamped(TRange<float>(16, BattleState.ScreenBounds / 18900), TRange<float>(0, BattleState.ScreenBounds / 1250), DistanceForX);
+		const float NewX = FMath::Clamp(
+			-Average.X, -(BattleState.StageBounds + BattleState.ScreenBounds * 0.5) / COORD_SCALE + DistanceForX,
+			(BattleState.StageBounds + BattleState.ScreenBounds * 0.5) / COORD_SCALE - DistanceForX);
+		float DistanceForYZ = sqrt(FVector::Distance(P1Location, P2Location));
+		DistanceForYZ = FMath::Clamp(DistanceForYZ,16, BattleState.ScreenBounds / 37800);
+		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(16, BattleState.ScreenBounds / 37800), TRange<float>(540, BattleState.ScreenBounds / 1000), DistanceForYZ);
 		float NewZ;
 		if (P1Location.Z > P2Location.Z)
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25) + 150;
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25);
 		else
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75) + 150;
+			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75);
+		const float BaseZ = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 37800), TRange<float>(25, 175), DistanceForYZ);
+		NewZ += BaseZ;
 		BattleState.PrevCameraPosition = BattleState.CameraPosition;
 		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
 		BattleState.CameraPosition = FMath::Lerp(BattleState.PrevCameraPosition, BattleState.CameraPosition, 0.25);
@@ -927,7 +937,7 @@ void ANightSkyGameState::UpdateCamera()
 			if (SequenceTarget->Direction == DIR_Left)
 			{
 				auto NewCamLocation = SequenceCameraActor->GetActorLocation();
-				NewCamLocation.X = -(NewCamLocation.X - SequenceTarget->GetActorLocation().X) + SequenceTarget->GetActorLocation().X;
+				NewCamLocation.X = -NewCamLocation.X + SequenceTarget->GetActorLocation().X;
 				SequenceCameraActor->SetActorLocation(NewCamLocation);
 				auto NewCamRotation = SequenceCameraActor->GetActorRotation();
 				NewCamRotation.Yaw = -NewCamRotation.Yaw - 180;
@@ -937,6 +947,15 @@ void ANightSkyGameState::UpdateCamera()
 				NewEnemyLocation.X = -(NewEnemyLocation.X - static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE) + static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE;
 				SequenceEnemy->SetActorLocation(NewEnemyLocation);
 			}
+			else
+			{
+				auto NewCamLocation = SequenceCameraActor->GetActorLocation();
+				NewCamLocation.X = NewCamLocation.X + SequenceTarget->GetActorLocation().X;
+				SequenceCameraActor->SetActorLocation(NewCamLocation);
+			}
+			auto NewCamLocation = SequenceCameraActor->GetActorLocation();
+			NewCamLocation.Z = NewCamLocation.Z + SequenceTarget->GetActorLocation().Z;
+			SequenceCameraActor->SetActorLocation(NewCamLocation);
 		}
 	}
 	bIsPlayingSequence = BattleState.IsPlayingSequence;
@@ -1003,11 +1022,6 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject*
 		}
 		SequenceTarget = Target;
 		SequenceEnemy = Enemy;
-		FVector SequenceLocation =
-			FVector(Target->PosX / COORD_SCALE, SequenceCameraActor->GetActorLocation().Y, Target->PosZ / COORD_SCALE)
-			+ BattleSceneTransform.GetRotation().RotateVector(FVector(0, 0, 175));
-		SequenceCameraActor->SetActorLocation(SequenceLocation);
-		SequenceActor->SetActorRotation(Target->GetActorRotation());
 		BattleState.CurrentSequenceTime = 0;
 		BattleState.IsPlayingSequence = true;
 	}

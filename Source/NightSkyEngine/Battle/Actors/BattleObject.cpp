@@ -1580,7 +1580,18 @@ void ABattleObject::UpdateVisuals()
 			FVector FinalSocketOffset = SocketOffset;
 			if (Direction != DIR_Right)
 				FinalSocketOffset.Y = -SocketOffset.Y;
-			SetActorLocation(FinalSocketOffset);
+			const auto Obj = GetBattleObject(SocketObj);
+			TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+			Obj->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
+			for (const auto Component : SkeletalMeshComponents)
+			{
+				if (!Component->DoesSocketExist(SocketName)) continue;
+				FVector SocketLocation;
+				FRotator SocketRotation;
+				Component->GetSocketWorldLocationAndRotation(SocketName, SocketLocation, SocketRotation);
+				SetActorLocation(FinalSocketOffset + SocketLocation);
+				SetActorRotation(SocketRotation);
+			}
 		}
 		if (GameState->BattleState.CurrentSequenceTime >= 0)
 		{
@@ -1592,7 +1603,7 @@ void ABattleObject::UpdateVisuals()
 			if (IsPlayer)
 				ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
 			else
-				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 5;
+				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 15;
 			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 		}
 	}
@@ -1652,6 +1663,16 @@ void ABattleObject::UpdateVisuals()
 		for (int64 i = 0; i < Component->GetNumMaterials(); i++)
 		{
 			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
+			{
+				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
+			}
+		}
+		if (const auto Mesh = Cast<USkeletalMeshComponent>(Component); IsValid(Mesh))
+		{
+			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Mesh->OverlayMaterial); IsValid(MIDynamic))
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
@@ -1988,7 +2009,7 @@ void ABattleObject::ResetObject()
 	ObjectReg8 = 0;
 	Timer0 = 0;
 	Timer1 = 0;
-	DrawPriority = 0;
+	DrawPriority = MaxBattleObjects;
 	HomingParams = FHomingParams();
 	CelName = FName();
 	BlendCelName = FName();

@@ -15,6 +15,8 @@ struct FMaterialStruct
 	FString Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	TArray<UMaterialInterface*> Material;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UMaterialInterface* OverlayMaterial;
 };
 
 /**
