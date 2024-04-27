@@ -21,6 +21,8 @@ ABattleObject::ABattleObject()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
+	
 	bReplicates = false;
 }
 
@@ -1632,17 +1634,6 @@ void ABattleObject::UpdateVisuals()
 		OrthoBlendActive = 1;
 	}
 	
-	if (IsValid(LinkedParticle))
-	{
-		FVector FinalScale = ScaleForLink;
-		if (Direction == DIR_Left)
-			FinalScale.X = -FinalScale.X;
-		LinkedParticle->SetRelativeScale3D(FinalScale);
-		FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
-		Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
-		LinkedParticle->SetWorldLocation(Location);
-		LinkedParticle->SetWorldRotation(GetActorRotation());
-	}
 	if (IsValid(LinkedFlipbook))
 	{
 		if (IsValid(LinkedFlipbook->GetFlipbook()))
@@ -2583,10 +2574,12 @@ void ABattleObject::LinkCommonParticle(FString Name)
 				{
 					Scale = FVector(1, 1, 1);
 				}
-				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
+				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
+					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
+					EAttachLocation::SnapToTargetIncludingScale, false);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				LinkedParticle->SetDesiredAge(0);
-				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, nullptr));
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;
@@ -2617,9 +2610,11 @@ void ABattleObject::LinkCharaParticle(FString Name)
 				{
 					Scale = FVector(1, 1, 1);
 				}
-				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, GetActorLocation(), GetActorRotation(), Scale);
+				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
+					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
+					EAttachLocation::SnapToTargetIncludingScale, false);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
-				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, nullptr));
+				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 				break;
