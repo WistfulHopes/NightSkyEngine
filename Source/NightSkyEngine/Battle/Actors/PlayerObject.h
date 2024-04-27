@@ -422,8 +422,6 @@ private:
 	bool CheckReverseBeat(const FName Name);
 	//checks moves used in combo
 	bool CheckMovesUsedInCombo(const FName Name);
-	//upon successful throw, jump to state
-	void ThrowExe();
 	//handles throwing objects
 	void HandleThrowCollision();
 	//checks kara cancel
@@ -459,6 +457,8 @@ public:
 	void EditorUpdate();
 	//based on received hit action, choose state
 	void HandleHitAction(EHitAction HACT);
+	//upon successful throw, jump to state
+	void ThrowExe();
 	//set hit values over time
 	void SetHitValuesOverTime();
 	//check attack against block stance
@@ -656,6 +656,9 @@ public:
 	//sets grip position for throw
 	UFUNCTION(BlueprintCallable)
 	void SetDamageReactionCel(int32 Index);
+	// initiate hitgrab
+	UFUNCTION(BlueprintCallable)
+	void SetHitgrabActive(bool Active);
 	//plays voice line
 	UFUNCTION(BlueprintCallable)
 	void PlayVoiceLine(FString Name);

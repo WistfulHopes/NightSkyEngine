@@ -383,8 +383,9 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
-		if ((BattleState.SuperFreezeSelfDuration && SortedObjects[i] == BattleState.SuperFreezeCaller)
+		if (((BattleState.SuperFreezeSelfDuration && SortedObjects[i] == BattleState.SuperFreezeCaller)
 			|| (BattleState.SuperFreezeDuration && SortedObjects[i] != BattleState.SuperFreezeCaller))
+			&& (SortedObjects[i]->MiscFlags & MISC_IgnoreSuperFreeze) == 0)
 		{
 			if (SortedObjects[i]->IsPlayer)
 			{

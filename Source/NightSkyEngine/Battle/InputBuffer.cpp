@@ -14,7 +14,7 @@ void FInputBuffer::Tick(int32 Input)
 	InputDisabled[89] = 0;
 }
 
-bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
+bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition, bool bIsKara)
 {
 	for (int i = 0; i < 20; i++)
 	{
@@ -26,7 +26,7 @@ bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
 		InputSequence[i] = InputCondition.Sequence[i];
 	}
 	ImpreciseInputCount = InputCondition.ImpreciseInputCount;
-	bInputAllowDisable = InputCondition.bInputAllowDisable;
+	bInputAllowDisable = bIsKara ? false : InputCondition.bInputAllowDisable;
 	switch (InputCondition.Method)
 	{
 	case EInputMethod::Normal:

@@ -11,6 +11,7 @@
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/CharaSelect/NightSkyCharaSelectGameState.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
@@ -600,6 +601,15 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 								{
 									TriggerEvent(EVT_Hit);
 									
+									if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+									{
+										OtherChar->JumpToState("ThrowLock");
+										OtherChar->PlayerFlags |= PLF_IsThrowLock;
+										OtherChar->AttackOwner = Player;
+										Player->ThrowExe();
+										return;
+									}
+									
 									const FHitData Data = InitHitDataByAttackLevel(false);
 									CreateCommonParticle(HitCommon.HitVFXOverride.ToString(), POS_Hit,
 										FVector(0, 100, 0),
@@ -625,6 +635,15 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									OtherChar->MulColor = FLinearColor(1,0.1,0.1,1);
 									OtherChar->AddFadeSpeed = 0.1;
 									OtherChar->MulFadeSpeed = 0.1;
+									
+									if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+									{
+										OtherChar->JumpToState("ThrowLock");
+										OtherChar->PlayerFlags |= PLF_IsThrowLock;
+										OtherChar->AttackOwner = Player;
+										Player->ThrowExe();
+										return;
+									}
 
 									const FHitData CounterData = InitHitDataByAttackLevel(true);
 									CreateCommonParticle(HitCommon.HitVFXOverride.ToString(), POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
@@ -1913,8 +1932,8 @@ void ABattleObject::Update()
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
 		{
-			if (PosX > GameState->BattleState.ScreenBounds + 120000 + GameState->BattleState.CurrentScreenPos
-				|| PosX < -(GameState->BattleState.ScreenBounds + 120000) + GameState->BattleState.CurrentScreenPos)
+			if (PosX > GameState->BattleState.ScreenBounds + 360000 + GameState->BattleState.CurrentScreenPos
+				|| PosX < -(GameState->BattleState.ScreenBounds + 360000) + GameState->BattleState.CurrentScreenPos)
 				DeactivateObject();
 		}
 	}
@@ -2165,7 +2184,7 @@ void ABattleObject::SetBlendCelName(FString InName)
 
 void ABattleObject::GotoLabel(FString InName, bool ResetState)
 {
-	if (!GameState) return;
+	if (!GameState && !CharaSelectGameState) return;
 	LabelName = FName(InName);
 	if (IsPlayer && ResetState)
 		Player->JumpToState(Player->GetCurrentStateName(), true);
@@ -2717,6 +2736,14 @@ int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 	int32 Result = FRandomManager::GenerateRandomNumber();
 	Result = Result % (Max - Min + 1);
 	return Result;
+}
+
+void ABattleObject::IgnoreSuperFreeze(bool Ignore)
+{
+	if (Ignore)
+		MiscFlags |= MISC_IgnoreSuperFreeze;
+	else
+		MiscFlags &= ~MISC_IgnoreSuperFreeze;
 }
 
 void ABattleObject::SetObjectID(int InObjectID)

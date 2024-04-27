@@ -98,9 +98,13 @@ enum EMiscFlags
 	 */
 	MISC_DeactivateOnStateChange = 0x80 UMETA(DisplayName = "Deactivate On State Change"),
 	/**
-	 * Flag sets if object is to be deactivated when the owning player object takes damage.
+	* Flag sets if object is to be deactivated when the owning player object takes damage.
 	 */
 	MISC_DeactivateOnReceiveHit = 0x100 UMETA(DisplayName = "Deactivate On Receive Hit"),
+	/**
+	* Flag sets if object will ignore super freeze.
+	 */
+	MISC_IgnoreSuperFreeze = 0x200 UMETA(DisplayName = "Ignore Super Freeze"),
 };
 
 /**
@@ -205,6 +209,10 @@ enum EPlayerFlags
 	 * Flag sets if player is touching wall.
 	 */
 	PLF_TouchingWall = 0x1000 UMETA(DisplayName = "Is Touching Wall"),
+	/**
+	 * Flag sets if player's next hit is a hitgrab.
+	 */
+	PLF_HitgrabActive = 0x2000 UMETA(DisplayName = "Hitgrab Active"),
 };
 
 /**

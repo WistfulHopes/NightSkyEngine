@@ -54,7 +54,6 @@ enum class EStateType : uint8
 	ForwardAirDash,
 	BackwardAirDash,
 	NormalAttack,
-	NormalThrow,
 	SpecialAttack,
 	SuperAttack,
 	Hitstun,

@@ -9,6 +9,7 @@
 #include "NightSkyEngine/Battle/CollisionBox.h"
 #include "BattleObject.generated.h"
 
+class ANightSkyCharaSelectGameState;
 class UPaperFlipbookComponent;
 class UNiagaraComponent;
 class ANightSkyGameState;
@@ -771,7 +772,7 @@ public:
 	int32 Timer1 = 0;
 	bool IsPlayer = false;
 	bool IsActive = false;
-	int32 DrawPriority = 0; // the lower the number, the farther in front the object will be drawn
+	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
 
 	UPROPERTY(BlueprintReadWrite)
 	FHomingParams HomingParams = FHomingParams();
@@ -826,6 +827,8 @@ public:
 	
 	UPROPERTY()
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
+	UPROPERTY()
+	TObjectPtr<ANightSkyCharaSelectGameState> CharaSelectGameState = nullptr;
 	
 	UPROPERTY()
 	TObjectPtr<UState> ObjectState = nullptr;
@@ -1027,6 +1030,9 @@ public:
 	//generate random number
 	UFUNCTION(BlueprintPure)
 	static int32 GenerateRandomNumber(int32 Min, int32 Max);
+	//generate random number
+	UFUNCTION(BlueprintCallable)
+	void IgnoreSuperFreeze(bool Ignore);
 	//sets object id
 	UFUNCTION(BlueprintCallable)
 	void SetObjectID(int InObjectID);

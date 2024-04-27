@@ -62,7 +62,7 @@ public:
 	 * @param InputCondition The input condition to check.
 	 * @return If the input condition matches the buffer, return true. Otherwise return false.
 	 */
-	bool CheckInputCondition(const FInputCondition& InputCondition);
+	bool CheckInputCondition(const FInputCondition& InputCondition, bool bIsKara = false);
 
 	/**
 	 * Checks the input sequence against the buffer with the Normal method.

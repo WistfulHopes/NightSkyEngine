@@ -83,7 +83,9 @@ void APlayerObject::HandleStateMachine(bool Buffer)
             || FindChainCancelOption(FName(StoredStateMachine.States[i]->Name))
             || FindAutoComboCancelOption(FName(StoredStateMachine.States[i]->Name))
             || FindWhiffCancelOption(FName(StoredStateMachine.States[i]->Name))
-            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState
+            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && 
+				CheckMovesUsedInCombo(FName(StoredStateMachine.States[i]->Name))
+				&& !StoredStateMachine.States[i]->IsFollowupState
             	&& i > StoredStateMachine.GetStateIndex(FName(GetCurrentStateName()))) 
             )) //check if the state is enabled, continue if not
         {
@@ -197,7 +199,7 @@ bool APlayerObject::HandleStateInputs(int32 StateIndex, bool Buffer)
 		for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
 		{
 			//check input condition against input buffer, if not met break.
-			if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v]))
+			if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v], (CancelFlags & CNC_EnableKaraCancel) == 0))
 			{
 				break;
 			}
@@ -337,6 +339,13 @@ void APlayerObject::Update()
 	{
 		StoredInputBuffer.Tick(Inputs);
 		HandleStateMachine(true); //handle state transitions
+		Player->StoredStateMachine.Update();
+	
+		if (TimeUntilNextCel > 0)
+			TimeUntilNextCel--;
+		if (TimeUntilNextCel == 0)
+			CelIndex++;
+		
 		if (ActionTime < ThrowTechTimer)
 		{
 			if (StoredStateMachine.GetStateIndex("Throw") != INDEX_NONE)
@@ -446,7 +455,6 @@ void APlayerObject::Update()
 
 	//reset moves used in combo if not currently doing combo 
 	if (StoredStateMachine.CurrentState->StateType != EStateType::NormalAttack
-		&& StoredStateMachine.CurrentState->StateType != EStateType::NormalThrow
 		&& StoredStateMachine.CurrentState->StateType != EStateType::SpecialAttack
 		&& StoredStateMachine.CurrentState->StateType != EStateType::SuperAttack)
 	{
@@ -1006,27 +1014,25 @@ void APlayerObject::SetHitValues()
 		if (Enemy->ComboTimer >= 14 * 60)
 		{
 			FinalHitstun = FinalHitstun * 50 / 100;
-			FinalUntech = FinalUntech * 60 / 100;
+			FinalUntech = FinalUntech * 70 / 100;
 		}
 		else if (Enemy->ComboTimer >= 10 * 60)
 		{
 			FinalHitstun = FinalHitstun * 60 / 100;
-			FinalUntech = FinalUntech * 70 / 100;
+			FinalUntech = FinalUntech * 80 / 100;
 		}
 		else if (Enemy->ComboTimer >= 7 * 60)
 		{
 			FinalHitstun = FinalHitstun * 70 / 100;
-			FinalUntech = FinalUntech * 85 / 100;
+			FinalUntech = FinalUntech * 90 / 100;
 		}
 		else if (Enemy->ComboTimer >= 5 * 60)
 		{
 			FinalHitstun = FinalHitstun * 80 / 100;
-			FinalUntech = FinalUntech * 90 / 100;
 		}
 		else if (Enemy->ComboTimer >= 3 * 60)
 		{
 			FinalHitstun = FinalHitstun * 90 / 100;
-			FinalUntech = FinalUntech * 95 / 100;
 		}
 	}
 	
@@ -1208,6 +1214,18 @@ void APlayerObject::SetDamageReactionCel(int32 Index)
 	}
 }
 
+void APlayerObject::SetHitgrabActive(bool Active)
+{
+	if (Active)
+	{
+		PlayerFlags |= PLF_HitgrabActive;
+	}
+	else
+	{
+		PlayerFlags &= ~PLF_HitgrabActive;
+	}
+}
+
 void APlayerObject::PlayVoiceLine(FString Name)
 {
 	if (!IsValid(GameState))
@@ -1227,6 +1245,7 @@ void APlayerObject::PlayVoiceLine(FString Name)
 
 void APlayerObject::PlayCommonLevelSequence(FString Name)
 {
+	if (!GameState) return;
 	if (CommonSequenceData != nullptr)
 	{
 		for (FSequenceStruct SequenceStruct : CommonSequenceData->SequenceStructs)
@@ -1241,6 +1260,7 @@ void APlayerObject::PlayCommonLevelSequence(FString Name)
 
 void APlayerObject::PlayLevelSequence(FString Name)
 {
+	if (!GameState) return;
 	if (SequenceData != nullptr)
 	{
 		for (FSequenceStruct SequenceStruct : SequenceData->SequenceStructs)
@@ -1860,29 +1880,26 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 	{
 		return ReturnReg;
 	}
-	
-	CancelFlags &= ~CNC_EnableKaraCancel; //prevents kara cancelling immediately after the last kara cancel
 
 	if (ActionTime >= 3)
 		return ReturnReg;
 	
 	//two checks: if it's an attack, and if the given state type has a higher or equal priority to the current state
-	if (InStateType == EStateType::NormalAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
+	if (InStateType == EStateType::NormalAttack && StoredStateMachine.CurrentState->StateType == EStateType::NormalAttack)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::NormalThrow && StoredStateMachine.CurrentState->StateType <= InStateType)
+	if (InStateType == EStateType::SpecialAttack && StoredStateMachine.CurrentState->StateType >
+		EStateType::NormalAttack && StoredStateMachine.CurrentState->StateType < EStateType::SpecialAttack)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SpecialAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
+	if (InStateType == EStateType::SuperAttack && StoredStateMachine.CurrentState->StateType >
+		EStateType::NormalAttack && StoredStateMachine.CurrentState->StateType < EStateType::SuperAttack)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SuperAttack && StoredStateMachine.CurrentState->StateType <= InStateType)
-	{
-		ReturnReg = true;
-	}	
+	
 	return ReturnReg;
 }
 
@@ -2081,7 +2098,7 @@ void APlayerObject::SetStance(EActionStance InStance)
 
 void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 {
-	if (!GameState) return;
+	if (!GameState && !CharaSelectGameState) return;
 	GotoLabelActive = IsLabel;
 	if (StoredStateMachine.ForceSetState(FName(NewName)) && StoredStateMachine.CurrentState != nullptr)
 	{
@@ -2156,7 +2173,6 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 			ReturnReg = true;
 		break;
 	case EStateType::NormalAttack:
-	case EStateType::NormalThrow:
 		if (EnableFlags & ENB_NormalAttack)
 			ReturnReg = true;
 		break;
@@ -2206,6 +2222,7 @@ void APlayerObject::OnStateChange()
 	// Reset flags
 	CancelFlags = CNC_EnableKaraCancel | CNC_ChainCancelEnabled; 
 	PlayerFlags &= ~PLF_ThrowActive;
+	PlayerFlags &= ~PLF_HitgrabActive;
 	PlayerFlags &= ~PLF_DeathCamOverride;
 	PlayerFlags &= ~PLF_LockOpponentBurst;
 	PlayerFlags &= ~PLF_ForceEnableFarNormal;
@@ -2223,6 +2240,8 @@ void APlayerObject::OnStateChange()
 	PrevOffsetY = 0;
 	NextOffsetX = 0;
 	NextOffsetY = 0;
+
+	PosZ = 0;
 	
 	// Reset speed modifiers
 	SpeedXRate = 100;
@@ -2423,6 +2442,7 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	InvulnFlags = 0;
 	PlayerFlags &= ~PLF_IsDead;
 	PlayerFlags &= ~PLF_ThrowActive;
+	PlayerFlags &= ~PLF_HitgrabActive;
 	PlayerFlags &= ~PLF_IsStunned;
 	PlayerFlags &= ~PLF_IsThrowLock;
 	PlayerFlags &= ~PLF_DeathCamOverride;
