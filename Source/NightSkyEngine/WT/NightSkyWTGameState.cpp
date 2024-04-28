@@ -40,6 +40,7 @@ void ANightSkyWTGameState::HandleMatchWin()
 	Players[4]->Destroy();
 	Players[5]->Destroy();
 	FighterRunner->Destroy();
+	FighterRunner = nullptr;
 	
 	BattleState = FBattleState();
 	
@@ -75,6 +76,8 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 		Players[i]->ObjNumber = MaxBattleObjects + i;
 		SortedObjects[i] = Players[i];
 	}
+	BattleState.MainPlayer[0] = Players[0];
+	BattleState.MainPlayer[1] = Players[MaxPlayerObjects / 2];
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{

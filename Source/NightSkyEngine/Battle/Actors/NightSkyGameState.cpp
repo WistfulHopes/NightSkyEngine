@@ -422,7 +422,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	HandlePushCollision();
 	SetScreenBounds();
 	SetStageBounds();
-	HandleRoundWin();
 	ParticleManager->PauseParticles();
 	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
 	{
@@ -464,6 +463,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 	UpdateCamera();
 	UpdateHUD();
 	ManageAudio();
+	
+	HandleRoundWin();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -935,28 +936,30 @@ void ANightSkyGameState::UpdateCamera()
 				FFrameTime(BattleState.CurrentSequenceTime),
 				EUpdatePositionMethod::Scrub);
 			SequenceActor->GetSequencePlayer()->SetPlaybackPosition(Params);
+			const FVector SequenceTargetVector = FVector(SequenceTarget->PosX / COORD_SCALE,
+			                                             SequenceTarget->PosY / COORD_SCALE,
+			                                             SequenceTarget->PosZ / COORD_SCALE);
+
+			FVector NewCamLocation = BattleSceneTransform.GetRotation().UnrotateVector(SequenceCameraActor->GetActorLocation() - BattleSceneTransform.GetLocation());
+			NewCamLocation.Z = NewCamLocation.Z + SequenceTargetVector.Z;
+
 			if (SequenceTarget->Direction == DIR_Left)
 			{
-				auto NewCamLocation = SequenceCameraActor->GetActorLocation();
-				NewCamLocation.X = -NewCamLocation.X + SequenceTarget->GetActorLocation().X;
-				SequenceCameraActor->SetActorLocation(NewCamLocation);
+				NewCamLocation.X = -NewCamLocation.X + SequenceTargetVector.X;
 				auto NewCamRotation = SequenceCameraActor->GetActorRotation();
 				NewCamRotation.Yaw = -NewCamRotation.Yaw - 180;
 				SequenceCameraActor->SetActorRotation(NewCamRotation);
-
-				auto NewEnemyLocation = SequenceEnemy->GetActorLocation();
-				NewEnemyLocation.X = -(NewEnemyLocation.X - static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE) + static_cast<float>(SequenceEnemy->PosX) / COORD_SCALE;
-				SequenceEnemy->SetActorLocation(NewEnemyLocation);
 			}
 			else
 			{
-				auto NewCamLocation = SequenceCameraActor->GetActorLocation();
-				NewCamLocation.X = NewCamLocation.X + SequenceTarget->GetActorLocation().X;
-				SequenceCameraActor->SetActorLocation(NewCamLocation);
+				NewCamLocation.X = NewCamLocation.X + SequenceTargetVector.X;
 			}
-			auto NewCamLocation = SequenceCameraActor->GetActorLocation();
-			NewCamLocation.Z = NewCamLocation.Z + SequenceTarget->GetActorLocation().Z;
-			SequenceCameraActor->SetActorLocation(NewCamLocation);
+
+			SequenceCameraActor->SetActorLocation(BattleSceneTransform.GetRotation().RotateVector(NewCamLocation) + BattleSceneTransform.GetLocation());
+
+			FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator() + SequenceCameraActor->GetActorRotation();
+
+			SequenceCameraActor->SetActorRotation(CameraRotation);
 		}
 	}
 	bIsPlayingSequence = BattleState.IsPlayingSequence;
