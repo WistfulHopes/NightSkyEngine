@@ -1041,10 +1041,10 @@ public:
 	ABattleObject* GetBattleObject(EObjType Type);
 	//creates common object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//creates object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType);
+	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//if object goes beyond screen bounds, deactivate
 	UFUNCTION(BlueprintCallable)
 	void EnableDeactivateIfBeyondBounds(bool Enable);

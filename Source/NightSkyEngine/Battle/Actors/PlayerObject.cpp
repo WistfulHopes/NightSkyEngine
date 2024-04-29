@@ -422,21 +422,17 @@ void APlayerObject::Update()
 		PlayerFlags |= PLF_IsDead;
 		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride))
 		{
-			BattleHudVisibility(false);
 			if (ReceivedHitCommon.AttackLevel < 2)
 			{
-				StartSuperFreeze(40, 40);
-				PlayCommonLevelSequence("KO_Shake");
+			    AddCommonBattleObject("cmn_ko_s");
 			}
 			else if (ReceivedHitCommon.AttackLevel < 4)
 			{
-				StartSuperFreeze(75, 75);
-				PlayCommonLevelSequence("KO_Zoom");
+			    AddCommonBattleObject("cmn_ko_m");
 			}
 			else
 			{
-				StartSuperFreeze(145, 145);
-				PlayCommonLevelSequence("KO_Turnaround");
+			    AddCommonBattleObject("cmn_ko_l");
 			}
 			Hitstop = 0;
 			AttackOwner->Hitstop = 0;

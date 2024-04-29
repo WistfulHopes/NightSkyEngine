@@ -940,7 +940,7 @@ void ANightSkyGameState::UpdateCamera()
 			                                             SequenceTarget->PosY / COORD_SCALE,
 			                                             SequenceTarget->PosZ / COORD_SCALE);
 
-			FVector NewCamLocation = BattleSceneTransform.GetRotation().UnrotateVector(SequenceCameraActor->GetActorLocation() - BattleSceneTransform.GetLocation());
+			FVector NewCamLocation = SequenceCameraActor->GetActorLocation();
 			NewCamLocation.Z = NewCamLocation.Z + SequenceTargetVector.Z;
 
 			if (SequenceTarget->Direction == DIR_Left)

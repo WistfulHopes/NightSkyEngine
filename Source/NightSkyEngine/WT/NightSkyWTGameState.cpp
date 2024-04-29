@@ -33,23 +33,14 @@ void ANightSkyWTGameState::HandleMatchWin()
 {
 	bIsBattling = false;
 	
-	for (const auto Object : Objects)
-		Object->Destroy();
-	Players[1]->Destroy();
-	Players[2]->Destroy();
-	Players[4]->Destroy();
-	Players[5]->Destroy();
-	FighterRunner->Destroy();
-	FighterRunner = nullptr;
-	
-	BattleState = FBattleState();
-	
 	OnBattleEndDelegate.Broadcast();
 }
 
 void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 {
 	bIsBattling = true;
+
+	BattleState = FBattleState();
 	
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
