@@ -698,6 +698,11 @@ public:
 	FName AnimName = {};
 	// The current blend animation name.
 	FName BlendAnimName = {};
+	
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UAnimSequenceBase> AnimSequence;
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UAnimSequenceBase> BlendAnimSequence;
 	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive = false;

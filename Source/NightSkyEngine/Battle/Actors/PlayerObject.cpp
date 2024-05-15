@@ -112,6 +112,10 @@ void APlayerObject::HandleStateMachine(bool Buffer)
                 {
                     continue;
                 }
+				if (!StoredStateMachine.States[i]->CanEnterState()) //check bp state condition
+				{
+					break;
+				}
 				if (HandleAutoCombo(i)) return;
 				if (HandleStateInputs(i, Buffer))
 				{
@@ -393,15 +397,15 @@ void APlayerObject::Update()
 					FaceOpponent();
 					if (Enemy->Stance != ACT_Jumping)
 					{
-						JumpToState("GuardBreakStand");
-						Enemy->JumpToState("GuardBreakStand");
+						JumpToState(CharaStateData->DefaultGuardBreakStand);
+						Enemy->JumpToState(CharaStateData->DefaultGuardBreakStand);
 						InitEventHandler(EVT_Update, "ThrowTech");
 						Enemy->InitEventHandler(EVT_Update, "ThrowTech");
 					}
 					else
 					{
-						JumpToState("GuardBreakAir");
-						Enemy->JumpToState("GuardBreakAir");
+						JumpToState(CharaStateData->DefaultGuardBreakAir);
+						Enemy->JumpToState(CharaStateData->DefaultGuardBreakAir);
 						InitEventHandler(EVT_Update, "ThrowTechAir");
 						Enemy->InitEventHandler(EVT_Update, "ThrowTechAir");
 					}
@@ -497,7 +501,7 @@ void APlayerObject::Update()
 	
 	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
-		if (GetCurrentStateName() != "FloatingCrumpleBody" && GetCurrentStateName() != "FloatingCrumpleHead")
+		if (GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleBody && GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleHead)
 		{
 			if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
         		HandleGroundBounce();
@@ -520,29 +524,28 @@ void APlayerObject::Update()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState("StandBlockEnd");
+				JumpToState(CharaStateData->DefaultStandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState("CrouchBlockEnd");
+				JumpToState(CharaStateData->DefaultCrouchBlockEnd);
 			}
 			else
 			{
-				JumpToState("AirBlockEnd");
+				JumpToState(CharaStateData->DefaultAirBlockEnd);
 			}
 		}
-		else if (PosY == GroundHeight && GetCurrentStateName() != "FaceDownWakeUp"
-			&& GetCurrentStateName() != "FaceUpWakeUp" && !(PlayerFlags & PLF_IsKnockedDown))
+		else if (PosY == GroundHeight && GetCurrentStateName() != CharaStateData->DefaultFaceDownWakeUp
+			&& GetCurrentStateName() != CharaStateData->DefaultFaceUpWakeUp && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState("Stand");
+				JumpToState(CharaStateData->DefaultStand);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState("Crouch");
+				JumpToState(CharaStateData->DefaultCrouch);
 			}
-			TotalProration = 10000;
 		}
 		else
 		{
@@ -578,16 +581,15 @@ void APlayerObject::Update()
 		DisableState(ENB_Tech);
 	}
 
-	if ((GetCurrentStateName() == "FaceDownLoop" || GetCurrentStateName() == "FaceUpLoop") && ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
+	if ((GetCurrentStateName() == CharaStateData->DefaultFaceDownLoop || GetCurrentStateName() == CharaStateData->DefaultFaceUpLoop) && ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
 		Enemy->ComboTimer = 0;
 		OTGCount = 0;
-		if (StoredStateMachine.CurrentState->Name == "FaceDownLoop")
-			JumpToState("FaceDownWakeUp");
-		else if (StoredStateMachine.CurrentState->Name == "FaceUpLoop")
-			JumpToState("FaceUpWakeUp");
-		TotalProration = 10000;
+		if (StoredStateMachine.CurrentState->Name == CharaStateData->DefaultFaceDownLoop)
+			JumpToState(CharaStateData->DefaultFaceDownWakeUp);
+		else if (StoredStateMachine.CurrentState->Name == CharaStateData->DefaultFaceUpLoop)
+			JumpToState(CharaStateData->DefaultFaceUpWakeUp);
 		PlayerFlags &= ~PLF_IsKnockedDown;
 		DisableState(ENB_Tech);
 	}
@@ -606,7 +608,7 @@ void APlayerObject::Update()
 		CurrentAirDashCount = AirDashCount;
 		if (PlayerFlags & PLF_DefaultLandingAction && StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
 		{
-			JumpToState("JumpLanding");
+			JumpToState(CharaStateData->DefaultJumpLanding);
 		}
 		SetStance(ACT_Standing);
 		TriggerEvent(EVT_Landing);
@@ -779,18 +781,18 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal || HACT == HACT_FloatingCrumple)
-				BufferedStateName = FName("BLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 			else if (HACT == HACT_AirVertical)
-				BufferedStateName = FName("VLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultVLaunch);
 			else if (HACT == HACT_AirFaceDown)
-				BufferedStateName = FName("FLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultFLaunch);
 			else if (HACT == HACT_Blowback)
-				BufferedStateName = FName("Blowback");
+				BufferedStateName = FName(CharaStateData->DefaultBlowback);
 			else if (HACT == HACT_Tailspin)
-				BufferedStateName = FName("Tailspin");
+				BufferedStateName = FName(CharaStateData->DefaultTailspin);
 			else
 			{
-				BufferedStateName = FName("Crumple");
+				BufferedStateName = FName(CharaStateData->DefaultCrumple);
 			}
 		}
 		else
@@ -798,17 +800,17 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			if (PosY <= GroundHeight)
 				PosY = GroundHeight + 1;
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal)
-				BufferedStateName = FName("BLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 			else if (HACT == HACT_AirVertical)
-				BufferedStateName = FName("VLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultVLaunch);
 			else if (HACT == HACT_AirFaceDown)
-				BufferedStateName = FName("FLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultFLaunch);
 			else if (HACT == HACT_Blowback)
-				BufferedStateName = FName("Blowback");
+				BufferedStateName = FName(CharaStateData->DefaultBlowback);
 			else if (HACT == HACT_Tailspin)
-				BufferedStateName = FName("Tailspin");
+				BufferedStateName = FName(CharaStateData->DefaultTailspin);
 			else
-				BufferedStateName = FName("BLaunch");
+				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 		}
 		return;
 	}
@@ -820,97 +822,97 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		case ACT_Standing:
 		default:
 			if (ReceivedHitCommon.AttackLevel == 0)
-				BufferedStateName = FName("Hitstun0");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "0");
 			else if (ReceivedHitCommon.AttackLevel == 1)
-				BufferedStateName = FName("Hitstun1");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "1");
 			else if (ReceivedHitCommon.AttackLevel == 2)
-				BufferedStateName = FName("Hitstun2");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "2");
 			else if (ReceivedHitCommon.AttackLevel == 3)
-				BufferedStateName = FName("Hitstun3");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "3");
 			else if (ReceivedHitCommon.AttackLevel == 4)
-				BufferedStateName = FName("Hitstun4");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
-				BufferedStateName = FName("Hitstun5");
+				BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "5");
 			break;
 		case ACT_Crouching:
 			if (ReceivedHitCommon.AttackLevel == 0)
-				BufferedStateName = FName("CrouchHitstun0");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "0");
 			else if (ReceivedHitCommon.AttackLevel == 1)
-				BufferedStateName = FName("CrouchHitstun1");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "1");
 			else if (ReceivedHitCommon.AttackLevel == 2)
-				BufferedStateName = FName("CrouchHitstun2");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "2");
 			else if (ReceivedHitCommon.AttackLevel == 3)
-				BufferedStateName = FName("CrouchHitstun3");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "3");
 			else if (ReceivedHitCommon.AttackLevel == 4)
-				BufferedStateName = FName("CrouchHitstun4");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "4");
 			else if (ReceivedHitCommon.AttackLevel == 5)
-				BufferedStateName = FName("CrouchHitstun5");
+				BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "5");
 			StunTime += 1;
 			StunTimeMax += 1;
 		}
 		break;
 	case HACT_Crumple:
-		BufferedStateName = FName("Crumple");
+		BufferedStateName = FName(CharaStateData->DefaultCrumple);
 		break;
 	case HACT_ForceCrouch:
 		Stance = ACT_Crouching;
 		if (ReceivedHitCommon.AttackLevel == 0)
-			BufferedStateName = FName("CrouchHitstun0");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "0");
 		else if (ReceivedHitCommon.AttackLevel == 1)
-			BufferedStateName = FName("CrouchHitstun1");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "1");
 		else if (ReceivedHitCommon.AttackLevel == 2)
-			BufferedStateName = FName("CrouchHitstun2");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "2");
 		else if (ReceivedHitCommon.AttackLevel == 3)
-			BufferedStateName = FName("CrouchHitstun3");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "3");
 		else if (ReceivedHitCommon.AttackLevel == 4)
-			BufferedStateName = FName("CrouchHitstun4");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "4");
 		else if (ReceivedHitCommon.AttackLevel == 5)
-			BufferedStateName = FName("CrouchHitstun5");
+			BufferedStateName = FName(CharaStateData->DefaultCrouchHitstunPrefix + "5");
 		StunTime += 1;
 		StunTimeMax += 1;
 		break;
 	case HACT_ForceStand:
 		Stance = ACT_Standing;
 		if (ReceivedHitCommon.AttackLevel == 0)
-			BufferedStateName = FName("Hitstun0");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "0");
 		else if (ReceivedHitCommon.AttackLevel == 1)
-			BufferedStateName = FName("Hitstun1");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "1");
 		else if (ReceivedHitCommon.AttackLevel == 2)
-			BufferedStateName = FName("Hitstun2");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "2");
 		else if (ReceivedHitCommon.AttackLevel == 3)
-			BufferedStateName = FName("Hitstun3");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "3");
 		else if (ReceivedHitCommon.AttackLevel == 4)
-			BufferedStateName = FName("Hitstun4");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "4");
 		else if (ReceivedHitCommon.AttackLevel == 5)
-			BufferedStateName = FName("Hitstun5");
+			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "5");
 		break;
 	case HACT_GuardBreakCrouch:
-		BufferedStateName = FName("GuardBreakCrouch");
+		BufferedStateName = FName(CharaStateData->DefaultGuardBreakCrouch);
 		break;
 	case HACT_GuardBreakStand:
-		BufferedStateName = FName("GuardBreak");
+		BufferedStateName = FName(CharaStateData->DefaultGuardBreakStand);
 		break;
 	case HACT_AirNormal:
 	case HACT_AirFaceUp:
-		BufferedStateName = FName("BLaunch");
+		BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 		break;
 	case HACT_AirVertical:
-		BufferedStateName = FName("VLaunch");
+		BufferedStateName = FName(CharaStateData->DefaultVLaunch);
 		break;
 	case HACT_AirFaceDown:
-		BufferedStateName = FName("FLaunch");
+		BufferedStateName = FName(CharaStateData->DefaultFLaunch);
 		break;
 	case HACT_Blowback:
-		BufferedStateName = FName("Blowback");
+		BufferedStateName = FName(CharaStateData->DefaultBlowback);
 		break;
 	case HACT_Tailspin:
-		BufferedStateName = FName("Tailspin");
+		BufferedStateName = FName(CharaStateData->DefaultTailspin);
 		break;
 	case HACT_FloatingCrumple:
 		if (ReceivedHit.FloatingCrumpleType == FLT_Body)
-			BufferedStateName = FName("FloatingCrumpleBody");
+			BufferedStateName = FName(CharaStateData->DefaultFloatingCrumpleBody);
 		else
-			BufferedStateName = FName("FloatingCrumpleHead");
+			BufferedStateName = FName(CharaStateData->DefaultFloatingCrumpleHead);
 		break;
 	case HACT_None: break;
 	default: ;
@@ -921,7 +923,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 void APlayerObject::SetHitValuesOverTime()
 {
 	if (StoredStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY > GroundHeight
-		&& GetCurrentStateName() != "FloatingCrumpleBody" && GetCurrentStateName() != "FloatingCrumpleHead")
+		&& GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleBody && GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleHead)
 	{
 		const int32 CurrentStunTime = StunTimeMax - StunTime;
 		if (ReceivedHit.AirPushbackXOverTime.BeginFrame <= CurrentStunTime
@@ -1337,7 +1339,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputBitmask BitmaskRight;
 		BitmaskRight.InputFlag = INP_Right;
 		Right.Sequence.Add(BitmaskRight);
-		if ((CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight) || GetCurrentStateName() == "AirBlock")
+		if ((CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight) || GetCurrentStateName() == CharaStateData->DefaultAirBlock)
 		{
 			Left.Method = EInputMethod::Once;
 			if (CheckInput(Left) && InstantBlockLockoutTimer == 0)
@@ -1353,7 +1355,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input1.Sequence.Add(BitmaskDownLeft);
 		Input1.Method = EInputMethod::Strict;
 		Input1.bInputAllowDisable = false;
-		if ((CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock") && BlockType != BLK_High && !CheckInput(Right))
+		if ((CheckInput(Input1) || GetCurrentStateName() == CharaStateData->DefaultCrouchBlock) && BlockType != BLK_High && !CheckInput(Right))
 		{
 			Input1.Method = EInputMethod::OnceStrict;
 			if (CheckInput(Input1) && InstantBlockLockoutTimer == 0)
@@ -1366,7 +1368,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input4.Sequence.Add(BitmaskLeft);
 		Input4.Method = EInputMethod::Strict;
 		Input4.bInputAllowDisable = false;
-		if ((CheckInput(Input4) || GetCurrentStateName() == "StandBlock") && BlockType != BLK_Low && !CheckInput(Right))
+		if ((CheckInput(Input4) || GetCurrentStateName() == CharaStateData->DefaultStandBlock) && BlockType != BLK_Low && !CheckInput(Right))
 		{
 			Input4.Method = EInputMethod::OnceStrict;
 			if (CheckInput(Input4) && InstantBlockLockoutTimer == 0)
@@ -1416,21 +1418,21 @@ void APlayerObject::HandleBlockAction()
 		GotoLabel("Lv3");
 		break;
 	}
-	if (Stance == ACT_Jumping || GetCurrentStateName() == "AirBlock")
+	if (Stance == ACT_Jumping || GetCurrentStateName() == CharaStateData->DefaultAirBlock)
 	{
-		JumpToState("AirBlock", true);
+		JumpToState(CharaStateData->DefaultAirBlock, true);
 		Stance = ACT_Jumping;
 	}
-	else if (CheckInput(Input1) || GetCurrentStateName() == "CrouchBlock")
+	else if (CheckInput(Input1) || GetCurrentStateName() == CharaStateData->DefaultCrouchBlock)
 	{
 		PosY = 0;
-		JumpToState("CrouchBlock", true);
+		JumpToState(CharaStateData->DefaultCrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
 		PosY = 0;
-		JumpToState("StandBlock", true);
+		JumpToState(CharaStateData->DefaultStandBlock, true);
 		Stance = ACT_Standing;
 	}
 	if (Stance == ACT_Jumping)
@@ -1450,15 +1452,15 @@ void APlayerObject::HandleProximityBlock()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState("StandBlockEnd");
+				JumpToState(CharaStateData->DefaultStandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState("CrouchBlockEnd");
+				JumpToState(CharaStateData->DefaultCrouchBlockEnd);
 			}
 			else
 			{
-				JumpToState("AirBlockEnd");
+				JumpToState(CharaStateData->DefaultAirBlockEnd);
 			}
 		}
 		return;
@@ -1475,17 +1477,17 @@ void APlayerObject::HandleProximityBlock()
 	GotoLabel("Pre");
 	if (PosY > GroundHeight)
 	{
-		JumpToState("AirBlock", true);
+		JumpToState(CharaStateData->DefaultAirBlock, true);
 		Stance = ACT_Jumping;
 	}
 	else if (CheckInput(Input1))
 	{
-		JumpToState("CrouchBlock", true);
+		JumpToState(CharaStateData->DefaultCrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
-		JumpToState("StandBlock", true);
+		JumpToState(CharaStateData->DefaultStandBlock, true);
 		Stance = ACT_Standing;
 	}
 }
@@ -1860,7 +1862,7 @@ void APlayerObject::HandleThrowCollision()
 		{
 			if (CheckInput(Left))
 				FlipObject();
-			Enemy->JumpToState("ThrowLock");
+			Enemy->JumpToState(CharaStateData->DefaultThrowLock);
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;
 			Enemy->AttackOwner = this;
@@ -1943,7 +1945,7 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 				ReceivedHit.GravityOverTime = FHitValueOverTime();
 				HaltMomentum();
-				BufferedStateName = FName("WallBounce");
+				BufferedStateName = FName(CharaStateData->DefaultWallBounce);
 			}
 		}
 		return;
@@ -1968,7 +1970,7 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 			ReceivedHit.GravityOverTime = FHitValueOverTime();
 			HaltMomentum();
-			BufferedStateName = FName("WallBounce");
+			BufferedStateName = FName(CharaStateData->DefaultWallBounce);
 		}
 	}
 }
@@ -1991,7 +1993,7 @@ void APlayerObject::HandleGroundBounce()
 	ReceivedHit.Hitstop = ReceivedHit.GroundBounce.GroundBounceStop;
 	ReceivedHit.GroundHitAction = HACT_AirFaceUp;
 	EnableCancelIntoSelf(true);
-	BufferedStateName = FName("BLaunch");
+	BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 }
 
 void APlayerObject::SetComponentVisibility() const
@@ -2478,9 +2480,12 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	ExeStateName = FName();
 	BufferedStateName = FName();
 	WallTouchTimer = 0;
-	JumpToState("Stand");
 	GameState->BattleState.MaxMeter[PlayerIndex] = MaxMeter;
 	SetDefaultComponentVisibility();
+	if (PlayerIndex == 1)
+	{
+		SetFacing(DIR_Left);
+	}
 }
 
 void APlayerObject::DisableLastInput()

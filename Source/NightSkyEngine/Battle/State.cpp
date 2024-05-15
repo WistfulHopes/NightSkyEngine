@@ -12,3 +12,8 @@ void UState::CallExec()
 	CelIndex = 0;
 	Exec();
 }
+
+bool UState::CanEnterState_Implementation()
+{
+	return true;
+}

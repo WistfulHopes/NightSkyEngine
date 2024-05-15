@@ -250,7 +250,7 @@ void ANightSkyGameState::RoundInit()
 		SwitchMainPlayer(GetMainPlayer(IsP1), 1);
 		GetMainPlayer(IsP1)->PosX = NewPosX;
 		GetMainPlayer(IsP1)->PosY = 0;
-		GetMainPlayer(IsP1)->JumpToState("TagIn");
+		GetMainPlayer(IsP1)->JumpToState(GetMainPlayer(IsP1)->CharaStateData->DefaultTagIn);
 		
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(true)->RoundWinTimer = 180;
@@ -336,8 +336,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 		}
 		else if (BattleState.CurrentIntroSide == INT_P2 && GetMainPlayer(false)->GetCurrentStateName() != "Intro")
 		{
-			GetMainPlayer(true)->JumpToState("Stand");
-			GetMainPlayer(false)->JumpToState("Stand");
+			GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
+			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 			BattleState.CurrentIntroSide = INT_None;
 			BattleHudVisibility(true);
 		}
@@ -1139,7 +1139,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	NewPlayer->TeamIndex = 0;
 	InPlayer->TeamIndex = TeamIndex;
 	NewPlayer->SetOnScreen(true);
-	NewPlayer->JumpToState("TagIn");
+	NewPlayer->JumpToState(NewPlayer->CharaStateData->DefaultTagIn);
 	for (const auto EnemyPlayer : GetTeam(!IsP1))
 	{
 		EnemyPlayer->Enemy = NewPlayer;

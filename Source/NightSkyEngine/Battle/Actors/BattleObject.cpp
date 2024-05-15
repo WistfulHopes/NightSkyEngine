@@ -605,7 +605,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									
 									if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 									{
-										OtherChar->JumpToState("ThrowLock");
+										OtherChar->JumpToState(OtherChar->CharaStateData->DefaultThrowLock);
 										OtherChar->PlayerFlags |= PLF_IsThrowLock;
 										OtherChar->AttackOwner = Player;
 										Player->ThrowExe();
@@ -640,7 +640,7 @@ void ABattleObject::HandleHitCollision(APlayerObject* OtherChar)
 									
 									if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 									{
-										OtherChar->JumpToState("ThrowLock");
+										OtherChar->JumpToState(OtherChar->CharaStateData->DefaultThrowLock);
 										OtherChar->PlayerFlags |= PLF_IsThrowLock;
 										OtherChar->AttackOwner = Player;
 										Player->ThrowExe();
@@ -1277,11 +1277,11 @@ void ABattleObject::HandleFlip()
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState("StandFlip");
+				Player->JumpToState(Player->CharaStateData->DefaultStandFlip);
 			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState("CrouchFlip");
+				Player->JumpToState(Player->CharaStateData->DefaultCrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
-				Player->JumpToState("JumpFlip");
+				Player->JumpToState(Player->CharaStateData->DefaultJumpFlip);
 		}
 	}
 }
@@ -1724,6 +1724,7 @@ void ABattleObject::GetBoxes()
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName.ToString())
 			{
 				AnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				AnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1750,6 +1751,7 @@ void ABattleObject::GetBoxes()
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName.ToString())
 			{
 				BlendAnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				BlendAnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1771,6 +1773,7 @@ void ABattleObject::GetBoxes()
 			if (Player->CollisionData->CollisionFrames[i].CelName == CelName.ToString())
 			{
 				AnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
+				AnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1797,6 +1800,7 @@ void ABattleObject::GetBoxes()
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName.ToString())
 			{
 				BlendAnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
+				BlendAnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{

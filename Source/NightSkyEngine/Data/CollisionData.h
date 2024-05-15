@@ -17,6 +17,8 @@ struct FCollisionStruct
 	UPROPERTY(EditAnywhere)
 	FString AnimName;
 	UPROPERTY(EditAnywhere)
+	UAnimSequenceBase* AnimSequence;
+	UPROPERTY(EditAnywhere)
 	int32 AnimFrame = 0;
 	UPROPERTY(EditAnywhere)
 	TArray<FCollisionBox> Boxes;

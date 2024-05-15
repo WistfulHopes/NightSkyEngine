@@ -322,4 +322,10 @@ public:
 	 */
 	UFUNCTION(BlueprintNativeEvent)
 	void Exec();
+	
+	/**
+	 * Called to check if the state may be entered.
+	 */
+	UFUNCTION(BlueprintNativeEvent)
+	bool CanEnterState();
 };
