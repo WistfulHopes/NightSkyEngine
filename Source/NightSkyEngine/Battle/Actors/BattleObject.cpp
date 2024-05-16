@@ -1641,7 +1641,7 @@ void ABattleObject::UpdateVisuals()
 			FVector FinalScale = ScaleForLink;
 			if (Direction == DIR_Left)
 				FinalScale.X = -FinalScale.X;
-			LinkedParticle->SetRelativeScale3D(FinalScale);
+			LinkedFlipbook->SetRelativeScale3D(FinalScale);
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
 			LinkedFlipbook->SetWorldLocation(Location);

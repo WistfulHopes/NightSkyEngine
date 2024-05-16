@@ -166,9 +166,9 @@ class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase
 
 protected:
 	UPROPERTY()
-	ABattleObject* Objects[MaxBattleObjects];
+	ABattleObject* Objects[MaxBattleObjects] {};
 	UPROPERTY()
-	APlayerObject* Players[MaxPlayerObjects];
+	APlayerObject* Players[MaxPlayerObjects] {};
 
 public:
 	// Sets default values for this actor's properties
@@ -178,63 +178,63 @@ public:
 	FTransform BattleSceneTransform;
 	
 	UPROPERTY()
-	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects];
+	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects] {};
 
 	UPROPERTY()
-	class UNightSkyGameInstance* GameInstance;
+	class UNightSkyGameInstance* GameInstance = nullptr;
 
 	UPROPERTY()
-	class AParticleManager* ParticleManager;
+	class AParticleManager* ParticleManager = nullptr;
 	UPROPERTY()
-	AAudioManager* AudioManager;
+	AAudioManager* AudioManager = nullptr;
 
 	UPROPERTY(BlueprintReadWrite)
-	class ALevelSequenceActor* SequenceActor;
+	class ALevelSequenceActor* SequenceActor = nullptr;
 	UPROPERTY(BlueprintReadWrite)
-	ACameraActor* CameraActor;
+	ACameraActor* CameraActor = nullptr;
 	UPROPERTY(BlueprintReadWrite)
-	ACameraActor* SequenceCameraActor;
+	ACameraActor* SequenceCameraActor = nullptr;
 	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* SequenceTarget;
+	APlayerObject* SequenceTarget = nullptr;
 	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* SequenceEnemy;
+	APlayerObject* SequenceEnemy = nullptr;
 	UPROPERTY(BlueprintReadWrite)
-	bool bPauseGame;
+	bool bPauseGame = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bViewCollision;
+	bool bViewCollision = false;
 
 	UPROPERTY(BlueprintReadOnly)
-	bool bIsPlayingSequence;
+	bool bIsPlayingSequence = false;
 
 	UPROPERTY()
-	class AFighterLocalRunner* FighterRunner;
+	class AFighterLocalRunner* FighterRunner = nullptr;;
 	UPROPERTY(BlueprintReadWrite)
-	ANightSkyBattleHudActor* BattleHudActor;
+	ANightSkyBattleHudActor* BattleHudActor = nullptr;;
 
-	TArray<FRollbackData> MainRollbackData;
-	TArray<FBPRollbackData> BPRollbackData;
+	TArray<FRollbackData> MainRollbackData = {};
+	TArray<FBPRollbackData> BPRollbackData = {};
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FBattleState BattleState;
+	FBattleState BattleState = FBattleState();
 	
 	UPROPERTY()
-	TArray<UBattleExtension*> BattleExtensions;
-	TArray<FName> BattleExtensionNames;
+	TArray<UBattleExtension*> BattleExtensions = {};
+	TArray<FName> BattleExtensionNames = {};
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UBattleExtensionData* BattleExtensionData;
+	UBattleExtensionData* BattleExtensionData = {};
 	
-	int32 LocalFrame;
-	int32 RemoteFrame;
+	int32 LocalFrame = 0;
+	int32 RemoteFrame = 0;
 
 private:
-	int32 LocalInputs[MaxRollbackFrames][2];
-	int32 RemoteInputs[MaxRollbackFrames][2];
-	uint32 Checksum;
-	uint32 OtherChecksum;
-	int32 OtherChecksumFrame;
-	int32 PrevOtherChecksumFrame;
-	FNetworkStats NetworkStats;
+	int32 LocalInputs[MaxRollbackFrames][2] = {};
+	int32 RemoteInputs[MaxRollbackFrames][2] = {};
+	uint32 Checksum = 0;
+	uint32 OtherChecksum = 0;
+	int32 OtherChecksumFrame = 0;
+	int32 PrevOtherChecksumFrame = 0;
+	FNetworkStats NetworkStats = FNetworkStats();
 	
 protected:
 	// Called when the game starts or when spawned
@@ -265,7 +265,7 @@ public:
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
-	bool CanTag(APlayerObject* InPlayer, int TeamIndex) const;
+	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
 	void SaveGameState(); //saves game state
 	void LoadGameState(); //loads game state

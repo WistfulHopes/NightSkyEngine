@@ -6,6 +6,9 @@
 #include "State.h"
 #include "InputBuffer.generated.h"
 
+constexpr int32 InputSequenceSize = 20;
+constexpr int32 InputBufferSize = 90;
+
 /**
  * @brief The input buffer for a player object.
  *
@@ -19,7 +22,7 @@ protected:
 	/**
 	 * The input sequence. Updated by the input being checked.
 	 */
-	FInputBitmask InputSequence[20] = {  };
+	FInputBitmask InputSequence[InputSequenceSize] = {  };
 	/**
 	 * How much time is allowed between inputs. Updated by the input being checked.
 	 */
@@ -36,26 +39,29 @@ public:
 	/**
 	 * All stored inputs.
 	 * Inputs are stored with the newest at the end and the oldest at the beginning.
-	 * 
-	 * Up to 90 frames of inputs may be stored.
 	 */
-	int32 InputBufferInternal[90] = { 16 };
+	int32 InputBufferInternal[InputBufferSize] = { 16 };
 	/**
 	 * All disabled inputs.
 	 * Upon a successful state transition, the last input will be disabled.
 	 * If an input being checked matches a disabled input on the same frame,
 	 * the input check will fail.
-	 * 
-	 * Up to 90 frames of inputs may be disabled.
 	 */
-	int32 InputDisabled[90] = { 0 };
+	int32 InputDisabled[InputBufferSize] = { 0 };
 
 	/**
 	 * @brief Stores the input for this frame.
 	 * 
 	 * @param Input The input bitmask to store.
 	 */
-	void Tick(int32 Input);
+	void Update(int32 Input);
+	/**
+	 * @brief Stores the input at an arbitrary buffer position. Intended for CPU usage.
+	 * 
+	 * @param Input The input bitmask to store.
+	 * @param Index The index of the buffer to store at.
+	 */
+	void Emplace(int32 Input, uint32 Index);
 	/**
 	 * @brief Checks an input condition against the buffer.
 	 * 
@@ -92,6 +98,20 @@ public:
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
 	bool CheckInputSequenceOnceStrict() const;
+	/**
+	 * Checks the input sequence against the buffer with the Negative method.
+	 * @see EInputMethod
+	 * 
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
+	 */
+	bool CheckInputSequenceNegative() const;
+	/**
+	 * Checks the input sequence against the buffer with the Negative Strict method.
+	 * @see EInputMethod
+	 * 
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
+	 */
+	bool CheckInputSequenceNegativeStrict() const;
 	/**
 	 * Flips the directional inputs in the buffer. For use after a character switches sides.
 	 */

@@ -392,7 +392,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2)
 				if (SortedObjects[i]->Player->PlayerFlags & PLF_IsStunned)
 					SortedObjects[i]->Player->HandleBufferedState();
 				SortedObjects[i]->GetBoxes();
-				SortedObjects[i]->Player->StoredInputBuffer.Tick(SortedObjects[i]->Player->Inputs);
+				SortedObjects[i]->Player->StoredInputBuffer.Update(SortedObjects[i]->Player->Inputs);
 				SortedObjects[i]->Player->HandleStateMachine(true); //handle state transitions
 			}
 			SortedObjects[i]->UpdateVisuals();
@@ -957,7 +957,7 @@ void ANightSkyGameState::UpdateCamera()
 
 			SequenceCameraActor->SetActorLocation(BattleSceneTransform.GetRotation().RotateVector(NewCamLocation) + BattleSceneTransform.GetLocation());
 
-			FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator() + SequenceCameraActor->GetActorRotation();
+			const FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator() + SequenceCameraActor->GetActorRotation();
 
 			SequenceCameraActor->SetActorRotation(CameraRotation);
 		}
@@ -1148,7 +1148,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	return NewPlayer;
 }
 
-bool ANightSkyGameState::CanTag(APlayerObject* InPlayer, int TeamIndex) const
+bool ANightSkyGameState::CanTag(const APlayerObject* InPlayer, int TeamIndex) const
 {
 	if (TeamIndex == 0) return false;
 	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo) return false;

@@ -21,7 +21,7 @@ public:
     virtual ~SHitboxAnimationViewport() override;
 
     // FGCObject interface
-    virtual void AddReferencedObjects(FReferenceCollector& Collector) override;
+    virtual void AddReferencedObjects(FReferenceCollector& Collector) override {};
     virtual FString GetReferencerName() const override;
     // Toolbar interface
     virtual TSharedRef<SEditorViewport> GetViewportWidget() override;
@@ -31,9 +31,6 @@ public:
 
     // Construct the viewport
     virtual TSharedRef<FEditorViewportClient> MakeEditorViewportClient() override;
-
-    // Get the viewport client
-    TSharedPtr<FHitboxAnimationViewportClient> GetViewportClient() const { return ViewportClient; }
 
 private:
     TSharedPtr<FHitboxAnimationViewportClient> ViewportClient;

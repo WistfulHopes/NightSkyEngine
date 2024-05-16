@@ -3,7 +3,6 @@
 #include "Data/CollisionData.h"
 #include "CollisionDataEditorToolkit.h"
 #include "DrawDebugHelpers.h"
-#include "Battle/Globals.h"
 #include "Battle/Actors/PlayerObject.h"
 
 FHitboxAnimationPreviewScene::FHitboxAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit)
@@ -11,7 +10,7 @@ FHitboxAnimationPreviewScene::FHitboxAnimationPreviewScene(ConstructionValues CV
 {
     // Disable the default floor to customize the scene
     SetFloorVisibility(true, true);
-    
+
     // Setup events or additional components if necessary
 }
 
@@ -32,7 +31,7 @@ void FHitboxAnimationPreviewScene::Tick(float InDeltaTime)
 APlayerObject* FHitboxAnimationPreviewScene::SetPlayerObject(const UClass* Class)
 {
     if (PreviewPlayerObject) PreviewPlayerObject->Destroy();
-    
+
     const auto PlayerObject = GetWorld()->SpawnActor<APlayerObject>(const_cast<UClass*>(Class));
     PreviewPlayerObject = PlayerObject;
     PreviewPlayerObject->InitPlayer();
@@ -58,7 +57,7 @@ void FHitboxAnimationPreviewScene::UpdateMeshAndAnimation(float DeltaTime)
 {
     if (!PreviewPlayerObject) return;
     PreviewPlayerObject->EditorUpdate();
-    
+
     TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
     PreviewPlayerObject->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
     for (const auto Component : SkeletalMeshComponents)
@@ -75,8 +74,11 @@ void FHitboxAnimationPreviewScene::DrawCollisionData()
 void FHitboxAnimationPreviewScene::UpdateAnimationHitboxes()
 {
     if (!CurrentCollisionData || !PreviewPlayerObject) // || !PreviewComponent)
-        return;
+      return;
 
-    // Get Cel name and call DrawCollisionData
-    DrawCollisionData();
+  //Clear Debug Draw Debug Lines
+  FlushPersistentDebugLines(GetWorld());
+
+  // Get Cel name and call DrawCollisionData
+  DrawCollisionData();
 }

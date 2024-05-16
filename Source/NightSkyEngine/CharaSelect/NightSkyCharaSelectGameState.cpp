@@ -35,7 +35,10 @@ void ANightSkyCharaSelectGameState::Tick(float DeltaTime)
 	for (const auto Chara : P1Charas)
 		Chara->UpdateNotBattle();
 	for (const auto Chara : P2Charas)
+	{
 		Chara->UpdateNotBattle();
+		Chara->SetActorScale3D(FVector(-1, 1, 1));
+	}
 }
 
 void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> InClass, bool IsP1)

@@ -133,16 +133,27 @@ enum class EInputMethod : uint8
 	 */
 	Strict,
 	/*
-     * The button or direction will only be counted on first press until release.
- 	 * Diagonal directions are counted as both of the cardinal directions it represents.
+	 * The button or direction will only be counted on first press until release.
+	  * Diagonal directions are counted as both of the cardinal directions it represents.
 	 */
 	Once,
 	/*
-     * The button or direction will only be counted on first press until release.
+	 * The button or direction will only be counted on first press until release.
 	 * Diagonal directions are not counted as either of the cardinal directions it represents.
 	 * This is a combination of the Once and Strict methods.
 	 */
 	OnceStrict,
+	/*
+	 * The button or direction will only be counted at the moment of release.
+	  * Diagonal directions are counted as both of the cardinal directions it represents.
+	 */
+	Negative,
+	/*
+	 * The button or direction will only be counted at the moment of release.
+	 * Diagonal directions are not counted as either of the cardinal directions it represents.
+	 * This is a combination of the Negative and Strict methods.
+	 */
+	NegativeStrict,
 };
 
 /**
@@ -181,6 +192,13 @@ struct FInputBitmask
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 TimeBetweenInputs = 5;
+	
+	/**
+	 * How long the input must be held for. Unless you're creating a charge/hold input, leave as zero.
+	 * Does not work with the Negative or Negative Strict input methods.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Hold = 0;
 };
 
 /**
@@ -223,7 +241,7 @@ struct FInputCondition
  * A list of input conditions.
  * Every condition in this list must be met for the state to be entered.
  */
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FInputConditionList
 {
 	GENERATED_BODY()

@@ -1,9 +1,7 @@
 #include "CollisionDataEditorToolkit.h"
 #include "Logging.h"
 #include "Battle/Actors/PlayerObject.h"
-#include "EditorStyleSet.h"
 #include "Data/CollisionData.h"
-#include "Widgets/Input/SNumericEntryBox.h"
 #include "Editor/PropertyEditor/Public/PropertyEditorModule.h"
 #include "Viewport/HitboxAnimationPreviewScene.h"
 #include "Viewport/HitboxAnimationViewport.h"
@@ -13,9 +11,6 @@
 
 
 #define LOCTEXT_NAMESPACE "CollisionDataEditor"
-
-//TODO: Make a details panel work
-// Add slider for timeline controls
 
 FCollisionDataEditorToolkit::FCollisionDataEditorToolkit()
 {
@@ -28,7 +23,7 @@ FCollisionDataEditorToolkit::~FCollisionDataEditorToolkit()
 void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, const EToolkitMode::Type Mode, const TSharedPtr<IToolkitHost>& InitToolkitHost)
 {
     CollisionData = InCollisionData;
-    
+
     // We need to add a timeline somewhere
 
     // Setup details view
@@ -46,7 +41,7 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
     InitializePlayerObjectBPPicker();
     // Setup state name combo box
     InitializeStateNameComboBox();
-    
+
     // Set up viewport
     InitializePreviewScene();
 
@@ -129,7 +124,7 @@ FName FCollisionDataEditorToolkit::GetCurrentCelName() const
     if (PlayerObject && !PlayerObject->CelName.IsNone())
 		return PlayerObject->CelName;
 
-    return FName(TEXT("No Cel Name"));
+    return NAME_None;
 }
 
 FName FCollisionDataEditorToolkit::GetCurrentAnimName() const
@@ -155,6 +150,13 @@ FText FCollisionDataEditorToolkit::GetCurrentNames() const
     return LOCTEXT("NoNames", "No names available");
 }
 
+FReply FCollisionDataEditorToolkit::OnUpdateNamesClicked()
+{
+	NameDisplayTextBlock->SetText(GetCurrentNames());
+
+    return FReply::Handled();
+}
+
 void FCollisionDataEditorToolkit::OnClose()
 {
 	FAssetEditorToolkit::OnClose();
@@ -168,7 +170,6 @@ void FCollisionDataEditorToolkit::InitializeStateNameComboBox()
         .OptionsSource(&StateNames)
         .OnSelectionChanged(this, &FCollisionDataEditorToolkit::OnStateNameSelected)
         .OnGenerateWidget(this, &FCollisionDataEditorToolkit::MakeAnimationNameWidget)
-        //.InitiallySelectedItem(CurrentSelectedAnimationName) // probably don't need this
         [
             SNew(STextBlock)
                 .Text(this, &FCollisionDataEditorToolkit::GetSelectedState)
@@ -191,6 +192,10 @@ void FCollisionDataEditorToolkit::OnStateNameSelected(TSharedPtr<FName> Selected
         PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
         PlayerObject->StoredStateMachine.Update();
         MaxCelCount = PlayerObject->StoredStateMachine.CurrentState->CelIndex;
+
+        //Update HitboxHandler
+        HitboxHandler->SetHitboxData(CollisionData->GetByCelName(GetCurrentCelName().ToString()).Boxes);
+      OnUpdateNamesClicked();
     }
 }
 
@@ -208,7 +213,10 @@ void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
     SelectedState = "Stand";
     PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
     PlayerObject->StoredStateMachine.Update();
-    MaxCelCount = PlayerObject->StoredStateMachine.CurrentState->CelIndex;
+    if (PlayerObject->StoredStateMachine.CurrentState)
+    {
+        MaxCelCount = PlayerObject->StoredStateMachine.CurrentState->CelIndex;
+    }
     UE_LOG(LogHitboxEditor, Log, TEXT("Selected PlayerObject: %s"), *PlayerObject->GetName());
     StateNames.Empty();
     for (const auto& StateName : PlayerObject->StoredStateMachine.StateNames)
@@ -216,6 +224,9 @@ void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
         StateNames.Add(MakeShareable(new FName(StateName)));
     }
     UpdateStateNameComboBox();
+
+    HitboxHandler->SetHitboxData(CollisionData->GetByCelName(GetCurrentCelName().ToString()).Boxes);
+  OnUpdateNamesClicked();
 }
 
 TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_CollisionDataDetails(const FSpawnTabArgs& Args)
@@ -297,19 +308,10 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_Timeline(const FSpawn
                 +SHorizontalBox::Slot().AutoWidth()[PreviousButton.ToSharedRef()]
                 +SHorizontalBox::Slot().FillWidth(1.0f)[TimelineSlider.ToSharedRef()]
                 +SHorizontalBox::Slot().AutoWidth()[NextButton.ToSharedRef()]
-                +SHorizontalBox::Slot()
-                .AutoWidth()
-                .HAlign(HAlign_Right)
-                .Padding(3)
-                [
-                    SNew(SVerticalBox)
-                    +SVerticalBox::Slot().AutoHeight().VAlign(VAlign_Center)[SNew(STextBlock).Text_Lambda(
-                        [this]()-> FText { return FText::FromString("Cel Index: " + FString::FromInt(CurrentFrame)); })]
-                    +SVerticalBox::Slot().AutoHeight().VAlign(VAlign_Center)[SNew(STextBlock).Text_Lambda(
-                        [this]()-> FText { return FText::FromString("Current Cel: " + GetCurrentCelName().ToString()); })]
-                ]
+                +SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center)[SNew(STextBlock).Text(FText::FromString("Cel Index: "))]
+                +SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center)[SNew(STextBlock).Text_Lambda([this]()->FText { return CurrentFrame; })]
             ]
-            
+
             //BoxControls
             +SHorizontalBox::Slot()
             .AutoWidth()
@@ -322,25 +324,59 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_Timeline(const FSpawn
                 [
                     SNew(SHorizontalBox)
                     +SHorizontalBox::Slot().MaxWidth(80.0f)[ SNew(STextBlock).Text(FText::FromString("X Position: "))]
-                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [NumericEntryBox_XPos.ToSharedRef()]
+                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [HitboxHandler->NumericEntryBox_XPos.ToSharedRef()]
                 ]
                 +SVerticalBox::Slot().AutoHeight().Padding(3)
                 [
                     SNew(SHorizontalBox)
                     +SHorizontalBox::Slot().MaxWidth(80.0f)[ SNew(STextBlock).Text(FText::FromString("Y Position: "))]
-                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [NumericEntryBox_YPos.ToSharedRef()]
+                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [HitboxHandler->NumericEntryBox_YPos.ToSharedRef()]
                 ]
                 +SVerticalBox::Slot().AutoHeight().Padding(3)
                 [
                     SNew(SHorizontalBox)
                     +SHorizontalBox::Slot().MaxWidth(80.0f)[ SNew(STextBlock).Text(FText::FromString("X Size: "))]
-                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [NumericEntryBox_XSize.ToSharedRef()]
+                    +SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth() [HitboxHandler->NumericEntryBox_XSize.ToSharedRef()]
                 ]
                 +SVerticalBox::Slot().AutoHeight().Padding(3)
                 [
                     SNew(SHorizontalBox)
                     +SHorizontalBox::Slot().MaxWidth(80.0f)[ SNew(STextBlock).Text(FText::FromString("Y Size: "))]
-                    +SHorizontalBox::Slot().AutoWidth() [NumericEntryBox_YSize.ToSharedRef()]
+                    +SHorizontalBox::Slot().AutoWidth() [HitboxHandler->NumericEntryBox_YSize.ToSharedRef()]
+                ]
+
+                //Button
+                +SVerticalBox::Slot()
+                .VAlign(VAlign_Bottom)
+                [
+                    SNew(SVerticalBox)
+                    + SVerticalBox::Slot()
+                    .FillHeight(1.0f)
+                    .Padding(4)
+                    + SVerticalBox::Slot()
+                    .AutoHeight()
+                    .Padding(4)
+                    [
+                        SNew(SVerticalBox)
+                        + SVerticalBox::Slot()
+                        .FillHeight(1.0f)
+                        .HAlign(HAlign_Center)
+                        [
+                            SNew(SHorizontalBox)
+                            + SHorizontalBox::Slot()
+                            .AutoWidth()[SNew(STextBlock).Text_Lambda([this]()->FText { return FText::FromString("Hitbox Number: " + FString::FromInt(HitboxHandler->CurrentHitboxIndex)); })]
+                            + SHorizontalBox::Slot()
+                            .AutoWidth() [ HitboxHandler->DecreaseIndexButton.ToSharedRef() ]
+                            + SHorizontalBox::Slot()
+                            .AutoWidth() [ HitboxHandler->IncreaseIndexButton.ToSharedRef()]
+                        ]
+                        + SVerticalBox::Slot()
+                        .FillHeight(1.0f)
+                        .HAlign(HAlign_Right)
+                        [
+                            SAssignNew(NameDisplayTextBlock, STextBlock)  // Store the reference when creating the widget
+                        ]
+                    ]
                 ]
             ]
         ]
@@ -354,7 +390,7 @@ void FCollisionDataEditorToolkit::InitializeAnimationTimeline()
         .Orientation(Orient_Horizontal)
         .Value(0.0f) // 0.0f by default
         .OnValueChanged(this, &FCollisionDataEditorToolkit::OnTimelineValueChanged);
-    
+
     // Create left and right buttons
     SAssignNew(PreviousButton, SButton)
         .VAlign(VAlign_Center)
@@ -366,35 +402,8 @@ void FCollisionDataEditorToolkit::InitializeAnimationTimeline()
         .Text(FText::FromString(">"))
         .OnClicked(this, &FCollisionDataEditorToolkit::OnNextClick);
 
-    FSpinBoxStyle spinBoxStyle{};
-
-    SAssignNew(NumericEntryBox_XPos, SNumericEntryBox<int32>)
-        .MinValue(-100)
-        .MaxValue(100)
-        .SpinBoxStyle(&spinBoxStyle)
-        .Value(0);
-        //.OnValueCommitted(this, &FCollisionDataEditorToolkit::OnNumericEntryBoxCommitted);
-
-    SAssignNew(NumericEntryBox_YPos, SNumericEntryBox<int32>)
-        .MinValue(-100)
-        .MaxValue(100)
-        .SpinBoxStyle(&spinBoxStyle)
-        .Value(0);
-        //.OnValueCommitted(this, &FCollisionDataEditorToolkit::OnNumericEntryBoxCommitted);
-
-    SAssignNew(NumericEntryBox_XSize, SNumericEntryBox<int32>)
-        .MinValue(-100)
-        .MaxValue(100)
-        .SpinBoxStyle(&spinBoxStyle)
-        .Value(0);
-        //.OnValueCommitted(this, &FCollisionDataEditorToolkit::OnNumericEntryBoxCommitted);
-
-    SAssignNew(NumericEntryBox_YSize, SNumericEntryBox<int32>)
-        .MinValue(-100)
-        .MaxValue(100)
-        .SpinBoxStyle(&spinBoxStyle)
-        .Value(0);
-        //.OnValueCommitted(this, &FCollisionDataEditorToolkit::OnNumericEntryBoxCommitted);
+    HitboxHandler = MakeShareable(new FHitboxHandler());
+    HitboxHandler->Init();
 }
 
 FText FCollisionDataEditorToolkit::GetSelectedState() const
@@ -404,18 +413,14 @@ FText FCollisionDataEditorToolkit::GetSelectedState() const
 
 int32 FCollisionDataEditorToolkit::CurrentFrameFromTimeline() const
 {
-	return 0;
+	return FMath::RoundToInt(TimelineSlider->GetValue() * MaxCelCount);
 }
 
+// Set the current frame based on the slider value and update the animation playback
 void FCollisionDataEditorToolkit::OnTimelineValueChanged(float NewValue)
 {
-    // Set the current frame based on the slider value and update the animation playback
     if (PlayerObject)
     {
-        //CurrentFrame = static_cast<int32>(NewValue); // This will always be 1 or 0
-        // Pseudocode for setting the animation to a specific frame
-        // CurrentFrame = static_cast<int32>(NewValue*TotalFrames);
-        
         PlayerObject->TimeUntilNextCel = FMath::Lerp(PlayerObject->MaxCelTime, 0, NewValue);
     }
 }
@@ -424,7 +429,8 @@ FReply FCollisionDataEditorToolkit::OnPreviousClick()
 {
     UE_LOG(LogHitboxEditor, Display, TEXT("Previous button clicked."));
     if (!PlayerObject) return FReply::Handled();
-    
+
+
     PlayerObject->CelIndex--;
     if (PlayerObject->CelIndex < 0) PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
     else
@@ -432,35 +438,53 @@ FReply FCollisionDataEditorToolkit::OnPreviousClick()
         PlayerObject->TimeUntilNextCel = 0;
         PlayerObject->StoredStateMachine.Update();
     }
-    
-    CurrentFrame = PlayerObject->CelIndex;
+
+  CurrentFrame = FText::FromString(FString::FromInt(PlayerObject->CelIndex));
+
+  const FName CurrentCelName = GetCurrentCelName();
+  if(CurrentCelName.IsNone())
+  {
+    UE_LOG(LogHitboxEditor, Error, TEXT("CurrentCelName is None"));
     return FReply::Handled();
+  }
+
+  HitboxHandler->SetHitboxData(CollisionData->GetByCelName(CurrentCelName.ToString()).Boxes);
+  OnUpdateNamesClicked();
+  return FReply::Handled();
 }
 
 FReply FCollisionDataEditorToolkit::OnNextClick()
 {
-    UE_LOG(LogHitboxEditor, Display, TEXT("Next button clicked."));
-    if (!PlayerObject) return FReply::Handled();
-    if (PlayerObject->CelIndex >= MaxCelCount) return FReply::Handled();
+  UE_LOG(LogHitboxEditor, Display, TEXT("Next button clicked."));
+  if (!PlayerObject) return FReply::Handled();
+  if (PlayerObject->CelIndex >= MaxCelCount) return FReply::Handled();
 
-    PlayerObject->CelIndex++;
-    PlayerObject->TimeUntilNextCel = 0;
-    PlayerObject->StoredStateMachine.Update();
-    
-    CurrentFrame = PlayerObject->CelIndex;
+  PlayerObject->CelIndex++;
+  PlayerObject->TimeUntilNextCel = 0;
+  PlayerObject->StoredStateMachine.Update();
+
+  CurrentFrame = FText::FromString(FString::FromInt(PlayerObject->CelIndex));
+
+  const FName CurrentCelName = GetCurrentCelName();
+  UE_LOG(LogHitboxEditor, Display, TEXT("CurrentCelName: %s"), *CurrentCelName.ToString());
+  if(CurrentCelName.IsNone())
+  {
+    UE_LOG(LogHitboxEditor, Error, TEXT("CurrentCelName is None"));
     return FReply::Handled();
+  }
+  HitboxHandler->SetHitboxData(CollisionData->GetByCelName(CurrentCelName.ToString()).Boxes);
+  OnUpdateNamesClicked();
+
+  return FReply::Handled();
 }
 
+// Code to set the animation to a specific frames
 void FCollisionDataEditorToolkit::UpdateAnimationPlayback(int32 Frame)
 {
-    // Code to set the animation to a specific frame
     if (PlayerObject)
     {
         PlayerObject->CelIndex = Frame;
-		// Set the animation to the specified frame
-        // Implement some SetFrame funtion somewhere
-		//PreviewScene->SetFrame(CurrentAnimSequence, Frame);
-	}
+	  }
 }
 
 void FCollisionDataEditorToolkit::InitializePreviewScene()
@@ -471,12 +495,10 @@ void FCollisionDataEditorToolkit::InitializePreviewScene()
             FPreviewScene::ConstructionValues()
             .AllowAudioPlayback(false)
             .ShouldSimulatePhysics(false)
-            // Set up lighting and camera position?
             , SharedThis(this)
         ));
-
-        // Do I need a camera actor?
     }
+
     PreviewViewportWidget = SNew(SHitboxAnimationViewport, SharedThis(this), PreviewScene);
 }
 

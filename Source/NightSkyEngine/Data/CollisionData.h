@@ -34,4 +34,13 @@ class NIGHTSKYENGINE_API UCollisionData : public UDataAsset
 public:
 	UPROPERTY(EditAnywhere)
 	TArray<FCollisionStruct> CollisionFrames;
+
+	FCollisionStruct GetByCelName(const FString& CelName)
+	{
+		for (auto& CollisionFrame : CollisionFrames)
+		{
+			if (CollisionFrame.CelName == CelName) return CollisionFrame;
+		}
+		return FCollisionStruct();
+	}
 };

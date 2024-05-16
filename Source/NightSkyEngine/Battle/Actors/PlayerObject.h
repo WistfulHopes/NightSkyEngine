@@ -287,7 +287,6 @@ public:
 	ABattleObject* StoredBattleObjects[16];
 
 	bool ComponentVisible[MaxComponentCount];
-	FSavedInputCondition SavedInputCondition;
 
 protected:
 	/*
@@ -409,7 +408,8 @@ public:
 
 private:
 	virtual void BeginPlay() override;
-	
+
+	static uint32 FlipInput(uint32 Input);
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
@@ -688,6 +688,8 @@ public:
 	void ToggleComponentVisibility(FString ComponentName, bool Visible);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDefaultComponentVisibility();
+	UFUNCTION(BlueprintCallable)
+	void SetInputForCPU(const FInputConditionList& InputConditionList);
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

@@ -4,7 +4,6 @@
 #include "CoreMinimal.h"
 #include "AssetTypeActions_Base.h"
 #include "Math/Color.h"
-#include "NightSkyEngine/Data/CollisionData.h" // Fix include path
 
 class HITBOXEDITOR_API FAssetTypeActions_CollisionData : public FAssetTypeActions_Base
 {

@@ -9,6 +9,7 @@
 #include "PropertyCustomizationHelpers.h"
 #include "Data/CollisionData.h"
 #include "Widgets/Input/SSlider.h"
+#include "HitboxHandler.h"
 
 class APlayerObject;
 class FHitboxAnimationPreviewScene;
@@ -67,8 +68,11 @@ public:
 
     // Do I need to initialize a scene?
     void InitializePreviewScene();
+    void OnNumericEntryBox_XPos_Changed(int i);
+    TOptional<int32> GetCurrentXPos() const;
+
     void InitializeAnimationTimeline();
-    
+
     // Accessors
     // Get current animation name
     FText GetSelectedState() const;
@@ -93,18 +97,15 @@ private:
     FName SelectedState;  // The name of the selected animation data asset, based on key in the AnimDatas map
     UClass* PlayerObjectClass = nullptr;  // The selected player object class
     APlayerObject* PlayerObject {};  // The current player object
-    int CurrentFrame;  // The current frame of the animation sequence
+    FText CurrentFrame = FText::FromString("0");  // The current frame of the animation sequence
     float MaxCelCount;
-    
+
     //Timeline
     TSharedPtr<SSlider> TimelineSlider;  // Slider for selecting the frame of the animation sequence
-    TSharedPtr<SButton> PreviousButton;  
+    TSharedPtr<SButton> PreviousButton;
     TSharedPtr<SButton> NextButton;
-    TSharedPtr<SNumericEntryBox<int32>> NumericEntryBox_XPos;  
-    TSharedPtr<SNumericEntryBox<int32>> NumericEntryBox_YPos;  
-    TSharedPtr<SNumericEntryBox<int32>> NumericEntryBox_XSize;  
-    TSharedPtr<SNumericEntryBox<int32>> NumericEntryBox_YSize;  
-    
+    TSharedPtr<FHitboxHandler> HitboxHandler;
+
     // A cool feature that is a long way off would be a button to automatically place initial hitboxes
     // This would be based on bone positions in the designated cel frame, if that is possible
 
@@ -120,11 +121,14 @@ private:
     FName GetCurrentAnimName() const;
     FText GetCurrentNames() const;
 
+    FReply OnUpdateNamesClicked();
+
     int32 CurrentFrameFromTimeline() const;
+    int32 GetTotalFrames() const; // Implement
     void OnTimelineValueChanged(float NewValue);
     FReply OnPreviousClick();
     FReply OnNextClick();
-    
+
     void UpdateAnimationPlayback(int32 frame);
 
 protected:

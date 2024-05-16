@@ -25,10 +25,6 @@ void SHitboxAnimationViewport::Construct(const FArguments& InArgs, TSharedPtr<FC
     // What to put here?
 }
 
-void SHitboxAnimationViewport::AddReferencedObjects(FReferenceCollector& Collector)
-{
-}
-
 FString SHitboxAnimationViewport::GetReferencerName() const
 {
     return TEXT("SHitboxAnimationViewport");

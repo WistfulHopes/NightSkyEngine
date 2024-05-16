@@ -68,6 +68,17 @@ void APlayerObject::BeginPlay()
 	InitPlayer();
 }
 
+uint32 APlayerObject::FlipInput(uint32 Input)
+{
+	const unsigned int Bit1 = Input >> 2 & 1;
+	const unsigned int Bit2 = Input >> 3 & 1;
+	unsigned int x = Bit1 ^ Bit2;
+
+	x = x << 2 | x << 3;
+
+	return Input ^ x;
+}
+
 void APlayerObject::InitPlayer()
 {
 	CurrentHealth = MaxHealth;
@@ -317,13 +328,7 @@ void APlayerObject::Update()
 	//run input buffer before checking hitstop
 	if ((Direction == DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
 	{
-		const unsigned int Bit1 = Player->Inputs >> 2 & 1;
-		const unsigned int Bit2 = Player->Inputs >> 3 & 1;
-		unsigned int x = Bit1 ^ Bit2;
-
-		x = x << 2 | x << 3;
-
-		Player->Inputs = Player->Inputs ^ x;
+		Player->Inputs = FlipInput(Player->Inputs);
 	}
 
 	if ((PlayerFlags & PLF_IsStunned) == 0)
@@ -341,7 +346,7 @@ void APlayerObject::Update()
 	
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
-		StoredInputBuffer.Tick(Inputs);
+		StoredInputBuffer.Update(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		Player->StoredStateMachine.Update();
 	
@@ -448,7 +453,7 @@ void APlayerObject::Update()
 		if (PlayerFlags & PLF_IsStunned)
 			HandleBufferedState();
 		GetBoxes();
-		StoredInputBuffer.Tick(Inputs);
+		StoredInputBuffer.Update(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
@@ -485,9 +490,9 @@ void APlayerObject::Update()
 
 	if ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >= ERoundFormat::TwoVsTwo &&
 		GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree))
-		StoredInputBuffer.Tick(Inputs);
+		StoredInputBuffer.Update(Inputs);
 	else
-		StoredInputBuffer.Tick(INP_Neutral);
+		StoredInputBuffer.Update(INP_Neutral);
 
 	if (AirDashTimer > 0)
 		AirDashTimer--;
@@ -1321,6 +1326,35 @@ void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visibl
 		if (const auto Component = Components[i]; Component->GetName() == ComponentName)
 		{
 			ComponentVisible[i] = Visible;
+		}
+	}
+}
+
+void APlayerObject::SetInputForCPU(const FInputConditionList& InputConditionList)
+{
+	for (const auto& InputCondition : InputConditionList.InputConditions)
+	{
+		for (int i = InputCondition.Sequence.Num() - 1; i >= 0; i++)
+		{
+			auto& InputBitmask = InputCondition.Sequence[i];
+			uint32 Index = InputBufferSize - 1;
+
+			auto FinalInput = InputBitmask.InputFlag;
+			
+			if ((Direction == DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
+			{
+				FinalInput = FlipInput(FinalInput);
+			}
+			
+			switch (InputCondition.Method)
+			{
+			case EInputMethod::Negative:
+			case EInputMethod::NegativeStrict:
+				StoredInputBuffer.Emplace(INP_Neutral, Index);
+				StoredInputBuffer.Emplace(FinalInput, Index--);
+			default:
+				StoredInputBuffer.Emplace(FinalInput, Index);
+			}
 		}
 	}
 }
@@ -2461,7 +2495,6 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 		ChildObj = nullptr;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
-	SavedInputCondition = FSavedInputCondition();
 	CurrentAirJumpCount = 0;
 	CurrentAirDashCount = 0;
 	AirDashTimerMax = 0;
@@ -2490,7 +2523,7 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 
 void APlayerObject::DisableLastInput()
 {
-	StoredInputBuffer.InputDisabled[89] = StoredInputBuffer.InputBufferInternal[89];
+	StoredInputBuffer.InputDisabled[InputBufferSize - 1] = StoredInputBuffer.InputBufferInternal[InputBufferSize - 1];
 }
 
 void APlayerObject::SaveForRollbackPlayer(unsigned char* Buffer) const
@@ -2549,7 +2582,7 @@ void APlayerObject::LogForSyncTestFile(std::ofstream& file)
 		file << "\tCurrentHealth: " << CurrentHealth << std::endl;
 		file << "\tCancelFlags: " << CancelFlags << std::endl;
 		file << "\tPlayerFlags: " << PlayerFlags << std::endl;
-		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[89] << std::endl;
+		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] << std::endl;
 		file << "\tStance: " << Stance.GetValue() << std::endl;
 	}
 }
