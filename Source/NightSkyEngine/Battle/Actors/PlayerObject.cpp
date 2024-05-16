@@ -5,6 +5,7 @@
 
 #include "NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/Data/LinkActorData.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Serialization/ObjectReader.h"
 #include "Serialization/ObjectWriter.h"
@@ -65,6 +66,35 @@ APlayerObject::APlayerObject()
 void APlayerObject::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (CommonLinkActorData != nullptr)
+	{
+		for (FLinkedActorStruct LinkedActorStruct : CommonLinkActorData->LinkedActorStructs)
+		{
+			for (int i = 0; i < LinkedActorStruct.MaxInstances; i++)
+			{
+				auto Actor = GetWorld()->SpawnActor(LinkedActorStruct.ActorClass);
+				Actor->SetActorHiddenInGame(true);
+				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, false };
+				StoredLinkActors.Add(Container);
+			}
+		}
+	}
+	
+	if (LinkActorData != nullptr)
+	{
+		for (FLinkedActorStruct LinkedActorStruct : LinkActorData->LinkedActorStructs)
+		{
+			for (int i = 0; i < LinkedActorStruct.MaxInstances; i++)
+			{
+				auto Actor = GetWorld()->SpawnActor(LinkedActorStruct.ActorClass);
+				Actor->SetActorHiddenInGame(true);
+				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, false };
+				StoredLinkActors.Add(Container);
+			}
+		}
+	}
+
 	InitPlayer();
 }
 
@@ -2061,13 +2091,11 @@ void APlayerObject::AddObjectState(FString Name, UState* State, bool IsCommon)
 	{
 		CommonObjectStates.Add(State);
 		CommonObjectStateNames.Add(FName(Name));
-		CommonObjectStateUsed.Add(false);
 	}
 	else
 	{
 		ObjectStates.Add(State);
 		ObjectStateNames.Add(FName(Name));
-		ObjectStateUsed.Add(false);
 	}
 }
 

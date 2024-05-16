@@ -11,7 +11,6 @@
 #include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Battle/Subroutine.h"
-#include "NightSkyEngine/CharaSelect/NightSkyCharaSelectGameState.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Miscellaneous/RandomManager.h"
@@ -1659,8 +1658,20 @@ void ABattleObject::UpdateVisuals()
 			LinkedMesh->SetRelativeScale3D(FinalScale);
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+			LinkedMesh->SetWorldRotation(GetActorRotation());
 			LinkedMesh->SetWorldLocation(Location);
 		}
+	}
+	if (LinkedActor)
+	{
+		FVector FinalScale = ScaleForLink;
+		if (Direction == DIR_Left)
+			FinalScale.X = -FinalScale.X;
+		LinkedActor->StoredActor->SetActorScale3D(FinalScale);
+		FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+		Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+		LinkedActor->StoredActor->SetActorRotation(GetActorRotation());
+		LinkedActor->StoredActor->SetActorLocation(Location);
 	}
 	
 	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
@@ -1836,10 +1847,6 @@ void ABattleObject::InitObject()
 		}
 	}
 	ObjectState->Parent = this;
-	if (bIsCommonState)
-		Player->CommonObjectStateUsed[ObjectStateIndex] = true;
-	else
-		Player->ObjectStateUsed[ObjectStateIndex] = true;
 	TriggerEvent(EVT_Enter);
 	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
@@ -1953,12 +1960,11 @@ void ABattleObject::ResetObject()
 			LinkedMesh->Deactivate();
 		}
 	}
-	if (Player)
+	if (LinkedActor)
 	{
-		if (bIsCommonState)
-			Player->CommonObjectStateUsed[ObjectStateIndex] = false;
-		else
-			Player->ObjectStateUsed[ObjectStateIndex] = false;
+		LinkedActor->bIsActive = false;
+		LinkedActor->StoredActor->SetActorHiddenInGame(true);
+		LinkedActor = nullptr;
 	}
 	IsActive = false;
 	PosX = 0;
@@ -2569,15 +2575,6 @@ void ABattleObject::LinkCommonParticle(FString Name)
 			{
 				if (IsValid(LinkedParticle))
 					LinkedParticle->Deactivate();
-				FVector Scale;
-				if (Direction == DIR_Left)
-				{
-					Scale = FVector(-1,1, 1);
-				}
-				else
-				{
-					Scale = FVector(1, 1, 1);
-				}
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
 					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
 					EAttachLocation::SnapToTargetIncludingScale, false);
@@ -2605,15 +2602,6 @@ void ABattleObject::LinkCharaParticle(FString Name)
 			{
 				if (IsValid(LinkedParticle))
 					LinkedParticle->Deactivate();
-				FVector Scale;
-				if (Direction == DIR_Left)
-				{
-					Scale = FVector(-1,1, 1);
-				}
-				else
-				{
-					Scale = FVector(1, 1, 1);
-				}
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
 					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
 					EAttachLocation::SnapToTargetIncludingScale, false);
@@ -2659,6 +2647,24 @@ void ABattleObject::LinkCharaFlipbook(FString Name)
 			}
 		}
 	}
+}
+
+AActor* ABattleObject::LinkActor(FString Name)
+{
+	if (!GameState) return nullptr;
+	if (IsPlayer)
+		return nullptr;
+	for (auto& Container : Player->StoredLinkActors)
+	{
+		if (Container.Name == Name && !Container.bIsActive)
+		{
+			LinkedActor = &Container;
+			LinkedActor->StoredActor->SetActorHiddenInGame(false);
+			LinkedActor->bIsActive = true;
+			return LinkedActor->StoredActor;
+		}
+	}
+	return nullptr;
 }
 
 void ABattleObject::PlayCommonSound(FString Name)
@@ -2851,13 +2857,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 P
 	if (!GameState) return nullptr;
 	int StateIndex = Player->CommonObjectStateNames.Find(FName(InStateName));
 	if (StateIndex != INDEX_NONE)
-	{
-		while (Player->CommonObjectStateUsed[StateIndex])
-		{
-			++StateIndex;
-			if (Player->CommonObjectStateNames[StateIndex] != InStateName) return nullptr;
-		}
-		
+	{		
 		int32 FinalPosX, FinalPosY;
 		if (Direction == DIR_Left)
 			PosXOffset = -PosXOffset;
@@ -2887,15 +2887,9 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FString InStateName, int32 P
 ABattleObject* ABattleObject::AddBattleObject(FString InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
 {
 	if (!GameState) return nullptr;
-	int StateIndex = Player->ObjectStateNames.Find(FName(InStateName));
+	const int StateIndex = Player->ObjectStateNames.Find(FName(InStateName));
 	if (StateIndex != INDEX_NONE)
 	{
-		while (Player->ObjectStateUsed[StateIndex])
-		{
-			++StateIndex;
-			if (Player->ObjectStateNames[StateIndex] != InStateName) return nullptr;
-		}
-		
 		int32 FinalPosX, FinalPosY;
 		if (Direction == DIR_Left)
 			PosXOffset = -PosXOffset;

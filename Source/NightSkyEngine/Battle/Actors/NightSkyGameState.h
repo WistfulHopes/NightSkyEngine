@@ -16,7 +16,7 @@ constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
 constexpr int32 MaxBattleObjects = 400;
 constexpr int32 MaxPlayerObjects = 6;
-constexpr int32 GaugeCount = 3;
+constexpr int32 GaugeCount = 5;
 
 class UGGPONetwork;
 class ANightSkyBattleHudActor;

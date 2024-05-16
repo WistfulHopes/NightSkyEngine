@@ -530,6 +530,17 @@ struct FHomingParams
 	int32 ParamB;
 };
 
+USTRUCT()
+struct FLinkedActorContainer
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	TObjectPtr<AActor> StoredActor;
+	FString Name;
+	bool bIsActive;
+};
+
 /*
  * A battle object.
  * These are any objects that affect gameplay, or need values to change after being spawned.
@@ -816,6 +827,8 @@ public:
 	/*
 	 * Link data (for object), not serialized
 	 */
+
+	FLinkedActorContainer* LinkedActor;
 	UPROPERTY()
 	TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
 	UPROPERTY()
@@ -1018,6 +1031,9 @@ public:
 	//creates character flipbook and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	void LinkCharaFlipbook(FString Name);
+	//gets link actor and attaches it to the object. can only be used with non-player objects.
+	UFUNCTION(BlueprintCallable)
+	AActor* LinkActor(FString Name);
 	//plays common sound
 	UFUNCTION(BlueprintCallable)
 	void PlayCommonSound(FString Name);

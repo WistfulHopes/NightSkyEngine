@@ -14,6 +14,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
+class ULinkedActorData;
 class USubroutine;
 class UCameraShakeData;
 constexpr int32 DamageReactionCelCount = 64;
@@ -320,7 +321,10 @@ protected:
 public:
 	//Anything past here isn't saved or loaded for rollback.
 	unsigned char PlayerSyncEnd; 
-
+	
+	UPROPERTY()
+	TArray<FLinkedActorContainer> StoredLinkActors;
+	
 	UPROPERTY(EditAnywhere)
 	TArray<FString> DamageReactionCels;
 
@@ -345,11 +349,9 @@ public:
 	UPROPERTY()
 	TArray<UState*> CommonObjectStates;
 	TArray<FName> CommonObjectStateNames;	
-	TArray<bool> CommonObjectStateUsed;	
 	UPROPERTY()
 	TArray<UState*> ObjectStates;
 	TArray<FName> ObjectStateNames;	
-	TArray<bool> ObjectStateUsed;	
 
 	/*
 	 * Data assets
@@ -378,6 +380,12 @@ public:
 	int32 ColorIndex = 1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;
+	
+	
+	UPROPERTY(EditAnywhere)
+	ULinkedActorData* CommonLinkActorData;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	ULinkedActorData* LinkActorData;
 	
 	UPROPERTY(EditAnywhere)
 	UFlipbookData* CommonFlipbookData;
