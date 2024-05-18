@@ -2739,7 +2739,7 @@ int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 		Min = Temp;
 	}
 	int32 Result = FRandomManager::GenerateRandomNumber();
-	Result = Result % (Max - Min + 1);
+	Result = (Result % (Max - Min + 1)) + Min;
 	return Result;
 }
 
