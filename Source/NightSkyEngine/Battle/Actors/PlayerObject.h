@@ -14,7 +14,7 @@
 #include "NightSkyEngine/Data/StateData.h"
 #include "PlayerObject.generated.h"
 
-class ULinkedActorData;
+class ULinkActorData;
 class USubroutine;
 class UCameraShakeData;
 constexpr int32 DamageReactionCelCount = 64;
@@ -319,10 +319,10 @@ protected:
 	FName BufferedStateName;
 	
 public:
-	//Anything past here isn't saved or loaded for rollback.
+	//Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char PlayerSyncEnd; 
 	
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<FLinkedActorContainer> StoredLinkActors;
 	
 	UPROPERTY(EditAnywhere)
@@ -383,9 +383,9 @@ public:
 	
 	
 	UPROPERTY(EditAnywhere)
-	ULinkedActorData* CommonLinkActorData;
+	ULinkActorData* CommonLinkActorData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	ULinkedActorData* LinkActorData;
+	ULinkActorData* LinkActorData;
 	
 	UPROPERTY(EditAnywhere)
 	UFlipbookData* CommonFlipbookData;

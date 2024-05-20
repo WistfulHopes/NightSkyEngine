@@ -538,6 +538,8 @@ struct FLinkedActorContainer
 	UPROPERTY()
 	TObjectPtr<AActor> StoredActor;
 	FString Name;
+	int32 Index;
+	UPROPERTY(SaveGame)
 	bool bIsActive;
 };
 
@@ -797,10 +799,14 @@ public:
 	int32 UpdateTime = 0;
 	
 	/*
-	 * Link data (for object)
+	 * Visual object transform
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	FVector ScaleForLink = FVector::One();
+	FVector ObjectOffset = FVector::ZeroVector;
+	UPROPERTY(BlueprintReadWrite)
+	FRotator ObjectRotation = FRotator::ZeroRotator;
+	UPROPERTY(BlueprintReadWrite)
+	FVector ObjectScale = FVector::One();
 
 	/*
 	 * Object pointers.
@@ -828,13 +834,10 @@ public:
 	 * Link data (for object), not serialized
 	 */
 
-	FLinkedActorContainer* LinkedActor;
+	UPROPERTY()
+	TObjectPtr<AActor> LinkedActor;
 	UPROPERTY()
 	TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
-	UPROPERTY()
-	TObjectPtr<UPaperFlipbookComponent> LinkedFlipbook = nullptr;
-	UPROPERTY()
-	TObjectPtr<USkeletalMeshComponent> LinkedMeshes[8] = {};
 	
 	uint32 ObjNumber = 0;
 
@@ -857,11 +860,6 @@ protected:
 	// Moves object
 	void Move();
 	void CalculateHoming();
-
-	// static helpers
-	static int32 Vec2Angle_x1000(int32 x, int32 y);
-	static int32 Cos_x1000(int32 Deg_x10);
-	static int32 Sin_x1000(int32 Deg_x10);
 	
 public:
 	// Called every frame
@@ -1025,15 +1023,11 @@ public:
 	//creates character particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	void LinkCharaParticle(FString Name);
-	//creates common flipbook and attaches it to the object. can only be used with non-player objects.
-	UFUNCTION(BlueprintCallable)
-	void LinkCommonFlipbook(FString Name);
-	//creates character flipbook and attaches it to the object. can only be used with non-player objects.
-	UFUNCTION(BlueprintCallable)
-	void LinkCharaFlipbook(FString Name);
 	//gets link actor and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	AActor* LinkActor(FString Name);
+	UFUNCTION(BlueprintCallable)
+	void RemoveLinkActor();
 	//plays common sound
 	UFUNCTION(BlueprintCallable)
 	void PlayCommonSound(FString Name);

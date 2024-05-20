@@ -88,4 +88,15 @@ public:
 	FString DefaultThrowLock = "ThrowLock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString DefaultTagIn = "TagIn";
+
+	UFUNCTION(BlueprintPure)
+	UState* GetByStateName(const FString& StateName)
+	{
+		for (const auto& StateClass : StateArray)
+		{
+			const auto State = Cast<UState>(StateClass->ClassDefaultObject);
+			if (State->Name == StateName) return State;
+		}
+		return nullptr;
+	}
 };

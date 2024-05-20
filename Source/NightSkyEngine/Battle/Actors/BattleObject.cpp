@@ -4,8 +4,8 @@
 #include "BattleObject.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
+#include "NightSkyEngine/Battle/NightSkyBlueprintFunctionLibrary.h"
 #include "NightSkyGameState.h"
-#include "PaperFlipbookComponent.h"
 #include "ParticleManager.h"
 #include "PlayerObject.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
@@ -33,48 +33,6 @@ void ABattleObject::BeginPlay()
 	{
 		Player = Cast<APlayerObject>(this);
 	}
-	else
-	{
-		LinkedFlipbook = NewObject<UPaperFlipbookComponent>();
-	}
-}
-
-int32 ABattleObject::Vec2Angle_x1000(int32 x, int32 y)
-{
-	int32 Angle = static_cast<int>(atan2(static_cast<double>(y), static_cast<double>(x)) * 57295.77791868204) % 360000;
-	if (Angle < 0)
-		Angle += 360000;
-	return Angle;
-}
-
-int32 ABattleObject::Cos_x1000(int32 Deg_x10)
-{
-	int32 Tmp1 = (Deg_x10 + 900) % 3600;
-	int32 Tmp2 = Deg_x10 + 3600;
-	if (Tmp1 >= 0)
-		Tmp2 = Tmp1;
-	if (Tmp2 < 900)
-		return gSinTable[Tmp2];
-	if (Tmp2 < 1800)
-		return gSinTable[1799 - Tmp2];
-	if (Tmp2 >= 2700)
-		return -gSinTable[3599 - Tmp2];
-	return -gSinTable[Tmp2 - 1800];
-}
-
-int32 ABattleObject::Sin_x1000(int32 Deg_x10)
-{
-	int32 Tmp1 = Deg_x10 % 3600;
-	int32 Tmp2 = Deg_x10 + 3600;
-	if (Tmp1 >= 0)
-		Tmp2 = Tmp1;
-	if (Tmp2 < 900)
-		return gSinTable[Tmp2];
-	if (Tmp2 < 1800)
-		return gSinTable[1799 - Tmp2];
-	if (Tmp2 >= 2700)
-		return -gSinTable[3599 - Tmp2];
-	return -gSinTable[Tmp2 - 1800];
 }
 
 void ABattleObject::Move()
@@ -207,11 +165,11 @@ void ABattleObject::CalculateHoming()
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
-				int32 Angle = Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
+				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
 				SpeedXRate = HomingParams.ParamB;
 				SpeedYRate = HomingParams.ParamB;
-				int32 CosParamA = HomingParams.ParamA * Cos_x1000(Angle) / 1000; 
-				int32 SinParamA = HomingParams.ParamA * Sin_x1000(Angle) / 1000; 
+				int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000; 
+				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000; 
 				AddSpeedXRaw(CosParamA);
 				SpeedY += SinParamA;
 			}
@@ -219,9 +177,9 @@ void ABattleObject::CalculateHoming()
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
-				int32 Angle = Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
-				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) * Cos_x1000(Angle) / 1000;
-				int32 SinParamA = HomingParams.ParamA * Sin_x1000(Angle) / 1000;
+				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
+				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
 				int32 TmpParamB = Direction == DIR_Right ? HomingParams.ParamB : -HomingParams.ParamB;
 				int32 TmpSpeedX = Direction == DIR_Right ? SpeedX : -SpeedX;
 				if (TmpParamB <= 0)
@@ -1583,15 +1541,16 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (Direction == DIR_Left)
 		{
-			SetActorScale3D(FVector(-1, 1, 1));
+			SetActorScale3D(FVector(-1, 1, 1) * ObjectScale);
 		}
 		else
 		{
-			SetActorScale3D(FVector(1, 1, 1));
+			SetActorScale3D(FVector(1, 1, 1) * ObjectScale);
 		}
 		if (SocketName == FName("None")) //only set visual location if not attached to socket
 		{
-			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
+			SetActorRotation(GameState->BattleSceneTransform.GetRotation() * ObjectRotation.Quaternion());
+			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
 			SetActorLocation(Location);
 		}
@@ -1633,45 +1592,11 @@ void ABattleObject::UpdateVisuals()
 		OrthoBlendActive = 1;
 	}
 	
-	if (IsValid(LinkedFlipbook))
-	{
-		if (IsValid(LinkedFlipbook->GetFlipbook()))
-		{
-			FVector FinalScale = ScaleForLink;
-			if (Direction == DIR_Left)
-				FinalScale.X = -FinalScale.X;
-			LinkedFlipbook->SetRelativeScale3D(FinalScale);
-			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
-			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
-			LinkedFlipbook->SetWorldLocation(Location);
-			LinkedFlipbook->SetWorldRotation(GetActorRotation());
-			LinkedFlipbook->SetPlaybackPositionInFrames(AnimFrame, true);
-		}
-	}
-	for (const auto LinkedMesh : LinkedMeshes)
-	{
-		if (IsValid(LinkedMesh))
-		{
-			FVector FinalScale = ScaleForLink;
-			if (Direction == DIR_Left)
-				FinalScale.X = -FinalScale.X;
-			LinkedMesh->SetRelativeScale3D(FinalScale);
-			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
-			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
-			LinkedMesh->SetWorldRotation(GetActorRotation());
-			LinkedMesh->SetWorldLocation(Location);
-		}
-	}
 	if (LinkedActor)
 	{
-		FVector FinalScale = ScaleForLink;
-		if (Direction == DIR_Left)
-			FinalScale.X = -FinalScale.X;
-		LinkedActor->StoredActor->SetActorScale3D(FinalScale);
-		FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
-		Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
-		LinkedActor->StoredActor->SetActorRotation(GetActorRotation());
-		LinkedActor->StoredActor->SetActorLocation(Location);
+		LinkedActor->SetActorScale3D(GetActorScale3D());
+		LinkedActor->SetActorRotation(GetActorRotation());
+		LinkedActor->SetActorLocation(GetActorLocation());
 	}
 	
 	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
@@ -1837,15 +1762,6 @@ void ABattleObject::InitObject()
 		LinkedParticle->Deactivate();
 		LinkedParticle = nullptr;
 	}
-	for (auto LinkedMesh : LinkedMeshes)
-	{
-		if (IsValid(LinkedMesh))
-		{
-			LinkedMesh->Deactivate();
-			LinkedMesh->SetWorldLocation(FVector(0,0,-100000));
-			LinkedMesh = nullptr;
-		}
-	}
 	ObjectState->Parent = this;
 	TriggerEvent(EVT_Enter);
 	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
@@ -1945,27 +1861,12 @@ void ABattleObject::ResetObject()
 {
 	if (IsPlayer)
 		return;
+	
 	if (IsValid(LinkedParticle))
 	{
 		LinkedParticle->Deactivate();
 	}
-	if (IsValid(LinkedFlipbook))
-	{
-		LinkedFlipbook->Deactivate();
-	}
-	for (const auto LinkedMesh : LinkedMeshes)
-	{
-		if (IsValid(LinkedMesh))
-		{
-			LinkedMesh->Deactivate();
-		}
-	}
-	if (LinkedActor)
-	{
-		LinkedActor->bIsActive = false;
-		LinkedActor->StoredActor->SetActorHiddenInGame(true);
-		LinkedActor = nullptr;
-	}
+	RemoveLinkActor();
 	IsActive = false;
 	PosX = 0;
 	PosY = 0;
@@ -2059,7 +1960,7 @@ void ABattleObject::ResetObject()
 	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
-	ScaleForLink = FVector::OneVector;
+	ObjectScale = FVector::OneVector;
 	AddColor = FLinearColor(0,0,0,1);
 	MulColor = FLinearColor(1,1,1,1);
 	AddFadeColor = FLinearColor(0,0,0,1);
@@ -2297,7 +2198,7 @@ int32 ABattleObject::CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, E
 		const auto X = abs(PosX2 - PosX1);
 		const auto Y = PosY2 - PosY1;
 
-		return Vec2Angle_x1000(X, Y);
+		return UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(X, Y);
 	}
 	return 0;
 }
@@ -2615,56 +2516,37 @@ void ABattleObject::LinkCharaParticle(FString Name)
 	}
 }
 
-void ABattleObject::LinkCommonFlipbook(FString Name)
-{
-	if (!GameState) return;
-	if (IsPlayer)
-		return;
-	if (Player->CommonFlipbookData != nullptr)
-	{
-		for (FFlipbookStruct FlipbookStruct : Player->CommonFlipbookData->FlipbookStructs)
-		{
-			if (FlipbookStruct.Name == Name)
-			{
-				LinkedFlipbook->SetFlipbook(FlipbookStruct.Flipbook);
-			}
-		}
-	}
-}
-
-void ABattleObject::LinkCharaFlipbook(FString Name)
-{
-	if (!GameState) return;
-	if (IsPlayer)
-		return;
-	if (Player->FlipbookData != nullptr)
-	{
-		for (FFlipbookStruct FlipbookStruct : Player->FlipbookData->FlipbookStructs)
-		{
-			if (FlipbookStruct.Name == Name)
-			{
-				LinkedFlipbook->SetFlipbook(FlipbookStruct.Flipbook);
-			}
-		}
-	}
-}
-
 AActor* ABattleObject::LinkActor(FString Name)
 {
 	if (!GameState) return nullptr;
 	if (IsPlayer)
 		return nullptr;
+	
+	RemoveLinkActor();
 	for (auto& Container : Player->StoredLinkActors)
 	{
 		if (Container.Name == Name && !Container.bIsActive)
 		{
-			LinkedActor = &Container;
-			LinkedActor->StoredActor->SetActorHiddenInGame(false);
-			LinkedActor->bIsActive = true;
-			return LinkedActor->StoredActor;
+			Container.bIsActive = true;
+			LinkedActor = Container.StoredActor;
+			return LinkedActor;
 		}
 	}
 	return nullptr;
+}
+
+void ABattleObject::RemoveLinkActor()
+{
+	if (!LinkedActor) return;
+
+	for (auto& Container : Player->StoredLinkActors)
+	{
+		if (Container.StoredActor == LinkedActor)
+		{
+			Container.bIsActive = false;
+			LinkedActor = nullptr;
+		}
+	}
 }
 
 void ABattleObject::PlayCommonSound(FString Name)

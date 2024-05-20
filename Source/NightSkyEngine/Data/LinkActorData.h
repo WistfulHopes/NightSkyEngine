@@ -7,7 +7,7 @@
 #include "LinkActorData.generated.h"
 
 USTRUCT(BlueprintType)
-struct FLinkedActorStruct
+struct FLinkActorStruct
 {
 	GENERATED_BODY()
 	
@@ -23,11 +23,11 @@ struct FLinkedActorStruct
  * 
  */
 UCLASS()
-class NIGHTSKYENGINE_API ULinkedActorData : public UDataAsset
+class NIGHTSKYENGINE_API ULinkActorData : public UDataAsset
 {
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	TArray<FLinkedActorStruct> LinkedActorStructs;
+	UPROPERTY(EditAnywhere)
+	TArray<FLinkActorStruct> LinkedActorStructs;
 };

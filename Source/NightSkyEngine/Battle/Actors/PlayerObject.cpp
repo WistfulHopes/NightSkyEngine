@@ -69,13 +69,13 @@ void APlayerObject::BeginPlay()
 
 	if (CommonLinkActorData != nullptr)
 	{
-		for (FLinkedActorStruct LinkedActorStruct : CommonLinkActorData->LinkedActorStructs)
+		for (FLinkActorStruct LinkedActorStruct : CommonLinkActorData->LinkedActorStructs)
 		{
 			for (int i = 0; i < LinkedActorStruct.MaxInstances; i++)
 			{
 				auto Actor = GetWorld()->SpawnActor(LinkedActorStruct.ActorClass);
 				Actor->SetActorHiddenInGame(true);
-				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, false };
+				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, StoredLinkActors.Num(), false };
 				StoredLinkActors.Add(Container);
 			}
 		}
@@ -83,13 +83,13 @@ void APlayerObject::BeginPlay()
 	
 	if (LinkActorData != nullptr)
 	{
-		for (FLinkedActorStruct LinkedActorStruct : LinkActorData->LinkedActorStructs)
+		for (FLinkActorStruct LinkedActorStruct : LinkActorData->LinkedActorStructs)
 		{
 			for (int i = 0; i < LinkedActorStruct.MaxInstances; i++)
 			{
 				auto Actor = GetWorld()->SpawnActor(LinkedActorStruct.ActorClass);
 				Actor->SetActorHiddenInGame(true);
-				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, false };
+				FLinkedActorContainer Container { Actor, LinkedActorStruct.Name, StoredLinkActors.Num(), false };
 				StoredLinkActors.Add(Container);
 			}
 		}
@@ -145,6 +145,10 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 		{
 			for (int j = 0; j < StoredStateMachine.States[i]->StateConditions.Num(); j++) //iterate over state conditions
 			{
+				if (!StoredStateMachine.States[i]->CanEnterState()) //check bp state condition
+				{
+					break;
+				}
                 if (!HandleStateCondition(StoredStateMachine.States[i]->StateConditions[j])) //check state condition
                 {
                     break;
@@ -153,10 +157,6 @@ void APlayerObject::HandleStateMachine(bool Buffer)
                 {
                     continue;
                 }
-				if (!StoredStateMachine.States[i]->CanEnterState()) //check bp state condition
-				{
-					break;
-				}
 				if (HandleAutoCombo(i)) return;
 				if (HandleStateInputs(i, Buffer))
 				{
@@ -2074,7 +2074,11 @@ void APlayerObject::SetComponentVisibility() const
 void APlayerObject::UpdateVisuals()
 {
 	Super::UpdateVisuals();
-
+	
+	for (const auto& LinkActor : StoredLinkActors)
+	{
+		LinkActor.StoredActor->SetActorHiddenInGame(!LinkActor.bIsActive);
+	}
 	SetComponentVisibility();
 }
 
@@ -2457,7 +2461,7 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
-	ScaleForLink = FVector::OneVector;
+	ObjectScale = FVector::OneVector;
 	AddColor = FLinearColor(0,0,0,1);
 	MulColor = FLinearColor(1,1,1,1);
 	AddFadeColor = FLinearColor(0,0,0,1);
