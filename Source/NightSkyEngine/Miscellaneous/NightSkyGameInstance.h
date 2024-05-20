@@ -75,6 +75,8 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 	TSharedPtr<const FOnlineLobbyId> LobbyID;
 	UPROPERTY()
 	UReplaySaveInfo* CurrentReplay;
+
+	void Init() override;
 	
 	void OnSessionInviteAccepted(bool bArg, int I, TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId, const FOnlineSessionSearchResult& OnlineSessionSearchResult);
 	void HandleLoginComplete(int I, bool bArg, const FUniqueNetId& UniqueNetId, const FString& String);

@@ -35,6 +35,13 @@ bool UNightSkyGameInstance::Login()
 	return true;
 }
 
+void UNightSkyGameInstance::Init()
+{
+	Super::Init();
+
+	BattleData.Random = FRandomManager(FGenericPlatformMath::Rand());
+}
+
 void UNightSkyGameInstance::OnSessionInviteAccepted(bool bArg, int I,
                                                     TSharedPtr<const FUniqueNetId, ESPMode::ThreadSafe> UniqueNetId,
                                                     const FOnlineSessionSearchResult& OnlineSessionSearchResult)

@@ -205,7 +205,7 @@ void ANightSkyGameState::PlayIntros()
 
 void ANightSkyGameState::RoundInit()
 {
-	BattleState.RandomManager.InitSeed(FRandomManager::GenerateRandomNumber() + BattleState.RoundCount);
+	BattleState.RandomManager.Reseed(BattleState.RandomManager.Rand() + BattleState.RoundCount);
 	BattleState.RoundCount++;
 
 	BattleState.SuperFreezeSelfDuration = 0;

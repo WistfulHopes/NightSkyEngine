@@ -33,11 +33,6 @@ void ANightSkyPlayerController::BeginPlay()
 	Super::BeginPlay();
 	
 	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
-	if (const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState()); !IsValid(GameState))
-	{
-		const auto GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-		GameInstance->BattleData.Random.InitSeed(FGenericPlatformMath::Rand());
-	}
 }
 
 // Called every frame
