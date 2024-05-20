@@ -2612,7 +2612,7 @@ void ABattleObject::CameraShake(FString PatternName, int32 Scale)
 	}
 }
 
-int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
+int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max) const
 {
 	if (Min > Max)
 	{
@@ -2620,8 +2620,8 @@ int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max)
 		Max = Min;
 		Min = Temp;
 	}
-	int32 Result = FRandomManager::GenerateRandomNumber();
-	Result = (Result % (Max - Min + 1)) + Min;
+	int32 Result = GameState->BattleState.RandomManager.Rand();
+	Result = Result % (Max - Min + 1) + Min;
 	return Result;
 }
 

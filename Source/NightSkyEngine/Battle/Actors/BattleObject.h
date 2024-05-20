@@ -1044,7 +1044,7 @@ public:
 	void CameraShake(FString PatternName, int32 Scale);
 	//generate random number
 	UFUNCTION(BlueprintPure)
-	static int32 GenerateRandomNumber(int32 Min, int32 Max);
+	int32 GenerateRandomNumber(int32 Min, int32 Max) const;
 	//generate random number
 	UFUNCTION(BlueprintCallable)
 	void IgnoreSuperFreeze(bool Ignore);
