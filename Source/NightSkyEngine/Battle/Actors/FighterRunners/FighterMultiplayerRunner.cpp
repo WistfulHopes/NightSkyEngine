@@ -87,7 +87,7 @@ bool AFighterMultiplayerRunner::BeginGameCallback(const char*)
 
 bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, int32* len, int32* checksum, int32)
 {
-	GameState->SaveGameState();
+	GameState->SaveGameState(checksum);
 	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
 	FRollbackData rollbackdata = GameState->MainRollbackData[BackupFrame];
 	FBPRollbackData bprollbackdata = GameState->BPRollbackData[BackupFrame];
@@ -101,8 +101,6 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 	
 	FMemory::Memcpy(*buffer, &rollbackdata, sizeof(FRollbackData));
 	FMemory::Memcpy(*buffer + sizeof(FRollbackData), Ar.GetData(), Ar.Num());
-	
-	*checksum = fletcher32_checksum((short*)*buffer, *len / 2);
 	return true;
 }
 
@@ -239,7 +237,7 @@ bool AFighterMultiplayerRunner::AdvanceFrameCallback(int flag)
 	int inputs[2] = {0};
 	int disconnect_flags;
 	GGPONet::ggpo_synchronize_input(ggpo, (void*)inputs, sizeof(int) * 2, &disconnect_flags);
-	GameState->UpdateGameState(inputs[0], inputs[1]);
+	GameState->UpdateGameState(inputs[0], inputs[1], true);
 	GGPONet::ggpo_advance_frame(ggpo);
 	return true;
 }
@@ -334,7 +332,7 @@ void AFighterMultiplayerRunner::GgpoUpdate()
 		result = GGPONet::ggpo_synchronize_input(ggpo, (void*)inputs, sizeof(int) * 2, &disconnect_flags);
 		if (GGPO_SUCCEEDED(result))
 		{
-			GameState->UpdateGameState(inputs[0], inputs[1]);
+			GameState->UpdateGameState(inputs[0], inputs[1], false);
 			GGPONet::ggpo_advance_frame(ggpo);
 		}
 	}
@@ -355,8 +353,6 @@ void AFighterMultiplayerRunner::Update(float DeltaTime)
 				ElapsedTime=0;
 				break;
 			}
-			
-			
 		}
 		GgpoUpdate();
 		ElapsedTime -= OneFrame;

@@ -1306,13 +1306,6 @@ void APlayerObject::PlayLevelSequence(FString Name)
 	}
 }
 
-void APlayerObject::StartSuperFreeze(int Duration, int SelfDuration)
-{
-	if (!GameState) return;
-	GameState->StartSuperFreeze(Duration, SelfDuration, this);
-	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
-}
-
 void APlayerObject::BattleHudVisibility(bool Visible)
 {
 	if (!GameState) return;

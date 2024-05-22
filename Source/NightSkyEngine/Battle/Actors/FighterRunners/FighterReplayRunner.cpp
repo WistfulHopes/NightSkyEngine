@@ -34,7 +34,7 @@ void AFighterReplayRunner::Update(float DeltaTime)
 
 		GameInstance->PlayReplayToGameState(GameState->LocalFrame, P1Input, P2Input);
 		
-		GameState->UpdateGameState(P1Input, P2Input);
+		GameState->UpdateGameState(P1Input, P2Input, false);
 		ElapsedTime -= OneFrame;
 	}
 }

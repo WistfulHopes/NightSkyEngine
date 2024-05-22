@@ -7,7 +7,9 @@
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "NightSkyEngine/Battle/Actors/FighterRunners/FighterLocalRunner.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
-
+#include "CineCameraActor.h"
+#include "Camera/CameraComponent.h"
+#include "LevelSequenceActor.h"
 
 // Sets default values
 ANightSkyWTGameState::ANightSkyWTGameState()
@@ -27,6 +29,20 @@ void ANightSkyWTGameState::BeginPlay()
 	ParticleManager = GetWorld()->SpawnActor<AParticleManager>();
 	AudioManager = GetWorld()->SpawnActor<AAudioManager>();
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	CameraActor = GetWorld()->SpawnActor<ACameraActor>(ACameraActor::StaticClass());
+	CameraActor->GetCameraComponent()->SetFieldOfView(54);
+	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
+	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
+
+	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
+	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
+	CameraRotation.Yaw -= 90;
+
+	BattleState.PrevCameraPosition = NewCameraLocation;
+	CameraActor->SetActorLocation(NewCameraLocation);
+	CameraActor->SetActorRotation(CameraRotation);
+	SequenceCameraActor->SetActorLocation(NewCameraLocation);
+	SequenceCameraActor->SetActorRotation(CameraRotation);
 }
 
 void ANightSkyWTGameState::HandleMatchWin()

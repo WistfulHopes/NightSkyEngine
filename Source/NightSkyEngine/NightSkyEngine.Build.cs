@@ -22,9 +22,12 @@ public class NightSkyEngine : ModuleRules
 			"UMG",
 			"Niagara",
 			"Paper2D",
+			"AdvancedSessions"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new[] { "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });
+
+		DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

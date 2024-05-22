@@ -1760,7 +1760,6 @@ void ABattleObject::InitObject()
 	if (IsValid(LinkedParticle))
 	{
 		LinkedParticle->Deactivate();
-		LinkedParticle = nullptr;
 	}
 	ObjectState->Parent = this;
 	TriggerEvent(EVT_Enter);
@@ -2478,7 +2477,7 @@ void ABattleObject::LinkCommonParticle(FString Name)
 					LinkedParticle->Deactivate();
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
 					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
-					EAttachLocation::SnapToTargetIncludingScale, false);
+					EAttachLocation::SnapToTargetIncludingScale, true);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				LinkedParticle->SetDesiredAge(0);
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
@@ -2505,7 +2504,7 @@ void ABattleObject::LinkCharaParticle(FString Name)
 					LinkedParticle->Deactivate();
 				LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
 					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
-					EAttachLocation::SnapToTargetIncludingScale, false);
+					EAttachLocation::SnapToTargetIncludingScale, true);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
 				if (Direction == DIR_Left)
@@ -2623,6 +2622,13 @@ int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max) const
 	int32 Result = GameState->BattleState.RandomManager.Rand();
 	Result = Result % (Max - Min + 1) + Min;
 	return Result;
+}
+
+void ABattleObject::StartSuperFreeze(int Duration, int SelfDuration)
+{
+	if (!GameState) return;
+	GameState->StartSuperFreeze(Duration, SelfDuration, this);
+	if (Duration > 0) TriggerEvent(EVT_SuperFreeze);
 }
 
 void ABattleObject::IgnoreSuperFreeze(bool Ignore)

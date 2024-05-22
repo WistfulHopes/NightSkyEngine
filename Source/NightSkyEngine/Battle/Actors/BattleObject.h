@@ -1045,6 +1045,9 @@ public:
 	//generate random number
 	UFUNCTION(BlueprintPure)
 	int32 GenerateRandomNumber(int32 Min, int32 Max) const;
+	//starts super freeze
+	UFUNCTION(BlueprintCallable)
+	void StartSuperFreeze(int Duration, int SelfDuration = 0);
 	//generate random number
 	UFUNCTION(BlueprintCallable)
 	void IgnoreSuperFreeze(bool Ignore);

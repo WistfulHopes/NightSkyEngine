@@ -99,7 +99,7 @@ struct FBattleState
 	int32 SuperFreezeSelfDuration = 0;
 	
 	UPROPERTY()
-	APlayerObject* SuperFreezeCaller = nullptr;
+	ABattleObject* SuperFreezeCaller = nullptr;
 	UPROPERTY()
 	APlayerObject* MainPlayer[2];
 	
@@ -230,11 +230,12 @@ public:
 private:
 	int32 LocalInputs[MaxRollbackFrames][2] = {};
 	int32 RemoteInputs[MaxRollbackFrames][2] = {};
-	uint32 Checksum = 0;
-	uint32 OtherChecksum = 0;
+	int32 Checksum = 0;
+	int32 OtherChecksum = 0;
 	int32 OtherChecksumFrame = 0;
 	int32 PrevOtherChecksumFrame = 0;
 	FNetworkStats NetworkStats = FNetworkStats();
+	bool bIsResimulating = false;
 	
 protected:
 	// Called when the game starts or when spawned
@@ -249,6 +250,7 @@ protected:
 	void HandleRoundWin();
 	virtual void HandleMatchWin();
 	void CollisionView() const;
+	int32 CreateChecksum();
 	FGGPONetworkStats GetNetworkStats() const;
 	
 public:
@@ -256,18 +258,18 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void UpdateGameState();
-	void UpdateGameState(int32 Input1, int32 Input2);
+	void UpdateGameState(int32 Input1, int32 Input2, bool bShouldResimulate);
 
 	void SetStageBounds(); //sets screen bounds
 	void SetScreenBounds() const; //forces wall collision
-	void StartSuperFreeze(int32 Duration, int32 SelfDuration, APlayerObject* CallingPlayer);
+	void StartSuperFreeze(int32 Duration, int32 SelfDuration, ABattleObject* CallingObject);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
-	void SaveGameState(); //saves game state
+	void SaveGameState(int32* InChecksum); //saves game state
 	void LoadGameState(); //loads game state
 
 	void UpdateCamera();
@@ -281,7 +283,8 @@ public:
 	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player);
 	void ManageAudio();
-	void RollbackStartAudio() const;
+	void RollbackStartAudio(int32 InFrame) const;
+	void RollbackStopAudio() const;
 
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs

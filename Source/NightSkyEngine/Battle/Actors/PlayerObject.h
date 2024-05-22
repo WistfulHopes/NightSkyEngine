@@ -676,9 +676,6 @@ public:
 	//plays character level sequence
 	UFUNCTION(BlueprintCallable)
 	void PlayLevelSequence(FString Name);
-	//starts super freeze
-	UFUNCTION(BlueprintCallable)
-	void StartSuperFreeze(int Duration, int SelfDuration = 0);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);

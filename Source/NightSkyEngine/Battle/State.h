@@ -62,6 +62,7 @@ enum class EStateType : uint8
 	Parry,
 	Burst,
 	SuperDash,
+	Tag,
 };
 
 /**
