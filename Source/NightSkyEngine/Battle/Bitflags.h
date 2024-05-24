@@ -53,7 +53,6 @@ enum EEnableFlags
 	ENB_ProximityBlock = 0x2000 UMETA(DisplayName = "Proximity Block"),
 	ENB_Tech = 0x4000 UMETA(DisplayName = "Tech"),
 	ENB_Burst = 0x8000 UMETA(DisplayName = "Burst"),
-	ENB_SuperDash = 0x10000 UMETA(DisplayName = "SuperDash"),
 };
 
 ENUM_CLASS_FLAGS(EEnableFlags);

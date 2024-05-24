@@ -120,52 +120,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 {
 	for (int i = StoredStateMachine.States.Num() - 1; i >= 0; i--)
 	{
-        if (!((CheckStateEnabled(StoredStateMachine.States[i]->StateType) && !StoredStateMachine.States[i]->IsFollowupState)
-            || FindChainCancelOption(FName(StoredStateMachine.States[i]->Name))
-            || FindAutoComboCancelOption(FName(StoredStateMachine.States[i]->Name))
-            || FindWhiffCancelOption(FName(StoredStateMachine.States[i]->Name))
-            || (CheckKaraCancel(StoredStateMachine.States[i]->StateType) && 
-				CheckMovesUsedInCombo(FName(StoredStateMachine.States[i]->Name))
-				&& !StoredStateMachine.States[i]->IsFollowupState
-            	&& i > StoredStateMachine.GetStateIndex(FName(GetCurrentStateName()))) 
-            )) //check if the state is enabled, continue if not
-        {
-            continue;
-        }
-		if (CheckObjectPreventingState(StoredStateMachine.States[i]->ObjectID)) //check if an object is preventing state entry, continue if so
-		{
-			continue;
-		}
-        //check current character state against entry state condition, continue if not entry state
-		if (!StoredStateMachine.CheckStateStanceCondition(StoredStateMachine.States[i]->EntryStance, Stance))
-        {
-            continue;
-        }
-		if (StoredStateMachine.States[i]->StateConditions.Num() != 0) //only check state conditions if there are any
-		{
-			for (int j = 0; j < StoredStateMachine.States[i]->StateConditions.Num(); j++) //iterate over state conditions
-			{
-				if (!StoredStateMachine.States[i]->CanEnterState()) //check bp state condition
-				{
-					break;
-				}
-                if (!HandleStateCondition(StoredStateMachine.States[i]->StateConditions[j])) //check state condition
-                {
-                    break;
-                }
-                if (j != StoredStateMachine.States[i]->StateConditions.Num() - 1) //have all conditions been met?
-                {
-                    continue;
-                }
-				if (HandleAutoCombo(i)) return;
-				if (HandleStateInputs(i, Buffer))
-				{
-					bIsAutoCombo = false;
-					return;
-				}
-			}
-		}
-		else
+		if (CanEnterState(StoredStateMachine.States[i]))
 		{
 			if (HandleAutoCombo(i)) return;
 			if (HandleStateInputs(i, Buffer))
@@ -1353,33 +1308,87 @@ void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visibl
 	}
 }
 
-void APlayerObject::SetInputForCPU(const FInputConditionList& InputConditionList)
+bool APlayerObject::CanEnterState(UState* State)
 {
-	for (const auto& InputCondition : InputConditionList.InputConditions)
+	if (!((CheckStateEnabled(State->StateType, State->CustomStateType) && !State->IsFollowupState)
+	|| FindChainCancelOption(FName(State->Name))
+	|| FindAutoComboCancelOption(FName(State->Name))
+	|| FindWhiffCancelOption(FName(State->Name))
+	|| (CheckKaraCancel(State->StateType) && 
+		CheckMovesUsedInCombo(FName(State->Name))
+		&& !State->IsFollowupState
+		&& StoredStateMachine.GetStateIndex(FName(State->Name)) > StoredStateMachine.GetStateIndex(
+			FName(GetCurrentStateName()))) 
+	)) //check if the state is enabled
 	{
-		for (int i = InputCondition.Sequence.Num() - 1; i >= 0; i++)
+		return false;
+	}
+	if (CheckObjectPreventingState(State->ObjectID)) //check if an object is preventing state entry
+	{
+		return false;
+	}
+	//check current character state against entry stance condition
+	if (!StoredStateMachine.CheckStateStanceCondition(State->EntryStance, Stance))
+	{
+		return false;
+	}
+	if (State->StateConditions.Num() != 0) //only check state conditions if there are any
+	{
+		if (!State->CanEnterState()) //check bp state condition
 		{
-			auto& InputBitmask = InputCondition.Sequence[i];
-			uint32 Index = InputBufferSize - 1;
-
-			auto FinalInput = InputBitmask.InputFlag;
-			
-			if ((Direction == DIR_Left && !Player->FlipInputs) || (Player->FlipInputs && Direction == DIR_Right)) //flip inputs with direction
+			return false;
+		}
+		for (int j = 0; j < State->StateConditions.Num(); j++) //iterate over state conditions
+		{
+			if (!HandleStateCondition(State->StateConditions[j])) //check state condition
 			{
-				FinalInput = FlipInput(FinalInput);
-			}
-			
-			switch (InputCondition.Method)
-			{
-			case EInputMethod::Negative:
-			case EInputMethod::NegativeStrict:
-				StoredInputBuffer.Emplace(INP_Neutral, Index);
-				StoredInputBuffer.Emplace(FinalInput, Index--);
-			default:
-				StoredInputBuffer.Emplace(FinalInput, Index);
+				return false;
 			}
 		}
 	}
+
+	return true;
+}
+
+void APlayerObject::SetStateForCPU(FName StateName)
+{
+	HandleStateTransition(StoredStateMachine.GetStateIndex(StateName), false);
+}
+
+bool APlayerObject::CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const
+{
+	// force x range to current direction
+	XBegin *= Direction == DIR_Right ? 1 : -1;
+	XEnd *= Direction == DIR_Right ? 1 : -1;
+	
+	XBegin += PosX;
+	XEnd += PosX;
+	YBegin += PosY;
+	YEnd += PosY;
+
+	if (Direction == DIR_Right)
+	{
+		return XBegin < Enemy->PosX && XEnd > Enemy->PosX && YBegin < Enemy->GetPosYCenter() && YEnd > Enemy->GetPosYCenter();
+	}
+	return XEnd < Enemy->PosX && XBegin > Enemy->PosX && YBegin < Enemy->GetPosYCenter() && YEnd > Enemy->GetPosYCenter();
+}
+
+bool APlayerObject::IsEnemyAttackState() const
+{
+	return Enemy->StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack
+		&& Enemy->StoredStateMachine.CurrentState->StateType <= EStateType::SuperAttack;
+}
+
+bool APlayerObject::IsEnemyThrow() const
+{
+	return Enemy->PlayerFlags & PLF_ThrowActive;
+}
+
+bool APlayerObject::IsEnemyBlocking() const
+{
+	return Enemy->GetCurrentStateName() == Enemy->CharaStateData->DefaultStandBlock || Enemy->GetCurrentStateName() ==
+		Enemy->CharaStateData->DefaultCrouchBlock || Enemy->GetCurrentStateName() == Enemy->CharaStateData->
+		DefaultAirBlock;
 }
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
@@ -1779,9 +1788,9 @@ bool APlayerObject::FindChainCancelOption(const FName Name)
 	{
 		if (CheckReverseBeat(Name))
 			return ReturnReg;
-		for (int i = 0; i < CancelArraySize; i++)
+		for (int i = 0; i < ChainCancelOptions.Num(); i++)
 		{
-			if (ChainCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptionsInternal[i] != INDEX_NONE)
+			if (ChainCancelOptions[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
 				CheckMovesUsedInCombo(Name);
@@ -1817,9 +1826,9 @@ bool APlayerObject::FindWhiffCancelOption(const FName Name)
 	{
 		if (CheckReverseBeat(Name))
 			return ReturnReg;
-		for (int i = 0; i < CancelArraySize; i++)
+		for (int i = 0; i < WhiffCancelOptions.Num(); i++)
 		{
-			if (WhiffCancelOptionsInternal[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptionsInternal[i] != INDEX_NONE)
+			if (WhiffCancelOptions[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
 				CheckMovesUsedInCombo(Name);
@@ -1982,7 +1991,7 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (PosX >= 2520000 || PosX <= -2520000)
+		if (abs(PosX) >= GameState->BattleState.ScreenBounds + GameState->BattleState.StageBounds)
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{
@@ -2181,12 +2190,12 @@ FString APlayerObject::GetCurrentStateName() const
 	return StoredStateMachine.CurrentState->Name;
 }
 
-FString APlayerObject::GetLastStateName()
+FString APlayerObject::GetLastStateName() const
 {
 	return FString(LastStateName.ToString());
 }
 
-bool APlayerObject::CheckStateEnabled(EStateType StateType)
+bool APlayerObject::CheckStateEnabled(EStateType StateType, FName CustomStateType)
 {
 	ReturnReg = false;
 	switch (StateType)
@@ -2249,8 +2258,8 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType)
 		if (EnableFlags & ENB_Burst && Enemy->Player->PlayerFlags & PLF_LockOpponentBurst && (PlayerFlags & PLF_IsDead) == 0)
 			ReturnReg = true;
 		break;
-	case EStateType::SuperDash:
-		if (EnableFlags & ENB_SuperDash)
+	case EStateType::Custom:
+		if (EnabledCustomStateTypes.Find(CustomStateType))
 			ReturnReg = true;
 		break;
 	default:
@@ -2329,14 +2338,14 @@ void APlayerObject::OnStateChange()
 	// Miscellaneous resets
 	PushWidthExtend = 0;
 	FlipInputs = false;
+	for (int32& CancelOption : AutoComboCancels)
+	{
+		CancelOption = -1;
+	}
+	EnabledCustomStateTypes.Empty();
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
-	for (int32& CancelOption : AutoComboCancels)
-		CancelOption = -1;
-	for (int32& CancelOption : ChainCancelOptionsInternal)
-		CancelOption = -1;
-	for (int32& CancelOption : WhiffCancelOptionsInternal)
-		CancelOption = -1;
+	MovesUsedInCombo.Empty();
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
@@ -2350,7 +2359,7 @@ void APlayerObject::OnStateChange()
 
 void APlayerObject::PostStateChange()
 {
-	for (int i = 0; i < CancelArraySize; i++)
+	for (int i = 0; i < MovesUsedInCombo.Num(); i++)
 	{
 		if (MovesUsedInCombo[i] == INDEX_NONE)
 		{
@@ -2361,8 +2370,10 @@ void APlayerObject::PostStateChange()
 	StoredStateMachine.CurrentState->ResetToCDO();
 }
 
-void APlayerObject::ResetForRound(bool ResetHealth)
+void APlayerObject::RoundInit(bool ResetHealth)
 {
+	CallSubroutine("CmnRoundInit");
+	CallSubroutine("RoundInit");
 	if (PlayerIndex == 0)
 	{
 		PosX = -GameState->BattleState.RoundStartPos;
@@ -2461,6 +2472,7 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	MulFadeColor = FLinearColor(1,1,1,1);
 	AddFadeSpeed = 0;
 	MulFadeSpeed = 0;
+	ObjectsToIgnoreHitsFrom.Empty();
 	HitPosX = 0;
 	HitPosY = 0;
 	for (auto& Box : Boxes)
@@ -2528,12 +2540,19 @@ void APlayerObject::ResetForRound(bool ResetHealth)
 	AirDashNoAttackTime = 0;
 	InstantBlockLockoutTimer = 0;
 	MeterCooldownTimer = 0;
-	for (int32& CancelOption : ChainCancelOptionsInternal)
+	for (auto& LinkActor : StoredLinkActors)
+	{
+		LinkActor.bIsActive = false;
+		LinkActor.StoredActor->SetActorHiddenInGame(true);
+	}
+	for (int32& CancelOption : AutoComboCancels)
+	{
 		CancelOption = -1;
-	for (int32& CancelOption : WhiffCancelOptionsInternal)
-		CancelOption = -1;
+	}
+	EnabledCustomStateTypes.Empty();
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
+	MovesUsedInCombo.Empty();
 	LastStateName = FName();
 	ExeStateName = FName();
 	BufferedStateName = FName();
@@ -2568,22 +2587,6 @@ TArray<uint8> APlayerObject::SaveForRollbackBP()
 void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 {
 	FMemory::Memcpy(&PlayerSync, Buffer, SizeOfPlayerObject);
-	for (int i = 0; i < CancelArraySize; i++) //reload TArrays with rolled back data
-	{
-		ChainCancelOptions.Empty();
-		WhiffCancelOptions.Empty();
-		if (StoredStateMachine.StateNames.Num() > 0)
-		{
-			if (ChainCancelOptionsInternal[i] != -1)
-			{
-				ChainCancelOptions.Add(StoredStateMachine.GetStateName(ChainCancelOptionsInternal[i]));
-			}
-			if (WhiffCancelOptionsInternal[i] != -1)
-			{
-				WhiffCancelOptions.Add(StoredStateMachine.GetStateName(WhiffCancelOptionsInternal[i]));
-			}
-		}
-	}
 }
 
 void APlayerObject::LoadForRollbackBP(TArray<uint8> InBytes)
@@ -2622,6 +2625,16 @@ void APlayerObject::DisableState(int32 EnableType)
 	EnableFlags = EnableFlags & ~EnableType;
 }
 
+void APlayerObject::EnableCustomState(FName CustomStateType)
+{
+	EnabledCustomStateTypes.AddUnique(CustomStateType);
+}
+
+void APlayerObject::DisableCustomState(FName CustomStateType)
+{
+	EnabledCustomStateTypes.Remove(CustomStateType);
+}
+
 void APlayerObject::EnableAttacks()
 {
 	EnableState(ENB_NormalAttack);
@@ -2658,7 +2671,6 @@ void APlayerObject::EnableAll()
 	EnableState(ENB_Block);
 	EnableState(ENB_ProximityBlock);
 	EnableState(ENB_Burst);
-	EnableState(ENB_SuperDash);
 }
 
 void APlayerObject::DisableAll()
@@ -2678,7 +2690,6 @@ void APlayerObject::DisableAll()
 	DisableState(ENB_Block);
 	DisableState(ENB_ProximityBlock);
 	DisableState(ENB_Burst);
-	DisableState(ENB_SuperDash);
 }
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)
@@ -2725,12 +2736,7 @@ void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
 
 void APlayerObject::AddChainCancelOption(FString Option)
 {
-	if (ChainCancelOptions.Find(FName(Option)) != INDEX_NONE) return;
-	ChainCancelOptions.Add(FName(Option));
-	if (ChainCancelOptions.Num() > 0)
-	{
-		ChainCancelOptionsInternal[ChainCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(FName(Option));
-	}
+	ChainCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(FName(Option)));
 }
 
 void APlayerObject::AddAutoComboCancel(FString Option, EInputFlags Button)
@@ -2770,21 +2776,12 @@ void APlayerObject::AddAutoComboCancel(FString Option, EInputFlags Button)
 
 void APlayerObject::AddWhiffCancelOption(FString Option)
 {
-	if (WhiffCancelOptions.Find(FName(Option)) != INDEX_NONE) return;
-	WhiffCancelOptions.Add(FName(Option));
-	if (WhiffCancelOptions.Num() > 0)
-	{
-		WhiffCancelOptionsInternal[WhiffCancelOptions.Num() - 1] = StoredStateMachine.GetStateIndex(FName(Option));
-	}
+	WhiffCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(FName(Option)));
 }
 
 void APlayerObject::RemoveChainCancelOption(FString Option)
 {
-	if (const auto Index = ChainCancelOptions.Find(FName(Option)); Index != INDEX_NONE)
-	{
-		ChainCancelOptions[Index] = "";
-		ChainCancelOptionsInternal[Index] = -1;
-	}
+	ChainCancelOptions.Remove(StoredStateMachine.GetStateIndex(FName(Option)));
 }
 
 void APlayerObject::RemoveAutoComboCancel(EInputFlags Button)
@@ -2824,11 +2821,7 @@ void APlayerObject::RemoveAutoComboCancel(EInputFlags Button)
 
 void APlayerObject::RemoveWhiffCancelOption(FString Option)
 {
-	if (const auto Index = WhiffCancelOptions.Find(FName(Option)); Index != INDEX_NONE)
-	{
-		WhiffCancelOptions[Index] = "";
-		WhiffCancelOptionsInternal[Index] = -1;
-	}
+	WhiffCancelOptions.Remove(StoredStateMachine.GetStateIndex(FName(Option)));
 }
 
 void APlayerObject::EnableChainCancel(bool Enable)

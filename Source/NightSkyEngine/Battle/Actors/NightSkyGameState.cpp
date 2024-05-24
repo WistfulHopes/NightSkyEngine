@@ -149,6 +149,11 @@ void ANightSkyGameState::Init()
 		Players[i]->GameState = this;
 		Players[i]->ObjNumber = i + MaxBattleObjects;
 		SortedObjects[i] = Players[i];
+
+		if (i >= MaxPlayerObjects / 2 && GameInstance->IsCPUBattle)
+		{
+			Players[i]->SpawnDefaultController();
+		}
 	}
 	BattleState.MainPlayer[0] = Players[0];
 	BattleState.MainPlayer[1] = Players[MaxPlayerObjects / 2];
@@ -230,7 +235,7 @@ void ANightSkyGameState::RoundInit()
 			Objects[i]->ResetObject();
 	
 		for (int i = 0; i < MaxPlayerObjects; i++)
-			Players[i]->ResetForRound(true);
+			Players[i]->RoundInit(true);
 
 		Players[0]->PlayerFlags = PLF_IsOnScreen;
 		Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
@@ -285,7 +290,7 @@ void ANightSkyGameState::RoundInit()
 			Objects[i]->ResetObject();
 	
 		for (int i = 0; i < MaxPlayerObjects; i++)
-			Players[i]->ResetForRound(false);
+			Players[i]->RoundInit(false);
 
 		Players[0]->PlayerFlags = PLF_IsOnScreen;
 		Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;

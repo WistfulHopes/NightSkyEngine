@@ -17,9 +17,6 @@
 class ULinkActorData;
 class USubroutine;
 class UCameraShakeData;
-constexpr int32 DamageReactionCelCount = 64;
-constexpr int32 ExtraGaugeCount = 5;
-constexpr int32 CancelArraySize = 64;
 constexpr int32 MaxComponentCount = 64;
 
 class USubroutineData;
@@ -35,7 +32,7 @@ enum EActionStance
 	ACT_Jumping,
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FExtraGauge
 {
 	GENERATED_BODY()
@@ -44,18 +41,6 @@ struct FExtraGauge
 	uint32 InitialValue;
 	uint32 MaxValue;
 	uint32 Sections;
-};
-
-USTRUCT()
-struct FSavedInputCondition
-{
-	GENERATED_BODY()
-	
-	FInputBitmask Sequence[32];
-	int Lenience = 8;
-	int ImpreciseInputCount = 0;
-	bool bInputAllowDisable = true;
-	EInputMethod Method = EInputMethod::Normal;
 };
 
 /**
@@ -268,7 +253,6 @@ public:
 	uint32 StrikeInvulnerableTimer = 0;
 	uint32 ThrowInvulnerableTimer = 0;
 	uint32 ThrowResistTimer = 0;
-	FExtraGauge ExtraGauges[ExtraGaugeCount];
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	int32 RoundWinTimer = 180;
@@ -303,14 +287,8 @@ protected:
 	int32 ThrowRange;
 	int32 ThrowTechTimer;
 
-	//Chain cancels (copied from TArray to static array)
-	int32 ChainCancelOptionsInternal[CancelArraySize] = {};
 	//Auto combo cancels
 	int32 AutoComboCancels[8] = {};
-	//Whiff cancels (copied from TArray to static array)
-	int32 WhiffCancelOptionsInternal[CancelArraySize] = {};
-	//checks state indices for moves used in current combo
-	int32 MovesUsedInCombo[CancelArraySize] = {};
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsAutoCombo;
@@ -319,22 +297,43 @@ protected:
 	FName BufferedStateName;
 	
 public:
-	//Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
+	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char PlayerSyncEnd; 
+
+	/*
+	 * These properties are saved and loaded for rollback, as they have the SaveGame tag.
+	 */
+
+	UPROPERTY(SaveGame)
+	TArray<FName> EnabledCustomStateTypes;
 	
+	// All instances of actors needed for link actors.
 	UPROPERTY(SaveGame)
 	TArray<FLinkedActorContainer> StoredLinkActors;
+
+	// Extra gauges.
+	UPROPERTY(SaveGame)
+	TArray<FExtraGauge> ExtraGauges;
+	
+	//options to whiff cancel into
+	UPROPERTY(SaveGame)
+	TArray<int32> ChainCancelOptions;
+	//options to chain cancel into
+	UPROPERTY(SaveGame)
+	TArray<int32> WhiffCancelOptions; 
+	//checks state indices for moves used in current combo
+	UPROPERTY(SaveGame)
+	TArray<int32> MovesUsedInCombo = {};
+	
+	/*
+	 * Defaults
+	 */
 	
 	UPROPERTY(EditAnywhere)
 	TArray<FString> DamageReactionCels;
-
-	/*
-	 * Data to copy from blueprint TArray to internal object
-	 */
+	UPROPERTY(EditAnywhere)
+	bool bMirrorWhenFlip;
 	
-	TArray<FName> ChainCancelOptions;
-	TArray<FName> WhiffCancelOptions; 
-
 	/*
 	 * States and subroutines
 	*/
@@ -417,7 +416,6 @@ public:
 private:
 	virtual void BeginPlay() override;
 
-	static uint32 FlipInput(uint32 Input);
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
@@ -480,9 +478,11 @@ public:
 	//called right after state changes
 	void PostStateChange();
 	//resets object for next round
-	void ResetForRound(bool ResetHealth);
+	void RoundInit(bool ResetHealth);
 	//disables last input
 	void DisableLastInput();
+	
+	static uint32 FlipInput(uint32 Input);
 	
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
 	TArray<uint8> SaveForRollbackBP();
@@ -509,6 +509,9 @@ public:
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
 	void AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon);
+	//check if state can be entered
+	UFUNCTION(BlueprintCallable)
+	bool CanEnterState(UState* State);
 	//use meter
 	UFUNCTION(BlueprintCallable)
 	void UseMeter(int Use);
@@ -535,16 +538,22 @@ public:
 	FString GetCurrentStateName() const;
 	//gets current state name
 	UFUNCTION(BlueprintPure)
-	FString GetLastStateName();
+	FString GetLastStateName() const;
 	//check if state can be entered
 	UFUNCTION(BlueprintPure)
-	bool CheckStateEnabled(EStateType StateType);
+	bool CheckStateEnabled(EStateType StateType, FName CustomStateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
 	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
 	//disables state type
 	UFUNCTION(BlueprintCallable)
 	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
+	//enable custom state type
+	UFUNCTION(BlueprintCallable)
+	void EnableCustomState(FName CustomStateType);
+	//disable custom state type
+	UFUNCTION(BlueprintCallable)
+	void DisableCustomState(FName CustomStateType);
 	//enable all attacks only
 	UFUNCTION(BlueprintCallable)
 	void EnableAttacks();
@@ -693,8 +702,13 @@ public:
 	void ToggleComponentVisibility(FString ComponentName, bool Visible);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDefaultComponentVisibility();
-	UFUNCTION(BlueprintCallable)
-	void SetInputForCPU(const FInputConditionList& InputConditionList);
+
+	// Intended for CPU opponents
+	void SetStateForCPU(FName StateName);
+	bool CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const;
+	bool IsEnemyAttackState() const;
+	bool IsEnemyThrow() const;
+	bool IsEnemyBlocking() const;
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);

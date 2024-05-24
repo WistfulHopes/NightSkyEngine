@@ -44,7 +44,7 @@ void ANightSkyVSInfoGameState::Tick(float DeltaSeconds)
 	VSInfoTime += DeltaSeconds;
 	if (VSInfoTime >= MaxVSInfoTime && MapLoaded && LoadedCharaPackageCount == TotalCharaPackageCount)
 	{
-		if (GameInstance->FighterRunner != Multiplayer)
+		if (GameInstance->FighterRunner != Multiplayer || GameInstance->IsReplay)
 			GameInstance->TravelToBattleMap();
 		else
 		{

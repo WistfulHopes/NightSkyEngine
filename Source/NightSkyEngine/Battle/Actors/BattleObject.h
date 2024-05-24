@@ -543,6 +543,43 @@ struct FLinkedActorContainer
 	bool bIsActive;
 };
 
+UENUM(BlueprintType)
+enum ESuperArmorType
+{
+	ARM_None,
+	ARM_Guard,
+	ARM_Dodge,
+};
+
+USTRUCT(BlueprintType)
+struct FSuperArmorData
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(BlueprintReadWrite)
+	TEnumAsByte<ESuperArmorType> Type;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorMid : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorOverhead : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorLow : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorStrike : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorThrow : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorHead : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorProjectile : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorTakeChipDamage : 1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ArmorDamagePercent;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ArmorHits;
+};
+
 /*
  * A battle object.
  * These are any objects that affect gameplay, or need values to change after being spawned.
@@ -794,6 +831,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite)
 	FHomingParams HomingParams = FHomingParams();
+	UPROPERTY(BlueprintReadWrite)
+	FSuperArmorData SuperArmorData = FSuperArmorData();
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 UpdateTime = 0;
@@ -827,8 +866,11 @@ public:
 	int32 ObjectStateIndex = 0;
 	bool bIsCommonState = false;
 	
-	//Anything past here isn't saved or loaded for rollback.
+	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char ObjSyncEnd = 0;
+
+	UPROPERTY(SaveGame)
+	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
 
 	/*
 	 * Link data (for object), not serialized
@@ -860,6 +902,7 @@ protected:
 	// Moves object
 	void Move();
 	void CalculateHoming();
+	bool SuperArmorSuccess(const ABattleObject* Attacker) const;
 	
 public:
 	// Called every frame
@@ -956,6 +999,9 @@ public:
 	//adds x speed
 	UFUNCTION(BlueprintCallable)
 	void AddSpeedXRaw(int InSpeedX);
+	//gets y center
+	UFUNCTION(BlueprintPure)
+	int32 GetPosYCenter() const;
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);

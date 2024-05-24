@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Bitflags.h"
 #include "SerializableObj.h"
+#include "Actors/BattleObject.h"
 #include "State.generated.h"
 
 class APlayerObject;
@@ -59,10 +60,9 @@ enum class EStateType : uint8
 	Hitstun,
 	Blockstun,
 	Tech,
-	Parry,
 	Burst,
-	SuperDash,
 	Tag,
+	Custom,
 };
 
 /**
@@ -252,6 +252,72 @@ struct FInputConditionList
 };
 
 /**
+ * A range used for CPU behavior.
+ */
+UENUM()
+enum ERangeType
+{
+	RAN_Near,
+	RAN_Mid,
+	RAN_Far,
+};
+
+/**
+ * Attack speed used for CPU behavior.
+ */
+UENUM()
+enum EAttackSpeed
+{
+	ASPD_Fast,
+	ASPD_Medium,
+	ASPD_Slow,
+};
+
+/**
+ * Data for the CPU to use when deciding which state to enter.
+ */
+USTRUCT()
+struct FStateCPUData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	int32 AttackXBeginRange = 0;
+	UPROPERTY(EditAnywhere)
+	int32 AttackXEndRange = 300000;
+	UPROPERTY(EditAnywhere)
+	int32 AttackYBeginRange = 120000;
+	UPROPERTY(EditAnywhere)
+	int32 AttackYEndRange = 360000;
+	UPROPERTY(EditAnywhere)
+	bool bCombo;
+	UPROPERTY(EditAnywhere)
+	bool bNoCombo;
+	UPROPERTY(EditAnywhere)
+	bool bBlockstring;
+	UPROPERTY(EditAnywhere)
+	bool bPunish;
+	UPROPERTY(EditAnywhere)
+	bool bAntiAir;
+	UPROPERTY(EditAnywhere)
+	bool bThrow;
+	UPROPERTY(EditAnywhere)
+	bool bProjectile;
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<ERangeType> PunishRange;
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<EBlockType> BlockType;
+	UPROPERTY(EditAnywhere)
+	TEnumAsByte<EAttackSpeed> AttackSpeed;
+	UPROPERTY(EditAnywhere)
+	bool bBigDamage;
+	UPROPERTY(EditAnywhere)
+	bool bUsesResource;
+	UPROPERTY(EditAnywhere)
+	bool bInvuln;
+};
+
+/**
  * @brief A character state that determines behavior.
  *
  * Provides functionality for the current character behavior, such as frame data, animations, and more.
@@ -300,6 +366,11 @@ public:
 	UPROPERTY(EditAnywhere)
 	EStateType StateType;
 	/**
+	 * The custom state type. Only used if the base state type is set to Custom.
+	 */
+	UPROPERTY(EditAnywhere)
+	FName CustomStateType;
+	/**
 	 * An array of state conditions.
 	 * All state conditions must be successful to enter this state.
 	 */
@@ -330,6 +401,21 @@ public:
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxInstances = 1;
+	/**
+	 * Data for the CPU to determine when to enter the state.
+	 */
+	UPROPERTY(EditAnywhere)
+	FStateCPUData CPUData;
+	/**
+	 * If a human player should be able to enter the state. Not used with object states.
+	 */
+	UPROPERTY(EditAnywhere)
+	bool bHumanUsable = true;
+	/**
+	 * If a CPU player should be able to enter the state. Not used with object states.
+	 */
+	UPROPERTY(EditAnywhere)
+	bool bCPUUsable = true;
 
 	/**
 	 * Wrapper for Exec function that sets CelIndex to zero.

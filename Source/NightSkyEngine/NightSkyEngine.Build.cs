@@ -25,7 +25,7 @@ public class NightSkyEngine : ModuleRules
 			"AdvancedSessions"
 		});
 
-		PrivateDependencyModuleNames.AddRange(new[] { "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });
+		PrivateDependencyModuleNames.AddRange(new[] { "AIModule", "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });
 
 		DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
 
