@@ -88,6 +88,10 @@ public:
 	FString DefaultThrowLock = "ThrowLock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString DefaultTagIn = "TagIn";
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString DefaultRoundWin = "RoundWin";
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString DefaultMatchWin = "MatchWin";
 
 	UFUNCTION(BlueprintPure)
 	UState* GetByStateName(const FString& StateName)

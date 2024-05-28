@@ -282,7 +282,6 @@ void APlayerObject::Update()
 {
 	if ((PlayerFlags & PLF_IsOnScreen) == 0)
 	{
-		UpdateVisuals();
 		return;
 	}
 	
@@ -297,6 +296,13 @@ void APlayerObject::Update()
 		if ((AttackFlags & ATK_IsAttacking) == 0 && ComboTimer <= 0)
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
+			for (auto GaugeSide : GameState->BattleState.Gauge)
+			{
+				for (int i = 0; i < GaugeCount; i++)
+				{
+					GaugeSide[i] = GameState->BattleState.MaxGauge[i];
+				}
+			}
 		}
 		if (PlayerIndex == 1)
 		{
@@ -323,6 +329,7 @@ void APlayerObject::Update()
 		Enemy->CallSubroutine("CmnOnComboEnd");
 		Enemy->CallSubroutine("OnComboEnd");
 		TotalProration = 10000;
+		bCrumpled = false;
 	}
 	if (Inputs << 27 == 0) //if no direction, set neutral input
 		Inputs |= INP_Neutral;
@@ -406,7 +413,6 @@ void APlayerObject::Update()
 				}
 			}
 		}
-		UpdateVisuals();
 		ActionTime++;
 		return;
 	}
@@ -448,8 +454,7 @@ void APlayerObject::Update()
 		&& StoredStateMachine.CurrentState->StateType != EStateType::SpecialAttack
 		&& StoredStateMachine.CurrentState->StateType != EStateType::SuperAttack)
 	{
-		for (int32& Index : MovesUsedInCombo)
-			Index = -1;
+		MovesUsedInCombo.Empty();
 	}
 	
 	HandleBufferedState();
@@ -473,8 +478,8 @@ void APlayerObject::Update()
 	if (MeterCooldownTimer > 0)
 		MeterCooldownTimer--;
 
-	if ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >= ERoundFormat::TwoVsTwo &&
-		GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree))
+	if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >=
+		ERoundFormat::TwoVsTwo && GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree)))
 		StoredInputBuffer.Update(Inputs);
 	else
 		StoredInputBuffer.Update(INP_Neutral);
@@ -606,7 +611,24 @@ void APlayerObject::Update()
 		CallSubroutine("OnLanding");
 		CreateCommonParticle("cmn_jumpland_smoke", POS_Player);
 	}
-
+	
+	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
+	{
+		if (GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleBody && GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleHead)
+		{
+			if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
+				HandleGroundBounce();
+			else
+			{
+				StunTime = 0;
+				StunTimeMax = 0;
+				PlayerFlags |= PLF_IsKnockedDown;
+				if ((PlayerFlags & PLF_IsHardKnockedDown) == 0)
+					EnableState(ENB_Tech);
+			}
+		}
+	}
+	
 	HandleProximityBlock();
 	
 	if (Stance == ACT_Standing) //set pushbox values based on stance
@@ -645,8 +667,6 @@ void APlayerObject::Update()
 	GameState->SetScreenBounds();
 	GameState->SetStageBounds();
 	ActionTime++;
-	
-	UpdateVisuals();
 }
 
 void APlayerObject::UpdateNotBattle()
@@ -751,16 +771,11 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	default:
 		break;
 	}
-	
-	for (int i = 0; i < 32; i++)
+
+	for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
 	{
-		if (IsValid(ChildBattleObjects[i]))
-		{
-			if (ChildBattleObjects[i]->MiscFlags & MISC_DeactivateOnReceiveHit)
-			{
-				ChildBattleObjects[i]->DeactivateObject();
-			}
-		}
+		if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->MiscFlags & MISC_DeactivateOnReceiveHit)
+			GameState->SortedObjects[i]->DeactivateObject();
 	}
 	if (CurrentHealth <= 0)
 	{
@@ -803,6 +818,10 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 		}
 		return;
+	}
+	if (bLimitCrumple && bCrumpled && HACT == HACT_Crumple)
+	{
+		HACT = HACT_AirNormal;
 	}
 	switch (HACT)
 	{
@@ -946,12 +965,12 @@ void APlayerObject::SetHitValues()
 	int32 FinalAirHitPushbackY;
 	int32 FinalGravity;
 	
-	if (!(AttackFlags & ATK_IgnorePushbackScaling) && Enemy->ComboCounter > 5)
+	if (!(AttackFlags & ATK_IgnorePushbackScaling))
 	{
-		FinalHitPushbackX = ReceivedHit.GroundPushbackX + (Enemy->ComboCounter - 5) * 700;
-		FinalAirHitPushbackX = ReceivedHit.AirPushbackX + (Enemy->ComboCounter - 5) * 350;
-		FinalAirHitPushbackY = ReceivedHit.AirPushbackY - (Enemy->ComboCounter - 5) * 350;
-		FinalGravity = ReceivedHit.Gravity + (Enemy->ComboCounter - 5) * 25;
+		FinalHitPushbackX = ReceivedHit.GroundPushbackX + MovesUsedInCombo.Num() * 500;
+		FinalAirHitPushbackX = ReceivedHit.AirPushbackX + MovesUsedInCombo.Num() * 150;
+		FinalAirHitPushbackY = ReceivedHit.AirPushbackY - MovesUsedInCombo.Num() * 150;
+		FinalGravity = ReceivedHit.Gravity + MovesUsedInCombo.Num() * 10;
 	}
 	else
 	{
@@ -1024,6 +1043,10 @@ void APlayerObject::SetHitValues()
 		}
 	}
 	
+	if (bLimitCrumple && bCrumpled && HACT == HACT_Crumple)
+	{
+		HACT = HACT_AirNormal;
+	}
 	switch (HACT)
 	{
 	case HACT_GroundNormal:
@@ -1079,6 +1102,16 @@ void APlayerObject::SetHitValues()
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
+		break;
+	case HACT_Crumple:
+		StunTime = FinalUntech;
+		StunTimeMax = FinalUntech;
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		{
+			AttackOwner->Pushback = -FinalHitPushbackX;
+			Pushback = 0;
+		}
+		bCrumpled = true;
 		break;
 	case HACT_Blowback:
 		switch (ReceivedHit.BlowbackLevel)
@@ -1267,6 +1300,18 @@ void APlayerObject::BattleHudVisibility(bool Visible)
 	GameState->BattleHudVisibility(Visible);
 }
 
+void APlayerObject::EndRound() const
+{
+	if (!GameState) return;
+	GameState->RoundInit();
+}
+
+void APlayerObject::EndMatch() const
+{
+	if (!GameState) return;
+	GameState->EndMatch();
+}
+
 void APlayerObject::PauseRoundTimer(bool Pause)
 {
 	if (!GameState) return;
@@ -1281,10 +1326,22 @@ void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
 	}
 }
 
+APlayerObject* APlayerObject::CallAssist(const int AssistIndex, const FString AssistName)
+{
+	if (!GameState) return nullptr;
+	return GameState->CallAssist(PlayerIndex == 0, AssistIndex, AssistName);
+}
+
 APlayerObject* APlayerObject::SwitchMainPlayer(int NewTeamIndex)
 {
 	if (!GameState) return nullptr;
 	return GameState->SwitchMainPlayer(this, NewTeamIndex);
+}
+
+bool APlayerObject::IsMainPlayer() const
+{
+	if (!GameState) return true;
+	return this == GameState->GetMainPlayer(PlayerIndex == 0);
 }
 
 void APlayerObject::SetOnScreen(bool OnScreen)
@@ -1310,12 +1367,13 @@ void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visibl
 
 bool APlayerObject::CanEnterState(UState* State)
 {
-	if (!((CheckStateEnabled(State->StateType, State->CustomStateType) && !State->IsFollowupState)
-	|| FindChainCancelOption(FName(State->Name))
-	|| FindAutoComboCancelOption(FName(State->Name))
-	|| FindWhiffCancelOption(FName(State->Name))
-	|| (CheckKaraCancel(State->StateType) && 
-		CheckMovesUsedInCombo(FName(State->Name))
+	const FName MoveChainName = State->ShareChainName != "" ? FName(State->ShareChainName) : FName(State->Name);
+	if (!CheckMovesUsedInChain(MoveChainName) ||
+		!((CheckStateEnabled(State->StateType, State->CustomStateType) && !State->IsFollowupState)
+		|| FindChainCancelOption(FName(State->Name))
+		|| FindAutoComboCancelOption(FName(State->Name))
+		|| FindWhiffCancelOption(FName(State->Name))
+		|| (CheckKaraCancel(State->StateType)
 		&& !State->IsFollowupState
 		&& StoredStateMachine.GetStateIndex(FName(State->Name)) > StoredStateMachine.GetStateIndex(
 			FName(GetCurrentStateName()))) 
@@ -1793,7 +1851,7 @@ bool APlayerObject::FindChainCancelOption(const FName Name)
 			if (ChainCancelOptions[i] == StoredStateMachine.GetStateIndex(Name) && ChainCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInCombo(Name);
+				CheckMovesUsedInChain(Name);
 				break;
 			}
 		}
@@ -1811,7 +1869,7 @@ bool APlayerObject::FindAutoComboCancelOption(const FName Name)
 			if (AutoComboCancels[i] == StoredStateMachine.GetStateIndex(Name) && AutoComboCancels[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInCombo(Name);
+				CheckMovesUsedInChain(Name);
 				break;
 			}
 		}
@@ -1831,7 +1889,7 @@ bool APlayerObject::FindWhiffCancelOption(const FName Name)
 			if (WhiffCancelOptions[i] == StoredStateMachine.GetStateIndex(Name) && WhiffCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInCombo(Name);
+				CheckMovesUsedInChain(Name);
 				break;
 			}
 		}
@@ -1849,16 +1907,16 @@ bool APlayerObject::CheckReverseBeat(const FName Name)
 	if (StoredStateMachine.CurrentState->StateType == EStateType::NormalAttack
 		&& Index != INDEX_NONE && StoredStateMachine.States[Index]->StateType == EStateType::NormalAttack)
 	{
-		CheckMovesUsedInCombo(Name);
+		CheckMovesUsedInChain(Name);
 	}
 	return ReturnReg;
 }
 
-bool APlayerObject::CheckMovesUsedInCombo(const FName Name)
+bool APlayerObject::CheckMovesUsedInChain(const FName Name)
 {
 	ReturnReg = false;
 	int32 Usages = 0;
-	for (const int32 Index : MovesUsedInCombo)
+	for (const int32 Index : MovesUsedInChain)
 	{
 		if (Index == StoredStateMachine.GetStateIndex(Name) && Index != INDEX_NONE)
 			Usages++;
@@ -1970,18 +2028,12 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 {
 	ReturnReg = false;
-	for (int i = 0; i < 32; i++)
+	if (InObjectID != 0)
 	{
-		if (IsValid(ChildBattleObjects[i]))
+		for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
 		{
-			if (ChildBattleObjects[i]->IsActive)
-			{
-				if (ChildBattleObjects[i]->ObjectID == InObjectID && ChildBattleObjects[i]->ObjectID != 0)
-				{
-					ReturnReg = true;
-					break;
-				}
-			}
+			if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->ObjectID == InObjectID)
+				return true;
 		}
 	}
 	return ReturnReg;
@@ -2162,9 +2214,9 @@ void APlayerObject::SetStance(EActionStance InStance)
 	Stance = InStance;
 }
 
-void APlayerObject::JumpToState(FString NewName, bool IsLabel)
+bool APlayerObject::JumpToState(FString NewName, bool IsLabel)
 {
-	if (!GameState && !CharaSelectGameState) return;
+	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
 	if (StoredStateMachine.ForceSetState(FName(NewName)) && StoredStateMachine.CurrentState != nullptr)
 	{
@@ -2182,7 +2234,9 @@ void APlayerObject::JumpToState(FString NewName, bool IsLabel)
 		default:
 			break;
 		}
+		return true;
 	}
+	return false;
 }
 
 FString APlayerObject::GetCurrentStateName() const
@@ -2192,7 +2246,12 @@ FString APlayerObject::GetCurrentStateName() const
 
 FString APlayerObject::GetLastStateName() const
 {
-	return FString(LastStateName.ToString());
+	return LastStateName.ToString();
+}
+
+FString APlayerObject::GetStateEntryName() const
+{
+	return StateEntryName.ToString();
 }
 
 bool APlayerObject::CheckStateEnabled(EStateType StateType, FName CustomStateType)
@@ -2258,6 +2317,14 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType, FName CustomStateTyp
 		if (EnableFlags & ENB_Burst && Enemy->Player->PlayerFlags & PLF_LockOpponentBurst && (PlayerFlags & PLF_IsDead) == 0)
 			ReturnReg = true;
 		break;
+	case EStateType::Tag:
+		if (EnableFlags & ENB_Tag)
+			ReturnReg = true;
+		break;
+	case EStateType::Assist:
+		if (EnableFlags & ENB_Assist)
+			ReturnReg = true;
+		break;
 	case EStateType::Custom:
 		if (EnabledCustomStateTypes.Find(CustomStateType))
 			ReturnReg = true;
@@ -2270,16 +2337,13 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType, FName CustomStateTyp
 
 void APlayerObject::OnStateChange()
 {
+	if (!GameState) return;
+	
 	// Deactivate all objects that need to be destroyed on state change.
-	for (int i = 0; i < 32; i++)
+	for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
 	{
-		if (IsValid(ChildBattleObjects[i]))
-		{
-			if (ChildBattleObjects[i]->MiscFlags & MISC_DeactivateOnStateChange)
-			{
-				ChildBattleObjects[i]->DeactivateObject();
-			}
-		}
+		if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->MiscFlags & MISC_DeactivateOnStateChange)
+			GameState->SortedObjects[i]->DeactivateObject();
 	}
 	
 	DisableLastInput();
@@ -2345,7 +2409,6 @@ void APlayerObject::OnStateChange()
 	EnabledCustomStateTypes.Empty();
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
-	MovesUsedInCombo.Empty();
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
@@ -2359,13 +2422,18 @@ void APlayerObject::OnStateChange()
 
 void APlayerObject::PostStateChange()
 {
-	for (int i = 0; i < MovesUsedInCombo.Num(); i++)
+	MovesUsedInCombo.Add(StoredStateMachine.GetStateIndex(FName(GetCurrentStateName())));
+	if (StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack
+		&& StoredStateMachine.CurrentState->StateType <= EStateType::SuperAttack)
 	{
-		if (MovesUsedInCombo[i] == INDEX_NONE)
-		{
-			MovesUsedInCombo[i] = StoredStateMachine.GetStateIndex(FName(GetCurrentStateName()));
-			break;
-		}
+		const FName MoveChainName = StoredStateMachine.CurrentState->ShareChainName != ""
+			                            ? FName(StoredStateMachine.CurrentState->ShareChainName)
+			                            : FName(StoredStateMachine.CurrentState->Name);
+		MovesUsedInChain.Add(StoredStateMachine.GetStateIndex(MoveChainName));
+	}
+	else
+	{
+		MovesUsedInChain.Empty();
 	}
 	StoredStateMachine.CurrentState->ResetToCDO();
 }
@@ -2527,9 +2595,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
-	RoundWinTimer = 300;
-	for (auto& ChildObj : ChildBattleObjects)
-		ChildObj = nullptr;
+	RoundWinTimer = 180;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
 	CurrentAirJumpCount = 0;
@@ -2670,7 +2736,10 @@ void APlayerObject::EnableAll()
 	EnableState(ENB_SuperAttack);
 	EnableState(ENB_Block);
 	EnableState(ENB_ProximityBlock);
+	EnableState(ENB_Tech);
 	EnableState(ENB_Burst);
+	EnableState(ENB_Tag);
+	EnableState(ENB_Assist);
 }
 
 void APlayerObject::DisableAll()
@@ -2689,7 +2758,10 @@ void APlayerObject::DisableAll()
 	DisableState(ENB_SuperAttack);
 	DisableState(ENB_Block);
 	DisableState(ENB_ProximityBlock);
+	DisableState(ENB_Tech);
 	DisableState(ENB_Burst);
+	DisableState(ENB_Tag);
+	DisableState(ENB_Assist);
 }
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)

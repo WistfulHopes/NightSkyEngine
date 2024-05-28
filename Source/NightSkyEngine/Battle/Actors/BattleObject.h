@@ -855,6 +855,8 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* Player = nullptr;
 	UPROPERTY(BlueprintReadOnly)
+	ABattleObject* AttackOwner;
+	UPROPERTY(BlueprintReadOnly)
 	ABattleObject* AttackTarget = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* PositionLinkObj = nullptr;
@@ -912,7 +914,7 @@ public:
 	//handles pushing objects
 	void HandlePushCollision(ABattleObject* OtherObj);
 	//handles hitting objects
-	void HandleHitCollision(APlayerObject* OtherChar);
+	void HandleHitCollision(ABattleObject* AttackedObj);
 	//initializes hit data by attack level
 	FHitData InitHitDataByAttackLevel(bool IsCounter);
 	//handles object clashes

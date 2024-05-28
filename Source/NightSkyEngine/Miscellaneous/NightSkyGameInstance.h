@@ -9,6 +9,7 @@
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
 
+class USoundData;
 inline FString GameVersion = "0.0.4";
 inline FString BattleVersion = "0.0.4";
 constexpr int32 MaxReplays = 999;
@@ -34,6 +35,8 @@ struct FBattleData
 	FRandomManager Random;
 	UPROPERTY(BlueprintReadWrite)
 	FString StageURL;
+	UPROPERTY(BlueprintReadWrite)
+	FString MusicName;
 };
 
 /**
@@ -55,6 +58,9 @@ protected:
 	
 public:
 	bool FinishedLoadingForNetworkBattle = false;
+
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<USoundData> MusicData;
 
 	UPROPERTY()
 	TArray<UReplaySaveInfo*> ReplayList;

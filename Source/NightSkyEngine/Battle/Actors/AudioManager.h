@@ -27,6 +27,8 @@ public:
 	UAudioComponent* CharaVoicePlayers[CharaVoiceChannelCount];
 	UPROPERTY()
 	UAudioComponent* AnnouncerVoicePlayer;
+	UPROPERTY()
+	UAudioComponent* MusicPlayer;
 	
 protected:
 	// Called when the game starts or when spawned

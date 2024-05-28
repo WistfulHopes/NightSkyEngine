@@ -37,7 +37,6 @@ void ANightSkyCharaSelectGameState::Tick(float DeltaTime)
 	for (const auto Chara : P2Charas)
 	{
 		Chara->UpdateNotBattle();
-		Chara->SetActorScale3D(FVector(-1, 1, 1));
 	}
 }
 
@@ -65,7 +64,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(TSubclassOf<APlayerObject> I
 		P2Charas.Last()->SetDefaultComponentVisibility();
 		P2Charas.Last()->PlayerFlags = PLF_IsOnScreen;
 		P2Charas.Last()->SetActorLocation(P2Positions[P2Charas.Num() - 1]);
-		P2Charas.Last()->SetActorScale3D(FVector(-1, 1, 1));
+		P2Charas.Last()->Direction = DIR_Left;
 		GameInstance->BattleData.PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InClass;
 	}
 }

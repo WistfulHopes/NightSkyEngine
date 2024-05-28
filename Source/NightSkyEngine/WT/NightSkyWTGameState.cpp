@@ -45,11 +45,13 @@ void ANightSkyWTGameState::BeginPlay()
 	SequenceCameraActor->SetActorRotation(CameraRotation);
 }
 
-void ANightSkyWTGameState::HandleMatchWin()
+bool ANightSkyWTGameState::HandleMatchWin()
 {
 	bIsBattling = false;
 	
 	OnBattleEndDelegate.Broadcast();
+
+	return true;
 }
 
 void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)

@@ -63,6 +63,7 @@ void UNightSkyGameInstance::RollbackReplay(int32 FramesToRollback) const
 
 void UNightSkyGameInstance::EndRecordReplay() const
 {
+	if (IsReplay) return;
 	FString ReplayName = "REPLAY";
 	for (int i = 0; i < MaxReplays; i++)
 	{

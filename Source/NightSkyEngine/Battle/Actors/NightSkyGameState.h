@@ -56,15 +56,30 @@ struct FAudioChannel
 	bool Finished = true;
 };
 
+USTRUCT()
+struct FTeamData
+{
+	GENERATED_BODY()
+
+	int32 CooldownTimer[MaxPlayerObjects / 2];
+};
+
 USTRUCT(BlueprintType)
 struct FBattleState
 {
 	GENERATED_BODY()
 
 	char BattleStateSync;
+
+	FTeamData TeamData[2];
 	
 	int32 FrameNumber = 0;
 	int32 TimeUntilRoundStart = 0;
+
+	UPROPERTY(EditAnywhere)
+	int32 TagCooldown = 300;
+	UPROPERTY(EditAnywhere)
+	int32 AssistCooldown = 180;
 	
 	UPROPERTY(EditAnywhere)
 	int32 RoundStartPos = 297500;
@@ -116,6 +131,7 @@ struct FBattleState
 	FAudioChannel CharaAudioChannels[CharaAudioChannelCount];
 	FAudioChannel CharaVoiceChannels[CharaVoiceChannelCount];
 	FAudioChannel AnnouncerVoiceChannel;
+	FAudioChannel MusicChannel;
 
 	char BattleStateSyncEnd;
 
@@ -242,13 +258,13 @@ protected:
 	virtual void BeginPlay() override;
 	void Init();
 	void PlayIntros();
-	void RoundInit();
 	void UpdateLocalInput(); //updates local input
 	void SortObjects();
 	void HandlePushCollision() const; //for each active object, handle push collision
 	void HandleHitCollision() const;
+	void UpdateVisuals() const;
 	void HandleRoundWin();
-	virtual void HandleMatchWin();
+	virtual bool HandleMatchWin();
 	void CollisionView() const;
 	int32 CreateChecksum();
 	FGGPONetworkStats GetNetworkStats() const;
@@ -257,6 +273,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable)
+	void MatchInit();
+	void RoundInit();
+	
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2, bool bShouldResimulate);
 
@@ -267,6 +287,7 @@ public:
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
+	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FString& AssistName);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
 	void SaveGameState(int32* InChecksum); //saves game state
@@ -278,13 +299,15 @@ public:
 
 	void UpdateHUD() const;
 	void BattleHudVisibility(bool Visible);
-
+	
 	void PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player);
+	void PlayAnnouncerVoice(USoundBase* InSoundWave, float MaxDuration);
+	void PlayMusic(const FString& Name);
+	void PlayMusic(USoundBase* InSoundWave, float MaxDuration);
 	void ManageAudio();
 	void RollbackStartAudio(int32 InFrame) const;
-	void RollbackStopAudio() const;
 
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs
@@ -302,4 +325,9 @@ public:
 	void SetGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 	UFUNCTION(BlueprintCallable)
 	void UseGauge(bool IsP1, int32 GaugeIndex, int32 Value);
+	UFUNCTION(BlueprintPure)
+	bool IsTagBattle() const;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void EndMatch();
 };

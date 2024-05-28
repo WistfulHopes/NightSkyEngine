@@ -26,7 +26,9 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
 	UPROPERTY(BlueprintReadOnly, Replicated)
-	bool CharaDataReceived;
+	bool CharaDataReceived = false;
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	bool bRematchAccepted = false;
 	
 	UFUNCTION( Server, Reliable )
 	void ServerChecksumCheck(uint32 Checksum, int32 InFrame);
@@ -46,4 +48,9 @@ public:
 	void SendGgpoToServer(const TArray<int8> &GgpoMessage);
 	UFUNCTION( Client, Reliable )
 	void SendGgpoToClient(const TArray<int8> &GgpoMessage);
+	
+	UFUNCTION( Server, Reliable )
+	void SendRematchToServer();
+	UFUNCTION( Client, Reliable )
+	void SendRematchToClient();
 };

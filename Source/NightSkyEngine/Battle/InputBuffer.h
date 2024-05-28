@@ -99,6 +99,20 @@ public:
 	 */
 	bool CheckInputSequenceOnceStrict() const;
 	/**
+	 * Checks the input sequence against the buffer with the Once method.
+	 * @see EInputMethod
+	 * 
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
+	 */
+	bool CheckInputSequencePressAndRelease() const;
+	/**
+	 * Checks the input sequence against the buffer with the Once Strict method.
+	 * @see EInputMethod
+	 * 
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
+	 */
+	bool CheckInputSequencePressAndReleaseStrict() const;
+	/**
 	 * Checks the input sequence against the buffer with the Negative method.
 	 * @see EInputMethod
 	 * 

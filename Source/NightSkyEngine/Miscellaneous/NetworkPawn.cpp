@@ -28,6 +28,17 @@ void ANetworkPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(ANetworkPawn, CharaDataReceived)
+	DOREPLIFETIME(ANetworkPawn, bRematchAccepted)
+}
+
+void ANetworkPawn::SendRematchToClient_Implementation()
+{
+	bRematchAccepted = true;
+}
+
+void ANetworkPawn::SendRematchToServer_Implementation()
+{
+	bRematchAccepted = true;
 }
 
 void ANetworkPawn::ServerGetFinishedLoading_Implementation(bool Finished)
@@ -62,6 +73,7 @@ void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData)
 	GameInstance->BattleData.StartRoundTimer = InBattleData.StartRoundTimer;
 	GameInstance->BattleData.Random = InBattleData.Random;
 	GameInstance->BattleData.StageURL = InBattleData.StageURL;
+	GameInstance->BattleData.MusicName = InBattleData.MusicName;
 	CharaDataReceived = true;
 }
 

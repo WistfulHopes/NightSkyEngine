@@ -1,4 +1,7 @@
 ﻿#include "StateMachine.h"
+
+#include "StateAlias.h"
+#include "SubroutineState.h"
 #include "Actors/PlayerObject.h"
 
 void FStateMachine::AddState(const FName& Name, UState* Config)
@@ -28,7 +31,7 @@ int FStateMachine::GetStateIndex(FName Name) const
 	return StateNames.Find(Name);
 }
 
-bool FStateMachine::SetState(const FName Name)
+bool FStateMachine::SetState(const FName Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
@@ -41,10 +44,25 @@ bool FStateMachine::SetState(const FName Name)
 		return true;
 	}
 
+	const auto StateToEnter = States[StateNames.Find(Name)];
+	if (const auto SubroutineState = Cast<USubroutineState>(StateToEnter))
+	{
+		Parent->CallSubroutine(SubroutineState->SubroutineName);
+		return false;
+	}
+	if (!bIsAlias)
+	{
+		Parent->StateEntryName = FName(StateToEnter->Name);
+	}
+	if (const auto Alias = Cast<UStateAlias>(StateToEnter))
+	{
+		return SetState(FName(Alias->StateToEnter), true);
+	}
+	
 	Parent->TriggerEvent(EVT_Exit);
 	Parent->OnStateChange();	
 
-	CurrentState = States[StateNames.Find(Name)];
+	CurrentState = StateToEnter;
 	Parent->PostStateChange();
 	Parent->TriggerEvent(EVT_Enter);
 	Update();
@@ -52,17 +70,32 @@ bool FStateMachine::SetState(const FName Name)
 	return true;
 }
 
-bool FStateMachine::ForceSetState(const FName Name)
+bool FStateMachine::ForceSetState(const FName Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
 		return false;
 	}
 	
+	const auto StateToEnter = States[StateNames.Find(Name)];
+	if (const auto SubroutineState = Cast<USubroutineState>(StateToEnter))
+	{
+		Parent->CallSubroutine(SubroutineState->SubroutineName);
+		return false;
+	}
+	if (!bIsAlias)
+	{
+		Parent->StateEntryName = FName(StateToEnter->Name);
+	}
+	if (const auto Alias = Cast<UStateAlias>(StateToEnter))
+	{
+		return ForceSetState(FName(Alias->StateToEnter), true);
+	}
+
 	Parent->TriggerEvent(EVT_Exit);
 	Parent->OnStateChange();	
 
-	CurrentState = States[StateNames.Find(Name)];
+	CurrentState = StateToEnter;
 	Parent->PostStateChange();
 	Parent->TriggerEvent(EVT_Enter);
 	Update();

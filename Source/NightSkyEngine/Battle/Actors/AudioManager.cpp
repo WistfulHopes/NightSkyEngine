@@ -37,6 +37,9 @@ AAudioManager::AAudioManager()
 	AnnouncerVoicePlayer = CreateDefaultSubobject<UAudioComponent>(TEXT("AnnouncerVoicePlayer"));
 	AnnouncerVoicePlayer->bAutoActivate = false;
 	AnnouncerVoicePlayer->AutoAttachParent = RootComponent;
+	MusicPlayer = CreateDefaultSubobject<UAudioComponent>(TEXT("MusicPlayer"));
+	MusicPlayer->bAutoActivate = true;
+	MusicPlayer->AutoAttachParent = RootComponent;
 }
 
 // Called when the game starts or when spawned

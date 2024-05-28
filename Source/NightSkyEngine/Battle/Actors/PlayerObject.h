@@ -234,6 +234,8 @@ public:
 	bool FlipInputs;
 	UPROPERTY(EditAnywhere)
 	int32 MaxOTGCount;
+	UPROPERTY(EditAnywhere)
+	bool bLimitCrumple = true;
 	
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
@@ -255,6 +257,7 @@ public:
 	uint32 ThrowResistTimer = 0;
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
+	bool bCrumpled;
 	int32 RoundWinTimer = 180;
 	int32 WallTouchTimer;
 	
@@ -264,15 +267,15 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	APlayerObject* Enemy;
-	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackOwner;
-	UPROPERTY()
-	ABattleObject* ChildBattleObjects[64];
 	UPROPERTY()
 	ABattleObject* StoredBattleObjects[16];
 
 	bool ComponentVisible[MaxComponentCount];
 
+	FName StateEntryName;
+	UPROPERTY(BlueprintReadWrite)
+	FString IntroName = "Intro";
+	
 protected:
 	/*
 	 * Internal values.
@@ -320,10 +323,13 @@ public:
 	TArray<int32> ChainCancelOptions;
 	//options to chain cancel into
 	UPROPERTY(SaveGame)
-	TArray<int32> WhiffCancelOptions; 
+	TArray<int32> WhiffCancelOptions;
 	//checks state indices for moves used in current combo
 	UPROPERTY(SaveGame)
 	TArray<int32> MovesUsedInCombo = {};
+	//checks state indices for moves used in current combo
+	UPROPERTY(SaveGame)
+	TArray<int32> MovesUsedInChain = {};
 	
 	/*
 	 * Defaults
@@ -427,7 +433,7 @@ private:
 	//check reverse beat
 	bool CheckReverseBeat(const FName Name);
 	//checks moves used in combo
-	bool CheckMovesUsedInCombo(const FName Name);
+	bool CheckMovesUsedInChain(const FName Name);
 	//handles throwing objects
 	void HandleThrowCollision();
 	//checks kara cancel
@@ -532,22 +538,25 @@ public:
 	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	void JumpToState(FString NewName, bool IsLabel = false);
+	bool JumpToState(FString NewName, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
 	FString GetCurrentStateName() const;
-	//gets current state name
+	//gets last state name
 	UFUNCTION(BlueprintPure)
 	FString GetLastStateName() const;
+	//gets state entry name
+	UFUNCTION(BlueprintPure)
+	FString GetStateEntryName() const;
 	//check if state can be entered
 	UFUNCTION(BlueprintPure)
 	bool CheckStateEnabled(EStateType StateType, FName CustomStateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
-	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
+	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
 	//disables state type
 	UFUNCTION(BlueprintCallable)
-	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = EEnableFlags)) int32 Bitmask);
+	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
 	//enable custom state type
 	UFUNCTION(BlueprintCallable)
 	void EnableCustomState(FName CustomStateType);
@@ -688,6 +697,12 @@ public:
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
+	//ends round
+	UFUNCTION(BlueprintCallable)
+	void EndRound() const;
+	//match round
+	UFUNCTION(BlueprintCallable)
+	void EndMatch() const;
 	//pauses round timer
 	UFUNCTION(BlueprintCallable)
 	void PauseRoundTimer(bool Pause);
@@ -695,7 +710,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
 	UFUNCTION(BlueprintCallable)
+	APlayerObject* CallAssist(int AssistIndex, FString AssistName);
+	UFUNCTION(BlueprintCallable)
 	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
+	UFUNCTION(BlueprintPure)
+	bool IsMainPlayer() const;
 	UFUNCTION(BlueprintCallable)
 	void SetOnScreen(bool OnScreen);
 	UFUNCTION(BlueprintCallable)

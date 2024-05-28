@@ -62,6 +62,7 @@ enum class EStateType : uint8
 	Tech,
 	Burst,
 	Tag,
+	Assist,
 	Custom,
 };
 
@@ -145,6 +146,17 @@ enum class EInputMethod : uint8
 	 */
 	OnceStrict,
 	/*
+	 * The button or direction will only be counted when first pressed, then released.
+	  * Diagonal directions are counted as both of the cardinal directions it represents.
+	 */
+	PressAndRelease,
+	/*
+	 * The button or direction will only be counted when first pressed, then released.
+	 * Diagonal directions are not counted as either of the cardinal directions it represents.
+	 * This is a combination of the Once and Strict methods.
+	 */
+	PressAndReleaseStrict,
+	/*
 	 * The button or direction will only be counted at the moment of release.
 	  * Diagonal directions are counted as both of the cardinal directions it represents.
 	 */
@@ -179,7 +191,7 @@ struct FInputBitmask
 	 *
 	 * @see EInputFlags
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = EInputFlags))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EInputFlags"))
 	int InputFlag;
 	
 	/**
@@ -349,6 +361,14 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FString Name;
 	/**
+<<<<<<< HEAD
+=======
+	 * The state name to share a max chain with.
+	 */
+	UPROPERTY(EditAnywhere)
+	FString ShareChainName;
+	/**
+>>>>>>> 963214a4 (vacation stuff)
 	 * The required stance to enter this state.
 	 * Only used on player states.
 	 */
@@ -420,7 +440,7 @@ public:
 	/**
 	 * Wrapper for Exec function that sets CelIndex to zero.
 	 */
-	void CallExec();
+	virtual void CallExec();
 
 	/**
 	 * Called every frame to update the state.

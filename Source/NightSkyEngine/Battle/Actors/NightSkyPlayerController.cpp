@@ -58,6 +58,12 @@ void ANightSkyPlayerController::Tick(float DeltaTime)
 				SendGgpo(NetworkPawns[0], false);
 			}
 		}
+		if (NetworkPawn->bRematchAccepted && bRematch)
+		{
+			NetworkPawn->bRematchAccepted = false;
+			bRematch = false;
+			Cast<ANightSkyGameState>(GetWorld()->GetGameState())->MatchInit();
+		}
 	}
 }
 
@@ -83,111 +89,56 @@ void ANightSkyPlayerController::SetupInputComponent()
 
 	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(InputComponent);
 
-	
-	for (auto Mapping : InputMapping.Get()->GetMappings())
-	{
-		FString ActionName = Mapping.Action.Get()->GetName();
-		if (ActionName == "PressUp")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressUp);
-		}
-		else if (ActionName == "ReleaseUp")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseUp);
-		}
-		else if (ActionName == "PressDown")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressDown);
-		}
-		else if (ActionName == "ReleaseDown")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseDown);
-		}
-		else if (ActionName == "PressLeft")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressLeft);
-		}
-		else if (ActionName == "ReleaseLeft")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseLeft);
-		}
-		else if (ActionName == "PressRight")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressRight);
-		}
-		else if (ActionName == "ReleaseRight")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseRight);
-		}
-		else if (ActionName == "PressA")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressA);
-		}
-		else if (ActionName == "ReleaseA")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseA);
-		}
-		else if (ActionName == "PressB")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressB);
-		}
-		else if (ActionName == "ReleaseB")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseB);
-		}
-		else if (ActionName == "PressC")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressC);
-		}
-		else if (ActionName == "ReleaseC")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseC);
-		}
-		else if (ActionName == "PressD")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressD);
-		}
-		else if (ActionName == "ReleaseD")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseD);
-		}
-		else if (ActionName == "PressE")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressE);
-		}
-		else if (ActionName == "ReleaseE")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseE);
-		}
-		else if (ActionName == "PressF")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressF);
-		}
-		else if (ActionName == "ReleaseF")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseF);
-		}
-		else if (ActionName == "PressG")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressG);
-		}
-		else if (ActionName == "ReleaseG")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseG);
-		}
-		else if (ActionName == "PressH")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressH);
-		}
-		else if (ActionName == "ReleaseH")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
-		}
-		else if (ActionName == "PauseGame")
-		{
-			Input->BindAction(Mapping.Action.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
-		}
-	}
+	if (IsValid(InputActions.PressUp))
+		Input->BindAction(InputActions.PressUp.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressUp);
+	if (IsValid(InputActions.ReleaseUp))
+		Input->BindAction(InputActions.ReleaseUp.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseUp);
+	if (IsValid(InputActions.PressDown))
+		Input->BindAction(InputActions.PressDown.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressDown);
+	if (IsValid(InputActions.ReleaseDown))
+		Input->BindAction(InputActions.ReleaseDown.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseDown);
+	if (IsValid(InputActions.PressLeft))
+		Input->BindAction(InputActions.PressLeft.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressLeft);
+	if (IsValid(InputActions.ReleaseLeft))
+		Input->BindAction(InputActions.ReleaseLeft.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseLeft);
+	if (IsValid(InputActions.PressRight))
+		Input->BindAction(InputActions.PressRight.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressRight);
+	if (IsValid(InputActions.ReleaseRight))
+		Input->BindAction(InputActions.ReleaseRight.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseRight);
+	if (IsValid(InputActions.PressA))
+		Input->BindAction(InputActions.PressA.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressA);
+	if (IsValid(InputActions.ReleaseA))
+		Input->BindAction(InputActions.ReleaseA.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseA);
+	if (IsValid(InputActions.PressA))
+		Input->BindAction(InputActions.PressB.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressB);
+	if (IsValid(InputActions.ReleaseB))
+		Input->BindAction(InputActions.ReleaseB.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseB);
+	if (IsValid(InputActions.PressC))
+		Input->BindAction(InputActions.PressC.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressC);
+	if (IsValid(InputActions.ReleaseC))
+		Input->BindAction(InputActions.ReleaseC.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseC);
+	if (IsValid(InputActions.PressD))
+		Input->BindAction(InputActions.PressD.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressD);
+	if (IsValid(InputActions.ReleaseD))
+		Input->BindAction(InputActions.ReleaseD.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseD);
+	if (IsValid(InputActions.PressE))
+		Input->BindAction(InputActions.PressE.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressE);
+	if (IsValid(InputActions.ReleaseE))
+		Input->BindAction(InputActions.ReleaseE.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseE);
+	if (IsValid(InputActions.PressF))
+		Input->BindAction(InputActions.PressF.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressF);
+	if (IsValid(InputActions.ReleaseF))
+		Input->BindAction(InputActions.ReleaseF.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseF);
+	if (IsValid(InputActions.PressG))
+		Input->BindAction(InputActions.PressG.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressG);
+	if (IsValid(InputActions.ReleaseG))
+		Input->BindAction(InputActions.ReleaseG.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseG);
+	if (IsValid(InputActions.PressH))
+		Input->BindAction(InputActions.PressH.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressH);
+	if (IsValid(InputActions.ReleaseH))
+		Input->BindAction(InputActions.ReleaseH.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
+	if (IsValid(InputActions.PauseGame))
+		Input->BindAction(InputActions.PauseGame.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
 }
 
 void ANightSkyPlayerController::PressUp()
@@ -321,7 +272,7 @@ void ANightSkyPlayerController::PauseGame()
 	}
 }
 
-void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Client)
+void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Client) const
 {
 	if(InNetworkPawn->FighterMultiplayerRunner==nullptr)//TODO: CHECK IF MULTIPLAYERRUNNER IS SPAWNED BEFORE THIS, IF SO DO THIS IN BEGINPLAY
 	{
@@ -364,7 +315,7 @@ void ANightSkyPlayerController::SendBattleData()
 	}
 	if (NetworkPawns.Num() > 1)
 	{
-		UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+		const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 		if (PlayerIndex == 0)
 		{
 			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData);
@@ -373,5 +324,21 @@ void ANightSkyPlayerController::SendBattleData()
 		{
 			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData);
 		}
+	}
+}
+
+void ANightSkyPlayerController::Rematch()
+{
+	bRematch = true;
+	if (const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance()); GameInstance->
+		FighterRunner != Multiplayer)
+	{
+		Cast<ANightSkyGameState>(GetWorld()->GetGameState())->MatchInit();
+		bRematch = false;
+	}
+	else
+	{	
+		if (GetWorld()->GetNetMode() == NM_Client) NetworkPawn->SendRematchToServer();
+		else NetworkPawn->SendRematchToClient();
 	}
 }

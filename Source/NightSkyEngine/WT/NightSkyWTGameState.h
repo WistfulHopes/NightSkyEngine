@@ -27,7 +27,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	virtual void HandleMatchWin() override;
+	virtual bool HandleMatchWin() override;
 	
 public:
 	void Init(APlayerObject* P1, APlayerObject* P2);
