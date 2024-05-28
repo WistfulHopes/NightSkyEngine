@@ -2111,6 +2111,7 @@ void APlayerObject::HandleGroundBounce()
 	ReceivedHit.Hitstop = ReceivedHit.GroundBounce.GroundBounceStop;
 	ReceivedHit.GroundHitAction = HACT_AirFaceUp;
 	EnableCancelIntoSelf(true);
+	PosY = GroundHeight + 1;
 	BufferedStateName = FName(CharaStateData->DefaultBLaunch);
 }
 

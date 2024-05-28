@@ -145,28 +145,6 @@ void ANightSkyGameState::Init()
 		SortedObjects[i + MaxPlayerObjects] = Objects[i];
 	}
 
-	FActorSpawnParameters SpawnParameters;
-	SpawnParameters.Owner = GetOwner();
-
-	switch (GameInstance->FighterRunner)
-	{
-	case LocalPlay:
-		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
-		break;
-	case Multiplayer:
-		if (GameInstance->IsReplay)
-			FighterRunner = GetWorld()->SpawnActor<AFighterReplayRunner>(AFighterReplayRunner::StaticClass(),SpawnParameters);
-		else
-			FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterMultiplayerRunner::StaticClass(),SpawnParameters);
-		break;
-	case SyncTest:
-		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterSynctestRunner::StaticClass(),SpawnParameters);
-		break;
-	default:
-		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
-		break;
-	}
-
 	MatchInit();
 }
 
@@ -319,6 +297,34 @@ void ANightSkyGameState::Tick(float DeltaTime)
 
 void ANightSkyGameState::MatchInit()
 {
+	if (FighterRunner) 
+	{
+		FighterRunner->Destroy();
+		FighterRunner = nullptr;
+	}
+	
+	FActorSpawnParameters SpawnParameters;
+	SpawnParameters.Owner = GetOwner();
+
+	switch (GameInstance->FighterRunner)
+	{
+	case LocalPlay:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+		break;
+	case Multiplayer:
+		if (GameInstance->IsReplay)
+			FighterRunner = GetWorld()->SpawnActor<AFighterReplayRunner>(SpawnParameters);
+		else
+			FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+		break;
+	case SyncTest:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+		break;
+	default:
+		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+		break;
+	}
+	
 	BattleState = Cast<ANightSkyGameState>(GetClass()->ClassDefaultObject)->BattleState;
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
