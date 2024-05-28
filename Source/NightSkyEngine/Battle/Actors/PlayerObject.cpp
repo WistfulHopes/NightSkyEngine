@@ -307,7 +307,7 @@ void APlayerObject::Update()
 		if (PlayerIndex == 1)
 		{
 			if (CheckIsStunned())
-				Inputs = INP_A | INP_Left;
+				Inputs = INP_A | (Direction == DIR_Right ? INP_Left : INP_Right);
 			else
 				Inputs = INP_Neutral;
 		}
@@ -2375,6 +2375,7 @@ void APlayerObject::OnStateChange()
 	PosZ = 0;
 	
 	// Reset speed modifiers
+	Gravity = JumpGravity;
 	SpeedXRate = 100;
 	SpeedXRatePerFrame = 100;
 	SpeedYRate = 100;

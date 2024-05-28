@@ -5,13 +5,12 @@
 #include "CoreMinimal.h"
 #include "AdvancedFriendsGameInstance.h"
 #include "FighterRunners.h"
-#include "RandomManager.h"
+#include "NightSkyEngine/Battle/RandomManager.h"
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
 
+class UNightSkySettingsInfo;
 class USoundData;
-inline FString GameVersion = "0.0.4";
-inline FString BattleVersion = "0.0.4";
 constexpr int32 MaxReplays = 999;
 
 class APlayerObject;
@@ -49,7 +48,7 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UAdvancedFriendsGameInst
 
 	UPROPERTY()
 	UReplaySaveInfo* CurrentReplay;
-
+	
 	virtual void Init() override;
 
 protected:
@@ -58,6 +57,14 @@ protected:
 	
 public:
 	bool FinishedLoadingForNetworkBattle = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString GameVersion;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString BattleVersion;
+	
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UNightSkySettingsInfo> SettingsInfo;
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<USoundData> MusicData;
@@ -80,8 +87,7 @@ public:
 	TEnumAsByte<EFighterRunners> FighterRunner;	
 
 	UFUNCTION(BlueprintCallable)
-	void SeamlessTravel() const;
-	UFUNCTION(BlueprintCallable)
+	void TravelToVSInfo() const;
 	void TravelToBattleMap() const;
 
 	void LoadReplay();

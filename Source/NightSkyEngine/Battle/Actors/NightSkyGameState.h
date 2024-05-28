@@ -7,7 +7,7 @@
 #include "PlayerObject.h"
 #include "GameFramework/GameStateBase.h"
 #include "include/ggponet.h"
-#include "NightSkyEngine/Miscellaneous/RandomManager.h"
+#include "NightSkyEngine/Battle/RandomManager.h"
 #include "NightSkyGameState.generated.h"
 
 class UBattleExtensionData;
@@ -18,7 +18,6 @@ constexpr int32 MaxBattleObjects = 400;
 constexpr int32 MaxPlayerObjects = 6;
 constexpr int32 GaugeCount = 5;
 
-class UGGPONetwork;
 class ANightSkyBattleHudActor;
 
 // Battle data

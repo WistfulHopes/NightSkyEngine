@@ -20,13 +20,13 @@ public:
 	{
 		Timestamp = FDateTime::Now();
 		BattleData = FBattleData();  
-		Version = BattleVersion;
+		Version = "";
 		ReplayIndex = -1;
 		LengthInFrames = 0;
 	}
 	
 	UPROPERTY(BlueprintReadOnly)  
-	FDateTime Timestamp;  
+	FDateTime Timestamp;
 	UPROPERTY(BlueprintReadOnly)  
 	FBattleData BattleData;
 	UPROPERTY(BlueprintReadOnly)  

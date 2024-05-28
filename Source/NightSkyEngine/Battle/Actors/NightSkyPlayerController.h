@@ -94,6 +94,8 @@ public:
 	TSoftObjectPtr<UInputMappingContext> InputMapping;
 	UPROPERTY(EditAnywhere, Category="Input")
 	FBattleInputActions InputActions;
+
+	void RemapKeys() const;
 	
 	void PressUp();
 	void ReleaseUp();

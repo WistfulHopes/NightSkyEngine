@@ -58,7 +58,7 @@ struct FObjectRecord
 	}
 };
 
-UCLASS(Blueprintable)
+UCLASS()
 class UNightSkySaveInfo : public USaveGame
 {
 	GENERATED_BODY()

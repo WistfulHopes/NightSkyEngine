@@ -13,7 +13,7 @@
 #include "NightSkyEngine/Battle/Subroutine.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
-#include "NightSkyEngine/Miscellaneous/RandomManager.h"
+#include "NightSkyEngine/Battle/RandomManager.h"
 
 // Sets default values
 ABattleObject::ABattleObject()

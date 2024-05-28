@@ -2,6 +2,8 @@
 
 
 #include "NightSkyGameInstance.h"
+
+#include "NightSkySettingsInfo.h"
 #include "ReplayInfo.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -10,9 +12,22 @@ void UNightSkyGameInstance::Init()
 	Super::Init();
 
 	BattleData.Random = FRandomManager(FGenericPlatformMath::Rand());
+
+	SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::LoadGameFromSlot("SYSTEM", 0));
+	if (!SettingsInfo)
+	{
+		SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::CreateSaveGameObject(UNightSkySettingsInfo::StaticClass()));
+		UGameplayStatics::SaveGameToSlot(SettingsInfo, "SYSTEM", 0);
+	}
+
+	const FString AntiAliasingCommand = "r.AntiAliasingMethod " + FString::FromInt(SettingsInfo->AntiAliasingMethod);
+	const FString GlobalIlluminationCommand = "r.DynamicGlobalIlluminationMethod " + FString::FromInt(SettingsInfo->GlobalIlluminationMethod);
+
+	GetWorld()->Exec(GetWorld(), *AntiAliasingCommand);
+	GetWorld()->Exec(GetWorld(), *GlobalIlluminationCommand);
 }
 
-void UNightSkyGameInstance::SeamlessTravel() const
+void UNightSkyGameInstance::TravelToVSInfo() const
 {
 	this->GetWorld()->ServerTravel("VSInfo_PL", true);
 }
@@ -42,6 +57,7 @@ void UNightSkyGameInstance::RecordReplay()
 {
 	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::CreateSaveGameObject(UReplaySaveInfo::StaticClass()));
 	CurrentReplay->BattleData = BattleData;
+	CurrentReplay->Version = BattleVersion;
 }
 
 void UNightSkyGameInstance::UpdateReplay(int32 InputsP1, int32 InputsP2) const
@@ -89,10 +105,9 @@ void UNightSkyGameInstance::PlayReplayFromBP(FString ReplayName)
 void UNightSkyGameInstance::FindReplays()
 {
 	ReplayList.Empty();
-	FString ReplayName = "REPLAY";
 	for (int i = 0; i < MaxReplays; i++)
 	{
-		ReplayName = "REPLAY";
+		FString ReplayName = "REPLAY";
 		ReplayName.AppendInt(i);
 		if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
 		{

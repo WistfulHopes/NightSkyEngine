@@ -207,7 +207,6 @@ void ANightSkyGameState::RoundInit()
 	}
 	else if (BattleState.RoundFormat < ERoundFormat::TwoVsTwoKOF)
 	{
-		for (const auto Player : Players) Player->RoundWinTimer = 180;
 		const bool IsP1 = GetMainPlayer(true)->CurrentHealth == 0;
 		GetMainPlayer(IsP1)->SetOnScreen(false);
 		const auto NewPosX = GetMainPlayer(IsP1)->PosX;
@@ -220,9 +219,9 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(IsP1)->JumpToState(GetMainPlayer(IsP1)->CharaStateData->DefaultTagIn);
 		
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
-		GetMainPlayer(true)->RoundWinTimer = 180;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
-		GetMainPlayer(false)->RoundWinTimer = 180;
+		
+		for (const auto Player : Players) Player->RoundWinTimer = 180;
 	}
 	else
 	{
@@ -315,16 +314,17 @@ void ANightSkyGameState::MatchInit()
 		if (GameInstance->IsReplay)
 			FighterRunner = GetWorld()->SpawnActor<AFighterReplayRunner>(SpawnParameters);
 		else
-			FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+			FighterRunner = GetWorld()->SpawnActor<AFighterMultiplayerRunner>(SpawnParameters);
 		break;
 	case SyncTest:
-		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
+		FighterRunner = GetWorld()->SpawnActor<AFighterSynctestRunner>(SpawnParameters);
 		break;
 	default:
 		FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(SpawnParameters);
 		break;
 	}
 	
+	BattleState = FBattleState();
 	BattleState = Cast<ANightSkyGameState>(GetClass()->ClassDefaultObject)->BattleState;
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
@@ -333,6 +333,10 @@ void ANightSkyGameState::MatchInit()
 		if (i % 3 == 0)
 		{
 			Players[i]->PlayerFlags |= PLF_IsOnScreen;
+		}
+		else
+		{
+			Players[i]->PlayerFlags &= ~PLF_IsOnScreen;
 		}
 		Players[i]->ObjNumber = i + MaxBattleObjects;
 		Players[i]->CallSubroutine("CmnMatchInit");
@@ -944,17 +948,16 @@ int32 ANightSkyGameState::CreateChecksum()
 
 FGGPONetworkStats ANightSkyGameState::GetNetworkStats() const
 {
-	AFighterMultiplayerRunner* Runner = Cast<AFighterMultiplayerRunner>(FighterRunner);
-	if (IsValid(Runner))
+	if (AFighterMultiplayerRunner* Runner = Cast<AFighterMultiplayerRunner>(FighterRunner))
 	{
-		FGGPONetworkStats Stats = { };
+		FGGPONetworkStats Stats = { 0 };
 		if (Runner->Players[0]->type == GGPO_PLAYERTYPE_REMOTE)
 			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[0], &Stats);
 		else
 			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[1], &Stats);
 		return Stats;
 	}
-	constexpr FGGPONetworkStats Stats = { };
+	constexpr FGGPONetworkStats Stats = { 0 };
 	return Stats;
 }
 

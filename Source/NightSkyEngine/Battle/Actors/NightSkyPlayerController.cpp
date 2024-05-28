@@ -14,6 +14,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Miscellaneous/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
+#include "NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h"
 #include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
 
 // Sets default values
@@ -33,6 +34,7 @@ void ANightSkyPlayerController::BeginPlay()
 	Super::BeginPlay();
 	
 	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
+	RemapKeys();
 }
 
 // Called every frame
@@ -88,7 +90,7 @@ void ANightSkyPlayerController::SetupInputComponent()
 	}
 
 	UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(InputComponent);
-
+	
 	if (IsValid(InputActions.PressUp))
 		Input->BindAction(InputActions.PressUp.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PressUp);
 	if (IsValid(InputActions.ReleaseUp))
@@ -139,6 +141,22 @@ void ANightSkyPlayerController::SetupInputComponent()
 		Input->BindAction(InputActions.ReleaseH.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
 	if (IsValid(InputActions.PauseGame))
 		Input->BindAction(InputActions.PauseGame.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
+}
+
+void ANightSkyPlayerController::RemapKeys() const
+{
+	const auto SettingsInfo = Cast<UNightSkyGameInstance>(GetGameInstance())->SettingsInfo;
+	if (SettingsInfo->RemappedBattleKeys.Num() <= 0) return;
+
+	for (auto MappedKey : SettingsInfo->RemappedBattleKeys)
+	{
+		for (auto Mapping : InputMapping->GetMappings())
+		{
+			if (Mapping.Action != MappedKey.Key) continue;
+			InputMapping->UnmapKey(Mapping.Action, Mapping.Key);
+			InputMapping->MapKey(Mapping.Action, MappedKey.Value);
+		}
+	}
 }
 
 void ANightSkyPlayerController::PressUp()
