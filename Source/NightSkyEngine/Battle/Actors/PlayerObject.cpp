@@ -292,11 +292,14 @@ void APlayerObject::Update()
 	if (GameState->GameInstance->IsTraining)
 	{
 		if ((PlayerFlags & PLF_IsStunned) == 0)
+		{
 			CurrentHealth = MaxHealth;
+			RecoverableHealth = 0;
+		}
 		if ((AttackFlags & ATK_IsAttacking) == 0 && ComboTimer <= 0)
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
-			for (auto GaugeSide : GameState->BattleState.Gauge)
+			for (const auto GaugeSide : GameState->BattleState.Gauge)
 			{
 				for (int i = 0; i < GaugeCount; i++)
 				{
@@ -329,6 +332,7 @@ void APlayerObject::Update()
 		Enemy->CallSubroutine("CmnOnComboEnd");
 		Enemy->CallSubroutine("OnComboEnd");
 		TotalProration = 10000;
+		OTGCount = 0;
 		bCrumpled = false;
 	}
 	if (Inputs << 27 == 0) //if no direction, set neutral input
@@ -535,11 +539,6 @@ void APlayerObject::Update()
 			if ((PlayerFlags & PLF_IsKnockedDown) == 0 && (PlayerFlags & PLF_IsHardKnockedDown) == 0 && (PlayerFlags & PLF_IsDead) == 0)
 				EnableState(ENB_Tech);
 		}
-	}
-	
-	if (StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
-	{
-		OTGCount = 0;
 	}
 
 	if (PlayerFlags & PLF_TouchingWall && Enemy->StoredStateMachine.CurrentState->StateType != EStateType::Hitstun && Pushback != 0)

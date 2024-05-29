@@ -726,7 +726,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 {
 	if (HitCommon.AttackLevel < 0)
 		HitCommon.AttackLevel = 0;
-	if (HitCommon.AttackLevel > 4)
+	if (HitCommon.AttackLevel > 5)
 		HitCommon.AttackLevel = 5;
 	
 	switch (HitCommon.AttackLevel)
