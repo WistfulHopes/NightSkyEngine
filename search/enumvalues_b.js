@@ -1,21 +1,9 @@
 var searchData=
 [
-  ['meterfivebars_0',['MeterFiveBars',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cbab3c67780411d0db28de77c5f9cd3f6c4',1,'State.h']]],
-  ['meterfourbars_1',['MeterFourBars',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba23ea3495403079bc20cc97e6c3c502f4',1,'State.h']]],
-  ['meterhalfbar_2',['MeterHalfBar',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba76a45e58848430212773c5f532d24a2e',1,'State.h']]],
-  ['meternotzero_3',['MeterNotZero',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba53509c037ce9dd2ddbbd2ceaf6f87f07',1,'State.h']]],
-  ['meteronebar_4',['MeterOneBar',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba55743cd95a54e852e8a6560e36c93447',1,'State.h']]],
-  ['meterquarterbar_5',['MeterQuarterBar',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cbad62854f56785ef384cd4e0758c999a4e',1,'State.h']]],
-  ['meterthreebars_6',['MeterThreeBars',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba567dce4db66dff974d7ef8aea7593835',1,'State.h']]],
-  ['metertwobars_7',['MeterTwoBars',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba8e4837c4ad82ac7a79393cec82e8abbe',1,'State.h']]],
-  ['misc_5fdeactivateifbeyondbounds_8',['MISC_DeactivateIfBeyondBounds',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a70d8a01568edb746a872703246742b0e',1,'Bitflags.h']]],
-  ['misc_5fdeactivateonnextupdate_9',['MISC_DeactivateOnNextUpdate',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a8e138e7119c36cf8268cea904f93c18b',1,'Bitflags.h']]],
-  ['misc_5fdeactivateonreceivehit_10',['MISC_DeactivateOnReceiveHit',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a3ec22d83e3ab420b7a3c5a484cfdb924',1,'Bitflags.h']]],
-  ['misc_5fdeactivateonstatechange_11',['MISC_DeactivateOnStateChange',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a787dde72e77cc75c6a7202453526fd05',1,'Bitflags.h']]],
-  ['misc_5fflipenable_12',['MISC_FlipEnable',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a96d1cbdb267d776bad92080fd0fc4363',1,'Bitflags.h']]],
-  ['misc_5ffloorcollisionactive_13',['MISC_FloorCollisionActive',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67abbe5344f3d71a3dc4865f45133c6bf6f',1,'Bitflags.h']]],
-  ['misc_5finertiaenable_14',['MISC_InertiaEnable',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67abac1ec4b83f5884e8472c3f1affafa56',1,'Bitflags.h']]],
-  ['misc_5fpushcollisionactive_15',['MISC_PushCollisionActive',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67ab5470b114501639d078495707e89f4e2',1,'Bitflags.h']]],
-  ['misc_5fwallcollisionactive_16',['MISC_WallCollisionActive',['../_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a8a6af7c2ceea809e6f40aad624993235',1,'Bitflags.h']]],
-  ['multiplayer_17',['Multiplayer',['../_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50a06647dac7bd255417c92ac2c2efcf333',1,'FighterRunners.h']]]
+  ['negative_0',['Negative',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071affb9356ff2b7da85c75c92fa7ea03b8b',1,'State.h']]],
+  ['negativestrict_1',['NegativeStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab',1,'State.h']]],
+  ['neutraljump_2',['NeutralJump',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a9871fc6acabfd4e7f427ee8cebdb6c53',1,'State.h']]],
+  ['none_3',['None',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;State.h'],['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;State.h']]],
+  ['normal_4',['Normal',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a960b44c579bc2f6818d2daaf9e4c16f0',1,'State.h']]],
+  ['normalattack_5',['NormalAttack',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a94543b451500ddba9908d0cf64b49ebd',1,'State.h']]]
 ];

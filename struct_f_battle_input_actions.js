@@ -1,0 +1,28 @@
+var struct_f_battle_input_actions =
+[
+    [ "PauseGame", "struct_f_battle_input_actions.html#a7badaede9956e1e6983b315d2d03ce1e", null ],
+    [ "PressA", "struct_f_battle_input_actions.html#aaf07afcaffefe21007b297a84c71ca87", null ],
+    [ "PressB", "struct_f_battle_input_actions.html#ae0db0f2a6d9626d7983010ef6e20c18e", null ],
+    [ "PressC", "struct_f_battle_input_actions.html#ada99b6446583759e4102005a3dac6ced", null ],
+    [ "PressD", "struct_f_battle_input_actions.html#a3b0c7e68c062f78b198fc66e3aa6a2d6", null ],
+    [ "PressDown", "struct_f_battle_input_actions.html#a750104c938ef78b276c0ae10d4069f09", null ],
+    [ "PressE", "struct_f_battle_input_actions.html#a0841b254110531cb78150aba515e836a", null ],
+    [ "PressF", "struct_f_battle_input_actions.html#a5afdf039e1d68e402f4ac68e4f0345e4", null ],
+    [ "PressG", "struct_f_battle_input_actions.html#ae6fd197c967d24510c573dc346e7242f", null ],
+    [ "PressH", "struct_f_battle_input_actions.html#a58ee10c971c08675c04179c2313698ad", null ],
+    [ "PressLeft", "struct_f_battle_input_actions.html#a9f13fcc129f43c85c1bdd4f9a105a825", null ],
+    [ "PressRight", "struct_f_battle_input_actions.html#aa644155e58366dc20f53f5e630743def", null ],
+    [ "PressUp", "struct_f_battle_input_actions.html#a37fa68e3a8fa6dff067eda0015e885e2", null ],
+    [ "ReleaseA", "struct_f_battle_input_actions.html#a0bf5843ee2e0c338a965797a55e56e01", null ],
+    [ "ReleaseB", "struct_f_battle_input_actions.html#aeebb02a2d98efcc804c47521ee4aba20", null ],
+    [ "ReleaseC", "struct_f_battle_input_actions.html#acf2d9c5da5864a2e38fc8152e64c83ec", null ],
+    [ "ReleaseD", "struct_f_battle_input_actions.html#aacd19249e163ec3fc6b2c69cd6a6fea4", null ],
+    [ "ReleaseDown", "struct_f_battle_input_actions.html#adc5f853360e934bae5b534a84753e172", null ],
+    [ "ReleaseE", "struct_f_battle_input_actions.html#a97d5e9e6e52bed7126b5fe3b00fc4d67", null ],
+    [ "ReleaseF", "struct_f_battle_input_actions.html#a93e64183cd2de5fd5ccbead3ecb26589", null ],
+    [ "ReleaseG", "struct_f_battle_input_actions.html#a96c49e332a08f1f54fa9a0c84d0ceb27", null ],
+    [ "ReleaseH", "struct_f_battle_input_actions.html#a4d44a5844a96cfa238ef3baa9eb44c96", null ],
+    [ "ReleaseLeft", "struct_f_battle_input_actions.html#abb8870f1a44c4153083b72ec91ba5e49", null ],
+    [ "ReleaseRight", "struct_f_battle_input_actions.html#a98eecf629fcbfb0107514a0b1d6cd0d1", null ],
+    [ "ReleaseUp", "struct_f_battle_input_actions.html#ac3edcc5b5c12444177038228cf571833", null ]
+];

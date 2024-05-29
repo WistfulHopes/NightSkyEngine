@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['inp_5fa_0',['INP_A',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a8223e143149265bbc8f21c84d261573a',1,'Bitflags.h']]],
-  ['inp_5fb_1',['INP_B',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a32b3b4b6d5e1f3103b3cbea226152fca',1,'Bitflags.h']]],
-  ['inp_5fc_2',['INP_C',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a87d873ebc7bc9ee31223e8037eb8b697',1,'Bitflags.h']]],
-  ['inp_5fd_3',['INP_D',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a29144ec34ad312ec41e8813a540e6590',1,'Bitflags.h']]],
-  ['inp_5fdown_4',['INP_Down',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a8c03f641ab4904b6519832e414de11e1',1,'Bitflags.h']]],
-  ['inp_5fdownleft_5',['INP_DownLeft',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aa751a5d0b65a75cfe3650e0423253910',1,'Bitflags.h']]],
-  ['inp_5fdownright_6',['INP_DownRight',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aee16241cba89e570098d458d9004480f',1,'Bitflags.h']]],
-  ['inp_5fe_7',['INP_E',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aaf011aa9746cd0dbad34373456cd9fee',1,'Bitflags.h']]],
-  ['inp_5ff_8',['INP_F',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aadfb2b70b22c660486afdc48d885eb85',1,'Bitflags.h']]],
-  ['inp_5fg_9',['INP_G',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953',1,'Bitflags.h']]],
-  ['inp_5fh_10',['INP_H',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa',1,'Bitflags.h']]],
-  ['inp_5fleft_11',['INP_Left',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a972e9d6aff0ef198aa494c5e947d914b',1,'Bitflags.h']]],
-  ['inp_5fneutral_12',['INP_Neutral',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a46ef9b12f26c1f6b39eb357c9e399ca2',1,'Bitflags.h']]],
-  ['inp_5fnone_13',['INP_None',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068ac15dfe8f5b2206c6cfb1f2d2b2ae42c0',1,'Bitflags.h']]],
-  ['inp_5fright_14',['INP_Right',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068ae81d166c975c0d07f34d9539ba4f1e38',1,'Bitflags.h']]],
-  ['inp_5fup_15',['INP_Up',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068acb2aec10a742a80360aa10f0a7c18d60',1,'Bitflags.h']]],
-  ['inp_5fupleft_16',['INP_UpLeft',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aa4772546cd174d3607e51dd4f5c78ba9',1,'Bitflags.h']]],
-  ['inp_5fupright_17',['INP_UpRight',['../_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a74ddc5bbbd49f3315f0465c94b99f31e',1,'Bitflags.h']]],
-  ['inv_5fheadinvulnerable_18',['INV_HeadInvulnerable',['../_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0da4334457a854360cccd936254a58a2764',1,'Bitflags.h']]],
-  ['inv_5fprojectileinvulnerable_19',['INV_ProjectileInvulnerable',['../_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0da5bb1b5d589c8ef50583254264c706b5d',1,'Bitflags.h']]],
-  ['inv_5fstrikeinvulnerable_20',['INV_StrikeInvulnerable',['../_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0dabaadcc94bdd3de88db381f770c10245b',1,'Bitflags.h']]],
-  ['inv_5fthrowinvulnerable_21',['INV_ThrowInvulnerable',['../_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0da11228b7b7de5f954b2aa95c1ce18aed2',1,'Bitflags.h']]],
-  ['isattacking_22',['IsAttacking',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba723f9ad39aa82a48c57cae04daee7fa6',1,'State.h']]],
-  ['isstunned_23',['IsStunned',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba20808d06fcc749ccd64bd3bc858ad599',1,'State.h']]]
+  ['jumping_0',['Jumping',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453a5f51eb9396f286226cf2385d0e1947ee',1,'State.h']]]
 ];

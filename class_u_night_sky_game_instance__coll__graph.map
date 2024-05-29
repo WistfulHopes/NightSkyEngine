@@ -1,9 +1,9 @@
 <map id="UNightSkyGameInstance" name="UNightSkyGameInstance">
-<area shape="rect" id="Node000001" title=" " alt="" coords="21,181,189,207"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,120,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,131,102,180,97,182,73,133"/>
-<area shape="rect" id="Node000003" href="$struct_f_battle_data.html" title=" " alt="" coords="144,93,235,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,131,119,183,115,179,166,128"/>
-<area shape="rect" id="Node000004" href="$struct_f_random_manager.html" title=" " alt="" coords="125,5,253,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,45,192,93,187,93,187,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="50,181,218,207"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,220,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,132,134,180,128,182,116,134"/>
+<area shape="rect" id="Node000003" href="$struct_f_battle_data.html" title=" " alt="" coords="245,93,335,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,128,157,183,154,179,254,124"/>
+<area shape="rect" id="Node000004" href="$struct_f_random_manager.html" title=" " alt="" coords="226,5,354,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="293,45,293,93,287,93,287,45"/>
 </map>

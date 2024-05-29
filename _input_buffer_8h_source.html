@@ -117,34 +117,44 @@ $(function(){initNavTree('_input_buffer_8h_source.html',''); initResizable(); })
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_state_8h.html">State.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;InputBuffer.generated.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>USTRUCT()</div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html">   15</a></span>struct <a class="code hl_struct" href="struct_f_input_buffer.html">FInputBuffer</a></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a749206a720ffde95b4a0d2a4e34a779a">   22</a></span>    <a class="code hl_struct" href="struct_f_input_bitmask.html">FInputBitmask</a> InputSequence[20] = {  };</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a1056d71f90e720feb70f4866b0229c71">   26</a></span>    int32 ImpreciseInputCount = 0;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a2b0f6a044cdef896a12860e019a7696a">   33</a></span>    <span class="keywordtype">bool</span> bInputAllowDisable = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a24b918e48b64e623bf7dde1e70e32cc5">   42</a></span>    int32 InputBufferInternal[90] = { 16 };</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#ac28ad9d87b25be9b4306506ddc8e91b5">   51</a></span>    int32 InputDisabled[90] = { 0 };</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> Tick(int32 Input);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">bool</span> CheckInputCondition(<span class="keyword">const</span> <a class="code hl_struct" href="struct_f_input_condition.html">FInputCondition</a>&amp; InputCondition);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">bool</span> CheckInputSequence() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">bool</span> CheckInputSequenceStrict() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordtype">bool</span> CheckInputSequenceOnce() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> CheckInputSequenceOnceStrict() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">void</span> FlipInputsInBuffer();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>};</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">    9</a></span><span class="keyword">constexpr</span> int32 <a class="code hl_variable" href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">InputSequenceSize</a> = 20;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">   10</a></span><span class="keyword">constexpr</span> int32 <a class="code hl_variable" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a> = 90;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>USTRUCT()</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html">   18</a></span>struct <a class="code hl_struct" href="struct_f_input_buffer.html">FInputBuffer</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a4e72416642cc09c142b55cd34c6bde42">   25</a></span>    <a class="code hl_struct" href="struct_f_input_bitmask.html">FInputBitmask</a> InputSequence[<a class="code hl_variable" href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">InputSequenceSize</a>] = {  };</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a1056d71f90e720feb70f4866b0229c71">   29</a></span>    int32 ImpreciseInputCount = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a2b0f6a044cdef896a12860e019a7696a">   36</a></span>    <span class="keywordtype">bool</span> bInputAllowDisable = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a6369cced274b3c38dcbcf100a437feda">   43</a></span>    int32 InputBufferInternal[<a class="code hl_variable" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 16 };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_f_input_buffer.html#a236570e0ff2119200032167de131cbb3">   50</a></span>    int32 InputDisabled[<a class="code hl_variable" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 0 };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> Update(int32 Input);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> Emplace(int32 Input, uint32 Index);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> CheckInputCondition(<span class="keyword">const</span> <a class="code hl_struct" href="struct_f_input_condition.html">FInputCondition</a>&amp; InputCondition, <span class="keywordtype">bool</span> bIsKara = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> CheckInputSequence() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">bool</span> CheckInputSequenceStrict() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> CheckInputSequenceOnce() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">bool</span> CheckInputSequenceOnceStrict() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">bool</span> CheckInputSequencePressAndRelease() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">bool</span> CheckInputSequencePressAndReleaseStrict() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keywordtype">bool</span> CheckInputSequenceNegative() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">bool</span> CheckInputSequenceNegativeStrict() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordtype">void</span> FlipInputsInBuffer();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>};</div>
 </div>
+<div class="ttc" id="a_input_buffer_8h_html_aa8ecea5d46bab93714b6b6abac929efd"><div class="ttname"><a href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a></div><div class="ttdeci">constexpr int32 InputBufferSize</div><div class="ttdef"><b>Definition</b> <a href="#l00010">InputBuffer.h:10</a></div></div>
+<div class="ttc" id="a_input_buffer_8h_html_ac45807c44cfdf767c3314d816e11cfce"><div class="ttname"><a href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">InputSequenceSize</a></div><div class="ttdeci">constexpr int32 InputSequenceSize</div><div class="ttdef"><b>Definition</b> <a href="#l00009">InputBuffer.h:9</a></div></div>
 <div class="ttc" id="a_state_8h_html"><div class="ttname"><a href="_state_8h.html">State.h</a></div></div>
-<div class="ttc" id="astruct_f_input_bitmask_html"><div class="ttname"><a href="struct_f_input_bitmask.html">FInputBitmask</a></div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00152">State.h:153</a></div></div>
-<div class="ttc" id="astruct_f_input_buffer_html"><div class="ttname"><a href="struct_f_input_buffer.html">FInputBuffer</a></div><div class="ttdoc">The input buffer for a player object.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">InputBuffer.h:16</a></div></div>
-<div class="ttc" id="astruct_f_input_condition_html"><div class="ttname"><a href="struct_f_input_condition.html">FInputCondition</a></div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00190">State.h:191</a></div></div>
+<div class="ttc" id="astruct_f_input_bitmask_html"><div class="ttname"><a href="struct_f_input_bitmask.html">FInputBitmask</a></div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00176">State.h:177</a></div></div>
+<div class="ttc" id="astruct_f_input_buffer_html"><div class="ttname"><a href="struct_f_input_buffer.html">FInputBuffer</a></div><div class="ttdoc">The input buffer for a player object.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">InputBuffer.h:19</a></div></div>
+<div class="ttc" id="astruct_f_input_condition_html"><div class="ttname"><a href="struct_f_input_condition.html">FInputCondition</a></div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00221">State.h:222</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

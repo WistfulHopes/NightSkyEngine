@@ -6,6 +6,7 @@ var dir_2eda1223cc419035231db30215b8ccb1 =
     [ "CharaSelectData.h", "_chara_select_data_8h.html", "_chara_select_data_8h" ],
     [ "CollisionData.h", "_collision_data_8h.html", "_collision_data_8h" ],
     [ "FlipbookData.h", "_flipbook_data_8h.html", "_flipbook_data_8h" ],
+    [ "LinkActorData.h", "_link_actor_data_8h.html", "_link_actor_data_8h" ],
     [ "MaterialData.h", "_material_data_8h.html", "_material_data_8h" ],
     [ "ParticleData.h", "_particle_data_8h.html", "_particle_data_8h" ],
     [ "SequenceData.cpp", "_sequence_data_8cpp.html", null ],

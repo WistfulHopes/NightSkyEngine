@@ -8,6 +8,8 @@ var _battle_object_8h =
     [ "FHitPosition", "struct_f_hit_position.html", "struct_f_hit_position" ],
     [ "FHitData", "struct_f_hit_data.html", "struct_f_hit_data" ],
     [ "FHomingParams", "struct_f_homing_params.html", "struct_f_homing_params" ],
+    [ "FLinkedActorContainer", "struct_f_linked_actor_container.html", "struct_f_linked_actor_container" ],
+    [ "FSuperArmorData", "struct_f_super_armor_data.html", "struct_f_super_armor_data" ],
     [ "ABattleObject", "class_a_battle_object.html", "class_a_battle_object" ],
     [ "EBlockType", "_battle_object_8h.html#a1c94ee5203465c50283dfb3090fbfd2f", [
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
@@ -34,6 +36,10 @@ var _battle_object_8h =
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
     ] ],
     [ "EFloatingCrumpleType", "_battle_object_8h.html#a5f59481b0f059e36caa2c890992959aa", [
@@ -42,6 +48,7 @@ var _battle_object_8h =
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
     ] ],
     [ "EHitAction", "_battle_object_8h.html#abbeaaf67664ff0b954b314c0d36f1198", [
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
@@ -115,6 +122,11 @@ var _battle_object_8h =
       [ "POS_Center", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10aa8a6239d252959b47a503b31c3ba295f", null ],
       [ "POS_Enemy", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a1d82c05254822809efa2bc2442a05a85", null ],
       [ "POS_Hit", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10afe4b366ac66ef17e8b5d240dbdb13854", null ]
+    ] ],
+    [ "ESuperArmorType", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5d", [
+      [ "ARM_None", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5da31fcfa469f38ef5379386420c12265ae", null ],
+      [ "ARM_Guard", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5dae70c3e7a58daefe7136b050093f31fa3", null ],
+      [ "ARM_Dodge", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5da40a29ba8bf1db9e2ae6e96a88e99d6a5", null ]
     ] ],
     [ "CollisionArraySize", "_battle_object_8h.html#a5377ea9fa1272824fb6f6244d32a0128", null ],
     [ "SizeOfBattleObject", "_battle_object_8h.html#ae4384a2a5d7de09bcb8bae1f3826a27e", null ]

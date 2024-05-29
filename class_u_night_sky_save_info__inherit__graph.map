@@ -1,7 +1,9 @@
 <map id="UNightSkySaveInfo" name="UNightSkySaveInfo">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,137,104"/>
-<area shape="rect" id="Node000003" href="$class_u_replay_save_info.html" title=" " alt="" coords="12,152,131,177"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,119,74,151,69,151,69,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="24,5,119,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,45,74,78,69,78,69,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,79,227,104"/>
+<area shape="rect" id="Node000003" href="$class_u_night_sky_settings_info.html" title=" " alt="" coords="5,152,157,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,116,96,154,93,150,135,112"/>
+<area shape="rect" id="Node000004" href="$class_u_replay_save_info.html" title=" " alt="" coords="182,152,301,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,112,230,150,226,154,184,116"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="114,5,209,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,45,164,78,159,78,159,45"/>
 </map>

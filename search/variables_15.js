@@ -11,6 +11,5 @@ var searchData=
   ['wallbounceyrate_8',['WallBounceYRate',['../struct_f_wall_bounce_data.html#abf21bd82d5bd91975ab0735a70336b19',1,'FWallBounceData']]],
   ['wallbounceyspeed_9',['WallBounceYSpeed',['../struct_f_wall_bounce_data.html#a9da474ef4cc69b3066591a064072ca37',1,'FWallBounceData']]],
   ['walltouchtimer_10',['WallTouchTimer',['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject']]],
-  ['whiffcanceloptions_11',['WhiffCancelOptions',['../class_a_player_object.html#ae8ac359a2108d2b91e9e24e1bd76a0db',1,'APlayerObject']]],
-  ['whiffcanceloptionsinternal_12',['WhiffCancelOptionsInternal',['../class_a_player_object.html#a92971f0b2f07e511428fc9ed87844d41',1,'APlayerObject']]]
+  ['whiffcanceloptions_11',['WhiffCancelOptions',['../class_a_player_object.html#af8b0c889f4caaaf612810aff518e5c70',1,'APlayerObject']]]
 ];

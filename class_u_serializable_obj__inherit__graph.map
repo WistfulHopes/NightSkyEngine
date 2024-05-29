@@ -4,8 +4,12 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,114,88,154,85,149,151,110"/>
 <area shape="rect" id="Node000004" href="$class_u_state.html" title="A character state that determines behavior." alt="" coords="153,152,215,177"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,119,187,151,181,151,181,119"/>
-<area shape="rect" id="Node000005" href="$class_u_subroutine.html" title="A subroutine callable from any player or object state." alt="" coords="240,152,333,177"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="215,111,271,149,268,154,212,115"/>
+<area shape="rect" id="Node000007" href="$class_u_subroutine.html" title="A subroutine callable from any player or object state." alt="" coords="240,152,333,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="215,111,271,149,268,154,212,115"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="149,5,219,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,45,187,78,181,78,181,45"/>
+<area shape="rect" id="Node000005" href="$class_u_state_alias.html" title=" " alt="" coords="73,225,164,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="165,190,132,227,128,223,161,186"/>
+<area shape="rect" id="Node000006" href="$class_u_subroutine_state.html" title=" " alt="" coords="189,225,313,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="207,186,241,223,237,227,203,190"/>
 </map>

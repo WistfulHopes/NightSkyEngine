@@ -7,5 +7,6 @@ var class_a_audio_manager =
     [ "AnnouncerVoicePlayer", "class_a_audio_manager.html#a6e5b8f9fcb4630ba7c2b7a9e4ca4d575", null ],
     [ "CharaAudioPlayers", "class_a_audio_manager.html#afe41c01cdf14d3a5297a7826e67ffb53", null ],
     [ "CharaVoicePlayers", "class_a_audio_manager.html#a843dd477b2a69b4ffbe81e2d0a5c1897", null ],
-    [ "CommonAudioPlayers", "class_a_audio_manager.html#a91f3c6af9912654f0240572344dc7ba8", null ]
+    [ "CommonAudioPlayers", "class_a_audio_manager.html#a91f3c6af9912654f0240572344dc7ba8", null ],
+    [ "MusicPlayer", "class_a_audio_manager.html#ab80a9d2a77a07b50722c648ab546fb69", null ]
 ];

@@ -11,6 +11,9 @@ var hierarchy =
       [ "ANightSkyBattleHudActor", "class_a_night_sky_battle_hud_actor.html", null ],
       [ "AParticleManager", "class_a_particle_manager.html", null ]
     ] ],
+    [ "AAIController", null, [
+      [ "ANightSkyAIController", "class_a_night_sky_a_i_controller.html", null ]
+    ] ],
     [ "ACharacter", null, [
       [ "AWTCharacter", "class_a_w_t_character.html", null ]
     ] ],
@@ -41,6 +44,7 @@ var hierarchy =
     [ "FAnimStruct", "struct_f_anim_struct.html", null ],
     [ "FAudioChannel", "struct_f_audio_channel.html", null ],
     [ "FBattleData", "struct_f_battle_data.html", null ],
+    [ "FBattleInputActions", "struct_f_battle_input_actions.html", null ],
     [ "FBattleParticle", "struct_f_battle_particle.html", null ],
     [ "FBattleState", "struct_f_battle_state.html", null ],
     [ "FBPRollbackData", "struct_f_b_p_rollback_data.html", null ],
@@ -51,7 +55,6 @@ var hierarchy =
     [ "FEventHandler", "struct_f_event_handler.html", null ],
     [ "FExtraGauge", "struct_f_extra_gauge.html", null ],
     [ "FFlipbookStruct", "struct_f_flipbook_struct.html", null ],
-    [ "FFriendInfo", "struct_f_friend_info.html", null ],
     [ "FGroundBounceData", "struct_f_ground_bounce_data.html", null ],
     [ "FHitData", "struct_f_hit_data.html", null ],
     [ "FHitDataCommon", "struct_f_hit_data_common.html", null ],
@@ -63,38 +66,36 @@ var hierarchy =
     [ "FInputBuffer", "struct_f_input_buffer.html", null ],
     [ "FInputCondition", "struct_f_input_condition.html", null ],
     [ "FInputConditionList", "struct_f_input_condition_list.html", null ],
+    [ "FLinkActorStruct", "struct_f_link_actor_struct.html", null ],
+    [ "FLinkedActorContainer", "struct_f_linked_actor_container.html", null ],
     [ "FMaterialStruct", "struct_f_material_struct.html", null ],
     [ "FNetworkStats", "struct_f_network_stats.html", null ],
     [ "FObjectAndNameAsStringProxyArchive", null, [
       [ "FNightSkySaveArchive", "struct_f_night_sky_save_archive.html", null ]
     ] ],
     [ "FObjectRecord", "struct_f_object_record.html", null ],
-    [ "FOnlineLobbySearchQuery", "class_f_online_lobby_search_query.html", null ],
-    [ "FOnlineLobbySearchQueryFilter", "class_f_online_lobby_search_query_filter.html", null ],
     [ "FParticleStruct", "struct_f_particle_struct.html", null ],
     [ "FRandomManager", "struct_f_random_manager.html", null ],
     [ "FRollbackData", "struct_f_rollback_data.html", null ],
-    [ "FSavedInputCondition", "struct_f_saved_input_condition.html", null ],
     [ "FSequenceStruct", "struct_f_sequence_struct.html", null ],
-    [ "FSessionInfo", "struct_f_session_info.html", null ],
     [ "FSoundStruct", "struct_f_sound_struct.html", null ],
     [ "FStageStruct", "struct_f_stage_struct.html", null ],
+    [ "FStateCPUData", "struct_f_state_c_p_u_data.html", null ],
     [ "FStateMachine", "struct_f_state_machine.html", null ],
-    [ "FVoiceAdminChannelCredentials", "struct_f_voice_admin_channel_credentials.html", null ],
+    [ "FSuperArmorData", "struct_f_super_armor_data.html", null ],
+    [ "FTeamData", "struct_f_team_data.html", null ],
     [ "FWallBounceData", "struct_f_wall_bounce_data.html", null ],
-    [ "IOnlineAvatar", "class_i_online_avatar.html", null ],
-    [ "IOnlineLobby", "class_i_online_lobby.html", null ],
-    [ "IOnlineVoiceAdmin", "class_i_online_voice_admin.html", null ],
     [ "ModuleRules", null, [
       [ "NightSkyEngine", "class_night_sky_engine.html", null ]
     ] ],
-    [ "TSharedFromThis", null, [
-      [ "FOnlineLobby", "class_f_online_lobby.html", null ],
-      [ "FOnlineLobbyMemberTransaction", "class_f_online_lobby_member_transaction.html", null ],
-      [ "FOnlineLobbyTransaction", "class_f_online_lobby_transaction.html", null ]
+    [ "UAdvancedFriendsGameInstance", null, [
+      [ "UNightSkyGameInstance", "class_u_night_sky_game_instance.html", null ]
     ] ],
     [ "UAnimInstance", null, [
       [ "UNightSkyAnimInstance", "class_u_night_sky_anim_instance.html", null ]
+    ] ],
+    [ "UBlueprintFunctionLibrary", null, [
+      [ "UNightSkyBlueprintFunctionLibrary", "class_u_night_sky_blueprint_function_library.html", null ]
     ] ],
     [ "UCommonActivatableWidget", null, [
       [ "UExtendedCommonActivatableWidget", "class_u_extended_common_activatable_widget.html", null ]
@@ -106,6 +107,7 @@ var hierarchy =
       [ "UCharaSelectData", "class_u_chara_select_data.html", null ],
       [ "UCollisionData", "class_u_collision_data.html", null ],
       [ "UFlipbookData", "class_u_flipbook_data.html", null ],
+      [ "ULinkActorData", "class_u_link_actor_data.html", null ],
       [ "UMaterialData", "class_u_material_data.html", null ],
       [ "UParticleData", "class_u_particle_data.html", null ],
       [ "USequenceData", "class_u_sequence_data.html", null ],
@@ -114,18 +116,19 @@ var hierarchy =
       [ "UStateData", "class_u_state_data.html", null ],
       [ "USubroutineData", "class_u_subroutine_data.html", null ]
     ] ],
-    [ "UGameInstance", null, [
-      [ "UNightSkyGameInstance", "class_u_night_sky_game_instance.html", null ]
-    ] ],
     [ "UObject", null, [
       [ "USerializableObj", "class_u_serializable_obj.html", [
         [ "UBattleExtension", "class_u_battle_extension.html", null ],
-        [ "UState", "class_u_state.html", null ],
+        [ "UState", "class_u_state.html", [
+          [ "UStateAlias", "class_u_state_alias.html", null ],
+          [ "USubroutineState", "class_u_subroutine_state.html", null ]
+        ] ],
         [ "USubroutine", "class_u_subroutine.html", null ]
       ] ]
     ] ],
     [ "USaveGame", null, [
       [ "UNightSkySaveInfo", "class_u_night_sky_save_info.html", [
+        [ "UNightSkySettingsInfo", "class_u_night_sky_settings_info.html", null ],
         [ "UReplaySaveInfo", "class_u_replay_save_info.html", null ]
       ] ]
     ] ],

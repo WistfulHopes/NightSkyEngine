@@ -3,7 +3,13 @@ var _state_8h =
     [ "FInputBitmask", "struct_f_input_bitmask.html", "struct_f_input_bitmask" ],
     [ "FInputCondition", "struct_f_input_condition.html", "struct_f_input_condition" ],
     [ "FInputConditionList", "struct_f_input_condition_list.html", "struct_f_input_condition_list" ],
+    [ "FStateCPUData", "struct_f_state_c_p_u_data.html", "struct_f_state_c_p_u_data" ],
     [ "UState", "class_u_state.html", "class_u_state" ],
+    [ "EAttackSpeed", "_state_8h.html#a0c494fc3870197fc0100909f812d3734", [
+      [ "ASPD_Fast", "_state_8h.html#a0c494fc3870197fc0100909f812d3734abc74c700125e1896cdc6d23106470e64", null ],
+      [ "ASPD_Medium", "_state_8h.html#a0c494fc3870197fc0100909f812d3734a3e7ad969c322b0c69dfea4c5b65df1da", null ],
+      [ "ASPD_Slow", "_state_8h.html#a0c494fc3870197fc0100909f812d3734a59ddb5c5a63f1db34cfe8c79eb7b496c", null ]
+    ] ],
     [ "EEntryStance", "_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453", [
       [ "None", "_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453a6adf97f83acf6453d4a6a4b1070f3754", null ],
       [ "Standing", "_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453aa66b284e632fb96f19e27dca96b78fd7", null ],
@@ -14,7 +20,16 @@ var _state_8h =
       [ "Normal", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a960b44c579bc2f6818d2daaf9e4c16f0", null ],
       [ "Strict", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a2e979835dd62324f5bfe217449ba4974", null ],
       [ "Once", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ae1a9dc9f23534e63de9df0d540ac1611", null ],
-      [ "OnceStrict", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436", null ]
+      [ "OnceStrict", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436", null ],
+      [ "PressAndRelease", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ab573614837664b2daa76c6ee27b469e9", null ],
+      [ "PressAndReleaseStrict", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a86d139b5d2572a149c3eeea68c99ba91", null ],
+      [ "Negative", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071affb9356ff2b7da85c75c92fa7ea03b8b", null ],
+      [ "NegativeStrict", "_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab", null ]
+    ] ],
+    [ "ERangeType", "_state_8h.html#a8cc5b590f8cfe7f655503ad05f5747ca", [
+      [ "RAN_Near", "_state_8h.html#a8cc5b590f8cfe7f655503ad05f5747caaf509aba02182e87d275a5f8eb2ad78d6", null ],
+      [ "RAN_Mid", "_state_8h.html#a8cc5b590f8cfe7f655503ad05f5747caa7b3f6a048324f136ff8f75d68386a300", null ],
+      [ "RAN_Far", "_state_8h.html#a8cc5b590f8cfe7f655503ad05f5747caab176272051ca1e61c17c948d253d1907", null ]
     ] ],
     [ "EStateCondition", "_state_8h.html#af1917f42ed524567f2f378796c3f37cb", [
       [ "None", "_state_8h.html#af1917f42ed524567f2f378796c3f37cba6adf97f83acf6453d4a6a4b1070f3754", null ],
@@ -73,13 +88,14 @@ var _state_8h =
       [ "ForwardAirDash", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a9ad440eadb2538192cd5332cc4a0bd40", null ],
       [ "BackwardAirDash", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ad1f11009154a51261aad1d223f4ae82d", null ],
       [ "NormalAttack", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a94543b451500ddba9908d0cf64b49ebd", null ],
-      [ "NormalThrow", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a7b0489963df79c3bd053c069bc436dda", null ],
       [ "SpecialAttack", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a85a55f865e1098002505c719c141a8a0", null ],
       [ "SuperAttack", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921accfc9ae78f961ff6d1fa36bd878fabc7", null ],
       [ "Hitstun", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a285414d6171c818d1c987cc869db5153", null ],
       [ "Blockstun", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a4a11bc1107d58242bad76efd0176351d", null ],
       [ "Tech", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a575e0dc3e4b24d90d2a216d4dc5d0f09", null ],
-      [ "Parry", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921aae6aad00b2c68dbc984fbe8411d4caba", null ],
-      [ "Burst", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2", null ]
+      [ "Burst", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ac134fae30efdd1105b52a457a4bddac2", null ],
+      [ "Tag", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ac101058e7ea21bbbf2a5ac893088e90b", null ],
+      [ "Assist", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a937d383940beb94573cc1e2d862ec75a", null ],
+      [ "Custom", "_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a90589c47f06eb971d548591f23c285af", null ]
     ] ]
 ];

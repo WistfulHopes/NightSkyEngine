@@ -12,5 +12,6 @@ var searchData=
   ['cnc_5fspecialcancel_9',['CNC_SpecialCancel',['../_bitflags_8h.html#ae8de8b3f036722830413b279350505bcad1000b4d0967020e9974113864e0d680',1,'Bitflags.h']]],
   ['cnc_5fsupercancel_10',['CNC_SuperCancel',['../_bitflags_8h.html#ae8de8b3f036722830413b279350505bca3ed0ea787a8b174306788304f8c67338',1,'Bitflags.h']]],
   ['cnc_5fwhiffcancelenabled_11',['CNC_WhiffCancelEnabled',['../_bitflags_8h.html#ae8de8b3f036722830413b279350505bcaf9b1696e7553c989b960fb51e734fffe',1,'Bitflags.h']]],
-  ['crouching_12',['Crouching',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453ab6c79bff3f2df20c9bef5db6a4676158',1,'Crouching:&#160;State.h'],['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ab6c79bff3f2df20c9bef5db6a4676158',1,'Crouching:&#160;State.h']]]
+  ['crouching_12',['Crouching',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453ab6c79bff3f2df20c9bef5db6a4676158',1,'Crouching:&#160;State.h'],['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921ab6c79bff3f2df20c9bef5db6a4676158',1,'Crouching:&#160;State.h']]],
+  ['custom_13',['Custom',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a90589c47f06eb971d548591f23c285af',1,'State.h']]]
 ];

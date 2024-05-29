@@ -38,7 +38,10 @@ var _bitflags_8h =
       [ "ENB_SuperAttack", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba24017e9b04d536fbfae2349462eda9fa", null ],
       [ "ENB_Block", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364babe46dec0c6f12ef050331b16d1974ebf", null ],
       [ "ENB_ProximityBlock", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364bad3dfc8a2591fcc5a3864281478cb0b4d", null ],
-      [ "ENB_Tech", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba280c9149cfaed1d90644b07a3eca8cbd", null ]
+      [ "ENB_Tech", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba280c9149cfaed1d90644b07a3eca8cbd", null ],
+      [ "ENB_Burst", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba1b7613fdb7e94a2cdb8b0566619d2e6a", null ],
+      [ "ENB_Tag", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba632c23c980fed5dd5d06abcd2da2e539", null ],
+      [ "ENB_Assist", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba5d07a8fe4a1d107d66304fde6f3709c1", null ]
     ] ],
     [ "EInputFlags", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068", [
       [ "INP_None", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068ac15dfe8f5b2206c6cfb1f2d2b2ae42c0", null ],
@@ -75,7 +78,8 @@ var _bitflags_8h =
       [ "MISC_DeactivateOnNextUpdate", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a8e138e7119c36cf8268cea904f93c18b", null ],
       [ "MISC_DeactivateIfBeyondBounds", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a70d8a01568edb746a872703246742b0e", null ],
       [ "MISC_DeactivateOnStateChange", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a787dde72e77cc75c6a7202453526fd05", null ],
-      [ "MISC_DeactivateOnReceiveHit", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a3ec22d83e3ab420b7a3c5a484cfdb924", null ]
+      [ "MISC_DeactivateOnReceiveHit", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a3ec22d83e3ab420b7a3c5a484cfdb924", null ],
+      [ "MISC_IgnoreSuperFreeze", "_bitflags_8h.html#ab6700084f3f53f7b2a198306278e9f67a8973bbcb047c190100431a6cbcbdf7cc", null ]
     ] ],
     [ "EPlayerFlags", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990", [
       [ "PLF_IsDead", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990ab996907f8fa8884053200c64d7f61bc3", null ],
@@ -90,7 +94,8 @@ var _bitflags_8h =
       [ "PLF_LockOpponentBurst", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990ac9a7cf30e514960e7bbd36e6457a6f83", null ],
       [ "PLF_DefaultLandingAction", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a6331282fb2a683afad5175ac99508f73", null ],
       [ "PLF_ForceEnableFarNormal", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a4b4da92fa1393767fdba64190b88ba07", null ],
-      [ "PLF_TouchingWall", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990ab02b0c5435074004e3c4ab08307e4b6b", null ]
+      [ "PLF_TouchingWall", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990ab02b0c5435074004e3c4ab08307e4b6b", null ],
+      [ "PLF_HitgrabActive", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42", null ]
     ] ],
     [ "ENUM_CLASS_FLAGS", "_bitflags_8h.html#a4284193dc51793f2fec5963b7b60226b", null ],
     [ "ENUM_CLASS_FLAGS", "_bitflags_8h.html#a901bd02e24f30db8ed556612c02c03d1", null ]

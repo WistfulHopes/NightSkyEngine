@@ -126,11 +126,13 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a27a5dd8410051f2a6954c5c7dc72ff62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1136c76b87b2dd2d9d01180753ae6590" id="r_a1136c76b87b2dd2d9d01180753ae6590"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1136c76b87b2dd2d9d01180753ae6590">TimeBetweenInputs</a> = 5</td></tr>
 <tr class="separator:a1136c76b87b2dd2d9d01180753ae6590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06bf34ff3be450452bc4d4f3d0e02a47" id="r_a06bf34ff3be450452bc4d4f3d0e02a47"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bf34ff3be450452bc4d4f3d0e02a47">Hold</a> = 0</td></tr>
+<tr class="separator:a06bf34ff3be450452bc4d4f3d0e02a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A container struct for input bitmasks. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00152">152</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00176">176</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a61c4766aa2aa45b33b6c949beb898abd" name="a61c4766aa2aa45b33b6c949beb898abd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61c4766aa2aa45b33b6c949beb898abd">&#9670;&#160;</a></span>FInputBitmask() <span class="overload">[1/2]</span></h2>
@@ -155,7 +157,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00156">156</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00180">180</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -182,11 +184,28 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00160">160</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00184">184</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a06bf34ff3be450452bc4d4f3d0e02a47" name="a06bf34ff3be450452bc4d4f3d0e02a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bf34ff3be450452bc4d4f3d0e02a47">&#9670;&#160;</a></span>Hold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 FInputBitmask::Hold = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How long the input must be held for. Unless you're creating a charge/hold input, leave as zero. Does not work with the Negative or Negative Strict input methods. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00214">214</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+
+</div>
+</div>
 <a id="aecbf448e2487a94980c26a4742605123" name="aecbf448e2487a94980c26a4742605123"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aecbf448e2487a94980c26a4742605123">&#9670;&#160;</a></span>InputFlag</h2>
 
@@ -201,7 +220,7 @@ Public Attributes</h2></td></tr>
 <p>The input flag.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068">EInputFlags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00171">171</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00195">195</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -218,7 +237,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>How much buffer time there is for the input. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00177">177</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00201">201</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +254,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>How much time is allowed between inputs. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00183">183</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00207">207</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>

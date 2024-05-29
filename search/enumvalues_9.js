@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jumping_0',['Jumping',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453a5f51eb9396f286226cf2385d0e1947ee',1,'State.h']]]
+  ['localplay_0',['LocalPlay',['../_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50a499d0127fd7382b45c78844724183dfe',1,'FighterRunners.h']]]
 ];

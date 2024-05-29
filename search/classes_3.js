@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nightskyengine_0',['NightSkyEngine',['../class_night_sky_engine.html',1,'']]]
+  ['rpcconnectionmanager_0',['RpcConnectionManager',['../class_rpc_connection_manager.html',1,'']]]
 ];

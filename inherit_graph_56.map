@@ -1,29 +1,15 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,301,97,327"/>
-<area shape="rect" id="Node000001" href="$class_u_anim_data.html" title=" " alt="" coords="177,5,265,31"/>
-<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="52,286,58,235,73,169,100,100,120,68,144,40,158,29,175,22,177,27,161,34,147,44,124,71,105,103,78,170,63,235,57,287"/>
-<area shape="rect" id="Node000002" href="$class_u_battle_extension_data.html" title=" " alt="" coords="145,55,296,80"/>
-<area shape="poly" id="edge28_Node000000_Node000002" title=" " alt="" coords="54,286,63,243,80,190,106,136,123,111,144,89,160,78,163,83,147,93,127,115,111,139,85,192,68,244,59,287"/>
-<area shape="rect" id="Node000003" href="$class_u_camera_shake_data.html" title=" " alt="" coords="151,104,291,129"/>
-<area shape="poly" id="edge29_Node000000_Node000003" title=" " alt="" coords="57,286,69,253,87,213,112,173,144,139,161,128,164,132,147,143,116,176,92,216,74,255,63,288"/>
-<area shape="rect" id="Node000004" href="$class_u_chara_select_data.html" title=" " alt="" coords="156,153,285,179"/>
-<area shape="poly" id="edge30_Node000000_Node000004" title=" " alt="" coords="63,287,95,237,118,211,144,188,164,177,166,182,147,192,122,214,100,240,68,290"/>
-<area shape="rect" id="Node000005" href="$class_u_collision_data.html" title=" " alt="" coords="167,203,274,228"/>
-<area shape="poly" id="edge31_Node000000_Node000005" title=" " alt="" coords="74,289,106,262,144,237,169,226,171,231,147,242,109,267,78,293"/>
-<area shape="rect" id="Node000006" href="$class_u_flipbook_data.html" title=" " alt="" coords="167,252,274,277"/>
-<area shape="poly" id="edge32_Node000000_Node000006" title=" " alt="" coords="111,294,174,275,175,280,112,299"/>
-<area shape="rect" id="Node000007" href="$class_u_material_data.html" title=" " alt="" coords="169,301,273,327"/>
-<area shape="poly" id="edge33_Node000000_Node000007" title=" " alt="" coords="112,311,168,311,168,317,112,317"/>
-<area shape="rect" id="Node000008" href="$class_u_particle_data.html" title=" " alt="" coords="169,351,272,376"/>
-<area shape="poly" id="edge34_Node000000_Node000008" title=" " alt="" coords="112,329,175,348,174,353,111,334"/>
-<area shape="rect" id="Node000009" href="$class_u_sequence_data.html" title=" " alt="" coords="163,400,279,425"/>
-<area shape="poly" id="edge35_Node000000_Node000009" title=" " alt="" coords="78,335,110,361,147,385,174,397,171,402,144,390,107,365,75,339"/>
-<area shape="rect" id="Node000010" href="$class_u_sound_data.html" title=" " alt="" coords="173,449,268,475"/>
-<area shape="poly" id="edge36_Node000000_Node000010" title=" " alt="" coords="68,339,100,387,122,413,147,434,174,449,172,453,144,439,118,416,96,391,64,341"/>
-<area shape="rect" id="Node000011" href="$class_u_stage_data.html" title=" " alt="" coords="175,499,267,524"/>
-<area shape="poly" id="edge37_Node000000_Node000011" title=" " alt="" coords="63,340,74,373,92,411,116,450,147,484,176,499,173,504,144,488,112,454,87,414,69,375,58,341"/>
-<area shape="rect" id="Node000012" href="$class_u_state_data.html" title=" " alt="" coords="176,548,265,573"/>
-<area shape="poly" id="edge38_Node000000_Node000012" title=" " alt="" coords="59,341,69,383,85,435,111,488,128,512,147,533,161,543,177,550,175,555,158,548,144,537,123,515,106,490,80,437,63,384,54,342"/>
-<area shape="rect" id="Node000013" href="$class_u_subroutine_data.html" title=" " alt="" coords="161,597,281,623"/>
-<area shape="poly" id="edge39_Node000000_Node000013" title=" " alt="" coords="57,341,63,392,78,457,105,524,124,555,147,583,164,595,161,599,144,587,120,558,101,527,73,458,58,393,52,342"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,75,80"/>
+<area shape="rect" id="Node000001" href="$class_u_serializable_obj.html" title=" " alt="" coords="123,55,241,80"/>
+<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="89,65,122,65,122,70,89,70"/>
+<area shape="rect" id="Node000002" href="$class_u_battle_extension.html" title="A customizable extension to the battle ruleset." alt="" coords="289,5,412,31"/>
+<area shape="poly" id="edge42_Node000001_Node000002" title=" " alt="" coords="241,47,304,29,305,34,242,53"/>
+<area shape="rect" id="Node000003" href="$class_u_state.html" title="A character state that determines behavior." alt="" coords="319,55,382,80"/>
+<area shape="poly" id="edge43_Node000001_Node000003" title=" " alt="" coords="256,65,319,65,319,70,256,70"/>
+<area shape="rect" id="Node000006" href="$class_u_subroutine.html" title="A subroutine callable from any player or object state." alt="" coords="304,104,397,129"/>
+<area shape="poly" id="edge46_Node000001_Node000006" title=" " alt="" coords="242,82,305,101,304,106,241,87"/>
+<area shape="rect" id="Node000004" href="$class_u_state_alias.html" title=" " alt="" coords="477,31,567,56"/>
+<area shape="poly" id="edge44_Node000003_Node000004" title=" " alt="" coords="397,58,476,47,477,52,397,64"/>
+<area shape="rect" id="Node000005" href="$class_u_subroutine_state.html" title=" " alt="" coords="460,80,584,105"/>
+<area shape="poly" id="edge45_Node000003_Node000005" title=" " alt="" coords="397,71,460,81,459,86,396,77"/>
 </map>

@@ -22,6 +22,7 @@ var struct_f_hit_data =
     [ "KnockdownTime", "struct_f_hit_data.html#a05fcbe40c84029aa80617158764bc7e2", null ],
     [ "MinimumDamagePercent", "struct_f_hit_data.html#a4923aaf64d9f56451b2283874eb50c94", null ],
     [ "Position", "struct_f_hit_data.html#a4f9a455c83e9ae0a90c6043ef44f697e", null ],
+    [ "RecoverableDamagePercent", "struct_f_hit_data.html#a8c04752866ee2d0ae4913e8d8e993805", null ],
     [ "Untech", "struct_f_hit_data.html#a1acc2a33a56d5ca40c1a832b13292824", null ],
     [ "WallBounce", "struct_f_hit_data.html#a26e13cf9ed7916382ad6f32f9d3322a7", null ]
 ];

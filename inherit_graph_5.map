@@ -1,7 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,128,31"/>
-<area shape="rect" id="Node000001" href="$class_a_night_sky_player_controller.html" title=" " alt="" coords="176,5,352,31"/>
-<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="143,15,175,15,175,21,143,21"/>
-<area shape="rect" id="Node000002" href="$class_a_night_sky_w_t_player_controller.html" title=" " alt="" coords="400,5,596,31"/>
-<area shape="poly" id="edge18_Node000001_Node000002" title=" " alt="" coords="366,15,400,15,400,21,366,21"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,68,56"/>
+<area shape="rect" id="Node000001" href="$class_a_battle_object.html" title=" " alt="" coords="120,5,223,31"/>
+<area shape="poly" id="edge15_Node000000_Node000001" title=" " alt="" coords="82,32,119,25,120,30,83,37"/>
+<area shape="rect" id="Node000003" href="$class_a_network_pawn.html" title=" " alt="" coords="116,55,227,80"/>
+<area shape="poly" id="edge17_Node000000_Node000003" title=" " alt="" coords="83,49,116,55,115,60,82,54"/>
+<area shape="rect" id="Node000002" href="$class_a_player_object.html" title=" " alt="" coords="275,5,381,31"/>
+<area shape="poly" id="edge16_Node000001_Node000002" title=" " alt="" coords="238,15,274,15,274,21,238,21"/>
 </map>

@@ -26,31 +26,25 @@ var NAVTREE =
 [
   [ "Night Sky Engine", "index.html", [
     [ "About Night Sky Engine", "about.html", [
-      [ "What is Night Sky Engine written in?", "about.html#autotoc_md0", null ],
-      [ "What are some key features of Night Sky Engine?", "about.html#autotoc_md1", null ],
-      [ "Should I download now, or wait for later?", "about.html#autotoc_md2", null ]
+      [ "What is Night Sky Engine written in?", "about.html#autotoc_md1", null ],
+      [ "What are some key features of Night Sky Engine?", "about.html#autotoc_md2", null ],
+      [ "Should I download now, or wait for later?", "about.html#autotoc_md3", null ]
     ] ],
     [ "Getting Your Bearings", "bearings.html", [
-      [ "Night Sky Game State", "bearings.html#autotoc_md3", null ],
-      [ "Battle and Player Objects", "bearings.html#autotoc_md4", null ],
-      [ "The State Machine", "bearings.html#autotoc_md5", null ],
-      [ "States", "bearings.html#autotoc_md6", null ],
-      [ "Cels", "bearings.html#autotoc_md7", null ]
+      [ "Night Sky Game State", "bearings.html#autotoc_md4", null ],
+      [ "Battle and Player Objects", "bearings.html#autotoc_md5", null ],
+      [ "The State Machine", "bearings.html#autotoc_md6", null ],
+      [ "States", "bearings.html#autotoc_md7", null ],
+      [ "Cels", "bearings.html#autotoc_md8", null ]
     ] ],
+    [ "Your First State", "create-state.html", null ],
     [ "Installing Night Sky Engine", "installing.html", [
-      [ "Download", "installing.html#autotoc_md8", null ],
-      [ "Compile the engine", "installing.html#autotoc_md9", null ]
+      [ "Download", "installing.html#autotoc_md9", null ],
+      [ "Compile the engine", "installing.html#autotoc_md10", null ]
     ] ],
     [ "Quick Start", "quick-start.html", null ],
     [ "What Is A State? Part 1", "state-p1.html", null ],
     [ "What Is A State? Part 2", "state-p2.html", null ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
-      ] ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -67,7 +61,6 @@ var NAVTREE =
         [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
@@ -79,13 +72,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_anim_data_8h.html",
-"_fighter_synctest_runner_8h_source.html",
+"_fighter_replay_runner_8cpp_source.html",
 "_state_8h.html#af1917f42ed524567f2f378796c3f37cbabd38b3a0efe2f96c43f0a460f141912c",
-"class_a_fighter_multiplayer_runner.html#a3e808c7a3b14deb5a69c919b317f42f5",
-"class_a_player_object.html#a3ffe753b4d76789c1c0d7bd5fb39abf3",
-"class_night_sky_engine.html",
-"globals_vars.html",
-"struct_f_sound_struct.html#a734e276f8c9339f3e390a50de9519293"
+"class_a_battle_object.html#af6ace7db26ab02fce7cfa8d409c29fa7",
+"class_a_player_object.html#a097ce6cc77a6ce9daf94f904dd9b643d",
+"class_a_player_object.html#af7b7df877287b5551515fb8f9e6c9d87",
+"functions_func_p.html",
+"struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

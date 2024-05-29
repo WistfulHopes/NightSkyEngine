@@ -2,6 +2,7 @@ var struct_f_battle_state =
 [
     [ "ActiveObjectCount", "struct_f_battle_state.html#a99357148737973872987160f01abc62d", null ],
     [ "AnnouncerVoiceChannel", "struct_f_battle_state.html#a14bad861936194c3ebf9f365a9c56596", null ],
+    [ "AssistCooldown", "struct_f_battle_state.html#a38f9eedb8e8afd62364f11d7c06b214d", null ],
     [ "BattleStateSync", "struct_f_battle_state.html#a401558d006bb010fcbd0f608b3e5c85d", null ],
     [ "BattleStateSyncEnd", "struct_f_battle_state.html#afaccb513c21a0aa2940bc48e699f5068", null ],
     [ "bHUDVisible", "struct_f_battle_state.html#ad0661f614051de8b9504a4200add9a3d", null ],
@@ -9,6 +10,7 @@ var struct_f_battle_state =
     [ "CharaAudioChannels", "struct_f_battle_state.html#a2fd277b1dcb5c1b0b1c0b4d911df9703", null ],
     [ "CharaVoiceChannels", "struct_f_battle_state.html#ad7664de94c40d2757166618824d0ac68", null ],
     [ "CommonAudioChannels", "struct_f_battle_state.html#ab84addcf740472c976a8d21d4cc69463", null ],
+    [ "CurrentIntroSide", "struct_f_battle_state.html#a71041972e4e3e5c9ffc43c2f47d95337", null ],
     [ "CurrentScreenPos", "struct_f_battle_state.html#a903b6fe466270d21b81fdc8c6d382b61", null ],
     [ "CurrentSequenceTime", "struct_f_battle_state.html#a5c6eecd8e789a3f3a39daf5684b820c5", null ],
     [ "FrameNumber", "struct_f_battle_state.html#a8c5584b830159f113aabc4e615814c11", null ],
@@ -18,6 +20,7 @@ var struct_f_battle_state =
     [ "MaxGauge", "struct_f_battle_state.html#a257050c1c04e445795b5193e919f0dd3", null ],
     [ "MaxMeter", "struct_f_battle_state.html#abe93b3c446a6ea8b292f5f3372bd0ec5", null ],
     [ "Meter", "struct_f_battle_state.html#a55193dfdaa5caa9763d646174e3f7fc1", null ],
+    [ "MusicChannel", "struct_f_battle_state.html#aa2cc6056d00c76798141b0cd5d7b6516", null ],
     [ "P1RoundsWon", "struct_f_battle_state.html#a5fe05c538093fd67f185d1ad7678aaaa", null ],
     [ "P2RoundsWon", "struct_f_battle_state.html#a5748eb5ec936a872f10cc39bf55d0948", null ],
     [ "PauseParticles", "struct_f_battle_state.html#a51567576c1f1b401fbd56a6a9a727a8d", null ],
@@ -30,8 +33,10 @@ var struct_f_battle_state =
     [ "RoundTimer", "struct_f_battle_state.html#a6564152690a6b83907283227f4b7a7c8", null ],
     [ "ScreenBounds", "struct_f_battle_state.html#af733e6119583c2bf7c60b594ba6be111", null ],
     [ "StageBounds", "struct_f_battle_state.html#a49ddef86ddd40458a3127cda1b9828c2", null ],
-    [ "SuperFreezeCaller", "struct_f_battle_state.html#a8e2e5de680193914e88b311d76146cad", null ],
+    [ "SuperFreezeCaller", "struct_f_battle_state.html#a7456fb5013f24257ee453d9e5e98c179", null ],
     [ "SuperFreezeDuration", "struct_f_battle_state.html#a8c951f1834d936961c3da21f04374e02", null ],
     [ "SuperFreezeSelfDuration", "struct_f_battle_state.html#a99e59397f9351ab7ea49c39d255c1420", null ],
+    [ "TagCooldown", "struct_f_battle_state.html#af04a6fa073351df584b16149ce14cd7a", null ],
+    [ "TeamData", "struct_f_battle_state.html#ab8b29fbde95fd17892af384900986940", null ],
     [ "TimeUntilRoundStart", "struct_f_battle_state.html#af9ad2241c17fd4ed4a6974312dd7bd91", null ]
 ];

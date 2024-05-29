@@ -139,16 +139,18 @@ $(function(){initNavTree('_audio_manager_8h_source.html',''); initResizable(); }
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_a_audio_manager.html#a843dd477b2a69b4ffbe81e2d0a5c1897">   27</a></span>    UAudioComponent* CharaVoicePlayers[<a class="code hl_variable" href="_audio_manager_8h.html#a10176784bf375721b23864f1e1ee17cd">CharaVoiceChannelCount</a>];</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    UPROPERTY()</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_a_audio_manager.html#a6e5b8f9fcb4630ba7c2b7a9e4ca4d575">   29</a></span>    UAudioComponent* AnnouncerVoicePlayer;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>protected:</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>public:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// Called every frame</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    virtual <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) override;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> PauseAllAudio();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    UPROPERTY()</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_a_audio_manager.html#ab80a9d2a77a07b50722c648ab546fb69">   31</a></span>    UAudioComponent* MusicPlayer;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>protected:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    virtual <span class="keywordtype">void</span> BeginPlay() override;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>public:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Called every frame</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    virtual <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) override;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> PauseAllAudio();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
 <div class="ttc" id="a_audio_manager_8h_html_a029efcc4b42f4504f5af70af9003d48f"><div class="ttname"><a href="_audio_manager_8h.html#a029efcc4b42f4504f5af70af9003d48f">CommonAudioChannelCount</a></div><div class="ttdeci">constexpr int CommonAudioChannelCount</div><div class="ttdef"><b>Definition</b> <a href="#l00009">AudioManager.h:9</a></div></div>
 <div class="ttc" id="a_audio_manager_8h_html_a10176784bf375721b23864f1e1ee17cd"><div class="ttname"><a href="_audio_manager_8h.html#a10176784bf375721b23864f1e1ee17cd">CharaVoiceChannelCount</a></div><div class="ttdeci">constexpr int CharaVoiceChannelCount</div><div class="ttdef"><b>Definition</b> <a href="#l00011">AudioManager.h:11</a></div></div>

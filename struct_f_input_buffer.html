@@ -127,12 +127,15 @@ Collaboration diagram for FInputBuffer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a996103e1a79146d2fa2482c3ad5b528d" id="r_a996103e1a79146d2fa2482c3ad5b528d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a996103e1a79146d2fa2482c3ad5b528d">Tick</a> (int32 Input)</td></tr>
-<tr class="memdesc:a996103e1a79146d2fa2482c3ad5b528d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the input for this frame.  <br /></td></tr>
-<tr class="separator:a996103e1a79146d2fa2482c3ad5b528d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfe7bd4acb973c5587a7e802a626cba4" id="r_adfe7bd4acb973c5587a7e802a626cba4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfe7bd4acb973c5587a7e802a626cba4">CheckInputCondition</a> (const <a class="el" href="struct_f_input_condition.html">FInputCondition</a> &amp;InputCondition)</td></tr>
-<tr class="memdesc:adfe7bd4acb973c5587a7e802a626cba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks an input condition against the buffer.  <br /></td></tr>
-<tr class="separator:adfe7bd4acb973c5587a7e802a626cba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a701303c42618b403e65f6fdc5973c737" id="r_a701303c42618b403e65f6fdc5973c737"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a701303c42618b403e65f6fdc5973c737">Update</a> (int32 Input)</td></tr>
+<tr class="memdesc:a701303c42618b403e65f6fdc5973c737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the input for this frame.  <br /></td></tr>
+<tr class="separator:a701303c42618b403e65f6fdc5973c737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38dd70c735bf461fb4a5dc4d6cd98d5f" id="r_a38dd70c735bf461fb4a5dc4d6cd98d5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38dd70c735bf461fb4a5dc4d6cd98d5f">Emplace</a> (int32 Input, uint32 Index)</td></tr>
+<tr class="memdesc:a38dd70c735bf461fb4a5dc4d6cd98d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the input at an arbitrary buffer position. Intended for CPU usage.  <br /></td></tr>
+<tr class="separator:a38dd70c735bf461fb4a5dc4d6cd98d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd2d798eaa5f018d4c5352ef33b3bb27" id="r_acd2d798eaa5f018d4c5352ef33b3bb27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd2d798eaa5f018d4c5352ef33b3bb27">CheckInputCondition</a> (const <a class="el" href="struct_f_input_condition.html">FInputCondition</a> &amp;InputCondition, bool bIsKara=false)</td></tr>
+<tr class="memdesc:acd2d798eaa5f018d4c5352ef33b3bb27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks an input condition against the buffer.  <br /></td></tr>
+<tr class="separator:acd2d798eaa5f018d4c5352ef33b3bb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84695de1bd43d2cf4ec88b6b3c8e8d91" id="r_a84695de1bd43d2cf4ec88b6b3c8e8d91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84695de1bd43d2cf4ec88b6b3c8e8d91">CheckInputSequence</a> () const</td></tr>
 <tr class="separator:a84695de1bd43d2cf4ec88b6b3c8e8d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72d144db38b8b2fc9be7740e2aa9a62f" id="r_a72d144db38b8b2fc9be7740e2aa9a62f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72d144db38b8b2fc9be7740e2aa9a62f">CheckInputSequenceStrict</a> () const</td></tr>
@@ -141,20 +144,28 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0333dcb5b370ea3e0f79f9f0c774adff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a499890ad60181f63f3db52e5d885ac44" id="r_a499890ad60181f63f3db52e5d885ac44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a499890ad60181f63f3db52e5d885ac44">CheckInputSequenceOnceStrict</a> () const</td></tr>
 <tr class="separator:a499890ad60181f63f3db52e5d885ac44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad81b56cb025947f0538c14da44400f86" id="r_ad81b56cb025947f0538c14da44400f86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad81b56cb025947f0538c14da44400f86">CheckInputSequencePressAndRelease</a> () const</td></tr>
+<tr class="separator:ad81b56cb025947f0538c14da44400f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1766ec583260c1fdf66ac5d2f0837919" id="r_a1766ec583260c1fdf66ac5d2f0837919"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1766ec583260c1fdf66ac5d2f0837919">CheckInputSequencePressAndReleaseStrict</a> () const</td></tr>
+<tr class="separator:a1766ec583260c1fdf66ac5d2f0837919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4a0b86af5b2094f2859ee65e4dda70" id="r_aab4a0b86af5b2094f2859ee65e4dda70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab4a0b86af5b2094f2859ee65e4dda70">CheckInputSequenceNegative</a> () const</td></tr>
+<tr class="separator:aab4a0b86af5b2094f2859ee65e4dda70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530bee84c2413780c20e4f8f0e4213de" id="r_a530bee84c2413780c20e4f8f0e4213de"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530bee84c2413780c20e4f8f0e4213de">CheckInputSequenceNegativeStrict</a> () const</td></tr>
+<tr class="separator:a530bee84c2413780c20e4f8f0e4213de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe3833b886dd17c7d04092836719b65c" id="r_abe3833b886dd17c7d04092836719b65c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe3833b886dd17c7d04092836719b65c">FlipInputsInBuffer</a> ()</td></tr>
 <tr class="separator:abe3833b886dd17c7d04092836719b65c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a24b918e48b64e623bf7dde1e70e32cc5" id="r_a24b918e48b64e623bf7dde1e70e32cc5"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24b918e48b64e623bf7dde1e70e32cc5">InputBufferInternal</a> [90] = { 16 }</td></tr>
-<tr class="separator:a24b918e48b64e623bf7dde1e70e32cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac28ad9d87b25be9b4306506ddc8e91b5" id="r_ac28ad9d87b25be9b4306506ddc8e91b5"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac28ad9d87b25be9b4306506ddc8e91b5">InputDisabled</a> [90] = { 0 }</td></tr>
-<tr class="separator:ac28ad9d87b25be9b4306506ddc8e91b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6369cced274b3c38dcbcf100a437feda" id="r_a6369cced274b3c38dcbcf100a437feda"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6369cced274b3c38dcbcf100a437feda">InputBufferInternal</a> [<a class="el" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 16 }</td></tr>
+<tr class="separator:a6369cced274b3c38dcbcf100a437feda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a236570e0ff2119200032167de131cbb3" id="r_a236570e0ff2119200032167de131cbb3"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a236570e0ff2119200032167de131cbb3">InputDisabled</a> [<a class="el" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 0 }</td></tr>
+<tr class="separator:a236570e0ff2119200032167de131cbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a749206a720ffde95b4a0d2a4e34a779a" id="r_a749206a720ffde95b4a0d2a4e34a779a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_input_bitmask.html">FInputBitmask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a749206a720ffde95b4a0d2a4e34a779a">InputSequence</a> [20] = { }</td></tr>
-<tr class="separator:a749206a720ffde95b4a0d2a4e34a779a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e72416642cc09c142b55cd34c6bde42" id="r_a4e72416642cc09c142b55cd34c6bde42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_input_bitmask.html">FInputBitmask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e72416642cc09c142b55cd34c6bde42">InputSequence</a> [<a class="el" href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">InputSequenceSize</a>] = { }</td></tr>
+<tr class="separator:a4e72416642cc09c142b55cd34c6bde42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1056d71f90e720feb70f4866b0229c71" id="r_a1056d71f90e720feb70f4866b0229c71"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1056d71f90e720feb70f4866b0229c71">ImpreciseInputCount</a> = 0</td></tr>
 <tr class="separator:a1056d71f90e720feb70f4866b0229c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b0f6a044cdef896a12860e019a7696a" id="r_a2b0f6a044cdef896a12860e019a7696a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0f6a044cdef896a12860e019a7696a">bInputAllowDisable</a> = true</td></tr>
@@ -164,10 +175,10 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><p>The input buffer for a player object. </p>
 <p>Stores inputs every frame, and handles input checking. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00015">15</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00018">18</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="adfe7bd4acb973c5587a7e802a626cba4" name="adfe7bd4acb973c5587a7e802a626cba4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfe7bd4acb973c5587a7e802a626cba4">&#9670;&#160;</a></span>CheckInputCondition()</h2>
+<a id="acd2d798eaa5f018d4c5352ef33b3bb27" name="acd2d798eaa5f018d4c5352ef33b3bb27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd2d798eaa5f018d4c5352ef33b3bb27">&#9670;&#160;</a></span>CheckInputCondition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,8 +186,12 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool FInputBuffer::CheckInputCondition </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_f_input_condition.html">FInputCondition</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InputCondition</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_f_input_condition.html">FInputCondition</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>InputCondition</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bIsKara</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -190,7 +205,7 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input condition matches the buffer, return true. Otherwise return false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00017">17</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00025">25</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -211,7 +226,49 @@ Protected Attributes</h2></td></tr>
 <p>Checks the input sequence against the buffer with the Normal method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00045">45</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00061">61</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aab4a0b86af5b2094f2859ee65e4dda70" name="aab4a0b86af5b2094f2859ee65e4dda70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4a0b86af5b2094f2859ee65e4dda70">&#9670;&#160;</a></span>CheckInputSequenceNegative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FInputBuffer::CheckInputSequenceNegative </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the input sequence against the buffer with the Negative method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00417">417</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a530bee84c2413780c20e4f8f0e4213de" name="a530bee84c2413780c20e4f8f0e4213de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530bee84c2413780c20e4f8f0e4213de">&#9670;&#160;</a></span>CheckInputSequenceNegativeStrict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FInputBuffer::CheckInputSequenceNegativeStrict </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the input sequence against the buffer with the Negative Strict method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00453">453</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -232,7 +289,7 @@ Protected Attributes</h2></td></tr>
 <p>Checks the input sequence against the buffer with the Once method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00135">135</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00172">172</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +310,49 @@ Protected Attributes</h2></td></tr>
 <p>Checks the input sequence against the buffer with the Once Strict method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00176">176</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00220">220</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad81b56cb025947f0538c14da44400f86" name="ad81b56cb025947f0538c14da44400f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81b56cb025947f0538c14da44400f86">&#9670;&#160;</a></span>CheckInputSequencePressAndRelease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FInputBuffer::CheckInputSequencePressAndRelease </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the input sequence against the buffer with the Once method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00285">285</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1766ec583260c1fdf66ac5d2f0837919" name="a1766ec583260c1fdf66ac5d2f0837919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1766ec583260c1fdf66ac5d2f0837919">&#9670;&#160;</a></span>CheckInputSequencePressAndReleaseStrict()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FInputBuffer::CheckInputSequencePressAndReleaseStrict </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the input sequence against the buffer with the Once Strict method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00342">342</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,7 +373,39 @@ Protected Attributes</h2></td></tr>
 <p>Checks the input sequence against the buffer with the Strict method. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071">EInputMethod</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>If the input sequence matches the buffer, return true. Otherwise return false. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00084">84</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00108">108</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a38dd70c735bf461fb4a5dc4d6cd98d5f" name="a38dd70c735bf461fb4a5dc4d6cd98d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38dd70c735bf461fb4a5dc4d6cd98d5f">&#9670;&#160;</a></span>Emplace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FInputBuffer::Emplace </td>
+          <td>(</td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>Input</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32</td>          <td class="paramname"><span class="paramname"><em>Index</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the input at an arbitrary buffer position. Intended for CPU usage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Input</td><td>The input bitmask to store. </td></tr>
+    <tr><td class="paramname">Index</td><td>The index of the buffer to store at. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00017">17</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,18 +425,18 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Flips the directional inputs in the buffer. For use after a character switches sides. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00228">228</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8cpp_source.html#l00501">501</a> of file <a class="el" href="_input_buffer_8cpp_source.html">InputBuffer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a996103e1a79146d2fa2482c3ad5b528d" name="a996103e1a79146d2fa2482c3ad5b528d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a996103e1a79146d2fa2482c3ad5b528d">&#9670;&#160;</a></span>Tick()</h2>
+<a id="a701303c42618b403e65f6fdc5973c737" name="a701303c42618b403e65f6fdc5973c737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a701303c42618b403e65f6fdc5973c737">&#9670;&#160;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FInputBuffer::Tick </td>
+          <td class="memname">void FInputBuffer::Update </td>
           <td>(</td>
           <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>Input</em></span></td><td>)</td>
           <td></td>
@@ -347,7 +478,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>This value determines if the input buffer will consider disabled inputs. If true, and an input matches a disabled input on the same frame, the buffer will reject the sequence. Otherwise, the input sequence will be read as normal. Updated by the input being checked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00033">33</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00036">36</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 
 </div>
 </div>
@@ -372,48 +503,46 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>How much time is allowed between inputs. Updated by the input being checked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00026">26</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00029">29</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 
 </div>
 </div>
-<a id="a24b918e48b64e623bf7dde1e70e32cc5" name="a24b918e48b64e623bf7dde1e70e32cc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24b918e48b64e623bf7dde1e70e32cc5">&#9670;&#160;</a></span>InputBufferInternal</h2>
+<a id="a6369cced274b3c38dcbcf100a437feda" name="a6369cced274b3c38dcbcf100a437feda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6369cced274b3c38dcbcf100a437feda">&#9670;&#160;</a></span>InputBufferInternal</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32 FInputBuffer::InputBufferInternal[90] = { 16 }</td>
+          <td class="memname">int32 FInputBuffer::InputBufferInternal[<a class="el" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 16 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning.</p>
-<p>Up to 90 frames of inputs may be stored. </p>
+<p>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00042">42</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00043">43</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 
 </div>
 </div>
-<a id="ac28ad9d87b25be9b4306506ddc8e91b5" name="ac28ad9d87b25be9b4306506ddc8e91b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac28ad9d87b25be9b4306506ddc8e91b5">&#9670;&#160;</a></span>InputDisabled</h2>
+<a id="a236570e0ff2119200032167de131cbb3" name="a236570e0ff2119200032167de131cbb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236570e0ff2119200032167de131cbb3">&#9670;&#160;</a></span>InputDisabled</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32 FInputBuffer::InputDisabled[90] = { 0 }</td>
+          <td class="memname">int32 FInputBuffer::InputDisabled[<a class="el" href="_input_buffer_8h.html#aa8ecea5d46bab93714b6b6abac929efd">InputBufferSize</a>] = { 0 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>All disabled inputs. Upon a successful state transition, the last input will be disabled. If an input being checked matches a disabled input on the same frame, the input check will fail.</p>
-<p>Up to 90 frames of inputs may be disabled. </p>
+<p>All disabled inputs. Upon a successful state transition, the last input will be disabled. If an input being checked matches a disabled input on the same frame, the input check will fail. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00051">51</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00050">50</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 
 </div>
 </div>
-<a id="a749206a720ffde95b4a0d2a4e34a779a" name="a749206a720ffde95b4a0d2a4e34a779a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a749206a720ffde95b4a0d2a4e34a779a">&#9670;&#160;</a></span>InputSequence</h2>
+<a id="a4e72416642cc09c142b55cd34c6bde42" name="a4e72416642cc09c142b55cd34c6bde42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e72416642cc09c142b55cd34c6bde42">&#9670;&#160;</a></span>InputSequence</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,7 +551,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_f_input_bitmask.html">FInputBitmask</a> FInputBuffer::InputSequence[20] = { }</td>
+          <td class="memname"><a class="el" href="struct_f_input_bitmask.html">FInputBitmask</a> FInputBuffer::InputSequence[<a class="el" href="_input_buffer_8h.html#ac45807c44cfdf767c3314d816e11cfce">InputSequenceSize</a>] = { }</td>
         </tr>
       </table>
   </td>
@@ -433,7 +562,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The input sequence. Updated by the input being checked. </p>
 
-<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00022">22</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_input_buffer_8h_source.html#l00025">25</a> of file <a class="el" href="_input_buffer_8h_source.html">InputBuffer.h</a>.</p>
 
 </div>
 </div>

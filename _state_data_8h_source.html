@@ -126,11 +126,100 @@ $(function(){initNavTree('_state_data_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a73ac920d1078b2840c1981606cd57d24">   19</a></span>    TArray&lt;TSubclassOf&lt;<a class="code hl_class" href="class_u_state.html">UState</a>&gt;&gt; StateArray;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_u_state_data.html#ad968c61d6683958c6fa92c4d14c9a412">   22</a></span>    FString DefaultStand = &quot;Stand&quot;;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_u_state_data.html#adbf070d2ec2dae51e46f6bfe22194d2f">   24</a></span>    FString DefaultCrouch = &quot;Crouch&quot;;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a199c0cb0118c9fd038b9d5da5cfc6fd4">   26</a></span>    FString DefaultFall = &quot;VJump&quot;;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a1ab5fa5bc8239972d598ec10a4e4f8db">   28</a></span>    FString DefaultJumpLanding = &quot;JumpLanding&quot;;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a2f3b4d794cbf59ad27945f962c3d4758">   30</a></span>    FString DefaultStandFlip = &quot;StandFlip&quot;;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a4d7301447a37007744848f0822f47998">   32</a></span>    FString DefaultCrouchFlip = &quot;CrouchFlip&quot;;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aeabf0a58e234a19fadfd6f64becd2025">   34</a></span>    FString DefaultJumpFlip = &quot;JumpFlip&quot;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aa9e46623731a9413f92cc9a18439c1f5">   37</a></span>    FString DefaultStandBlock = &quot;StandBlock&quot;;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_u_state_data.html#ac0bd00d0cd0ba417731fd16d2969ee24">   39</a></span>    FString DefaultCrouchBlock = &quot;CrouchBlock&quot;;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a94c0b95613cff8f812b83c43ed3ba324">   41</a></span>    FString DefaultAirBlock = &quot;AirBlock&quot;;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a76965656cca065a3af7d2b4b62cfc3c9">   43</a></span>    FString DefaultStandBlockEnd = &quot;StandBlockEnd&quot;;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a79dd599edaa6c910ce222515c1105f8d">   45</a></span>    FString DefaultCrouchBlockEnd = &quot;CrouchBlockEnd&quot;;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a62a944cf85fcb6067c4603faf79440fe">   47</a></span>    FString DefaultAirBlockEnd = &quot;AirBlockEnd&quot;;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a37e7018ffe05f15d34347ed626f542e8">   49</a></span>    FString DefaultGuardBreakStand = &quot;GuardBreakStand&quot;;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a0a2013b88e984aac5d5e06ad601a754a">   51</a></span>    FString DefaultGuardBreakCrouch = &quot;GuardBreakCrouch&quot;;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a0a1ac3afa0cf24130a91e27a6aadc854">   53</a></span>    FString DefaultGuardBreakAir = &quot;GuardBreakAir&quot;;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aa460abac6a0d3d0d307492d9cb95bb85">   56</a></span>    FString DefaultStandHitstunPrefix = &quot;<a class="code hl_enumvalue" href="_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a285414d6171c818d1c987cc869db5153">Hitstun</a>&quot;;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aaf2c49aab107ce0305472160d7881476">   58</a></span>    FString DefaultCrouchHitstunPrefix = &quot;CrouchHitstun&quot;;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_u_state_data.html#acc9f1da25328b58a8a7740c450ca3bd0">   60</a></span>    FString DefaultBLaunch = &quot;BLaunch&quot;;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a536974fda3413de480999ee69fe56040">   62</a></span>    FString DefaultVLaunch = &quot;VLaunch&quot;;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_u_state_data.html#af35068e5311f02c4d597db519656b7cc">   64</a></span>    FString DefaultFLaunch = &quot;FLaunch&quot;;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a5ea134c8789b61749d19712135d086f7">   66</a></span>    FString DefaultBlowback = &quot;Blowback&quot;;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a2758f8b2131207a0518b201c210ddf1d">   68</a></span>    FString DefaultTailspin = &quot;Tailspin&quot;;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a762bbc4fa230ead0848fe5ad2ec048e4">   70</a></span>    FString DefaultCrumple = &quot;Crumple&quot;;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a91034d9cb127578922e2fe0fcefe8576">   72</a></span>    FString DefaultFloatingCrumpleBody = &quot;FloatingCrumpleBody&quot;;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_u_state_data.html#ac3f1457e0f14ce7d00772c9769cff8b0">   74</a></span>    FString DefaultFloatingCrumpleHead = &quot;FloatingCrumpleHead&quot;;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a73e3f71a5886d0198742083726b2e616">   76</a></span>    FString DefaultWallBounce = &quot;WallBounce&quot;;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a6d492607a40a0996bf2fa2e77f75acff">   79</a></span>    FString DefaultFaceDownLoop = &quot;FaceDownLoop&quot;;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a0e4adb1d8798be1ea1aaf398f4cf061c">   81</a></span>    FString DefaultFaceUpLoop = &quot;FaceUpLoop&quot;;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a6dd33f82c8496512027e36cd83869ca1">   83</a></span>    FString DefaultFaceDownWakeUp = &quot;FaceDownWakeUp&quot;;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_u_state_data.html#acc890736bdcddb032eb13f4e1763cf5f">   85</a></span>    FString DefaultFaceUpWakeUp = &quot;FaceUpWakeUp&quot;;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a897ba5c566a27acbf746f08e736d42f1">   88</a></span>    FString DefaultThrowLock = &quot;ThrowLock&quot;;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aa8dc4da62d198f53cea3c1f0d0268959">   90</a></span>    FString DefaultTagIn = &quot;TagIn&quot;;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_u_state_data.html#aca2b1aef8f460e74a11402c89aa9f192">   92</a></span>    FString DefaultRoundWin = &quot;RoundWin&quot;;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a5566846f853ebb10c5d437f30df2226d">   94</a></span>    FString DefaultMatchWin = &quot;MatchWin&quot;;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    UFUNCTION(BlueprintPure)</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_u_state_data.html#a1d7ef6ffc66dd82c876de75c9b87fc72">   97</a></span>    <a class="code hl_class" href="class_u_state.html">UState</a>* GetByStateName(const FString&amp; StateName)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; StateClass : StateArray)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keyword">const</span> <span class="keyword">auto</span> State = Cast&lt;UState&gt;(StateClass-&gt;ClassDefaultObject);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">if</span> (State-&gt;Name == StateName) <span class="keywordflow">return</span> State;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
 </div>
 <div class="ttc" id="a_state_8h_html"><div class="ttname"><a href="_state_8h.html">State.h</a></div></div>
+<div class="ttc" id="a_state_8h_html_ab4cb6e6f9af8950816157c9825ee4921a285414d6171c818d1c987cc869db5153"><div class="ttname"><a href="_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a285414d6171c818d1c987cc869db5153">EStateType::Hitstun</a></div><div class="ttdeci">@ Hitstun</div></div>
 <div class="ttc" id="aclass_u_state_data_html"><div class="ttname"><a href="class_u_state_data.html">UStateData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00014">StateData.h:15</a></div></div>
-<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00241">State.h:242</a></div></div>
+<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00338">State.h:339</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

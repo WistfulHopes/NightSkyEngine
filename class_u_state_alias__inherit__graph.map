@@ -1,0 +1,9 @@
+<map id="UStateAlias" name="UStateAlias">
+<area shape="rect" id="Node000001" title=" " alt="" coords="19,225,110,251"/>
+<area shape="rect" id="Node000002" href="$class_u_state.html" title="A character state that determines behavior." alt="" coords="33,152,96,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,192,67,225,62,225,62,192"/>
+<area shape="rect" id="Node000003" href="$class_u_serializable_obj.html" title=" " alt="" coords="5,79,124,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="67,119,67,151,62,151,62,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="30,5,99,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="67,45,67,78,62,78,62,45"/>
+</map>
