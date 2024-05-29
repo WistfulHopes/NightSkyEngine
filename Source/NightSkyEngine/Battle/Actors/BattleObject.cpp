@@ -529,6 +529,10 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 							}
 								
 							TriggerEvent(EVT_HitOrBlock);
+							if (AttackedPlayer->IsMainPlayer())
+							{
+								TriggerEvent(EVT_HitOrBlockMainPlayer);
+							}
 								
 							if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 							{
@@ -536,7 +540,11 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								                     FVector(0, 100, 0),
 								                     FRotator(HitCommon.HitAngle, 0, 0));
 								TriggerEvent(EVT_Block);
-									
+								if (AttackedPlayer->IsMainPlayer())
+								{
+									TriggerEvent(EVT_BlockMainPlayer);
+								}
+
 								const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
 								AttackedPlayer->CurrentHealth -= ChipDamage;
 									
@@ -570,6 +578,12 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 							}
 							else if (AttackedPlayer->SuperArmorSuccess(this))
 							{
+								TriggerEvent(EVT_Hit);
+								if (AttackedPlayer->IsMainPlayer())
+								{
+									TriggerEvent(EVT_HitMainPlayer);
+								}
+								
 								if (AttackedPlayer->SuperArmorData.ArmorHits > 0) AttackedPlayer->SuperArmorData.ArmorHits--;
 								switch (AttackedPlayer->SuperArmorData.Type)
 								{
@@ -592,6 +606,12 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 											Player->AddMeter(
 												NormalHit.Damage * Player->MeterPercentOnHit * AttackedPlayer->
 												SuperArmorData.ArmorDamagePercent / 10000);
+										}
+										else
+										{
+											CreateCommonParticle("cmn_guard", POS_Enemy,
+										 FVector(0, 100, 0),
+										 FRotator(HitCommon.HitAngle, 0, 0));
 										}
 									
 										const FHitData Data = InitHitDataByAttackLevel(false);
@@ -624,6 +644,10 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 							else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
 							{
 								TriggerEvent(EVT_Hit);
+								if (AttackedPlayer->IsMainPlayer())
+								{
+									TriggerEvent(EVT_HitMainPlayer);
+								}
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
@@ -654,6 +678,11 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 							{
 								TriggerEvent(EVT_Hit);
 								TriggerEvent(EVT_CounterHit);
+								if (AttackedPlayer->IsMainPlayer())
+								{
+									TriggerEvent(EVT_HitMainPlayer);
+									TriggerEvent(EVT_CounterHitMainPlayer);
+								}
 
 								AttackedPlayer->AddColor = FLinearColor(5,0.2,0.2,1);
 								AttackedPlayer->MulColor = FLinearColor(1,0.1,0.1,1);
@@ -1031,6 +1060,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 
 	if (NormalHit.EnemyHitstopModifier == -1)
 		NormalHit.EnemyHitstopModifier = 0;
+	if (NormalHit.RecoverableDamagePercent == -1)
+		NormalHit.RecoverableDamagePercent = 40;
 	if (NormalHit.MinimumDamagePercent == -1)
 		NormalHit.MinimumDamagePercent = 0;
 	if (NormalHit.InitialProration == -1)
@@ -2339,10 +2370,13 @@ void ABattleObject::EnableHit(bool Enabled)
 	if (Enabled)
 	{
 		AttackFlags |= ATK_HitActive;
-		
-		for (const auto Object : GameState->SortedObjects)
+
+		if (GameState)
 		{
-			Object->ObjectsToIgnoreHitsFrom.Remove(this);
+			for (const auto Object : GameState->SortedObjects)
+			{
+				Object->ObjectsToIgnoreHitsFrom.Remove(this);
+			}
 		}
 	}
 	else

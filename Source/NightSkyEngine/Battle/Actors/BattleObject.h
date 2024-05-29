@@ -39,6 +39,10 @@ enum EEventType
 	EVT_SuperFreezeEnd UMETA(DisplayName="Super Freeze End"),
 	EVT_Timer0 UMETA(DisplayName="Timer #0"),
 	EVT_Timer1 UMETA(DisplayName="Timer #1"),
+	EVT_HitMainPlayer UMETA(DisplayName="Hit Main Player"),
+	EVT_BlockMainPlayer UMETA(DisplayName="Block Main Player"),
+	EVT_HitOrBlockMainPlayer UMETA(DisplayName="Hit or Block Main Player"),
+	EVT_CounterHitMainPlayer UMETA(DisplayName="Counter Hit Main Player"),
 	EVT_NUM UMETA(Hidden)
 };
 
@@ -360,6 +364,9 @@ struct FHitData
 	// How much damage the opponent will take.
 	UPROPERTY(BlueprintReadWrite)
 	int32 Damage = -1;
+	// The percent of damage that can be recovered.
+	UPROPERTY(BlueprintReadWrite)
+	int32 RecoverableDamagePercent = -1;
 	/*
 	 * The minimum damage percent.
 	 * Damage scaling cannot bring damage lower than this.

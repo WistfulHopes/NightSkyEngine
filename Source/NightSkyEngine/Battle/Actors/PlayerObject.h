@@ -246,6 +246,7 @@ public:
 	TEnumAsByte<EActionStance> Stance;
 	
 	int32 CurrentHealth;
+	int32 RecoverableHealth;
 	int32 TotalProration = 10000;
 	int32 ComboCounter;
 	int32 ComboTimer;
@@ -515,6 +516,16 @@ public:
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
 	void AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon);
+	UFUNCTION(BlueprintCallable)
+	void SetHealth(int Value);
+	UFUNCTION(BlueprintCallable)
+	void AddHealth(int Value);
+	UFUNCTION(BlueprintCallable)
+	void SetRecoverableHealth(int Value);
+	UFUNCTION(BlueprintCallable)
+	void AddRecoverableHealth(int Value);
+	UFUNCTION(BlueprintCallable)
+	void RecoverHealth(int Value);
 	//check if state can be entered
 	UFUNCTION(BlueprintCallable)
 	bool CanEnterState(UState* State);
@@ -715,6 +726,8 @@ public:
 	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
 	UFUNCTION(BlueprintPure)
 	bool IsMainPlayer() const;
+	UFUNCTION(BlueprintPure)
+	bool IsOnScreen() const;
 	UFUNCTION(BlueprintCallable)
 	void SetOnScreen(bool OnScreen);
 	UFUNCTION(BlueprintCallable)

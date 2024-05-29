@@ -221,7 +221,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		
-		for (const auto Player : Players) Player->RoundWinTimer = 180;
+		for (const auto& Player : Players) Player->RoundWinTimer = 180;
 	}
 	else
 	{
@@ -398,6 +398,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	if (!BattleState.SuperFreezeDuration)
 	{
+		CallBattleExtension("Update");
 		for (int i = 0; i < 2; i++)
 		{
 			if (GetMainPlayer(i == 0)->ComboCounter) continue;
@@ -495,8 +496,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	else
 		NetworkStats.RollbackFrames = abs(LocalFramesBehind) + abs(RemoteFramesBehind);
 	
-	CallBattleExtension("Update");
-	
 	for (int i = 0; i < 2; i++)
 	{
 		if (BattleState.Meter[i] > BattleState.MaxMeter[i])
@@ -513,13 +512,13 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 		}
 	}
 	
+	HandleRoundWin();
+	
 	// these aren't strictly game state related, but tying them to game state update makes things better
 	UpdateVisuals();
 	UpdateCamera();
 	UpdateHUD();
 	ManageAudio();
-	
-	HandleRoundWin();
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -1237,6 +1236,18 @@ void ANightSkyGameState::UpdateHUD() const
 				BattleHudActor->TopWidget->P2Health[0] = static_cast<float>(GetTeam(false)[0]->CurrentHealth) / static_cast<float>(GetTeam(false)[0]->MaxHealth);
 				BattleHudActor->TopWidget->P2Health[1] = static_cast<float>(GetTeam(false)[1]->CurrentHealth) / static_cast<float>(GetTeam(false)[1]->MaxHealth);
 				BattleHudActor->TopWidget->P2Health[2] = static_cast<float>(GetTeam(false)[2]->CurrentHealth) / static_cast<float>(GetTeam(false)[2]->MaxHealth);
+			}
+			if (BattleHudActor->TopWidget->P1RecoverableHealth.Num() >= 3)
+			{
+				BattleHudActor->TopWidget->P1RecoverableHealth[0] = static_cast<float>(GetTeam(true)[0]->CurrentHealth + GetTeam(true)[0]->RecoverableHealth) / static_cast<float>(GetTeam(true)[0]->MaxHealth);
+				BattleHudActor->TopWidget->P1RecoverableHealth[1] = static_cast<float>(GetTeam(true)[1]->CurrentHealth + GetTeam(true)[1]->RecoverableHealth) / static_cast<float>(GetTeam(true)[1]->MaxHealth);
+				BattleHudActor->TopWidget->P1RecoverableHealth[2] = static_cast<float>(GetTeam(true)[2]->CurrentHealth + GetTeam(true)[2]->RecoverableHealth) / static_cast<float>(GetTeam(true)[2]->MaxHealth);
+			}
+			if (BattleHudActor->TopWidget->P2RecoverableHealth.Num() >= 3)
+			{
+				BattleHudActor->TopWidget->P2RecoverableHealth[0] = static_cast<float>(GetTeam(false)[0]->CurrentHealth + GetTeam(false)[0]->RecoverableHealth) / static_cast<float>(GetTeam(false)[0]->MaxHealth);
+				BattleHudActor->TopWidget->P2RecoverableHealth[1] = static_cast<float>(GetTeam(false)[1]->CurrentHealth + GetTeam(false)[1]->RecoverableHealth) / static_cast<float>(GetTeam(false)[1]->MaxHealth);
+				BattleHudActor->TopWidget->P2RecoverableHealth[2] = static_cast<float>(GetTeam(false)[2]->CurrentHealth + GetTeam(false)[2]->RecoverableHealth) / static_cast<float>(GetTeam(false)[2]->MaxHealth);
 			}
 			BattleHudActor->TopWidget->P1RoundsWon = BattleState.P1RoundsWon;
 			BattleHudActor->TopWidget->P2RoundsWon = BattleState.P2RoundsWon;

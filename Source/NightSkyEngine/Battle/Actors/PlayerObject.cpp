@@ -420,7 +420,7 @@ void APlayerObject::Update()
 	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		PlayerFlags |= PLF_IsDead;
-		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride))
+		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride) && IsMainPlayer())
 		{
 			if (ReceivedHitCommon.AttackLevel < 2)
 			{
@@ -436,6 +436,10 @@ void APlayerObject::Update()
 			}
 			Hitstop = 0;
 			AttackOwner->Hitstop = 0;
+		}
+		else if (!IsMainPlayer())
+		{
+			PlayerFlags &= ~PLF_IsOnScreen;
 		}
 	}
 
@@ -664,6 +668,8 @@ void APlayerObject::Update()
 	
 	HandleThrowCollision();
 	
+	if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+	
 	GameState->SetScreenBounds();
 	GameState->SetStageBounds();
 	ActionTime++;
@@ -742,6 +748,15 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		FinalDamage = FinalDamage * OtgProration / 100;
 		
 	CurrentHealth -= FinalDamage;
+	if (IsMainPlayer())
+	{
+		RecoverableHealth += FinalDamage * ReceivedHit.RecoverableDamagePercent / 100;
+	}
+	else
+	{
+		RecoverableHealth += FinalDamage;
+	}
+	
 	if (GameState->GameInstance->IsTraining && CurrentHealth < 1)
 		CurrentHealth = 1;
 
@@ -1342,6 +1357,11 @@ bool APlayerObject::IsMainPlayer() const
 {
 	if (!GameState) return true;
 	return this == GameState->GetMainPlayer(PlayerIndex == 0);
+}
+
+bool APlayerObject::IsOnScreen() const
+{
+	return (PlayerFlags & PLF_IsOnScreen) == PLF_IsOnScreen;
 }
 
 void APlayerObject::SetOnScreen(bool OnScreen)
@@ -2173,6 +2193,40 @@ void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine, bool Is
 	}
 }
 
+void APlayerObject::SetHealth(int Value)
+{
+	CurrentHealth = Value;
+}
+
+void APlayerObject::AddHealth(int Value)
+{
+	CurrentHealth += Value;
+}
+
+void APlayerObject::SetRecoverableHealth(int Value)
+{
+	RecoverableHealth = Value;
+}
+
+void APlayerObject::AddRecoverableHealth(int Value)
+{
+	RecoverableHealth += Value;
+}
+
+void APlayerObject::RecoverHealth(int Value)
+{
+	if (Value <= RecoverableHealth)
+	{
+		CurrentHealth += Value;
+		RecoverableHealth -= Value;
+	}
+	else
+	{
+		CurrentHealth += RecoverableHealth;
+		RecoverableHealth = 0;
+	}
+}
+
 void APlayerObject::UseMeter(int Use)
 {
 	if (!GameState) return;
@@ -2572,8 +2626,11 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	Inputs = 0;
 	FlipInputs = false;
 	Stance = ACT_Standing;
-	if (ResetHealth) 
+	if (ResetHealth)
+	{
 		CurrentHealth = MaxHealth;
+		RecoverableHealth = 0;
+	}
 	TotalProration = 10000;
 	ComboCounter = 0;
 	ComboTimer = 0;

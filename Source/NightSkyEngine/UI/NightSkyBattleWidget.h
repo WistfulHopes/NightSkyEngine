@@ -20,6 +20,10 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	TArray<float> P2Health;
 	UPROPERTY(BlueprintReadOnly)
+	TArray<float> P1RecoverableHealth;
+	UPROPERTY(BlueprintReadOnly)
+	TArray<float> P2RecoverableHealth;
+	UPROPERTY(BlueprintReadOnly)
 	float Timer;
 	UPROPERTY(BlueprintReadOnly)
 	float P1Meter;
