@@ -732,13 +732,16 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		FinalDamage = FinalDamage * OtgProration / 100;
 		
 	CurrentHealth -= FinalDamage;
-	if (IsMainPlayer())
+	if (!(PlayerFlags & PLF_IsDead))
 	{
-		RecoverableHealth += FinalDamage * ReceivedHit.RecoverableDamagePercent / 100;
-	}
-	else
-	{
-		RecoverableHealth += FinalDamage;
+		if (IsMainPlayer())
+		{
+			RecoverableHealth += FinalDamage * ReceivedHit.RecoverableDamagePercent / 100;
+		}
+		else
+		{
+			RecoverableHealth += FinalDamage;
+		}
 	}
 	
 	if (GameState->GameInstance->IsTraining && CurrentHealth < 1)
