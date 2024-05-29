@@ -420,6 +420,7 @@ void APlayerObject::Update()
 	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		PlayerFlags |= PLF_IsDead;
+		RecoverableHealth = 0;
 		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride) && IsMainPlayer())
 		{
 			if (ReceivedHitCommon.AttackLevel < 2)
@@ -497,23 +498,6 @@ void APlayerObject::Update()
 		AirDashNoAttackTime--;
 	if (AirDashNoAttackTime == 1)
 		EnableAttacks();
-	
-	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
-	{
-		if (GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleBody && GetCurrentStateName() != CharaStateData->DefaultFloatingCrumpleHead)
-		{
-			if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
-        		HandleGroundBounce();
-			else
-			{
-				StunTime = 0;
-				StunTimeMax = 0;
-				PlayerFlags |= PLF_IsKnockedDown;
-				if (!(PlayerFlags & PLF_IsHardKnockedDown))
-					EnableState(ENB_Tech);
-        	}
-		}
-	}
 	
 	if (StunTime > 0)
 		StunTime--;
@@ -627,7 +611,7 @@ void APlayerObject::Update()
 				StunTime = 0;
 				StunTimeMax = 0;
 				PlayerFlags |= PLF_IsKnockedDown;
-				if ((PlayerFlags & PLF_IsHardKnockedDown) == 0)
+				if ((PlayerFlags & PLF_IsHardKnockedDown) == 0 && !(PlayerFlags & PLF_IsDead))
 					EnableState(ENB_Tech);
 			}
 		}
