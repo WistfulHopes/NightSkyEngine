@@ -1138,7 +1138,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.HardKnockdown = NormalHit.HardKnockdown;
 	
 	if (NormalHit.WallBounce.WallBounceStop == -1)
-		NormalHit.WallBounce.WallBounceStop = NormalHit.Hitstop;
+		NormalHit.WallBounce.WallBounceStop = 6;
 	if (NormalHit.WallBounce.WallBounceXSpeed == -1)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
 	if (NormalHit.WallBounce.WallBounceXRate == -1)
@@ -1166,7 +1166,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
 
 	if (NormalHit.GroundBounce.GroundBounceStop == -1)
-		NormalHit.GroundBounce.GroundBounceStop = NormalHit.Hitstop;
+		NormalHit.GroundBounce.GroundBounceStop = 6;
 	if (NormalHit.GroundBounce.GroundBounceXSpeed == -1)
 		NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
 	if (NormalHit.GroundBounce.GroundBounceXRate == -1)

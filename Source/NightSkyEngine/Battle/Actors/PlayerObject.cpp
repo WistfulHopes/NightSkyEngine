@@ -682,10 +682,10 @@ void APlayerObject::EditorUpdate_Implementation()
 void APlayerObject::HandleHitAction(EHitAction HACT)
 {
 	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
-	
+
 	AttackOwner->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = FinalHitstop;
-	
+
 	int32 Proration = ReceivedHit.ForcedProration;
 	if (Enemy->ComboCounter == 0)
 		Proration *= ReceivedHit.InitialProration;
@@ -2070,6 +2070,11 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.GravityOverTime = FHitValueOverTime();
 				HaltMomentum();
 				BufferedStateName = FName(CharaStateData->DefaultWallBounce);
+				
+				int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
+
+				AttackOwner->Hitstop = ReceivedHit.Hitstop;
+				Hitstop = FinalHitstop;
 			}
 		}
 		return;
@@ -2095,6 +2100,11 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GravityOverTime = FHitValueOverTime();
 			HaltMomentum();
 			BufferedStateName = FName(CharaStateData->DefaultWallBounce);
+				
+			int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
+
+			AttackOwner->Hitstop = ReceivedHit.Hitstop;
+			Hitstop = FinalHitstop;
 		}
 	}
 }
@@ -2119,6 +2129,11 @@ void APlayerObject::HandleGroundBounce()
 	EnableCancelIntoSelf(true);
 	PosY = GroundHeight + 1;
 	BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+
+	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
+
+	AttackOwner->Hitstop = ReceivedHit.Hitstop;
+	Hitstop = FinalHitstop;
 }
 
 void APlayerObject::SetComponentVisibility() const
