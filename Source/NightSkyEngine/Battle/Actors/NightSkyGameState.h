@@ -43,6 +43,14 @@ enum EIntroSide
 	INT_None,
 };
 
+enum EWinSide 
+{
+	WIN_None,
+	WIN_P1,
+	WIN_P2,
+	WIN_Draw,
+};
+
 USTRUCT()
 struct FAudioChannel
 {
@@ -122,6 +130,7 @@ struct FBattleState
 	int32 RoundCount = 0;
 
 	EIntroSide CurrentIntroSide = INT_None;
+	EWinSide CurrentWinSide = WIN_None;
 	
 	int32 ActiveObjectCount = MaxPlayerObjects;
 	int32 CurrentSequenceTime = -1;
