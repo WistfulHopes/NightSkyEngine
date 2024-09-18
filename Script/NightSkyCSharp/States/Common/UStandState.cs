@@ -16,7 +16,7 @@ public class UStandState : UState
         }
         else
         {
-            Parent.Player.JumpToState("AssistExit");
+            Parent.Player.JumpToStateByName("AssistExit");
         }
     }
 }

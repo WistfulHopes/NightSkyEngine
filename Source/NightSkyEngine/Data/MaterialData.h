@@ -12,7 +12,7 @@ struct FMaterialStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	TArray<UMaterialInterface*> Material;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)

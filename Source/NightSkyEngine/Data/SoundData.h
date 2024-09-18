@@ -12,7 +12,7 @@ struct FSoundStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(EditAnywhere)
 	USoundBase* SoundWave;
 	UPROPERTY(EditAnywhere)

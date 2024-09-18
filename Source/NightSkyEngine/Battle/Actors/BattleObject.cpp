@@ -651,7 +651,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToStateByName(AttackedPlayer->CharaStateData->DefaultThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -659,10 +659,10 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								}
 									
 								const FHitData Data = InitHitDataByAttackLevel(false);
-								CreateCommonParticle(HitCommon.HitVFXOverride, POS_Hit,
+								CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
 								                     FVector(0, 100, 0),
 								                     FRotator(HitCommon.HitAngle, 0, 0));
-								PlayCommonSound(HitCommon.HitSFXOverride);
+								PlayCommonSound(HitCommon.HitSFX);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
 								AttackedPlayer->ReceivedHit = Data;
 								EHitAction HACT;
@@ -691,7 +691,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToStateByName(AttackedPlayer->CharaStateData->DefaultThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -699,8 +699,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								}
 
 								const FHitData CounterData = InitHitDataByAttackLevel(true);
-								CreateCommonParticle(HitCommon.HitVFXOverride, POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
-								PlayCommonSound(HitCommon.HitSFXOverride);
+								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+								PlayCommonSound(HitCommon.HitSFX);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
 								AttackedPlayer->ReceivedHit = CounterData;
 								AttackedPlayer->ReceivedHit = CounterData;
@@ -767,22 +767,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = "cmn_hit_s";
+			HitCommon.HitVFX = "cmn_hit_s";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = "cmn_hit_sp";
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = "HitPunchS";
+			HitCommon.HitSFX = "HitPunchS";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = "HitKickS";
+			HitCommon.HitSFX = "HitKickS";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = "HitSlashS";
+			HitCommon.HitSFX = "HitSlashS";
 			break;
 		}
 		break;
@@ -821,22 +821,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = "cmn_hit_s";
+			HitCommon.HitVFX = "cmn_hit_s";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = "cmn_hit_sp";
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = "HitPunchS";
+			HitCommon.HitSFX = "HitPunchS";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = "HitKickS";
+			HitCommon.HitSFX = "HitKickS";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = "HitSlashS";
+			HitCommon.HitSFX = "HitSlashS";
 			break;
 		}
 		break;
@@ -875,22 +875,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = "cmn_hit_m";
+			HitCommon.HitVFX = "cmn_hit_m";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = "cmn_hit_sp";
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = "HitPunchM";
+			HitCommon.HitSFX = "HitPunchM";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = "HitKickM";
+			HitCommon.HitSFX = "HitKickM";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = "HitSlashM";
+			HitCommon.HitSFX = "HitSlashM";
 			break;
 		}
 		break;
@@ -929,22 +929,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = FName("cmn_hit_m");
+			HitCommon.HitVFX = "cmn_hit_m";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = FName("HitPunchM");
+			HitCommon.HitSFX = "HitPunchM";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = FName("HitKickM");
+			HitCommon.HitSFX = "HitKickM";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = FName("HitSlashM");
+			HitCommon.HitSFX = "HitSlashM";
 			break;
 		}
 		break;
@@ -983,22 +983,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = FName("cmn_hit_l");
+			HitCommon.HitVFX = "cmn_hit_l";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = FName("HitPunchL");
+			HitCommon.HitSFX = "HitPunchL";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = FName("HitKickL");
+			HitCommon.HitSFX = "HitKickL";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = FName("HitSlashL");
+			HitCommon.HitSFX = "HitSlashL";
 			break;
 		}
 		break;
@@ -1037,22 +1037,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFXOverride = FName("cmn_hit_l");
+			HitCommon.HitVFX = "cmn_hit_l";
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFXOverride = FName("cmn_hit_sp");
+			HitCommon.HitVFX = "cmn_hit_sp";
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFXOverride = FName("HitPunchL");
+			HitCommon.HitSFX = "HitPunchL";
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFXOverride = FName("HitKickL");
+			HitCommon.HitSFX = "HitKickL";
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFXOverride = FName("HitSlashL");
+			HitCommon.HitSFX = "HitSlashL";
 			break;
 		}
 		break;
@@ -1329,11 +1329,11 @@ void ABattleObject::HandleFlip()
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState(Player->CharaStateData->DefaultStandFlip);
+				Player->JumpToStateByName(Player->CharaStateData->DefaultStandFlip);
 			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState(Player->CharaStateData->DefaultCrouchFlip);
+				Player->JumpToStateByName(Player->CharaStateData->DefaultCrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
-				Player->JumpToState(Player->CharaStateData->DefaultJumpFlip);
+				Player->JumpToStateByName(Player->CharaStateData->DefaultJumpFlip);
 		}
 	}
 }
@@ -1389,7 +1389,7 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
 	if (EventType == EVT_Update) UpdateTime++;
-	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FName("None"))
+	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != "None")
 	{
 		USubroutine* Subroutine = nullptr;
 		
@@ -1401,7 +1401,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 
 		if (!Subroutine) return;
 
-		UFunction* const Func = Subroutine->FindFunction(FName(EventHandlers[EventType].FunctionName));
+		UFunction* const Func = Subroutine->FindFunction(EventHandlers[EventType].FunctionName);
 		if (IsValid(Func) && Func->ParmsSize == 0)
 		{
 			Subroutine->Parent = this;
@@ -1415,7 +1415,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 		State = Player->StoredStateMachine.CurrentState;
 	if (!IsValid(State))
 		return;
-	UFunction* const Func = State->FindFunction(FName(EventHandlers[EventType].FunctionName));
+	UFunction* const Func = State->FindFunction(EventHandlers[EventType].FunctionName);
 	if (IsValid(Func) && Func->ParmsSize == 0)
 	{
 		State->ProcessEvent(Func, nullptr);
@@ -1615,7 +1615,7 @@ void ABattleObject::LogForSyncTestFile(std::ofstream& file)
 		file << "\tStunTime: " << StunTime << std::endl;
 		file << "\tStunTimeMax: " << StunTimeMax << std::endl;
 		file << "\tHitstop: " << Hitstop << std::endl;
-		file << "\tCelName: " << TCHAR_TO_ANSI(*CelName.ToString) << std::endl;
+		file << "\tCelName: " << TCHAR_TO_ANSI(*CelName.ToString()) << std::endl;
 		file << "\tAttackFlags: " << AttackFlags << std::endl;
 		file << "\tDirection: " << Direction << std::endl;
 		file << "\tMiscFlags: " << MiscFlags << std::endl;
@@ -1650,7 +1650,7 @@ void ABattleObject::UpdateVisuals()
 	}
 	if (IsValid(GameState))
 	{
-		if (SocketName == FName("None")) //only set visual location if not attached to socket
+		if (SocketName == "None") //only set visual location if not attached to socket
 		{
 			SetActorRotation(GameState->BattleSceneTransform.GetRotation() * (ObjectRotation.Quaternion() * FlipRotation.Quaternion()));
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
@@ -1762,7 +1762,7 @@ void ABattleObject::GetBoxes()
 		{
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName)
 			{
-				AnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				AnimName = Player->CommonCollisionData->CollisionFrames[i].AnimName;
 				AnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
@@ -1789,7 +1789,7 @@ void ABattleObject::GetBoxes()
 			}
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
-				BlendAnimName = FName(Player->CommonCollisionData->CollisionFrames[i].AnimName);
+				BlendAnimName = Player->CommonCollisionData->CollisionFrames[i].AnimName;
 				BlendAnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
@@ -1811,7 +1811,7 @@ void ABattleObject::GetBoxes()
 		{
 			if (Player->CollisionData->CollisionFrames[i].CelName == CelName)
 			{
-				AnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
+				AnimName = Player->CollisionData->CollisionFrames[i].AnimName;
 				AnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
@@ -1838,7 +1838,7 @@ void ABattleObject::GetBoxes()
 			}
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
-				BlendAnimName = FName(Player->CollisionData->CollisionFrames[i].AnimName);
+				BlendAnimName = Player->CollisionData->CollisionFrames[i].AnimName;
 				BlendAnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
@@ -2162,7 +2162,7 @@ FName ABattleObject::GetLabelName() const
 
 void ABattleObject::SetCelName(FName InName)
 {
-	CelName = FName(InName);
+	CelName = InName;
 	SetBlendCelName("");
 
 	GetBoxes();
@@ -2183,7 +2183,7 @@ void ABattleObject::SetCelName(FName InName)
 
 void ABattleObject::SetBlendCelName(FName InName)
 {
-	BlendCelName = FName(InName);
+	BlendCelName = InName;
 	FrameBlendPosition = 0;
 	
 	GetBoxes();
@@ -2192,9 +2192,9 @@ void ABattleObject::SetBlendCelName(FName InName)
 void ABattleObject::GotoLabel(FName InName, bool ResetState)
 {
 	if (!GameState && !CharaSelectGameState) return;
-	LabelName = FName(InName);
+	LabelName = InName;
 	if (IsPlayer && ResetState)
-		Player->JumpToState(Player->GetCurrentStateName(), true);
+		Player->JumpToStateByName(Player->GetCurrentStateName(), true);
 	else
 		GotoLabelActive = true;
 }
@@ -2710,7 +2710,7 @@ void ABattleObject::PlayCharaSound(FName Name)
 
 void ABattleObject::AttachToSocketOfObject(FName InSocketName, FVector Offset, EObjType ObjType)
 {
-	SocketName = FName(InSocketName);
+	SocketName = InSocketName;
 	SocketObj = ObjType;
 	SocketOffset = Offset;
 }
@@ -2867,7 +2867,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FName InStateName, int32 Pos
 	EPosType PosType)
 {
 	if (!GameState) return nullptr;
-	int StateIndex = Player->CommonObjectStateNames.Find(FName(InStateName));
+	const int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
 	if (StateIndex != INDEX_NONE)
 	{		
 		int32 FinalPosX, FinalPosY;
@@ -2886,7 +2886,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FName InStateName, int32 Pos
 ABattleObject* ABattleObject::AddBattleObject(FName InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
 {
 	if (!GameState) return nullptr;
-	const int StateIndex = Player->ObjectStateNames.Find(FName(InStateName));
+	const int StateIndex = Player->ObjectStateNames.Find(InStateName);
 	if (StateIndex != INDEX_NONE)
 	{
 		int32 FinalPosX, FinalPosY;

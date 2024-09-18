@@ -364,7 +364,7 @@ public:
 	 * The state name to share a max chain with.
 	 */
 	UPROPERTY(EditAnywhere)
-	FString ShareChainName;
+	FName ShareChainName;
 	/**
 	 * The required stance to enter this state.
 	 * Only used on player states.

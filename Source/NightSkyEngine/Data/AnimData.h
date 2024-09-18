@@ -12,7 +12,7 @@ struct FAnimStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UAnimSequenceBase* AnimSequence;
 };

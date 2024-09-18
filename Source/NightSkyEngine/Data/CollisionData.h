@@ -13,9 +13,9 @@ struct FCollisionStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere)
-	FString CelName;
+	FName CelName;
 	UPROPERTY(EditAnywhere)
-	FString AnimName;
+	FName AnimName;
 	UPROPERTY(EditAnywhere)
 	UAnimSequenceBase* AnimSequence;
 	UPROPERTY(EditAnywhere)

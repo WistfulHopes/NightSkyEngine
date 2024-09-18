@@ -12,7 +12,7 @@ struct FStageStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString StageName;
+	FName StageName;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UTexture2D* StageTexture;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)

@@ -12,7 +12,7 @@ struct FCameraShakeStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	TSubclassOf<UCameraShakeBase> CameraShake;
 };
