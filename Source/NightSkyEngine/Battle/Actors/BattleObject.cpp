@@ -651,7 +651,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToStateByName(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -691,7 +691,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToStateByName(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -1329,11 +1329,11 @@ void ABattleObject::HandleFlip()
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
-				Player->JumpToStateByName(Player->CharaStateData->DefaultStandFlip);
+				Player->JumpToState(Player->CharaStateData->DefaultStandFlip);
 			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
-				Player->JumpToStateByName(Player->CharaStateData->DefaultCrouchFlip);
+				Player->JumpToState(Player->CharaStateData->DefaultCrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
-				Player->JumpToStateByName(Player->CharaStateData->DefaultJumpFlip);
+				Player->JumpToState(Player->CharaStateData->DefaultJumpFlip);
 		}
 	}
 }
@@ -2194,7 +2194,7 @@ void ABattleObject::GotoLabel(FName InName, bool ResetState)
 	if (!GameState && !CharaSelectGameState) return;
 	LabelName = InName;
 	if (IsPlayer && ResetState)
-		Player->JumpToStateByName(Player->GetCurrentStateName(), true);
+		Player->JumpToState(Player->GetCurrentStateName(), true);
 	else
 		GotoLabelActive = true;
 }

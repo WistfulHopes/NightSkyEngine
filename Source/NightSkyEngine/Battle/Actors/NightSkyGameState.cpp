@@ -151,13 +151,13 @@ void ANightSkyGameState::Init()
 void ANightSkyGameState::PlayIntros()
 {
 	if (GameInstance->IsTraining) {
-		GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultStand);
-		GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultStand);
+		GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
+		GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 		return;
 	}
 	BattleState.BattlePhase = EBattlePhase::Intro;
 	BattleState.CurrentIntroSide = INT_P1;
-	GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->IntroName);
+	GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->IntroName);
 	BattleHudVisibility(false);
 }
 
@@ -175,8 +175,8 @@ void ANightSkyGameState::RoundInit()
 	{
 		if (BattleState.RoundCount != 1)
 		{
-			GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultStand);
-			GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultStand);
+			GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
+			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 		}
 		
 		if (!GameInstance->IsTraining)
@@ -218,7 +218,7 @@ void ANightSkyGameState::RoundInit()
 		}
 		GetMainPlayer(IsP1)->PosX = NewPosX;
 		GetMainPlayer(IsP1)->PosY = 0;
-		GetMainPlayer(IsP1)->JumpToStateByName(GetMainPlayer(IsP1)->CharaStateData->DefaultTagIn);
+		GetMainPlayer(IsP1)->JumpToState(GetMainPlayer(IsP1)->CharaStateData->DefaultTagIn);
 		
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
@@ -233,8 +233,8 @@ void ANightSkyGameState::RoundInit()
 
 		if (BattleState.RoundCount != 1)
 		{
-			GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultStand);
-			GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultStand);
+			GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
+			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 		}
 		
 		if (!GameInstance->IsTraining)
@@ -374,13 +374,13 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	{
 		if (BattleState.CurrentIntroSide == INT_P1 && GetMainPlayer(true)->GetCurrentStateName() != GetMainPlayer(true)->IntroName)
 		{
-			GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->IntroName);
+			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->IntroName);
 			BattleState.CurrentIntroSide = INT_P2;
 		}
 		else if (BattleState.CurrentIntroSide == INT_P2 && GetMainPlayer(false)->GetCurrentStateName() != GetMainPlayer(false)->IntroName)
 		{
-			GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultStand);
-			GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultStand);
+			GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
+			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 			BattleState.CurrentIntroSide = INT_None;
 			BattleState.BattlePhase = EBattlePhase::Battle;
 			BattleHudVisibility(true);
@@ -620,7 +620,7 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 			else if (!HandleMatchWin())
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultRoundWin))
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultRoundWin))
 				{
 					BattleState.PauseTimer = false;
 					RoundInit();
@@ -646,7 +646,7 @@ void ANightSkyGameState::HandleRoundWin()
 		}
 		else if (!HandleMatchWin())
 		{
-			if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultRoundWin))
+			if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultRoundWin))
 			{
 				BattleState.PauseTimer = false;
 				RoundInit();
@@ -697,7 +697,7 @@ void ANightSkyGameState::HandleRoundWin()
 				}
 				else if (!HandleMatchWin())
 				{
-					if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultRoundWin))
+					if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultRoundWin))
 					{
 						BattleState.PauseTimer = false;
 						RoundInit();
@@ -726,7 +726,7 @@ void ANightSkyGameState::HandleRoundWin()
 				}
 				else if (!HandleMatchWin())
 				{
-					if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultRoundWin))
+					if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultRoundWin))
 					{
 						BattleState.PauseTimer = false;
 						RoundInit();
@@ -768,14 +768,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 0 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 0 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -792,14 +792,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -816,14 +816,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -840,14 +840,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 3 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 3 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -864,14 +864,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 4 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 4 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -889,14 +889,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -914,14 +914,14 @@ bool ANightSkyGameState::HandleMatchWin()
 		{
 			if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
-				if (!GetMainPlayer(true)->JumpToStateByName(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
-				if (!GetMainPlayer(false)->JumpToStateByName(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
+				if (!GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultMatchWin)) EndMatch();
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
@@ -1341,7 +1341,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	if (NewPlayer->PlayerFlags & PLF_IsOnScreen) return nullptr;
 	NewPlayer->TeamIndex = 0;
 	InPlayer->TeamIndex = TeamIndex;
-	NewPlayer->JumpToStateByName(NewPlayer->CharaStateData->DefaultTagIn);
+	NewPlayer->JumpToState(NewPlayer->CharaStateData->DefaultTagIn);
 	NewPlayer->SetOnScreen(true);
 	for (const auto EnemyPlayer : GetTeam(!IsP1))
 	{
@@ -1364,7 +1364,7 @@ APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistI
 	const auto NewPlayer = GetTeam(IsP1)[AssistIndex];
 	if (NewPlayer->CurrentHealth == 0) return nullptr;
 	if (NewPlayer->PlayerFlags & PLF_IsOnScreen) return nullptr;
-	NewPlayer->JumpToStateByName(AssistName);
+	NewPlayer->JumpToState(AssistName);
 	NewPlayer->SetOnScreen(true);
 	NewPlayer->Direction = GetMainPlayer(IsP1)->Direction;
 	BattleState.TeamData[IsP1 == 0].CooldownTimer[AssistIndex] = BattleState.AssistCooldown;

@@ -19,7 +19,7 @@ public class UCrouchState : UState
 
         if (!isHoldingDown)
         {
-            Parent.Player.JumpToStateByName("CrouchToStand");
+            Parent.Player.JumpToState("CrouchToStand");
         }
     }
 }

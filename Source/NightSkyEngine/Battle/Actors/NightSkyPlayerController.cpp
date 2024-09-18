@@ -4,7 +4,6 @@
 #include "NightSkyPlayerController.h"
 
 #include "EngineUtils.h"
-#include "NightSkyEngine/Battle/Bitflags.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
@@ -12,9 +11,9 @@
 #include "FighterRunners/FighterMultiplayerRunner.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Battle/Bitflags.h"
 #include "NightSkyEngine/Miscellaneous/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
-#include "NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h"
 #include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
 
 // Sets default values
@@ -26,6 +25,7 @@ ANightSkyPlayerController::ANightSkyPlayerController()
 	Inputs = 0;
 	Frame = 0;
 	NetworkPawn = nullptr;
+	bRematch = false;
 }
 
 // Called when the game starts or when spawned
@@ -34,7 +34,6 @@ void ANightSkyPlayerController::BeginPlay()
 	Super::BeginPlay();
 	
 	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
-	RemapKeys();
 }
 
 // Called every frame
@@ -78,7 +77,10 @@ void ANightSkyPlayerController::SetupInputComponent()
 		{
 			if (!InputMapping.IsNull())
 			{
-				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), 0);
+				FModifyContextOptions Opts = {};
+				Opts.bNotifyUserSettings = true;
+
+				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), 0, Opts);
 			}
 		}
 	}
@@ -141,22 +143,6 @@ void ANightSkyPlayerController::SetupInputComponent()
 		Input->BindAction(InputActions.ReleaseH.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
 	if (IsValid(InputActions.PauseGame))
 		Input->BindAction(InputActions.PauseGame.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
-}
-
-void ANightSkyPlayerController::RemapKeys() const
-{
-	const auto SettingsInfo = Cast<UNightSkyGameInstance>(GetGameInstance())->SettingsInfo;
-	if (SettingsInfo->RemappedBattleKeys.Num() <= 0) return;
-
-	for (auto MappedKey : SettingsInfo->RemappedBattleKeys)
-	{
-		for (auto Mapping : InputMapping->GetMappings())
-		{
-			if (Mapping.Action != MappedKey.Key) continue;
-			InputMapping->UnmapKey(Mapping.Action, Mapping.Key);
-			InputMapping->MapKey(Mapping.Action, MappedKey.Value);
-		}
-	}
 }
 
 void ANightSkyPlayerController::PressUp()

@@ -21,6 +21,4 @@ public:
 	int32 AntiAliasingMethod;
 	UPROPERTY(BlueprintReadWrite)
 	int32 GlobalIlluminationMethod;
-	UPROPERTY(BlueprintReadWrite)
-	TMap<UInputAction*, FKey> RemappedBattleKeys;
 };

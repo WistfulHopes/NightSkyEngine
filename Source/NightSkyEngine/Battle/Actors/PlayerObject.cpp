@@ -398,15 +398,15 @@ void APlayerObject::Update()
 					FaceOpponent();
 					if (Enemy->Stance != ACT_Jumping)
 					{
-						JumpToStateByName(CharaStateData->DefaultGuardBreakStand);
-						Enemy->JumpToStateByName(CharaStateData->DefaultGuardBreakStand);
+						JumpToState(CharaStateData->DefaultGuardBreakStand);
+						Enemy->JumpToState(CharaStateData->DefaultGuardBreakStand);
 						InitEventHandler(EVT_Update, "ThrowTech");
 						Enemy->InitEventHandler(EVT_Update, "ThrowTech");
 					}
 					else
 					{
-						JumpToStateByName(CharaStateData->DefaultGuardBreakAir);
-						Enemy->JumpToStateByName(CharaStateData->DefaultGuardBreakAir);
+						JumpToState(CharaStateData->DefaultGuardBreakAir);
+						Enemy->JumpToState(CharaStateData->DefaultGuardBreakAir);
 						InitEventHandler(EVT_Update, "ThrowTechAir");
 						Enemy->InitEventHandler(EVT_Update, "ThrowTechAir");
 					}
@@ -511,15 +511,15 @@ void APlayerObject::Update()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToStateByName(CharaStateData->DefaultStandBlockEnd);
+				JumpToState(CharaStateData->DefaultStandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToStateByName(CharaStateData->DefaultCrouchBlockEnd);
+				JumpToState(CharaStateData->DefaultCrouchBlockEnd);
 			}
 			else
 			{
-				JumpToStateByName(CharaStateData->DefaultAirBlockEnd);
+				JumpToState(CharaStateData->DefaultAirBlockEnd);
 			}
 		}
 		else if (PosY == GroundHeight && GetCurrentStateName() != CharaStateData->DefaultFaceDownWakeUp
@@ -527,11 +527,11 @@ void APlayerObject::Update()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToStateByName(CharaStateData->DefaultStand);
+				JumpToState(CharaStateData->DefaultStand);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToStateByName(CharaStateData->DefaultCrouch);
+				JumpToState(CharaStateData->DefaultCrouch);
 			}
 		}
 		else
@@ -569,9 +569,9 @@ void APlayerObject::Update()
 		Enemy->ComboTimer = 0;
 		OTGCount = 0;
 		if (StoredStateMachine.CurrentState->Name == CharaStateData->DefaultFaceDownLoop)
-			JumpToStateByName(CharaStateData->DefaultFaceDownWakeUp);
+			JumpToState(CharaStateData->DefaultFaceDownWakeUp);
 		else if (StoredStateMachine.CurrentState->Name == CharaStateData->DefaultFaceUpLoop)
-			JumpToStateByName(CharaStateData->DefaultFaceUpWakeUp);
+			JumpToState(CharaStateData->DefaultFaceUpWakeUp);
 		PlayerFlags &= ~PLF_IsKnockedDown;
 		DisableState(ENB_Tech);
 	}
@@ -590,7 +590,7 @@ void APlayerObject::Update()
 		CurrentAirDashCount = AirDashCount;
 		if (PlayerFlags & PLF_DefaultLandingAction && StoredStateMachine.CurrentState->StateType != EStateType::Hitstun)
 		{
-			JumpToStateByName(CharaStateData->DefaultJumpLanding);
+			JumpToState(CharaStateData->DefaultJumpLanding);
 		}
 		SetStance(ACT_Standing);
 		TriggerEvent(EVT_Landing);
@@ -1550,19 +1550,19 @@ void APlayerObject::HandleBlockAction()
 	}
 	if (Stance == ACT_Jumping || GetCurrentStateName() == CharaStateData->DefaultAirBlock)
 	{
-		JumpToStateByName(CharaStateData->DefaultAirBlock, true);
+		JumpToState(CharaStateData->DefaultAirBlock, true);
 		Stance = ACT_Jumping;
 	}
 	else if (CheckInput(Input1) || GetCurrentStateName() == CharaStateData->DefaultCrouchBlock)
 	{
 		PosY = 0;
-		JumpToStateByName(CharaStateData->DefaultCrouchBlock, true);
+		JumpToState(CharaStateData->DefaultCrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
 		PosY = 0;
-		JumpToStateByName(CharaStateData->DefaultStandBlock, true);
+		JumpToState(CharaStateData->DefaultStandBlock, true);
 		Stance = ACT_Standing;
 	}
 	if (Stance == ACT_Jumping)
@@ -1582,15 +1582,15 @@ void APlayerObject::HandleProximityBlock()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToStateByName(CharaStateData->DefaultStandBlockEnd);
+				JumpToState(CharaStateData->DefaultStandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToStateByName(CharaStateData->DefaultCrouchBlockEnd);
+				JumpToState(CharaStateData->DefaultCrouchBlockEnd);
 			}
 			else
 			{
-				JumpToStateByName(CharaStateData->DefaultAirBlockEnd);
+				JumpToState(CharaStateData->DefaultAirBlockEnd);
 			}
 		}
 		return;
@@ -1607,17 +1607,17 @@ void APlayerObject::HandleProximityBlock()
 	GotoLabel("Pre");
 	if (PosY > GroundHeight)
 	{
-		JumpToStateByName(CharaStateData->DefaultAirBlock, true);
+		JumpToState(CharaStateData->DefaultAirBlock, true);
 		Stance = ACT_Jumping;
 	}
 	else if (CheckInput(Input1))
 	{
-		JumpToStateByName(CharaStateData->DefaultCrouchBlock, true);
+		JumpToState(CharaStateData->DefaultCrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else 
 	{
-		JumpToStateByName(CharaStateData->DefaultStandBlock, true);
+		JumpToState(CharaStateData->DefaultStandBlock, true);
 		Stance = ACT_Standing;
 	}
 }
@@ -1935,7 +1935,7 @@ bool APlayerObject::CheckMovesUsedInChain(const FName Name)
 
 void APlayerObject::ThrowExe()
 {
-	JumpToStateByName(ExeStateName);
+	JumpToState(ExeStateName);
 	PlayerFlags &= ~PLF_ThrowActive;
 }
 
@@ -1992,7 +1992,7 @@ void APlayerObject::HandleThrowCollision()
 		{
 			if (CheckInput(Left))
 				FlipObject();
-			Enemy->JumpToStateByName(CharaStateData->DefaultThrowLock);
+			Enemy->JumpToState(CharaStateData->DefaultThrowLock);
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;
 			Enemy->AttackOwner = this;
@@ -2270,7 +2270,7 @@ void APlayerObject::SetStance(EActionStance InStance)
 	Stance = InStance;
 }
 
-bool APlayerObject::JumpToStateByName(FName NewName, bool IsLabel)
+bool APlayerObject::JumpToState(FName NewName, bool IsLabel)
 {
 	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
@@ -2295,7 +2295,7 @@ bool APlayerObject::JumpToStateByName(FName NewName, bool IsLabel)
 	return false;
 }
 
-bool APlayerObject::JumpToState(TSubclassOf<UState> Class, bool IsLabel)
+bool APlayerObject::JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel)
 {
 	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
