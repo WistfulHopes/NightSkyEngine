@@ -12,7 +12,7 @@ struct FLinkActorStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ActorClass;
 	UPROPERTY(EditAnywhere)

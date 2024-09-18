@@ -7,13 +7,10 @@ NightSkyEngine.code-workspace
 Makefile
 
 # Plugins
-Plugins/Developer/RiderLink/*
-Plugins/UnrealisticDocs
-Plugins/OnlineSubsystemRedpointEOS/*
+Script/ProjectGlue/
 
 # Docs
 local/
-surdocs/
 
 # Compiled Object files
 *.slo

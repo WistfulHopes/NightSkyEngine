@@ -10,7 +10,8 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine",
-				"CommonUI"
+				"CommonUI",
+				"EnhancedInput"
 			]
 		},
 		{

@@ -359,16 +359,13 @@ public:
 	 * For object states, this is used to create an object by name.
 	 */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FName Name;
 	/**
-<<<<<<< HEAD
-=======
 	 * The state name to share a max chain with.
 	 */
 	UPROPERTY(EditAnywhere)
 	FString ShareChainName;
 	/**
->>>>>>> 963214a4 (vacation stuff)
 	 * The required stance to enter this state.
 	 * Only used on player states.
 	 */

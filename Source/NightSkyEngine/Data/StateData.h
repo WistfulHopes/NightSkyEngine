@@ -19,82 +19,82 @@ public:
 	TArray<TSubclassOf<UState>> StateArray;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultStand = "Stand";
+	FName DefaultStand = "Stand";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrouch = "Crouch";
+	FName DefaultCrouch = "Crouch";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFall = "VJump";
+	FName DefaultFall = "VJump";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultJumpLanding = "JumpLanding";
+	FName DefaultJumpLanding = "JumpLanding";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultStandFlip = "StandFlip";
+	FName DefaultStandFlip = "StandFlip";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrouchFlip = "CrouchFlip";
+	FName DefaultCrouchFlip = "CrouchFlip";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultJumpFlip = "JumpFlip";
+	FName DefaultJumpFlip = "JumpFlip";
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultStandBlock = "StandBlock";
+	FName DefaultStandBlock = "StandBlock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrouchBlock = "CrouchBlock";
+	FName DefaultCrouchBlock = "CrouchBlock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultAirBlock = "AirBlock";
+	FName DefaultAirBlock = "AirBlock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultStandBlockEnd = "StandBlockEnd";
+	FName DefaultStandBlockEnd = "StandBlockEnd";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrouchBlockEnd = "CrouchBlockEnd";
+	FName DefaultCrouchBlockEnd = "CrouchBlockEnd";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultAirBlockEnd = "AirBlockEnd";
+	FName DefaultAirBlockEnd = "AirBlockEnd";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultGuardBreakStand = "GuardBreakStand";
+	FName DefaultGuardBreakStand = "GuardBreakStand";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultGuardBreakCrouch = "GuardBreakCrouch";
+	FName DefaultGuardBreakCrouch = "GuardBreakCrouch";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultGuardBreakAir = "GuardBreakAir";
+	FName DefaultGuardBreakAir = "GuardBreakAir";
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString DefaultStandHitstunPrefix = "Hitstun";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FString DefaultCrouchHitstunPrefix = "CrouchHitstun";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultBLaunch = "BLaunch";
+	FName DefaultBLaunch = "BLaunch";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultVLaunch = "VLaunch";
+	FName DefaultVLaunch = "VLaunch";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFLaunch = "FLaunch";
+	FName DefaultFLaunch = "FLaunch";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultBlowback = "Blowback";
+	FName DefaultBlowback = "Blowback";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultTailspin = "Tailspin";
+	FName DefaultTailspin = "Tailspin";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrumple = "Crumple";
+	FName DefaultCrumple = "Crumple";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFloatingCrumpleBody = "FloatingCrumpleBody";
+	FName DefaultFloatingCrumpleBody = "FloatingCrumpleBody";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFloatingCrumpleHead = "FloatingCrumpleHead";
+	FName DefaultFloatingCrumpleHead = "FloatingCrumpleHead";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultWallBounce = "WallBounce";
+	FName DefaultWallBounce = "WallBounce";
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFaceDownLoop = "FaceDownLoop";
+	FName DefaultFaceDownLoop = "FaceDownLoop";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFaceUpLoop = "FaceUpLoop";
+	FName DefaultFaceUpLoop = "FaceUpLoop";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFaceDownWakeUp = "FaceDownWakeUp";
+	FName DefaultFaceDownWakeUp = "FaceDownWakeUp";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultFaceUpWakeUp = "FaceUpWakeUp";
+	FName DefaultFaceUpWakeUp = "FaceUpWakeUp";
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultThrowLock = "ThrowLock";
+	FName DefaultThrowLock = "ThrowLock";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultTagIn = "TagIn";
+	FName DefaultTagIn = "TagIn";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultRoundWin = "RoundWin";
+	FName DefaultRoundWin = "RoundWin";
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultMatchWin = "MatchWin";
+	FName DefaultMatchWin = "MatchWin";
 
 	UFUNCTION(BlueprintPure)
-	UState* GetByStateName(const FString& StateName)
+	UState* GetByStateName(const FName& StateName)
 	{
 		for (const auto& StateClass : StateArray)
 		{

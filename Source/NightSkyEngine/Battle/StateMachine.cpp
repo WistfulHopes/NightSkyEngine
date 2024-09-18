@@ -103,6 +103,40 @@ bool FStateMachine::ForceSetState(const FName Name, bool bIsAlias)
 	return true;
 }
 
+bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
+{
+	for (auto State : States)
+	{
+		if (State->GetClass() == Class)
+		{
+			if (const auto SubroutineState = Cast<USubroutineState>(State))
+			{
+				Parent->CallSubroutine(SubroutineState->SubroutineName);
+				return false;
+			}
+			if (!bIsAlias)
+			{
+				Parent->StateEntryName = FName(State->Name);
+			}
+			if (const auto Alias = Cast<UStateAlias>(State))
+			{
+				return ForceSetState(FName(Alias->StateToEnter), true);
+			}
+
+			Parent->TriggerEvent(EVT_Exit);
+			Parent->OnStateChange();	
+
+			CurrentState = State;
+			Parent->PostStateChange();
+			Parent->TriggerEvent(EVT_Enter);
+			Update();
+
+			return true;
+		}
+	}
+	return false;
+}
+
 bool FStateMachine::ForceRollbackState(const FName Name)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)

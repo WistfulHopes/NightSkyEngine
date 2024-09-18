@@ -51,6 +51,15 @@ enum EWinSide
 	WIN_Draw,
 };
 
+UENUM()
+enum class EBattlePhase
+{
+	Intro,
+	Battle,
+	RoundEnd,
+	MatchEnd,
+};
+
 USTRUCT()
 struct FAudioChannel
 {
@@ -131,6 +140,7 @@ struct FBattleState
 
 	EIntroSide CurrentIntroSide = INT_None;
 	EWinSide CurrentWinSide = WIN_None;
+	EBattlePhase BattlePhase = EBattlePhase::Intro;
 	
 	int32 ActiveObjectCount = MaxPlayerObjects;
 	int32 CurrentSequenceTime = -1;
@@ -295,7 +305,7 @@ public:
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
-	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FString& AssistName);
+	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FName AssistName);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
 	void SaveGameState(int32* InChecksum); //saves game state

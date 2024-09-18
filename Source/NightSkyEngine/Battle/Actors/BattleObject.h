@@ -544,7 +544,7 @@ struct FLinkedActorContainer
 
 	UPROPERTY()
 	TObjectPtr<AActor> StoredActor;
-	FString Name;
+	FName Name;
 	int32 Index;
 	UPROPERTY(SaveGame)
 	bool bIsActive;
@@ -965,37 +965,37 @@ public:
 	bool IsTimerPaused() const;
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
-	void CallSubroutine(FString Name);
+	void CallSubroutine(FName Name);
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
-	void CallSubroutineWithArgs(FString Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
+	void CallSubroutineWithArgs(FName Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
-	void InitEventHandler(EEventType EventType, FName FuncName, int32 Value = 0, FString SubroutineName = "");
+	void InitEventHandler(EEventType EventType, FName FuncName, int32 Value = 0, FName SubroutineName = "");
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
 	void RemoveEventHandler(EEventType EventType);
 	//gets cel name
 	UFUNCTION(BlueprintPure)
-	FString GetCelName() const;
+	FName GetCelName() const;
 	//gets anim name
 	UFUNCTION(BlueprintPure)
-	FString GetAnimName() const;
+	FName GetAnimName() const;
 	//gets blend anim name
 	UFUNCTION(BlueprintPure)
-	FString GetBlendAnimName() const;
+	FName GetBlendAnimName() const;
 	//gets label name
 	UFUNCTION(BlueprintPure)
-	FString GetLabelName() const;
+	FName GetLabelName() const;
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
-	void SetCelName(FString InName);
+	void SetCelName(FName InName);
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
-	void SetBlendCelName(FString InName);
+	void SetBlendCelName(FName InName);
 	//jumps to label
 	UFUNCTION(BlueprintCallable)
-	void GotoLabel(FString InName, bool ResetState = true);
+	void GotoLabel(FName InName, bool ResetState = true);
 	//sets time until next cel
 	UFUNCTION(BlueprintCallable)
 	void SetTimeUntilNextCel(int32 InTime);
@@ -1068,35 +1068,35 @@ public:
 	void SetPushWidthExtend(int32 Extend);
 	//creates common particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCommonParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCommonParticle(FName Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
 	//creates character particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCharaParticle(FString Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCharaParticle(FName Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
 	//creates common particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	void LinkCommonParticle(FString Name);
+	void LinkCommonParticle(FName Name);
 	//creates character particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	void LinkCharaParticle(FString Name);
+	void LinkCharaParticle(FName Name);
 	//gets link actor and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	AActor* LinkActor(FString Name);
+	AActor* LinkActor(FName Name);
 	UFUNCTION(BlueprintCallable)
 	void RemoveLinkActor();
 	//plays common sound
 	UFUNCTION(BlueprintCallable)
-	void PlayCommonSound(FString Name);
+	void PlayCommonSound(FName Name);
 	//plays chara sound
 	UFUNCTION(BlueprintCallable)
-	void PlayCharaSound(FString Name);
+	void PlayCharaSound(FName Name);
 	//attaches object to skeletal socket
 	UFUNCTION(BlueprintCallable)
-	void AttachToSocketOfObject(FString InSocketName, FVector Offset, EObjType ObjType);
+	void AttachToSocketOfObject(FName InSocketName, FVector Offset, EObjType ObjType);
 	//detaches object from skeletal socket
 	UFUNCTION(BlueprintCallable)
 	void DetachFromSocket();
 	UFUNCTION(BlueprintCallable)
-	void CameraShake(FString PatternName, int32 Scale);
+	void CameraShake(FName PatternName, int32 Scale);
 	//generate random number
 	UFUNCTION(BlueprintPure)
 	int32 GenerateRandomNumber(int32 Min, int32 Max) const;
@@ -1114,10 +1114,10 @@ public:
 	ABattleObject* GetBattleObject(EObjType Type);
 	//creates common object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddCommonBattleObject(FString InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddCommonBattleObject(FName InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//creates object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddBattleObject(FString InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddBattleObject(FName InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//if object goes beyond screen bounds, deactivate
 	UFUNCTION(BlueprintCallable)
 	void EnableDeactivateIfBeyondBounds(bool Enable);

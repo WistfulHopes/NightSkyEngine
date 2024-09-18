@@ -81,6 +81,15 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 */
 	bool ForceSetState(const FName Name, bool bIsAlias = false);
 	/**
+	 * Sets the current state.
+	 * If the state to set is the same as the current state, the state will be reset.
+	 * 
+	 * @param Name The state to set as current.
+	 * @param bIsAlias If the state is being set via an alias.
+	 * @return If the state was successfully set, return true. Otherwise return false.
+	 */
+	bool ForceSetState(TSubclassOf<UState> Class, bool bIsAlias = false);
+	/**
 	 * Sets the current state for rollback.
 	 * Code called when entering a state normally will not be called.
 	 * 

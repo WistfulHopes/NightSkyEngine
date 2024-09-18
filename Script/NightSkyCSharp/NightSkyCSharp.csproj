@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssembliesName>true</CopyLocalLockFileAssembliesName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnrealSharp">
+      <HintPath>..\..\Plugins\UnrealSharp\Binaries\Managed\net8.0\UnrealSharp.dll</HintPath>
+    </Reference>
+    <Analyzer Include="..\..\Plugins\UnrealSharp\Binaries\Managed\UnrealSharp.SourceGenerators.dll" />
+    <ProjectReference Include="..\ProjectGlue\ProjectGlue.csproj" />
+  </ItemGroup>
+</Project>

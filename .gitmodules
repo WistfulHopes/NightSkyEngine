@@ -4,3 +4,6 @@
 [submodule "Plugins/AdvancedSessionsPlugin"]
 	path = Plugins/AdvancedSessionsPlugin
 	url = https://github.com/mordentral/AdvancedSessionsPlugin.git
+[submodule "Plugins/UnrealSharp"]
+	path = Plugins/UnrealSharp
+	url = https://github.com/UnrealSharp/UnrealSharp.git

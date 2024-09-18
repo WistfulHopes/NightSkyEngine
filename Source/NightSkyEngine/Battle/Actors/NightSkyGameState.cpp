@@ -155,6 +155,7 @@ void ANightSkyGameState::PlayIntros()
 		GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 		return;
 	}
+	BattleState.BattlePhase = EBattlePhase::Intro;
 	BattleState.CurrentIntroSide = INT_P1;
 	GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->IntroName);
 	BattleHudVisibility(false);
@@ -168,6 +169,7 @@ void ANightSkyGameState::RoundInit()
 	BattleState.SuperFreezeSelfDuration = 0;
 	BattleState.SuperFreezeDuration = 0;
 	BattleState.SuperFreezeCaller = nullptr;
+	BattleState.BattlePhase = EBattlePhase::Battle;
 	
 	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo || BattleState.RoundCount == 1)
 	{
@@ -368,7 +370,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	LocalFrame++;
 	ParticleManager->UpdateParticles();
 
-	if (BattleState.CurrentIntroSide != INT_None)
+	if (BattleState.BattlePhase == EBattlePhase::Intro)
 	{
 		if (BattleState.CurrentIntroSide == INT_P1 && GetMainPlayer(true)->GetCurrentStateName() != GetMainPlayer(true)->IntroName)
 		{
@@ -380,11 +382,12 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			GetMainPlayer(true)->JumpToState(GetMainPlayer(true)->CharaStateData->DefaultStand);
 			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->CharaStateData->DefaultStand);
 			BattleState.CurrentIntroSide = INT_None;
+			BattleState.BattlePhase = EBattlePhase::Battle;
 			BattleHudVisibility(true);
 		}
 	}
 	
-	else if (!GameInstance->IsTraining && !BattleState.PauseTimer)
+	if (!GameInstance->IsTraining && !BattleState.PauseTimer)
 	{
 		if (BattleState.TimeUntilRoundStart > 0)
 			BattleState.TimeUntilRoundStart--;
@@ -603,6 +606,7 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.P1RoundsWon++;
 		GetMainPlayer(true)->RoundWinTimer--;
 		GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
+		BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(true)->RoundWinTimer == 0)
 		{
@@ -630,6 +634,7 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.P2RoundsWon++;
 		GetMainPlayer(false)->RoundWinTimer--;
 		GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
+		BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
 		if (IsTagBattle())
 		{
@@ -658,6 +663,7 @@ void ANightSkyGameState::HandleRoundWin()
 		GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
 		GetMainPlayer(true)->RoundWinTimer--;
+		BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(true)->RoundWinTimer == 0)
 		{
@@ -677,6 +683,7 @@ void ANightSkyGameState::HandleRoundWin()
 			GetMainPlayer(true)->RoundWinTimer--;
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(true)->RoundWinTimer == 0)
 			{
@@ -705,6 +712,7 @@ void ANightSkyGameState::HandleRoundWin()
 			GetMainPlayer(false)->RoundWinTimer--;
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(false)->RoundWinTimer == 0)
 			{
@@ -735,6 +743,7 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			GetMainPlayer(true)->RoundWinTimer--;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(true)->RoundWinTimer == 0)
@@ -747,6 +756,7 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 		}
 	}
+	if (HandleMatchWin()) BattleState.BattlePhase = EBattlePhase::MatchEnd;
 }
 
 bool ANightSkyGameState::HandleMatchWin()
@@ -1342,7 +1352,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	return NewPlayer;
 }
 
-APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistIndex, const FString& AssistName)
+APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistIndex, const FName AssistName)
 {
 	if (AssistIndex == 0) return nullptr;
 	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo) return nullptr;

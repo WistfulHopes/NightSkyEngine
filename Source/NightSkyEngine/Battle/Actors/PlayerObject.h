@@ -275,7 +275,7 @@ public:
 
 	FName StateEntryName;
 	UPROPERTY(BlueprintReadWrite)
-	FString IntroName = "Intro";
+	FName IntroName = "Intro";
 	
 protected:
 	/*
@@ -337,7 +337,7 @@ public:
 	 */
 	
 	UPROPERTY(EditAnywhere)
-	TArray<FString> DamageReactionCels;
+	TArray<FName> DamageReactionCels;
 	UPROPERTY(EditAnywhere)
 	bool bMirrorWhenFlip;
 	
@@ -509,13 +509,13 @@ public:
 	 */
 	//add state to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddState(FString Name, UState* State); 
+	void AddState(FName Name, UState* State); 
 	//add object state
 	UFUNCTION(BlueprintCallable)
-	void AddObjectState(FString Name, UState* State, bool IsCommon); 
+	void AddObjectState(FName Name, UState* State, bool IsCommon); 
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon);
+	void AddSubroutine(FName Name, USubroutine* Subroutine, bool IsCommon);
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(int Value);
 	UFUNCTION(BlueprintCallable)
@@ -549,16 +549,19 @@ public:
 	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	bool JumpToState(FString NewName, bool IsLabel = false);
+	bool JumpToState(FName NewName, bool IsLabel = false);
+	//force set state
+	UFUNCTION(BlueprintCallable, CallInEditor)
+	bool JumpToState(TSubclassOf<UState> Class, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
-	FString GetCurrentStateName() const;
+	FName GetCurrentStateName() const;
 	//gets last state name
 	UFUNCTION(BlueprintPure)
-	FString GetLastStateName() const;
+	FName GetLastStateName() const;
 	//gets state entry name
 	UFUNCTION(BlueprintPure)
-	FString GetStateEntryName() const;
+	FName GetStateEntryName() const;
 	//check if state can be entered
 	UFUNCTION(BlueprintPure)
 	bool CheckStateEnabled(EStateType StateType, FName CustomStateType);
@@ -608,22 +611,22 @@ public:
 	void SetAirDashNoAttackTimer(bool IsForward);
 	//add chain cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddChainCancelOption(FString Option);
+	void AddChainCancelOption(FName Option);
 	//add auto combo option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddAutoComboCancel(FString Option, EInputFlags Button);
+	void AddAutoComboCancel(FName Option, EInputFlags Button);
 	//add whiff cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddWhiffCancelOption(FString Option);
+	void AddWhiffCancelOption(FName Option);
 	//remove chain cancel option
 	UFUNCTION(BlueprintCallable)
-	void RemoveChainCancelOption(FString Option);
+	void RemoveChainCancelOption(FName Option);
 	//remove auto combo cancel
 	UFUNCTION(BlueprintCallable)
 	void RemoveAutoComboCancel(EInputFlags Button);
 	//remove whiff cancel option
 	UFUNCTION(BlueprintCallable)
-	void RemoveWhiffCancelOption(FString Option);
+	void RemoveWhiffCancelOption(FName Option);
 	UFUNCTION(BlueprintCallable)
 	void EnableChainCancel(bool Enable);
 	//sets whiff cancel options enabled. off by default
@@ -686,7 +689,7 @@ public:
 	void SetThrowRange(int32 InThrowRange);
 	//sets throw execution state
 	UFUNCTION(BlueprintCallable)
-	void SetThrowExeState(FString ExeState);
+	void SetThrowExeState(FName ExeState);
 	//sets grip position for throw
 	UFUNCTION(BlueprintCallable)
 	void SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY);
@@ -698,13 +701,13 @@ public:
 	void SetHitgrabActive(bool Active);
 	//plays voice line
 	UFUNCTION(BlueprintCallable)
-	void PlayVoiceLine(FString Name);
+	void PlayVoiceLine(FName Name);
 	//plays common level sequence
 	UFUNCTION(BlueprintCallable)
-	void PlayCommonLevelSequence(FString Name);
+	void PlayCommonLevelSequence(FName Name);
 	//plays character level sequence
 	UFUNCTION(BlueprintCallable)
-	void PlayLevelSequence(FString Name);
+	void PlayLevelSequence(FName Name);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
@@ -721,7 +724,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
 	UFUNCTION(BlueprintCallable)
-	APlayerObject* CallAssist(int AssistIndex, FString AssistName);
+	APlayerObject* CallAssist(int AssistIndex, FName AssistName);
 	UFUNCTION(BlueprintCallable)
 	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
 	UFUNCTION(BlueprintPure)
@@ -731,7 +734,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetOnScreen(bool OnScreen);
 	UFUNCTION(BlueprintCallable)
-	void ToggleComponentVisibility(FString ComponentName, bool Visible);
+	void ToggleComponentVisibility(FName ComponentName, bool Visible);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDefaultComponentVisibility();
 

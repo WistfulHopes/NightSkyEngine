@@ -134,7 +134,7 @@ void APlayerObject::HandleStateMachine(bool Buffer)
 
 bool APlayerObject::HandleAutoCombo(int32 StateIndex)
 {
-	if (!FindAutoComboCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))) return false;
+	if (!FindAutoComboCancelOption(StoredStateMachine.States[StateIndex]->Name)) return false;
 
 	bool AutoComboSuccess = false;
 	for (int i = 0; i < 8; i++)
@@ -218,17 +218,17 @@ bool APlayerObject::HandleStateInputs(int32 StateIndex, bool Buffer)
 
 bool APlayerObject::HandleStateTransition(int32 StateIndex, bool Buffer)
 {
-	if (FindChainCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
-	|| FindAutoComboCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
-	|| FindWhiffCancelOption(FName(StoredStateMachine.States[StateIndex]->Name))
+	if (FindChainCancelOption(StoredStateMachine.States[StateIndex]->Name)
+	|| FindAutoComboCancelOption(StoredStateMachine.States[StateIndex]->Name)
+	|| FindWhiffCancelOption(StoredStateMachine.States[StateIndex]->Name)
 	|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
 	{
 		if (Buffer)
 		{
-			BufferedStateName = FName(StoredStateMachine.States[StateIndex]->Name);
+			BufferedStateName = StoredStateMachine.States[StateIndex]->Name;
 			return true; //don't try to enter another state
 		}
-		if (StoredStateMachine.ForceSetState(FName(StoredStateMachine.States[StateIndex]->Name))) //if state set successful...
+		if (StoredStateMachine.ForceSetState(StoredStateMachine.States[StateIndex]->Name)) //if state set successful...
 		{
 			GotoLabelActive = false;
 			switch (StoredStateMachine.States[StateIndex]->EntryStance)
@@ -252,10 +252,10 @@ bool APlayerObject::HandleStateTransition(int32 StateIndex, bool Buffer)
 	{
 		if (Buffer)
 		{
-			BufferedStateName = FName(StoredStateMachine.States[StateIndex]->Name);
+			BufferedStateName = StoredStateMachine.States[StateIndex]->Name;
 			return true; //don't try to enter another state
 		}
-		if (StoredStateMachine.SetState(FName(StoredStateMachine.States[StateIndex]->Name))) //if state set successful...
+		if (StoredStateMachine.SetState(StoredStateMachine.States[StateIndex]->Name)) //if state set successful...
 		{
 			GotoLabelActive = false;
 			switch (StoredStateMachine.States[StateIndex]->EntryStance)
@@ -787,18 +787,18 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		if (PosY <= GroundHeight && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal || HACT == HACT_FloatingCrumple)
-				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+				BufferedStateName = CharaStateData->DefaultBLaunch;
 			else if (HACT == HACT_AirVertical)
-				BufferedStateName = FName(CharaStateData->DefaultVLaunch);
+				BufferedStateName = CharaStateData->DefaultVLaunch;
 			else if (HACT == HACT_AirFaceDown)
-				BufferedStateName = FName(CharaStateData->DefaultFLaunch);
+				BufferedStateName = CharaStateData->DefaultFLaunch;
 			else if (HACT == HACT_Blowback)
-				BufferedStateName = FName(CharaStateData->DefaultBlowback);
+				BufferedStateName = CharaStateData->DefaultBlowback;
 			else if (HACT == HACT_Tailspin)
-				BufferedStateName = FName(CharaStateData->DefaultTailspin);
+				BufferedStateName = CharaStateData->DefaultTailspin;
 			else
 			{
-				BufferedStateName = FName(CharaStateData->DefaultCrumple);
+				BufferedStateName = CharaStateData->DefaultCrumple;
 			}
 		}
 		else
@@ -806,17 +806,17 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			if (PosY <= GroundHeight)
 				PosY = GroundHeight + 1;
 			if (HACT == HACT_AirFaceUp || HACT == HACT_AirNormal)
-				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+				BufferedStateName = CharaStateData->DefaultBLaunch;
 			else if (HACT == HACT_AirVertical)
-				BufferedStateName = FName(CharaStateData->DefaultVLaunch);
+				BufferedStateName = CharaStateData->DefaultVLaunch;
 			else if (HACT == HACT_AirFaceDown)
-				BufferedStateName = FName(CharaStateData->DefaultFLaunch);
+				BufferedStateName = CharaStateData->DefaultFLaunch;
 			else if (HACT == HACT_Blowback)
-				BufferedStateName = FName(CharaStateData->DefaultBlowback);
+				BufferedStateName = CharaStateData->DefaultBlowback;
 			else if (HACT == HACT_Tailspin)
-				BufferedStateName = FName(CharaStateData->DefaultTailspin);
+				BufferedStateName = CharaStateData->DefaultTailspin;
 			else
-				BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+				BufferedStateName = CharaStateData->DefaultBLaunch;
 		}
 		return;
 	}
@@ -897,32 +897,32 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			BufferedStateName = FName(CharaStateData->DefaultStandHitstunPrefix + "5");
 		break;
 	case HACT_GuardBreakCrouch:
-		BufferedStateName = FName(CharaStateData->DefaultGuardBreakCrouch);
+		BufferedStateName = CharaStateData->DefaultGuardBreakCrouch;
 		break;
 	case HACT_GuardBreakStand:
-		BufferedStateName = FName(CharaStateData->DefaultGuardBreakStand);
+		BufferedStateName = CharaStateData->DefaultGuardBreakStand;
 		break;
 	case HACT_AirNormal:
 	case HACT_AirFaceUp:
-		BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+		BufferedStateName = CharaStateData->DefaultBLaunch;
 		break;
 	case HACT_AirVertical:
-		BufferedStateName = FName(CharaStateData->DefaultVLaunch);
+		BufferedStateName = CharaStateData->DefaultVLaunch;
 		break;
 	case HACT_AirFaceDown:
-		BufferedStateName = FName(CharaStateData->DefaultFLaunch);
+		BufferedStateName = CharaStateData->DefaultFLaunch;
 		break;
 	case HACT_Blowback:
-		BufferedStateName = FName(CharaStateData->DefaultBlowback);
+		BufferedStateName = CharaStateData->DefaultBlowback;
 		break;
 	case HACT_Tailspin:
-		BufferedStateName = FName(CharaStateData->DefaultTailspin);
+		BufferedStateName = CharaStateData->DefaultTailspin;
 		break;
 	case HACT_FloatingCrumple:
 		if (ReceivedHit.FloatingCrumpleType == FLT_Body)
-			BufferedStateName = FName(CharaStateData->DefaultFloatingCrumpleBody);
+			BufferedStateName = CharaStateData->DefaultFloatingCrumpleBody;
 		else
-			BufferedStateName = FName(CharaStateData->DefaultFloatingCrumpleHead);
+			BufferedStateName = CharaStateData->DefaultFloatingCrumpleHead;
 		break;
 	case HACT_None: break;
 	default: ;
@@ -1213,9 +1213,9 @@ void APlayerObject::SetThrowRange(int32 InThrowRange)
 	ThrowRange = InThrowRange;
 }
 
-void APlayerObject::SetThrowExeState(FString ExeState)
+void APlayerObject::SetThrowExeState(FName ExeState)
 {
-	ExeStateName = FName(ExeState);
+	ExeStateName = ExeState;
 }
 
 void APlayerObject::SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY)
@@ -1248,7 +1248,7 @@ void APlayerObject::SetHitgrabActive(bool Active)
 	}
 }
 
-void APlayerObject::PlayVoiceLine(FString Name)
+void APlayerObject::PlayVoiceLine(FName Name)
 {
 	if (!IsValid(GameState))
 		return;
@@ -1265,7 +1265,7 @@ void APlayerObject::PlayVoiceLine(FString Name)
 	}
 }
 
-void APlayerObject::PlayCommonLevelSequence(FString Name)
+void APlayerObject::PlayCommonLevelSequence(FName Name)
 {
 	if (!GameState) return;
 	if (CommonSequenceData != nullptr)
@@ -1280,7 +1280,7 @@ void APlayerObject::PlayCommonLevelSequence(FString Name)
 	}
 }
 
-void APlayerObject::PlayLevelSequence(FString Name)
+void APlayerObject::PlayLevelSequence(FName Name)
 {
 	if (!GameState) return;
 	if (SequenceData != nullptr)
@@ -1327,7 +1327,7 @@ void APlayerObject::AddBattleObjectToStorage(ABattleObject* InActor, int Index)
 	}
 }
 
-APlayerObject* APlayerObject::CallAssist(const int AssistIndex, const FString AssistName)
+APlayerObject* APlayerObject::CallAssist(const int AssistIndex, const FName AssistName)
 {
 	if (!GameState) return nullptr;
 	return GameState->CallAssist(PlayerIndex == 0, AssistIndex, AssistName);
@@ -1358,7 +1358,7 @@ void APlayerObject::SetOnScreen(bool OnScreen)
 		PlayerFlags &= ~PLF_IsOnScreen;
 }
 
-void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visible)
+void APlayerObject::ToggleComponentVisibility(FName ComponentName, bool Visible)
 {
 	TInlineComponentArray<UPrimitiveComponent*> Components;
 	GetComponents(Components);
@@ -1373,16 +1373,16 @@ void APlayerObject::ToggleComponentVisibility(FString ComponentName, bool Visibl
 
 bool APlayerObject::CanEnterState(UState* State)
 {
-	const FName MoveChainName = State->ShareChainName != "" ? FName(State->ShareChainName) : FName(State->Name);
+	const FName MoveChainName = State->ShareChainName != "" ? State->ShareChainName : State->Name;
 	if (!CheckMovesUsedInChain(MoveChainName) ||
 		!((CheckStateEnabled(State->StateType, State->CustomStateType) && !State->IsFollowupState)
-		|| FindChainCancelOption(FName(State->Name))
-		|| FindAutoComboCancelOption(FName(State->Name))
-		|| FindWhiffCancelOption(FName(State->Name))
+		|| FindChainCancelOption(State->Name)
+		|| FindAutoComboCancelOption(State->Name)
+		|| FindWhiffCancelOption(State->Name)
 		|| (CheckKaraCancel(State->StateType)
 		&& !State->IsFollowupState
-		&& StoredStateMachine.GetStateIndex(FName(State->Name)) > StoredStateMachine.GetStateIndex(
-			FName(GetCurrentStateName()))) 
+		&& StoredStateMachine.GetStateIndex(State->Name) > StoredStateMachine.GetStateIndex(
+			GetCurrentStateName())) 
 	)) //check if the state is enabled
 	{
 		return false;
@@ -1935,7 +1935,7 @@ bool APlayerObject::CheckMovesUsedInChain(const FName Name)
 
 void APlayerObject::ThrowExe()
 {
-	JumpToState(ExeStateName.ToString());
+	JumpToState(ExeStateName);
 	PlayerFlags &= ~PLF_ThrowActive;
 }
 
@@ -2069,7 +2069,7 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 				ReceivedHit.GravityOverTime = FHitValueOverTime();
 				HaltMomentum();
-				BufferedStateName = FName(CharaStateData->DefaultWallBounce);
+				BufferedStateName = CharaStateData->DefaultWallBounce;
 				
 				int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 
@@ -2099,7 +2099,7 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.AirPushbackYOverTime = FHitValueOverTime();
 			ReceivedHit.GravityOverTime = FHitValueOverTime();
 			HaltMomentum();
-			BufferedStateName = FName(CharaStateData->DefaultWallBounce);
+			BufferedStateName = CharaStateData->DefaultWallBounce;
 				
 			int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 
@@ -2128,7 +2128,7 @@ void APlayerObject::HandleGroundBounce()
 	ReceivedHit.GroundHitAction = HACT_AirFaceUp;
 	EnableCancelIntoSelf(true);
 	PosY = GroundHeight + 1;
-	BufferedStateName = FName(CharaStateData->DefaultBLaunch);
+	BufferedStateName = CharaStateData->DefaultBLaunch;
 
 	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 
@@ -2158,39 +2158,39 @@ void APlayerObject::UpdateVisuals()
 	SetComponentVisibility();
 }
 
-void APlayerObject::AddState(FString Name, UState* State)
+void APlayerObject::AddState(FName Name, UState* State)
 {
 	StoredStateMachine.Parent = this;
-	StoredStateMachine.AddState(FName(Name), State);
+	StoredStateMachine.AddState(Name, State);
 }
 
-void APlayerObject::AddObjectState(FString Name, UState* State, bool IsCommon)
+void APlayerObject::AddObjectState(FName Name, UState* State, bool IsCommon)
 {
 	State->Parent = this;
 	if (IsCommon)
 	{
 		CommonObjectStates.Add(State);
-		CommonObjectStateNames.Add(FName(Name));
+		CommonObjectStateNames.Add(Name);
 	}
 	else
 	{
 		ObjectStates.Add(State);
-		ObjectStateNames.Add(FName(Name));
+		ObjectStateNames.Add(Name);
 	}
 }
 
-void APlayerObject::AddSubroutine(FString Name, USubroutine* Subroutine, bool IsCommon)
+void APlayerObject::AddSubroutine(FName Name, USubroutine* Subroutine, bool IsCommon)
 {
 	Subroutine->Parent = this;
 	if (IsCommon)
 	{
 		CommonSubroutines.Add(Subroutine);
-		CommonSubroutineNames.Add(FName(Name));
+		CommonSubroutineNames.Add(Name);
 	}
 	else
 	{
 		Subroutines.Add(Subroutine);
-		SubroutineNames.Add(FName(Name));
+		SubroutineNames.Add(Name);
 	}
 }
 
@@ -2270,11 +2270,11 @@ void APlayerObject::SetStance(EActionStance InStance)
 	Stance = InStance;
 }
 
-bool APlayerObject::JumpToState(FString NewName, bool IsLabel)
+bool APlayerObject::JumpToState(FName NewName, bool IsLabel)
 {
 	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
-	if (StoredStateMachine.ForceSetState(FName(NewName)) && StoredStateMachine.CurrentState != nullptr)
+	if (StoredStateMachine.ForceSetState(NewName) && StoredStateMachine.CurrentState != nullptr)
 	{
 		switch (StoredStateMachine.CurrentState->EntryStance)
 		{
@@ -2295,19 +2295,44 @@ bool APlayerObject::JumpToState(FString NewName, bool IsLabel)
 	return false;
 }
 
-FString APlayerObject::GetCurrentStateName() const
+bool APlayerObject::JumpToState(TSubclassOf<UState> Class, bool IsLabel)
+{
+	if (!GameState && !CharaSelectGameState) return false;
+	GotoLabelActive = IsLabel;
+	if (StoredStateMachine.ForceSetState(Class) && StoredStateMachine.CurrentState != nullptr)
+	{
+		switch (StoredStateMachine.CurrentState->EntryStance)
+		{
+		case EEntryStance::Standing:
+			Stance = ACT_Standing;
+			break;
+		case EEntryStance::Crouching:
+			Stance = ACT_Crouching;
+			break;
+		case EEntryStance::Jumping:
+			Stance = ACT_Jumping;
+			break;
+		default:
+			break;
+		}
+		return true;
+	}
+	return false;
+}
+
+FName APlayerObject::GetCurrentStateName() const
 {
 	return StoredStateMachine.CurrentState->Name;
 }
 
-FString APlayerObject::GetLastStateName() const
+FName APlayerObject::GetLastStateName() const
 {
-	return LastStateName.ToString();
+	return LastStateName;
 }
 
-FString APlayerObject::GetStateEntryName() const
+FName APlayerObject::GetStateEntryName() const
 {
-	return StateEntryName.ToString();
+	return StateEntryName;
 }
 
 bool APlayerObject::CheckStateEnabled(EStateType StateType, FName CustomStateType)
@@ -2444,7 +2469,7 @@ void APlayerObject::OnStateChange()
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
-	EventHandlers[EVT_Enter].FunctionName = FName("Init");	
+	EventHandlers[EVT_Enter].FunctionName = "Init";	
 
 	// Reset action registers
 	ActionReg1 = 0;
@@ -2473,19 +2498,19 @@ void APlayerObject::OnStateChange()
 	CelName = FName();
 	BlendAnimName = FName();
 	BlendCelName = FName();
-	LastStateName = FName(GetCurrentStateName());
+	LastStateName = GetCurrentStateName();
 	HomingParams = FHomingParams();
 }
 
 void APlayerObject::PostStateChange()
 {
-	MovesUsedInCombo.Add(StoredStateMachine.GetStateIndex(FName(GetCurrentStateName())));
+	MovesUsedInCombo.Add(StoredStateMachine.GetStateIndex(GetCurrentStateName()));
 	if (StoredStateMachine.CurrentState->StateType >= EStateType::NormalAttack
 		&& StoredStateMachine.CurrentState->StateType <= EStateType::SuperAttack)
 	{
 		const FName MoveChainName = StoredStateMachine.CurrentState->ShareChainName != ""
-			                            ? FName(StoredStateMachine.CurrentState->ShareChainName)
-			                            : FName(StoredStateMachine.CurrentState->Name);
+			                            ? StoredStateMachine.CurrentState->ShareChainName
+			                            : StoredStateMachine.CurrentState->Name;
 		MovesUsedInChain.Add(StoredStateMachine.GetStateIndex(MoveChainName));
 	}
 	else
@@ -2586,7 +2611,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	TimeUntilNextCel = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
-	EventHandlers[EVT_Enter].FunctionName = FName("Init");
+	EventHandlers[EVT_Enter].FunctionName = "Init";
 	SocketName = FName();
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
@@ -2866,12 +2891,12 @@ void APlayerObject::SetAirDashNoAttackTimer(bool IsForward)
 		AirDashNoAttackTime = BAirDashNoAttackTime + 1;
 }
 
-void APlayerObject::AddChainCancelOption(FString Option)
+void APlayerObject::AddChainCancelOption(FName Option)
 {
-	ChainCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(FName(Option)));
+	ChainCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(Option));
 }
 
-void APlayerObject::AddAutoComboCancel(FString Option, EInputFlags Button)
+void APlayerObject::AddAutoComboCancel(FName Option, EInputFlags Button)
 {
 	int32 Index;
 	switch (Button)
@@ -2903,17 +2928,17 @@ void APlayerObject::AddAutoComboCancel(FString Option, EInputFlags Button)
 	default: return;
 	}
 	
-	AutoComboCancels[Index] = StoredStateMachine.GetStateIndex(FName(Option));
+	AutoComboCancels[Index] = StoredStateMachine.GetStateIndex(Option);
 }
 
-void APlayerObject::AddWhiffCancelOption(FString Option)
+void APlayerObject::AddWhiffCancelOption(FName Option)
 {
-	WhiffCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(FName(Option)));
+	WhiffCancelOptions.AddUnique(StoredStateMachine.GetStateIndex(Option));
 }
 
-void APlayerObject::RemoveChainCancelOption(FString Option)
+void APlayerObject::RemoveChainCancelOption(FName Option)
 {
-	ChainCancelOptions.Remove(StoredStateMachine.GetStateIndex(FName(Option)));
+	ChainCancelOptions.Remove(StoredStateMachine.GetStateIndex(Option));
 }
 
 void APlayerObject::RemoveAutoComboCancel(EInputFlags Button)
@@ -2951,9 +2976,9 @@ void APlayerObject::RemoveAutoComboCancel(EInputFlags Button)
 	AutoComboCancels[Index] = -1;
 }
 
-void APlayerObject::RemoveWhiffCancelOption(FString Option)
+void APlayerObject::RemoveWhiffCancelOption(FName Option)
 {
-	WhiffCancelOptions.Remove(StoredStateMachine.GetStateIndex(FName(Option)));
+	WhiffCancelOptions.Remove(StoredStateMachine.GetStateIndex(Option));
 }
 
 void APlayerObject::EnableChainCancel(bool Enable)
