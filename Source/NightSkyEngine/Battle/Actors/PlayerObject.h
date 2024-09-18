@@ -549,7 +549,7 @@ public:
 	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	bool JumpToState(FName NewName, bool IsLabel = false);
+	bool JumpToStateByName(FName NewName, bool IsLabel = false);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
 	bool JumpToState(TSubclassOf<UState> Class, bool IsLabel = false);

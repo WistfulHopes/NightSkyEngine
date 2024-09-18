@@ -100,7 +100,7 @@ struct FHitDataCommon
 	 * This controls default values for hit data.
 	 * The minimum attack level is 0, and the maximum is 5.
 	 */
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, meta=(ClampMin=0, ClampMax=5))
 	int32 AttackLevel = 0;
 	// How the opponent must block the attack.
 	UPROPERTY(BlueprintReadWrite)
@@ -143,16 +143,24 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
 	UPROPERTY(BlueprintReadWrite)
+	FName GuardSFXOverride;
+	UPROPERTY(BlueprintReadWrite)
+	FName GuardVFXOverride;
+	UPROPERTY(BlueprintReadWrite)
+	FName HitSFXOverride;
+	UPROPERTY(BlueprintReadWrite)
+	FName HitVFXOverride;
+	UPROPERTY(BlueprintReadWrite)
 	bool DeathCamOverride = false;
 	
 	// Guard sound effect name.
-	FName GuardSFXOverride;
+	FName GuardSFX;
 	// Guard visual effect name.
-	FName GuardVFXOverride;
+	FName GuardVFX;
 	// Hit sound effect name.
-	FName HitSFXOverride;
+	FName HitSFX;
 	// Hit visual effect name.
-	FName HitVFXOverride;
+	FName HitVFX;
 };
 
 /*

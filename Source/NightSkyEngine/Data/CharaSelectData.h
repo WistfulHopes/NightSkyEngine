@@ -14,7 +14,7 @@ struct FCharaSelectStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString CharaName;
+	FName CharaName;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UTexture2D* CharaTexture;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)

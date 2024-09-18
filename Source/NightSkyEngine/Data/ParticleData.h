@@ -11,9 +11,9 @@ struct FParticleStruct
 {
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FName Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	class UNiagaraSystem* ParticleSystem;
+	UNiagaraSystem* ParticleSystem;
 };
 
 /**
