@@ -18,6 +18,7 @@ ANightSkyWTGameState::ANightSkyWTGameState()
 	PrimaryActorTick.bCanEverTick = true;
 	BattleSceneTransform = FTransform();
 	bIsBattling = false;
+	bIsMatchEnd = false;
 }
 
 // Called when the game starts or when spawned
@@ -47,13 +48,9 @@ void ANightSkyWTGameState::BeginPlay()
 
 bool ANightSkyWTGameState::HandleMatchWin()
 {
-	if (!Super::HandleMatchWin()) return false;
+	bIsMatchEnd = Super::HandleMatchWin();
 	
-	bIsBattling = false;
-	
-	OnBattleEndDelegate.Broadcast();
-
-	return true;
+	return bIsMatchEnd;
 }
 
 void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
@@ -131,4 +128,11 @@ void ANightSkyWTGameState::Tick(float DeltaTime)
 	
 	if (bIsBattling && IsValid(FighterRunner))
 		FighterRunner->Update(DeltaTime);
+
+	if (bIsMatchEnd && BattleState.SuperFreezeCaller == nullptr)
+	{
+		bIsBattling = false;
+		bIsMatchEnd = false;
+		OnBattleEndDelegate.Broadcast();
+	}
 }

@@ -472,6 +472,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 		}
 
 		BattleState.PauseTimer = false;
+		BattleState.SuperFreezeCaller = nullptr;
 		BattleHudVisibility(true);
 	}
 	

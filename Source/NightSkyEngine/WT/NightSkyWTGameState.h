@@ -18,6 +18,8 @@ public:
 	// Sets default values for this actor's properties
 	ANightSkyWTGameState();
 
+	bool bIsMatchEnd;
+	
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsBattling;
 
