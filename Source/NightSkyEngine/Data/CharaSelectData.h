@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "CharaSelectData.generated.h"
 
@@ -15,7 +14,7 @@ struct FCharaSelectStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FGameplayTag CharaName;
+	FString CharaName;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UTexture2D* CharaTexture;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)

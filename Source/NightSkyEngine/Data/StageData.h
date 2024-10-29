@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "StageData.generated.h"
 
@@ -13,7 +12,7 @@ struct FStageStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FGameplayTag StageName;
+	FString StageName;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UTexture2D* StageTexture;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)

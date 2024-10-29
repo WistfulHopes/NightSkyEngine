@@ -77,10 +77,7 @@ void ANightSkyPlayerController::SetupInputComponent()
 		{
 			if (!InputMapping.IsNull())
 			{
-				FModifyContextOptions Opts = {};
-				Opts.bNotifyUserSettings = true;
-
-				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), 0, Opts);
+				InputSystem->AddMappingContext(InputMapping.LoadSynchronous(), 0);
 			}
 		}
 	}
