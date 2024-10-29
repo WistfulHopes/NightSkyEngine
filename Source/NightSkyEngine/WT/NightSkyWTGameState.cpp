@@ -47,6 +47,8 @@ void ANightSkyWTGameState::BeginPlay()
 
 bool ANightSkyWTGameState::HandleMatchWin()
 {
+	if (!Super::HandleMatchWin()) return false;
+	
 	bIsBattling = false;
 	
 	OnBattleEndDelegate.Broadcast();
@@ -117,7 +119,8 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 	SequenceCameraActor->SetActorRotation(CameraRotation);
 	BattleState.RoundFormat = ERoundFormat::FirstToOne;
 	BattleState.RoundTimer = 99 * 60;
-
+	
+	PlayMusic(GameInstance->BattleData.MusicName);
 	RoundInit();
 }
 
