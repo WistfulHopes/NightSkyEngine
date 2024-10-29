@@ -17,7 +17,7 @@ class NIGHTSKYENGINE_API UStateAlias : public UState
 public:
 	// Which state to enter from the alias
 	UPROPERTY(EditAnywhere)
-	FName StateToEnter;
+	FGameplayTag StateToEnter;
 	
 	// Dummy CallExec, we don't want it to execute code
 	virtual void CallExec() override {}

@@ -13,7 +13,7 @@ struct FFlipbookStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FName Name;
+	FGameplayTag Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UPaperFlipbook* Flipbook;
 };

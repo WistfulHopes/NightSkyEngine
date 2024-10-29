@@ -1,12 +1,18 @@
 ﻿using UnrealSharp.Attributes;
+using UnrealSharp.GameplayTags;
 using UnrealSharp.NightSkyEngine;
 
 namespace NightSkyCSharp.States.Common;
 
 public class UStandState : UState
 {
+    public UStandState()
+    {
+        Name = new FGameplayTag("State.Universal.Stand");
+    }
+    
     [UFunction(FunctionFlags.BlueprintCallable)]
-    public void Init()
+    public override void Init()
     {
         if (Parent.Player.IsMainPlayer())
         {
@@ -16,7 +22,7 @@ public class UStandState : UState
         }
         else
         {
-            Parent.Player.JumpToState("AssistExit");
+            Parent.Player.JumpToState(new FGameplayTag("State.Universal.AssistExit"));
         }
     }
 }

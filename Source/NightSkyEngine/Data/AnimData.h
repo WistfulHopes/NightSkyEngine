@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "AnimData.generated.h"
 
@@ -12,7 +13,7 @@ struct FAnimStruct
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FName Name;
+	FGameplayTag Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UAnimSequenceBase* AnimSequence;
 };

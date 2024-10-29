@@ -5,6 +5,7 @@
 #include <fstream>
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/Pawn.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
 #include "BattleObject.generated.h"
@@ -27,7 +28,6 @@ constexpr int32 CollisionArraySize = 64;
 UENUM(BlueprintType)
 enum EEventType
 {
-	EVT_Enter UMETA(DisplayName="Enter"),
 	EVT_Update UMETA(DisplayName="Update"),
 	EVT_Exit UMETA(DisplayName="Exit"),
 	EVT_Landing UMETA(DisplayName="Landing"),
@@ -52,7 +52,7 @@ struct FEventHandler
 	GENERATED_BODY()
 
 	FName FunctionName;
-	FName SubroutineName;
+	FGameplayTag SubroutineName;
 };
 
 // Hit related data.
@@ -143,24 +143,24 @@ struct FHitDataCommon
 	UPROPERTY(BlueprintReadWrite)
 	EHitVFXType VFXType = EHitVFXType::VFX_Strike;
 	UPROPERTY(BlueprintReadWrite)
-	FName GuardSFXOverride;
+	FGameplayTag GuardSFXOverride;
 	UPROPERTY(BlueprintReadWrite)
-	FName GuardVFXOverride;
+	FGameplayTag GuardVFXOverride;
 	UPROPERTY(BlueprintReadWrite)
-	FName HitSFXOverride;
+	FGameplayTag HitSFXOverride;
 	UPROPERTY(BlueprintReadWrite)
-	FName HitVFXOverride;
+	FGameplayTag HitVFXOverride;
 	UPROPERTY(BlueprintReadWrite)
 	bool DeathCamOverride = false;
 	
 	// Guard sound effect name.
-	FName GuardSFX;
+	FGameplayTag GuardSFX;
 	// Guard visual effect name.
-	FName GuardVFX;
+	FGameplayTag GuardVFX;
 	// Hit sound effect name.
-	FName HitSFX;
+	FGameplayTag HitSFX;
 	// Hit visual effect name.
-	FName HitVFX;
+	FGameplayTag HitVFX;
 };
 
 /*
@@ -552,7 +552,7 @@ struct FLinkedActorContainer
 
 	UPROPERTY()
 	TObjectPtr<AActor> StoredActor;
-	FName Name;
+	FGameplayTag Name;
 	int32 Index;
 	UPROPERTY(SaveGame)
 	bool bIsActive;
@@ -749,20 +749,20 @@ public:
 	 * Cels map to collision data.
 	 * The collision frame also stores animation data.
 	 */
-	FName CelName = {};
+	FGameplayTag CelName = {};
 	/*
 	 * The blend cel name.
 	 * This is used to make traditional 3D animations.
 	 */
-	FName BlendCelName = {};
+	FGameplayTag BlendCelName = {};
 	/*
 	 * The name of the label that is currently being jumped to.
 	 */
-	FName LabelName = {};
+	FGameplayTag LabelName = {};
 	// The current animation name.
-	FName AnimName = {};
+	FGameplayTag AnimName = {};
 	// The current blend animation name.
-	FName BlendAnimName = {};
+	FGameplayTag BlendAnimName = {};
 	
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<UAnimSequenceBase> AnimSequence;
@@ -791,7 +791,7 @@ public:
 	/*
 	 * Action data for objects only.
 	 */
-	FName ObjectStateName = {};
+	FGameplayTag ObjectStateName = {};
 	uint32 ObjectID = 0;
 	
 protected:
@@ -973,37 +973,37 @@ public:
 	bool IsTimerPaused() const;
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
-	void CallSubroutine(FName Name);
+	void CallSubroutine(FGameplayTag Name);
 	//calls subroutine
 	UFUNCTION(BlueprintCallable)
-	void CallSubroutineWithArgs(FName Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
+	void CallSubroutineWithArgs(FGameplayTag Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
-	void InitEventHandler(EEventType EventType, FName FuncName, int32 Value = 0, FName SubroutineName = "");
+	void InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FGameplayTag SubroutineName);
 	//initializes event handler
 	UFUNCTION(BlueprintCallable)
 	void RemoveEventHandler(EEventType EventType);
 	//gets cel name
 	UFUNCTION(BlueprintPure)
-	FName GetCelName() const;
+	FGameplayTag GetCelName() const;
 	//gets anim name
 	UFUNCTION(BlueprintPure)
-	FName GetAnimName() const;
+	FGameplayTag GetAnimName() const;
 	//gets blend anim name
 	UFUNCTION(BlueprintPure)
-	FName GetBlendAnimName() const;
+	FGameplayTag GetBlendAnimName() const;
 	//gets label name
 	UFUNCTION(BlueprintPure)
-	FName GetLabelName() const;
+	FGameplayTag GetLabelName() const;
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
-	void SetCelName(FName InName);
+	void SetCelName(FGameplayTag InName);
 	//sets cel name
 	UFUNCTION(BlueprintCallable)
-	void SetBlendCelName(FName InName);
+	void SetBlendCelName(FGameplayTag InName);
 	//jumps to label
 	UFUNCTION(BlueprintCallable)
-	void GotoLabel(FName InName, bool ResetState = true);
+	void GotoLabel(FGameplayTag InName, bool ResetState = true);
 	//sets time until next cel
 	UFUNCTION(BlueprintCallable)
 	void SetTimeUntilNextCel(int32 InTime);
@@ -1076,27 +1076,27 @@ public:
 	void SetPushWidthExtend(int32 Extend);
 	//creates common particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCommonParticle(FName Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
 	//creates character particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCharaParticle(FName Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
 	//creates common particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	void LinkCommonParticle(FName Name);
+	void LinkCommonParticle(FGameplayTag Name);
 	//creates character particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	void LinkCharaParticle(FName Name);
+	void LinkCharaParticle(FGameplayTag Name);
 	//gets link actor and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	AActor* LinkActor(FName Name);
+	AActor* LinkActor(FGameplayTag Name);
 	UFUNCTION(BlueprintCallable)
 	void RemoveLinkActor();
 	//plays common sound
 	UFUNCTION(BlueprintCallable)
-	void PlayCommonSound(FName Name);
+	void PlayCommonSound(FGameplayTag Name);
 	//plays chara sound
 	UFUNCTION(BlueprintCallable)
-	void PlayCharaSound(FName Name);
+	void PlayCharaSound(FGameplayTag Name);
 	//attaches object to skeletal socket
 	UFUNCTION(BlueprintCallable)
 	void AttachToSocketOfObject(FName InSocketName, FVector Offset, EObjType ObjType);
@@ -1104,7 +1104,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DetachFromSocket();
 	UFUNCTION(BlueprintCallable)
-	void CameraShake(FName PatternName, int32 Scale);
+	void CameraShake(FGameplayTag PatternName, int32 Scale);
 	//generate random number
 	UFUNCTION(BlueprintPure)
 	int32 GenerateRandomNumber(int32 Min, int32 Max) const;
@@ -1122,10 +1122,10 @@ public:
 	ABattleObject* GetBattleObject(EObjType Type);
 	//creates common object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddCommonBattleObject(FName InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//creates object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddBattleObject(FName InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
 	//if object goes beyond screen bounds, deactivate
 	UFUNCTION(BlueprintCallable)
 	void EnableDeactivateIfBeyondBounds(bool Enable);

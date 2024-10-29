@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Bitflags.h"
+#include "GameplayTagContainer.h"
 #include "SerializableObj.h"
 #include "Actors/BattleObject.h"
 #include "State.generated.h"
@@ -358,13 +359,13 @@ public:
 	 * For player states, this is used to jump to states directly.
 	 * For object states, this is used to create an object by name.
 	 */
-	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FName Name;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FGameplayTag Name;
 	/**
 	 * The state name to share a max chain with.
 	 */
 	UPROPERTY(EditAnywhere)
-	FName ShareChainName;
+	FGameplayTag ShareChainName;
 	/**
 	 * The required stance to enter this state.
 	 * Only used on player states.
@@ -386,7 +387,7 @@ public:
 	 * The custom state type. Only used if the base state type is set to Custom.
 	 */
 	UPROPERTY(EditAnywhere)
-	FName CustomStateType;
+	FGameplayTag CustomStateType;
 	/**
 	 * An array of state conditions.
 	 * All state conditions must be successful to enter this state.
@@ -434,6 +435,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	bool bCPUUsable = true;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void Init();
+	
 	/**
 	 * Wrapper for Exec function that sets CelIndex to zero.
 	 */

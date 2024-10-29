@@ -31,7 +31,7 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 * Used to lookup states.
 	 */
 	UPROPERTY()
-	TArray<FName> StateNames;
+	TArray<FGameplayTag> StateNames;
 	/**
 	 * The parent of this state machine.
 	 */
@@ -43,12 +43,12 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 * If no current state is set, the input state will be used as the current state.
 	 * Only call at the beginning of a match!
 	 */	
-	void AddState(const FName& Name, UState* Config);
+	void AddState(const FGameplayTag& Name, UState* Config);
 
 	/**
 	 * Checks a name against the current state name.
 	 */	
-	FORCEINLINE bool IsCurrentState(const FName& Name) const
+	FORCEINLINE bool IsCurrentState(const FGameplayTag& Name) const
 	{
 		return CurrentState->Name == Name;
 	}
@@ -56,11 +56,11 @@ struct NIGHTSKYENGINE_API FStateMachine
 	/**
 	 * Gets the current state name.
 	 */	
-	FName GetStateName(int Index);
+	FGameplayTag GetStateName(int Index);
 	/**
 	 * Gets the current state index.
 	 */	
-	int GetStateIndex(FName Name) const;
+	int GetStateIndex(FGameplayTag Name) const;
 
 	/**
 	 * Sets the current state.
@@ -70,7 +70,7 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 * @param bIsAlias If the state is being set via an alias.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool SetState(const FName Name, bool bIsAlias = false);
+	bool SetState(const FGameplayTag Name, bool bIsAlias = false);
 	/**
 	 * Sets the current state.
 	 * If the state to set is the same as the current state, the state will be reset.
@@ -79,12 +79,12 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 * @param bIsAlias If the state is being set via an alias.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool ForceSetState(const FName Name, bool bIsAlias = false);
+	bool ForceSetState(const FGameplayTag Name, bool bIsAlias = false);
 	/**
 	 * Sets the current state.
 	 * If the state to set is the same as the current state, the state will be reset.
 	 * 
-	 * @param Name The state to set as current.
+	 * @param Class The state to set as current.
 	 * @param bIsAlias If the state is being set via an alias.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
@@ -96,7 +96,7 @@ struct NIGHTSKYENGINE_API FStateMachine
 	 * @param Name The state to set as current.
 	 * @return If the state was successfully set, return true. Otherwise return false.
 	 */
-	bool ForceRollbackState(const FName Name);
+	bool ForceRollbackState(const FGameplayTag Name);
 
 	/**
 	 * Checks if the state allows the player's current stance.

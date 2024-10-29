@@ -57,7 +57,7 @@ void ABattleObject::Move()
 	PrevPosY = PosY;
 	CalculateHoming();
 	
-	if (BlendOffset && BlendCelName != "None" && MaxCelTime)
+	if (BlendOffset && BlendCelName != FGameplayTag::EmptyTag && MaxCelTime)
 	{
 		const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
@@ -536,7 +536,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								
 							if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 							{
-								CreateCommonParticle("cmn_guard", POS_Enemy,
+								CreateCommonParticle(Particle_Guard, POS_Enemy,
 								                     FVector(0, 100, 0),
 								                     FRotator(HitCommon.HitAngle, 0, 0));
 								TriggerEvent(EVT_Block);
@@ -609,7 +609,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 										}
 										else
 										{
-											CreateCommonParticle("cmn_guard", POS_Enemy,
+											CreateCommonParticle(Particle_Guard, POS_Enemy,
 										 FVector(0, 100, 0),
 										 FRotator(HitCommon.HitAngle, 0, 0));
 										}
@@ -651,7 +651,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -691,7 +691,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
-									AttackedPlayer->JumpToState(AttackedPlayer->CharaStateData->DefaultThrowLock);
+									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
 									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 									AttackedPlayer->AttackOwner = Player;
 									Player->ThrowExe();
@@ -767,22 +767,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_s";
+			HitCommon.HitVFX = Particle_Hit_S;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchS";
+			HitCommon.HitSFX = Sound_Hit_Punch_S;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickS";
+			HitCommon.HitSFX = Sound_Hit_Kick_S;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashS";
+			HitCommon.HitSFX = Sound_Hit_Slash_S;
 			break;
 		}
 		break;
@@ -821,22 +821,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_s";
+			HitCommon.HitVFX = Particle_Hit_S;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchS";
+			HitCommon.HitSFX = Sound_Hit_Punch_S;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickS";
+			HitCommon.HitSFX = Sound_Hit_Kick_S;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashS";
+			HitCommon.HitSFX = Sound_Hit_Slash_S;
 			break;
 		}
 		break;
@@ -875,22 +875,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_m";
+			HitCommon.HitVFX = Particle_Hit_M;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchM";
+			HitCommon.HitSFX = Sound_Hit_Punch_M;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickM";
+			HitCommon.HitSFX = Sound_Hit_Kick_M;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashM";
+			HitCommon.HitSFX = Sound_Hit_Slash_M;
 			break;
 		}
 		break;
@@ -929,22 +929,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_m";
+			HitCommon.HitVFX = Particle_Hit_M;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchM";
+			HitCommon.HitSFX = Sound_Hit_Punch_M;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickM";
+			HitCommon.HitSFX = Sound_Hit_Kick_M;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashM";
+			HitCommon.HitSFX = Sound_Hit_Slash_M;
 			break;
 		}
 		break;
@@ -983,22 +983,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_l";
+			HitCommon.HitVFX = Particle_Hit_L;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchL";
+			HitCommon.HitSFX = Sound_Hit_Punch_L;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickL";
+			HitCommon.HitSFX = Sound_Hit_Kick_L;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashL";
+			HitCommon.HitSFX = Sound_Hit_Slash_L;
 			break;
 		}
 		break;
@@ -1037,22 +1037,22 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		{
 		case EHitVFXType::VFX_Strike:
 		case EHitVFXType::VFX_Slash:
-			HitCommon.HitVFX = "cmn_hit_l";
+			HitCommon.HitVFX = Particle_Hit_L;
 			break;
 		case EHitVFXType::VFX_Special:
-			HitCommon.HitVFX = "cmn_hit_sp";
+			HitCommon.HitVFX = Particle_Hit_SP;
 			break;
 		}
 		switch (HitCommon.SFXType)
 		{
 		case EHitSFXType::SFX_Punch:
-			HitCommon.HitSFX = "HitPunchL";
+			HitCommon.HitSFX = Sound_Hit_Punch_L;
 			break;
 		case EHitSFXType::SFX_Kick:
-			HitCommon.HitSFX = "HitKickL";
+			HitCommon.HitSFX = Sound_Hit_Kick_L;
 			break;
 		case EHitSFXType::SFX_Slash:
-			HitCommon.HitSFX = "HitSlashL";
+			HitCommon.HitSFX = Sound_Hit_Slash_L;
 			break;
 		}
 		break;
@@ -1282,8 +1282,8 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->Player->EnableState(ENB_ForwardDash);
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
-                                PlayCommonSound("HitClash");
+								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+                                PlayCommonSound(Sound_Hit_Clash);
 								return;
 							}
 							if (!IsPlayer && !OtherObj->IsPlayer)
@@ -1296,8 +1296,8 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								OtherObj->HitPosY = HitPosY;
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle("cmn_hit_clash", POS_Hit, FVector(0, 100, 0));
-                                PlayCommonSound("HitClash");
+								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+                                PlayCommonSound(Sound_Hit_Clash);
 								return;
 							}
 							return;
@@ -1329,11 +1329,11 @@ void ABattleObject::HandleFlip()
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState(Player->CharaStateData->DefaultStandFlip);
+				Player->JumpToState(State_Universal_StandFlip);
 			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
-				Player->JumpToState(Player->CharaStateData->DefaultCrouchFlip);
+				Player->JumpToState(State_Universal_CrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
-				Player->JumpToState(Player->CharaStateData->DefaultJumpFlip);
+				Player->JumpToState(State_Universal_JumpFlip);
 		}
 	}
 }
@@ -1389,7 +1389,7 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 void ABattleObject::TriggerEvent(EEventType EventType)
 {
 	if (EventType == EVT_Update) UpdateTime++;
-	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != "None")
+	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FGameplayTag::EmptyTag)
 	{
 		USubroutine* Subroutine = nullptr;
 		
@@ -1650,7 +1650,7 @@ void ABattleObject::UpdateVisuals()
 	}
 	if (IsValid(GameState))
 	{
-		if (SocketName == "None") //only set visual location if not attached to socket
+		if (SocketName == NAME_None) //only set visual location if not attached to socket
 		{
 			SetActorRotation(GameState->BattleSceneTransform.GetRotation() * (ObjectRotation.Quaternion() * FlipRotation.Quaternion()));
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
@@ -1865,7 +1865,7 @@ void ABattleObject::InitObject()
 		LinkedParticle->Deactivate();
 	}
 	ObjectState->Parent = this;
-	TriggerEvent(EVT_Enter);
+	ObjectState->Init();
 	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
 	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
 	SetActorLocation(Location);
@@ -1935,7 +1935,7 @@ void ABattleObject::Update()
 	{
 		if (ActionTime == 0)
 		{
-			TriggerEvent(EVT_Enter);
+			ObjectState->Init();
 		}
 		
 		ObjectState->CallExec();
@@ -2032,9 +2032,9 @@ void ABattleObject::ResetObject()
 	Timer1 = 0;
 	DrawPriority = MaxBattleObjects;
 	HomingParams = FHomingParams();
-	CelName = FName();
-	BlendCelName = FName();
-	AnimName = FName();
+	CelName = FGameplayTag();
+	BlendCelName = FGameplayTag();
+	AnimName = FGameplayTag();
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;
@@ -2043,21 +2043,20 @@ void ABattleObject::ResetObject()
 	MaxCelTime = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
-	EventHandlers[EVT_Enter].FunctionName = FName("Init");	
 	HitPosX = 0;
 	HitPosY = 0;
 	for (auto& Box : Boxes)
 	{
 		Box = FCollisionBox();
 	}
-	ObjectStateName = FName();
+	ObjectStateName = FGameplayTag();
 	ObjectID = 0;
 	Player = nullptr;
 	AttackTarget = nullptr;
 	StopLinkObj = nullptr;
 	PositionLinkObj = nullptr;
 	MaterialLinkObj = nullptr;
-	SocketName = FName();
+	SocketName = NAME_None;
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
 	ObjectScale = FVector::OneVector;
@@ -2089,7 +2088,7 @@ bool ABattleObject::IsTimerPaused() const
 	return GameState->BattleState.PauseTimer;
 }
 
-void ABattleObject::CallSubroutine(FName Name)
+void ABattleObject::CallSubroutine(FGameplayTag Name)
 {
 	if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
 	{
@@ -2105,7 +2104,7 @@ void ABattleObject::CallSubroutine(FName Name)
 	}
 }
 
-void ABattleObject::CallSubroutineWithArgs(FName Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
+void ABattleObject::CallSubroutineWithArgs(FGameplayTag Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
 {
 	SubroutineReg1 = Arg1;
 	SubroutineReg2 = Arg2;
@@ -2114,7 +2113,7 @@ void ABattleObject::CallSubroutineWithArgs(FName Name, int32 Arg1, int32 Arg2, i
 	CallSubroutine(Name);
 }
 
-void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FName SubroutineName)
+void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FGameplayTag SubroutineName)
 {
 	switch (EventType)
 	{
@@ -2134,36 +2133,36 @@ void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32
 
 void ABattleObject::RemoveEventHandler(EEventType EventType)
 {
-	EventHandlers[EventType].FunctionName = FName();
-	EventHandlers[EventType].SubroutineName = FName();
+	EventHandlers[EventType].FunctionName = NAME_None;
+	EventHandlers[EventType].SubroutineName = FGameplayTag();
 	if (EventType == EVT_Update)
 		UpdateTime = 0;
 }
 
-FName ABattleObject::GetCelName() const
+FGameplayTag ABattleObject::GetCelName() const
 {
 	return CelName;
 }
 
-FName ABattleObject::GetAnimName() const
+FGameplayTag ABattleObject::GetAnimName() const
 {
 	return AnimName;
 }
 
-FName ABattleObject::GetBlendAnimName() const
+FGameplayTag ABattleObject::GetBlendAnimName() const
 {
 	return BlendAnimName;
 }
 
-FName ABattleObject::GetLabelName() const
+FGameplayTag ABattleObject::GetLabelName() const
 {
 	return LabelName;
 }
 
-void ABattleObject::SetCelName(FName InName)
+void ABattleObject::SetCelName(FGameplayTag InName)
 {
 	CelName = InName;
-	SetBlendCelName("");
+	SetBlendCelName(FGameplayTag::EmptyTag);
 
 	GetBoxes();
 
@@ -2181,7 +2180,7 @@ void ABattleObject::SetCelName(FName InName)
 	}
 }
 
-void ABattleObject::SetBlendCelName(FName InName)
+void ABattleObject::SetBlendCelName(FGameplayTag InName)
 {
 	BlendCelName = InName;
 	FrameBlendPosition = 0;
@@ -2189,7 +2188,7 @@ void ABattleObject::SetBlendCelName(FName InName)
 	GetBoxes();
 }
 
-void ABattleObject::GotoLabel(FName InName, bool ResetState)
+void ABattleObject::GotoLabel(FGameplayTag InName, bool ResetState)
 {
 	if (!GameState && !CharaSelectGameState) return;
 	LabelName = InName;
@@ -2519,7 +2518,7 @@ void ABattleObject::SetPushWidthExtend(int32 Extend)
 	PushWidthExtend = Extend;
 }
 
-void ABattleObject::CreateCommonParticle(FName Name, EPosType PosType, FVector Offset, FRotator Rotation)
+void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset, FRotator Rotation)
 {
 	if (!GameState) return;
 	if (Player->CommonParticleData != nullptr)
@@ -2555,7 +2554,7 @@ void ABattleObject::CreateCommonParticle(FName Name, EPosType PosType, FVector O
 	}
 }
 
-void ABattleObject::CreateCharaParticle(FName Name, EPosType PosType, FVector Offset, FRotator Rotation)
+void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset, FRotator Rotation)
 {
 	if (!GameState) return;
 	if (Player->CharaParticleData != nullptr)
@@ -2588,7 +2587,7 @@ void ABattleObject::CreateCharaParticle(FName Name, EPosType PosType, FVector Of
 	}
 }
 
-void ABattleObject::LinkCommonParticle(FName Name)
+void ABattleObject::LinkCommonParticle(FGameplayTag Name)
 {
 	if (!GameState) return;
 	if (IsPlayer)
@@ -2615,7 +2614,7 @@ void ABattleObject::LinkCommonParticle(FName Name)
 	}
 }
 
-void ABattleObject::LinkCharaParticle(FName Name)
+void ABattleObject::LinkCharaParticle(FGameplayTag Name)
 {
 	if (!GameState) return;
 	if (IsPlayer)
@@ -2641,7 +2640,7 @@ void ABattleObject::LinkCharaParticle(FName Name)
 	}
 }
 
-AActor* ABattleObject::LinkActor(FName Name)
+AActor* ABattleObject::LinkActor(FGameplayTag Name)
 {
 	if (!GameState) return nullptr;
 	if (IsPlayer)
@@ -2674,7 +2673,7 @@ void ABattleObject::RemoveLinkActor()
 	}
 }
 
-void ABattleObject::PlayCommonSound(FName Name)
+void ABattleObject::PlayCommonSound(FGameplayTag Name)
 {
 	if (!IsValid(GameState))
 		return;
@@ -2691,7 +2690,7 @@ void ABattleObject::PlayCommonSound(FName Name)
 	}
 }
 
-void ABattleObject::PlayCharaSound(FName Name)
+void ABattleObject::PlayCharaSound(FGameplayTag Name)
 {
 	if (!IsValid(GameState))
 		return;
@@ -2722,12 +2721,12 @@ void ABattleObject::DetachFromSocket()
 	SocketOffset = FVector::ZeroVector;
 }
 
-void ABattleObject::CameraShake(FName PatternName, int32 Scale)
+void ABattleObject::CameraShake(FGameplayTag PatternName, int32 Scale)
 {
 	if (!GameState) return;
 	if (IsValid(Player->CameraShakeData))
 	{
-		for (auto [Name, CameraShake] : Player->CameraShakeData->CamerShakeStructs)
+		for (auto [Name, CameraShake] : Player->CameraShakeData->CameraShakeStructs)
 		{
 			if (Name == PatternName)
 				GameState->CameraShake(CameraShake, static_cast<float>(Scale) / 1000);
@@ -2863,7 +2862,7 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 	}
 }
 
-ABattleObject* ABattleObject::AddCommonBattleObject(FName InStateName, int32 PosXOffset, int32 PosYOffset,
+ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset,
 	EPosType PosType)
 {
 	if (!GameState) return nullptr;
@@ -2883,7 +2882,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FName InStateName, int32 Pos
 	return nullptr;
 }
 
-ABattleObject* ABattleObject::AddBattleObject(FName InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
+ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
 {
 	if (!GameState) return nullptr;
 	const int StateIndex = Player->ObjectStateNames.Find(InStateName);

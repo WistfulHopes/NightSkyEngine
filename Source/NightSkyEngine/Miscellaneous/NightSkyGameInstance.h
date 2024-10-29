@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AdvancedFriendsGameInstance.h"
 #include "FighterRunners.h"
+#include "GameplayTagContainer.h"
 #include "NightSkyEngine/Battle/RandomManager.h"
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
@@ -35,7 +36,7 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite)
 	FString StageURL;
 	UPROPERTY(BlueprintReadWrite)
-	FString MusicName;
+	FGameplayTag MusicName;
 };
 
 /**

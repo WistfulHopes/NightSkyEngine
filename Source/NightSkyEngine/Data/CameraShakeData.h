@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "GameplayTagContainer.h"
 #include "CameraShakeData.generated.h"
 
 USTRUCT(BlueprintType)
@@ -12,7 +13,7 @@ struct FCameraShakeStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FName Name;
+	FGameplayTag Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	TSubclassOf<UCameraShakeBase> CameraShake;
 };
@@ -27,5 +28,5 @@ class NIGHTSKYENGINE_API UCameraShakeData : public UDataAsset
 	GENERATED_BODY()
 public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	TArray<FCameraShakeStruct> CamerShakeStructs;
+	TArray<FCameraShakeStruct> CameraShakeStructs;
 };

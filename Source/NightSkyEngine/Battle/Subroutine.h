@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "SerializableObj.h"
 #include "UObject/Object.h"
 #include "Subroutine.generated.h"
@@ -30,7 +31,7 @@ public:
 	 * Used to call the subroutine.
 	 */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FGameplayTag Name;
 
 	/**
 	 * The primary function of the subroutine.

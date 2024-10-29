@@ -37,6 +37,7 @@ public class HitboxEditor : ModuleRules
 				"EditorWidgets",
 				"PropertyEditor",
 				"AdvancedPreviewScene",
+				"GameplayTags"
             });
 		
 		DynamicallyLoadedModuleNames.AddRange(

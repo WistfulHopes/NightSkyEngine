@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "GameplayTagContainer.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
 #include "CollisionData.generated.h"
 
@@ -13,9 +14,9 @@ struct FCollisionStruct
 	GENERATED_BODY()
 	
 	UPROPERTY(EditAnywhere)
-	FName CelName;
+	FGameplayTag CelName;
 	UPROPERTY(EditAnywhere)
-	FName AnimName;
+	FGameplayTag AnimName;
 	UPROPERTY(EditAnywhere)
 	UAnimSequenceBase* AnimSequence;
 	UPROPERTY(EditAnywhere)
@@ -35,7 +36,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<FCollisionStruct> CollisionFrames;
 
-	FCollisionStruct GetByCelName(const FString& CelName)
+	FCollisionStruct GetByCelName(const FGameplayTag& CelName)
 	{
 		for (auto& CollisionFrame : CollisionFrames)
 		{

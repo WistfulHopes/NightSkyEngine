@@ -253,7 +253,7 @@ public:
 	
 	UPROPERTY()
 	TArray<UBattleExtension*> BattleExtensions = {};
-	TArray<FName> BattleExtensionNames = {};
+	TArray<FGameplayTag> BattleExtensionNames = {};
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UBattleExtensionData* BattleExtensionData = {};
@@ -305,7 +305,7 @@ public:
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
-	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FName AssistName);
+	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FGameplayTag AssistName);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
 	void SaveGameState(int32* InChecksum); //saves game state
@@ -322,7 +322,7 @@ public:
 	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player);
 	void PlayAnnouncerVoice(USoundBase* InSoundWave, float MaxDuration);
-	void PlayMusic(const FString& Name);
+	void PlayMusic(const FGameplayTag Name);
 	void PlayMusic(USoundBase* InSoundWave, float MaxDuration);
 	void ManageAudio();
 	void RollbackStartAudio(int32 InFrame) const;
@@ -336,7 +336,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	APlayerObject* GetMainPlayer(bool IsP1) const;
 	UFUNCTION(BlueprintCallable)
-	void CallBattleExtension(FString Name);
+	void CallBattleExtension(FGameplayTag Name);
 	UFUNCTION(BlueprintPure)
 	int32 GetGauge(bool IsP1, int32 GaugeIndex) const;
 	UFUNCTION(BlueprintCallable)

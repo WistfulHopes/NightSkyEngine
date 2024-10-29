@@ -12,7 +12,7 @@ struct FSequenceStruct
 {
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FName Name;
+	FGameplayTag Name;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	ULevelSequence* Sequence;
 };

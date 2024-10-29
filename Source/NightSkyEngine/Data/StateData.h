@@ -3,9 +3,61 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NativeGameplayTags.h"
 #include "Engine/DataAsset.h"
 #include "NightSkyEngine/Battle/State.h"
 #include "StateData.generated.h"
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Stand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Crouch);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Jump_V);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_JumpLanding);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandFlip);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchFlip);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_JumpFlip);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_AirBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandBlockEnd);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchBlockEnd);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_AirBlockEnd);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakStand);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakCrouch);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakAir);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_0);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_3);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_4);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_5);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_0);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_3);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_4);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_5);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_B);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_V);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_F);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Blowback);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Tailspin);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Crumple);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FloatingCrumpleBody);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FloatingCrumpleHead);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_WallBounce);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceDownLoop);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceUpLoop);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceDownWakeUp);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceUpWakeUp);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Throw);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_ThrowLock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_TagIn);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_RoundWin);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_MatchWin);
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_S);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_M);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_L);
 
 /**
  * 
@@ -17,84 +69,9 @@ class NIGHTSKYENGINE_API UStateData : public UDataAsset
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<TSubclassOf<UState>> StateArray;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultStand = "Stand";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultCrouch = "Crouch";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFall = "VJump";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultJumpLanding = "JumpLanding";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultStandFlip = "StandFlip";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultCrouchFlip = "CrouchFlip";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultJumpFlip = "JumpFlip";
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultStandBlock = "StandBlock";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultCrouchBlock = "CrouchBlock";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultAirBlock = "AirBlock";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultStandBlockEnd = "StandBlockEnd";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultCrouchBlockEnd = "CrouchBlockEnd";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultAirBlockEnd = "AirBlockEnd";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultGuardBreakStand = "GuardBreakStand";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultGuardBreakCrouch = "GuardBreakCrouch";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultGuardBreakAir = "GuardBreakAir";
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultStandHitstunPrefix = "Hitstun";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FString DefaultCrouchHitstunPrefix = "CrouchHitstun";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultBLaunch = "BLaunch";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultVLaunch = "VLaunch";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFLaunch = "FLaunch";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultBlowback = "Blowback";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultTailspin = "Tailspin";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultCrumple = "Crumple";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFloatingCrumpleBody = "FloatingCrumpleBody";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFloatingCrumpleHead = "FloatingCrumpleHead";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultWallBounce = "WallBounce";
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFaceDownLoop = "FaceDownLoop";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFaceUpLoop = "FaceUpLoop";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFaceDownWakeUp = "FaceDownWakeUp";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultFaceUpWakeUp = "FaceUpWakeUp";
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultThrowLock = "ThrowLock";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultTagIn = "TagIn";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultRoundWin = "RoundWin";
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FName DefaultMatchWin = "MatchWin";
 
 	UFUNCTION(BlueprintPure)
-	UState* GetByStateName(const FName& StateName)
+	UState* GetByStateName(const FGameplayTag& StateName)
 	{
 		for (const auto& StateClass : StateArray)
 		{

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BattleObject.h"
+#include "NativeGameplayTags.h"
 #include "NightSkyEngine/Battle/InputBuffer.h"
 #include "NightSkyEngine/Battle/State.h"
 #include "NightSkyEngine/Battle/StateMachine.h"
@@ -42,6 +43,16 @@ struct FExtraGauge
 	uint32 MaxValue;
 	uint32 Sections;
 };
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Blowback_1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Blowback_2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Blowback_3);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Blowback_4);
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_PreGuard);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level1);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level2);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level3);
 
 /**
  * 
@@ -273,9 +284,9 @@ public:
 
 	bool ComponentVisible[MaxComponentCount];
 
-	FName StateEntryName;
-	UPROPERTY(BlueprintReadWrite)
-	FName IntroName = "Intro";
+	FGameplayTag StateEntryName;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FGameplayTag IntroName;
 	
 protected:
 	/*
@@ -296,9 +307,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsAutoCombo;
-	FName LastStateName;
-	FName ExeStateName;
-	FName BufferedStateName;
+	FGameplayTag LastStateName;
+	FGameplayTag ExeStateName;
+	FGameplayTag BufferedStateName;
 	
 public:
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
@@ -309,7 +320,7 @@ public:
 	 */
 
 	UPROPERTY(SaveGame)
-	TArray<FName> EnabledCustomStateTypes;
+	TArray<FGameplayTag> EnabledCustomStateTypes;
 	
 	// All instances of actors needed for link actors.
 	UPROPERTY(SaveGame)
@@ -337,7 +348,7 @@ public:
 	 */
 	
 	UPROPERTY(EditAnywhere)
-	TArray<FName> DamageReactionCels;
+	TArray<FGameplayTag> DamageReactionCels;
 	UPROPERTY(EditAnywhere)
 	bool bMirrorWhenFlip;
 	
@@ -347,17 +358,17 @@ public:
 	
 	UPROPERTY()
 	TArray<USubroutine*> CommonSubroutines;
-	TArray<FName> CommonSubroutineNames;
+	TArray<FGameplayTag> CommonSubroutineNames;
 	UPROPERTY()
 	TArray<USubroutine*> Subroutines;
-	TArray<FName> SubroutineNames;
+	TArray<FGameplayTag> SubroutineNames;
 	
 	UPROPERTY()
 	TArray<UState*> CommonObjectStates;
-	TArray<FName> CommonObjectStateNames;	
+	TArray<FGameplayTag> CommonObjectStateNames;	
 	UPROPERTY()
 	TArray<UState*> ObjectStates;
-	TArray<FName> ObjectStateNames;	
+	TArray<FGameplayTag> ObjectStateNames;	
 
 	/*
 	 * Data assets
@@ -426,15 +437,15 @@ private:
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
-	bool FindChainCancelOption(const FName Name);
+	bool FindChainCancelOption(const FGameplayTag Name);
 	//check if chain cancel option exists
-	bool FindAutoComboCancelOption(const FName Name);
+	bool FindAutoComboCancelOption(const FGameplayTag Name);
 	//check if whiff cancel option exists
-	bool FindWhiffCancelOption(const FName Name);
+	bool FindWhiffCancelOption(const FGameplayTag Name);
 	//check reverse beat
-	bool CheckReverseBeat(const FName Name);
+	bool CheckReverseBeat(const FGameplayTag Name);
 	//checks moves used in combo
-	bool CheckMovesUsedInChain(const FName Name);
+	bool CheckMovesUsedInChain(const FGameplayTag Name);
 	//handles throwing objects
 	void HandleThrowCollision();
 	//checks kara cancel
@@ -509,13 +520,13 @@ public:
 	 */
 	//add state to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddState(FName Name, UState* State); 
+	void AddState(FGameplayTag Name, UState* State); 
 	//add object state
 	UFUNCTION(BlueprintCallable)
-	void AddObjectState(FName Name, UState* State, bool IsCommon); 
+	void AddObjectState(FGameplayTag Name, UState* State, bool IsCommon); 
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddSubroutine(FName Name, USubroutine* Subroutine, bool IsCommon);
+	void AddSubroutine(FGameplayTag Name, USubroutine* Subroutine, bool IsCommon);
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(int Value);
 	UFUNCTION(BlueprintCallable)
@@ -549,22 +560,22 @@ public:
 	void SetStance(EActionStance InStance);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	bool JumpToState(FName NewName, bool IsLabel = false);
+	bool JumpToState(FGameplayTag NewName, bool IsLabel = false);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
 	bool JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
-	FName GetCurrentStateName() const;
+	FGameplayTag GetCurrentStateName() const;
 	//gets last state name
 	UFUNCTION(BlueprintPure)
-	FName GetLastStateName() const;
+	FGameplayTag GetLastStateName() const;
 	//gets state entry name
 	UFUNCTION(BlueprintPure)
-	FName GetStateEntryName() const;
+	FGameplayTag GetStateEntryName() const;
 	//check if state can be entered
 	UFUNCTION(BlueprintPure)
-	bool CheckStateEnabled(EStateType StateType, FName CustomStateType);
+	bool CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
 	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
@@ -573,10 +584,10 @@ public:
 	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
 	//enable custom state type
 	UFUNCTION(BlueprintCallable)
-	void EnableCustomState(FName CustomStateType);
+	void EnableCustomState(FGameplayTag CustomStateType);
 	//disable custom state type
 	UFUNCTION(BlueprintCallable)
-	void DisableCustomState(FName CustomStateType);
+	void DisableCustomState(FGameplayTag CustomStateType);
 	//enable all attacks only
 	UFUNCTION(BlueprintCallable)
 	void EnableAttacks();
@@ -611,22 +622,22 @@ public:
 	void SetAirDashNoAttackTimer(bool IsForward);
 	//add chain cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddChainCancelOption(FName Option);
+	void AddChainCancelOption(FGameplayTag Option);
 	//add auto combo option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddAutoComboCancel(FName Option, EInputFlags Button);
+	void AddAutoComboCancel(FGameplayTag Option, EInputFlags Button);
 	//add whiff cancel option, use this in Init
 	UFUNCTION(BlueprintCallable)
-	void AddWhiffCancelOption(FName Option);
+	void AddWhiffCancelOption(FGameplayTag Option);
 	//remove chain cancel option
 	UFUNCTION(BlueprintCallable)
-	void RemoveChainCancelOption(FName Option);
+	void RemoveChainCancelOption(FGameplayTag Option);
 	//remove auto combo cancel
 	UFUNCTION(BlueprintCallable)
 	void RemoveAutoComboCancel(EInputFlags Button);
 	//remove whiff cancel option
 	UFUNCTION(BlueprintCallable)
-	void RemoveWhiffCancelOption(FName Option);
+	void RemoveWhiffCancelOption(FGameplayTag Option);
 	UFUNCTION(BlueprintCallable)
 	void EnableChainCancel(bool Enable);
 	//sets whiff cancel options enabled. off by default
@@ -689,7 +700,7 @@ public:
 	void SetThrowRange(int32 InThrowRange);
 	//sets throw execution state
 	UFUNCTION(BlueprintCallable)
-	void SetThrowExeState(FName ExeState);
+	void SetThrowExeState(FGameplayTag ExeState);
 	//sets grip position for throw
 	UFUNCTION(BlueprintCallable)
 	void SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY);
@@ -701,13 +712,13 @@ public:
 	void SetHitgrabActive(bool Active);
 	//plays voice line
 	UFUNCTION(BlueprintCallable)
-	void PlayVoiceLine(FName Name);
+	void PlayVoiceLine(FGameplayTag Name);
 	//plays common level sequence
 	UFUNCTION(BlueprintCallable)
-	void PlayCommonLevelSequence(FName Name);
+	void PlayCommonLevelSequence(FGameplayTag Name);
 	//plays character level sequence
 	UFUNCTION(BlueprintCallable)
-	void PlayLevelSequence(FName Name);
+	void PlayLevelSequence(FGameplayTag Name);
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);
@@ -724,7 +735,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void AddBattleObjectToStorage(ABattleObject* InActor, int Index);
 	UFUNCTION(BlueprintCallable)
-	APlayerObject* CallAssist(int AssistIndex, FName AssistName);
+	APlayerObject* CallAssist(int AssistIndex, FGameplayTag AssistName);
 	UFUNCTION(BlueprintCallable)
 	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
 	UFUNCTION(BlueprintPure)
@@ -739,7 +750,7 @@ public:
 	void SetDefaultComponentVisibility();
 
 	// Intended for CPU opponents
-	void SetStateForCPU(FName StateName);
+	void SetStateForCPU(FGameplayTag StateName);
 	bool CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const;
 	bool IsEnemyAttackState() const;
 	bool IsEnemyThrow() const;

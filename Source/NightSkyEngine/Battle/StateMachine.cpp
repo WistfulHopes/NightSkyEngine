@@ -4,7 +4,7 @@
 #include "SubroutineState.h"
 #include "Actors/PlayerObject.h"
 
-void FStateMachine::AddState(const FName& Name, UState* Config)
+void FStateMachine::AddState(const FGameplayTag& Name, UState* Config)
 {
 	Config->Parent = Parent;
 	States.Add(Config);
@@ -12,26 +12,26 @@ void FStateMachine::AddState(const FName& Name, UState* Config)
 	if (CurrentState == nullptr)
 	{
 		CurrentState = Config;
-		Parent->TriggerEvent(EVT_Enter);
+		CurrentState->Init();
 		Update();
 	}
 }
 
-FName FStateMachine::GetStateName(int Index)
+FGameplayTag FStateMachine::GetStateName(int Index)
 {
 	if (Index > 0 && Index < States.Num())
 	{
-		return FName(States[Index]->Name);
+		return States[Index]->Name;
 	}
-	return "";
+	return FGameplayTag::EmptyTag;
 }
 
-int FStateMachine::GetStateIndex(FName Name) const
+int FStateMachine::GetStateIndex(FGameplayTag Name) const
 {
 	return StateNames.Find(Name);
 }
 
-bool FStateMachine::SetState(const FName Name, bool bIsAlias)
+bool FStateMachine::SetState(const FGameplayTag Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
@@ -52,11 +52,11 @@ bool FStateMachine::SetState(const FName Name, bool bIsAlias)
 	}
 	if (!bIsAlias)
 	{
-		Parent->StateEntryName = FName(StateToEnter->Name);
+		Parent->StateEntryName = StateToEnter->Name;
 	}
 	if (const auto Alias = Cast<UStateAlias>(StateToEnter))
 	{
-		return SetState(FName(Alias->StateToEnter), true);
+		return SetState(Alias->StateToEnter, true);
 	}
 	
 	Parent->TriggerEvent(EVT_Exit);
@@ -64,13 +64,13 @@ bool FStateMachine::SetState(const FName Name, bool bIsAlias)
 
 	CurrentState = StateToEnter;
 	Parent->PostStateChange();
-	Parent->TriggerEvent(EVT_Enter);
+	CurrentState->Init();
 	Update();
 
 	return true;
 }
 
-bool FStateMachine::ForceSetState(const FName Name, bool bIsAlias)
+bool FStateMachine::ForceSetState(const FGameplayTag Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
@@ -85,11 +85,11 @@ bool FStateMachine::ForceSetState(const FName Name, bool bIsAlias)
 	}
 	if (!bIsAlias)
 	{
-		Parent->StateEntryName = FName(StateToEnter->Name);
+		Parent->StateEntryName = StateToEnter->Name;
 	}
 	if (const auto Alias = Cast<UStateAlias>(StateToEnter))
 	{
-		return ForceSetState(FName(Alias->StateToEnter), true);
+		return ForceSetState(Alias->StateToEnter, true);
 	}
 
 	Parent->TriggerEvent(EVT_Exit);
@@ -97,7 +97,7 @@ bool FStateMachine::ForceSetState(const FName Name, bool bIsAlias)
 
 	CurrentState = StateToEnter;
 	Parent->PostStateChange();
-	Parent->TriggerEvent(EVT_Enter);
+	CurrentState->Init();
 	Update();
 
 	return true;
@@ -116,11 +116,11 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 			}
 			if (!bIsAlias)
 			{
-				Parent->StateEntryName = FName(State->Name);
+				Parent->StateEntryName = State->Name;
 			}
 			if (const auto Alias = Cast<UStateAlias>(State))
 			{
-				return ForceSetState(FName(Alias->StateToEnter), true);
+				return ForceSetState(Alias->StateToEnter, true);
 			}
 
 			Parent->TriggerEvent(EVT_Exit);
@@ -128,7 +128,7 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 
 			CurrentState = State;
 			Parent->PostStateChange();
-			Parent->TriggerEvent(EVT_Enter);
+			CurrentState->Init();
 			Update();
 
 			return true;
@@ -137,7 +137,7 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 	return false;
 }
 
-bool FStateMachine::ForceRollbackState(const FName Name)
+bool FStateMachine::ForceRollbackState(const FGameplayTag Name)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{

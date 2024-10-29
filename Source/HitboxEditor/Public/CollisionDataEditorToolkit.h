@@ -91,10 +91,10 @@ private:
     // And connect them to the collision data
     // I think animname_framenumber is a good cel naming scheme that we could make automatic
     UCollisionData* CollisionData;
-    TArray<TSharedPtr<FName>> StateNames;
-    TSharedPtr<SComboBox<TSharedPtr<FName>>> StateNameComboBox;  // Combo box for selecting an animation data struct
+    TArray<TSharedPtr<FGameplayTag>> StateNames;
+    TSharedPtr<SComboBox<TSharedPtr<FGameplayTag>>> StateNameComboBox;  // Combo box for selecting an animation data struct
     TSharedPtr<STextBlock> NameDisplayTextBlock;  // Text block for displaying the current cel and animation names
-    FName SelectedState;  // The name of the selected animation data asset, based on key in the AnimDatas map
+    FGameplayTag SelectedState;  // The name of the selected animation data asset, based on key in the AnimDatas map
     UClass* PlayerObjectClass = nullptr;  // The selected player object class
     APlayerObject* PlayerObject {};  // The current player object
     FText CurrentFrame = FText::FromString("0");  // The current frame of the animation sequence
@@ -111,14 +111,14 @@ private:
 
     void InitializeStateNameComboBox();
     void UpdateStateNameComboBox();
-    void OnStateNameSelected(TSharedPtr<FName> SelectedItem, ESelectInfo::Type SelectInfo);
-    TSharedRef<SWidget> MakeAnimationNameWidget(TSharedPtr<FName> InItem);
+    void OnStateNameSelected(TSharedPtr<FGameplayTag> SelectedItem, ESelectInfo::Type SelectInfo);
+    TSharedRef<SWidget> MakeAnimationNameWidget(TSharedPtr<FGameplayTag> InItem);
 
     void OnPlayerObjectBPSelected(const UClass* Class);
     void InitializePlayerObjectBPPicker();
 
-    FName GetCurrentCelName() const;
-    FName GetCurrentAnimName() const;
+    FGameplayTag GetCurrentCelName() const;
+    FGameplayTag GetCurrentAnimName() const;
     FText GetCurrentNames() const;
 
     FReply OnUpdateNamesClicked();

@@ -114,11 +114,11 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	else if (Player->IsEnemyBlocking())
 	{
 		if (State->CPUData.bBlockstring) Weight += 25;
-		if (Player->Enemy->GetCurrentStateName() == Player->Enemy->CharaStateData->DefaultStandBlock)
+		if (Player->Enemy->GetCurrentStateName() == State_Universal_StandBlock)
 		{
 			if (State->CPUData.BlockType == BLK_Low) Weight += 25;
 		}
-		else if (Player->Enemy->GetCurrentStateName() == Player->Enemy->CharaStateData->DefaultCrouchBlock)
+		else if (Player->Enemy->GetCurrentStateName() == State_Universal_CrouchBlock)
 		{
 			if (State->CPUData.BlockType == BLK_High) Weight += 25;
 		}
@@ -265,6 +265,6 @@ void ANightSkyAIController::Tick(float DeltaTime)
 
 	if (Keys.Num())
 	{
-		Player->SetStateForCPU(FName(Keys[0]->Name));
+		Player->SetStateForCPU(Keys[0]->Name);
 	}
 }

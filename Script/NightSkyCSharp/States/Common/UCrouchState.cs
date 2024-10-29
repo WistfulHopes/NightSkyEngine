@@ -1,10 +1,16 @@
 ﻿using UnrealSharp.ControlRig;
+using UnrealSharp.GameplayTags;
 using UnrealSharp.NightSkyEngine;
 
 namespace NightSkyCSharp.States.Common;
 
 public class UCrouchState : UState
 {
+    public UCrouchState()
+    {
+        Name = new FGameplayTag("State.Universal.Crouch");
+    }
+    
     public override void Exec()
     {
         base.Exec();
@@ -19,7 +25,7 @@ public class UCrouchState : UState
 
         if (!isHoldingDown)
         {
-            Parent.Player.JumpToState("CrouchToStand");
+            Parent.Player.JumpToState(new FGameplayTag("State.Universal.CrouchToStand"));
         }
     }
 }

@@ -29,7 +29,7 @@ public:
 	 * Used to call the subroutine.
 	 */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
-	FString Name;
+	FGameplayTag Name;
 
 	/**
 	 * The primary function of the subroutine.

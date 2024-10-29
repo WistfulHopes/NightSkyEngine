@@ -17,7 +17,7 @@ class NIGHTSKYENGINE_API USubroutineState : public UState
 public:
 	// Which subroutine to call from the state
 	UPROPERTY(EditAnywhere)
-	FName SubroutineName;
+	FGameplayTag SubroutineName;
 	
 	// Dummy CallExec, we don't want it to execute code
 	virtual void CallExec() override {}
