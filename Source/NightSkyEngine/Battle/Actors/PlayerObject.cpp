@@ -107,7 +107,7 @@ void APlayerObject::BeginPlay()
 		}
 	}
 
-	InitPlayer();
+	if (!GameState)	InitPlayer();
 }
 
 uint32 APlayerObject::FlipInput(uint32 Input)
@@ -2689,7 +2689,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
-	RoundWinTimer = 180;
+	RoundWinTimer = 300;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
 	CurrentAirJumpCount = 0;

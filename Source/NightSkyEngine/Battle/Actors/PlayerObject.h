@@ -270,7 +270,7 @@ public:
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	bool bCrumpled;
-	int32 RoundWinTimer = 180;
+	int32 RoundWinTimer = 300;
 	int32 WallTouchTimer;
 	
 	/*
@@ -508,10 +508,10 @@ public:
 	void LoadForRollbackBP(TArray<uint8> InBytes);
 	virtual void LogForSyncTestFile(std::ofstream& file) override;
 
-	//ONLY CALL WHEN INITIALIZING MATCH! OTHERWISE THE GAME WILL CRASH
+	// Only call when initializing the match.
 	UFUNCTION(BlueprintImplementableEvent)
 	void InitBP();
-	//ONLY CALL AT THE START OF InitStateMachine! OTHERWISE THE GAME WILL CRASH
+	// Only call at the beginning of InitBP.
 	UFUNCTION(BlueprintCallable)
 	void EmptyStateMachine();
 	

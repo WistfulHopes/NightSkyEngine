@@ -224,7 +224,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		
-		for (const auto& Player : Players) Player->RoundWinTimer = 180;
+		for (const auto& Player : Players) Player->RoundWinTimer = 300;
 	}
 	else
 	{
