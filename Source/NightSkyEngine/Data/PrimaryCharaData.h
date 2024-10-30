@@ -19,7 +19,7 @@ class NIGHTSKYENGINE_API UPrimaryCharaData : public UPrimaryDataAsset
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override
 	{
-		return FPrimaryAssetId("PrimaryCharaData");
+		return FPrimaryAssetId("PrimaryCharaData", GetFName());
 	}
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
