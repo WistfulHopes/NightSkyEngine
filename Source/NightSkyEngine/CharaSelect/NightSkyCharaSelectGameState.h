@@ -16,6 +16,7 @@ class NIGHTSKYENGINE_API ANightSkyCharaSelectGameState : public AGameStateBase
 {
 	GENERATED_BODY()
 
+private:
 	UPROPERTY()
 	TObjectPtr<UNightSkyGameInstance> GameInstance;
 public:
@@ -30,10 +31,6 @@ public:
 	TArray<APlayerObject*> P2Charas;
 	UPROPERTY(EditAnywhere)
 	TArray<FVector> P2Positions;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TObjectPtr<UCharaSelectData> CharaData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TObjectPtr<UStageData> StageData;
 
 protected:
 	// Called when the game starts or when spawned
