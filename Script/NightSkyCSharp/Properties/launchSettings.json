@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "UnrealSharp": {
-      "commandName": "Executable",
-      "executablePath": "F:/Games/UE_5.4/Engine/Binaries\\Win64\\UnrealEditor.exe",
-      "commandLineArgs": "\"C:\\Users\\theso\\Unreal Projects\\NightSkyEngine\\NightSkyEngine.uproject\""
-    }
-  }
-}
