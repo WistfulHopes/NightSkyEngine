@@ -15,4 +15,3 @@ The following additional plugins are used:
 - GGPOUE4, originally by @BwdYeti, then forked by @erebuswolf, and finally modified for use in Night Sky Engine.
 - Common Loading Screen, from the Lyra Starter Game.
 - The Advanced Sessions plugin, by @mordentral.
-- [UnrealSharp](https://github.com/UnrealSharp/UnrealSharp).
