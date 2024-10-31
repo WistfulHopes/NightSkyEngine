@@ -1663,7 +1663,7 @@ void ANightSkyGameState::ManageAudio()
 	}
 	{
 		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.MusicChannel.StartingFrame;
-		if (static_cast<int>(BattleState.MusicChannel.MaxDuration * 60) < CurrentAudioTime)
+		if (static_cast<int>(BattleState.MusicChannel.MaxDuration * 60) > CurrentAudioTime)
 		{
 			PlayMusic(BattleState.MusicChannel.SoundWave, BattleState.MusicChannel.MaxDuration);
 		}

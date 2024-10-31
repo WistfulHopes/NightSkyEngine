@@ -609,6 +609,7 @@ void APlayerObject::Update()
 		CallSubroutine(Subroutine_Cmn_OnLanding);
 		CallSubroutine(Subroutine_OnLanding);
 		CreateCommonParticle(Particle_JumpSmoke_Land, POS_Player);
+		PlayCommonSound(Sound_Land);
 	}
 	
 	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
