@@ -7,7 +7,7 @@ var searchData=
   ['enableattacks_4',['EnableAttacks',['../class_a_player_object.html#a6ac2a7fd247267bd6fcdd48589eb9e9e',1,'APlayerObject']]],
   ['enablecancelintoself_5',['EnableCancelIntoSelf',['../class_a_player_object.html#a9ba1d1b4fee8e3c1f18cc6ffc78e04e8',1,'APlayerObject']]],
   ['enablechaincancel_6',['EnableChainCancel',['../class_a_player_object.html#a3f1f5a60fd99dfa1dbf0a3919239f1ce',1,'APlayerObject']]],
-  ['enablecustomstate_7',['EnableCustomState',['../class_a_player_object.html#a87d63c667e27aab66ff0ef1a6a68c499',1,'APlayerObject']]],
+  ['enablecustomstate_7',['EnableCustomState',['../class_a_player_object.html#ae6467bc4aeceb0e804782d6d157a9e3b',1,'APlayerObject']]],
   ['enabledeactivateifbeyondbounds_8',['EnableDeactivateIfBeyondBounds',['../class_a_battle_object.html#aceb13defbc0c8596d0f8c38013baaa0c',1,'ABattleObject']]],
   ['enabledeactivateonreceivehit_9',['EnableDeactivateOnReceiveHit',['../class_a_battle_object.html#ae75af8ebc9deff5b631743a6ce6df013',1,'ABattleObject']]],
   ['enabledeactivateonstatechange_10',['EnableDeactivateOnStateChange',['../class_a_battle_object.html#aadbaacd728aef62eb5a298d72b72e774',1,'ABattleObject']]],

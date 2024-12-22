@@ -11,6 +11,6 @@ var dir_510d308defdbe91ea5360d74dc1a9c72 =
     [ "NightSkyPlayerController.h", "_night_sky_player_controller_8h.html", "_night_sky_player_controller_8h" ],
     [ "ParticleManager.cpp", "_particle_manager_8cpp.html", null ],
     [ "ParticleManager.h", "_particle_manager_8h.html", "_particle_manager_8h" ],
-    [ "PlayerObject.cpp", "_player_object_8cpp.html", null ],
+    [ "PlayerObject.cpp", "_player_object_8cpp.html", "_player_object_8cpp" ],
     [ "PlayerObject.h", "_player_object_8h.html", "_player_object_8h" ]
 ];

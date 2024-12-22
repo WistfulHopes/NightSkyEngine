@@ -19,7 +19,7 @@ var searchData=
   ['inputsp1_16',['InputsP1',['../class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6',1,'UReplaySaveInfo']]],
   ['inputsp2_17',['InputsP2',['../class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7',1,'UReplaySaveInfo']]],
   ['instantblocklockouttimer_18',['InstantBlockLockoutTimer',['../class_a_player_object.html#ae0cf1d888f7424f21776c95cbcf5f317',1,'APlayerObject']]],
-  ['introname_19',['IntroName',['../class_a_player_object.html#a9d203f4cbb5381e985f2a9f05f102860',1,'APlayerObject']]],
+  ['introname_19',['IntroName',['../class_a_player_object.html#aead9cbcb1ff2d374e32d9a681637b95d',1,'APlayerObject']]],
   ['invulnflags_20',['InvulnFlags',['../class_a_player_object.html#a4cce0302f5cc6a953d4d3d91ec06eed4',1,'APlayerObject']]],
   ['isactive_21',['IsActive',['../class_a_battle_object.html#aedde5cdc155d856b48171e5b6eac33bd',1,'ABattleObject']]],
   ['iscpubattle_22',['IsCPUBattle',['../class_u_night_sky_game_instance.html#a3e837c7fd220a3719b851fac6ed62059',1,'UNightSkyGameInstance']]],

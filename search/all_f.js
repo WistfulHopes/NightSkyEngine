@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['Name',['../struct_f_linked_actor_container.html#aec108dc7eead3c98093681d8ed106cdc',1,'FLinkedActorContainer::Name'],['../class_u_battle_extension.html#aaa91a292761f40ffc6e376d506012bb7',1,'UBattleExtension::Name'],['../class_u_state.html#abbb1df6f00a339241c4c2ec0125e0648',1,'UState::Name'],['../class_u_subroutine.html#a998c01be5a64411d5bbb9714f2700872',1,'USubroutine::Name'],['../struct_f_anim_struct.html#a21a59c79b1173c56bf0ded31e6f74625',1,'FAnimStruct::Name'],['../struct_f_camera_shake_struct.html#a424e28055478190e26cc21da691dc314',1,'FCameraShakeStruct::Name'],['../struct_f_flipbook_struct.html#a9909874454f3a049f956c01456a6aacd',1,'FFlipbookStruct::Name'],['../struct_f_link_actor_struct.html#a521ddcb134020c001605fab6e2bdbd83',1,'FLinkActorStruct::Name'],['../struct_f_material_struct.html#aa9da7833b0169a12287e259639ff18a1',1,'FMaterialStruct::Name'],['../struct_f_particle_struct.html#a316b3a76e3ccc2f18d3f7b2ff8a39b95',1,'FParticleStruct::Name'],['../struct_f_sequence_struct.html#abb832a8ada099ed20eb529bf34067241',1,'FSequenceStruct::Name'],['../struct_f_sound_struct.html#a834846904c1c963a41cb1d53d4cee702',1,'FSoundStruct::Name'],['../struct_f_object_record.html#ae65d29a298c9c503eac1e87b3bb39149',1,'FObjectRecord::Name']]],
+  ['name_0',['Name',['../struct_f_linked_actor_container.html#abd017e25bef5cbb228d1beb1438dfc1a',1,'FLinkedActorContainer::Name'],['../class_u_battle_extension.html#af87bff22a944a22fa4567606cc0a63ee',1,'UBattleExtension::Name'],['../class_u_state.html#a6339bab76a04bcf21fcb5145713edaf2',1,'UState::Name'],['../class_u_subroutine.html#a7a8875690b86f8fcb3cce20a3fdf91de',1,'USubroutine::Name'],['../struct_f_camera_shake_struct.html#aa899f1279e85b51ce0b3a98d3ed9b3af',1,'FCameraShakeStruct::Name'],['../struct_f_flipbook_struct.html#ab4ea54039ab94f3a5af4e62a3252a151',1,'FFlipbookStruct::Name'],['../struct_f_link_actor_struct.html#a65050d489b2973dd4afc6d922bdd38ac',1,'FLinkActorStruct::Name'],['../struct_f_material_struct.html#a40cd4282426c7e9fc0a4cb61cd7a5965',1,'FMaterialStruct::Name'],['../struct_f_particle_struct.html#a10ec087e0446f742264fbbe321e00398',1,'FParticleStruct::Name'],['../struct_f_sequence_struct.html#a8fe7ecb3d312e33a13ff6f227a9e091e',1,'FSequenceStruct::Name'],['../struct_f_sound_struct.html#ad53e687af8e6aaaac3b100bc5d0e25b1',1,'FSoundStruct::Name'],['../struct_f_object_record.html#ae65d29a298c9c503eac1e87b3bb39149',1,'FObjectRecord::Name']]],
   ['nativedestruct_1',['NativeDestruct',['../class_u_extended_common_activatable_widget.html#acd2c5aab4f7b2a43a8a070a2266c2943',1,'UExtendedCommonActivatableWidget']]],
   ['negative_2',['Negative',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071affb9356ff2b7da85c75c92fa7ea03b8b',1,'State.h']]],
   ['negativestrict_3',['NegativeStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab',1,'State.h']]],
@@ -11,9 +11,9 @@ var searchData=
   ['nextoffsetx_8',['NextOffsetX',['../class_a_battle_object.html#af9e31691be5b9452eb9c3c7185f2518b',1,'ABattleObject']]],
   ['nextoffsety_9',['NextOffsetY',['../class_a_battle_object.html#acd94364907224b248cffffbf55188823',1,'ABattleObject']]],
   ['niagaracomponent_10',['NiagaraComponent',['../struct_f_battle_particle.html#a0a229cd797bfe6e8a4587f6862fb5e0e',1,'FBattleParticle']]],
-  ['night_20sky_20engine_11',['Night Sky Engine',['../about.html',1,'About Night Sky Engine'],['../installing.html',1,'Installing Night Sky Engine'],['../index.html',1,'Night Sky Engine'],['../about.html#autotoc_md2',1,'What are some key features of Night Sky Engine?']]],
-  ['night_20sky_20engine_20written_20in_12',['What is Night Sky Engine written in?',['../about.html#autotoc_md1',1,'']]],
-  ['night_20sky_20game_20state_13',['Night Sky Game State',['../bearings.html#autotoc_md4',1,'']]],
+  ['night_20sky_20engine_11',['Night Sky Engine',['../about.html',1,'About Night Sky Engine'],['../installing.html',1,'Installing Night Sky Engine'],['../index.html',1,'Night Sky Engine'],['../about.html#autotoc_md1',1,'What are some key features of Night Sky Engine?']]],
+  ['night_20sky_20engine_20written_20in_12',['What is Night Sky Engine written in?',['../about.html#autotoc_md0',1,'']]],
+  ['night_20sky_20game_20state_13',['Night Sky Game State',['../bearings.html#autotoc_md3',1,'']]],
   ['nightskyaicontroller_2ecpp_14',['NightSkyAIController.cpp',['../_night_sky_a_i_controller_8cpp.html',1,'']]],
   ['nightskyaicontroller_2eh_15',['NightSkyAIController.h',['../_night_sky_a_i_controller_8h.html',1,'']]],
   ['nightskyaniminstance_2ecpp_16',['NightSkyAnimInstance.cpp',['../_night_sky_anim_instance_8cpp.html',1,'']]],
@@ -51,5 +51,15 @@ var searchData=
   ['normal_48',['Normal',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a960b44c579bc2f6818d2daaf9e4c16f0',1,'State.h']]],
   ['normalattack_49',['NormalAttack',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a94543b451500ddba9908d0cf64b49ebd',1,'State.h']]],
   ['normalhit_50',['NormalHit',['../class_a_battle_object.html#a481e41a3b358ecc311d2826cd67fd43c',1,'ABattleObject']]],
-  ['now_20or_20wait_20for_20later_51',['Should I download now, or wait for later?',['../about.html#autotoc_md3',1,'']]]
+  ['now_20or_20wait_20for_20later_51',['Should I download now, or wait for later?',['../about.html#autotoc_md2',1,'']]],
+  ['nseenhancedinputusersettings_2ecpp_52',['NSEEnhancedInputUserSettings.cpp',['../_n_s_e_enhanced_input_user_settings_8cpp.html',1,'']]],
+  ['nseenhancedinputusersettings_2eh_53',['NSEEnhancedInputUserSettings.h',['../_n_s_e_enhanced_input_user_settings_8h.html',1,'']]],
+  ['nseplayermappablekeyprofile_2ecpp_54',['NSEPlayerMappableKeyProfile.cpp',['../_n_s_e_player_mappable_key_profile_8cpp.html',1,'']]],
+  ['nseplayermappablekeyprofile_2eh_55',['NSEPlayerMappableKeyProfile.h',['../_n_s_e_player_mappable_key_profile_8h.html',1,'']]],
+  ['nseplayermappablekeysettings_2ecpp_56',['NSEPlayerMappableKeySettings.cpp',['../_n_s_e_player_mappable_key_settings_8cpp.html',1,'']]],
+  ['nseplayermappablekeysettings_2eh_57',['NSEPlayerMappableKeySettings.h',['../_n_s_e_player_mappable_key_settings_8h.html',1,'']]],
+  ['nsesessionsubsystem_2ecpp_58',['NSESessionSubsystem.cpp',['../_n_s_e_session_subsystem_8cpp.html',1,'']]],
+  ['nsesessionsubsystem_2eh_59',['NSESessionSubsystem.h',['../_n_s_e_session_subsystem_8h.html',1,'']]],
+  ['numopenprivateconnections_60',['NumOpenPrivateConnections',['../struct_f_n_s_e_session_info.html#a8d7d856e40cd2780fd9df41c2f9cf7f6',1,'FNSESessionInfo']]],
+  ['numopenpublicconnections_61',['NumOpenPublicConnections',['../struct_f_n_s_e_session_info.html#ae1acafd1af5ee6642304ffffccc514a6',1,'FNSESessionInfo']]]
 ];

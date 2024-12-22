@@ -6,10 +6,12 @@ var searchData=
   ['hitcommon_3',['HitCommon',['../class_a_battle_object.html#a29961587a8b1ce9dff8566b111804725',1,'ABattleObject']]],
   ['hitposx_4',['HitPosX',['../class_a_battle_object.html#a512432083fb2a65e026c308f224b905e',1,'ABattleObject']]],
   ['hitposy_5',['HitPosY',['../class_a_battle_object.html#abe3df36383f605a622f75427bd47201c',1,'ABattleObject']]],
-  ['hitsfxoverride_6',['HitSFXOverride',['../struct_f_hit_data_common.html#a1863b4d2238e1015acdf79c2a2f97edb',1,'FHitDataCommon']]],
-  ['hitstop_7',['Hitstop',['../struct_f_hit_data.html#aa0ab6200690833217faea2f6dc506417',1,'FHitData::Hitstop'],['../class_a_battle_object.html#a10361cc7772100aa82adbda6b0b536d5',1,'ABattleObject::Hitstop']]],
-  ['hitstun_8',['Hitstun',['../struct_f_hit_data.html#a945da7ef006d5f3b7088a59b6b9d0147',1,'FHitData']]],
-  ['hitvfxoverride_9',['HitVFXOverride',['../struct_f_hit_data_common.html#a8386a7cf2c06e19f221b26b65806c133',1,'FHitDataCommon']]],
-  ['hold_10',['Hold',['../struct_f_input_bitmask.html#a06bf34ff3be450452bc4d4f3d0e02a47',1,'FInputBitmask']]],
-  ['homingparams_11',['HomingParams',['../class_a_battle_object.html#a2ecb9fdae2044b76ee16657fb6fc0117',1,'ABattleObject']]]
+  ['hitsfx_6',['HitSFX',['../struct_f_hit_data_common.html#ab100911261b1bcbdeddb1856e3d7fc0c',1,'FHitDataCommon']]],
+  ['hitsfxoverride_7',['HitSFXOverride',['../struct_f_hit_data_common.html#ac236c62e3e50c2192594945efdaaa05d',1,'FHitDataCommon']]],
+  ['hitstop_8',['Hitstop',['../struct_f_hit_data.html#aa0ab6200690833217faea2f6dc506417',1,'FHitData::Hitstop'],['../class_a_battle_object.html#a10361cc7772100aa82adbda6b0b536d5',1,'ABattleObject::Hitstop']]],
+  ['hitstun_9',['Hitstun',['../struct_f_hit_data.html#a945da7ef006d5f3b7088a59b6b9d0147',1,'FHitData']]],
+  ['hitvfx_10',['HitVFX',['../struct_f_hit_data_common.html#ae5aeaad0ba454fe50715a087d3d95c54',1,'FHitDataCommon']]],
+  ['hitvfxoverride_11',['HitVFXOverride',['../struct_f_hit_data_common.html#a89c9c2557ea3dfc6732ec049a99b3fa8',1,'FHitDataCommon']]],
+  ['hold_12',['Hold',['../struct_f_input_bitmask.html#a06bf34ff3be450452bc4d4f3d0e02a47',1,'FInputBitmask']]],
+  ['homingparams_13',['HomingParams',['../class_a_battle_object.html#a2ecb9fdae2044b76ee16657fb6fc0117',1,'ABattleObject']]]
 ];

@@ -1,15 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,75,80"/>
-<area shape="rect" id="Node000001" href="$class_u_serializable_obj.html" title=" " alt="" coords="123,55,241,80"/>
-<area shape="poly" id="edge41_Node000000_Node000001" title=" " alt="" coords="89,65,122,65,122,70,89,70"/>
-<area shape="rect" id="Node000002" href="$class_u_battle_extension.html" title="A customizable extension to the battle ruleset." alt="" coords="289,5,412,31"/>
-<area shape="poly" id="edge42_Node000001_Node000002" title=" " alt="" coords="241,47,304,29,305,34,242,53"/>
-<area shape="rect" id="Node000003" href="$class_u_state.html" title="A character state that determines behavior." alt="" coords="319,55,382,80"/>
-<area shape="poly" id="edge43_Node000001_Node000003" title=" " alt="" coords="256,65,319,65,319,70,256,70"/>
-<area shape="rect" id="Node000006" href="$class_u_subroutine.html" title="A subroutine callable from any player or object state." alt="" coords="304,104,397,129"/>
-<area shape="poly" id="edge46_Node000001_Node000006" title=" " alt="" coords="242,82,305,101,304,106,241,87"/>
-<area shape="rect" id="Node000004" href="$class_u_state_alias.html" title=" " alt="" coords="477,31,567,56"/>
-<area shape="poly" id="edge44_Node000003_Node000004" title=" " alt="" coords="397,58,476,47,477,52,397,64"/>
-<area shape="rect" id="Node000005" href="$class_u_subroutine_state.html" title=" " alt="" coords="460,80,584,105"/>
-<area shape="poly" id="edge45_Node000003_Node000005" title=" " alt="" coords="397,71,460,81,459,86,396,77"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,120,31"/>
+<area shape="rect" id="Node000001" href="$class_u_night_sky_game_instance.html" title=" " alt="" coords="168,5,336,31"/>
+<area shape="poly" id="edge39_Node000000_Node000001" title=" " alt="" coords="135,15,167,15,167,21,135,21"/>
 </map>

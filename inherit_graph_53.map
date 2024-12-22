@@ -1,5 +1,25 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,176,38"/>
-<area shape="rect" id="Node000001" href="$class_u_night_sky_blueprint_function_library.html" title=" " alt="" coords="224,5,409,45"/>
-<area shape="poly" id="edge25_Node000000_Node000001" title=" " alt="" coords="191,23,224,23,224,28,191,28"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,252,97,277"/>
+<area shape="rect" id="Node000001" href="$class_u_battle_extension_data.html" title=" " alt="" coords="145,5,296,31"/>
+<area shape="poly" id="edge26_Node000000_Node000001" title=" " alt="" coords="54,237,63,194,80,141,106,87,123,62,144,40,160,29,163,33,147,44,127,65,111,90,85,143,68,195,59,238"/>
+<area shape="rect" id="Node000002" href="$class_u_camera_shake_data.html" title=" " alt="" coords="151,55,291,80"/>
+<area shape="poly" id="edge27_Node000000_Node000002" title=" " alt="" coords="57,237,69,203,87,164,112,124,144,89,161,78,164,83,147,93,116,127,92,166,74,205,63,239"/>
+<area shape="rect" id="Node000003" href="$class_u_collision_data.html" title=" " alt="" coords="167,104,274,129"/>
+<area shape="poly" id="edge28_Node000000_Node000003" title=" " alt="" coords="63,238,95,188,118,161,144,138,166,127,168,132,147,143,122,165,100,191,68,241"/>
+<area shape="rect" id="Node000004" href="$class_u_flipbook_data.html" title=" " alt="" coords="167,153,274,179"/>
+<area shape="poly" id="edge29_Node000000_Node000004" title=" " alt="" coords="74,240,106,213,144,188,169,177,171,182,147,192,109,217,78,244"/>
+<area shape="rect" id="Node000005" href="$class_u_link_actor_data.html" title=" " alt="" coords="164,203,277,228"/>
+<area shape="poly" id="edge30_Node000000_Node000005" title=" " alt="" coords="111,245,174,226,175,231,112,250"/>
+<area shape="rect" id="Node000006" href="$class_u_material_data.html" title=" " alt="" coords="169,252,273,277"/>
+<area shape="poly" id="edge31_Node000000_Node000006" title=" " alt="" coords="112,262,168,262,168,267,112,267"/>
+<area shape="rect" id="Node000007" href="$class_u_particle_data.html" title=" " alt="" coords="169,301,272,327"/>
+<area shape="poly" id="edge32_Node000000_Node000007" title=" " alt="" coords="112,279,175,298,174,303,111,285"/>
+<area shape="rect" id="Node000008" href="$class_u_sequence_data.html" title=" " alt="" coords="163,351,279,376"/>
+<area shape="poly" id="edge33_Node000000_Node000008" title=" " alt="" coords="78,285,110,311,147,336,174,348,171,352,144,340,107,316,75,289"/>
+<area shape="rect" id="Node000009" href="$class_u_sound_data.html" title=" " alt="" coords="173,400,268,425"/>
+<area shape="poly" id="edge34_Node000000_Node000009" title=" " alt="" coords="68,289,100,338,122,363,147,385,174,399,172,404,144,390,118,367,96,341,64,292"/>
+<area shape="rect" id="Node000010" href="$class_u_state_data.html" title=" " alt="" coords="176,449,265,475"/>
+<area shape="poly" id="edge35_Node000000_Node000010" title=" " alt="" coords="63,290,74,323,92,362,116,401,147,435,177,451,174,455,144,439,112,404,87,365,69,325,58,292"/>
+<area shape="rect" id="Node000011" href="$class_u_subroutine_data.html" title=" " alt="" coords="161,499,281,524"/>
+<area shape="poly" id="edge36_Node000000_Node000011" title=" " alt="" coords="59,291,69,334,85,385,111,438,128,463,147,484,165,496,162,500,144,488,123,466,106,441,80,387,63,335,54,293"/>
 </map>

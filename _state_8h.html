@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Night Sky Engine: D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.h File Reference</title>
+<title>Night Sky Engine: C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Battle/State.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -109,119 +109,138 @@ $(function(){initNavTree('_state_8h.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;CoreMinimal.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>&quot;</code><br />
+<code>#include &quot;GameplayTagContainer.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_serializable_obj_8h_source.html">SerializableObj.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_battle_object_8h_source.html">Actors/BattleObject.h</a>&quot;</code><br />
 <code>#include &quot;State.generated.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for State.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="_state_8h__incl.png" border="0" usemap="#a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" alt=""/></div>
-<map name="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" id="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h">
-<area shape="rect" title=" " alt="" coords="149,5,313,75"/>
-<area shape="rect" title=" " alt="" coords="5,203,111,229"/>
-<area shape="poly" title=" " alt="" coords="199,77,82,195,78,191,196,73"/>
-<area shape="rect" href="_bitflags_8h.html" title=" " alt="" coords="20,123,96,148"/>
-<area shape="poly" title=" " alt="" coords="169,78,94,118,91,113,167,73"/>
-<area shape="rect" href="_serializable_obj_8h.html" title=" " alt="" coords="171,123,291,148"/>
-<area shape="poly" title=" " alt="" coords="234,75,234,108,229,108,229,75"/>
-<area shape="rect" href="_battle_object_8h.html" title=" " alt="" coords="498,123,645,148"/>
-<area shape="poly" title=" " alt="" coords="314,61,514,116,513,121,313,66"/>
-<area shape="rect" title=" " alt="" coords="669,123,794,148"/>
-<area shape="poly" title=" " alt="" coords="314,54,654,117,653,122,313,59"/>
-<area shape="poly" title=" " alt="" coords="61,148,61,189,55,189,55,148"/>
-<area shape="poly" title=" " alt="" coords="206,151,99,199,97,194,204,146"/>
-<area shape="rect" title=" " alt="" coords="341,203,463,229"/>
-<area shape="poly" title=" " alt="" coords="258,146,364,194,362,199,256,151"/>
-<area shape="rect" title=" " alt="" coords="135,203,317,229"/>
-<area shape="poly" title=" " alt="" coords="233,148,230,189,225,188,228,148"/>
-<area shape="poly" title=" " alt="" coords="498,146,326,165,225,180,124,199,111,202,110,196,123,193,224,175,325,160,497,140"/>
-<area shape="rect" title=" " alt="" coords="1048,203,1113,229"/>
-<area shape="poly" title=" " alt="" coords="645,144,657,145,764,156,849,161,932,170,1037,193,1044,195,1042,200,1036,199,931,176,848,166,764,161,656,151,645,149"/>
-<area shape="rect" title=" " alt="" coords="487,203,655,229"/>
-<area shape="poly" title=" " alt="" coords="574,148,574,189,569,189,569,148"/>
-<area shape="rect" href="_collision_box_8h.html" title=" " alt="" coords="680,196,833,236"/>
-<area shape="poly" title=" " alt="" coords="601,146,699,187,697,192,598,151"/>
-<area shape="rect" title=" " alt="" coords="857,203,1024,229"/>
-<area shape="poly" title=" " alt="" coords="628,146,871,197,870,202,627,151"/>
-<area shape="rect" title=" " alt="" coords="673,284,840,309"/>
-<area shape="poly" title=" " alt="" coords="759,237,759,269,754,269,754,237"/>
+<div class="center"><img src="_state_8h__incl.png" border="0" usemap="#a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" alt=""/></div>
+<map name="a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h" id="a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8h">
+<area shape="rect" title=" " alt="" coords="443,5,646,75"/>
+<area shape="rect" title=" " alt="" coords="365,291,470,317"/>
+<area shape="poly" title=" " alt="" coords="443,59,325,80,196,111,136,130,84,150,42,173,16,198,8,217,10,225,16,234,37,251,70,264,159,284,260,294,350,299,350,304,259,300,158,289,69,269,35,255,12,238,5,227,3,216,11,194,39,169,81,146,134,125,194,106,324,75,442,53"/>
+<area shape="rect" href="_bitflags_8h.html" title=" " alt="" coords="421,123,497,148"/>
+<area shape="poly" title=" " alt="" coords="515,77,481,114,478,110,511,74"/>
+<area shape="rect" title=" " alt="" coords="1171,291,1339,317"/>
+<area shape="poly" title=" " alt="" coords="647,47,803,64,983,93,1069,112,1145,135,1206,163,1230,178,1248,194,1259,213,1264,235,1263,277,1258,276,1259,236,1254,215,1244,198,1226,182,1203,167,1143,140,1067,117,982,98,802,69,646,52"/>
+<area shape="rect" href="_serializable_obj_8h.html" title=" " alt="" coords="254,123,374,148"/>
+<area shape="poly" title=" " alt="" coords="461,78,357,119,355,114,459,73"/>
+<area shape="rect" href="_battle_object_8h.html" title=" " alt="" coords="611,123,758,148"/>
+<area shape="poly" title=" " alt="" coords="597,73,656,112,653,116,594,78"/>
+<area shape="rect" title=" " alt="" coords="1327,123,1452,148"/>
+<area shape="poly" title=" " alt="" coords="646,48,943,79,1309,120,1313,121,1312,126,1308,125,943,84,645,54"/>
+<area shape="poly" title=" " alt="" coords="459,149,427,277,422,276,453,148"/>
+<area shape="poly" title=" " alt="" coords="328,147,368,194,392,237,410,276,405,279,387,239,363,198,324,150"/>
+<area shape="rect" title=" " alt="" coords="231,203,354,229"/>
+<area shape="poly" title=" " alt="" coords="313,149,302,190,297,188,308,147"/>
+<area shape="rect" title=" " alt="" coords="26,203,207,229"/>
+<area shape="poly" title=" " alt="" coords="285,151,161,200,159,195,283,146"/>
+<area shape="poly" title=" " alt="" coords="654,151,606,171,555,198,493,242,443,284,439,279,490,238,552,194,604,167,652,146"/>
+<area shape="poly" title=" " alt="" coords="758,133,874,135,1008,143,1073,151,1132,161,1180,176,1215,194,1232,212,1243,233,1255,276,1250,277,1238,235,1227,215,1212,198,1178,180,1130,167,1072,156,1008,148,873,140,758,138"/>
+<area shape="rect" title=" " alt="" coords="581,203,646,229"/>
+<area shape="poly" title=" " alt="" coords="676,150,636,194,632,191,672,146"/>
+<area shape="rect" title=" " alt="" coords="671,203,839,229"/>
+<area shape="poly" title=" " alt="" coords="697,146,737,191,733,194,693,150"/>
+<area shape="rect" href="_collision_box_8h.html" title=" " alt="" coords="494,284,648,324"/>
+<area shape="poly" title=" " alt="" coords="638,151,601,169,585,182,572,197,565,214,562,232,565,269,559,269,557,232,560,213,567,195,581,178,598,164,635,146"/>
+<area shape="rect" href="_collision_data_8h.html" title=" " alt="" coords="863,196,1010,236"/>
+<area shape="poly" title=" " alt="" coords="723,146,861,189,860,194,722,151"/>
+<area shape="rect" title=" " alt="" coords="1034,203,1201,229"/>
+<area shape="poly" title=" " alt="" coords="755,146,1022,193,1044,197,1043,203,1021,199,754,151"/>
+<area shape="rect" title=" " alt="" coords="488,372,654,397"/>
+<area shape="poly" title=" " alt="" coords="574,325,574,357,568,357,568,325"/>
+<area shape="poly" title=" " alt="" coords="863,237,851,239,748,253,666,261,585,269,482,287,469,290,468,284,481,281,584,264,666,255,747,248,851,233,862,231"/>
+<area shape="poly" title=" " alt="" coords="1009,234,1197,284,1196,290,1008,239"/>
+<area shape="poly" title=" " alt="" coords="863,237,663,284,661,279,862,232"/>
+<area shape="rect" title=" " alt="" coords="867,291,1006,317"/>
+<area shape="poly" title=" " alt="" coords="939,236,939,277,934,277,934,236"/>
+<area shape="rect" title=" " alt="" coords="1030,291,1146,317"/>
+<area shape="poly" title=" " alt="" coords="972,234,1056,281,1053,286,969,239"/>
+<area shape="rect" title=" " alt="" coords="672,291,843,317"/>
+<area shape="poly" title=" " alt="" coords="897,239,797,287,795,282,895,234"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_state_8h__dep__incl.png" border="0" usemap="#a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep" alt=""/></div>
-<map name="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep" id="a_d_1_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep">
-<area shape="rect" title=" " alt="" coords="3079,5,3243,75"/>
-<area shape="rect" href="_player_object_8h.html" title=" " alt="" coords="2709,240,2873,309"/>
-<area shape="poly" title=" " alt="" coords="3065,44,2947,49,2818,62,2757,72,2704,86,2662,103,2634,124,2624,141,2621,156,2625,172,2634,191,2649,209,2667,225,2710,249,2707,253,2664,229,2645,213,2630,193,2620,174,2616,156,2619,139,2630,121,2659,99,2702,81,2756,67,2817,57,2946,44,3064,39"/>
-<area shape="rect" href="_input_buffer_8h.html" title=" " alt="" coords="3079,123,3243,192"/>
-<area shape="poly" title=" " alt="" coords="3164,90,3164,122,3159,122,3159,90"/>
-<area shape="rect" href="_state_8cpp.html" title=" " alt="" coords="3370,123,3534,192"/>
-<area shape="poly" title=" " alt="" coords="3258,77,3371,121,3369,126,3256,82"/>
-<area shape="rect" href="_state_alias_8h.html" title=" " alt="" coords="3199,240,3363,309"/>
-<area shape="poly" title=" " alt="" coords="3226,83,3244,101,3258,121,3271,151,3279,182,3285,239,3279,240,3274,183,3266,153,3254,124,3240,104,3222,86"/>
-<area shape="rect" href="_state_machine_8h.html" title=" " alt="" coords="2891,123,3055,192"/>
-<area shape="poly" title=" " alt="" coords="3095,85,3030,124,3028,120,3092,80"/>
-<area shape="rect" href="_subroutine_state_8h.html" title=" " alt="" coords="3387,240,3551,309"/>
-<area shape="poly" title=" " alt="" coords="3231,81,3287,121,3324,155,3360,190,3422,237,3419,241,3357,194,3320,159,3284,125,3228,85"/>
-<area shape="rect" href="_state_data_8h.html" title=" " alt="" coords="2645,130,2867,185"/>
-<area shape="poly" title=" " alt="" coords="3066,71,2851,132,2849,127,3064,66"/>
-<area shape="rect" href="_battle_object_8cpp.html" title=" " alt="" coords="5,482,171,551"/>
-<area shape="poly" title=" " alt="" coords="2694,282,2087,308,1675,330,1255,360,1091,371,951,378,714,387,600,397,479,413,343,439,183,477,162,484,160,479,182,472,342,434,478,408,599,391,713,382,951,372,1090,366,1254,355,1674,325,2087,302,2694,277"/>
-<area shape="rect" href="_night_sky_game_state_8h.html" title=" " alt="" coords="1267,357,1466,427"/>
-<area shape="poly" title=" " alt="" coords="2694,286,1467,385,1466,380,2694,281"/>
-<area shape="rect" href="_player_object_8cpp.html" title=" " alt="" coords="2497,482,2665,551"/>
-<area shape="poly" title=" " alt="" coords="2754,322,2613,483,2609,480,2750,319"/>
-<area shape="rect" href="_night_sky_a_i_controller_8cpp.html" title=" " alt="" coords="2689,482,2892,551"/>
-<area shape="poly" title=" " alt="" coords="2793,324,2793,481,2788,481,2788,324"/>
-<area shape="rect" href="_w_t_character_8cpp.html" title=" " alt="" coords="2651,614,2899,669"/>
-<area shape="poly" title=" " alt="" coords="2835,319,2873,369,2905,430,2916,463,2921,496,2918,528,2906,560,2879,592,2845,616,2842,611,2876,588,2902,557,2913,527,2916,496,2911,464,2901,432,2868,372,2831,322"/>
-<area shape="rect" href="_state_machine_8cpp.html" title=" " alt="" coords="3199,357,3363,427"/>
-<area shape="poly" title=" " alt="" coords="2888,293,3187,355,3200,358,3198,363,3186,360,2887,298"/>
-<area shape="rect" href="_night_sky_v_s_info_game_state_8cpp.html" title=" " alt="" coords="2967,357,3175,427"/>
-<area shape="poly" title=" " alt="" coords="2888,313,2989,354,2987,359,2886,318"/>
-<area shape="poly" title=" " alt="" coords="1253,402,652,435,354,457,247,468,183,477,161,484,159,479,182,472,246,462,354,452,652,430,1252,396"/>
-<area shape="rect" href="_fighter_local_runner_8cpp.html" title=" " alt="" coords="195,475,359,559"/>
-<area shape="poly" title=" " alt="" coords="1253,401,1043,411,790,427,547,450,448,463,373,477,361,481,359,475,371,472,447,457,547,444,789,422,1043,406,1252,395"/>
-<area shape="rect" href="_fighter_multiplayer_runner_8cpp.html" title=" " alt="" coords="384,475,579,559"/>
-<area shape="poly" title=" " alt="" coords="1252,399,1117,406,951,420,770,443,591,477,580,480,579,475,590,472,770,438,951,415,1117,401,1252,394"/>
-<area shape="rect" href="_fighter_replay_runner_8cpp.html" title=" " alt="" coords="603,475,775,559"/>
-<area shape="poly" title=" " alt="" coords="1253,404,1036,428,911,449,789,477,776,481,775,476,787,472,910,444,1035,423,1252,398"/>
-<area shape="rect" href="_fighter_synctest_runner_8cpp.html" title=" " alt="" coords="800,475,984,559"/>
-<area shape="poly" title=" " alt="" coords="1253,417,1132,444,1003,477,985,483,983,478,1002,472,1131,438,1252,412"/>
-<area shape="rect" href="_night_sky_game_state_8cpp.html" title=" " alt="" coords="995,724,1207,793"/>
-<area shape="poly" title=" " alt="" coords="1253,410,1190,421,1129,436,1079,455,1061,465,1049,476,1032,501,1022,525,1018,547,1019,569,1031,618,1049,675,1060,700,1074,722,1070,725,1055,702,1044,677,1025,619,1014,570,1013,547,1017,523,1027,499,1045,473,1058,461,1077,450,1128,431,1189,416,1252,405"/>
-<area shape="rect" href="_night_sky_player_controller_8cpp.html" title=" " alt="" coords="1247,482,1486,551"/>
-<area shape="poly" title=" " alt="" coords="1369,442,1369,482,1364,482,1364,442"/>
-<area shape="rect" href="_particle_manager_8cpp.html" title=" " alt="" coords="1511,482,1697,551"/>
-<area shape="poly" title=" " alt="" coords="1447,432,1539,479,1537,484,1445,436"/>
-<area shape="poly" title=" " alt="" coords="1481,394,1715,404,2004,420,2283,442,2397,456,2485,472,2507,479,2506,484,2483,477,2397,461,2282,447,2004,425,1714,409,1481,400"/>
-<area shape="rect" href="_battle_extension_8h.html" title=" " alt="" coords="1059,482,1223,551"/>
-<area shape="poly" title=" " alt="" coords="1292,437,1205,484,1202,479,1290,432"/>
-<area shape="poly" title=" " alt="" coords="1481,394,1752,403,2097,418,2433,441,2572,456,2678,472,2705,479,2703,484,2677,477,2572,461,2433,446,2097,424,1752,408,1481,399"/>
-<area shape="rect" href="_night_sky_chara_select_game_state_8cpp.html" title=" " alt="" coords="1722,482,1963,551"/>
-<area shape="poly" title=" " alt="" coords="1481,416,1710,472,1734,479,1733,484,1709,477,1480,421"/>
-<area shape="rect" href="_network_pawn_8cpp.html" title=" " alt="" coords="1987,482,2194,551"/>
-<area shape="poly" title=" " alt="" coords="1481,399,1711,424,1844,445,1975,472,2000,479,1999,484,1974,477,1843,450,1710,429,1480,404"/>
-<area shape="rect" href="_night_sky_w_t_game_state_8h.html" title=" " alt="" coords="2218,482,2473,551"/>
-<area shape="poly" title=" " alt="" coords="1481,395,1626,403,1808,418,2007,440,2206,472,2236,479,2235,484,2205,477,2006,446,1807,423,1626,409,1480,400"/>
-<area shape="rect" href="_battle_extension_8cpp.html" title=" " alt="" coords="1330,607,1494,676"/>
-<area shape="poly" title=" " alt="" coords="1231,555,1338,604,1336,609,1229,560"/>
-<area shape="rect" href="_battle_extension_data_8h.html" title=" " alt="" coords="1059,607,1306,676"/>
-<area shape="poly" title=" " alt="" coords="1160,565,1174,605,1169,607,1155,567"/>
-<area shape="poly" title=" " alt="" coords="1152,690,1128,725,1123,722,1148,687"/>
-<area shape="rect" href="_night_sky_w_t_game_state_8cpp.html" title=" " alt="" coords="2218,607,2473,676"/>
-<area shape="poly" title=" " alt="" coords="2348,567,2348,606,2343,606,2343,567"/>
-<area shape="poly" title=" " alt="" coords="2477,553,2486,556,2680,611,2679,616,2485,561,2475,559"/>
-<area shape="poly" title=" " alt="" coords="3066,195,2874,253,2872,248,3064,190"/>
-<area shape="rect" href="_input_buffer_8cpp.html" title=" " alt="" coords="3011,240,3175,309"/>
-<area shape="poly" title=" " alt="" coords="3136,206,3116,241,3111,238,3132,204"/>
-<area shape="poly" title=" " alt="" coords="3284,324,3284,357,3279,357,3279,324"/>
-<area shape="poly" title=" " alt="" coords="2909,202,2846,242,2843,237,2906,198"/>
-<area shape="poly" title=" " alt="" coords="2972,207,2978,260,2987,285,3002,308,3023,326,3043,337,3064,343,3085,345,3131,345,3158,348,3187,355,3200,359,3198,364,3186,360,3157,353,3131,351,3084,350,3063,348,3041,342,3020,331,2998,311,2982,288,2973,261,2967,207"/>
-<area shape="poly" title=" " alt="" coords="3403,320,3338,359,3336,354,3400,315"/>
-<area shape="poly" title=" " alt="" coords="2771,198,2783,239,2778,240,2766,200"/>
+<div class="center"><img src="_state_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep" alt=""/></div>
+<map name="a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep" id="a_c_1_2_users_2theso_2_unreal_01_projects_2_night_sky_engine_2_source_2_night_sky_engine_2_battle_2_state_8hdep">
+<area shape="rect" title=" " alt="" coords="3475,5,3677,75"/>
+<area shape="rect" href="_player_object_8h.html" title=" " alt="" coords="2975,240,3177,309"/>
+<area shape="poly" title=" " alt="" coords="3460,44,3336,48,3203,61,3141,71,3087,85,3044,103,3015,124,3007,137,3004,151,3009,181,3025,211,3045,238,3041,241,3020,214,3004,182,2999,151,3003,135,3011,121,3041,98,3085,80,3140,66,3202,56,3336,43,3460,38"/>
+<area shape="rect" href="_input_buffer_8h.html" title=" " alt="" coords="3252,123,3455,192"/>
+<area shape="poly" title=" " alt="" coords="3499,84,3420,124,3418,120,3496,79"/>
+<area shape="rect" href="_state_8cpp.html" title=" " alt="" coords="3799,123,4001,192"/>
+<area shape="poly" title=" " alt="" coords="3686,78,3805,120,3803,125,3684,83"/>
+<area shape="rect" href="_state_alias_8h.html" title=" " alt="" coords="3697,240,3900,309"/>
+<area shape="poly" title=" " alt="" coords="3641,81,3687,121,3729,172,3777,238,3773,241,3725,176,3683,125,3637,85"/>
+<area shape="rect" href="_state_machine_8h.html" title=" " alt="" coords="3025,123,3228,192"/>
+<area shape="poly" title=" " alt="" coords="3461,70,3241,125,3229,128,3228,123,3239,120,3460,65"/>
+<area shape="rect" href="_subroutine_state_8h.html" title=" " alt="" coords="3924,240,4127,309"/>
+<area shape="poly" title=" " alt="" coords="3668,80,3731,121,3749,139,3760,157,3770,173,3788,190,3839,210,3925,239,3923,244,3837,215,3785,194,3766,177,3755,160,3745,143,3728,125,3665,84"/>
+<area shape="rect" href="_state_data_8h.html" title=" " alt="" coords="3479,123,3673,192"/>
+<area shape="poly" title=" " alt="" coords="3579,90,3579,122,3573,122,3573,90"/>
+<area shape="rect" href="_battle_object_8cpp.html" title=" " alt="" coords="5,482,208,551"/>
+<area shape="poly" title=" " alt="" coords="2960,282,2411,303,1617,342,1200,369,809,400,473,436,335,456,221,477,195,484,193,479,219,472,334,451,472,431,809,395,1200,363,1616,337,2411,298,2960,277"/>
+<area shape="rect" href="_night_sky_game_state_8h.html" title=" " alt="" coords="1679,357,1881,427"/>
+<area shape="poly" title=" " alt="" coords="2960,289,1882,384,1881,379,2959,284"/>
+<area shape="rect" href="_player_object_8cpp.html" title=" " alt="" coords="2868,482,3071,551"/>
+<area shape="poly" title=" " alt="" coords="3058,324,2987,482,2982,480,3053,322"/>
+<area shape="rect" href="_night_sky_a_i_controller_8cpp.html" title=" " alt="" coords="3095,482,3297,551"/>
+<area shape="poly" title=" " alt="" coords="3102,322,3181,480,3177,483,3097,324"/>
+<area shape="rect" href="_w_t_character_8cpp.html" title=" " alt="" coords="3054,607,3242,676"/>
+<area shape="poly" title=" " alt="" coords="3155,315,3198,344,3242,381,3281,424,3312,473,3321,497,3325,517,3322,538,3312,560,3298,578,3282,593,3244,616,3241,611,3278,589,3294,574,3307,557,3317,536,3320,518,3316,498,3307,476,3277,427,3238,385,3195,349,3152,320"/>
+<area shape="rect" href="_state_machine_8cpp.html" title=" " alt="" coords="3667,357,3869,427"/>
+<area shape="poly" title=" " alt="" coords="3193,306,3196,307,3307,325,3394,333,3481,341,3592,355,3667,368,3666,373,3592,360,3480,346,3393,339,3306,330,3196,312,3192,311"/>
+<area shape="rect" href="_night_sky_v_s_info_game_state_8cpp.html" title=" " alt="" coords="3372,357,3580,427"/>
+<area shape="poly" title=" " alt="" coords="3192,307,3372,358,3371,363,3191,312"/>
+<area shape="poly" title=" " alt="" coords="1664,400,868,433,457,455,309,466,220,477,194,484,193,479,220,472,308,461,457,450,867,427,1663,395"/>
+<area shape="rect" href="_fighter_local_runner_8cpp.html" title=" " alt="" coords="233,482,530,551"/>
+<area shape="poly" title=" " alt="" coords="1664,397,1453,401,1174,414,859,438,698,455,542,477,506,484,505,479,541,472,698,450,858,432,1173,408,1453,396,1664,391"/>
+<area shape="rect" href="_fighter_multiplayer_runner_8cpp.html" title=" " alt="" coords="554,475,817,559"/>
+<area shape="poly" title=" " alt="" coords="1664,399,1500,406,1291,420,1060,443,830,477,818,480,817,474,829,472,1060,438,1291,415,1499,401,1664,394"/>
+<area shape="rect" href="_fighter_replay_runner_8cpp.html" title=" " alt="" coords="841,475,1081,559"/>
+<area shape="poly" title=" " alt="" coords="1664,403,1402,428,1247,449,1094,477,1083,480,1081,475,1093,472,1246,444,1401,423,1664,398"/>
+<area shape="rect" href="_fighter_synctest_runner_8cpp.html" title=" " alt="" coords="1106,475,1358,559"/>
+<area shape="poly" title=" " alt="" coords="1664,417,1527,444,1378,477,1359,482,1358,477,1377,472,1526,439,1663,412"/>
+<area shape="rect" href="_night_sky_game_state_8cpp.html" title=" " alt="" coords="1290,724,1502,793"/>
+<area shape="poly" title=" " alt="" coords="1664,408,1592,418,1521,433,1461,453,1439,464,1423,476,1404,504,1391,536,1383,569,1380,604,1382,670,1390,723,1385,724,1377,670,1374,604,1378,568,1386,534,1399,502,1419,473,1436,460,1459,448,1519,428,1591,413,1664,402"/>
+<area shape="rect" href="_night_sky_player_controller_8cpp.html" title=" " alt="" coords="1661,482,1899,551"/>
+<area shape="poly" title=" " alt="" coords="1783,442,1783,482,1777,482,1777,442"/>
+<area shape="rect" href="_particle_manager_8cpp.html" title=" " alt="" coords="1924,482,2127,551"/>
+<area shape="poly" title=" " alt="" coords="1863,431,1959,479,1956,484,1860,436"/>
+<area shape="poly" title=" " alt="" coords="1896,389,2082,392,2321,404,2588,429,2724,448,2855,472,2882,479,2880,484,2854,477,2723,453,2588,434,2321,409,2081,398,1896,395"/>
+<area shape="rect" href="_battle_extension_8h.html" title=" " alt="" coords="1433,482,1636,551"/>
+<area shape="poly" title=" " alt="" coords="1700,436,1604,484,1601,479,1697,431"/>
+<area shape="poly" title=" " alt="" coords="1896,394,2166,403,2508,418,2841,441,2979,456,3083,472,3110,479,3109,484,3082,477,2978,461,2841,447,2508,424,2166,408,1896,399"/>
+<area shape="rect" href="_night_sky_chara_select_game_state_8cpp.html" title=" " alt="" coords="2151,482,2393,551"/>
+<area shape="poly" title=" " alt="" coords="1897,415,2139,472,2164,479,2162,484,2138,477,1895,420"/>
+<area shape="rect" href="_network_pawn_8cpp.html" title=" " alt="" coords="2417,482,2631,551"/>
+<area shape="poly" title=" " alt="" coords="1896,399,2132,424,2269,445,2405,472,2430,479,2429,484,2403,477,2268,450,2132,430,1896,404"/>
+<area shape="rect" href="_night_sky_w_t_game_state_8h.html" title=" " alt="" coords="2655,482,2843,551"/>
+<area shape="poly" title=" " alt="" coords="1896,392,2046,397,2234,410,2439,434,2543,451,2643,472,2667,479,2666,484,2642,477,2542,456,2438,439,2233,416,2046,403,1896,397"/>
+<area shape="rect" href="_battle_extension_8cpp.html" title=" " alt="" coords="1655,607,1857,676"/>
+<area shape="poly" title=" " alt="" coords="1610,557,1696,604,1693,609,1608,561"/>
+<area shape="rect" href="_battle_extension_data_8h.html" title=" " alt="" coords="1436,607,1631,676"/>
+<area shape="poly" title=" " alt="" coords="1537,567,1536,606,1531,606,1531,566"/>
+<area shape="poly" title=" " alt="" coords="1483,688,1438,725,1435,721,1480,684"/>
+<area shape="rect" href="_battle_extension_data_8cpp.html" title=" " alt="" coords="1527,724,1721,793"/>
+<area shape="poly" title=" " alt="" coords="1571,686,1599,722,1595,725,1567,690"/>
+<area shape="rect" href="_night_sky_w_t_game_state_8cpp.html" title=" " alt="" coords="2654,607,2845,676"/>
+<area shape="poly" title=" " alt="" coords="2752,567,2752,606,2747,606,2747,567"/>
+<area shape="poly" title=" " alt="" coords="2851,554,2857,556,3055,614,3053,619,2855,561,2849,559"/>
+<area shape="poly" title=" " alt="" coords="3259,201,3159,242,3157,237,3257,196"/>
+<area shape="rect" href="_input_buffer_8cpp.html" title=" " alt="" coords="3252,240,3455,309"/>
+<area shape="poly" title=" " alt="" coords="3356,207,3356,239,3351,239,3351,207"/>
+<area shape="poly" title=" " alt="" coords="3788,325,3780,357,3775,356,3783,323"/>
+<area shape="poly" title=" " alt="" coords="3108,207,3093,240,3089,238,3103,205"/>
+<area shape="poly" title=" " alt="" coords="3164,202,3192,239,3213,277,3223,293,3241,307,3289,331,3331,345,3370,351,3408,351,3490,348,3538,349,3592,355,3667,368,3666,373,3592,360,3538,354,3490,353,3408,357,3370,356,3330,350,3287,336,3239,312,3220,296,3209,280,3187,241,3160,206"/>
+<area shape="poly" title=" " alt="" coords="3937,318,3845,359,3843,354,3935,313"/>
+<area shape="poly" title=" " alt="" coords="3465,195,3178,255,3177,250,3464,190"/>
+<area shape="rect" href="_state_data_8cpp.html" title=" " alt="" coords="3479,240,3673,309"/>
+<area shape="poly" title=" " alt="" coords="3579,207,3579,239,3573,239,3573,207"/>
 </map>
 </div>
 </div>
@@ -378,7 +397,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a0c494fc3870197fc0100909f812d3734a59ddb5c5a63f1db34cfe8c79eb7b496c" name="a0c494fc3870197fc0100909f812d3734a59ddb5c5a63f1db34cfe8c79eb7b496c"></a>ASPD_Slow&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00281">281</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00282">282</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +432,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00019">19</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00020">20</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -448,7 +467,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab" name="aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab"></a>NegativeStrict&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00125">125</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00126">126</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -470,7 +489,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a8cc5b590f8cfe7f655503ad05f5747caab176272051ca1e61c17c948d253d1907" name="a8cc5b590f8cfe7f655503ad05f5747caab176272051ca1e61c17c948d253d1907"></a>RAN_Far&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00270">270</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00271">271</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +559,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="af1917f42ed524567f2f378796c3f37cbac7670205cdf8a96312933f86f9f7d2a0" name="af1917f42ed524567f2f378796c3f37cbac7670205cdf8a96312933f86f9f7d2a0"></a>PlayerReg8False&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00075">75</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00076">76</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -588,7 +607,7 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="ab4cb6e6f9af8950816157c9825ee4921a90589c47f06eb971d548591f23c285af" name="ab4cb6e6f9af8950816157c9825ee4921a90589c47f06eb971d548591f23c285af"></a>Custom&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00044">44</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00045">45</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>

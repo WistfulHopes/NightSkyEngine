@@ -25,6 +25,8 @@ var searchData=
   ['groundpushbackx_22',['GroundPushbackX',['../struct_f_hit_data.html#aa708a2f1a78b0d9a4cecec19602fd0dd',1,'FHitData']]],
   ['gsintable_23',['gSinTable',['../_globals_8h.html#a47803990afbdb74bcadf329bf215c554',1,'Globals.h']]],
   ['guardgravity_24',['GuardGravity',['../struct_f_hit_data_common.html#a692824894165061792238949e01dbd0b',1,'FHitDataCommon']]],
-  ['guardsfxoverride_25',['GuardSFXOverride',['../struct_f_hit_data_common.html#aeba8ea4cccb86413f90688ef931e712a',1,'FHitDataCommon']]],
-  ['guardvfxoverride_26',['GuardVFXOverride',['../struct_f_hit_data_common.html#ac5e77c5772644616b56af3be7a0aaf3e',1,'FHitDataCommon']]]
+  ['guardsfx_25',['GuardSFX',['../struct_f_hit_data_common.html#aa00ddea1ab6ebe4467553f84daa40124',1,'FHitDataCommon']]],
+  ['guardsfxoverride_26',['GuardSFXOverride',['../struct_f_hit_data_common.html#af94d5d73a7af9cbcf650c5a483a0c6d6',1,'FHitDataCommon']]],
+  ['guardvfx_27',['GuardVFX',['../struct_f_hit_data_common.html#a35c027594d4484cf79c5bc05cf01c4db',1,'FHitDataCommon']]],
+  ['guardvfxoverride_28',['GuardVFXOverride',['../struct_f_hit_data_common.html#aa296bd96bcf30712291bf324a22791c9',1,'FHitDataCommon']]]
 ];

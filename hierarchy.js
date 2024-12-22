@@ -49,7 +49,6 @@ var hierarchy =
     [ "FBattleState", "struct_f_battle_state.html", null ],
     [ "FBPRollbackData", "struct_f_b_p_rollback_data.html", null ],
     [ "FCameraShakeStruct", "struct_f_camera_shake_struct.html", null ],
-    [ "FCharaSelectStruct", "struct_f_chara_select_struct.html", null ],
     [ "FCollisionBox", "struct_f_collision_box.html", null ],
     [ "FCollisionStruct", "struct_f_collision_struct.html", null ],
     [ "FEventHandler", "struct_f_event_handler.html", null ],
@@ -70,6 +69,7 @@ var hierarchy =
     [ "FLinkedActorContainer", "struct_f_linked_actor_container.html", null ],
     [ "FMaterialStruct", "struct_f_material_struct.html", null ],
     [ "FNetworkStats", "struct_f_network_stats.html", null ],
+    [ "FNSESessionInfo", "struct_f_n_s_e_session_info.html", null ],
     [ "FObjectAndNameAsStringProxyArchive", null, [
       [ "FNightSkySaveArchive", "struct_f_night_sky_save_archive.html", null ]
     ] ],
@@ -79,7 +79,6 @@ var hierarchy =
     [ "FRollbackData", "struct_f_rollback_data.html", null ],
     [ "FSequenceStruct", "struct_f_sequence_struct.html", null ],
     [ "FSoundStruct", "struct_f_sound_struct.html", null ],
-    [ "FStageStruct", "struct_f_stage_struct.html", null ],
     [ "FStateCPUData", "struct_f_state_c_p_u_data.html", null ],
     [ "FStateMachine", "struct_f_state_machine.html", null ],
     [ "FSuperArmorData", "struct_f_super_armor_data.html", null ],
@@ -87,9 +86,6 @@ var hierarchy =
     [ "FWallBounceData", "struct_f_wall_bounce_data.html", null ],
     [ "ModuleRules", null, [
       [ "NightSkyEngine", "class_night_sky_engine.html", null ]
-    ] ],
-    [ "UAdvancedFriendsGameInstance", null, [
-      [ "UNightSkyGameInstance", "class_u_night_sky_game_instance.html", null ]
     ] ],
     [ "UAnimInstance", null, [
       [ "UNightSkyAnimInstance", "class_u_night_sky_anim_instance.html", null ]
@@ -101,10 +97,8 @@ var hierarchy =
       [ "UExtendedCommonActivatableWidget", "class_u_extended_common_activatable_widget.html", null ]
     ] ],
     [ "UDataAsset", null, [
-      [ "UAnimData", "class_u_anim_data.html", null ],
       [ "UBattleExtensionData", "class_u_battle_extension_data.html", null ],
       [ "UCameraShakeData", "class_u_camera_shake_data.html", null ],
-      [ "UCharaSelectData", "class_u_chara_select_data.html", null ],
       [ "UCollisionData", "class_u_collision_data.html", null ],
       [ "UFlipbookData", "class_u_flipbook_data.html", null ],
       [ "ULinkActorData", "class_u_link_actor_data.html", null ],
@@ -112,9 +106,20 @@ var hierarchy =
       [ "UParticleData", "class_u_particle_data.html", null ],
       [ "USequenceData", "class_u_sequence_data.html", null ],
       [ "USoundData", "class_u_sound_data.html", null ],
-      [ "UStageData", "class_u_stage_data.html", null ],
       [ "UStateData", "class_u_state_data.html", null ],
       [ "USubroutineData", "class_u_subroutine_data.html", null ]
+    ] ],
+    [ "UEnhancedInputUserSettings", null, [
+      [ "UNSEEnhancedInputUserSettings", "class_u_n_s_e_enhanced_input_user_settings.html", null ]
+    ] ],
+    [ "UEnhancedPlayerMappableKeyProfile", null, [
+      [ "UNSEPlayerMappableKeyProfile", "class_u_n_s_e_player_mappable_key_profile.html", null ]
+    ] ],
+    [ "UGameInstance", null, [
+      [ "UNightSkyGameInstance", "class_u_night_sky_game_instance.html", null ]
+    ] ],
+    [ "UGameInstanceSubsystem", null, [
+      [ "UNSESessionSubsystem", "class_u_n_s_e_session_subsystem.html", null ]
     ] ],
     [ "UObject", null, [
       [ "USerializableObj", "class_u_serializable_obj.html", [
@@ -125,6 +130,13 @@ var hierarchy =
         ] ],
         [ "USubroutine", "class_u_subroutine.html", null ]
       ] ]
+    ] ],
+    [ "UPlayerMappableKeySettings", null, [
+      [ "UNSEPlayerMappableKeySettings", "class_u_n_s_e_player_mappable_key_settings.html", null ]
+    ] ],
+    [ "UPrimaryDataAsset", null, [
+      [ "UPrimaryCharaData", "class_u_primary_chara_data.html", null ],
+      [ "UPrimaryStageData", "class_u_primary_stage_data.html", null ]
     ] ],
     [ "USaveGame", null, [
       [ "UNightSkySaveInfo", "class_u_night_sky_save_info.html", [

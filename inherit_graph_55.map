@@ -1,31 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,327,97,352"/>
-<area shape="rect" id="Node000001" href="$class_u_anim_data.html" title=" " alt="" coords="177,5,265,31"/>
-<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="51,312,55,256,69,183,81,145,97,107,118,72,143,40,158,29,175,22,177,27,161,34,147,44,122,75,102,109,86,147,75,185,61,257,56,312"/>
-<area shape="rect" id="Node000002" href="$class_u_battle_extension_data.html" title=" " alt="" coords="145,55,296,80"/>
-<area shape="poly" id="edge28_Node000000_Node000002" title=" " alt="" coords="53,312,60,264,76,205,103,143,121,115,144,89,159,78,162,83,147,93,126,118,108,146,81,207,65,265,58,313"/>
-<area shape="rect" id="Node000003" href="$class_u_camera_shake_data.html" title=" " alt="" coords="151,104,291,129"/>
-<area shape="poly" id="edge29_Node000000_Node000003" title=" " alt="" coords="56,311,66,273,83,226,109,179,144,139,160,128,163,132,147,143,113,182,88,229,71,274,61,312"/>
-<area shape="rect" id="Node000004" href="$class_u_chara_select_data.html" title=" " alt="" coords="156,153,285,179"/>
-<area shape="poly" id="edge30_Node000000_Node000004" title=" " alt="" coords="60,312,91,250,115,217,144,188,162,177,165,181,147,192,119,220,96,253,65,314"/>
-<area shape="rect" id="Node000005" href="$class_u_collision_data.html" title=" " alt="" coords="167,203,274,228"/>
-<area shape="poly" id="edge31_Node000000_Node000005" title=" " alt="" coords="67,313,100,274,144,237,166,226,168,231,147,242,104,278,72,317"/>
-<area shape="rect" id="Node000006" href="$class_u_flipbook_data.html" title=" " alt="" coords="167,252,274,277"/>
-<area shape="poly" id="edge32_Node000000_Node000006" title=" " alt="" coords="85,317,144,286,173,275,175,280,146,291,88,321"/>
-<area shape="rect" id="Node000007" href="$class_u_link_actor_data.html" title=" " alt="" coords="164,301,277,327"/>
-<area shape="poly" id="edge33_Node000000_Node000007" title=" " alt="" coords="112,328,163,320,164,325,112,333"/>
-<area shape="rect" id="Node000008" href="$class_u_material_data.html" title=" " alt="" coords="169,351,273,376"/>
-<area shape="poly" id="edge34_Node000000_Node000008" title=" " alt="" coords="112,345,169,353,168,359,112,351"/>
-<area shape="rect" id="Node000009" href="$class_u_particle_data.html" title=" " alt="" coords="169,400,272,425"/>
-<area shape="poly" id="edge35_Node000000_Node000009" title=" " alt="" coords="90,357,146,385,178,397,176,402,144,390,87,362"/>
-<area shape="rect" id="Node000010" href="$class_u_sequence_data.html" title=" " alt="" coords="163,449,279,475"/>
-<area shape="poly" id="edge36_Node000000_Node000010" title=" " alt="" coords="73,362,105,399,147,434,171,446,168,451,144,439,101,403,69,366"/>
-<area shape="rect" id="Node000011" href="$class_u_sound_data.html" title=" " alt="" coords="173,499,268,524"/>
-<area shape="poly" id="edge37_Node000000_Node000011" title=" " alt="" coords="65,364,96,425,119,456,147,484,174,499,172,503,144,488,115,460,92,427,60,367"/>
-<area shape="rect" id="Node000012" href="$class_u_stage_data.html" title=" " alt="" coords="175,548,267,573"/>
-<area shape="poly" id="edge38_Node000000_Node000012" title=" " alt="" coords="61,366,72,403,89,448,114,494,147,533,176,549,173,554,144,537,109,497,84,451,66,405,56,367"/>
-<area shape="rect" id="Node000013" href="$class_u_state_data.html" title=" " alt="" coords="176,597,265,623"/>
-<area shape="poly" id="edge39_Node000000_Node000013" title=" " alt="" coords="58,366,66,413,82,471,108,531,126,558,147,583,161,593,177,600,174,604,158,597,144,587,122,562,103,533,77,473,61,414,53,367"/>
-<area shape="rect" id="Node000014" href="$class_u_subroutine_data.html" title=" " alt="" coords="161,647,281,672"/>
-<area shape="poly" id="edge40_Node000000_Node000014" title=" " alt="" coords="56,367,61,422,75,493,87,531,103,567,123,602,147,632,164,644,161,648,144,636,118,605,98,570,82,532,70,494,56,423,51,367"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,211,45"/>
+<area shape="rect" id="Node000001" href="$class_u_n_s_e_player_mappable_key_profile.html" title=" " alt="" coords="259,13,469,38"/>
+<area shape="poly" id="edge38_Node000000_Node000001" title=" " alt="" coords="226,23,258,23,258,28,226,28"/>
 </map>

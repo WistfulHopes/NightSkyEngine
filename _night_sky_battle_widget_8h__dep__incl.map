@@ -1,7 +1,7 @@
-<map id="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" name="D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="119,5,346,75"/>
+<map id="C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" name="C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,311,75"/>
 <area shape="rect" id="Node000002" href="$_night_sky_game_state_8cpp.html" title=" " alt="" coords="5,123,217,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,87,149,124,145,120,184,83"/>
-<area shape="rect" id="Node000003" href="$_night_sky_battle_widget_8cpp.html" title=" " alt="" coords="242,123,469,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="281,83,321,120,317,124,277,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,87,146,124,142,120,177,84"/>
+<area shape="rect" id="Node000003" href="$_night_sky_battle_widget_8cpp.html" title=" " alt="" coords="241,123,421,192"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="265,84,300,120,297,124,261,87"/>
 </map>

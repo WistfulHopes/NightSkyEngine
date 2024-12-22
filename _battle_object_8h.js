@@ -39,7 +39,6 @@ var _battle_object_8h =
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
     ] ],
     [ "EFloatingCrumpleType", "_battle_object_8h.html#a5f59481b0f059e36caa2c890992959aa", [

@@ -7,6 +7,12 @@ var _night_sky_game_state_8h =
     [ "FBPRollbackData", "struct_f_b_p_rollback_data.html", "struct_f_b_p_rollback_data" ],
     [ "FNetworkStats", "struct_f_network_stats.html", "struct_f_network_stats" ],
     [ "ANightSkyGameState", "class_a_night_sky_game_state.html", "class_a_night_sky_game_state" ],
+    [ "EBattlePhase", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044", [
+      [ "Intro", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a1cad35d4b3b9f624f82dbf237daaf188", null ],
+      [ "Battle", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a747d99f92ee9c080ba26108ac5d26488", null ],
+      [ "RoundEnd", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a85f2151e51ce5218e9eccdf9e421a824", null ],
+      [ "MatchEnd", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a468db5e0aec8ea9bd965b4fd038ef05a", null ]
+    ] ],
     [ "EIntroSide", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137df", [
       [ "INT_P1", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137dfa67c58981b0bab4cdc88ec1878aaf4dec", null ],
       [ "INT_P2", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137dfa1b315596386efc289e633473733f1293", null ],
@@ -22,6 +28,12 @@ var _night_sky_game_state_8h =
       [ "ThreeVsThree", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7ad661581a50297a7dabd05e227d6871cf", null ],
       [ "TwoVsTwoKOF", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a4050dc5243ae3af1d60362d5c81fd367", null ],
       [ "ThreeVsThreeKOF", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a5f865856271f9178874e475093b42a89", null ]
+    ] ],
+    [ "EWinSide", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966", [
+      [ "WIN_None", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268", null ],
+      [ "WIN_P1", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a2f04778ef41ba6e50b59974fe13a0f12", null ],
+      [ "WIN_P2", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b", null ],
+      [ "WIN_Draw", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77", null ]
     ] ],
     [ "GaugeCount", "_night_sky_game_state_8h.html#ab61e75bc34e0b64d78be2fc55e7d6333", null ],
     [ "MaxBattleObjects", "_night_sky_game_state_8h.html#a884d8b7927cde9dc138385a1a30720a9", null ],

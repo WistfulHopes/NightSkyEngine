@@ -1,8 +1,8 @@
 var searchData=
 [
   ['l_0',['L',['../class_a_battle_object.html#aba185d81bf364ba76bb0117576d2f4c6',1,'ABattleObject']]],
-  ['labelname_1',['LabelName',['../class_a_battle_object.html#a8f57fda24fcb312ddb44c4dd38383be4',1,'ABattleObject']]],
-  ['laststatename_2',['LastStateName',['../class_a_player_object.html#a76649a4d994aa332f0f75e373a9fc308',1,'APlayerObject']]],
+  ['labelname_1',['LabelName',['../class_a_battle_object.html#a53f24203ad0e9cd84d247929035e2a85',1,'ABattleObject']]],
+  ['laststatename_2',['LastStateName',['../class_a_player_object.html#a3c5fdbd8bf18c679e1c62c98821a0682',1,'APlayerObject']]],
   ['lengthinframes_3',['LengthInFrames',['../class_u_replay_save_info.html#a6f9946193fc1394d8e63a8c9f4282b7c',1,'UReplaySaveInfo']]],
   ['lenience_4',['Lenience',['../struct_f_input_bitmask.html#a27a5dd8410051f2a6954c5c7dc72ff62',1,'FInputBitmask']]],
   ['linkactordata_5',['LinkActorData',['../class_a_player_object.html#aca5d5d72754cee55132591b50cfa097e',1,'APlayerObject']]],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Night Sky Engine: D:/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h Source File</title>
+<title>Night Sky Engine: C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -114,8 +114,8 @@ $(function(){initNavTree('_night_sky_game_instance_8h_source.html',''); initResi
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;AdvancedFriendsGameInstance.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_fighter_runners_8h.html">FighterRunners.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_fighter_runners_8h.html">NightSkyEngine/Network/FighterRunners.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;GameplayTagContainer.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_random_manager_8h.html">NightSkyEngine/Battle/RandomManager.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;Engine/GameInstance.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;NightSkyGameInstance.generated.h&quot;</span></div>
@@ -147,13 +147,13 @@ $(function(){initNavTree('_night_sky_game_instance_8h_source.html',''); initResi
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    UPROPERTY(BlueprintReadWrite)</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_f_battle_data.html#ae8553d78bccb443491a11c50a70b486f">   36</a></span>    FString StageURL;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_f_battle_data.html#a65f2fbb4eae6d795d4afe36014428eb3">   38</a></span>    FString MusicName;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_f_battle_data.html#a826ba78b5ccbc66a6d04f283467b90bf">   38</a></span>    FGameplayTag MusicName;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
 </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>UCLASS()</div>
 <div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html">   45</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a> : public UAdvancedFriendsGameInstance</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html">   45</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a> : public UGameInstance</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    GENERATED_BODY()</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
@@ -224,14 +224,14 @@ $(function(){initNavTree('_night_sky_game_instance_8h_source.html',''); initResi
 <div class="ttc" id="a_night_sky_game_instance_8h_html_a774ff40ebe154d7922619694c92f3345"><div class="ttname"><a href="_night_sky_game_instance_8h.html#a774ff40ebe154d7922619694c92f3345">MaxReplays</a></div><div class="ttdeci">constexpr int32 MaxReplays</div><div class="ttdef"><b>Definition</b> <a href="#l00014">NightSkyGameInstance.h:14</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_a6d56cd21ce6165857706c64c64849ff7"><div class="ttname"><a href="_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7">ERoundFormat</a></div><div class="ttdeci">ERoundFormat</div><div class="ttdef"><b>Definition</b> <a href="_night_sky_game_state_8h_source.html#l00026">NightSkyGameState.h:27</a></div></div>
 <div class="ttc" id="a_random_manager_8h_html"><div class="ttname"><a href="_random_manager_8h.html">RandomManager.h</a></div></div>
-<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00050">PlayerObject.h:51</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00060">PlayerObject.h:61</a></div></div>
 <div class="ttc" id="aclass_u_night_sky_game_instance_html"><div class="ttname"><a href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a></div><div class="ttdef"><b>Definition</b> <a href="#l00045">NightSkyGameInstance.h:46</a></div></div>
 <div class="ttc" id="aclass_u_night_sky_settings_info_html"><div class="ttname"><a href="class_u_night_sky_settings_info.html">UNightSkySettingsInfo</a></div><div class="ttdef"><b>Definition</b> <a href="_night_sky_settings_info_8h_source.html#l00015">NightSkySettingsInfo.h:16</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html"><div class="ttname"><a href="class_u_replay_save_info.html">UReplaySaveInfo</a></div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00014">ReplayInfo.h:15</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html_a6bdf660934c711e7c80fd1968fb7a2a7"><div class="ttname"><a href="class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7">UReplaySaveInfo::InputsP2</a></div><div class="ttdeci">TArray&lt; int32 &gt; InputsP2</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00041">ReplayInfo.h:41</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html_abcfb157b2faddfc596f4a1fbaa1347b9"><div class="ttname"><a href="class_u_replay_save_info.html#abcfb157b2faddfc596f4a1fbaa1347b9">UReplaySaveInfo::BattleData</a></div><div class="ttdeci">FBattleData BattleData</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00031">ReplayInfo.h:31</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html_aeeb2ba8e34942c6994522f99735a74e6"><div class="ttname"><a href="class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6">UReplaySaveInfo::InputsP1</a></div><div class="ttdeci">TArray&lt; int32 &gt; InputsP1</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00039">ReplayInfo.h:39</a></div></div>
-<div class="ttc" id="aclass_u_sound_data_html"><div class="ttname"><a href="class_u_sound_data.html">USoundData</a></div><div class="ttdef"><b>Definition</b> <a href="_sound_data_8h_source.html#l00027">SoundData.h:28</a></div></div>
+<div class="ttc" id="aclass_u_sound_data_html"><div class="ttname"><a href="class_u_sound_data.html">USoundData</a></div><div class="ttdef"><b>Definition</b> <a href="_sound_data_8h_source.html#l00043">SoundData.h:44</a></div></div>
 <div class="ttc" id="astruct_f_battle_data_html"><div class="ttname"><a href="struct_f_battle_data.html">FBattleData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00021">NightSkyGameInstance.h:22</a></div></div>
 <div class="ttc" id="astruct_f_random_manager_html"><div class="ttname"><a href="struct_f_random_manager.html">FRandomManager</a></div><div class="ttdef"><b>Definition</b> <a href="_random_manager_8h_source.html#l00006">RandomManager.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -29,7 +29,6 @@ var class_a_night_sky_player_controller =
     [ "ReleaseLeft", "class_a_night_sky_player_controller.html#a6478c5a1a5027ce64e8651f5dc82d010", null ],
     [ "ReleaseRight", "class_a_night_sky_player_controller.html#aa9e7b369f800950b1f54b0482159c149", null ],
     [ "ReleaseUp", "class_a_night_sky_player_controller.html#af45362c85c8f05770f1fb512c384a891", null ],
-    [ "RemapKeys", "class_a_night_sky_player_controller.html#a25b37156209693f4dde0a19431020502", null ],
     [ "Rematch", "class_a_night_sky_player_controller.html#a64308c1a69b1f6b184f812d54cf623fe", null ],
     [ "SendBattleData", "class_a_night_sky_player_controller.html#a3595e359e57aec0ba26299c7d569296c", null ],
     [ "SendGgpo", "class_a_night_sky_player_controller.html#a9bcfa67a13c16fea37ab8997dec3615a", null ],
