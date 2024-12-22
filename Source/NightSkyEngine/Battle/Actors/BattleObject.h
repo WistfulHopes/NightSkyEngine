@@ -8,6 +8,7 @@
 #include "GameplayTagContainer.h"
 #include "GameFramework/Pawn.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
+#include "NightSkyEngine/Data/CollisionData.h"
 #include "BattleObject.generated.h"
 
 class ANightSkyCharaSelectGameState;
@@ -759,15 +760,9 @@ public:
 	 * The name of the label that is currently being jumped to.
 	 */
 	FGameplayTag LabelName = {};
-	// The current animation name.
-	FGameplayTag AnimName = {};
-	// The current blend animation name.
-	FGameplayTag BlendAnimName = {};
 	
-	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<UAnimSequenceBase> AnimSequence;
-	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<UAnimSequenceBase> BlendAnimSequence;
+	UPROPERTY()
+	TArray<FAnimStruct> AnimStructs;
 	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive = false;
@@ -968,6 +963,10 @@ public:
 	 */
 
 	UFUNCTION(BlueprintPure)
+	UAnimSequenceBase* GetAnimSequenceForPart(const FName Part) const;
+	UFUNCTION(BlueprintPure)
+	UPaperFlipbook* GetFlipbookForPart(const FName Part) const;
+	UFUNCTION(BlueprintPure)
 	bool IsStopped() const;
 	UFUNCTION(BlueprintPure)
 	bool IsTimerPaused() const;
@@ -986,12 +985,6 @@ public:
 	//gets cel name
 	UFUNCTION(BlueprintPure)
 	FGameplayTag GetCelName() const;
-	//gets anim name
-	UFUNCTION(BlueprintPure)
-	FGameplayTag GetAnimName() const;
-	//gets blend anim name
-	UFUNCTION(BlueprintPure)
-	FGameplayTag GetBlendAnimName() const;
 	//gets label name
 	UFUNCTION(BlueprintPure)
 	FGameplayTag GetLabelName() const;

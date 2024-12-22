@@ -8,7 +8,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
-#include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
+#include "NightSkyEngine/Network/RpcConnectionManager.h"
 #include <iostream>
 
 #include "Serialization/BufferArchive.h"

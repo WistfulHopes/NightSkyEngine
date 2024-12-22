@@ -609,7 +609,6 @@ void APlayerObject::Update()
 		CallSubroutine(Subroutine_Cmn_OnLanding);
 		CallSubroutine(Subroutine_OnLanding);
 		CreateCommonParticle(Particle_JumpSmoke_Land, POS_Player);
-		PlayCommonSound(Sound_Land);
 	}
 	
 	if (PosY <= GroundHeight && PrevPosY > GroundHeight && StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
@@ -2505,9 +2504,7 @@ void APlayerObject::OnStateChange()
 	HitCommon = FHitDataCommon();
 	NormalHit = FHitData();
 	CounterHit = FHitData();
-	AnimName = FGameplayTag();
 	CelName = FGameplayTag();
-	BlendAnimName = FGameplayTag();
 	BlendCelName = FGameplayTag();
 	LastStateName = GetCurrentStateName();
 	HomingParams = FHomingParams();
@@ -2614,7 +2611,6 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	HomingParams = FHomingParams();
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
-	AnimName = FGameplayTag();
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;

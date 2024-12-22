@@ -118,7 +118,6 @@ private:
     void InitializePlayerObjectBPPicker();
 
     FGameplayTag GetCurrentCelName() const;
-    FGameplayTag GetCurrentAnimName() const;
     FText GetCurrentNames() const;
 
     FReply OnUpdateNamesClicked();

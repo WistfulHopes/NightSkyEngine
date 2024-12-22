@@ -12,9 +12,9 @@
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
-#include "NightSkyEngine/Miscellaneous/NetworkPawn.h"
+#include "NightSkyEngine/Network/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
-#include "NightSkyEngine/Miscellaneous/RpcConnectionManager.h"
+#include "NightSkyEngine/Network/RpcConnectionManager.h"
 
 // Sets default values
 ANightSkyPlayerController::ANightSkyPlayerController()

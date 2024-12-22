@@ -21,10 +21,6 @@ public:
     /*FRenderTarget* GetRenderTarget() { return Viewport->GetRenderTargetTexture(); }
     FSceneInterface* GetScene() const { return (FSceneInterface*)(GetWorld()->Scene); }*/
 
-    // Current animation
-    UPROPERTY()
-    UAnimSequenceBase* Animation;
-
 private:
 
     FAdvancedPreviewScene* AdvancedPreviewScene;

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-#include "NightSkyGameInstance.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NetworkPawn.generated.h"
 
 class APlayerObject;

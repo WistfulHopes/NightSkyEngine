@@ -5,8 +5,22 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
+#include "PaperFlipbook.h"
 #include "NightSkyEngine/Battle/CollisionBox.h"
 #include "CollisionData.generated.h"
+
+USTRUCT()
+struct FAnimStruct
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	FName PartName = "Body";
+	UPROPERTY(EditAnywhere)
+	UAnimSequenceBase* AnimSequence;
+	UPROPERTY(EditAnywhere)
+	UPaperFlipbook* Flipbook;
+};
 
 USTRUCT()
 struct FCollisionStruct
@@ -16,9 +30,7 @@ struct FCollisionStruct
 	UPROPERTY(EditAnywhere)
 	FGameplayTag CelName;
 	UPROPERTY(EditAnywhere)
-	FGameplayTag AnimName;
-	UPROPERTY(EditAnywhere)
-	UAnimSequenceBase* AnimSequence;
+	TArray<FAnimStruct> Anim;
 	UPROPERTY(EditAnywhere)
 	int32 AnimFrame = 0;
 	UPROPERTY(EditAnywhere)

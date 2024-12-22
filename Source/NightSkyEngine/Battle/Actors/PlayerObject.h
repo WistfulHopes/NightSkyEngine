@@ -9,7 +9,6 @@
 #include "NightSkyEngine/Battle/State.h"
 #include "NightSkyEngine/Battle/StateMachine.h"
 #include "NightSkyEngine/Data/CollisionData.h"
-#include "NightSkyEngine/Data/FlipbookData.h"
 #include "NightSkyEngine/Data/SequenceData.h"
 #include "NightSkyEngine/Data/SoundData.h"
 #include "NightSkyEngine/Data/StateData.h"
@@ -403,11 +402,6 @@ public:
 	ULinkActorData* CommonLinkActorData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	ULinkActorData* LinkActorData;
-	
-	UPROPERTY(EditAnywhere)
-	UFlipbookData* CommonFlipbookData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UFlipbookData* FlipbookData;
 	
 	UPROPERTY(EditAnywhere)
 	UParticleData* CommonParticleData;

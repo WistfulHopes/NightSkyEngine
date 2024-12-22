@@ -3,7 +3,7 @@
 
 #include "NightSkyVSInfoGameState.h"
 
-#include "NightSkyEngine/Miscellaneous/NetworkPawn.h"
+#include "NightSkyEngine/Network/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Actors/PlayerObject.h"

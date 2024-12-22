@@ -3,8 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AdvancedFriendsGameInstance.h"
-#include "FighterRunners.h"
+#include "NightSkyEngine/Network/FighterRunners.h"
 #include "GameplayTagContainer.h"
 #include "NightSkyEngine/Battle/RandomManager.h"
 #include "Engine/GameInstance.h"
@@ -43,7 +42,7 @@ struct FBattleData
  * 
  */
 UCLASS()
-class NIGHTSKYENGINE_API UNightSkyGameInstance : public UAdvancedFriendsGameInstance
+class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 

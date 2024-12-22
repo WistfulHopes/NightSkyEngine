@@ -3,7 +3,7 @@
 
 #include "NetworkPawn.h"
 
-#include "NightSkyGameInstance.h"
+#include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "RpcConnectionManager.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
 #include "Net/UnrealNetwork.h"

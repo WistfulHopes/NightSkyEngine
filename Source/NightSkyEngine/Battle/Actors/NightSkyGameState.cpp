@@ -17,7 +17,7 @@
 #include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Data/BattleExtensionData.h"
 #include "NightSkyEngine/Data/SubroutineData.h"
-#include "NightSkyEngine/Miscellaneous/FighterRunners.h"
+#include "NightSkyEngine/Network/FighterRunners.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
 #include "NightSkyEngine/UI/NightSkyBattleWidget.h"
@@ -489,17 +489,12 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	}
 	CollisionView();
 	
-	const FGGPONetworkStats Network = GetNetworkStats();
-	NetworkStats.Ping = Network.network.ping;
-	const int32 LocalFramesBehind = Network.timesync.local_frames_behind;
-	const int32 RemoteFramesBehind = Network.timesync.remote_frames_behind;
+	const auto [network, timesync] = GetNetworkStats();
+	NetworkStats.Ping = network.ping;
+	const int32 LocalFramesBehind = timesync.local_frames_behind;
+	const int32 RemoteFramesBehind = timesync.remote_frames_behind;
 
-	if (LocalFramesBehind < 0 && RemoteFramesBehind < 0)
-		NetworkStats.RollbackFrames = abs(abs(LocalFramesBehind) - abs(RemoteFramesBehind));
-	else if (LocalFramesBehind > 0 && RemoteFramesBehind > 0)
-		NetworkStats.RollbackFrames = 0;
-	else
-		NetworkStats.RollbackFrames = abs(LocalFramesBehind) + abs(RemoteFramesBehind);
+	NetworkStats.RollbackFrames = abs(abs(LocalFramesBehind) - abs(RemoteFramesBehind));
 	
 	for (int i = 0; i < 2; i++)
 	{
@@ -998,7 +993,7 @@ FGGPONetworkStats ANightSkyGameState::GetNetworkStats() const
 			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[1], &Stats);
 		return Stats;
 	}
-	constexpr FGGPONetworkStats Stats = { 0 };
+	FGGPONetworkStats Stats = { 0 };
 	return Stats;
 }
 
@@ -1663,7 +1658,7 @@ void ANightSkyGameState::ManageAudio()
 	}
 	{
 		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.MusicChannel.StartingFrame;
-		if (static_cast<int>(BattleState.MusicChannel.MaxDuration * 60) > CurrentAudioTime)
+		if (static_cast<int>(BattleState.MusicChannel.MaxDuration * 60) < CurrentAudioTime)
 		{
 			PlayMusic(BattleState.MusicChannel.SoundWave, BattleState.MusicChannel.MaxDuration);
 		}

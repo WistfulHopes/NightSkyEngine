@@ -22,7 +22,6 @@ public class NightSkyEngine : ModuleRules
 			"UMG",
 			"Niagara",
 			"Paper2D",
-			"AdvancedSessions"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new[] { "AIModule", "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });

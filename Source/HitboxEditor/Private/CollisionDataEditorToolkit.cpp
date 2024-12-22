@@ -130,24 +130,14 @@ FGameplayTag FCollisionDataEditorToolkit::GetCurrentCelName() const
 	return FGameplayTag::EmptyTag;
 }
 
-FGameplayTag FCollisionDataEditorToolkit::GetCurrentAnimName() const
-{
-	if (PlayerObject && PlayerObject->AnimName.IsValid())
-		return PlayerObject->AnimName;
-
-	return FGameplayTag::EmptyTag;
-}
-
 FText FCollisionDataEditorToolkit::GetCurrentNames() const
 {
 	if (NameDisplayTextBlock.IsValid())
 	{
 		// Generate the new text based on current data
 		FString CurrentCelName = GetCurrentCelName().ToString();
-		FString CurrentAnimName = GetCurrentAnimName().ToString();
 		FText NewText = FText::Format(
-			LOCTEXT("CurrentNamesFormat", "Cel: {0} - Anim: {1}"), FText::FromString(CurrentCelName),
-			FText::FromString(CurrentAnimName));
+			LOCTEXT("CurrentNamesFormat", "Cel: {0}"), FText::FromString(CurrentCelName));
 
 		// Update the text block
 		return NewText;

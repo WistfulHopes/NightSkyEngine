@@ -1639,7 +1639,7 @@ void ABattleObject::UpdateVisuals()
 		{
 			FlipRotation = FRotator(0, 180, 0);
 			SetActorScale3D(FVector(1, 1, 1) * ObjectScale);
-			if (!GameState) SetActorRotation(FlipRotation);	
+			if (!GameState) SetActorRotation(FlipRotation);
 		}
 		else
 			SetActorScale3D(FVector(-1, 1, 1) * ObjectScale);
@@ -1731,6 +1731,7 @@ void ABattleObject::UpdateVisuals()
 		}
 	}
 	FrameBlendPosition = static_cast<float>(MaxCelTime - TimeUntilNextCel) / static_cast<float>(MaxCelTime);
+	MarkComponentsRenderStateDirty();
 }
 
 void ABattleObject::FuncCall(const FName& FuncName) const
@@ -1762,8 +1763,7 @@ void ABattleObject::GetBoxes()
 		{
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName)
 			{
-				AnimName = Player->CommonCollisionData->CollisionFrames[i].AnimName;
-				AnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
+				AnimStructs = Player->CommonCollisionData->CollisionFrames[i].Anim;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1789,8 +1789,6 @@ void ABattleObject::GetBoxes()
 			}
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
-				BlendAnimName = Player->CommonCollisionData->CollisionFrames[i].AnimName;
-				BlendAnimSequence = Player->CommonCollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1811,8 +1809,7 @@ void ABattleObject::GetBoxes()
 		{
 			if (Player->CollisionData->CollisionFrames[i].CelName == CelName)
 			{
-				AnimName = Player->CollisionData->CollisionFrames[i].AnimName;
-				AnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
+				AnimStructs = Player->CollisionData->CollisionFrames[i].Anim;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -1838,8 +1835,6 @@ void ABattleObject::GetBoxes()
 			}
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
-				BlendAnimName = Player->CollisionData->CollisionFrames[i].AnimName;
-				BlendAnimSequence = Player->CollisionData->CollisionFrames[i].AnimSequence;
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
@@ -2034,7 +2029,6 @@ void ABattleObject::ResetObject()
 	HomingParams = FHomingParams();
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
-	AnimName = FGameplayTag();
 	AnimFrame = 0;
 	BlendAnimFrame = 0;
 	FrameBlendPosition = 0;
@@ -2071,6 +2065,26 @@ void ABattleObject::ResetObject()
 	{
 		Object->ObjectsToIgnoreHitsFrom.Remove(this);
 	}
+}
+
+UAnimSequenceBase* ABattleObject::GetAnimSequenceForPart(const FName Part) const
+{
+	for (auto [PartName, AnimSequence, Flipbook] : AnimStructs)
+	{
+		if (PartName == Part) return AnimSequence;
+	}
+
+	return nullptr;
+}
+
+UPaperFlipbook* ABattleObject::GetFlipbookForPart(const FName Part) const
+{
+	for (auto [PartName, AnimSequence, Flipbook] : AnimStructs)
+	{
+		if (PartName == Part) return Flipbook;
+	}
+
+	return nullptr;
 }
 
 bool ABattleObject::IsStopped() const
@@ -2142,16 +2156,6 @@ void ABattleObject::RemoveEventHandler(EEventType EventType)
 FGameplayTag ABattleObject::GetCelName() const
 {
 	return CelName;
-}
-
-FGameplayTag ABattleObject::GetAnimName() const
-{
-	return AnimName;
-}
-
-FGameplayTag ABattleObject::GetBlendAnimName() const
-{
-	return BlendAnimName;
 }
 
 FGameplayTag ABattleObject::GetLabelName() const
