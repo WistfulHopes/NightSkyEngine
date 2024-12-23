@@ -81,6 +81,7 @@ protected:
 	void OnDestroySessionComplete(FName SessionName, bool bSuccess);
 	void OnFindSessionsComplete(bool bSuccess);
 	void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
+	void OnSessionInviteAccepted(const bool bSuccess, const int32 ControllerId, FUniqueNetIdPtr UserId, const FOnlineSessionSearchResult& InviteResult);
 	bool TryTravelToCurrentSession();
 
 private:
@@ -102,6 +103,9 @@ private:
 
 	FOnJoinSessionCompleteDelegate JoinSessionCompleteDelegate;
 	FDelegateHandle JoinSessionCompleteDelegateHandle;
+
+	FOnSessionUserInviteAcceptedDelegate SessionUserInviteAcceptedDelegate;
+	FDelegateHandle SessionUserInviteAcceptedDelegateHandle;
 
 	TSharedPtr<FOnlineSessionSettings> LastSessionSettings;
 };

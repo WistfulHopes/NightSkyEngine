@@ -31,7 +31,11 @@ UNSESessionSubsystem::UNSESessionSubsystem() : CreateSessionCompleteDelegate(
 		                                               this, &ThisClass::OnFindSessionsComplete)),
                                                JoinSessionCompleteDelegate(
 	                                               FOnJoinSessionCompleteDelegate::CreateUObject(
-		                                               this, &ThisClass::OnJoinSessionComplete))
+		                                               this, &ThisClass::OnJoinSessionComplete)),
+                                               SessionUserInviteAcceptedDelegate(
+	                                               FOnSessionUserInviteAcceptedDelegate::CreateUObject(
+		                                               this, &UNSESessionSubsystem::OnSessionInviteAccepted)
+                                               )
 {
 }
 
@@ -256,7 +260,7 @@ void UNSESessionSubsystem::OnFindSessionsComplete(bool bSuccess)
 			SearchResult.Session.NumOpenPublicConnections
 		));
 	}
-	
+
 	OnFindSessionsCompleteEvent.Broadcast(Sessions, bSuccess);
 }
 
@@ -270,6 +274,13 @@ void UNSESessionSubsystem::OnJoinSessionComplete(FName SessionName, EOnJoinSessi
 	OnJoinGameSessionCompleteEvent.Broadcast(Result);
 
 	TryTravelToCurrentSession();
+}
+
+void UNSESessionSubsystem::OnSessionInviteAccepted(const bool bSuccess, const int32 ControllerId,
+                                                   FUniqueNetIdPtr UserId,
+                                                   const FOnlineSessionSearchResult& InviteResult)
+{
+	JoinGameSession(InviteResult);
 }
 
 bool UNSESessionSubsystem::TryTravelToCurrentSession()

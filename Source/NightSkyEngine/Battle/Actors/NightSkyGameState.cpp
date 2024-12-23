@@ -494,7 +494,18 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	const int32 LocalFramesBehind = timesync.local_frames_behind;
 	const int32 RemoteFramesBehind = timesync.remote_frames_behind;
 
-	NetworkStats.RollbackFrames = abs(abs(LocalFramesBehind) - abs(RemoteFramesBehind));
+	if (LocalFramesBehind < 0 && RemoteFramesBehind < 0)
+	{
+		NetworkStats.RollbackFrames = abs(abs(LocalFramesBehind) - abs(RemoteFramesBehind));
+	}
+	else if (LocalFramesBehind > 0 && RemoteFramesBehind > 0)
+	{
+		NetworkStats.RollbackFrames = 0;
+	}
+	else
+	{
+		NetworkStats.RollbackFrames = abs(LocalFramesBehind) + abs(RemoteFramesBehind);
+	}
 	
 	for (int i = 0; i < 2; i++)
 	{
@@ -984,16 +995,15 @@ int32 ANightSkyGameState::CreateChecksum()
 
 FGGPONetworkStats ANightSkyGameState::GetNetworkStats() const
 {
+	FGGPONetworkStats Stats {};
 	if (AFighterMultiplayerRunner* Runner = Cast<AFighterMultiplayerRunner>(FighterRunner))
 	{
-		FGGPONetworkStats Stats = { 0 };
 		if (Runner->Players[0]->type == GGPO_PLAYERTYPE_REMOTE)
 			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[0], &Stats);
 		else
 			GGPONet::ggpo_get_network_stats(Runner->ggpo, Runner->PlayerHandles[1], &Stats);
 		return Stats;
 	}
-	FGGPONetworkStats Stats = { 0 };
 	return Stats;
 }
 

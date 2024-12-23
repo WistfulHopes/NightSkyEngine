@@ -25,7 +25,7 @@ constexpr int32 CollisionArraySize = 64;
  * Event type. When a function is registered with an event handler, 
  * it will trigger at the event type specified.
  */
- 
+
 UENUM(BlueprintType)
 enum EEventType
 {
@@ -153,7 +153,7 @@ struct FHitDataCommon
 	FGameplayTag HitVFXOverride;
 	UPROPERTY(BlueprintReadWrite)
 	bool DeathCamOverride = false;
-	
+
 	// Guard sound effect name.
 	FGameplayTag GuardSFX;
 	// Guard visual effect name.
@@ -168,14 +168,14 @@ struct FHitDataCommon
  * List of hit actions.
  * Depending on the hit action, animations and behavior will change.
  */
- 
+
 UENUM()
 enum EHitAction
 {
 	HACT_None UMETA(DisplayName="None"),
 	HACT_GroundNormal UMETA(DisplayName="Ground Normal"),
 	HACT_AirNormal UMETA(DisplayName="Air Normal"),
-	HACT_Stagger  UMETA(DisplayName="Stagger"),
+	HACT_Stagger UMETA(DisplayName="Stagger"),
 	HACT_Crumple UMETA(DisplayName="Crumple"),
 	HACT_ForceCrouch UMETA(DisplayName="Force Crouch"),
 	HACT_ForceStand UMETA(DisplayName="Force Stand"),
@@ -571,7 +571,7 @@ USTRUCT(BlueprintType)
 struct FSuperArmorData
 {
 	GENERATED_BODY()
-	
+
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<ESuperArmorType> Type;
 	UPROPERTY(BlueprintReadWrite)
@@ -608,14 +608,14 @@ class NIGHTSKYENGINE_API ABattleObject : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABattleObject();
-	
+
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
 	unsigned char ObjSync = 0;
 
 	/*
 	 * Movement and position values
 	 */
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 PosX = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -661,11 +661,11 @@ public:
 	TEnumAsByte<EObjDir> Direction = DIR_Right;
 	// Ground hit pushback.
 	int32 Pushback = 0;
-	
+
 	/*
 	 * Attack data
 	 */
-	
+
 	UPROPERTY(BlueprintReadWrite)
 	FHitDataCommon HitCommon = {};
 	UPROPERTY(BlueprintReadWrite)
@@ -683,7 +683,7 @@ public:
 	uint32 StunTime = 0;
 	uint32 StunTimeMax = 0;
 	uint32 Hitstop = 0;
-	
+
 	/*
 	 * Registers
 	*/
@@ -726,7 +726,7 @@ public:
 	int32 ObjectReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 ObjectReg8 = 0;
-	
+
 	/*
 	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
 	 */
@@ -760,9 +760,13 @@ public:
 	 * The name of the label that is currently being jumped to.
 	 */
 	FGameplayTag LabelName = {};
-	
+
 	UPROPERTY()
 	TArray<FAnimStruct> AnimStructs;
+	UPROPERTY(BlueprintReadOnly)
+	float AnimBlendIn{};
+	UPROPERTY(BlueprintReadOnly)
+	float AnimBlendOut{};
 	// Are we jumping to a label right now?
 	UPROPERTY(BlueprintReadWrite)
 	bool GotoLabelActive = false;
@@ -788,7 +792,7 @@ public:
 	 */
 	FGameplayTag ObjectStateName = {};
 	uint32 ObjectID = 0;
-	
+
 protected:
 	/*
 	 * Collision data
@@ -802,22 +806,22 @@ protected:
 	int32 R = 0;
 	int32 T = 0;
 	int32 B = 0;
-	
+
 	FCollisionBox Boxes[CollisionArraySize];
 
 public:
 	/*
 	 * Socket data
 	 */
-	FName SocketName = {}; 
+	FName SocketName = {};
 	EObjType SocketObj = OBJ_Self;
 	FVector SocketOffset = FVector::ZeroVector;
 
 	//material parameters
 	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulColor = FLinearColor(1,1,1,1);
+	FLinearColor MulColor = FLinearColor(1, 1, 1, 1);
 	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddColor = FLinearColor(0,0,0,1);
+	FLinearColor AddColor = FLinearColor(0, 0, 0, 1);
 	UPROPERTY(BlueprintReadWrite)
 	FLinearColor MulFadeColor = {};
 	UPROPERTY(BlueprintReadWrite)
@@ -843,10 +847,10 @@ public:
 	FHomingParams HomingParams = FHomingParams();
 	UPROPERTY(BlueprintReadWrite)
 	FSuperArmorData SuperArmorData = FSuperArmorData();
-	
+
 	UPROPERTY(BlueprintReadOnly)
 	int32 UpdateTime = 0;
-	
+
 	/*
 	 * Visual object transform
 	 */
@@ -860,7 +864,7 @@ public:
 	/*
 	 * Object pointers.
 	 */
-	
+
 	// Pointer to player object. If this is not a player, it will point to the owning player.
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* Player = nullptr;
@@ -874,10 +878,10 @@ public:
 	ABattleObject* StopLinkObj = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* MaterialLinkObj = nullptr;
-	
+
 	int32 ObjectStateIndex = 0;
 	bool bIsCommonState = false;
-	
+
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char ObjSyncEnd = 0;
 
@@ -892,22 +896,22 @@ public:
 	TObjectPtr<AActor> LinkedActor;
 	UPROPERTY()
 	TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
-	
+
 	uint32 ObjNumber = 0;
 
 	UPROPERTY(BlueprintReadOnly)
 	float ScreenSpaceDepthOffset = 0;
 	UPROPERTY(BlueprintReadOnly)
 	float OrthoBlendActive = 0;
-	
+
 	UPROPERTY()
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
 	UPROPERTY()
 	TObjectPtr<ANightSkyCharaSelectGameState> CharaSelectGameState = nullptr;
-	
+
 	UPROPERTY()
 	TObjectPtr<UState> ObjectState = nullptr;
-	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -915,7 +919,7 @@ protected:
 	void Move();
 	void CalculateHoming();
 	bool SuperArmorSuccess(const ABattleObject* Attacker) const;
-	
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -937,27 +941,27 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CollisionView();
-	
+
 	void SaveForRollback(unsigned char* Buffer) const;
 	void LoadForRollback(const unsigned char* Buffer);
 	virtual void LogForSyncTestFile(std::ofstream& file);
-	
+
 protected:
 	void FuncCall(const FName& FuncName) const;
-	
-public:	
+
+public:
 	// Cannot be called on player objects. Initializes the object for use.
 	void InitObject();
 	// update object
 	virtual void Update();
 	// update visuals
 	virtual void UpdateVisuals();
-	
+
 	void GetBoxes();
-	
+
 	// resets object for next use
 	void ResetObject();
-	
+
 	/*
 	 * Blueprint callable functions.
 	 */
@@ -1014,7 +1018,8 @@ public:
 	int32 GetPosYCenter() const;
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
-	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
+	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
+	                                     EPosType Pos2);
 	//calculates angle between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
@@ -1069,10 +1074,12 @@ public:
 	void SetPushWidthExtend(int32 Extend);
 	//creates common particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector,
+	                          FRotator Rotation = FRotator::ZeroRotator);
 	//creates character particle
 	UFUNCTION(BlueprintCallable)
-	void CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector, FRotator Rotation = FRotator::ZeroRotator);
+	void CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector,
+	                         FRotator Rotation = FRotator::ZeroRotator);
 	//creates common particle and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
 	void LinkCommonParticle(FGameplayTag Name);
@@ -1115,10 +1122,12 @@ public:
 	ABattleObject* GetBattleObject(EObjType Type);
 	//creates common object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0,
+	                                     EPosType PosType = POS_Player);
 	//creates object
 	UFUNCTION(BlueprintCallable)
-	ABattleObject* AddBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0, EPosType PosType = POS_Player);
+	ABattleObject* AddBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0,
+	                               EPosType PosType = POS_Player);
 	//if object goes beyond screen bounds, deactivate
 	UFUNCTION(BlueprintCallable)
 	void EnableDeactivateIfBeyondBounds(bool Enable);
