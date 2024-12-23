@@ -2059,7 +2059,7 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (PosX >= GameState->BattleState.ScreenData.StageBoundsRight * 1000 || PosX <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000)
+		if (PosX - R + PosX >= GameState->BattleState.ScreenData.StageBoundsRight * 1000 || PosX - L + PosX <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000)
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{

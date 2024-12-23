@@ -150,9 +150,9 @@ struct FScreenData
 	int ScreenBoundsTop = 0;
 
 	UPROPERTY(EditAnywhere)
-	int StageBoundsLeft = -1600;
+	int StageBoundsLeft = -3200;
 	UPROPERTY(EditAnywhere)
-	int StageBoundsRight = 1600;
+	int StageBoundsRight = 3200;
 	UPROPERTY(EditAnywhere)
 	int StageBoundsTop = 5400;
 

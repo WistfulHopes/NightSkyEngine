@@ -742,10 +742,6 @@ void ANightSkyGameState::UpdateScreen()
 		ScreenData->ScreenWorldCenterX = ScreenData->StageBoundsLeft + ScreenData->ScreenWorldWidth / 2;
 		ScreenData->bTouchingWorldSide = true;
 	}
-	
-	ScreenData->StageBoundsLeft = -3200;
-	ScreenData->StageBoundsRight = 3200;
-	ScreenData->StageBoundsTop = 5400;
 
 	ScreenData->ScreenBoundsLeft = (ScreenData->ScreenWorldCenterX - ScreenData->ScreenWorldWidth / 2) * 1000;
 	ScreenData->ScreenBoundsRight = (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2) * 1000;
@@ -760,13 +756,15 @@ void ANightSkyGameState::UpdateScreen()
 		368000 / (ScreenData->ZoomOutBeginX * 1000 / ScreenData->ScreenWorldWidth) + ScreenData->ScreenWorldCenterY;
 
 	ScreenData->FinalScreenX = ScreenData->ScreenWorldCenterX;
-	ScreenData->FinalScreenY = ScreenData->ScreenWorldCenterY + 250;
+	ScreenData->FinalScreenY = ScreenData->ScreenWorldCenterY;
 	ScreenData->FinalScreenWidth = ScreenData->ScreenWorldWidth;
 
 	ScreenData->FinalScreenWidth <= 0 ? 1 : ScreenData->FinalScreenWidth;
 
 	if (ScreenData->FinalScreenY >= ScreenData->StageBoundsTop - 106) ScreenData->FinalScreenY = ScreenData->StageBoundsTop - 106;
 
+	ScreenData->FinalScreenY += 250;
+	
 	ScreenData->ScreenBoundsTop *= 1000;
 }
 
@@ -1263,11 +1261,11 @@ void ANightSkyGameState::SetScreenBounds() const
 				}
 				if (SortedObjects[i]->PosX >= ScreenData->ScreenBoundsRight)
 				{
-					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight - SortedObjects[i]->R + SortedObjects[i]->PosX;
 				}
 				else if (SortedObjects[i]->PosX <= ScreenData->ScreenBoundsLeft)
 				{
-					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft - SortedObjects[i]->L + SortedObjects[i]->PosX;
 				}
 				else
 				{
