@@ -1259,11 +1259,11 @@ void ANightSkyGameState::SetScreenBounds() const
 					Player->PlayerFlags |= PLF_TouchingWall;
 					Player->WallTouchTimer++;
 				}
-				if (SortedObjects[i]->PosX >= ScreenData->ScreenBoundsRight)
+				if (SortedObjects[i]->R >= ScreenData->ScreenBoundsRight)
 				{
 					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight - SortedObjects[i]->R + SortedObjects[i]->PosX;
 				}
-				else if (SortedObjects[i]->PosX <= ScreenData->ScreenBoundsLeft)
+				else if (SortedObjects[i]->L <= ScreenData->ScreenBoundsLeft)
 				{
 					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft - SortedObjects[i]->L + SortedObjects[i]->PosX;
 				}
