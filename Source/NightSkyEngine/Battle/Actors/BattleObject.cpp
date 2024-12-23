@@ -371,8 +371,16 @@ void ABattleObject::Tick(float DeltaTime)
 
 void ABattleObject::CalculatePushbox()
 {
-	L = PosX - (PushWidth + PushWidthExtend) / 2; 
-	R = PosX + (PushWidth + PushWidthExtend) / 2;
+	if (Direction == DIR_Right)
+	{
+		R = PosX + (PushWidth / 2 + PushWidthExtend);
+		L = PosX - PushWidth / 2;
+	}
+	else
+	{
+		R = PosX + PushWidth / 2;
+		L = PosX - (PushWidth / 2 + PushWidthExtend); 
+	}
 	T = PosY + PushHeight;
 	B = PosY - PushHeightLow;
 }
@@ -1920,8 +1928,6 @@ void ABattleObject::Update()
 		
 	Move();
 	
-	GameState->SetScreenBounds();
-	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
 		if (!IsPlayer)
@@ -1942,7 +1948,6 @@ void ABattleObject::Update()
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
 		
-		GameState->SetScreenBounds();
 		ActionTime++;
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
