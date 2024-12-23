@@ -666,7 +666,6 @@ void APlayerObject::Update()
 	if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
 	
 	GameState->SetScreenBounds();
-	GameState->SetStageBounds();
 	ActionTime++;
 }
 
@@ -2060,7 +2059,7 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (abs(PosX) >= GameState->BattleState.ScreenBounds + GameState->BattleState.StageBounds)
+		if (PosX >= GameState->BattleState.ScreenData.StageBoundsRight * 1000 || PosX <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000)
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{

@@ -195,7 +195,6 @@ void ANightSkyGameState::RoundInit()
 		BattleState.MaxMeter[1] = Players[MaxPlayerObjects / 2]->MaxMeter;
 	
 		BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
-		BattleState.CurrentScreenPos = 0;
 		BattleState.bHUDVisible = true;
 	
 		const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
@@ -253,7 +252,6 @@ void ANightSkyGameState::RoundInit()
 		BattleState.MaxMeter[1] = Players[MaxPlayerObjects / 2]->MaxMeter;
 	
 		BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
-		BattleState.CurrentScreenPos = 0;
 		BattleState.bHUDVisible = true;
 	
 		const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
@@ -266,6 +264,9 @@ void ANightSkyGameState::RoundInit()
 
 		CallBattleExtension(BattleExtension_RoundInit);
 	}
+	
+	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(true));
+	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(false));
 }
 
 void ANightSkyGameState::UpdateLocalInput()
@@ -369,7 +370,9 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	if (bShouldResimulate == false && bIsResimulating == true) RollbackStartAudio(BattleState.FrameNumber);
 	bIsResimulating = bShouldResimulate;
 	LocalFrame++;
+	
 	ParticleManager->UpdateParticles();
+	UpdateScreen();
 
 	if (BattleState.BattlePhase == EBattlePhase::Intro)
 	{
@@ -481,7 +484,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	
 	HandlePushCollision();
 	SetScreenBounds();
-	SetStageBounds();
 	ParticleManager->PauseParticles();
 	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
 	{
@@ -530,6 +532,242 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	UpdateCamera();
 	UpdateHUD();
 	ManageAudio();
+}
+
+void ANightSkyGameState::SetCorners()
+{
+	const auto ScreenData = &BattleState.ScreenData;
+
+	if (ScreenData->TargetObjects.IsEmpty())
+	{
+		ScreenData->ObjTop = 0;
+		ScreenData->ObjBottom = 0;
+		ScreenData->HigherObjBottom = 0;
+		ScreenData->ObjLeft = 0;
+		ScreenData->ObjRight = 0;
+		ScreenData->ObjLength = 0;
+		ScreenData->ObjHeight = 0;
+		
+		return;
+	}
+
+	bool bIsFirst = true;
+
+	for (const auto Target : ScreenData->TargetObjects)
+	{
+		if (bIsFirst)
+		{
+			ScreenData->ObjTop = Target->T / 1000;
+			ScreenData->ObjBottom = Target->B / 1000;
+			ScreenData->HigherObjBottom = Target->B / 1000;
+			ScreenData->ObjLeft = Target->L / 1000;
+			ScreenData->ObjRight = Target->R / 1000;
+
+			bIsFirst = false;
+		}
+		else
+		{
+			if (Target->T > ScreenData->ObjTop) ScreenData->ObjTop = Target->T / 1000;
+			if (Target->B < ScreenData->ObjBottom) ScreenData->ObjBottom = Target->B / 1000;
+			if (Target->B > ScreenData->HigherObjBottom) ScreenData->HigherObjBottom = Target->B / 1000;
+			if (Target->L < ScreenData->ObjLeft) ScreenData->ObjLeft = Target->L / 1000;
+			if (Target->R > ScreenData->ObjRight) ScreenData->ObjRight = Target->R / 1000;
+		}
+	}
+
+	ScreenData->ObjLength = ScreenData->ObjRight - ScreenData->ObjLeft;
+	ScreenData->ObjHeight = ScreenData->ObjTop - ScreenData->ObjBottom;
+}
+
+void ANightSkyGameState::UpdateScreen()
+{
+	const auto ScreenData = &BattleState.ScreenData;
+
+	ScreenData->MaxZoomOutWidth = ScreenData->DefaultMaxZoomOutWidth;
+	ScreenData->ZoomOutBeginX = ScreenData->DefaultZoomOutBeginX;
+	ScreenData->ZoomOutBeginY = ScreenData->DefaultZoomOutBeginY;
+
+	SetCorners();
+
+	if ((ScreenData->Flags & SCR_Lock) == 0)
+	{
+		if ((ScreenData->Flags & SCR_LockXPos) == 0) ScreenData->TargetCenterX = ScreenData->ObjLeft + ScreenData->ObjLength / 2;
+
+		if ((ScreenData->Flags & SCR_LockWidth) == 0)
+		{
+			ScreenData->TargetWidth = ScreenData->ObjLength + ScreenData->ZoomOutBeginX / 4;
+			if (ScreenData->TargetWidth < ScreenData->ZoomOutBeginX) ScreenData->TargetWidth = ScreenData->ZoomOutBeginX;
+			ScreenData->WidthY = ScreenData->TargetWidth;
+			if (ScreenData->TargetWidth > ScreenData->MaxZoomOutWidth) ScreenData->TargetWidth = ScreenData->MaxZoomOutWidth;
+		}
+
+		if ((ScreenData->Flags & SCR_LockYPos) == 0)
+		{
+			auto TargetOffsetY = ScreenData->DefaultScreenYTargetOffset + 350;
+
+			auto WidthRatio = 1280000 / ScreenData->TargetWidth;
+			if (WidthRatio * ScreenData->ObjBottom / 1000 <= ScreenData->TargetOffsetAirYPos ||
+				WidthRatio * (ScreenData->HigherObjBottom - ScreenData->ObjBottom) / 1000 >= ScreenData->TargetOffsetAirYDist)
+			{
+				if (ScreenData->TargetOffsetY + ScreenData->TargetOffsetLandYAdd < TargetOffsetY)
+				{
+					TargetOffsetY = ScreenData->TargetOffsetY + ScreenData->TargetOffsetLandYAdd;
+				}
+			}
+			else
+			{
+				TargetOffsetY = ScreenData->TargetOffsetAirYMax;
+				if (ScreenData->TargetOffsetY - ScreenData->TargetOffsetLandYAdd > TargetOffsetY)
+				{
+					TargetOffsetY = ScreenData->TargetOffsetY - ScreenData->TargetOffsetLandYAdd;
+				}
+			}
+
+			ScreenData->TargetOffsetY = TargetOffsetY;
+
+			if (ScreenData->HigherObjBottom - ScreenData->ObjBottom > ScreenData->ZoomOutBeginY)
+			{
+				auto MaxZoomWidth = ScreenData->HigherObjBottom - ScreenData->ObjBottom + ScreenData->ZoomOutBeginY;
+				if (MaxZoomWidth > ScreenData->MaxZoomOutWidth) ScreenData->MaxZoomOutWidth = MaxZoomWidth;
+			}
+
+			auto Height = ScreenData->MaxZoomOutWidth * 1000 / ScreenData->WidthY;
+			Height = Height * ScreenData->HigherObjBottom / 1000 - Height * TargetOffsetY / 1000;
+
+			if (Height > ScreenData->StageBoundsTop) ScreenData->TargetCenterY = ScreenData->StageBoundsTop;
+			else if (Height < 0) ScreenData->TargetCenterY = 0;
+			else ScreenData->TargetCenterY = Height;
+		}
+	}
+
+	const auto Width = ScreenData->TargetWidth - ScreenData->ScreenWorldWidth;
+	ScreenData->WidthVelocity = Width / 14 - 1;
+	ScreenData->ScreenWorldWidth += ScreenData->WidthVelocity;
+
+	auto ScreenXSpeedFrame = 2;
+	auto ScreenXSpeed = 100;
+	auto CenterXVelocity = ScreenXSpeedFrame - 5;
+
+	ScreenData->CenterXVelocity = ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX * 1000 / CenterXVelocity;
+
+	if (ScreenData->CenterXVelocity <= ScreenXSpeed)
+	{
+		auto ScreenXSpeedTmp = -ScreenXSpeed;
+		ScreenXSpeed = ScreenData->CenterXVelocity;
+
+		if (ScreenXSpeed < ScreenXSpeedTmp) ScreenXSpeed = ScreenData->CenterXVelocity = ScreenXSpeedTmp;
+	}
+	else ScreenData->CenterXVelocity = ScreenXSpeed;
+
+	if (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX > 0)
+	{
+		ScreenData->CenterXVelocity = ++ScreenXSpeed;
+	}
+	else if (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX < 0)
+	{
+		ScreenData->CenterXVelocity = --ScreenXSpeed;		
+	}
+	
+	ScreenData->ScreenWorldCenterX += ScreenData->CenterXVelocity;
+
+	if (ScreenData->CenterXVelocity <= 0)
+	{
+		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
+		ScreenData->CenterXVelocity = 0;
+	}
+	else if (ScreenData->ScreenWorldCenterX <= ScreenData->TargetCenterX)
+	{
+		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
+		ScreenData->CenterXVelocity = 0;
+	}
+	else if (ScreenData->CenterXVelocity > 0 && ScreenData->ScreenWorldCenterX > ScreenData->TargetCenterX)
+	{
+		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
+		ScreenData->CenterXVelocity = 0;		
+	}
+	
+	auto CenterYVelocity = 4000;
+	auto ScreenYSpeed = 70;
+
+	if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY <= 0) ScreenData->CenterYVelocity = 3000;
+	
+	ScreenData->CenterYVelocity = ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY * 1000 / CenterYVelocity;
+
+	if (ScreenData->CenterYVelocity <= ScreenYSpeed)
+	{
+		auto ScreenYSpeedTmp = -ScreenYSpeed;
+		ScreenYSpeed = ScreenData->CenterYVelocity;
+
+		if (ScreenYSpeed < ScreenYSpeedTmp) ScreenYSpeed = ScreenData->CenterYVelocity = ScreenYSpeedTmp;
+	}
+	else ScreenData->CenterYVelocity = ScreenYSpeed;
+
+	if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY > 0)
+	{
+		ScreenData->CenterYVelocity = ++ScreenYSpeed;
+	}
+	else if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY < 0)
+	{
+		ScreenData->CenterYVelocity = --ScreenYSpeed;		
+	}
+	
+	ScreenData->ScreenWorldCenterY += ScreenData->CenterYVelocity;
+
+	if (ScreenData->CenterYVelocity <= 0)
+	{
+		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
+		ScreenData->CenterYVelocity = 0;
+	}
+	else if (ScreenData->ScreenWorldCenterY <= ScreenData->TargetCenterY)
+	{
+		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
+		ScreenData->CenterYVelocity = 0;
+	}
+	else if (ScreenData->CenterYVelocity > 0 && ScreenData->ScreenWorldCenterY > ScreenData->TargetCenterY)
+	{
+		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
+		ScreenData->CenterYVelocity = 0;		
+	}
+
+	ScreenData->bTouchingWorldSide = false;
+
+	if (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2 >= ScreenData->StageBoundsRight)
+	{
+		ScreenData->ScreenWorldCenterX = ScreenData->StageBoundsRight - ScreenData->ScreenWorldWidth / 2;
+		ScreenData->bTouchingWorldSide = true;
+	}
+
+	if (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2 <= ScreenData->StageBoundsLeft)
+	{
+		ScreenData->ScreenWorldCenterX = ScreenData->StageBoundsLeft + ScreenData->ScreenWorldWidth / 2;
+		ScreenData->bTouchingWorldSide = true;
+	}
+	
+	ScreenData->StageBoundsLeft = -3200;
+	ScreenData->StageBoundsRight = 3200;
+	ScreenData->StageBoundsTop = 5400;
+
+	ScreenData->ScreenBoundsLeft = (ScreenData->ScreenWorldCenterX - ScreenData->ScreenWorldWidth / 2) * 1000;
+	ScreenData->ScreenBoundsRight = (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2) * 1000;
+
+	if (ScreenData->Flags & SCR_DisableScreenSides)
+	{
+		ScreenData->ScreenBoundsLeft = ScreenData->StageBoundsLeft;
+		ScreenData->ScreenBoundsRight = ScreenData->ScreenBoundsRight;
+	}
+
+	ScreenData->ScreenBoundsTop = 106432 / (ScreenData->ZoomOutBeginX * 1000 / ScreenData->ScreenWorldWidth) +
+		368000 / (ScreenData->ZoomOutBeginX * 1000 / ScreenData->ScreenWorldWidth) + ScreenData->ScreenWorldCenterY;
+
+	ScreenData->FinalScreenX = ScreenData->ScreenWorldCenterX;
+	ScreenData->FinalScreenY = ScreenData->ScreenWorldCenterY + 250;
+	ScreenData->FinalScreenWidth = ScreenData->ScreenWorldWidth;
+
+	ScreenData->FinalScreenWidth <= 0 ? 1 : ScreenData->FinalScreenWidth;
+
+	if (ScreenData->FinalScreenY >= ScreenData->StageBoundsTop - 106) ScreenData->FinalScreenY = ScreenData->StageBoundsTop - 106;
+
+	ScreenData->ScreenBoundsTop *= 1000;
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -1007,22 +1245,6 @@ FGGPONetworkStats ANightSkyGameState::GetNetworkStats() const
 	return Stats;
 }
 
-void ANightSkyGameState::SetStageBounds()
-{
-	if ((GetMainPlayer(true)->MiscFlags & MISC_WallCollisionActive) == 0) return;
-	if ((GetMainPlayer(false)->MiscFlags & MISC_WallCollisionActive) == 0) return;
-	const int32 NewScreenPos = (GetMainPlayer(true)->PosX + GetMainPlayer(false)->PosX) / 2;
-	BattleState.CurrentScreenPos = BattleState.CurrentScreenPos + (NewScreenPos - BattleState.CurrentScreenPos) * 5 / 100;
-	if (BattleState.CurrentScreenPos > BattleState.StageBounds)
-	{
-		BattleState.CurrentScreenPos = BattleState.StageBounds;
-	}
-	else if (BattleState.CurrentScreenPos < -BattleState.StageBounds)
-	{
-		BattleState.CurrentScreenPos = -BattleState.StageBounds;
-	}
-}
-
 void ANightSkyGameState::SetScreenBounds() const
 {
 	for (int i = 0; i < BattleState.ActiveObjectCount; i++)
@@ -1031,19 +1253,21 @@ void ANightSkyGameState::SetScreenBounds() const
 		{
 			if (SortedObjects[i]->MiscFlags & MISC_WallCollisionActive)
 			{
+				const auto ScreenData = &BattleState.ScreenData;
+
 				if (const auto Player = Cast<APlayerObject>(SortedObjects[i]))
 				{
 					if (!(Player->PlayerFlags & PLF_IsOnScreen)) continue;
 					Player->PlayerFlags |= PLF_TouchingWall;
 					Player->WallTouchTimer++;
 				}
-				if (SortedObjects[i]->PosX >= BattleState.ScreenBounds + BattleState.CurrentScreenPos)
+				if (SortedObjects[i]->PosX >= ScreenData->ScreenBoundsRight)
 				{
-					SortedObjects[i]->PosX = BattleState.ScreenBounds + BattleState.CurrentScreenPos;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight;
 				}
-				else if (SortedObjects[i]->PosX <= -BattleState.ScreenBounds + BattleState.CurrentScreenPos)
+				else if (SortedObjects[i]->PosX <= ScreenData->ScreenBoundsLeft)
 				{
-					SortedObjects[i]->PosX = -BattleState.ScreenBounds + BattleState.CurrentScreenPos;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft;
 				}
 				else
 				{
@@ -1052,6 +1276,11 @@ void ANightSkyGameState::SetScreenBounds() const
 						Player->PlayerFlags &= ~PLF_TouchingWall;
 						Player->WallTouchTimer = 0;
 					}
+				}
+
+				if (SortedObjects[i]->PosY >= ScreenData->ScreenBoundsTop)
+				{
+					SortedObjects[i]->PosY = ScreenData->ScreenBoundsTop;
 				}
 			}
 		}
@@ -1099,31 +1328,10 @@ void ANightSkyGameState::UpdateCamera()
 {
 	if (CameraActor != nullptr)
 	{
-		const FVector P1Location = FVector(static_cast<float>(BattleState.MainPlayer[0]->PosX) / COORD_SCALE,
-		                                   static_cast<float>(BattleState.MainPlayer[0]->PosZ) / COORD_SCALE,
-		                                   static_cast<float>(BattleState.MainPlayer[0]->PosY) / COORD_SCALE);
-		const FVector P2Location = FVector(static_cast<float>(BattleState.MainPlayer[1]->PosX) / COORD_SCALE,
-		                                   static_cast<float>(BattleState.MainPlayer[1]->PosZ) / COORD_SCALE,
-		                                   static_cast<float>(BattleState.MainPlayer[1]->PosY) / COORD_SCALE);
-		const FVector Average = (P1Location + P2Location) / 2;
-		float DistanceForX = sqrt(abs((P1Location - P2Location).X));
-		DistanceForX = FMath::Clamp(DistanceForX,16, BattleState.ScreenBounds / 37800);
-		DistanceForX = FMath::GetMappedRangeValueClamped(TRange<float>(16, BattleState.ScreenBounds / 18900), TRange<float>(0, BattleState.ScreenBounds / 1250), DistanceForX);
-		const float NewX = FMath::Clamp(
-			-Average.X, -(BattleState.StageBounds + BattleState.ScreenBounds * 0.5) / COORD_SCALE + DistanceForX,
-			(BattleState.StageBounds + BattleState.ScreenBounds * 0.5) / COORD_SCALE - DistanceForX);
-		float DistanceForYZ = sqrt(FVector::Distance(P1Location, P2Location));
-		DistanceForYZ = FMath::Clamp(DistanceForYZ,16, BattleState.ScreenBounds / 37800);
-		const float NewY = FMath::GetMappedRangeValueClamped(TRange<float>(16, BattleState.ScreenBounds / 37800), TRange<float>(540, BattleState.ScreenBounds / 1000), DistanceForYZ);
-		float NewZ;
-		if (P1Location.Z > P2Location.Z)
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.25);
-		else
-			NewZ = FMath::Lerp(P1Location.Z, P2Location.Z, 0.75);
-		const float BaseZ = FMath::GetMappedRangeValueClamped(TRange<float>(4, BattleState.ScreenBounds / 37800), TRange<float>(25, 175), DistanceForYZ);
-		NewZ += BaseZ;
+		const auto ScreenData = &BattleState.ScreenData;
+
 		BattleState.PrevCameraPosition = BattleState.CameraPosition;
-		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(FVector(-NewX, NewY, NewZ)) + BattleSceneTransform.GetLocation();
+		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(FVector(ScreenData->FinalScreenX * 0.43, ScreenData->FinalScreenWidth * 0.43, ScreenData->FinalScreenY * 0.43)) + BattleSceneTransform.GetLocation();
 		BattleState.CameraPosition = FMath::Lerp(BattleState.PrevCameraPosition, BattleState.CameraPosition, 0.25);
 		CameraActor->SetActorLocation(BattleState.CameraPosition);
 		if (BattleState.CurrentSequenceTime == -1)
@@ -1356,6 +1564,8 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	if (NewPlayer->PlayerFlags & PLF_IsOnScreen) return nullptr;
 	NewPlayer->TeamIndex = 0;
 	InPlayer->TeamIndex = TeamIndex;
+	BattleState.ScreenData.TargetObjects.Remove(InPlayer);
+	BattleState.ScreenData.TargetObjects.Add(NewPlayer);
 	NewPlayer->JumpToState(State_Universal_TagIn);
 	NewPlayer->SetOnScreen(true);
 	for (const auto EnemyPlayer : GetTeam(!IsP1))
@@ -1519,9 +1729,10 @@ bool ANightSkyGameState::IsTagBattle() const
 	return BattleState.RoundFormat >= ERoundFormat::TwoVsTwo && BattleState.RoundFormat <= ERoundFormat::ThreeVsThree;
 }
 
-void ANightSkyGameState::ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const
+void ANightSkyGameState::ScreenPosToWorldPos(const int32 X, const int32 Y, int32* OutX, int32* OutY) const
 {
-	*OutX = BattleState.CurrentScreenPos - BattleState.ScreenBounds + BattleState.StageBounds * 2 * X / 100;
+	*OutX = BattleState.ScreenData.FinalScreenX * X / 100;
+	*OutY = BattleState.ScreenData.FinalScreenY * Y / 100;
 }
 
 void ANightSkyGameState::BattleHudVisibility(bool Visible)

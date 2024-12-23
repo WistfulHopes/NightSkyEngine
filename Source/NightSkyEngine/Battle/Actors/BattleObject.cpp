@@ -429,8 +429,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				
-				if (OtherObj->PosX <= -(GameState->BattleState.StageBounds + GameState->BattleState.ScreenBounds)
-					|| OtherObj->PosX >= GameState->BattleState.StageBounds + GameState->BattleState.ScreenBounds)
+				if (OtherObj->PosX <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000
+					|| OtherObj->PosX >= GameState->BattleState.ScreenData.StageBoundsRight * 1000)
 				{
 					PosX += CollisionDepth;
 				}
@@ -1921,7 +1921,6 @@ void ABattleObject::Update()
 	Move();
 	
 	GameState->SetScreenBounds();
-	GameState->SetStageBounds();
 	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
@@ -1944,13 +1943,12 @@ void ABattleObject::Update()
 			CelIndex++;
 		
 		GameState->SetScreenBounds();
-		GameState->SetStageBounds();
 		ActionTime++;
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
 		{
-			if (PosX > GameState->BattleState.ScreenBounds + 360000 + GameState->BattleState.StageBounds
-				|| PosX < -GameState->BattleState.ScreenBounds - 360000 - GameState->BattleState.StageBounds)
+			if (PosX > GameState->BattleState.ScreenData.StageBoundsRight * 1000 + 360000
+				|| PosX < GameState->BattleState.ScreenData.StageBoundsLeft * 1000 - 360000)
 				DeactivateObject();
 		}
 	}

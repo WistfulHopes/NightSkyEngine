@@ -80,6 +80,87 @@ struct FTeamData
 	int32 CooldownTimer[MaxPlayerObjects / 2];
 };
 
+UENUM()
+enum EScreenFlag 
+{
+	SCR_None,
+	SCR_Lock = 1 << 0,
+	SCR_LockXPos = 1 << 1,
+	SCR_LockYPos = 1 << 2,
+	SCR_LockWidth = 1 << 3,
+	SCR_DisableScreenSides = 1 << 4,
+};
+
+USTRUCT(BlueprintType)
+struct FScreenData 
+{
+	GENERATED_BODY()
+
+	EScreenFlag Flags;
+	
+	UPROPERTY(EditAnywhere)
+	int DefaultMaxZoomOutWidth = 1689;
+	UPROPERTY(EditAnywhere)
+	int DefaultZoomOutBeginX = 1280;
+	UPROPERTY(EditAnywhere)
+	int DefaultZoomOutBeginY = 600;
+	UPROPERTY(EditAnywhere)
+	int DefaultScreenYTargetOffset = -100;
+
+	int MaxZoomOutWidth = 1689;
+	int ZoomOutBeginX = 1280;
+	int ZoomOutBeginY = 600;
+	
+	UPROPERTY()
+	TArray<ABattleObject*> TargetObjects{};
+
+	int ObjTop = 0;
+	int ObjBottom = 0;
+	int HigherObjBottom = 0;
+	int ObjLeft = 0;
+	int ObjRight = 0;
+	int ObjLength = 0;
+	int ObjHeight = 0;
+
+	int ScreenWorldCenterX = 0;
+	int ScreenWorldCenterY = 0;
+	int ScreenWorldWidth = 1280;
+
+	int TargetCenterX = 0;
+	int TargetCenterY = 0;
+	int TargetWidth = 1280;
+	int WidthY = 0;
+
+	int CenterXVelocity = 0;
+	int CenterYVelocity = 0;
+	int WidthVelocity = 0;
+	
+	int FinalScreenX = 0;
+	int FinalScreenY = 0;
+	int FinalScreenWidth = 1280;
+	
+	int TargetOffsetY = 350;
+	int TargetOffsetLandYAdd = 600;
+	int TargetOffsetAirYMax = 180;
+	int TargetOffsetAirYPos = 400;
+	int TargetOffsetAirYDist = 570;
+
+	int ScreenBoundsLeft = -640;
+	int ScreenBoundsRight = 640;
+	int ScreenBoundsTop = 0;
+
+	UPROPERTY(EditAnywhere)
+	int StageBoundsLeft = -1600;
+	UPROPERTY(EditAnywhere)
+	int StageBoundsRight = 1600;
+	UPROPERTY(EditAnywhere)
+	int StageBoundsTop = 5400;
+
+	bool bStopScreenUpdate;
+	bool bStopZoomCamera;
+	bool bTouchingWorldSide;
+};
+
 USTRUCT(BlueprintType)
 struct FBattleState
 {
@@ -99,12 +180,9 @@ struct FBattleState
 	
 	UPROPERTY(EditAnywhere)
 	int32 RoundStartPos = 297500;
-	int32 CurrentScreenPos = 0;
-	
+
 	UPROPERTY(EditAnywhere)
-	int32 ScreenBounds = 840000;
-	UPROPERTY(EditAnywhere)
-	int32 StageBounds = 1680000;
+	FScreenData ScreenData;
 	
 	FVector CameraPosition = FVector();
 	FVector PrevCameraPosition = FVector();
@@ -298,7 +376,8 @@ public:
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2, bool bShouldResimulate);
 
-	void SetStageBounds(); //sets screen bounds
+	void SetCorners();
+	void UpdateScreen();
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int32 Duration, int32 SelfDuration, ABattleObject* CallingObject);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;

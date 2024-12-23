@@ -802,14 +802,18 @@ protected:
 	int32 PushWidth = 0;
 	int32 PushWidthExtend = 0;
 
+	FCollisionBox Boxes[CollisionArraySize];
+
+public:
+	/*
+	 * Push collision
+	 */
+	
 	int32 L = 0;
 	int32 R = 0;
 	int32 T = 0;
 	int32 B = 0;
 
-	FCollisionBox Boxes[CollisionArraySize];
-
-public:
 	/*
 	 * Socket data
 	 */
