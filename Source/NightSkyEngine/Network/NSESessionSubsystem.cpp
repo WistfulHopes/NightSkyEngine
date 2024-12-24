@@ -57,6 +57,7 @@ void UNSESessionSubsystem::CreateSession(int32 NumPublicConnections, bool bIsLAN
 	LastSessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
 	LastSessionSettings->bIsDedicated = false;
 	LastSessionSettings->bUsesPresence = true;
+	LastSessionSettings->bUseLobbiesIfAvailable = true;
 	LastSessionSettings->bIsLANMatch = bIsLANMatch;
 	LastSessionSettings->bShouldAdvertise = true;
 
