@@ -10,19 +10,19 @@ UCLASS()
 class NIGHTSKYENGINE_API AFighterLocalRunner : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFighterLocalRunner();
 
 protected:
 	virtual void BeginPlay() override;
 
-public:	
-
+public:
 	virtual void Update(float DeltaTime);
+
 protected:
-	float ElapsedTime=0;
+	float ElapsedTime = 0;
 
 	UPROPERTY()
 	class ANightSkyGameState* GameState;

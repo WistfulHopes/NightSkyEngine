@@ -20,8 +20,10 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY()
 	UNightSkyGameInstance* GameInstance;
-	
+
 public:
 	// Called every frame
 	virtual void Update(float DeltaTime) override;

@@ -10,8 +10,8 @@ UCLASS()
 class NIGHTSKYENGINE_API AFighterSynctestRunner : public AFighterMultiplayerRunner
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFighterSynctestRunner();
 
@@ -19,8 +19,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-
+public:
 	virtual void Update(float DeltaTime) override;
-
 };

@@ -7,10 +7,9 @@
 // Sets default values
 AFighterSynctestRunner::AFighterSynctestRunner()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	bReplicates=false;
-
+	bReplicates = false;
 }
 
 // Called when the game starts or when spawned
@@ -43,6 +42,5 @@ void AFighterSynctestRunner::Update(float DeltaTime)
 		GgpoUpdate();
 		ElapsedTime -= OneFrame;
 	}
-	GGPONet::ggpo_idle(ggpo,1);
+	GGPONet::ggpo_idle(ggpo, 1);
 }
-

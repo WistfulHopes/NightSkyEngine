@@ -28,7 +28,7 @@ void AFighterMultiplayerRunner::BeginPlay()
 	Super::BeginPlay();
 	GGPOSessionCallbacks cb = CreateCallbacks();
 	connectionManager = new RpcConnectionManager();
-	GGPONet::ggpo_start_session(&ggpo, &cb, connectionManager,"", 2, sizeof(int));
+	GGPONet::ggpo_start_session(&ggpo, &cb, connectionManager, "", 2, sizeof(int));
 	GGPONet::ggpo_set_disconnect_timeout(ggpo, 45000);
 	GGPONet::ggpo_set_disconnect_notify_start(ggpo, 15000);
 	for (int i = 0; i < 2; i++)
@@ -36,16 +36,17 @@ void AFighterMultiplayerRunner::BeginPlay()
 		GGPOPlayerHandle handle;
 		GGPOPlayer* player = new GGPOPlayer();
 		player->type = GGPO_PLAYERTYPE_REMOTE;
-		if(i == GameState->GameInstance->PlayerIndex)
+		if (i == GameState->GameInstance->PlayerIndex)
 		{
 			player->type = GGPO_PLAYERTYPE_LOCAL;
-			connectionManager->playerIndex = i == 0 ? 1 : 0;	
+			connectionManager->playerIndex = i == 0 ? 1 : 0;
 		}
 		player->player_num = i + 1;
 		player->connection_id = i;
 		GGPONet::ggpo_add_player(ggpo, player, &handle);
-		if(player->type == GGPO_PLAYERTYPE_LOCAL)
-			GGPONet::ggpo_set_frame_delay(ggpo,handle,2);// TODO: Logic for framedelay (based on ping? or make user choose?)
+		if (player->type == GGPO_PLAYERTYPE_LOCAL)
+			GGPONet::ggpo_set_frame_delay(ggpo, handle, 2);
+		// TODO: Logic for framedelay (based on ping? or make user choose?)
 		Players.Add(player);
 		PlayerInputIndex.Add(-1);
 		PlayerHandles.Add(handle);
@@ -56,7 +57,7 @@ void AFighterMultiplayerRunner::BeginPlay()
 void AFighterMultiplayerRunner::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
-	
+
 	delete connectionManager;
 }
 
@@ -98,7 +99,7 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 
 	*len = sizeof(FRollbackData) + Ar.Num();
 	*buffer = new unsigned char[*len];
-	
+
 	FMemory::Memcpy(*buffer, &rollbackdata, sizeof(FRollbackData));
 	FMemory::Memcpy(*buffer + sizeof(FRollbackData), Ar.GetData(), Ar.Num());
 	return true;
@@ -109,7 +110,7 @@ bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int
 	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
 	FRollbackData* rollbackdata = &GameState->MainRollbackData[BackupFrame];
 	FBPRollbackData* bprollbackdata = &GameState->BPRollbackData[BackupFrame];
-	
+
 	FMemory::Memcpy(rollbackdata, buffer, sizeof(FRollbackData));
 
 	uint8* BPBuffer = new uint8[len - sizeof(FRollbackData)];
@@ -119,7 +120,7 @@ bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int
 	FMemoryReader Ar(BPArray);
 	Ar.SetWantBinaryPropertySerialization(true);
 	bprollbackdata->Serialize(Ar);
-	
+
 	GameState->LoadGameState();
 	return true;
 }
@@ -145,25 +146,28 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			if (rollbackdata->ObjActive[i])
 			{
 				ABattleObject* BattleActor = NewObject<ABattleObject>();
-				FMemory::Memcpy(reinterpret_cast<char*>(BattleActor) + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
+				FMemory::Memcpy(reinterpret_cast<char*>(BattleActor) + offsetof(ABattleObject, ObjSync),
+				                rollbackdata->ObjBuffer[i], SizeOfBattleObject);
 				BattleActor->LogForSyncTestFile(file);
 			}
 		}
 		for (int i = MaxBattleObjects; i < MaxBattleObjects + MaxPlayerObjects; i++)
 		{
 			APlayerObject* PlayerCharacter = NewObject<APlayerObject>();
-			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(ABattleObject, ObjSync), rollbackdata->ObjBuffer[i], SizeOfBattleObject);
-			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(APlayerObject, PlayerSync), rollbackdata->CharBuffer[i - MaxBattleObjects], SizeOfPlayerObject);
+			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(ABattleObject, ObjSync),
+			                rollbackdata->ObjBuffer[i], SizeOfBattleObject);
+			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(APlayerObject, PlayerSync),
+			                rollbackdata->CharBuffer[i - MaxBattleObjects], SizeOfPlayerObject);
 			PlayerCharacter->LogForSyncTestFile(file);
 		}
-		
+
 		file << "RawRollbackData:\n";
 		file << "\tStateBuffer:\n";
 		file << "\n\t0: ";
 		for (int x = 0; x < SizeOfBattleState; x++)
 		{
 			file << std::hex << std::uppercase << static_cast<int>(rollbackdata->BattleStateBuffer[x]) << " ";
-			if(x % 16 == 0)
+			if (x % 16 == 0)
 			{
 				file << "\n\t" << std::hex << std::uppercase << x << ": ";
 			}
@@ -177,7 +181,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			for (int x = 0; x < SizeOfBattleObject; x++)
 			{
 				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->ObjBuffer[i][x]) << " ";
-				if(x % 16 == 0)
+				if (x % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
 				}
@@ -199,7 +203,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			for (int x = 0; x < SizeOfPlayerObject; x++)
 			{
 				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->CharBuffer[i][x]) << " ";
-				if(x % 16 == 0)
+				if (x % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
 				}
@@ -215,12 +219,12 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		for (int i = 0; i < sizeof(FRollbackData); i++)
 		{
 			file << std::hex << std::uppercase << static_cast<int>(buffer[i]) << " ";
-			if(i % 16 == 0)
+			if (i % 16 == 0)
 			{
 				file << "\n\t" << std::hex << std::uppercase << i << ": ";
 			}
 		}
-		
+
 		delete[] buffer;
 		file.close();
 	}
@@ -288,14 +292,14 @@ bool AFighterMultiplayerRunner::OnEventCallback(GGPOEvent* info)
 		break;
 	case GGPO_EVENTCODE_TIMESYNC:
 		UE_LOG(LogTemp, Warning, TEXT("GGPO_EVENTCODE_TIMESYNC"));
-		//if(MultipliedFramesAhead>3)
+	//if(MultipliedFramesAhead>3)
 		{
-			MultipliedFramesAhead=info->u.timesync.frames_ahead*TimesyncMultiplier;
+			MultipliedFramesAhead = info->u.timesync.frames_ahead * TimesyncMultiplier;
 		}
 		break;
 	case GGPO_EVENTCODE_TIMESYNC_BEHIND:
 		UE_LOG(LogTemp, Warning, TEXT("GGPO_EVENTCODE_TIMESYNC_BEHIND"));
-		//MultipliedFramesBehind=info->u.timesync.frames_ahead*TimesyncMultiplier;
+	//MultipliedFramesBehind=info->u.timesync.frames_ahead*TimesyncMultiplier;
 		break;
 	}
 	return true;
@@ -341,16 +345,16 @@ void AFighterMultiplayerRunner::GgpoUpdate()
 void AFighterMultiplayerRunner::Update(float DeltaTime)
 {
 	ElapsedTime += DeltaTime;
-	
+
 	while (ElapsedTime >= OneFrame)
 	{
-		if(MultipliedFramesAhead>0)
+		if (MultipliedFramesAhead > 0)
 		{
 			int ahead = MultipliedFramesAhead;
 			MultipliedFramesAhead--;
-			if(ahead%TimesyncMultiplier==0)
+			if (ahead % TimesyncMultiplier == 0)
 			{
-				ElapsedTime=0;
+				ElapsedTime = 0;
 				break;
 			}
 		}
@@ -367,7 +371,7 @@ void AFighterMultiplayerRunner::Update(float DeltaTime)
 		// }
 		//
 	}
-	GGPONet::ggpo_idle(ggpo,1);
+	GGPONet::ggpo_idle(ggpo, 1);
 }
 
 

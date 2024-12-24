@@ -7,14 +7,14 @@
 #include "include/ggponet.h"
 #include "FighterMultiplayerRunner.generated.h"
 
-constexpr int TimesyncMultiplier =4;
+constexpr int TimesyncMultiplier = 4;
 
 UCLASS()
 class NIGHTSKYENGINE_API AFighterMultiplayerRunner : public AFighterLocalRunner
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFighterMultiplayerRunner();
 
@@ -22,7 +22,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-	
+
 	GGPOSessionCallbacks CreateCallbacks();
 	bool __cdecl BeginGameCallback(const char*);
 	bool __cdecl SaveGameStateCallback(unsigned char** buffer, int32* len, int32* checksum, int32);
@@ -41,12 +41,12 @@ protected:
 	TArray<int> PlayerInputIndex;
 	void GgpoUpdate();
 
-	int MultipliedFramesAhead=0;
-	int MultipliedFramesBehind=0;
-	
-public:	
+	int MultipliedFramesAhead = 0;
+	int MultipliedFramesBehind = 0;
+
+public:
 	virtual void Update(float DeltaTime) override;
 	class RpcConnectionManager* connectionManager;
 
-	static int	fletcher32_checksum(short* data, size_t len);
+	static int fletcher32_checksum(short* data, size_t len);
 };

@@ -11,7 +11,7 @@ AFighterLocalRunner::AFighterLocalRunner()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	bReplicates=false;
+	bReplicates = false;
 }
 
 // Called when the game starts or when spawned
@@ -20,7 +20,8 @@ void AFighterLocalRunner::BeginPlay()
 	Super::BeginPlay();
 	TArray<AActor*> FoundFighterGameStates;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ANightSkyGameState::StaticClass(), FoundFighterGameStates);
-	if(FoundFighterGameStates.Num()>0){
+	if (FoundFighterGameStates.Num() > 0)
+	{
 		GameState = Cast<ANightSkyGameState>(FoundFighterGameStates[0]);
 	}
 }
