@@ -170,6 +170,7 @@ void ANightSkyGameState::Init()
 		if (i >= MaxPlayerObjects / 2 && GameInstance->IsCPUBattle)
 		{
 			Players[i]->SpawnDefaultController();
+			Players[i]->bIsCpu = true;
 		}
 	}
 
@@ -466,8 +467,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	SortObjects();
 
-	BattleState.MainPlayer[0]->Inputs = Input1;
-	BattleState.MainPlayer[1]->Inputs = Input2;
+	if (!BattleState.MainPlayer[0]->bIsCpu)	BattleState.MainPlayer[0]->Inputs = Input1;
+	if (!BattleState.MainPlayer[1]->bIsCpu) BattleState.MainPlayer[1]->Inputs = Input2;
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		for (int j = 0; j < MaxPlayerObjects; j++)

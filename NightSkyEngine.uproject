@@ -60,6 +60,10 @@
 				"Linux",
 				"Mac"
 			]
+		},
+		{
+			"Name": "GameplayStateTree",
+			"Enabled": true
 		}
 	]
 }

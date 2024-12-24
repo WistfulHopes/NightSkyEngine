@@ -3,6 +3,56 @@
 
 #include "InputBuffer.h"
 
+void FInputBuffer::WriteInputCondition(const FInputCondition& InputCondition)
+{
+	switch (InputCondition.Method)
+	{
+	case EInputMethod::Normal:
+	case EInputMethod::Strict:
+		{
+			for (int i = 0; i < InputCondition.Sequence.Num(); i++)
+			{
+				Update(InputCondition.Sequence[i].InputFlag);
+			}
+			break;
+		}
+	case EInputMethod::Once:
+	case EInputMethod::OnceStrict:
+		{
+			Update(INP_Neutral);
+			for (int i = 0; i < InputCondition.Sequence.Num(); i++)
+			{
+				Update(InputCondition.Sequence[i].InputFlag);
+			}
+			break;
+		}
+	case EInputMethod::PressAndRelease:
+	case EInputMethod::PressAndReleaseStrict:
+		{
+			for (int i = 0; i < InputCondition.Sequence.Num(); i++)
+			{
+				for (int j = 0; j < InputCondition.Sequence[i].Hold; j++)
+				{
+					Update(InputCondition.Sequence[i].InputFlag);
+				}
+			}
+			break;
+		}
+	case EInputMethod::Negative:
+	case EInputMethod::NegativeStrict:
+		{
+			for (int i = 0; i < InputCondition.Sequence.Num(); i++)
+			{
+				Update(InputCondition.Sequence[i].InputFlag);
+				Update(INP_Neutral);
+			}
+			break;
+		}
+	default:
+		break;
+	}
+}
+
 void FInputBuffer::Update(int32 Input)
 {
 	for (int32 i = 0; i < InputBufferSize - 1; i++)

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NightSkyEngine/Battle/State.h"
 #include "Runtime/AIModule/Classes/AIController.h"
 #include "NightSkyAIController.generated.h"
 
@@ -20,9 +21,13 @@ public:
 	ANightSkyAIController();
 
 	UPROPERTY(BlueprintReadWrite)
+	bool bCanUpdateInput;
+	UPROPERTY(BlueprintReadWrite)
 	TObjectPtr<APlayerObject> Player;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
+	UPROPERTY(Blueprintreadwrite)
+	FInputCondition Condition{};
 
 protected:
 	// Called when the game starts or when spawned

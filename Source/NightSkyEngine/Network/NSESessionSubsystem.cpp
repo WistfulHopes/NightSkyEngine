@@ -8,7 +8,7 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Online/OnlineSessionNames.h"
 
-FNSESessionInfo::FNSESessionInfo(FOnlineSessionSearchResult Result, FString Name, int32 OpenPrivate, int32 OpenPublic)
+FNSESessionInfo::FNSESessionInfo(const FOnlineSessionSearchResult& Result, const FString& Name, int32 OpenPrivate, int32 OpenPublic)
 	: SessionSearchResult(Result), OwningUserName(Name), NumOpenPrivateConnections(OpenPrivate),
 	  NumOpenPublicConnections(OpenPublic)
 {
@@ -162,9 +162,7 @@ void UNSESessionSubsystem::FindSessions(int32 MaxSearchResults, bool IsLANQuery)
 	LastSessionSearch = MakeShareable(new FOnlineSessionSearch());
 	LastSessionSearch->MaxSearchResults = MaxSearchResults;
 	LastSessionSearch->bIsLanQuery = IsLANQuery;
-
-	LastSessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
-
+	
 	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
 	if (!SessionInterface->FindSessions(*localPlayer->GetPreferredUniqueNetId(), LastSessionSearch.ToSharedRef()))
 	{
@@ -286,6 +284,8 @@ void UNSESessionSubsystem::OnSessionInviteAccepted(const bool bSuccess, const in
                                                    FUniqueNetIdPtr UserId,
                                                    const FOnlineSessionSearchResult& InviteResult)
 {
+	if (Cast<UNightSkyGameInstance>(GetGameInstance())->BattleData.PlayerList.IsEmpty()) return;
+	
 	JoinGameSession(InviteResult);
 }
 

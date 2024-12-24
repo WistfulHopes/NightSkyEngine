@@ -18,6 +18,7 @@ USTRUCT()
 struct FInputBuffer
 {
 	GENERATED_BODY()
+	
 protected:
 	/**
 	 * The input sequence. Updated by the input being checked.
@@ -49,6 +50,12 @@ public:
 	 */
 	int32 InputDisabled[InputBufferSize] = { 0 };
 
+	/**
+	 * Writes an input condition to the buffer. For use with CPU.
+	 * @param InputCondition The input condition to write.
+	 */
+	void WriteInputCondition(const FInputCondition& InputCondition);
+	
 	/**
 	 * @brief Stores the input for this frame.
 	 * 

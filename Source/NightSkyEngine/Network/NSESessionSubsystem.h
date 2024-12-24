@@ -14,7 +14,7 @@ struct FNSESessionInfo
 	GENERATED_BODY()
 
 	FNSESessionInfo() = default;
-	FNSESessionInfo(FOnlineSessionSearchResult Result, FString Name, int32 OpenPrivate, int32 OpenPublic);
+	FNSESessionInfo(const FOnlineSessionSearchResult& Result, const FString& Name, int32 OpenPrivate, int32 OpenPublic);
 
 	/** Session */
 	FOnlineSessionSearchResult SessionSearchResult{};

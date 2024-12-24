@@ -24,7 +24,17 @@ public class NightSkyEngine : ModuleRules
 			"Paper2D",
 		});
 
-		PrivateDependencyModuleNames.AddRange(new[] { "AIModule", "GGPOUE4", "Json", "CommonUI", "CommonInput", "GameplayTags", "CinematicCamera" });
+		PrivateDependencyModuleNames.AddRange(new[]
+		{
+			"AIModule",
+			"GGPOUE4",
+			"Json",
+			"CommonUI",
+			"CommonInput",
+			"GameplayTags",
+			"CinematicCamera",
+			"StateTreeModule",
+		});
 
 		DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
 

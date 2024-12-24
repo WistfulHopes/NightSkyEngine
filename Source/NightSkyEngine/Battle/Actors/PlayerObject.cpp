@@ -354,7 +354,7 @@ void APlayerObject::Update()
 	
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
-		StoredInputBuffer.Update(Inputs);
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		Player->StoredStateMachine.Update();
 	
@@ -465,7 +465,7 @@ void APlayerObject::Update()
 		if (PlayerFlags & PLF_IsStunned)
 			HandleBufferedState();
 		GetBoxes();
-		StoredInputBuffer.Update(Inputs);
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
 		HandleStateMachine(true); //handle state transitions
 		return;
 	}
@@ -501,9 +501,9 @@ void APlayerObject::Update()
 
 	if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >=
 		ERoundFormat::TwoVsTwo && GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree)))
-		StoredInputBuffer.Update(Inputs);
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
 	else
-		StoredInputBuffer.Update(INP_Neutral);
+		if (!bIsCpu) StoredInputBuffer.Update(INP_Neutral);
 
 	if (AirDashTimer > 0)
 		AirDashTimer--;

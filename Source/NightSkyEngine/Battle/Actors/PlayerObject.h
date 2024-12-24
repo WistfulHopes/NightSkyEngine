@@ -314,6 +314,9 @@ public:
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char PlayerSyncEnd; 
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bIsCpu = false;
+	
 	/*
 	 * These properties are saved and loaded for rollback, as they have the SaveGame tag.
 	 */
