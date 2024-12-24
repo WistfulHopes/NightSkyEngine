@@ -408,7 +408,7 @@ public:
 	void PlayMusic(const FGameplayTag Name);
 	void PlayMusic(USoundBase* InSoundWave, float MaxDuration);
 	void ManageAudio();
-	void RollbackStartAudio(int32 InFrame) const;
+	void RollbackStartAudio(int32 InFrame);
 
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void UpdateRemoteInput(int RemoteInput[], int32 InFrame); //when remote inputs are received, update inputs

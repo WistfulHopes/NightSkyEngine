@@ -1917,7 +1917,6 @@ void ANightSkyGameState::PlayMusic(USoundBase* InSoundWave, float MaxDuration)
 
 void ANightSkyGameState::ManageAudio()
 {
-	if (bIsResimulating) return;
 	for (int i = 0; i < CommonAudioChannelCount; i++)
 	{
 		const int CurrentAudioTime = BattleState.FrameNumber - BattleState.CommonAudioChannels[i].StartingFrame;
@@ -1925,6 +1924,8 @@ void ANightSkyGameState::ManageAudio()
 			MaxDuration * 60) < CurrentAudioTime)
 		{
 			BattleState.CommonAudioChannels[i].Finished = true;
+			BattleState.CommonAudioChannels[i].SoundWave = nullptr;
+			if (bIsResimulating) continue;
 			AudioManager->CommonAudioPlayers[i]->Stop();
 			AudioManager->CommonAudioPlayers[i]->SetSound(nullptr);
 		}
@@ -1936,6 +1937,8 @@ void ANightSkyGameState::ManageAudio()
 			MaxDuration * 60) < CurrentAudioTime)
 		{
 			BattleState.CharaAudioChannels[i].Finished = true;
+			BattleState.CharaAudioChannels[i].SoundWave = nullptr;
+			if (bIsResimulating) continue;
 			AudioManager->CharaAudioPlayers[i]->Stop();
 			AudioManager->CharaAudioPlayers[i]->SetSound(nullptr);
 		}
@@ -1947,8 +1950,11 @@ void ANightSkyGameState::ManageAudio()
 			MaxDuration * 60) < CurrentAudioTime)
 		{
 			BattleState.CharaVoiceChannels[i].Finished = true;
+			BattleState.CharaVoiceChannels[i].SoundWave = nullptr;
+			if (bIsResimulating) continue;
 			AudioManager->CharaVoicePlayers[i]->Stop();
 			AudioManager->CharaVoicePlayers[i]->SetSound(nullptr);
+
 		}
 	}
 	{
@@ -1957,8 +1963,12 @@ void ANightSkyGameState::ManageAudio()
 			MaxDuration * 60) < CurrentAudioTime)
 		{
 			BattleState.AnnouncerVoiceChannel.Finished = true;
-			AudioManager->AnnouncerVoicePlayer->Stop();
-			AudioManager->AnnouncerVoicePlayer->SetSound(nullptr);
+			BattleState.AnnouncerVoiceChannel.SoundWave = nullptr;
+			if (!bIsResimulating)
+			{
+				AudioManager->AnnouncerVoicePlayer->Stop();
+				AudioManager->AnnouncerVoicePlayer->SetSound(nullptr);
+			}
 		}
 	}
 	{
@@ -1970,8 +1980,10 @@ void ANightSkyGameState::ManageAudio()
 	}
 }
 
-void ANightSkyGameState::RollbackStartAudio(int32 InFrame) const
+void ANightSkyGameState::RollbackStartAudio(int32 InFrame)
 {
+	ManageAudio();
+	
 	for (int i = 0; i < CommonAudioChannelCount; i++)
 	{
 		if (BattleState.CommonAudioChannels[i].Finished) continue;
