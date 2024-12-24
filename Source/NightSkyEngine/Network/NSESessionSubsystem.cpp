@@ -192,7 +192,12 @@ void UNSESessionSubsystem::JoinGameSession(const FOnlineSessionSearchResult& Ses
 		SessionInterface->AddOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegate);
 
 	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-	if (!SessionInterface->JoinSession(*localPlayer->GetPreferredUniqueNetId(), NAME_GameSession, SessionResult))
+
+	auto ModResult = SessionResult;
+	
+	ModResult.Session.SessionSettings.bUsesPresence = true;
+	ModResult.Session.SessionSettings.bUseLobbiesIfAvailable = true;
+	if (!SessionInterface->JoinSession(*localPlayer->GetPreferredUniqueNetId(), NAME_GameSession, ModResult))
 	{
 		SessionInterface->ClearOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegateHandle);
 
