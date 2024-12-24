@@ -34,9 +34,13 @@ UNSESessionSubsystem::UNSESessionSubsystem() : CreateSessionCompleteDelegate(
 		                                               this, &ThisClass::OnJoinSessionComplete)),
                                                SessionUserInviteAcceptedDelegate(
 	                                               FOnSessionUserInviteAcceptedDelegate::CreateUObject(
-		                                               this, &UNSESessionSubsystem::OnSessionInviteAccepted)
+		                                               this, &ThisClass::OnSessionInviteAccepted)
                                                )
 {
+	const IOnlineSessionPtr SessionInterface = Online::GetSessionInterface(GetWorld());
+	if (!SessionInterface.IsValid()) return;
+
+	SessionUserInviteAcceptedDelegateHandle = SessionInterface->AddOnSessionUserInviteAcceptedDelegate_Handle(SessionUserInviteAcceptedDelegate);
 }
 
 void UNSESessionSubsystem::CreateSession(int32 NumPublicConnections, bool bIsLANMatch)
@@ -61,16 +65,12 @@ void UNSESessionSubsystem::CreateSession(int32 NumPublicConnections, bool bIsLAN
 	LastSessionSettings->bIsLANMatch = bIsLANMatch;
 	LastSessionSettings->bShouldAdvertise = true;
 
-	auto GameVersion = Cast<UNightSkyGameInstance>(GetGameInstance())->GameVersion;
-
-	LastSessionSettings->Set(SETTING_SESSIONKEY, GameVersion, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
+	LastSessionSettings->Set(SEARCH_LOBBIES, true, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
 
 	CreateSessionCompleteDelegateHandle = SessionInterface->AddOnCreateSessionCompleteDelegate_Handle(
 		CreateSessionCompleteDelegate);
 
-	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-	if (!SessionInterface->CreateSession(*localPlayer->GetPreferredUniqueNetId(), NAME_GameSession,
-	                                     *LastSessionSettings))
+	if (!SessionInterface->CreateSession(0, NAME_GameSession, *LastSessionSettings))
 	{
 		SessionInterface->ClearOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegateHandle);
 
@@ -89,8 +89,6 @@ void UNSESessionSubsystem::UpdateSession()
 
 	const TSharedPtr<FOnlineSessionSettings> UpdatedSessionSettings = MakeShareable(
 		new FOnlineSessionSettings(*LastSessionSettings));
-	UpdatedSessionSettings->Set(SETTING_MAPNAME, FString("Updated Level Name"),
-	                            EOnlineDataAdvertisementType::ViaOnlineService);
 
 	UpdateSessionCompleteDelegateHandle =
 		SessionInterface->AddOnUpdateSessionCompleteDelegate_Handle(UpdateSessionCompleteDelegate);
@@ -162,9 +160,10 @@ void UNSESessionSubsystem::FindSessions(int32 MaxSearchResults, bool IsLANQuery)
 	LastSessionSearch = MakeShareable(new FOnlineSessionSearch());
 	LastSessionSearch->MaxSearchResults = MaxSearchResults;
 	LastSessionSearch->bIsLanQuery = IsLANQuery;
-	
-	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-	if (!SessionInterface->FindSessions(*localPlayer->GetPreferredUniqueNetId(), LastSessionSearch.ToSharedRef()))
+
+	LastSessionSearch->QuerySettings.Set(SEARCH_LOBBIES, true, EOnlineComparisonOp::Equals);
+
+	if (!SessionInterface->FindSessions(0, LastSessionSearch.ToSharedRef()))
 	{
 		SessionInterface->ClearOnFindSessionsCompleteDelegate_Handle(FindSessionsCompleteDelegateHandle);
 
@@ -189,13 +188,11 @@ void UNSESessionSubsystem::JoinGameSession(const FOnlineSessionSearchResult& Ses
 	JoinSessionCompleteDelegateHandle =
 		SessionInterface->AddOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegate);
 
-	const ULocalPlayer* localPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-
 	auto ModResult = SessionResult;
 	
 	ModResult.Session.SessionSettings.bUsesPresence = true;
 	ModResult.Session.SessionSettings.bUseLobbiesIfAvailable = true;
-	if (!SessionInterface->JoinSession(*localPlayer->GetPreferredUniqueNetId(), NAME_GameSession, ModResult))
+	if (!SessionInterface->JoinSession(0, NAME_GameSession, ModResult))
 	{
 		SessionInterface->ClearOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegateHandle);
 
@@ -284,7 +281,13 @@ void UNSESessionSubsystem::OnSessionInviteAccepted(const bool bSuccess, const in
                                                    FUniqueNetIdPtr UserId,
                                                    const FOnlineSessionSearchResult& InviteResult)
 {
-	if (Cast<UNightSkyGameInstance>(GetGameInstance())->BattleData.PlayerList.IsEmpty()) return;
+	const auto GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	if (!IsValid(GameInstance))
+	{
+		UE_LOG(LogTemp, Error, TEXT("OnSessionInviteAccepted: Invalid GameInstance"));
+		return;
+	}
+	if (GameInstance->BattleData.PlayerList.IsEmpty()) return;
 	
 	JoinGameSession(InviteResult);
 }

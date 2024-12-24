@@ -4,6 +4,8 @@
 #include "NightSkyGameInstance.h"
 
 #include "NightSkySettingsInfo.h"
+#include "OnlineSubsystem.h"
+#include "OnlineSubsystemUtils.h"
 #include "ReplayInfo.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -25,6 +27,17 @@ void UNightSkyGameInstance::Init()
 
 	GetWorld()->Exec(GetWorld(), *AntiAliasingCommand);
 	GetWorld()->Exec(GetWorld(), *GlobalIlluminationCommand);
+}
+
+void UNightSkyGameInstance::Login()
+{
+	auto Subsystem = Online::GetSubsystem(GetWorld());
+	if (!Subsystem) return;
+
+	if (auto Identity = Subsystem->GetIdentityInterface())
+	{
+		Identity->AutoLogin(0);
+	}
 }
 
 void UNightSkyGameInstance::TravelToVSInfo() const

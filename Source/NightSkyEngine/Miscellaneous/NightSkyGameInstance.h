@@ -51,6 +51,9 @@ class NIGHTSKYENGINE_API UNightSkyGameInstance : public UGameInstance
 	
 	virtual void Init() override;
 
+	UFUNCTION(BlueprintCallable)
+	void Login();
+
 protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Replays")  
 	void BP_OnFindReplaysComplete(const TArray<UReplaySaveInfo*> &AllReplays);

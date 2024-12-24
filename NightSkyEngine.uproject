@@ -9,9 +9,10 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine",
 				"CommonUI",
-				"EnhancedInput"
+				"Engine",
+				"EnhancedInput",
+				"StateTreeModule"
 			]
 		},
 		{
@@ -63,6 +64,10 @@
 		},
 		{
 			"Name": "GameplayStateTree",
+			"Enabled": true
+		},
+		{
+			"Name": "StateTree",
 			"Enabled": true
 		}
 	]
