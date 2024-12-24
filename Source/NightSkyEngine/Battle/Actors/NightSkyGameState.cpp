@@ -22,6 +22,37 @@
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
 #include "NightSkyEngine/UI/NightSkyBattleWidget.h"
 
+void FScreenData::AddTargetObj(ABattleObject* InTarget)
+{
+	if (TargetObjectCount >= 6) return;
+
+	for (auto& TargetObj : TargetObjects)
+	{
+		if (TargetObj == nullptr)
+		{
+			TargetObj = InTarget;
+			TargetObjectCount++;
+		}
+		if (TargetObj == InTarget) return;
+	}
+}
+
+void FScreenData::RemoveTargetObj(ABattleObject* InTarget)
+{
+	if (TargetObjectCount <= 0) return;
+
+	for (auto& TargetObj : TargetObjects)
+	{
+		if (TargetObj == nullptr) return;
+		if (TargetObj == InTarget)
+		{
+			TargetObj = nullptr;
+			TargetObjectCount--;
+			return;
+		}
+	}
+}
+
 void FBPRollbackData::Serialize(FArchive& Ar)
 {
 	Ar << PlayerData;
@@ -271,8 +302,8 @@ void ANightSkyGameState::RoundInit()
 		CallBattleExtension(BattleExtension_RoundInit);
 	}
 
-	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(true));
-	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(false));
+	BattleState.ScreenData.AddTargetObj(GetMainPlayer(true));
+	BattleState.ScreenData.AddTargetObj(GetMainPlayer(false));
 }
 
 void ANightSkyGameState::UpdateLocalInput()
@@ -496,11 +527,15 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	HandlePushCollision();
 	SetScreenBounds();
-	ParticleManager->PauseParticles();
+	HandleRoundWin();
+
+	// these aren't strictly game state related, but tying them to game state update makes things better	
+
 	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
 	{
 		GameInstance->UpdateReplay(Input1, Input2);
 	}
+
 	CollisionView();
 
 	const auto [network, timesync] = GetNetworkStats();
@@ -536,21 +571,19 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 				BattleState.Gauge[i][j] = 0;
 		}
 	}
-
-	HandleRoundWin();
-
-	// these aren't strictly game state related, but tying them to game state update makes things better
+	
+	ParticleManager->PauseParticles();
 	UpdateVisuals();
 	UpdateCamera();
 	UpdateHUD();
 	ManageAudio();
 }
 
-void ANightSkyGameState::SetCorners()
+void ANightSkyGameState::SetScreenCorners()
 {
 	const auto ScreenData = &BattleState.ScreenData;
 
-	if (ScreenData->TargetObjects.IsEmpty())
+	if (ScreenData->TargetObjectCount == 0)
 	{
 		ScreenData->ObjTop = 0;
 		ScreenData->ObjBottom = 0;
@@ -567,6 +600,10 @@ void ANightSkyGameState::SetCorners()
 
 	for (const auto Target : ScreenData->TargetObjects)
 	{
+		if (Target == nullptr) break;
+
+		Target->CalculatePushbox();
+		
 		if (bIsFirst)
 		{
 			ScreenData->ObjTop = Target->T / 1000;
@@ -587,8 +624,8 @@ void ANightSkyGameState::SetCorners()
 		}
 	}
 
-	ScreenData->ObjLength = abs(ScreenData->ObjRight - ScreenData->ObjLeft);
-	ScreenData->ObjHeight = abs(ScreenData->ObjTop - ScreenData->ObjBottom);
+	ScreenData->ObjLength = ScreenData->ObjRight - ScreenData->ObjLeft;
+	ScreenData->ObjHeight = ScreenData->ObjTop - ScreenData->ObjBottom;
 }
 
 void ANightSkyGameState::UpdateScreen()
@@ -599,7 +636,7 @@ void ANightSkyGameState::UpdateScreen()
 	ScreenData->ZoomOutBeginX = ScreenData->DefaultZoomOutBeginX;
 	ScreenData->ZoomOutBeginY = ScreenData->DefaultZoomOutBeginY;
 
-	SetCorners();
+	SetScreenCorners();
 
 	if ((ScreenData->Flags & SCR_Lock) == 0)
 	{
@@ -759,13 +796,13 @@ void ANightSkyGameState::UpdateScreen()
 		ScreenData->bTouchingWorldSide = true;
 	}
 
-	ScreenData->ScreenBoundsLeft = (ScreenData->ScreenWorldCenterX - ScreenData->ScreenWorldWidth / 2) * 1000;
-	ScreenData->ScreenBoundsRight = (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2) * 1000;
+	ScreenData->ScreenBoundsLeft = ScreenData->ScreenWorldCenterX - ScreenData->ScreenWorldWidth / 2;
+	ScreenData->ScreenBoundsRight = ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2;
 
 	if (ScreenData->Flags & SCR_DisableScreenSides)
 	{
 		ScreenData->ScreenBoundsLeft = ScreenData->StageBoundsLeft;
-		ScreenData->ScreenBoundsRight = ScreenData->ScreenBoundsRight;
+		ScreenData->ScreenBoundsRight = ScreenData->StageBoundsRight;
 	}
 
 	ScreenData->ScreenBoundsTop = 106432 / (ScreenData->ZoomOutBeginX * 1000 / ScreenData->ScreenWorldWidth) +
@@ -781,8 +818,6 @@ void ANightSkyGameState::UpdateScreen()
 		StageBoundsTop - 106;
 
 	ScreenData->FinalScreenY += 250;
-
-	ScreenData->ScreenBoundsTop *= 1000;
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -1270,7 +1305,7 @@ void ANightSkyGameState::SetScreenBounds() const
 		if (SortedObjects[i] != nullptr)
 		{
 			if (SortedObjects[i]->MiscFlags & MISC_WallCollisionActive)
-			{
+			{				
 				const auto ScreenData = &BattleState.ScreenData;
 
 				if (const auto Player = Cast<APlayerObject>(SortedObjects[i]))
@@ -1279,15 +1314,16 @@ void ANightSkyGameState::SetScreenBounds() const
 					Player->PlayerFlags |= PLF_TouchingWall;
 					Player->WallTouchTimer++;
 				}
-				if (SortedObjects[i]->R >= ScreenData->ScreenBoundsRight)
+				
+				SortedObjects[i]->CalculatePushbox();
+				
+				if (SortedObjects[i]->R > ScreenData->ScreenBoundsRight * 1000)
 				{
-					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight - SortedObjects[i]->R + SortedObjects[i]->
-						PosX;
+					SortedObjects[i]->PosX += ScreenData->ScreenBoundsRight * 1000 - SortedObjects[i]->R;
 				}
-				else if (SortedObjects[i]->L <= ScreenData->ScreenBoundsLeft)
+				else if (SortedObjects[i]->L < ScreenData->ScreenBoundsLeft * 1000)
 				{
-					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft - SortedObjects[i]->L + SortedObjects[i]->
-						PosX;
+					SortedObjects[i]->PosX += ScreenData->ScreenBoundsLeft * 1000 - SortedObjects[i]->L;
 				}
 				else
 				{
@@ -1298,9 +1334,9 @@ void ANightSkyGameState::SetScreenBounds() const
 					}
 				}
 
-				if (SortedObjects[i]->PosY >= ScreenData->ScreenBoundsTop)
+				if (SortedObjects[i]->PosY >= ScreenData->ScreenBoundsTop * 1000)
 				{
-					SortedObjects[i]->PosY = ScreenData->ScreenBoundsTop;
+					SortedObjects[i]->PosY = ScreenData->ScreenBoundsTop * 1000;
 				}
 			}
 		}
@@ -1607,8 +1643,8 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	if (NewPlayer->PlayerFlags & PLF_IsOnScreen) return nullptr;
 	NewPlayer->TeamIndex = 0;
 	InPlayer->TeamIndex = TeamIndex;
-	BattleState.ScreenData.TargetObjects.Remove(InPlayer);
-	BattleState.ScreenData.TargetObjects.Add(NewPlayer);
+	BattleState.ScreenData.RemoveTargetObj(InPlayer);
+	BattleState.ScreenData.AddTargetObj(NewPlayer);
 	NewPlayer->JumpToState(State_Universal_TagIn);
 	NewPlayer->SetOnScreen(true);
 	for (const auto EnemyPlayer : GetTeam(!IsP1))

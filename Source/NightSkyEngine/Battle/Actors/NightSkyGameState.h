@@ -112,8 +112,9 @@ struct FScreenData
 	int ZoomOutBeginY = 600;
 	
 	UPROPERTY()
-	TArray<ABattleObject*> TargetObjects{};
-
+	ABattleObject* TargetObjects[6]{};
+	int TargetObjectCount;
+	
 	int ObjTop = 0;
 	int ObjBottom = 0;
 	int HigherObjBottom = 0;
@@ -159,6 +160,9 @@ struct FScreenData
 	bool bStopScreenUpdate;
 	bool bStopZoomCamera;
 	bool bTouchingWorldSide;
+
+	void AddTargetObj(ABattleObject* InTarget);
+	void RemoveTargetObj(ABattleObject* InTarget);
 };
 
 USTRUCT(BlueprintType)
@@ -376,7 +380,7 @@ public:
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2, bool bShouldResimulate);
 
-	void SetCorners();
+	void SetScreenCorners();
 	void UpdateScreen();
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int32 Duration, int32 SelfDuration, ABattleObject* CallingObject);
