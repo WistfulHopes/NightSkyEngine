@@ -665,6 +665,7 @@ void APlayerObject::Update()
 	
 	if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
 	
+	GameState->SetScreenBounds();
 	ActionTime++;
 }
 

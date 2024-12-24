@@ -395,6 +395,9 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 			{
 				bool IsPushLeft;
 				int32 CollisionDepth;
+
+				GameState->SetScreenBounds();
+				
 				if (PrevPosX == OtherObj->PrevPosX)
 				{
 					if (PosX == OtherObj->PosX)
@@ -437,8 +440,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 				
-				if (OtherObj->PosX <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000
-					|| OtherObj->PosX >= GameState->BattleState.ScreenData.StageBoundsRight * 1000)
+				if (OtherObj->L <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000
+					|| OtherObj->R >= GameState->BattleState.ScreenData.StageBoundsRight * 1000)
 				{
 					PosX += CollisionDepth;
 				}
@@ -1318,14 +1321,17 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 }
 
 void ABattleObject::HandleFlip()
-{
+{	
 	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
-	if (PosX < Player->Enemy->PosX)
+
+	GameState->SetScreenBounds();
+	
+	if (R < Player->Enemy->R)
 	{
 		SetFacing(DIR_Right);
 	}
-	else if (PosX > Player->Enemy->PosX)
+	else if (L > Player->Enemy->L)
 	{
 		SetFacing(DIR_Left);
 	}
@@ -1927,6 +1933,8 @@ void ABattleObject::Update()
 		HandleFlip();
 		
 	Move();
+
+	GameState->SetScreenBounds();
 	
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
@@ -1948,6 +1956,8 @@ void ABattleObject::Update()
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
 		
+
+		GameState->SetScreenBounds();
 		ActionTime++;
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
@@ -2355,6 +2365,9 @@ void ABattleObject::FaceOpponent()
 {
 	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
+
+	if (GameState) GameState->SetScreenBounds();
+
 	if (PosX < Player->Enemy->PosX)
 	{
 		SetFacing(DIR_Right);

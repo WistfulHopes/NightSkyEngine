@@ -790,7 +790,7 @@ void ANightSkyGameState::UpdateScreen()
 		ScreenData->bTouchingWorldSide = true;
 	}
 
-	if (ScreenData->ScreenWorldCenterX + ScreenData->ScreenWorldWidth / 2 <= ScreenData->StageBoundsLeft)
+	if (ScreenData->ScreenWorldCenterX - ScreenData->ScreenWorldWidth / 2 <= ScreenData->StageBoundsLeft)
 	{
 		ScreenData->ScreenWorldCenterX = ScreenData->StageBoundsLeft + ScreenData->ScreenWorldWidth / 2;
 		ScreenData->bTouchingWorldSide = true;
@@ -1317,11 +1317,11 @@ void ANightSkyGameState::SetScreenBounds() const
 				
 				SortedObjects[i]->CalculatePushbox();
 				
-				if (SortedObjects[i]->R > ScreenData->ScreenBoundsRight * 1000)
+				if (SortedObjects[i]->R >= ScreenData->ScreenBoundsRight * 1000)
 				{
 					SortedObjects[i]->PosX += ScreenData->ScreenBoundsRight * 1000 - SortedObjects[i]->R;
 				}
-				else if (SortedObjects[i]->L < ScreenData->ScreenBoundsLeft * 1000)
+				else if (SortedObjects[i]->L <= ScreenData->ScreenBoundsLeft * 1000)
 				{
 					SortedObjects[i]->PosX += ScreenData->ScreenBoundsLeft * 1000 - SortedObjects[i]->L;
 				}
