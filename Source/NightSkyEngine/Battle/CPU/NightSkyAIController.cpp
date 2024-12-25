@@ -135,7 +135,6 @@ void ANightSkyAIController::Tick(float DeltaTime)
 
 	if (!IsValid(Player)) Player = GetPawn<APlayerObject>();
 	if (GameState->BattleState.TimeUntilRoundStart || Player->PlayerFlags & PLF_RoundWinInputLock)
-		bCanUpdateInput =
-			false;
+		bCanUpdateInput = false;
 	else bCanUpdateInput = true;
 }
