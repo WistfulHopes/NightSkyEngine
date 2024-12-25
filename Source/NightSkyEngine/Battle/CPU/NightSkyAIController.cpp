@@ -38,40 +38,23 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 {
 	if (!IsValid(Player)) return 0;
 
-	const int32 AttackXBeginRange = State->CPUData.AttackXBeginRange;
-	const int32 AttackXEndRange = State->CPUData.AttackXEndRange;
-	const int32 AttackYBeginRange = State->CPUData.AttackYBeginRange;
-	const int32 AttackYEndRange = State->CPUData.AttackYEndRange;
-
-	if (!Player->CheckEnemyInRange(AttackXBeginRange, AttackXEndRange, AttackYBeginRange, AttackYEndRange)) return 0;
+	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
+	                               State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange)
+									&& !State->CPUData.bProjectile)
+		return 0;
 
 	int32 Weight = FMath::RandRange(50, 100);
-	
-	if (State->CPUData.bPunish)
-	{
-		bool bInPunishRange = false;
-		switch (State->CPUData.PunishRange)
-		{
-		case RAN_Near:
-			bInPunishRange = GetEnemyDistanceX() <= 360000;
-			break;
-		case RAN_Mid:
-			bInPunishRange = GetEnemyDistanceX() > 300000 && GetEnemyDistanceX() <= 840000;
-			break;
-		case RAN_Far:
-			bInPunishRange = GetEnemyDistanceX() > 640000;
-			break;
-		default:
-			break;
-		}
 
-		Weight += bInPunishRange ? FMath::RandRange(15, 40) : 0;
-	}
+	if (Player->PosY < Player->Enemy->PosY && State->CPUData.bAntiAir) Weight += FMath::RandRange(15, 40);
+
+	if (State->CPUData.bUsesResource) Weight -= FMath::RandRange(15, 40);
+	if (State->CPUData.bBigDamage) Weight += FMath::RandRange(15, 40);
+	if (State->CPUData.bNoCombo && Player->ComboCounter > 2) Weight -= FMath::RandRange(15, 40);
 
 	if (Player->Enemy->StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
 		if (State->CPUData.bThrow) Weight = 0;
-		if (State->CPUData.bCombo) Weight += FMath::RandRange(15, 40);
+		if (State->CPUData.bCombo) Weight += FMath::RandRange(35, 60);
 	}
 	else if (Player->IsEnemyBlocking())
 	{
@@ -85,7 +68,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 			if (State->CPUData.BlockType == BLK_High) Weight += FMath::RandRange(15, 40);
 		}
 		else if (State->CPUData.BlockType == BLK_None) Weight += FMath::RandRange(15, 40);
-		
+
 		if (State->CPUData.bThrow)
 		{
 			if (Player->Enemy->CheckIsStunned()) Weight = 0;
@@ -94,31 +77,44 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	}
 	else
 	{
-		if (Player->Enemy->CheckIsAttacking())
+		if (Player->Enemy->IsEnemyAttackState() && State->CPUData.bPunish)
 		{
-			switch (State->CPUData.AttackSpeed)
+			bool bInPunishRange = false;
+			switch (State->CPUData.PunishRange)
 			{
-			case ASPD_Fast:
-				Weight += FMath::RandRange(15, 40);
+			case RAN_Near:
+				bInPunishRange = GetEnemyDistanceX() <= 420000;
 				break;
-			case ASPD_Medium:
+			case RAN_Mid:
+				bInPunishRange = GetEnemyDistanceX() > 420000 && GetEnemyDistanceX() <= 840000;
 				break;
-			case ASPD_Slow:
-				Weight -= FMath::RandRange(15, 40);
+			case RAN_Far:
+				bInPunishRange = GetEnemyDistanceX() > 840000;
 				break;
-			default: break;
+			default:
+				break;
 			}
-			if (State->CPUData.bInvuln) Weight += FMath::RandRange(15, 40);
-		}
-		else if (Player->Enemy->IsEnemyAttackState() && State->CPUData.bPunish) Weight += FMath::RandRange(15, 40);
-	}
 
-	if (Player->PosY < Player->Enemy->PosY && State->CPUData.bAntiAir) Weight += FMath::RandRange(15, 40);
+			Weight += bInPunishRange ? FMath::RandRange(15, 40) : 0;
+		}
+
+		switch (State->CPUData.AttackSpeed)
+		{
+		case ASPD_Fast:
+			Weight += FMath::RandRange(15, 40);
+			break;
+		case ASPD_Medium:
+			break;
+		case ASPD_Slow:
+			Weight -= FMath::RandRange(15, 40);
+			break;
+		default: break;
+		}
+
+		if (State->CPUData.bInvuln) Weight += FMath::RandRange(15, 40);
+	}
 	
-	if (State->CPUData.bUsesResource) Weight -= FMath::RandRange(15, 40);
-	if (State->CPUData.bBigDamage) Weight += FMath::RandRange(15, 40);
-	
-	return Weight + FMath::RandRange(-25, 25);
+	return Weight;
 }
 
 int32 ANightSkyAIController::CheckBurstWeight() const
@@ -138,6 +134,8 @@ void ANightSkyAIController::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	if (!IsValid(Player)) Player = GetPawn<APlayerObject>();
-	if (GameState->BattleState.TimeUntilRoundStart || Player->PlayerFlags & PLF_RoundWinInputLock) bCanUpdateInput = false;
+	if (GameState->BattleState.TimeUntilRoundStart || Player->PlayerFlags & PLF_RoundWinInputLock)
+		bCanUpdateInput =
+			false;
 	else bCanUpdateInput = true;
 }
