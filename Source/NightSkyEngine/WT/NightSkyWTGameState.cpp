@@ -35,15 +35,7 @@ void ANightSkyWTGameState::BeginPlay()
 	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 
-	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
-	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
-	CameraRotation.Yaw -= 90;
-
-	BattleState.PrevCameraPosition = NewCameraLocation;
-	CameraActor->SetActorLocation(NewCameraLocation);
-	CameraActor->SetActorRotation(CameraRotation);
-	SequenceCameraActor->SetActorLocation(NewCameraLocation);
-	SequenceCameraActor->SetActorRotation(CameraRotation);
+	UpdateCamera();
 }
 
 bool ANightSkyWTGameState::HandleMatchWin()

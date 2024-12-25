@@ -1781,6 +1781,7 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CommonCollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CommonCollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
 					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
@@ -1829,6 +1830,7 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				for (int j = 0; j < CollisionArraySize; j++)
 				{
 					if (j < Player->CollisionData->CollisionFrames[i].Boxes.Num())

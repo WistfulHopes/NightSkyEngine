@@ -51,6 +51,20 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	if (State->CPUData.bBigDamage) Weight += FMath::RandRange(15, 40);
 	if (State->CPUData.bNoCombo && Player->ComboCounter > 2) Weight -= FMath::RandRange(15, 40);
 
+
+	switch (State->CPUData.AttackSpeed)
+	{
+	case ASPD_Fast:
+		Weight += FMath::RandRange(15, 40);
+		break;
+	case ASPD_Medium:
+		break;
+	case ASPD_Slow:
+		Weight -= FMath::RandRange(15, 40);
+		break;
+	default: break;
+	}
+
 	if (Player->Enemy->StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
 		if (State->CPUData.bThrow) Weight = 0;
@@ -96,19 +110,6 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 			}
 
 			Weight += bInPunishRange ? FMath::RandRange(15, 40) : 0;
-		}
-
-		switch (State->CPUData.AttackSpeed)
-		{
-		case ASPD_Fast:
-			Weight += FMath::RandRange(15, 40);
-			break;
-		case ASPD_Medium:
-			break;
-		case ASPD_Slow:
-			Weight -= FMath::RandRange(15, 40);
-			break;
-		default: break;
 		}
 
 		if (State->CPUData.bInvuln) Weight += FMath::RandRange(15, 40);

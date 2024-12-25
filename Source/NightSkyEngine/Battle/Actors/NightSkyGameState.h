@@ -189,7 +189,6 @@ struct FBattleState
 	FScreenData ScreenData;
 	
 	FVector CameraPosition = FVector();
-	FVector PrevCameraPosition = FVector();
 	bool bHUDVisible = true;
 	
 	UPROPERTY(BlueprintReadOnly)

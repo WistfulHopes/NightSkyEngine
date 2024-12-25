@@ -81,16 +81,7 @@ void ANightSkyGameState::BeginPlay()
 	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 
-	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) +
-		BattleSceneTransform.GetLocation();
-	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
-	CameraRotation.Yaw -= 90;
-
-	BattleState.PrevCameraPosition = NewCameraLocation;
-	CameraActor->SetActorLocation(NewCameraLocation);
-	CameraActor->SetActorRotation(CameraRotation);
-	SequenceCameraActor->SetActorLocation(NewCameraLocation);
-	SequenceCameraActor->SetActorRotation(CameraRotation);
+	UpdateCamera();
 
 	Init();
 }
@@ -203,6 +194,8 @@ void ANightSkyGameState::RoundInit()
 	BattleState.RandomManager.Reseed(BattleState.RandomManager.Rand() + BattleState.RoundCount);
 	BattleState.RoundCount++;
 
+	BattleState.ScreenData = FScreenData();
+
 	BattleState.SuperFreezeSelfDuration = 0;
 	BattleState.SuperFreezeDuration = 0;
 	BattleState.SuperFreezeCaller = nullptr;
@@ -238,7 +231,6 @@ void ANightSkyGameState::RoundInit()
 		FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 		CameraRotation.Yaw -= 90;
 
-		BattleState.PrevCameraPosition = NewCameraLocation;
 		CameraActor->SetActorLocation(NewCameraLocation);
 		CameraActor->SetActorRotation(CameraRotation);
 
@@ -296,7 +288,6 @@ void ANightSkyGameState::RoundInit()
 		FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 		CameraRotation.Yaw -= 90;
 
-		BattleState.PrevCameraPosition = NewCameraLocation;
 		CameraActor->SetActorLocation(NewCameraLocation);
 		CameraActor->SetActorRotation(CameraRotation);
 
@@ -467,7 +458,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	SortObjects();
 
-	if (!BattleState.MainPlayer[0]->bIsCpu)	BattleState.MainPlayer[0]->Inputs = Input1;
+	if (!BattleState.MainPlayer[0]->bIsCpu) BattleState.MainPlayer[0]->Inputs = Input1;
 	if (!BattleState.MainPlayer[1]->bIsCpu) BattleState.MainPlayer[1]->Inputs = Input2;
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
@@ -572,7 +563,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 				BattleState.Gauge[i][j] = 0;
 		}
 	}
-	
+
 	ParticleManager->PauseParticles();
 	UpdateVisuals();
 	UpdateCamera();
@@ -604,7 +595,7 @@ void ANightSkyGameState::SetScreenCorners()
 		if (Target == nullptr) break;
 
 		Target->CalculatePushbox();
-		
+
 		if (bIsFirst)
 		{
 			ScreenData->ObjTop = Target->T / 1000;
@@ -641,17 +632,20 @@ void ANightSkyGameState::UpdateScreen()
 
 	if ((ScreenData->Flags & SCR_Lock) == 0)
 	{
-		if ((ScreenData->Flags & SCR_LockXPos) == 0) ScreenData->TargetCenterX = ScreenData->ObjLeft + ScreenData->
-			ObjLength / 2;
+		if ((ScreenData->Flags & SCR_LockXPos) == 0)
+			ScreenData->TargetCenterX = ScreenData->ObjLeft + ScreenData->
+				ObjLength / 2;
 
 		if ((ScreenData->Flags & SCR_LockWidth) == 0)
 		{
 			ScreenData->TargetWidth = ScreenData->ObjLength + ScreenData->ZoomOutBeginX / 4;
-			if (ScreenData->TargetWidth < ScreenData->ZoomOutBeginX) ScreenData->TargetWidth = ScreenData->
-				ZoomOutBeginX;
+			if (ScreenData->TargetWidth < ScreenData->ZoomOutBeginX)
+				ScreenData->TargetWidth = ScreenData->
+					ZoomOutBeginX;
 			ScreenData->WidthY = ScreenData->TargetWidth;
-			if (ScreenData->TargetWidth > ScreenData->MaxZoomOutWidth) ScreenData->TargetWidth = ScreenData->
-				MaxZoomOutWidth;
+			if (ScreenData->TargetWidth > ScreenData->MaxZoomOutWidth)
+				ScreenData->TargetWidth = ScreenData->
+					MaxZoomOutWidth;
 		}
 
 		if ((ScreenData->Flags & SCR_LockYPos) == 0)
@@ -815,8 +809,9 @@ void ANightSkyGameState::UpdateScreen()
 
 	ScreenData->FinalScreenWidth <= 0 ? 1 : ScreenData->FinalScreenWidth;
 
-	if (ScreenData->FinalScreenY >= ScreenData->StageBoundsTop - 106) ScreenData->FinalScreenY = ScreenData->
-		StageBoundsTop - 106;
+	if (ScreenData->FinalScreenY >= ScreenData->StageBoundsTop - 106)
+		ScreenData->FinalScreenY = ScreenData->
+			StageBoundsTop - 106;
 
 	ScreenData->FinalScreenY += 250;
 }
@@ -961,7 +956,7 @@ void ANightSkyGameState::HandleRoundWin()
 					BattleState.PauseTimer = false;
 					RoundInit();
 				}
-			}	
+			}
 		}
 	}
 	else if (GetMainPlayer(true)->CurrentHealth <= 0 && GetMainPlayer(false)->CurrentHealth <= 0)
@@ -1309,7 +1304,7 @@ void ANightSkyGameState::SetScreenBounds() const
 		if (SortedObjects[i] != nullptr)
 		{
 			if (SortedObjects[i]->MiscFlags & MISC_WallCollisionActive)
-			{				
+			{
 				const auto ScreenData = &BattleState.ScreenData;
 
 				if (const auto Player = Cast<APlayerObject>(SortedObjects[i]))
@@ -1318,9 +1313,9 @@ void ANightSkyGameState::SetScreenBounds() const
 					Player->PlayerFlags |= PLF_TouchingWall;
 					Player->WallTouchTimer++;
 				}
-				
+
 				SortedObjects[i]->CalculatePushbox();
-				
+
 				if (SortedObjects[i]->R >= ScreenData->ScreenBoundsRight * 1000)
 				{
 					SortedObjects[i]->PosX += ScreenData->ScreenBoundsRight * 1000 - SortedObjects[i]->R;
@@ -1390,17 +1385,14 @@ void ANightSkyGameState::UpdateCamera()
 	{
 		const auto ScreenData = &BattleState.ScreenData;
 
-		BattleState.PrevCameraPosition = BattleState.CameraPosition;
 		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(
 			FVector(ScreenData->FinalScreenX * 0.43, ScreenData->FinalScreenWidth * 0.43,
 			        ScreenData->FinalScreenY * 0.43)) + BattleSceneTransform.GetLocation();
-		BattleState.CameraPosition = FMath::Lerp(BattleState.PrevCameraPosition, BattleState.CameraPosition, 0.25);
 		CameraActor->SetActorLocation(BattleState.CameraPosition);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
-			const FVector SequenceCameraLocation = BattleSceneTransform.GetRotation().
-			                                                            RotateVector(FVector(0, 1080, 175)) +
-				BattleSceneTransform.GetLocation();
+			const FVector SequenceCameraLocation = BattleSceneTransform.GetRotation().RotateVector(
+					FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 			SequenceCameraActor->SetActorLocation(SequenceCameraLocation);
 			if (const auto PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0); IsValid(
 				PlayerController))
@@ -1596,10 +1588,12 @@ void ANightSkyGameState::UpdateHUD() const
 			BattleHudActor->BottomWidget->P1Meter = static_cast<float>(BattleState.Meter[0]) / 10000;
 			BattleHudActor->BottomWidget->P2Meter = static_cast<float>(BattleState.Meter[1]) / 10000;
 
-			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty()) BattleHudActor->BottomWidget->P1Gauge.SetNum(
-				GaugeCount);
-			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty()) BattleHudActor->BottomWidget->P2Gauge.SetNum(
-				GaugeCount);
+			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty())
+				BattleHudActor->BottomWidget->P1Gauge.SetNum(
+					GaugeCount);
+			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty())
+				BattleHudActor->BottomWidget->P2Gauge.SetNum(
+					GaugeCount);
 
 			for (int j = 0; j < GaugeCount; j++)
 			{
@@ -1958,7 +1952,6 @@ void ANightSkyGameState::ManageAudio()
 			if (bIsResimulating) continue;
 			AudioManager->CharaVoicePlayers[i]->Stop();
 			AudioManager->CharaVoicePlayers[i]->SetSound(nullptr);
-
 		}
 	}
 	{
@@ -1987,7 +1980,7 @@ void ANightSkyGameState::ManageAudio()
 void ANightSkyGameState::RollbackStartAudio(int32 InFrame)
 {
 	ManageAudio();
-	
+
 	for (int i = 0; i < CommonAudioChannelCount; i++)
 	{
 		if (BattleState.CommonAudioChannels[i].Finished) continue;
