@@ -27,5 +27,5 @@ EStateTreeRunStatus UNightSkySTT_GetStateInput::EnterState(FStateTreeExecutionCo
 		else Conditions = (*State)->InputConditionLists[0];
 	}
 	
-	return Status;
+	return EStateTreeRunStatus::Running;
 }

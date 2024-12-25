@@ -167,7 +167,7 @@ void ANightSkyGameState::Init()
 		Players[i]->GameState = this;
 		SortedObjects[i] = Players[i];
 
-		if (i >= MaxPlayerObjects / 2 && GameInstance->IsCPUBattle)
+		if (i >= MaxPlayerObjects / 2 && GameInstance->IsCPUBattle && !GameInstance->IsTraining)
 		{
 			Players[i]->SpawnDefaultController();
 			Players[i]->bIsCpu = true;
@@ -944,21 +944,24 @@ void ANightSkyGameState::HandleRoundWin()
 		GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
 		BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
-		if (IsTagBattle())
+		if (GetMainPlayer(false)->RoundWinTimer == 0)
 		{
-			if (!HandleMatchWin())
+			if (IsTagBattle())
 			{
-				BattleState.PauseTimer = false;
-				RoundInit();
+				if (!HandleMatchWin())
+				{
+					BattleState.PauseTimer = false;
+					RoundInit();
+				}
 			}
-		}
-		else if (!HandleMatchWin())
-		{
-			if (!GetMainPlayer(false)->JumpToState(State_Universal_RoundWin))
+			else if (!HandleMatchWin())
 			{
-				BattleState.PauseTimer = false;
-				RoundInit();
-			}
+				if (!GetMainPlayer(false)->JumpToState(State_Universal_RoundWin))
+				{
+					BattleState.PauseTimer = false;
+					RoundInit();
+				}
+			}	
 		}
 	}
 	else if (GetMainPlayer(true)->CurrentHealth <= 0 && GetMainPlayer(false)->CurrentHealth <= 0)

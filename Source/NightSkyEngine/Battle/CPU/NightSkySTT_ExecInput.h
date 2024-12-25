@@ -15,7 +15,15 @@ class NIGHTSKYENGINE_API UNightSkySTT_ExecInput : public UStateTreeTaskBlueprint
 {
 	GENERATED_BODY()
 
+private:
+	UPROPERTY(VisibleAnywhere)
+	int FramesElapsed;
+	
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGameplayTag StateName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int FramesToWait = 5;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FInputConditionList Conditions;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

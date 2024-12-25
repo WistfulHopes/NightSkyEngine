@@ -21,29 +21,29 @@ public:
 	ANightSkyAIController();
 
 	UPROPERTY(BlueprintReadWrite)
-	bool bCanUpdateInput;
+	bool bCanUpdateInput = false;
 	UPROPERTY(BlueprintReadWrite)
-	TObjectPtr<APlayerObject> Player;
+	TObjectPtr<APlayerObject> Player = nullptr;
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
-	UPROPERTY(Blueprintreadwrite)
+	UPROPERTY(BlueprintReadWrite)
 	FInputCondition Condition{};
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	int32 GetEnemyDistanceX() const;
-	int32 GetEnemyDistanceY() const;
-
-	int32 CheckFWalkWeight() const;
-	int32 CheckBWalkWeight() const;
-	int32 CheckFDashWeight() const;
-	int32 CheckBDashWeight() const;
-	int32 CheckAttackWeight(const UState* State) const;
-	int32 CheckBurstWeight() const;
-
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	int32 GetEnemyDistanceX() const;
+	UFUNCTION(BlueprintCallable)
+	int32 GetEnemyDistanceY() const;
+
+	UFUNCTION(BlueprintCallable)
+	int32 CheckAttackWeight(const UState* State) const;
+	UFUNCTION(BlueprintCallable)
+	int32 CheckBurstWeight() const;
 };

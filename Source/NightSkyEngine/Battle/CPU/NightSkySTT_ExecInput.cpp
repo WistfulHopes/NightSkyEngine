@@ -27,12 +27,17 @@ EStateTreeRunStatus UNightSkySTT_ExecInput::EnterState(FStateTreeExecutionContex
 EStateTreeRunStatus UNightSkySTT_ExecInput::Tick(FStateTreeExecutionContext& Context, const float DeltaTime)
 {
 	const auto Status = Super::Tick(Context, DeltaTime);
+
+	FramesElapsed++;
 	
 	const auto Owner = Cast<APlayerObject>(Cast<ANightSkyAIController>(Context.GetOwner())->GetPawn());
 	if (!Owner) return EStateTreeRunStatus::Failed;
 	if (!Cast<ANightSkyAIController>(Context.GetOwner())->bCanUpdateInput) return Status;
 
 	Owner->StoredInputBuffer.Update(HoldInput);
+
+	if (FramesToWait < FramesElapsed) return EStateTreeRunStatus::Failed;
+	if (Owner->StoredStateMachine.CurrentState->Name == StateName) return EStateTreeRunStatus::Succeeded;
 
 	return Status;
 }
