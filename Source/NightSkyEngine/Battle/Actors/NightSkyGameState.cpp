@@ -692,18 +692,18 @@ void ANightSkyGameState::UpdateScreen()
 	ScreenData->WidthVelocity = Width / 14 - 1;
 	ScreenData->ScreenWorldWidth += ScreenData->WidthVelocity;
 
-	auto ScreenXSpeedFrame = 2;
+	auto ScreenXSpeedFrame = 10;
 	auto ScreenXSpeed = 100;
 	auto CenterXVelocity = ScreenXSpeedFrame - 5;
 
-	ScreenData->CenterXVelocity = ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX * 1000 / CenterXVelocity;
+	ScreenData->CenterXVelocity = (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX) / CenterXVelocity;
 
 	if (ScreenData->CenterXVelocity <= ScreenXSpeed)
 	{
 		auto ScreenXSpeedTmp = -ScreenXSpeed;
 		ScreenXSpeed = ScreenData->CenterXVelocity;
 
-		if (ScreenXSpeed < ScreenXSpeedTmp) ScreenXSpeed = ScreenData->CenterXVelocity = ScreenXSpeedTmp;
+		if (ScreenData->CenterXVelocity < ScreenXSpeedTmp) ScreenXSpeed = ScreenData->CenterXVelocity = ScreenXSpeedTmp;
 	}
 	else ScreenData->CenterXVelocity = ScreenXSpeed;
 
@@ -718,35 +718,19 @@ void ANightSkyGameState::UpdateScreen()
 
 	ScreenData->ScreenWorldCenterX += ScreenData->CenterXVelocity;
 
-	if (ScreenData->CenterXVelocity <= 0)
-	{
-		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
-		ScreenData->CenterXVelocity = 0;
-	}
-	else if (ScreenData->ScreenWorldCenterX <= ScreenData->TargetCenterX)
-	{
-		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
-		ScreenData->CenterXVelocity = 0;
-	}
-	else if (ScreenData->CenterXVelocity > 0 && ScreenData->ScreenWorldCenterX > ScreenData->TargetCenterX)
-	{
-		ScreenData->ScreenWorldCenterX = ScreenData->TargetCenterX;
-		ScreenData->CenterXVelocity = 0;
-	}
-
 	auto CenterYVelocity = 4000;
 	auto ScreenYSpeed = 70;
 
 	if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY <= 0) ScreenData->CenterYVelocity = 3000;
 
-	ScreenData->CenterYVelocity = ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY * 1000 / CenterYVelocity;
+	ScreenData->CenterYVelocity = (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY) * 1000 / CenterYVelocity;
 
 	if (ScreenData->CenterYVelocity <= ScreenYSpeed)
 	{
 		auto ScreenYSpeedTmp = -ScreenYSpeed;
 		ScreenYSpeed = ScreenData->CenterYVelocity;
 
-		if (ScreenYSpeed < ScreenYSpeedTmp) ScreenYSpeed = ScreenData->CenterYVelocity = ScreenYSpeedTmp;
+		if (ScreenData->CenterYVelocity < ScreenYSpeedTmp) ScreenYSpeed = ScreenData->CenterYVelocity = ScreenYSpeedTmp;
 	}
 	else ScreenData->CenterYVelocity = ScreenYSpeed;
 
@@ -760,22 +744,6 @@ void ANightSkyGameState::UpdateScreen()
 	}
 
 	ScreenData->ScreenWorldCenterY += ScreenData->CenterYVelocity;
-
-	if (ScreenData->CenterYVelocity <= 0)
-	{
-		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
-		ScreenData->CenterYVelocity = 0;
-	}
-	else if (ScreenData->ScreenWorldCenterY <= ScreenData->TargetCenterY)
-	{
-		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
-		ScreenData->CenterYVelocity = 0;
-	}
-	else if (ScreenData->CenterYVelocity > 0 && ScreenData->ScreenWorldCenterY > ScreenData->TargetCenterY)
-	{
-		ScreenData->ScreenWorldCenterY = ScreenData->TargetCenterY;
-		ScreenData->CenterYVelocity = 0;
-	}
 
 	ScreenData->bTouchingWorldSide = false;
 

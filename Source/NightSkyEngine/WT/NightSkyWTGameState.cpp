@@ -34,8 +34,6 @@ void ANightSkyWTGameState::BeginPlay()
 	CameraActor->GetCameraComponent()->SetFieldOfView(54);
 	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
-
-	UpdateCamera();
 }
 
 bool ANightSkyWTGameState::HandleMatchWin()
