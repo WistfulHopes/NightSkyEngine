@@ -8,6 +8,7 @@
 #include "OnlineSubsystemUtils.h"
 #include "ReplayInfo.h"
 #include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Data/PrimaryStageData.h"
 
 void UNightSkyGameInstance::Init()
 {
@@ -47,7 +48,7 @@ void UNightSkyGameInstance::TravelToVSInfo() const
 
 void UNightSkyGameInstance::TravelToBattleMap() const
 {
-	this->GetWorld()->ServerTravel(BattleData.StageURL, true);
+	this->GetWorld()->ServerTravel(BattleData.Stage->StageURL, true);
 }
 
 void UNightSkyGameInstance::LoadReplay()

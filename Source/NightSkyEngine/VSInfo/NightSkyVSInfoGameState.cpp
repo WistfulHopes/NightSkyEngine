@@ -7,6 +7,8 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Actors/PlayerObject.h"
+#include "NightSkyEngine/Data/PrimaryCharaData.h"
+#include "NightSkyEngine/Data/PrimaryStageData.h"
 
 ANightSkyVSInfoGameState::ANightSkyVSInfoGameState()
 {
@@ -23,15 +25,15 @@ void ANightSkyVSInfoGameState::BeginPlay()
 	Super::BeginPlay();
 
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-	LoadPackageAsync(GameInstance->BattleData.StageURL,
+	LoadPackageAsync(GameInstance->BattleData.Stage->StageURL,
 		FLoadPackageAsyncDelegate::CreateUObject(this,
 			&ANightSkyVSInfoGameState::OnMapPackageLoaded),
 		0, PKG_ContainsMap);
-	for (const auto CharaClass : GameInstance->BattleData.PlayerList)
+	for (const auto PrimaryCharaData : GameInstance->BattleData.PlayerList)
 	{
-		if (CharaClass == nullptr) continue;
+		if (PrimaryCharaData == nullptr) continue;
 		++TotalCharaPackageCount;
-		LoadPackageAsync(CharaClass->GetPathName(),
+		LoadPackageAsync(PrimaryCharaData->PlayerClass->GetPathName(),
 			FLoadPackageAsyncDelegate::CreateUObject(this,
 				&ANightSkyVSInfoGameState::OnCharaPackageLoaded));
 	}

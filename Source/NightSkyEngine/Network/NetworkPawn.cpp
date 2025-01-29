@@ -72,7 +72,7 @@ void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData)
 	GameInstance->BattleData.RoundFormat = InBattleData.RoundFormat;
 	GameInstance->BattleData.StartRoundTimer = InBattleData.StartRoundTimer;
 	GameInstance->BattleData.Random = InBattleData.Random;
-	GameInstance->BattleData.StageURL = InBattleData.StageURL;
+	GameInstance->BattleData.Stage = InBattleData.Stage;
 	GameInstance->BattleData.MusicName = InBattleData.MusicName;
 	CharaDataReceived = true;
 }

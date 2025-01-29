@@ -9,6 +9,8 @@
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
 
+class UPrimaryStageData;
+class UPrimaryCharaData;
 class UNightSkySettingsInfo;
 class USoundData;
 constexpr int32 MaxReplays = 999;
@@ -23,7 +25,7 @@ struct FBattleData
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<TSubclassOf<APlayerObject>> PlayerList;
+	TArray<UPrimaryCharaData*> PlayerList;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<int32> ColorIndices;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -33,7 +35,7 @@ struct FBattleData
 	UPROPERTY()
 	FRandomManager Random;
 	UPROPERTY(BlueprintReadWrite)
-	FString StageURL;
+	UPrimaryStageData* Stage;
 	UPROPERTY(BlueprintReadWrite)
 	FGameplayTag MusicName;
 };

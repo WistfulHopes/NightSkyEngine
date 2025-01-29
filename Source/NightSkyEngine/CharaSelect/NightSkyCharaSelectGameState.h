@@ -6,9 +6,8 @@
 #include "GameFramework/GameStateBase.h"
 #include "NightSkyCharaSelectGameState.generated.h"
 
+class UPrimaryCharaData;
 class UNightSkyGameInstance;
-class UCharaSelectData;
-class UStageData;
 class APlayerObject;
 
 UCLASS()
@@ -41,7 +40,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void AddPlayerObject(TSubclassOf<APlayerObject> InClass, bool IsP1 = true);
+	void AddPlayerObject(UPrimaryCharaData* Player, bool IsP1 = true);
 	UFUNCTION(BlueprintCallable)
 	void AddColorIndex(int InColor, bool IsP1 = true);
 };

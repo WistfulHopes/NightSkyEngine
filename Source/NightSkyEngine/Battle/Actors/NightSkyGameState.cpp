@@ -16,6 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Globals.h"
 #include "NightSkyEngine/Data/BattleExtensionData.h"
+#include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Data/SubroutineData.h"
 #include "NightSkyEngine/Network/FighterRunners.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
@@ -114,7 +115,7 @@ void ANightSkyGameState::Init()
 			{
 				if (GameInstance->BattleData.PlayerList[i] != nullptr)
 				{
-					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->BattleData.PlayerList[i],
+					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->BattleData.PlayerList[i]->PlayerClass,
 					                                                   BattleSceneTransform);
 					Players[i]->ColorIndex = 1;
 					if (GameInstance->BattleData.ColorIndices.Num() > i)
@@ -123,7 +124,7 @@ void ANightSkyGameState::Init()
 					{
 						if (IsValid(GameInstance->BattleData.PlayerList[j]))
 						{
-							if (Players[i]->IsA(GameInstance->BattleData.PlayerList[j]))
+							if (Players[i]->IsA(GameInstance->BattleData.PlayerList[j]->PlayerClass))
 							{
 								if (Players[i]->ColorIndex == Players[j]->ColorIndex)
 								{
