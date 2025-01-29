@@ -5,9 +5,11 @@
 
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "RpcConnectionManager.h"
+#include "Engine/AssetManager.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
 #include "Net/UnrealNetwork.h"
 #include "NightSkyEngine/Battle/Actors/FighterRunners/FighterMultiplayerRunner.h"
+#include "NightSkyEngine/Data/PrimaryCharaData.h"
 
 // Sets default values
 ANetworkPawn::ANetworkPawn()
@@ -29,6 +31,28 @@ void ANetworkPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 
 	DOREPLIFETIME(ANetworkPawn, CharaDataReceived)
 	DOREPLIFETIME(ANetworkPawn, bRematchAccepted)
+}
+
+void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
+{
+	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	
+	GameInstance->BattleData.PlayerList[3] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[0]));
+	GameInstance->BattleData.PlayerList[4] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[1]));
+	GameInstance->BattleData.PlayerList[5] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[2]));
+
+	CharaDataReceived = true;
+}
+
+void ANetworkPawn::ClientGetCharaData(TArray<FPrimaryAssetId> Assets)
+{
+	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+	
+	GameInstance->BattleData.PlayerList[0] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[0]));
+	GameInstance->BattleData.PlayerList[1] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[1]));
+	GameInstance->BattleData.PlayerList[2] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[2]));
+
+	CharaDataReceived = true;
 }
 
 void ANetworkPawn::SendRematchToClient_Implementation()
@@ -60,12 +84,10 @@ void ANetworkPawn::SendGgpoToServer_Implementation(const TArray<int8> &GgpoMessa
 	 	FighterMultiplayerRunner->connectionManager->receiveSchedule.AddTail(GgpoMessage);
 }
 
-void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData)
+void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData, FNetworkMirror Mirror)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-	GameInstance->BattleData.PlayerList[0] = InBattleData.PlayerList[0];
-	GameInstance->BattleData.PlayerList[1] = InBattleData.PlayerList[1];
-	GameInstance->BattleData.PlayerList[2] = InBattleData.PlayerList[2];
+	UAssetManager::Get().LoadPrimaryAssets(Mirror.PlayerList, TArray<FName>(), FStreamableDelegate::CreateUObject(this, &ANetworkPawn::ClientGetCharaData, Mirror.PlayerList));
 	GameInstance->BattleData.ColorIndices[0] = InBattleData.ColorIndices[0];
 	GameInstance->BattleData.ColorIndices[1] = InBattleData.ColorIndices[1];
 	GameInstance->BattleData.ColorIndices[2] = InBattleData.ColorIndices[2];
@@ -74,15 +96,12 @@ void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData)
 	GameInstance->BattleData.Random = InBattleData.Random;
 	GameInstance->BattleData.Stage = InBattleData.Stage;
 	GameInstance->BattleData.MusicName = InBattleData.MusicName;
-	CharaDataReceived = true;
 }
 
-void ANetworkPawn::ServerGetBattleData_Implementation(FBattleData InBattleData)
+void ANetworkPawn::ServerGetBattleData_Implementation(FBattleData InBattleData, FNetworkMirror Mirror)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-	GameInstance->BattleData.PlayerList[3] = InBattleData.PlayerList[3];
-	GameInstance->BattleData.PlayerList[4] = InBattleData.PlayerList[4];
-	GameInstance->BattleData.PlayerList[5] = InBattleData.PlayerList[5];
+	UAssetManager::Get().LoadPrimaryAssets(Mirror.PlayerList, TArray<FName>(), FStreamableDelegate::CreateUObject(this, &ANetworkPawn::ServerGetCharaData, Mirror.PlayerList));
 	GameInstance->BattleData.ColorIndices[3] = InBattleData.ColorIndices[3];
 	GameInstance->BattleData.ColorIndices[4] = InBattleData.ColorIndices[4];
 	GameInstance->BattleData.ColorIndices[5] = InBattleData.ColorIndices[5];

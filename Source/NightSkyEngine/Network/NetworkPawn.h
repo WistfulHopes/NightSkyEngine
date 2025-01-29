@@ -9,6 +9,17 @@
 
 class APlayerObject;
 
+USTRUCT()
+struct FNetworkMirror
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	TArray<FPrimaryAssetId> PlayerList;
+	UPROPERTY()
+	FPrimaryAssetId Stage;
+};
+
 UCLASS()
 class NIGHTSKYENGINE_API ANetworkPawn : public APawn
 {
@@ -35,11 +46,14 @@ public:
 	UFUNCTION( Client, Reliable )
 	void ClientChecksumCheck(uint32 Checksum, int32 InFrame);
 	UFUNCTION( Server, Reliable )
-	void ServerGetBattleData(FBattleData InBattleData);
+	void ServerGetBattleData(FBattleData InBattleData, FNetworkMirror Mirror);
 	UFUNCTION( Client, Reliable )
-	void ClientGetBattleData(FBattleData InBattleData);
+	void ClientGetBattleData(FBattleData InBattleData, FNetworkMirror Mirror);
 	UFUNCTION( Server, Reliable )
 	void ServerGetFinishedLoading(bool Finished);
+
+	void ServerGetCharaData(TArray<FPrimaryAssetId> Assets);
+	void ClientGetCharaData(TArray<FPrimaryAssetId> Assets);
 
 	UPROPERTY()
 	class AFighterMultiplayerRunner* FighterMultiplayerRunner = nullptr;

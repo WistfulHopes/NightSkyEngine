@@ -12,6 +12,7 @@
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Bitflags.h"
+#include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Network/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Network/RpcConnectionManager.h"
@@ -316,14 +317,21 @@ void ANightSkyPlayerController::SendBattleData()
 	}
 	if (NetworkPawns.Num() > 1)
 	{
+		FNetworkMirror NetworkMirror{};
 		const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 		if (PlayerIndex == 0)
 		{
-			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData);
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[0]->GetPrimaryAssetId());
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[1]->GetPrimaryAssetId());
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[2]->GetPrimaryAssetId());
+			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData, NetworkMirror);
 		}
 		else
 		{
-			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData);
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[3]->GetPrimaryAssetId());
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[4]->GetPrimaryAssetId());
+			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerList[5]->GetPrimaryAssetId());
+			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData, NetworkMirror);
 		}
 	}
 }
