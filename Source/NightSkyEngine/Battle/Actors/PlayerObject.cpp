@@ -1604,7 +1604,10 @@ void APlayerObject::HandleBlockAction()
 void APlayerObject::HandleProximityBlock()
 {
 	if (!(Enemy->AttackFlags & ATK_HitActive) || !IsCorrectBlock(Enemy->HitCommon.BlockType)
-		|| CalculateDistanceBetweenPoints(DIST_Distance, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > 240000)
+		|| (CalculateDistanceBetweenPoints(DIST_DistanceX, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > Enemy->HitCommon.
+			ProximityBlockDistanceX
+			&& CalculateDistanceBetweenPoints(DIST_DistanceY, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > Enemy->
+			HitCommon.ProximityBlockDistanceY))
 	{
 		if (StoredStateMachine.CurrentState->StateType == EStateType::Blockstun && StunTime == 0)
 		{

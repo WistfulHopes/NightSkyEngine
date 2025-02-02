@@ -134,6 +134,10 @@ struct FHitDataCommon
 	// Gravity for blocking.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GuardGravity = -1;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ProximityBlockDistanceX = 240000;
+	UPROPERTY(BlueprintReadWrite)
+	int32 ProximityBlockDistanceY = 160000;
 	// The angle at which hit effects will spawn.
 	UPROPERTY(BlueprintReadWrite)
 	int32 HitAngle = 0;
