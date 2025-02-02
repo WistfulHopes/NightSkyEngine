@@ -21,7 +21,7 @@ ABattleObject::ABattleObject()
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
-	
+
 	bReplicates = false;
 }
 
@@ -51,21 +51,21 @@ void ABattleObject::Move()
 		PosY = PositionLinkObj->PosY;
 		return;
 	}
-	
+
 	// Set previous pos values
 	PrevPosX = PosX;
 	PrevPosY = PosY;
 	CalculateHoming();
-	
+
 	if (BlendOffset && BlendCelName != FGameplayTag::EmptyTag && MaxCelTime)
 	{
 		const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
-		
+
 		AddPosXWithDir(TmpOffsetX);
 		PosY += TmpOffsetY;
 	}
-	
+
 	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
 	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
 	SpeedZ = SpeedZ * SpeedZRatePerFrame / 100;
@@ -74,7 +74,7 @@ void ABattleObject::Move()
 	SpeedZ = SpeedZ * SpeedZRate / 100;
 
 	SpeedXRate = SpeedYRate = SpeedZRate = 100;
-	
+
 	if (MiscFlags & MISC_InertiaEnable) //only use inertia if enabled
 	{
 		if (PosY <= GroundHeight && MiscFlags & MISC_FloorCollisionActive) //only decrease inertia if grounded
@@ -108,7 +108,8 @@ void ABattleObject::Move()
 
 	if (IsPlayer && Player != nullptr)
 	{
-		if (Player->AirDashTimer == 0 || (SpeedY > 0 && ActionTime < 5)) // only set y speed if not airdashing/airdash startup not done
+		if (Player->AirDashTimer == 0 || (SpeedY > 0 && ActionTime < 5))
+		// only set y speed if not airdashing/airdash startup not done
 		{
 			PosY += SpeedY;
 			if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
@@ -125,7 +126,7 @@ void ABattleObject::Move()
 		if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
 			SpeedY -= Gravity;
 	}
-		
+
 	if (PosY < GroundHeight && MiscFlags & MISC_FloorCollisionActive) //if on ground, force y values to zero
 	{
 		PosY = GroundHeight;
@@ -151,7 +152,7 @@ void ABattleObject::CalculateHoming()
 			int32 HomingOffsetX = -HomingParams.OffsetX;
 			if (!TargetFacingRight)
 				HomingOffsetX = HomingParams.OffsetX;
-			
+
 			if (HomingParams.Type == HOMING_DistanceAccel)
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
@@ -168,8 +169,8 @@ void ABattleObject::CalculateHoming()
 				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
 				SpeedXRate = HomingParams.ParamB;
 				SpeedYRate = HomingParams.ParamB;
-				int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000; 
-				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000; 
+				int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
 				AddSpeedXRaw(CosParamA);
 				SpeedY += SinParamA;
 			}
@@ -178,7 +179,8 @@ void ABattleObject::CalculateHoming()
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
 				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
-				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) *
+					UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
 				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
 				int32 TmpParamB = Direction == DIR_Right ? HomingParams.ParamB : -HomingParams.ParamB;
 				int32 TmpSpeedX = Direction == DIR_Right ? SpeedX : -SpeedX;
@@ -348,13 +350,17 @@ bool ABattleObject::SuperArmorSuccess(const ABattleObject* Attacker) const
 	if (SuperArmorData.bArmorOverhead && Attacker->HitCommon.BlockType == BLK_High) return true;
 	if (SuperArmorData.bArmorLow && Attacker->HitCommon.BlockType == BLK_Low) return true;
 	if (SuperArmorData.bArmorStrike && Attacker->AttackFlags & ATK_HitActive && !(Attacker->AttackFlags &
-		ATK_AttackProjectileAttribute)) return true;
-	if (SuperArmorData.bArmorThrow && Attacker->IsPlayer && Attacker->Player->PlayerFlags & PLF_ThrowActive) return true;
+		ATK_AttackProjectileAttribute))
+		return true;
+	if (SuperArmorData.bArmorThrow && Attacker->IsPlayer && Attacker->Player->PlayerFlags & PLF_ThrowActive) return
+		true;
 	if (SuperArmorData.bArmorHead && Attacker->AttackFlags & ATK_HitActive && Attacker->AttackFlags &
-		ATK_AttackHeadAttribute) return true;
+		ATK_AttackHeadAttribute)
+		return true;
 	if (SuperArmorData.bArmorProjectile && Attacker->AttackFlags & ATK_HitActive && Attacker->AttackFlags &
-		ATK_AttackProjectileAttribute) return true;
-	
+		ATK_AttackProjectileAttribute)
+		return true;
+
 	return false;
 }
 
@@ -379,7 +385,7 @@ void ABattleObject::CalculatePushbox()
 	else
 	{
 		R = PosX + PushWidth / 2;
-		L = PosX - (PushWidth / 2 + PushWidthExtend); 
+		L = PosX - (PushWidth / 2 + PushWidthExtend);
 	}
 	T = PosY + PushHeight;
 	B = PosY - PushHeightLow;
@@ -389,7 +395,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 {
 	if (MiscFlags & MISC_PushCollisionActive && OtherObj->MiscFlags & MISC_PushCollisionActive)
 	{
-		if (Hitstop <= 0 && ((!OtherObj->IsPlayer || OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0 || (!IsPlayer || Player->PlayerFlags & PLF_IsThrowLock) == 0))
+		if (Hitstop <= 0 && ((!OtherObj->IsPlayer || OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0 || (!IsPlayer
+			|| Player->PlayerFlags & PLF_IsThrowLock) == 0))
 		{
 			if (T >= OtherObj->B && B <= OtherObj->T && R >= OtherObj->L && L <= OtherObj->R)
 			{
@@ -397,7 +404,7 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 				int32 CollisionDepth;
 
 				GameState->SetScreenBounds();
-				
+
 				if (PrevPosX == OtherObj->PrevPosX)
 				{
 					if (PosX == OtherObj->PosX)
@@ -439,7 +446,7 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 				{
 					CollisionDepth = OtherObj->R - L;
 				}
-				
+
 				if (OtherObj->L <= GameState->BattleState.ScreenData.StageBoundsLeft * 1000
 					|| OtherObj->R >= GameState->BattleState.ScreenData.StageBoundsRight * 1000)
 				{
@@ -450,7 +457,7 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					OtherObj->PosX -= CollisionDepth / 2;
 					PosX += CollisionDepth / 2;
 				}
-				
+
 				CalculatePushbox();
 				OtherObj->CalculatePushbox();
 			}
@@ -460,13 +467,11 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 
 void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 {
-	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && AttackedObj->ObjectsToIgnoreHitsFrom.Find(this) == INDEX_NONE)
+	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && AttackedObj->ObjectsToIgnoreHitsFrom.Find(this)
+		== INDEX_NONE)
 	{
-		// refactor this mess into a function
-		if (AttackedObj->IsPlayer && AttackedObj->Player->InvulnFlags & INV_StrikeInvulnerable && !AttackedObj->Player->
-			StrikeInvulnerableTimer && AttackedObj != Player && (!(AttackFlags & ATK_AttackHeadAttribute &&
-			AttackedObj->Player->InvulnFlags & INV_HeadInvulnerable) && !(AttackFlags & ATK_AttackProjectileAttribute
-			&& AttackedObj->Player->InvulnFlags & INV_ProjectileInvulnerable))) return;
+		if (AttackedObj->IsPlayer && AttackedObj->Player->PlayerIndex != Player->PlayerIndex && AttackedObj->Player->
+			IsInvulnerable()) return;
 
 		auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
 		if (!AttackedPlayer) return;
@@ -488,7 +493,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 						}
 						else
 						{
-							Hitbox.PosX = -Hitbox.PosX + PosX;  
+							Hitbox.PosX = -Hitbox.PosX + PosX;
 						}
 						Hitbox.PosY += PosY;
 						if (AttackedPlayer->Direction == DIR_Right)
@@ -497,10 +502,10 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 						}
 						else
 						{
-							Hurtbox.PosX = -Hurtbox.PosX + AttackedPlayer->PosX;  
+							Hurtbox.PosX = -Hurtbox.PosX + AttackedPlayer->PosX;
 						}
 						Hurtbox.PosY += AttackedPlayer->PosY;
-							
+
 						if (Hitbox.PosY + Hitbox.SizeY / 2 >= Hurtbox.PosY - Hurtbox.SizeY / 2
 							&& Hitbox.PosY - Hitbox.SizeY / 2 <= Hurtbox.PosY + Hurtbox.SizeY / 2
 							&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
@@ -514,7 +519,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 							AttackedPlayer->PlayerFlags |= PLF_IsStunned;
 							AttackFlags |= ATK_HasHit;
 							AttackTarget = AttackedPlayer;
-								
+
 							int CollisionDepthX;
 							if (Hitbox.PosX < AttackedPlayer->PosX)
 							{
@@ -538,13 +543,13 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
 								HitPosY = Hitbox.PosY - CollisionDepthY / 2;
 							}
-								
+
 							TriggerEvent(EVT_HitOrBlock);
 							if (AttackedPlayer->IsMainPlayer())
 							{
 								TriggerEvent(EVT_HitOrBlockMainPlayer);
 							}
-								
+
 							if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 							{
 								CreateCommonParticle(Particle_Guard, POS_Enemy,
@@ -558,20 +563,21 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 								const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
 								AttackedPlayer->CurrentHealth -= ChipDamage;
-									
+
 								const FHitData Data = InitHitDataByAttackLevel(false);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
 								AttackedPlayer->ReceivedHit = Data;
-									
+
 								if (AttackedPlayer->CurrentHealth <= 0)
 								{
 									EHitAction HACT;
-										
-									if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->PlayerFlags & PLF_IsKnockedDown))
+
+									if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+										PlayerFlags & PLF_IsKnockedDown))
 										HACT = NormalHit.GroundHitAction;
 									else
 										HACT = NormalHit.AirHitAction;
-										
+
 									AttackedPlayer->HandleHitAction(HACT);
 								}
 								else
@@ -584,7 +590,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 										AttackedPlayer->Pushback = 0;
 									}
 								}
-								AttackedPlayer->AddMeter(NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+								AttackedPlayer->AddMeter(
+									NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
 								Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
 							}
 							else if (AttackedPlayer->SuperArmorSuccess(this))
@@ -594,25 +601,30 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								{
 									TriggerEvent(EVT_HitMainPlayer);
 								}
-								
-								if (AttackedPlayer->SuperArmorData.ArmorHits > 0) AttackedPlayer->SuperArmorData.ArmorHits--;
+
+								if (AttackedPlayer->SuperArmorData.ArmorHits > 0) AttackedPlayer->SuperArmorData.
+									ArmorHits--;
 								switch (AttackedPlayer->SuperArmorData.Type)
 								{
 								case ARM_Guard:
 									{
 										if (AttackedPlayer->SuperArmorData.bArmorTakeChipDamage)
 										{
-											const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
+											const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent /
+												100;
 											AttackedPlayer->CurrentHealth -= ChipDamage;
-											AttackedPlayer->AddMeter(NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+											AttackedPlayer->AddMeter(
+												NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
 											Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
 										}
 										if (AttackedPlayer->SuperArmorData.ArmorDamagePercent)
 										{
-											const int32 ArmorDamage = NormalHit.Damage * AttackedPlayer->SuperArmorData.ArmorDamagePercent / 100;
+											const int32 ArmorDamage = NormalHit.Damage * AttackedPlayer->SuperArmorData.
+												ArmorDamagePercent / 100;
 											AttackedPlayer->CurrentHealth -= ArmorDamage;
 											AttackedPlayer->AddMeter(
-												NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHit * AttackedPlayer->
+												NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHit *
+												AttackedPlayer->
 												SuperArmorData.ArmorDamagePercent / 10000);
 											Player->AddMeter(
 												NormalHit.Damage * Player->MeterPercentOnHit * AttackedPlayer->
@@ -621,23 +633,24 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 										else
 										{
 											CreateCommonParticle(Particle_Guard, POS_Enemy,
-										 FVector(0, 100, 0),
-										 FRotator(HitCommon.HitAngle, 0, 0));
+											                     FVector(0, 100, 0),
+											                     FRotator(HitCommon.HitAngle, 0, 0));
 										}
-									
+
 										const FHitData Data = InitHitDataByAttackLevel(false);
 										AttackedPlayer->ReceivedHitCommon = HitCommon;
 										AttackedPlayer->ReceivedHit = Data;
-											
+
 										if (AttackedPlayer->CurrentHealth <= 0)
 										{
 											EHitAction HACT;
-										
-											if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->PlayerFlags & PLF_IsKnockedDown))
+
+											if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer
+												->PlayerFlags & PLF_IsKnockedDown))
 												HACT = NormalHit.GroundHitAction;
 											else
 												HACT = NormalHit.AirHitAction;
-										
+
 											AttackedPlayer->HandleHitAction(HACT);
 										}
 										else
@@ -659,7 +672,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								{
 									TriggerEvent(EVT_HitMainPlayer);
 								}
-									
+
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
 									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
@@ -668,7 +681,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									Player->ThrowExe();
 									return;
 								}
-									
+
 								const FHitData Data = InitHitDataByAttackLevel(false);
 								CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
 								                     FVector(0, 100, 0),
@@ -677,8 +690,9 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
 								AttackedPlayer->ReceivedHit = Data;
 								EHitAction HACT;
-										
-								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->PlayerFlags & PLF_IsKnockedDown))
+
+								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+									PlayerFlags & PLF_IsKnockedDown))
 									HACT = NormalHit.GroundHitAction;
 								else
 									HACT = NormalHit.AirHitAction;
@@ -695,11 +709,11 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 									TriggerEvent(EVT_CounterHitMainPlayer);
 								}
 
-								AttackedPlayer->AddColor = FLinearColor(5,0.2,0.2,1);
-								AttackedPlayer->MulColor = FLinearColor(1,0.1,0.1,1);
+								AttackedPlayer->AddColor = FLinearColor(5, 0.2, 0.2, 1);
+								AttackedPlayer->MulColor = FLinearColor(1, 0.1, 0.1, 1);
 								AttackedPlayer->AddFadeSpeed = 0.1;
 								AttackedPlayer->MulFadeSpeed = 0.1;
-									
+
 								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 								{
 									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
@@ -710,18 +724,20 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								}
 
 								const FHitData CounterData = InitHitDataByAttackLevel(true);
-								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 100, 0), FRotator(HitCommon.HitAngle, 0, 0));
+								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 100, 0),
+								                     FRotator(HitCommon.HitAngle, 0, 0));
 								PlayCommonSound(HitCommon.HitSFX);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
 								AttackedPlayer->ReceivedHit = CounterData;
 								AttackedPlayer->ReceivedHit = CounterData;
 								EHitAction HACT;
-										
-								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->PlayerFlags & PLF_IsKnockedDown))
+
+								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+									PlayerFlags & PLF_IsKnockedDown))
 									HACT = CounterHit.GroundHitAction;
 								else
 									HACT = CounterHit.AirHitAction;
-									
+
 								AttackedPlayer->HandleHitAction(HACT);
 							}
 							return;
@@ -739,7 +755,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		HitCommon.AttackLevel = 0;
 	if (HitCommon.AttackLevel > 5)
 		HitCommon.AttackLevel = 5;
-	
+
 	switch (HitCommon.AttackLevel)
 	{
 	case 0:
@@ -1079,7 +1095,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		NormalHit.InitialProration = 100;
 	if (NormalHit.ForcedProration == -1)
 		NormalHit.ForcedProration = 90;
-	
+
 	if (CounterHit.EnemyHitstopModifier == -1)
 		CounterHit.EnemyHitstopModifier = NormalHit.EnemyHitstopModifier;
 	if (CounterHit.MinimumDamagePercent == -1)
@@ -1088,7 +1104,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.InitialProration = NormalHit.InitialProration;
 	if (CounterHit.ForcedProration == -1)
 		CounterHit.ForcedProration = NormalHit.ForcedProration;
-	
+
 	if (CounterHit.Hitstun == -1)
 		CounterHit.Hitstun = NormalHit.Hitstun;
 	if (CounterHit.Untech == -1)
@@ -1142,12 +1158,12 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		NormalHit.KnockdownTime = 12;
 	if (CounterHit.KnockdownTime == -1)
 		CounterHit.KnockdownTime = NormalHit.KnockdownTime;
-	
+
 	if (NormalHit.HardKnockdown == -1)
 		NormalHit.HardKnockdown = 0;
 	if (CounterHit.HardKnockdown == -1)
 		CounterHit.HardKnockdown = NormalHit.HardKnockdown;
-	
+
 	if (NormalHit.WallBounce.WallBounceStop == -1)
 		NormalHit.WallBounce.WallBounceStop = 6;
 	if (NormalHit.WallBounce.WallBounceXSpeed == -1)
@@ -1203,19 +1219,20 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.GroundBounce.GroundBounceYRate = NormalHit.GroundBounce.GroundBounceYRate;
 	if (CounterHit.GroundBounce.GroundBounceGravity == -1)
 		CounterHit.GroundBounce.GroundBounceGravity = NormalHit.GroundBounce.GroundBounceGravity;
-	
+
 	FHitData Data;
 	if (!IsCounter)
 		Data = NormalHit;
 	else
 		Data = CounterHit;
-	
+
 	return Data;
 }
 
 void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 {
-	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && OtherObj->Player->PlayerIndex != Player->PlayerIndex
+	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && OtherObj->Player->PlayerIndex != Player->
+		PlayerIndex
 		&& OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
 	{
 		for (int i = 0; i < CollisionArraySize; i++)
@@ -1236,7 +1253,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 						}
 						else
 						{
-							Hitbox.PosX = -Hitbox.PosX + PosX;  
+							Hitbox.PosX = -Hitbox.PosX + PosX;
 						}
 						Hitbox.PosY += PosY;
 						if (OtherObj->Direction == DIR_Right)
@@ -1245,10 +1262,10 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 						}
 						else
 						{
-							OtherHitbox.PosX = -OtherHitbox.PosX + OtherObj->PosX;  
+							OtherHitbox.PosX = -OtherHitbox.PosX + OtherObj->PosX;
 						}
 						OtherHitbox.PosY += OtherObj->PosY;
-							
+
 						if (Hitbox.PosY + Hitbox.SizeY / 2 >= OtherHitbox.PosY - OtherHitbox.SizeY / 2
 							&& Hitbox.PosY - Hitbox.SizeY / 2 <= OtherHitbox.PosY + OtherHitbox.SizeY / 2
 							&& Hitbox.PosX + Hitbox.SizeX / 2 >= OtherHitbox.PosX - OtherHitbox.SizeX / 2
@@ -1257,26 +1274,30 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 							int CollisionDepthX;
 							if (Hitbox.PosX < OtherHitbox.PosX)
 							{
-								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX / 2);
+								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX
+									/ 2);
 								HitPosX = Hitbox.PosX - CollisionDepthX;
 							}
 							else
 							{
-								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX / 2);
+								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX
+									/ 2);
 								HitPosX = Hitbox.PosX + CollisionDepthX;
 							}
 							int CollisionDepthY;
 							if (Hitbox.PosY < OtherHitbox.PosY)
 							{
-								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY / 2);
+								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY
+									/ 2);
 								HitPosY = Hitbox.PosY - CollisionDepthY;
 							}
 							else
 							{
-								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY / 2);
+								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY
+									/ 2);
 								HitPosY = Hitbox.PosY + CollisionDepthY;
 							}
-							
+
 							if (IsPlayer && OtherObj->IsPlayer)
 							{
 								Hitstop = 16;
@@ -1294,7 +1315,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
-                                PlayCommonSound(Sound_Hit_Clash);
+								PlayCommonSound(Sound_Hit_Clash);
 								return;
 							}
 							if (!IsPlayer && !OtherObj->IsPlayer)
@@ -1308,7 +1329,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 								TriggerEvent(EVT_HitOrBlock);
 								OtherObj->TriggerEvent(EVT_HitOrBlock);
 								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
-                                PlayCommonSound(Sound_Hit_Clash);
+								PlayCommonSound(Sound_Hit_Clash);
 								return;
 							}
 							return;
@@ -1321,12 +1342,12 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 }
 
 void ABattleObject::HandleFlip()
-{	
+{
 	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
 
 	GameState->SetScreenBounds();
-	
+
 	if (R < Player->Enemy->R)
 	{
 		SetFacing(DIR_Right);
@@ -1406,7 +1427,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 	if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FGameplayTag::EmptyTag)
 	{
 		USubroutine* Subroutine = nullptr;
-		
+
 		if (const auto CommonIndex = Player->CommonSubroutineNames.Find(SubroutineName); CommonIndex != INDEX_NONE)
 			Subroutine = Player->CommonSubroutines[CommonIndex];
 
@@ -1423,7 +1444,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 		}
 		return;
 	}
-	
+
 	UState* State = ObjectState;
 	if (IsPlayer)
 		State = Player->StoredStateMachine.CurrentState;
@@ -1438,30 +1459,34 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 
 //for collision viewer
 
-template<typename T>
+template <typename T>
 constexpr auto min(T a, T b)
 {
 	return a < b ? a : b;
 }
 
-template<typename T>
+template <typename T>
 constexpr auto max(T a, T b)
 {
 	return a > b ? a : b;
 }
+
 static void clip_line_y(
-	const FVector2D &line_a, const FVector2D &line_b,
+	const FVector2D& line_a, const FVector2D& line_b,
 	float min_x, float max_x,
-	float *min_y, float *max_y)
+	float* min_y, float* max_y)
 {
 	const auto delta = line_b - line_a;
 
-	if (abs(delta.X) > FLT_EPSILON) {
+	if (abs(delta.X) > FLT_EPSILON)
+	{
 		const auto slope = delta.Y / delta.X;
 		const auto intercept = line_a.Y - slope * line_a.X;
 		*min_y = slope * min_x + intercept;
 		*max_y = slope * max_x + intercept;
-	} else {
+	}
+	else
+	{
 		*min_y = line_a.Y;
 		*max_y = line_b.Y;
 	}
@@ -1471,9 +1496,9 @@ static void clip_line_y(
 }
 
 bool line_box_intersection(
-	const FVector2D &box_min, const FVector2D &box_max,
-	const FVector2D &line_a, const FVector2D &line_b,
-	float *entry_fraction, float *exit_fraction)
+	const FVector2D& box_min, const FVector2D& box_max,
+	const FVector2D& line_a, const FVector2D& line_b,
+	float* entry_fraction, float* exit_fraction)
 {
 	// No intersection if line runs along the edge of the box
 	if (line_a.X == line_b.X && (line_a.X == box_min.X || line_a.X == box_max.X))
@@ -1520,37 +1545,37 @@ bool line_box_intersection(
 void ABattleObject::CollisionView()
 {
 	TArray<TArray<FVector2D>> Corners;
-	TArray<TArray<TArray<FVector2D>>> Lines; 
+	TArray<TArray<TArray<FVector2D>>> Lines;
 	for (auto Box : Boxes)
 	{
 		TArray<FVector2D> CurrentCorners;
 		if (Direction == DIR_Right)
 		{
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
 		}
 		else
 		{
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE -  float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-				float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
 		}
 		Corners.Add(CurrentCorners);
 		TArray<TArray<FVector2D>> CurrentLines;
 		for (int j = 0; j < 4; j++)
 		{
-			CurrentLines.Add(TArray { CurrentCorners[j] , CurrentCorners[(j + 1) % 4] } );
+			CurrentLines.Add(TArray{CurrentCorners[j], CurrentCorners[(j + 1) % 4]});
 		}
 		Lines.Add(CurrentLines);
 		FLinearColor color;
@@ -1564,7 +1589,8 @@ void ABattleObject::CollisionView()
 		{
 			auto start = LineSet[0];
 			auto end = LineSet[1];
-			DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false, 1 / 60, 255, 2.f);
+			DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false),
+			              false, 1 / 60, 255, 2.f);
 		}
 	}
 	TArray<FVector2D> CurrentCorners;
@@ -1575,7 +1601,7 @@ void ABattleObject::CollisionView()
 	TArray<TArray<FVector2D>> CurrentLines;
 	for (int j = 0; j < 4; j++)
 	{
-		CurrentLines.Add(TArray { CurrentCorners[j] , CurrentCorners[(j + 1) % 4] } );
+		CurrentLines.Add(TArray{CurrentCorners[j], CurrentCorners[(j + 1) % 4]});
 	}
 	FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
 
@@ -1583,7 +1609,8 @@ void ABattleObject::CollisionView()
 	{
 		auto start = LineSet[0];
 		auto end = LineSet[1];
-		DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,1 / 60, 255, 2.f);
+		DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,
+		              1 / 60, 255, 2.f);
 	}
 }
 
@@ -1608,7 +1635,7 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 
 void ABattleObject::LogForSyncTestFile(std::ofstream& file)
 {
-	if(file)
+	if (file)
 	{
 		file << "BattleObject:\n";
 		file << "\tPosX: " << PosX << std::endl;
@@ -1666,9 +1693,13 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (SocketName == NAME_None) //only set visual location if not attached to socket
 		{
-			SetActorRotation(GameState->BattleSceneTransform.GetRotation() * (ObjectRotation.Quaternion() * FlipRotation.Quaternion()));
-			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
-			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+			SetActorRotation(
+				GameState->BattleSceneTransform.GetRotation() * (ObjectRotation.Quaternion() * FlipRotation.
+					Quaternion()));
+			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
+			                           static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
+			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->
+				BattleSceneTransform.GetLocation();
 			SetActorLocation(Location);
 		}
 		else
@@ -1708,14 +1739,14 @@ void ABattleObject::UpdateVisuals()
 		ScreenSpaceDepthOffset = 0;
 		OrthoBlendActive = 1;
 	}
-	
+
 	if (LinkedActor)
 	{
 		LinkedActor->SetActorScale3D(GetActorScale3D());
 		LinkedActor->SetActorRotation(GetActorRotation());
 		LinkedActor->SetActorLocation(GetActorLocation());
 	}
-	
+
 	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
 	MulColor = FMath::Lerp(MulColor, MulFadeColor, MulFadeSpeed);
 
@@ -1881,8 +1912,10 @@ void ABattleObject::InitObject()
 	}
 	ObjectState->Parent = this;
 	ObjectState->Init();
-	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE, static_cast<float>(PosY) / COORD_SCALE);
-	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.GetLocation();
+	FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
+	                           static_cast<float>(PosY) / COORD_SCALE);
+	Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.
+		GetLocation();
 	SetActorLocation(Location);
 	SetActorRotation(GameState->BattleSceneTransform.GetRotation());
 	if (Direction == DIR_Left)
@@ -1896,20 +1929,20 @@ void ABattleObject::InitObject()
 }
 
 void ABattleObject::Update()
-{	
+{
 	CalculatePushbox();
 
 	if (!IsPlayer && StopLinkObj)
 	{
 		Hitstop = StopLinkObj->Hitstop;
 	}
-	
+
 	if (Hitstop > 0) //break if hitstop active.
 	{
 		Hitstop--;
 		return;
 	}
-	
+
 	if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
 	{
 		ResetObject();
@@ -1919,7 +1952,7 @@ void ABattleObject::Update()
 	if (IsPlayer)
 		if (Player->PlayerFlags & PLF_IsThrowLock)
 			return;
-	
+
 	if (Timer0 > 0)
 	{
 		--Timer0;
@@ -1933,11 +1966,11 @@ void ABattleObject::Update()
 
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
-		
+
 	Move();
 
 	GameState->SetScreenBounds();
-	
+
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
 		if (!IsPlayer)
@@ -1951,13 +1984,13 @@ void ABattleObject::Update()
 		{
 			ObjectState->Init();
 		}
-		
+
 		ObjectState->CallExec();
 		TriggerEvent(EVT_Update);
 		TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
-		
+
 
 		GameState->SetScreenBounds();
 		ActionTime++;
@@ -1975,7 +2008,7 @@ void ABattleObject::ResetObject()
 {
 	if (IsPlayer)
 		return;
-	
+
 	if (IsValid(LinkedParticle))
 	{
 		LinkedParticle->Deactivate();
@@ -2001,7 +2034,7 @@ void ABattleObject::ResetObject()
 	PushHeight = 0;
 	PushHeightLow = 0;
 	PushWidth = 0;
-	PushWidthExtend  = 0;
+	PushWidthExtend = 0;
 	Hitstop = 0;
 	L = 0;
 	R = 0;
@@ -2073,10 +2106,10 @@ void ABattleObject::ResetObject()
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
 	ObjectScale = FVector::OneVector;
-	AddColor = FLinearColor(0,0,0,1);
-	MulColor = FLinearColor(1,1,1,1);
-	AddFadeColor = FLinearColor(0,0,0,1);
-	MulFadeColor = FLinearColor(1,1,1,1);
+	AddColor = FLinearColor(0, 0, 0, 1);
+	MulColor = FLinearColor(1, 1, 1, 1);
+	AddFadeColor = FLinearColor(0, 0, 0, 1);
+	MulFadeColor = FLinearColor(1, 1, 1, 1);
 	AddFadeSpeed = 0;
 	MulFadeSpeed = 0;
 	ObjectsToIgnoreHitsFrom.Empty();
@@ -2207,7 +2240,7 @@ void ABattleObject::SetBlendCelName(FGameplayTag InName)
 {
 	BlendCelName = InName;
 	FrameBlendPosition = 0;
-	
+
 	GetBoxes();
 }
 
@@ -2298,11 +2331,13 @@ int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType
 		Actor2->PosTypeToPosition(Pos2, &PosX2, &PosY2);
 
 		int32 ObjDist;
-		
+
 		switch (Type)
 		{
 		case DIST_Distance:
-			ObjDist = isqrt(static_cast<int64>(PosX2 - PosX1) * static_cast<int64>(PosX2 - PosX1) + static_cast<int64>(PosY2 - PosY1) * static_cast<int64>(PosY2 - PosY1));
+			ObjDist = isqrt(
+				static_cast<int64>(PosX2 - PosX1) * static_cast<int64>(PosX2 - PosX1) + static_cast<int64>(PosY2 -
+					PosY1) * static_cast<int64>(PosY2 - PosY1));
 			break;
 		case DIST_DistanceX:
 			ObjDist = abs(PosX2 - PosX1);
@@ -2341,7 +2376,7 @@ int32 ABattleObject::CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, E
 
 		Actor1->PosTypeToPosition(Pos1, &PosX1, &PosY1);
 		Actor2->PosTypeToPosition(Pos2, &PosX2, &PosY2);
-		
+
 		const auto X = abs(PosX2 - PosX1);
 		const auto Y = PosY2 - PosY1;
 
@@ -2409,7 +2444,7 @@ void ABattleObject::EnableHit(bool Enabled)
 		AttackFlags &= ~ATK_HitActive;
 	}
 	AttackFlags &= ~ATK_HasHit;
-	
+
 	if (!IsPlayer)
 	{
 		SetProjectileAttribute(true);
@@ -2563,8 +2598,10 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
-				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
-				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
+					BattleSceneTransform.GetLocation();
+				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+					this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
@@ -2596,8 +2633,10 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 				int32 TmpPosY;
 				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
-				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->BattleSceneTransform.GetLocation();
-				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
+					BattleSceneTransform.GetLocation();
+				UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+					this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
 				NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
 				NiagaraComponent->SetDesiredAge(0);
@@ -2671,7 +2710,7 @@ AActor* ABattleObject::LinkActor(FGameplayTag Name)
 	if (!GameState) return nullptr;
 	if (IsPlayer)
 		return nullptr;
-	
+
 	RemoveLinkActor();
 	for (auto& Container : Player->StoredLinkActors)
 	{
@@ -2889,12 +2928,12 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 }
 
 ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset,
-	EPosType PosType)
+                                                    EPosType PosType)
 {
 	if (!GameState) return nullptr;
 	const int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
 	if (StateIndex != INDEX_NONE)
-	{		
+	{
 		int32 FinalPosX, FinalPosY;
 		if (Direction == DIR_Left)
 			PosXOffset = -PosXOffset;
@@ -2903,12 +2942,13 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, in
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
-			FinalPosX, FinalPosY, Direction, StateIndex, true, Player);
+		                                  FinalPosX, FinalPosY, Direction, StateIndex, true, Player);
 	}
 	return nullptr;
 }
 
-ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset, EPosType PosType)
+ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset,
+                                              EPosType PosType)
 {
 	if (!GameState) return nullptr;
 	const int StateIndex = Player->ObjectStateNames.Find(InStateName);
@@ -2922,7 +2962,7 @@ ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 Po
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->ObjectStates[StateIndex],
-			FinalPosX, FinalPosY, Direction, StateIndex, false, Player);
+		                                  FinalPosX, FinalPosY, Direction, StateIndex, false, Player);
 	}
 	return nullptr;
 }

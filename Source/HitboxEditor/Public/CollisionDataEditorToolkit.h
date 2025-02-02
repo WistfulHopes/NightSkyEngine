@@ -8,7 +8,6 @@
 #include "Widgets/Text/STextBlock.h"
 #include "PropertyCustomizationHelpers.h"
 #include "Data/CollisionData.h"
-#include "Widgets/Input/SSlider.h"
 #include "HitboxHandler.h"
 
 class APlayerObject;
@@ -43,7 +42,7 @@ class HITBOXEDITOR_API FCollisionDataEditorToolkit : public FAssetEditorToolkit
 {
 public:
     FCollisionDataEditorToolkit();
-    virtual ~FCollisionDataEditorToolkit();
+    virtual ~FCollisionDataEditorToolkit() override;
 
     // Move some of these to private
 
@@ -64,14 +63,10 @@ public:
     TSharedRef<SDockTab> SpawnTab_CollisionDataDetails(const FSpawnTabArgs& Args);
     TSharedRef<SDockTab> SpawnTab_PlayerObjectSelector(const FSpawnTabArgs& Args);
     TSharedRef<SDockTab> SpawnTab_ViewportTab(const FSpawnTabArgs& Args);
-    TSharedRef<SDockTab> SpawnTab_Timeline(const FSpawnTabArgs& Args);
+    TSharedRef<SDockTab> SpawnTab_HandlerTab(const FSpawnTabArgs& Args);
 
     // Do I need to initialize a scene?
     void InitializePreviewScene();
-    void OnNumericEntryBox_XPos_Changed(int i);
-    TOptional<int32> GetCurrentXPos() const;
-
-    void InitializeAnimationTimeline();
 
     // Accessors
     // Get current animation name
@@ -86,48 +81,32 @@ private:
     TSharedPtr<FHitboxAnimationPreviewScene> PreviewScene;
     TSharedPtr<SHitboxAnimationViewport> PreviewViewportWidget;
 
-    // As of now CollisionData and AnimationData are not not strictly tied
+    // As of now CollisionData and AnimationData are not strictly tied
     // We need a way to get cel names from animations, or display states in the viewport somehow
     // And connect them to the collision data
     // I think animname_framenumber is a good cel naming scheme that we could make automatic
-    UCollisionData* CollisionData;
-    TArray<TSharedPtr<FGameplayTag>> StateNames;
-    TSharedPtr<SComboBox<TSharedPtr<FGameplayTag>>> StateNameComboBox;  // Combo box for selecting an animation data struct
-    TSharedPtr<STextBlock> NameDisplayTextBlock;  // Text block for displaying the current cel and animation names
-    FGameplayTag SelectedState;  // The name of the selected animation data asset, based on key in the AnimDatas map
+    UCollisionData* CollisionData{};
+    TArray<TSharedPtr<FGameplayTag>> CelNames;
+    TSharedPtr<SComboBox<TSharedPtr<FGameplayTag>>> CelNameComboBox;  // Combo box for selecting an animation data struct
+    FGameplayTag SelectedCel;  // The name of the selected animation data asset, based on key in the AnimDatas map
     UClass* PlayerObjectClass = nullptr;  // The selected player object class
     APlayerObject* PlayerObject {};  // The current player object
-    FText CurrentFrame = FText::FromString("0");  // The current frame of the animation sequence
-    float MaxCelCount;
 
     //Timeline
-    TSharedPtr<SSlider> TimelineSlider;  // Slider for selecting the frame of the animation sequence
-    TSharedPtr<SButton> PreviousButton;
-    TSharedPtr<SButton> NextButton;
     TSharedPtr<FHitboxHandler> HitboxHandler;
 
     // A cool feature that is a long way off would be a button to automatically place initial hitboxes
     // This would be based on bone positions in the designated cel frame, if that is possible
 
     void InitializeStateNameComboBox();
-    void UpdateStateNameComboBox();
-    void OnStateNameSelected(TSharedPtr<FGameplayTag> SelectedItem, ESelectInfo::Type SelectInfo);
+    void OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem, ESelectInfo::Type SelectInfo);
     TSharedRef<SWidget> MakeAnimationNameWidget(TSharedPtr<FGameplayTag> InItem);
 
     void OnPlayerObjectBPSelected(const UClass* Class);
     void InitializePlayerObjectBPPicker();
 
     FGameplayTag GetCurrentCelName() const;
-    FText GetCurrentNames() const;
-
-    FReply OnUpdateNamesClicked();
-
-    int32 CurrentFrameFromTimeline() const;
-    int32 GetTotalFrames() const; // Implement
-    void OnTimelineValueChanged(float NewValue);
-    FReply OnPreviousClick();
-    FReply OnNextClick();
-
+    
     void UpdateAnimationPlayback(int32 frame);
 
 protected:

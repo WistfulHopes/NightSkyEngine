@@ -1,8 +1,6 @@
 #include "AssetTypeActions_CollisionData.h"
 #include "CollisionDataEditorToolkit.h"
 #include "Toolkits/IToolkit.h"
-#include "AssetTypeCategories.h"
-#include "EditorStyleSet.h"
 #include "Math/Color.h"
 #include "Internationalization/Internationalization.h" // included to use LOCTEXT
 

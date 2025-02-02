@@ -655,6 +655,9 @@ public:
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
+	//checks if invulnerable
+	UFUNCTION(BlueprintPure)
+	bool IsInvulnerable() const;
 	//sets strike invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetStrikeInvulnerable(bool Invulnerable);

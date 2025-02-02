@@ -46,8 +46,8 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 	// Set up viewport
 	InitializePreviewScene();
 
-	// Set up the animation timeline
-	InitializeAnimationTimeline();
+	HitboxHandler = MakeShareable(new FHitboxHandler());
+	HitboxHandler->Init();
 
 	// Define the layout
 	const TSharedRef<FTabManager::FLayout> StandaloneLayout = FTabManager::NewLayout(
@@ -71,7 +71,7 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 				->Split
 				(
 					FTabManager::NewStack()
-					->AddTab("TimelineTab", ETabState::OpenedTab)
+					->AddTab("HandlerTab", ETabState::OpenedTab)
 					->SetSizeCoefficient(0.2f)
 				)
 			)
@@ -130,28 +130,6 @@ FGameplayTag FCollisionDataEditorToolkit::GetCurrentCelName() const
 	return FGameplayTag::EmptyTag;
 }
 
-FText FCollisionDataEditorToolkit::GetCurrentNames() const
-{
-	if (NameDisplayTextBlock.IsValid())
-	{
-		// Generate the new text based on current data
-		FString CurrentCelName = GetCurrentCelName().ToString();
-		FText NewText = FText::Format(
-			LOCTEXT("CurrentNamesFormat", "Cel: {0}"), FText::FromString(CurrentCelName));
-
-		// Update the text block
-		return NewText;
-	}
-	return LOCTEXT("NoNames", "No names available");
-}
-
-FReply FCollisionDataEditorToolkit::OnUpdateNamesClicked()
-{
-	NameDisplayTextBlock->SetText(GetCurrentNames());
-
-	return FReply::Handled();
-}
-
 void FCollisionDataEditorToolkit::OnClose()
 {
 	FAssetEditorToolkit::OnClose();
@@ -160,10 +138,14 @@ void FCollisionDataEditorToolkit::OnClose()
 void FCollisionDataEditorToolkit::InitializeStateNameComboBox()
 {
 	// Add a single blank entry to AnimStructNames as a placeholder
-	StateNames.Add(MakeShared<FGameplayTag>(FGameplayTag::EmptyTag));
-	SAssignNew(StateNameComboBox, SComboBox<TSharedPtr<FGameplayTag>>)
-	.OptionsSource(&StateNames)
-	.OnSelectionChanged(this, &FCollisionDataEditorToolkit::OnStateNameSelected)
+	for (auto Frame : CollisionData->CollisionFrames)
+	{
+		CelNames.Add(MakeShared<FGameplayTag>(Frame.CelName));
+	}
+	
+	SAssignNew(CelNameComboBox, SComboBox<TSharedPtr<FGameplayTag>>)
+	.OptionsSource(&CelNames)
+	.OnSelectionChanged(this, &FCollisionDataEditorToolkit::OnCelNameSelected)
 	.OnGenerateWidget(this, &FCollisionDataEditorToolkit::MakeAnimationNameWidget)
 	[
 		SNew(STextBlock)
@@ -171,27 +153,13 @@ void FCollisionDataEditorToolkit::InitializeStateNameComboBox()
 	];
 }
 
-void FCollisionDataEditorToolkit::UpdateStateNameComboBox()
-{
-	if (!PlayerObject || PlayerObject->StoredStateMachine.States.Num() == 0)
-	StateNames.Add(MakeShared<FGameplayTag>(FGameplayTag::EmptyTag));
-
-	StateNameComboBox->RefreshOptions();
-}
-
-void FCollisionDataEditorToolkit::OnStateNameSelected(TSharedPtr<FGameplayTag> SelectedItem,
-                                                      ESelectInfo::Type SelectInfo)
+void FCollisionDataEditorToolkit::OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem,
+                                                    ESelectInfo::Type SelectInfo)
 {
 	if (SelectedItem.IsValid() && SelectedItem->IsValid())
 	{
-		SelectedState = *SelectedItem.Get();
-		PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
-		PlayerObject->StoredStateMachine.Update();
-		MaxCelCount = PlayerObject->StoredStateMachine.CurrentState->CelIndex;
-
-		//Update HitboxHandler
-		HitboxHandler->SetHitboxData(CollisionData->GetByCelName(GetCurrentCelName()).Boxes);
-		OnUpdateNamesClicked();
+		SelectedCel = *SelectedItem.Get();
+		PlayerObject->SetCelName(SelectedCel);
 	}
 }
 
@@ -206,22 +174,8 @@ void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
 	if (!Class) return;
 	PlayerObjectClass = const_cast<UClass*>(Class);
 	PlayerObject = PreviewScene->SetPlayerObject(Class);
-	PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
-	PlayerObject->StoredStateMachine.Update();
-	if (PlayerObject->StoredStateMachine.CurrentState)
-	{
-		MaxCelCount = PlayerObject->StoredStateMachine.CurrentState->CelIndex;
-	}
+	PlayerObject->SetCelName(SelectedCel);
 	UE_LOG(LogHitboxEditor, Log, TEXT("Selected PlayerObject: %s"), *PlayerObject->GetName());
-	StateNames.Empty();
-	for (const auto& StateName : PlayerObject->StoredStateMachine.StateNames)
-	{
-		StateNames.Add(MakeShared<FGameplayTag>(StateName));
-	}
-	UpdateStateNameComboBox();
-
-	HitboxHandler->SetHitboxData(CollisionData->GetByCelName(GetCurrentCelName()).Boxes);
-	OnUpdateNamesClicked();
 }
 
 TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_CollisionDataDetails(const FSpawnTabArgs& Args)
@@ -260,7 +214,7 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_PlayerObjectSelector(
 				SNew(SBorder)
 				.Padding(4)
 				[
-					StateNameComboBox.ToSharedRef()
+					CelNameComboBox.ToSharedRef()
 				]
 			]
 		];
@@ -280,49 +234,16 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_ViewportTab(const FSp
 		];
 }
 
-TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_Timeline(const FSpawnTabArgs& Args)
+TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_HandlerTab(const FSpawnTabArgs& Args)
 {
-	// If text block is not initialized, make a placeholder value
-	if (!NameDisplayTextBlock.IsValid())
-	{
-		NameDisplayTextBlock = SNew(STextBlock)
-			.Text(LOCTEXT("NoNames", "No names available"));
-	}
-
 	return SNew(SDockTab)
-		.Label(LOCTEXT("TimelineTabLabel", "Timeline"))
+		.Label(LOCTEXT("HandlerTabLabel", "Collision Handler"))
 		.TabRole(ETabRole::PanelTab)
 		[
 			SNew(SBorder)
 			.Padding(4)
 			[
 				SNew(SHorizontalBox)
-				//This slot will take 3/4 of the horizontal space
-				+ SHorizontalBox::Slot()
-				[
-					SNew(SHorizontalBox)
-					+ SHorizontalBox::Slot().AutoWidth()
-					[
-						PreviousButton.ToSharedRef()
-					]
-					+ SHorizontalBox::Slot().FillWidth(1.0f)
-					[
-						TimelineSlider.ToSharedRef()
-					]
-					+ SHorizontalBox::Slot().AutoWidth()
-					[
-						NextButton.ToSharedRef()
-					]
-					+ SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center)
-					[
-						SNew(STextBlock).Text(FText::FromString("Cel Index: "))
-					]
-					+ SHorizontalBox::Slot().AutoWidth().VAlign(VAlign_Center)
-					[
-						SNew(STextBlock).Text_Lambda([this]()-> FText { return CurrentFrame; })
-					]
-				]
-
 				//BoxControls
 				+ SHorizontalBox::Slot()
 				.AutoWidth()
@@ -419,13 +340,6 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_Timeline(const FSpawn
 									HitboxHandler->IncreaseIndexButton.ToSharedRef()
 								]
 							]
-							+ SVerticalBox::Slot()
-							.FillHeight(1.0f)
-							.HAlign(HAlign_Right)
-							[
-								SAssignNew(NameDisplayTextBlock, STextBlock)
-								// Store the reference when creating the widget
-							]
 						]
 					]
 				]
@@ -433,99 +347,9 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_Timeline(const FSpawn
 		];
 }
 
-
-void FCollisionDataEditorToolkit::InitializeAnimationTimeline()
-{
-	SAssignNew(TimelineSlider, SSlider)
-	                                   .Orientation(Orient_Horizontal)
-	                                   .Value(0.0f) // 0.0f by default
-	                                   .OnValueChanged(this, &FCollisionDataEditorToolkit::OnTimelineValueChanged);
-
-	// Create left and right buttons
-	SAssignNew(PreviousButton, SButton)
-	.VAlign(VAlign_Center)
-	.Text(FText::FromString("<"))
-	.OnClicked(this, &FCollisionDataEditorToolkit::OnPreviousClick);
-
-	SAssignNew(NextButton, SButton)
-	.VAlign(VAlign_Center)
-	.Text(FText::FromString(">"))
-	.OnClicked(this, &FCollisionDataEditorToolkit::OnNextClick);
-
-	HitboxHandler = MakeShareable(new FHitboxHandler());
-	HitboxHandler->Init();
-}
-
 FText FCollisionDataEditorToolkit::GetSelectedState() const
 {
-	return FText::FromString(SelectedState.ToString());
-}
-
-int32 FCollisionDataEditorToolkit::CurrentFrameFromTimeline() const
-{
-	return FMath::RoundToInt(TimelineSlider->GetValue() * MaxCelCount);
-}
-
-// Set the current frame based on the slider value and update the animation playback
-void FCollisionDataEditorToolkit::OnTimelineValueChanged(float NewValue)
-{
-	if (PlayerObject)
-	{
-		PlayerObject->TimeUntilNextCel = FMath::Lerp(PlayerObject->MaxCelTime, 0, NewValue);
-	}
-}
-
-FReply FCollisionDataEditorToolkit::OnPreviousClick()
-{
-	UE_LOG(LogHitboxEditor, Display, TEXT("Previous button clicked."));
-	if (!PlayerObject) return FReply::Handled();
-
-
-	PlayerObject->CelIndex--;
-	if (PlayerObject->CelIndex < 0) PlayerObject->StoredStateMachine.ForceSetState(SelectedState);
-	else
-	{
-		PlayerObject->TimeUntilNextCel = 0;
-		PlayerObject->StoredStateMachine.Update();
-	}
-
-	CurrentFrame = FText::FromString(FString::FromInt(PlayerObject->CelIndex));
-
-	const FGameplayTag CurrentCelName = GetCurrentCelName();
-	if (!CurrentCelName.IsValid())
-	{
-		UE_LOG(LogHitboxEditor, Error, TEXT("CurrentCelName is None"));
-		return FReply::Handled();
-	}
-
-	HitboxHandler->SetHitboxData(CollisionData->GetByCelName(CurrentCelName).Boxes);
-	OnUpdateNamesClicked();
-	return FReply::Handled();
-}
-
-FReply FCollisionDataEditorToolkit::OnNextClick()
-{
-	UE_LOG(LogHitboxEditor, Display, TEXT("Next button clicked."));
-	if (!PlayerObject) return FReply::Handled();
-	if (PlayerObject->CelIndex >= MaxCelCount) return FReply::Handled();
-
-	PlayerObject->CelIndex++;
-	PlayerObject->TimeUntilNextCel = 0;
-	PlayerObject->StoredStateMachine.Update();
-
-	CurrentFrame = FText::FromString(FString::FromInt(PlayerObject->CelIndex));
-
-	const FGameplayTag CurrentCelName = GetCurrentCelName();
-	UE_LOG(LogHitboxEditor, Display, TEXT("CurrentCelName: %s"), *CurrentCelName.ToString());
-	if (!CurrentCelName.IsValid())
-	{
-		UE_LOG(LogHitboxEditor, Error, TEXT("CurrentCelName is None"));
-		return FReply::Handled();
-	}
-	HitboxHandler->SetHitboxData(CollisionData->GetByCelName(CurrentCelName).Boxes);
-	OnUpdateNamesClicked();
-
-	return FReply::Handled();
+	return FText::FromString(SelectedCel.ToString());
 }
 
 // Code to set the animation to a specific frames
@@ -602,9 +426,9 @@ void FCollisionDataEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManag
 	            .SetDisplayName(LOCTEXT("ViewportTab", "Viewport"))
 	            .SetGroup(WorkspaceMenuCategory.ToSharedRef());
 
-	InTabManager->RegisterTabSpawner("TimelineTab",
-	                                 FOnSpawnTab::CreateSP(this, &FCollisionDataEditorToolkit::SpawnTab_Timeline))
-	            .SetDisplayName(LOCTEXT("TimelineTab", "Timeline"))
+	InTabManager->RegisterTabSpawner("HandlerTab",
+	                                 FOnSpawnTab::CreateSP(this, &FCollisionDataEditorToolkit::SpawnTab_HandlerTab))
+	            .SetDisplayName(LOCTEXT("HandlerTab", "Collision Handler"))
 	            .SetGroup(WorkspaceMenuCategory.ToSharedRef());
 }
 
@@ -615,7 +439,7 @@ void FCollisionDataEditorToolkit::UnregisterTabSpawners(const TSharedRef<FTabMan
 	InTabManager->UnregisterTabSpawner("CollisionDataDetailsTab");
 	InTabManager->UnregisterTabSpawner("PlayerObjectSelectorTab");
 	InTabManager->UnregisterTabSpawner("ViewportTab");
-	InTabManager->UnregisterTabSpawner("TimelineTab");
+	InTabManager->UnregisterTabSpawner("HandlerTab");
 }
 
 #undef LOCTEXT_NAMESPACE
