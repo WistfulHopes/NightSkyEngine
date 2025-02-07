@@ -3108,10 +3108,9 @@ void APlayerObject::SetDefaultLandingAction(bool Enable)
 
 bool APlayerObject::IsInvulnerable() const
 {
-	return InvulnFlags & INV_StrikeInvulnerable && !StrikeInvulnerableTimer && (!(AttackFlags & ATK_AttackHeadAttribute
-		&&
-		InvulnFlags & INV_HeadInvulnerable) && !(AttackFlags & ATK_AttackProjectileAttribute
-		&& InvulnFlags & INV_ProjectileInvulnerable));
+	return InvulnFlags & INV_StrikeInvulnerable || StrikeInvulnerableTimer || (AttackFlags & ATK_AttackHeadAttribute
+		&& InvulnFlags & INV_HeadInvulnerable) || (AttackFlags & ATK_AttackProjectileAttribute && InvulnFlags &
+		INV_ProjectileInvulnerable);
 }
 
 void APlayerObject::SetStrikeInvulnerable(bool Invulnerable)
