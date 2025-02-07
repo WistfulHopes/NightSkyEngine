@@ -159,7 +159,7 @@ void FCollisionDataEditorToolkit::OnCelNameSelected(TSharedPtr<FGameplayTag> Sel
 	if (SelectedItem.IsValid() && SelectedItem->IsValid())
 	{
 		SelectedCel = *SelectedItem.Get();
-		PlayerObject->SetCelName(SelectedCel);
+		if (PlayerObject) PlayerObject->SetCelName(SelectedCel);
 	}
 }
 
