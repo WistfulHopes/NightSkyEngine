@@ -6,17 +6,17 @@
 #include "SCommonEditorViewportToolbarBase.h"
 
 class UAnimationAsset;
-class FHitboxAnimationPreviewScene;
+class FCollisionAnimationPreviewScene;
 class FCollisionDataEditorToolkit;
 
 // Define the viewport client
-class FHitboxAnimationViewportClient : public FEditorViewportClient
+class FCollisionAnimationViewportClient : public FEditorViewportClient
 {
 public:
-    FHitboxAnimationViewportClient(const TSharedRef<SEditorViewport>& InEditorViewport, const TSharedRef<FAdvancedPreviewScene>& InPreviewScene);
+    FCollisionAnimationViewportClient(const TSharedRef<SEditorViewport>& InEditorViewport, const TSharedRef<FAdvancedPreviewScene>& InPreviewScene);
     virtual void Tick(float DeltaSeconds) override;
     
-    virtual ~FHitboxAnimationViewportClient();
+    virtual ~FCollisionAnimationViewportClient();
 
     /*FRenderTarget* GetRenderTarget() { return Viewport->GetRenderTargetTexture(); }
     FSceneInterface* GetScene() const { return (FSceneInterface*)(GetWorld()->Scene); }*/

@@ -13,7 +13,7 @@ public class NightSkyEngineEditorTarget : TargetRules
 
 		ExtraModuleNames.AddRange( new string[] {
 			"NightSkyEngine",
-            "HitboxEditor",
+            "CollisionEditor",
         });
 	}
 }

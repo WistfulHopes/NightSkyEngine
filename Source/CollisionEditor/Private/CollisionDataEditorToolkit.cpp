@@ -3,8 +3,8 @@
 #include "Battle/Actors/PlayerObject.h"
 #include "Data/CollisionData.h"
 #include "Editor/PropertyEditor/Public/PropertyEditorModule.h"
-#include "Viewport/HitboxAnimationPreviewScene.h"
-#include "Viewport/HitboxAnimationViewport.h"
+#include "Viewport/CollisionAnimationPreviewScene.h"
+#include "Viewport/CollisionAnimationViewport.h"
 #include "Widgets/Docking/SDockTab.h"
 #include "Widgets/Layout/SBorder.h"
 #include "Widgets/Text/STextBlock.h"
@@ -46,9 +46,6 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 	// Set up viewport
 	InitializePreviewScene();
 
-	HitboxHandler = MakeShareable(new FHitboxHandler());
-	HitboxHandler->Init();
-
 	// Define the layout
 	const TSharedRef<FTabManager::FLayout> StandaloneLayout = FTabManager::NewLayout(
 			"Standalone_CollisionDataEditor_Layout")
@@ -67,12 +64,6 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 					->AddTab("ViewportTab", ETabState::OpenedTab)
 					->SetHideTabWell(true)
 					->SetSizeCoefficient(0.8f)
-				)
-				->Split
-				(
-					FTabManager::NewStack()
-					->AddTab("HandlerTab", ETabState::OpenedTab)
-					->SetSizeCoefficient(0.2f)
 				)
 			)
 			->Split
@@ -105,7 +96,7 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 	else
 	{
 		// Handle the error condition here, e.g., log an error or assert
-		UE_LOG(LogHitboxEditor, Warning, TEXT("Toolkit host or tab manager is not valid."));
+		UE_LOG(LogCollisionEditor, Warning, TEXT("Toolkit host or tab manager is not valid."));
 	}
 
 	InitAssetEditor(Mode, InitToolkitHost, FName("CollisionDataEditorApp"), StandaloneLayout, true, true,
@@ -175,7 +166,7 @@ void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
 	PlayerObjectClass = const_cast<UClass*>(Class);
 	PlayerObject = PreviewScene->SetPlayerObject(Class);
 	PlayerObject->SetCelName(SelectedCel);
-	UE_LOG(LogHitboxEditor, Log, TEXT("Selected PlayerObject: %s"), *PlayerObject->GetName());
+	UE_LOG(LogCollisionEditor, Log, TEXT("Selected PlayerObject: %s"), *PlayerObject->GetName());
 }
 
 TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_CollisionDataDetails(const FSpawnTabArgs& Args)
@@ -234,119 +225,6 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_ViewportTab(const FSp
 		];
 }
 
-TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_HandlerTab(const FSpawnTabArgs& Args)
-{
-	return SNew(SDockTab)
-		.Label(LOCTEXT("HandlerTabLabel", "Collision Handler"))
-		.TabRole(ETabRole::PanelTab)
-		[
-			SNew(SBorder)
-			.Padding(4)
-			[
-				SNew(SHorizontalBox)
-				//BoxControls
-				+ SHorizontalBox::Slot()
-				.AutoWidth()
-				.MaxWidth(300)
-				.HAlign(HAlign_Right)
-				.Padding(3)
-				[
-					SNew(SVerticalBox)
-					+ SVerticalBox::Slot().AutoHeight().Padding(3)
-					[
-						SNew(SHorizontalBox)
-						+ SHorizontalBox::Slot().MaxWidth(80.0f)
-						[
-							SNew(STextBlock).Text(FText::FromString("X Position: "))
-						]
-						+ SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth()
-						[
-							HitboxHandler->NumericEntryBox_XPos.ToSharedRef()
-						]
-					]
-					+ SVerticalBox::Slot().AutoHeight().Padding(3)
-					[
-						SNew(SHorizontalBox)
-						+ SHorizontalBox::Slot().MaxWidth(80.0f)
-						[
-							SNew(STextBlock).Text(FText::FromString("Y Position: "))
-						]
-						+ SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth()
-						[
-							HitboxHandler->NumericEntryBox_YPos.ToSharedRef()
-						]
-					]
-					+ SVerticalBox::Slot().AutoHeight().Padding(3)
-					[
-						SNew(SHorizontalBox)
-						+ SHorizontalBox::Slot().MaxWidth(80.0f)
-						[
-							SNew(STextBlock).Text(FText::FromString("X Size: "))
-						]
-						+ SHorizontalBox::Slot().MaxWidth(100.0f).AutoWidth()
-						[
-							HitboxHandler->NumericEntryBox_XSize.ToSharedRef()
-						]
-					]
-					+ SVerticalBox::Slot().AutoHeight().Padding(3)
-					[
-						SNew(SHorizontalBox)
-						+ SHorizontalBox::Slot().MaxWidth(80.0f)
-						[
-							SNew(STextBlock).Text(FText::FromString("Y Size: "))
-						]
-						+ SHorizontalBox::Slot().AutoWidth()
-						[
-							HitboxHandler->NumericEntryBox_YSize.ToSharedRef()
-						]
-					]
-
-					//Button
-					+ SVerticalBox::Slot()
-					.VAlign(VAlign_Bottom)
-					[
-						SNew(SVerticalBox)
-						+ SVerticalBox::Slot()
-						.FillHeight(1.0f)
-						.Padding(4)
-						+ SVerticalBox::Slot()
-						.AutoHeight()
-						.Padding(4)
-						[
-							SNew(SVerticalBox)
-							+ SVerticalBox::Slot()
-							.FillHeight(1.0f)
-							.HAlign(HAlign_Center)
-							[
-								SNew(SHorizontalBox)
-								+ SHorizontalBox::Slot()
-								.AutoWidth()
-								[
-									SNew(STextBlock).Text_Lambda([this]()-> FText
-									{
-										return FText::FromString(
-											"Hitbox Number: " + FString::FromInt(
-												HitboxHandler->CurrentHitboxIndex));
-									})
-								]
-								+ SHorizontalBox::Slot()
-								.AutoWidth()
-								[
-									HitboxHandler->DecreaseIndexButton.ToSharedRef()
-								]
-								+ SHorizontalBox::Slot()
-								.AutoWidth()
-								[
-									HitboxHandler->IncreaseIndexButton.ToSharedRef()
-								]
-							]
-						]
-					]
-				]
-			]
-		];
-}
-
 FText FCollisionDataEditorToolkit::GetSelectedState() const
 {
 	return FText::FromString(SelectedCel.ToString());
@@ -365,7 +243,7 @@ void FCollisionDataEditorToolkit::InitializePreviewScene()
 {
 	if (!PreviewScene.IsValid())
 	{
-		PreviewScene = MakeShareable(new FHitboxAnimationPreviewScene(
+		PreviewScene = MakeShareable(new FCollisionAnimationPreviewScene(
 			FPreviewScene::ConstructionValues()
 			.AllowAudioPlayback(false)
 			.ShouldSimulatePhysics(false)
@@ -373,7 +251,7 @@ void FCollisionDataEditorToolkit::InitializePreviewScene()
 		));
 	}
 
-	PreviewViewportWidget = SNew(SHitboxAnimationViewport, SharedThis(this), PreviewScene);
+	PreviewViewportWidget = SNew(SCollisionAnimationViewport, SharedThis(this), PreviewScene);
 }
 
 FName FCollisionDataEditorToolkit::GetToolkitFName() const
@@ -403,7 +281,7 @@ FLinearColor FCollisionDataEditorToolkit::GetWorldCentricTabColorScale() const
 
 void FCollisionDataEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManager>& InTabManager)
 {
-	UE_LOG(LogHitboxEditor, Warning, TEXT("Registering Tab Spawners"));
+	UE_LOG(LogCollisionEditor, Warning, TEXT("Registering Tab Spawners"));
 	WorkspaceMenuCategory = InTabManager->AddLocalWorkspaceMenuCategory(
 		LOCTEXT("WorkspaceMenu_CollisionDataEditor", "Collision Data Editor"));
 
@@ -425,11 +303,6 @@ void FCollisionDataEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManag
 	                                 FOnSpawnTab::CreateSP(this, &FCollisionDataEditorToolkit::SpawnTab_ViewportTab))
 	            .SetDisplayName(LOCTEXT("ViewportTab", "Viewport"))
 	            .SetGroup(WorkspaceMenuCategory.ToSharedRef());
-
-	InTabManager->RegisterTabSpawner("HandlerTab",
-	                                 FOnSpawnTab::CreateSP(this, &FCollisionDataEditorToolkit::SpawnTab_HandlerTab))
-	            .SetDisplayName(LOCTEXT("HandlerTab", "Collision Handler"))
-	            .SetGroup(WorkspaceMenuCategory.ToSharedRef());
 }
 
 void FCollisionDataEditorToolkit::UnregisterTabSpawners(const TSharedRef<FTabManager>& InTabManager)
@@ -439,7 +312,6 @@ void FCollisionDataEditorToolkit::UnregisterTabSpawners(const TSharedRef<FTabMan
 	InTabManager->UnregisterTabSpawner("CollisionDataDetailsTab");
 	InTabManager->UnregisterTabSpawner("PlayerObjectSelectorTab");
 	InTabManager->UnregisterTabSpawner("ViewportTab");
-	InTabManager->UnregisterTabSpawner("HandlerTab");
 }
 
 #undef LOCTEXT_NAMESPACE

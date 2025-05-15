@@ -2,4 +2,4 @@
 
 #include "Logging.h"
 
-DEFINE_LOG_CATEGORY(LogHitboxEditor);
+DEFINE_LOG_CATEGORY(LogCollisionEditor);

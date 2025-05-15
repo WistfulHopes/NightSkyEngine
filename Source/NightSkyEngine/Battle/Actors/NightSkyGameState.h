@@ -8,6 +8,7 @@
 #include "GameFramework/GameStateBase.h"
 #include "include/ggponet.h"
 #include "NightSkyEngine/Battle/RandomManager.h"
+#include "NightSkyEngine/UI/NightSkyBattleWidget.h"
 #include "NightSkyGameState.generated.h"
 
 class UBattleExtensionData;
@@ -162,7 +163,7 @@ struct FScreenData
 	bool bTouchingWorldSide;
 
 	void AddTargetObj(ABattleObject* InTarget);
-	void RemoveTargetObj(ABattleObject* InTarget);
+	void RemoveTargetObj(const ABattleObject* InTarget);
 };
 
 USTRUCT(BlueprintType)
@@ -255,6 +256,7 @@ struct FBPRollbackData
 	TArray<TArray<uint8>> PlayerData;
 	TArray<TArray<uint8>> StateData;
 	TArray<TArray<uint8>> ExtensionData;
+	TArray<TArray<FRollbackAnimation>> WidgetAnimationData;
 
 	void Serialize(FArchive& Ar);
 };

@@ -7,7 +7,7 @@
 #include "Modules/ModuleManager.h"
 
 
-class HITBOXEDITOR_API FHitboxEditor : public IModuleInterface
+class COLLISIONEDITOR_API FCollisionEditor : public IModuleInterface
 {
 public:
 
@@ -20,7 +20,7 @@ private:
 	// Do we need to store a reference to the specific asset type actions?
 	// Or do we create a new instance when we unregister?
 
-	EAssetTypeCategories::Type HitboxAssetCategoryBit;
+	EAssetTypeCategories::Type CollisionAssetCategoryBit;
 
 	void RegisterAssetTools();
 

@@ -6,6 +6,21 @@
 #include "Blueprint/UserWidget.h"
 #include "NightSkyBattleWidget.generated.h"
 
+USTRUCT(BlueprintType)
+struct FRollbackAnimation
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadWrite)
+	UWidgetAnimation* Anim;
+	
+	UPROPERTY(BlueprintReadWrite)
+	float Time;
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bPlaying;
+};
+
 /**
  * 
  */
@@ -45,4 +60,37 @@ public:
 	int Ping;
 	UPROPERTY(BlueprintReadOnly)
 	int RollbackFrames;
+
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FRollbackAnimation> WidgetAnimationRollback;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void RegisterAnimationsForRollback();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayHealthAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayRecoverableHealthAnim();
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayTimerAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayMeterAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayGaugeAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayRoundWinAnim(bool bIsP1);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayMatchWinAnim(bool bIsP1);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayComboCounterAnim();
+
+	void PlayStandardAnimations();
+	void RollbackAnimations();
 };

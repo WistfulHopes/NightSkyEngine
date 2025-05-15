@@ -2,15 +2,15 @@
 
 using UnrealBuildTool;
 
-public class HitboxEditor : ModuleRules
+public class CollisionEditor : ModuleRules
 {
-	public HitboxEditor(ReadOnlyTargetRules Target) : base(Target)
+	public CollisionEditor(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PrivateIncludePaths.AddRange(
             new string[] {
-                "HitboxEditor/Public",
+                "CollisionEditor/Public",
 				// Because the other way wasn't working for me, fix later
 				"NightSkyEngine"
             }

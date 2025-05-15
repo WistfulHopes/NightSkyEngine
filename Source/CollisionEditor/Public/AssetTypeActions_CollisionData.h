@@ -5,7 +5,7 @@
 #include "AssetTypeActions_Base.h"
 #include "Math/Color.h"
 
-class HITBOXEDITOR_API FAssetTypeActions_CollisionData : public FAssetTypeActions_Base
+class COLLISIONEDITOR_API FAssetTypeActions_CollisionData : public FAssetTypeActions_Base
 {
 public:
 

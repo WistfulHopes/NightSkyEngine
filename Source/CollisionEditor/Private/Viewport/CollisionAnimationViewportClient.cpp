@@ -1,7 +1,7 @@
-#include "Viewport/HitboxAnimationViewportClient.h"
+#include "Viewport/CollisionAnimationViewportClient.h"
 #include "AdvancedPreviewScene.h"
 
-FHitboxAnimationViewportClient::FHitboxAnimationViewportClient(const TSharedRef<SEditorViewport>& InEditorViewport, const TSharedRef<FAdvancedPreviewScene>& InPreviewScene)
+FCollisionAnimationViewportClient::FCollisionAnimationViewportClient(const TSharedRef<SEditorViewport>& InEditorViewport, const TSharedRef<FAdvancedPreviewScene>& InPreviewScene)
     : FEditorViewportClient(nullptr, &InPreviewScene.Get(), StaticCastSharedRef<SEditorViewport>(InEditorViewport))
 {
     AdvancedPreviewScene = static_cast<FAdvancedPreviewScene*>(PreviewScene);
@@ -21,7 +21,7 @@ FHitboxAnimationViewportClient::FHitboxAnimationViewportClient(const TSharedRef<
     SetViewModes(VMI_Lit, VMI_Lit);
 }
 
-void FHitboxAnimationViewportClient::Tick(float DeltaSeconds)
+void FCollisionAnimationViewportClient::Tick(float DeltaSeconds)
 {
     FEditorViewportClient::Tick(DeltaSeconds);
 
@@ -31,7 +31,7 @@ void FHitboxAnimationViewportClient::Tick(float DeltaSeconds)
     ViewFOV = 54;
 }
 
-FHitboxAnimationViewportClient::~FHitboxAnimationViewportClient()
+FCollisionAnimationViewportClient::~FCollisionAnimationViewportClient()
 {
     // Clean up code if necessary
 }

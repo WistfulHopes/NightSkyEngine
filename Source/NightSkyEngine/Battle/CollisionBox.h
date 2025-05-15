@@ -44,22 +44,22 @@ struct FCollisionBox
 	/**
 	 * X position.
 	 */
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(Delta=1000))
 	int32 PosX = 0;
 	/**
 	 * Y position.
 	 */
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(Delta=1000))
 	int32 PosY = 0;
 	/**
 	 * X size.
 	 */
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(Delta=1000))
 	int32 SizeX = 0;
 	/**
 	 * Y size.
 	 */
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(Delta=1000))
 	int32 SizeY = 0;
 
 	/**

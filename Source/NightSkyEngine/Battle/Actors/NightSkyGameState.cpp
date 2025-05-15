@@ -38,7 +38,7 @@ void FScreenData::AddTargetObj(ABattleObject* InTarget)
 	}
 }
 
-void FScreenData::RemoveTargetObj(ABattleObject* InTarget)
+void FScreenData::RemoveTargetObj(const ABattleObject* InTarget)
 {
 	if (TargetObjectCount <= 0) return;
 
@@ -363,7 +363,7 @@ void ANightSkyGameState::MatchInit()
 	}
 
 	BattleState = FBattleState();
-	BattleState = Cast<ANightSkyGameState>(GetClass()->ClassDefaultObject)->BattleState;
+	BattleState = Cast<ANightSkyGameState>(GetDefault<ANightSkyGameState>())->BattleState;
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
@@ -1586,6 +1586,21 @@ void ANightSkyGameState::UpdateHUD() const
 			}
 		}
 	}
+
+	BattleHudActor->TopWidget->PlayStandardAnimations();
+	BattleHudActor->BottomWidget->PlayStandardAnimations();
+	
+	for (auto& [Anim, Time, bPlaying] : BattleHudActor->TopWidget->WidgetAnimationRollback)
+	{
+		bPlaying = BattleHudActor->TopWidget->IsAnimationPlaying(Anim);
+		Time = BattleHudActor->TopWidget->GetAnimationCurrentTime(Anim);
+	}
+
+	for (auto& [Anim, Time, bPlaying] : BattleHudActor->BottomWidget->WidgetAnimationRollback)
+	{
+		bPlaying = BattleHudActor->BottomWidget->IsAnimationPlaying(Anim);
+		Time = BattleHudActor->BottomWidget->GetAnimationCurrentTime(Anim);
+	}
 }
 
 void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
@@ -2061,6 +2076,10 @@ void ANightSkyGameState::SaveGameState(int32* InChecksum)
 		BPRollbackData[BackupFrame].PlayerData.Add(Players[i]->SaveForRollbackBP());
 	}
 
+	BPRollbackData[BackupFrame].WidgetAnimationData.Empty();
+	BPRollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->TopWidget->WidgetAnimationRollback);
+	BPRollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->BottomWidget->WidgetAnimationRollback);
+	
 	*InChecksum = CreateChecksum();
 }
 
@@ -2099,6 +2118,13 @@ void ANightSkyGameState::LoadGameState()
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
+
+	BattleHudActor->TopWidget->WidgetAnimationRollback = BPRollbackData[CurrentRollbackFrame].WidgetAnimationData[0];
+	BattleHudActor->BottomWidget->WidgetAnimationRollback = BPRollbackData[CurrentRollbackFrame].WidgetAnimationData[1];
+
+	BattleHudActor->TopWidget->RollbackAnimations();
+	BattleHudActor->BottomWidget->RollbackAnimations();
+	
 	if (!FighterRunner->IsA(AFighterSynctestRunner::StaticClass()))
 		GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
 }

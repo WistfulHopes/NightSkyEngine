@@ -1,11 +1,11 @@
-#include "Viewport/HitboxAnimationPreviewScene.h"
+#include "Viewport/CollisionAnimationPreviewScene.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Data/CollisionData.h"
 #include "CollisionDataEditorToolkit.h"
 #include "DrawDebugHelpers.h"
 #include "Battle/Actors/PlayerObject.h"
 
-FHitboxAnimationPreviewScene::FHitboxAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit)
+FCollisionAnimationPreviewScene::FCollisionAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit)
     : FAdvancedPreviewScene(CVS), EditorPtr(EditorToolkit)
 {
     // Disable the default floor to customize the scene
@@ -14,21 +14,21 @@ FHitboxAnimationPreviewScene::FHitboxAnimationPreviewScene(ConstructionValues CV
     // Setup events or additional components if necessary
 }
 
-FHitboxAnimationPreviewScene::~FHitboxAnimationPreviewScene()
+FCollisionAnimationPreviewScene::~FCollisionAnimationPreviewScene()
 {
     // Cleanup or unregister anything necessary
 }
 
-void FHitboxAnimationPreviewScene::Tick(float InDeltaTime)
+void FCollisionAnimationPreviewScene::Tick(float InDeltaTime)
 {
     FAdvancedPreviewScene::Tick(InDeltaTime);
 
-    // Update animations and hitboxes as needed
+    // Update animations and Collisiones as needed
     UpdateMeshAndAnimation(InDeltaTime);
-    UpdateAnimationHitboxes();
+    UpdateCollisionView();
 }
 
-APlayerObject* FHitboxAnimationPreviewScene::SetPlayerObject(const UClass* Class)
+APlayerObject* FCollisionAnimationPreviewScene::SetPlayerObject(const UClass* Class)
 {
     if (PreviewPlayerObject) PreviewPlayerObject->Destroy();
 
@@ -48,12 +48,12 @@ APlayerObject* FHitboxAnimationPreviewScene::SetPlayerObject(const UClass* Class
     return PreviewPlayerObject;
 }
 
-void FHitboxAnimationPreviewScene::SetupScene(UCollisionData* CollisionData)
+void FCollisionAnimationPreviewScene::SetupScene(UCollisionData* CollisionData)
 {
     CurrentCollisionData = CollisionData;
 }
 
-void FHitboxAnimationPreviewScene::UpdateMeshAndAnimation(float DeltaTime)
+void FCollisionAnimationPreviewScene::UpdateMeshAndAnimation(float DeltaTime)
 {
     if (!PreviewPlayerObject) return;
     PreviewPlayerObject->EditorUpdate();
@@ -66,12 +66,12 @@ void FHitboxAnimationPreviewScene::UpdateMeshAndAnimation(float DeltaTime)
     }
 }
 
-void FHitboxAnimationPreviewScene::DrawCollisionData()
+void FCollisionAnimationPreviewScene::DrawCollisionData()
 {
     PreviewPlayerObject->CollisionView();
 }
 
-void FHitboxAnimationPreviewScene::UpdateAnimationHitboxes()
+void FCollisionAnimationPreviewScene::UpdateCollisionView()
 {
     if (!CurrentCollisionData || !PreviewPlayerObject) // || !PreviewComponent)
       return;

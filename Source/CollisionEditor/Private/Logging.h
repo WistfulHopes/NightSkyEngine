@@ -4,4 +4,4 @@
 
 #include "CoreMinimal.h"
 
-DECLARE_LOG_CATEGORY_EXTERN(LogHitboxEditor, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogCollisionEditor, Log, All);

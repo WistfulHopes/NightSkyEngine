@@ -71,11 +71,11 @@ public:
 	TArray<TSubclassOf<UState>> StateArray;
 
 	UFUNCTION(BlueprintPure)
-	UState* GetByStateName(const FGameplayTag& StateName)
+	const UState* GetByStateName(const FGameplayTag& StateName) const
 	{
 		for (const auto& StateClass : StateArray)
 		{
-			const auto State = Cast<UState>(StateClass->ClassDefaultObject);
+			const auto State = GetDefault<UState>(StateClass);
 			if (State->Name == StateName) return State;
 		}
 		return nullptr;

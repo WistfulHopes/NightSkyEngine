@@ -8,11 +8,11 @@
 class APlayerObject;
 class FCollisionDataEditorToolkit;
 
-class FHitboxAnimationPreviewScene : public FAdvancedPreviewScene
+class FCollisionAnimationPreviewScene : public FAdvancedPreviewScene
 {
 public:
-    FHitboxAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit);
-    virtual ~FHitboxAnimationPreviewScene() override;
+    FCollisionAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit);
+    virtual ~FCollisionAnimationPreviewScene() override;
 
     virtual void Tick(float InDeltaTime) override;
 
@@ -23,7 +23,7 @@ public:
     void SetupScene(UCollisionData* CollisionData);
 
     // Update the animation hitboxes
-    void UpdateAnimationHitboxes();
+    void UpdateCollisionView();
 
 private:
     APlayerObject* PreviewPlayerObject = nullptr;
