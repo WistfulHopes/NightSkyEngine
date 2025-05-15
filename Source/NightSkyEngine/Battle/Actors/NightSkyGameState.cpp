@@ -694,54 +694,41 @@ void ANightSkyGameState::UpdateScreen()
 	ScreenData->ScreenWorldWidth += ScreenData->WidthVelocity;
 
 	auto ScreenXSpeedFrame = 10;
-	auto ScreenXSpeed = 100;
-	auto CenterXVelocity = ScreenXSpeedFrame - 5;
+	auto ScreenXSpeed = 50;
 
-	ScreenData->CenterXVelocity = (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX) / CenterXVelocity;
+	ScreenData->CenterXVelocity = (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX) / ScreenXSpeedFrame;
 
-	if (ScreenData->CenterXVelocity <= ScreenXSpeed)
-	{
-		auto ScreenXSpeedTmp = -ScreenXSpeed;
-		ScreenXSpeed = ScreenData->CenterXVelocity;
-
-		if (ScreenData->CenterXVelocity < ScreenXSpeedTmp) ScreenXSpeed = ScreenData->CenterXVelocity = ScreenXSpeedTmp;
-	}
-	else ScreenData->CenterXVelocity = ScreenXSpeed;
-
+	if (ScreenData->CenterXVelocity > ScreenXSpeed) ScreenData->CenterXVelocity = ScreenXSpeed;
+	else if (ScreenData->CenterXVelocity < -ScreenXSpeed) ScreenData->CenterXVelocity = -ScreenXSpeed;
+	
 	if (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX > 0)
 	{
-		ScreenData->CenterXVelocity = ++ScreenXSpeed;
+		ScreenData->CenterXVelocity++;
 	}
 	else if (ScreenData->TargetCenterX - ScreenData->ScreenWorldCenterX < 0)
 	{
-		ScreenData->CenterXVelocity = --ScreenXSpeed;
+		ScreenData->CenterXVelocity--;
 	}
 
 	ScreenData->ScreenWorldCenterX += ScreenData->CenterXVelocity;
 
-	auto CenterYVelocity = 4000;
-	auto ScreenYSpeed = 70;
+	auto CenterYVelocity = ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY > 0 ? 3000 : 1000;
+	auto ScreenYSpeed = 250;
 
 	if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY <= 0) ScreenData->CenterYVelocity = 3000;
 
 	ScreenData->CenterYVelocity = (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY) * 1000 / CenterYVelocity;
 
-	if (ScreenData->CenterYVelocity <= ScreenYSpeed)
-	{
-		auto ScreenYSpeedTmp = -ScreenYSpeed;
-		ScreenYSpeed = ScreenData->CenterYVelocity;
-
-		if (ScreenData->CenterYVelocity < ScreenYSpeedTmp) ScreenYSpeed = ScreenData->CenterYVelocity = ScreenYSpeedTmp;
-	}
-	else ScreenData->CenterYVelocity = ScreenYSpeed;
+	if (ScreenData->CenterYVelocity > ScreenYSpeed) ScreenData->CenterYVelocity = ScreenYSpeed;
+	else if (ScreenData->CenterYVelocity < -ScreenYSpeed) ScreenData->CenterYVelocity = -ScreenYSpeed;
 
 	if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY > 0)
 	{
-		ScreenData->CenterYVelocity = ++ScreenYSpeed;
+		ScreenData->CenterYVelocity++;
 	}
 	else if (ScreenData->TargetCenterY - ScreenData->ScreenWorldCenterY < 0)
 	{
-		ScreenData->CenterYVelocity = --ScreenYSpeed;
+		ScreenData->CenterYVelocity--;
 	}
 
 	ScreenData->ScreenWorldCenterY += ScreenData->CenterYVelocity;
