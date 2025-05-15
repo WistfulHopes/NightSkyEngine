@@ -18,6 +18,7 @@ public:
 	// Sets default values for this actor's properties
 	ANightSkyWTGameState();
 
+	UPROPERTY(BlueprintReadWrite)
 	bool bIsMatchEnd;
 	
 	UPROPERTY(BlueprintReadOnly)
@@ -29,7 +30,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	virtual bool HandleMatchWin() override;
 	
 public:
 	void Init(APlayerObject* P1, APlayerObject* P2);

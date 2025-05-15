@@ -1028,7 +1028,17 @@ void ANightSkyGameState::HandleRoundWin()
 
 bool ANightSkyGameState::HandleMatchWin()
 {
-	if (BattleState.CurrentWinSide != WIN_None) return true;
+	if (BattleState.CurrentWinSide != WIN_None) {
+		if (BattleState.CurrentWinSide == WIN_P2)
+		{
+			if (GetMainPlayer(false)->RoundWinTimer == 0) EndMatch();
+		}
+		else
+		{
+			if (GetMainPlayer(true)->RoundWinTimer == 0) EndMatch();
+		}
+		return true;
+	}
 	switch (BattleState.RoundFormat)
 	{
 	case ERoundFormat::FirstToOne:
@@ -1038,7 +1048,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 0 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1046,14 +1055,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1065,7 +1072,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1073,14 +1079,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1092,7 +1096,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1100,14 +1103,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 4 && BattleState.P2RoundsWon == 4)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1119,7 +1120,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 3 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1127,14 +1127,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 5 && BattleState.P2RoundsWon == 5)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1146,7 +1144,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 4 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1154,14 +1151,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 6 && BattleState.P2RoundsWon == 6)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1174,7 +1169,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1182,14 +1176,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}
@@ -1202,7 +1194,6 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
@@ -1210,14 +1201,12 @@ bool ANightSkyGameState::HandleMatchWin()
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
-				EndMatch();
 				return true;
 			}
 			if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
-				EndMatch();
 				return true;
 			}
 		}

@@ -365,7 +365,7 @@ protected:
 	void HandleHitCollision() const;
 	void UpdateVisuals() const;
 	void HandleRoundWin();
-	virtual bool HandleMatchWin();
+	bool HandleMatchWin();
 	void CollisionView() const;
 	int32 CreateChecksum();
 	FGGPONetworkStats GetNetworkStats() const;

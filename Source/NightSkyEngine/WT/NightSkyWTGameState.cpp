@@ -36,13 +36,6 @@ void ANightSkyWTGameState::BeginPlay()
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 }
 
-bool ANightSkyWTGameState::HandleMatchWin()
-{
-	bIsMatchEnd = Super::HandleMatchWin();
-	
-	return bIsMatchEnd;
-}
-
 void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 {
 	bIsBattling = true;
