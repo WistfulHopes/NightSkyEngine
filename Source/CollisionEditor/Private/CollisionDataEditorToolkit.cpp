@@ -24,8 +24,14 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
                                              const TSharedPtr<IToolkitHost>& InitToolkitHost)
 {
 	CollisionData = InCollisionData;
-
-	// We need to add a timeline somewhere
+	
+	for (auto& Collision : CollisionData->CollisionFrames)
+	{
+		for (auto& Box : Collision.Boxes)
+		{
+			Box.EditorInit();
+		}
+	}
 
 	// Setup details view
 	FPropertyEditorModule& PropertyModule = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Globals.h"
 
 #include "CollisionBox.generated.h"
 
@@ -44,24 +45,101 @@ struct FCollisionBox
 	/**
 	 * X position.
 	 */
-	UPROPERTY(EditAnywhere, meta=(Delta=1000))
+	UPROPERTY()
 	int32 PosX = 0;
 	/**
 	 * Y position.
 	 */
-	UPROPERTY(EditAnywhere, meta=(Delta=1000))
+	UPROPERTY()
 	int32 PosY = 0;
 	/**
 	 * X size.
 	 */
-	UPROPERTY(EditAnywhere, meta=(Delta=1000))
+	UPROPERTY()
 	int32 SizeX = 0;
 	/**
 	 * Y size.
 	 */
-	UPROPERTY(EditAnywhere, meta=(Delta=1000))
+	UPROPERTY()
 	int32 SizeY = 0;
 
+#if WITH_EDITORONLY_DATA
+	// Values for editor only, used for easy editing/display
+	
+	UPROPERTY(EditAnywhere, meta=(DisplayName="X Position"))
+	float PosXEdit = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="Y Position"))
+	float PosYEdit = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="X Size"))
+	float SizeXEdit = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="Y Size"))
+	float SizeYEdit = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="X Position (Unreal)", Units = "cm"))
+	float UEPosX = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="Y Position (Unreal)", Units = "cm"))
+	float UEPosY = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="X Size (Unreal)", Units = "cm"))
+	float UESizeX = 0;
+	UPROPERTY(EditAnywhere, meta=(DisplayName="Y Size (Unreal)", Units = "cm"))
+	float UESizeY = 0;
+
+	void EditorInit()
+	{
+		PosXEdit = static_cast<float>(PosX) / 1000;
+		PosYEdit = static_cast<float>(PosY) / 1000;
+		SizeXEdit = static_cast<float>(SizeX) / 1000;
+		SizeYEdit = static_cast<float>(SizeY) / 1000;
+		UEPosX = static_cast<float>(PosX) / COORD_SCALE;
+		UEPosY = static_cast<float>(PosY) / COORD_SCALE;
+		UESizeX = static_cast<float>(SizeX) / COORD_SCALE;
+		UESizeY = static_cast<float>(SizeY) / COORD_SCALE;
+	}
+	
+	void PostEditChangeProperty()
+	{
+		if (static_cast<float>(PosX) / 1000 != PosXEdit)
+		{
+			PosX = PosXEdit * 1000;
+			UEPosX = static_cast<float>(PosX) / COORD_SCALE;
+		}
+		if (static_cast<float>(PosY) / 1000 != PosYEdit)
+		{
+			PosY = PosYEdit * 1000;
+			UEPosY = static_cast<float>(PosY) / COORD_SCALE;
+		}
+		if (static_cast<float>(SizeX) / 1000 != SizeXEdit)
+		{
+			SizeX = SizeXEdit * 1000;
+			UESizeX = static_cast<float>(SizeX) / COORD_SCALE;
+		}
+		if (static_cast<float>(SizeY) / 1000 != SizeYEdit)
+		{
+			SizeY = SizeYEdit * 1000;
+			UESizeY = static_cast<float>(SizeY) / COORD_SCALE;
+		}
+		if (static_cast<float>(PosX) / COORD_SCALE != UEPosX)
+		{
+			PosX = UEPosX * COORD_SCALE;
+			PosXEdit = static_cast<float>(PosX) / 1000;
+		}
+		if (static_cast<float>(PosY) / COORD_SCALE != UEPosY)
+		{
+			PosY = UEPosY * COORD_SCALE;
+			PosYEdit = static_cast<float>(PosY) / 1000;
+		}
+		if (static_cast<float>(SizeX) / COORD_SCALE != UESizeX)
+		{
+			SizeX = UESizeX * COORD_SCALE;
+			SizeXEdit = static_cast<float>(SizeX) / 1000;
+		}
+		if (static_cast<float>(SizeY) / COORD_SCALE != UESizeY)
+		{
+			SizeY = UESizeY * COORD_SCALE;
+			SizeYEdit = static_cast<float>(SizeY) / 1000;
+		}
+	}
+#endif
+	
 	/**
 	 * Compares against another collision box for inequality.
 	 * 

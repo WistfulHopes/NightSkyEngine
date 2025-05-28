@@ -303,6 +303,8 @@ struct FStateCPUData
 	UPROPERTY(EditAnywhere)
 	int32 AttackYEndRange = 360000;
 	UPROPERTY(EditAnywhere)
+	bool bAttack;
+	UPROPERTY(EditAnywhere)
 	bool bCombo;
 	UPROPERTY(EditAnywhere)
 	bool bNoCombo;

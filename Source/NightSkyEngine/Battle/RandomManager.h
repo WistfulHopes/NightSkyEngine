@@ -18,6 +18,19 @@ public:
 		return Seed / 65536 % 32768;
 	}
 
+	int RandRange(int Min, int Max)
+	{
+		if (Min > Max)
+		{
+			const int32 Temp = Max;
+			Max = Min;
+			Min = Temp;
+		}
+		int32 Result = Rand();
+		Result = Result % (Max - Min + 1) + Min;
+		return Result;
+	}
+	
 	void Reseed(uint32 InSeed)
 	{
 		Seed = InSeed;

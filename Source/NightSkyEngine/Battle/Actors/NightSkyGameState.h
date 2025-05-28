@@ -59,6 +59,7 @@ enum class EBattlePhase
 	Battle,
 	RoundEnd,
 	MatchEnd,
+	EndScreen,
 };
 
 USTRUCT()

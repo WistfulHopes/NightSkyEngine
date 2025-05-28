@@ -15,6 +15,7 @@
 #include "FighterRunners/FighterSynctestRunner.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Battle/Globals.h"
+#include "NightSkyEngine/Battle/CPU/NightSkyAIController.h"
 #include "NightSkyEngine/Data/BattleExtensionData.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Data/SubroutineData.h"
@@ -460,7 +461,11 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	SortObjects();
 
 	if (!BattleState.MainPlayer[0]->bIsCpu) BattleState.MainPlayer[0]->Inputs = Input1;
+	else if (const auto CPU = Cast<ANightSkyAIController>(BattleState.MainPlayer[0]->Controller); CPU)
+			CPU->Update();
 	if (!BattleState.MainPlayer[1]->bIsCpu) BattleState.MainPlayer[1]->Inputs = Input2;
+	else if (const auto CPU = Cast<ANightSkyAIController>(BattleState.MainPlayer[1]->Controller); CPU)
+		CPU->Update();
 	for (int i = 0; i < MaxPlayerObjects; i++)
 	{
 		for (int j = 0; j < MaxPlayerObjects; j++)
@@ -1016,13 +1021,22 @@ void ANightSkyGameState::HandleRoundWin()
 bool ANightSkyGameState::HandleMatchWin()
 {
 	if (BattleState.CurrentWinSide != WIN_None) {
+		if (BattleState.BattlePhase == EBattlePhase::EndScreen) return true;
 		if (BattleState.CurrentWinSide == WIN_P2)
 		{
-			if (GetMainPlayer(false)->RoundWinTimer == 0) EndMatch();
+			if (GetMainPlayer(false)->RoundWinTimer == 0)
+			{
+				EndMatch();
+				BattleState.BattlePhase = EBattlePhase::EndScreen;
+			}
 		}
 		else
 		{
-			if (GetMainPlayer(true)->RoundWinTimer == 0) EndMatch();
+			if (GetMainPlayer(true)->RoundWinTimer == 0)
+			{
+				EndMatch();
+				BattleState.BattlePhase = EBattlePhase::EndScreen;
+			}
 		}
 		return true;
 	}

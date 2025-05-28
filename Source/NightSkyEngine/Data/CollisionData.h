@@ -60,4 +60,16 @@ public:
 		}
 		return FCollisionStruct();
 	}
+
+	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override
+	{
+		Super::PostEditChangeProperty(PropertyChangedEvent);
+		for (auto& Collision : CollisionFrames)
+		{
+			for (auto& Box : Collision.Boxes)
+			{
+				Box.PostEditChangeProperty();
+			}
+		}
+	}
 };
