@@ -2,7 +2,7 @@
 
 Night Sky Engine is a free and open source fighting game framework made in Unreal Engine 5. It is designed to be powerful yet easy to learn, and can be used to make 2D and 2.5D fighting games.
 
-It requires Unreal Engine 5.5. 
+It requires Unreal Engine 5.6 (currently in preview, full release in June 2025). 
 
 Documentation link: https://wistfulhopes.github.io/NightSkyEngine/
 
