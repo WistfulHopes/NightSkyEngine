@@ -101,17 +101,14 @@ struct FScreenData
 	EScreenFlag Flags;
 	
 	UPROPERTY(EditAnywhere)
-	int DefaultMaxZoomOutWidth = 1689;
+	int DefaultMaxWidth = 1689;
 	UPROPERTY(EditAnywhere)
-	int DefaultZoomOutBeginX = 1280;
-	UPROPERTY(EditAnywhere)
-	int DefaultZoomOutBeginY = 600;
+	int DefaultWidth = 1280;
 	UPROPERTY(EditAnywhere)
 	int DefaultScreenYTargetOffset = -100;
 
 	int MaxZoomOutWidth = 1689;
 	int ZoomOutBeginX = 1280;
-	int ZoomOutBeginY = 600;
 	
 	UPROPERTY()
 	ABattleObject* TargetObjects[6]{};
@@ -132,19 +129,22 @@ struct FScreenData
 	int TargetCenterX = 0;
 	int TargetCenterY = 0;
 	int TargetWidth = 1280;
-	int WidthY = 0;
 
 	int CenterXVelocity = 0;
 	int CenterYVelocity = 0;
 	int WidthVelocity = 0;
-	
+
 	int FinalScreenX = 0;
 	int FinalScreenY = 0;
 	int FinalScreenWidth = 1280;
+
+	float ScreenYZoom = 0;
 	
 	int TargetOffsetY = 350;
-	int TargetOffsetLandYAdd = 600;
+	int TargetOffsetLandYMax = 250;
+	int TargetOffsetLandYAdd = 6;
 	int TargetOffsetAirYMax = 180;
+	int TargetOffsetAirYAdd = 3;
 	int TargetOffsetAirYPos = 400;
 	int TargetOffsetAirYDist = 570;
 

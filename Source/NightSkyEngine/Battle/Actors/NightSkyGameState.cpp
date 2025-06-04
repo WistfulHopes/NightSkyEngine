@@ -602,13 +602,16 @@ void ANightSkyGameState::SetScreenCorners()
 
 		Target->CalculatePushbox();
 
+		auto TargetL = Target->PosX - 85000;
+		auto TargetR = Target->PosX + 85000;
+
 		if (bIsFirst)
 		{
 			ScreenData->ObjTop = Target->T / 1000;
 			ScreenData->ObjBottom = Target->B / 1000;
 			ScreenData->HigherObjBottom = Target->B / 1000;
-			ScreenData->ObjLeft = Target->L / 1000;
-			ScreenData->ObjRight = Target->R / 1000;
+			ScreenData->ObjLeft = TargetL / 1000;
+			ScreenData->ObjRight = TargetR / 1000;
 
 			bIsFirst = false;
 		}
@@ -617,8 +620,8 @@ void ANightSkyGameState::SetScreenCorners()
 			if (Target->T > ScreenData->ObjTop * 1000) ScreenData->ObjTop = Target->T / 1000;
 			if (Target->B < ScreenData->ObjBottom * 1000) ScreenData->ObjBottom = Target->B / 1000;
 			if (Target->B > ScreenData->HigherObjBottom * 1000) ScreenData->HigherObjBottom = Target->B / 1000;
-			if (Target->L < ScreenData->ObjLeft * 1000) ScreenData->ObjLeft = Target->L / 1000;
-			if (Target->R > ScreenData->ObjRight * 1000) ScreenData->ObjRight = Target->R / 1000;
+			if (TargetL < ScreenData->ObjLeft * 1000) ScreenData->ObjLeft = TargetL / 1000;
+			if (TargetR > ScreenData->ObjRight * 1000) ScreenData->ObjRight = TargetR / 1000;
 		}
 	}
 
@@ -630,9 +633,8 @@ void ANightSkyGameState::UpdateScreen()
 {
 	const auto ScreenData = &BattleState.ScreenData;
 
-	ScreenData->MaxZoomOutWidth = ScreenData->DefaultMaxZoomOutWidth;
-	ScreenData->ZoomOutBeginX = ScreenData->DefaultZoomOutBeginX;
-	ScreenData->ZoomOutBeginY = ScreenData->DefaultZoomOutBeginY;
+	ScreenData->MaxZoomOutWidth = ScreenData->DefaultMaxWidth;
+	ScreenData->ZoomOutBeginX = ScreenData->DefaultWidth;
 
 	SetScreenCorners();
 
@@ -648,7 +650,6 @@ void ANightSkyGameState::UpdateScreen()
 			if (ScreenData->TargetWidth < ScreenData->ZoomOutBeginX)
 				ScreenData->TargetWidth = ScreenData->
 					ZoomOutBeginX;
-			ScreenData->WidthY = ScreenData->TargetWidth;
 			if (ScreenData->TargetWidth > ScreenData->MaxZoomOutWidth)
 				ScreenData->TargetWidth = ScreenData->
 					MaxZoomOutWidth;
@@ -656,41 +657,24 @@ void ANightSkyGameState::UpdateScreen()
 
 		if ((ScreenData->Flags & SCR_LockYPos) == 0)
 		{
-			auto TargetOffsetY = ScreenData->DefaultScreenYTargetOffset + 350;
+			int TargetOffsetY;
 
-			const auto WidthRatio = 1280000 / ScreenData->TargetWidth;
-			if (WidthRatio * ScreenData->ObjBottom / 1000 <= ScreenData->TargetOffsetAirYPos ||
-				WidthRatio * (ScreenData->HigherObjBottom - ScreenData->ObjBottom) / 1000 >= ScreenData->
+			auto Ratio = 1280000 / ScreenData->TargetWidth;
+			if (Ratio * ScreenData->ObjBottom / 1000 <= ScreenData->TargetOffsetAirYPos ||
+				Ratio * (ScreenData->HigherObjBottom - ScreenData->ObjBottom) / 1000 >= ScreenData->
 				TargetOffsetAirYDist)
 			{
-				if (ScreenData->TargetOffsetY + ScreenData->TargetOffsetLandYAdd < TargetOffsetY)
-				{
-					TargetOffsetY = ScreenData->TargetOffsetY + ScreenData->TargetOffsetLandYAdd;
-				}
+				TargetOffsetY = FMath::Min(ScreenData->TargetOffsetY + ScreenData->TargetOffsetLandYAdd, ScreenData->TargetOffsetLandYMax);
 			}
 			else
 			{
-				TargetOffsetY = ScreenData->TargetOffsetAirYMax;
-				if (ScreenData->TargetOffsetY - ScreenData->TargetOffsetLandYAdd > TargetOffsetY)
-				{
-					TargetOffsetY = ScreenData->TargetOffsetY - ScreenData->TargetOffsetLandYAdd;
-				}
+				TargetOffsetY = FMath::Max(ScreenData->TargetOffsetY + ScreenData->TargetOffsetAirYAdd, ScreenData->TargetOffsetAirYMax);
 			}
 
 			ScreenData->TargetOffsetY = TargetOffsetY;
-
-			if (ScreenData->HigherObjBottom - ScreenData->ObjBottom > ScreenData->ZoomOutBeginY)
-			{
-				auto MaxZoomWidth = ScreenData->HigherObjBottom - ScreenData->ObjBottom + ScreenData->ZoomOutBeginY;
-				if (MaxZoomWidth > ScreenData->MaxZoomOutWidth) ScreenData->MaxZoomOutWidth = MaxZoomWidth;
-			}
-
-			auto Height = ScreenData->MaxZoomOutWidth * 1000 / ScreenData->WidthY;
-			Height = Height * ScreenData->HigherObjBottom / 1000 - Height * TargetOffsetY / 1000;
-
-			if (Height > ScreenData->StageBoundsTop) ScreenData->TargetCenterY = ScreenData->StageBoundsTop;
-			else if (Height < 0) ScreenData->TargetCenterY = 0;
-			else ScreenData->TargetCenterY = Height;
+			
+			Ratio = Ratio * ScreenData->HigherObjBottom / 1000 - Ratio * TargetOffsetY / 1000;
+			ScreenData->TargetCenterY = FMath::Clamp(Ratio, 0, ScreenData->StageBoundsTop);
 		}
 	}
 
@@ -774,7 +758,8 @@ void ANightSkyGameState::UpdateScreen()
 		ScreenData->FinalScreenY = ScreenData->
 			StageBoundsTop - 106;
 
-	ScreenData->FinalScreenY += 250;
+	ScreenData->ScreenYZoom = 130 * (1
+		- static_cast<float>(ScreenData->FinalScreenWidth) / static_cast<float>(ScreenData->DefaultWidth));
 }
 
 void ANightSkyGameState::UpdateGameState()
@@ -1359,7 +1344,7 @@ void ANightSkyGameState::UpdateCamera()
 
 		BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(
 			FVector(ScreenData->FinalScreenX * 0.43, ScreenData->FinalScreenWidth * 0.43,
-			        ScreenData->FinalScreenY * 0.43)) + BattleSceneTransform.GetLocation();
+			        ScreenData->FinalScreenY * 0.43 - ScreenData->ScreenYZoom + 130)) + BattleSceneTransform.GetLocation();
 		CameraActor->SetActorLocation(BattleState.CameraPosition);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
