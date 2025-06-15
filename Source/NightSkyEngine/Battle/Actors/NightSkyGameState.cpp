@@ -23,6 +23,8 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
 #include "NightSkyEngine/UI/NightSkyBattleWidget.h"
+#include "Serialization/ObjectReader.h"
+#include "Serialization/ObjectWriter.h"
 
 void FScreenData::AddTargetObj(ABattleObject* InTarget)
 {
@@ -55,11 +57,17 @@ void FScreenData::RemoveTargetObj(const ABattleObject* InTarget)
 	}
 }
 
-void FBPRollbackData::Serialize(FArchive& Ar)
+void FRollbackData::Serialize(FArchive& Ar)
 {
+	Ar << ObjActive;
+	Ar << ObjBuffer;
+	Ar << CharBuffer;
+	Ar << BattleStateBuffer;
 	Ar << PlayerData;
 	Ar << StateData;
 	Ar << ExtensionData;
+	Ar << WidgetAnimationData;
+	Ar << SizeOfBPRollbackData;
 }
 
 // Sets default values
@@ -90,12 +98,9 @@ void ANightSkyGameState::BeginPlay()
 
 void ANightSkyGameState::Init()
 {
-	BattleState.RandomManager = GameInstance->BattleData.Random;
-
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
-		MainRollbackData.Add(FRollbackData());
-		BPRollbackData.Add(FBPRollbackData());
+		RollbackData.Add(FRollbackData());
 	}
 
 	if (IsValid(BattleExtensionData))
@@ -108,59 +113,67 @@ void ANightSkyGameState::Init()
 		}
 	}
 
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < GameInstance->BattleData.PlayerListP1.Num(); i++)
 	{
-		if (GameInstance != nullptr)
+		APlayerObject* SpawnedPlayer;
+		if (const auto Player = GameInstance->BattleData.PlayerListP1[i]; Player != nullptr)
 		{
-			if (GameInstance->BattleData.PlayerList.Num() > i)
-			{
-				if (GameInstance->BattleData.PlayerList[i] != nullptr)
-				{
-					Players[i] = GetWorld()->SpawnActor<APlayerObject>(GameInstance->BattleData.PlayerList[i]->PlayerClass,
-					                                                   BattleSceneTransform);
-					Players[i]->ColorIndex = 1;
-					if (GameInstance->BattleData.ColorIndices.Num() > i)
-						Players[i]->ColorIndex = GameInstance->BattleData.ColorIndices[i];
-					for (int j = 0; j < i; j++)
-					{
-						if (IsValid(GameInstance->BattleData.PlayerList[j]))
-						{
-							if (Players[i]->IsA(GameInstance->BattleData.PlayerList[j]->PlayerClass))
-							{
-								if (Players[i]->ColorIndex == Players[j]->ColorIndex)
-								{
-									if (Players[j]->ColorIndex > 1)
-										Players[i]->ColorIndex = 1;
-									else
-										Players[i]->ColorIndex = 2;
-								}
-								break;
-							}
-						}
-					}
-				}
-				else
-				{
-					Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(),
-					                                                   BattleSceneTransform);
-				}
-			}
-			else
-			{
-				Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
-			}
-			SortedObjects[i] = Players[i];
+			Players.Add(GetWorld()->SpawnActor<APlayerObject>(Player->PlayerClass,
+															   BattleSceneTransform));
+			SpawnedPlayer = Players.Last();
+			SpawnedPlayer->ColorIndex = 1;
+			if (GameInstance->BattleData.ColorIndices.Num() > i)
+				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndices[i];
 		}
 		else
 		{
-			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
-			SortedObjects[i] = Players[i];
+			Players.Add(GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform));
+			SpawnedPlayer = Players.Last();
 		}
-		Players[i]->InitPlayer();
-		Players[i]->GameState = this;
-		SortedObjects[i] = Players[i];
+		SortedObjects.Add(SpawnedPlayer);
+		SpawnedPlayer->InitPlayer();
+		SpawnedPlayer->GameState = this;
+	}
 
-		if (i >= MaxPlayerObjects / 2 && GameInstance->IsCPUBattle && !GameInstance->IsTraining)
+	for (int i = 0; i < GameInstance->BattleData.PlayerListP2.Num(); i++)
+	{
+		APlayerObject* SpawnedPlayer;
+		if (const auto Player = GameInstance->BattleData.PlayerListP2[i]; Player != nullptr)
+		{
+			Players.Add(GetWorld()->SpawnActor<APlayerObject>(Player->PlayerClass,
+															   BattleSceneTransform));
+			SpawnedPlayer = Players.Last();
+			SpawnedPlayer->ColorIndex = 1;
+			if (GameInstance->BattleData.ColorIndices.Num() > i)
+				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndices[i];
+			for (int j = 0; j < GameInstance->BattleData.PlayerListP1.Num(); j++)
+			{
+				if (IsValid(GameInstance->BattleData.PlayerListP1[j]))
+				{
+					if (SpawnedPlayer->IsA(GameInstance->BattleData.PlayerListP1[j]->PlayerClass))
+					{
+						if (SpawnedPlayer->ColorIndex == Players[j]->ColorIndex)
+						{
+							if (SpawnedPlayer->ColorIndex > 1)
+								SpawnedPlayer->ColorIndex = 1;
+							else
+								SpawnedPlayer->ColorIndex = 2;
+						}
+						break;
+					}
+				}
+			}
+		}
+		else
+		{
+			Players.Add(GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform));
+			SpawnedPlayer = Players.Last();
+		}
+		SortedObjects.Add(SpawnedPlayer);
+		SpawnedPlayer->InitPlayer();
+		SpawnedPlayer->GameState = this;
+
+		if (GameInstance->IsCPUBattle && !GameInstance->IsTraining)
 		{
 			Players[i]->SpawnDefaultController();
 			Players[i]->bIsCpu = true;
@@ -169,12 +182,13 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform);
+		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform));
 		Objects[i]->GameState = this;
-		SortedObjects[i + MaxPlayerObjects] = Objects[i];
+		SortedObjects.Add(Objects.Last());
 	}
 
 	MatchInit();
+	HUDInit();
 }
 
 void ANightSkyGameState::PlayIntros()
@@ -216,14 +230,14 @@ void ANightSkyGameState::RoundInit()
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
-		for (int i = 0; i < MaxPlayerObjects; i++)
-			Players[i]->RoundInit(true);
+		for (const auto Player : Players)
+			Player->RoundInit(true);
 
 		Players[0]->PlayerFlags = PLF_IsOnScreen;
-		Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
+		Players[BattleState.TeamData[0].TeamCount]->PlayerFlags = PLF_IsOnScreen;
 
 		BattleState.MaxMeter[0] = Players[0]->MaxMeter;
-		BattleState.MaxMeter[1] = Players[MaxPlayerObjects / 2]->MaxMeter;
+		BattleState.MaxMeter[1] = Players[BattleState.TeamData[0].TeamCount]->MaxMeter;
 
 		BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 		BattleState.bHUDVisible = true;
@@ -273,14 +287,14 @@ void ANightSkyGameState::RoundInit()
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
-		for (int i = 0; i < MaxPlayerObjects; i++)
-			Players[i]->RoundInit(false);
+		for (const auto Player : Players)
+			Player->RoundInit(true);
 
 		Players[0]->PlayerFlags = PLF_IsOnScreen;
-		Players[MaxPlayerObjects / 2]->PlayerFlags = PLF_IsOnScreen;
+		Players[BattleState.TeamData[0].TeamCount]->PlayerFlags = PLF_IsOnScreen;
 
 		BattleState.MaxMeter[0] = Players[0]->MaxMeter;
-		BattleState.MaxMeter[1] = Players[MaxPlayerObjects / 2]->MaxMeter;
+		BattleState.MaxMeter[1] = Players[BattleState.TeamData[0].TeamCount]->MaxMeter;
 
 		BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 		BattleState.bHUDVisible = true;
@@ -365,10 +379,15 @@ void ANightSkyGameState::MatchInit()
 
 	BattleState = FBattleState();
 	BattleState = Cast<ANightSkyGameState>(GetDefault<ANightSkyGameState>())->BattleState;
-	for (int i = 0; i < MaxPlayerObjects; i++)
+
+	BattleState.RandomManager = GameInstance->BattleData.Random;
+	BattleState.TeamData[0].TeamCount = GameInstance->BattleData.PlayerListP1.Num();
+	BattleState.TeamData[1].TeamCount = GameInstance->BattleData.PlayerListP2.Num();
+
+	for (int i = 0; i < Players.Num(); i++)
 	{
-		Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
-		Players[i]->TeamIndex = i % (MaxPlayerObjects / 2);
+		Players[i]->PlayerIndex = i >= BattleState.TeamData[0].TeamCount;
+		Players[i]->TeamIndex = i >= BattleState.TeamData[0].TeamCount ? i - BattleState.TeamData[0].TeamCount : i;
 		if (i % 3 == 0)
 		{
 			Players[i]->PlayerFlags |= PLF_IsOnScreen;
@@ -385,13 +404,13 @@ void ANightSkyGameState::MatchInit()
 	{
 		Objects[i]->ObjNumber = i;
 	}
-	for (int i = MaxBattleObjects + MaxPlayerObjects; i >= 0; i--)
+	for (int i = SortedObjects.Num() - 1; i >= 0; i--)
 	{
 		SetDrawPriorityFront(SortedObjects[i]);
 	}
 
 	BattleState.MainPlayer[0] = Players[0];
-	BattleState.MainPlayer[1] = Players[MaxPlayerObjects / 2];
+	BattleState.MainPlayer[1] = Players[BattleState.TeamData[0].TeamCount];
 	BattleState.RoundFormat = GameInstance->BattleData.RoundFormat;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
@@ -466,11 +485,11 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	if (!BattleState.MainPlayer[1]->bIsCpu) BattleState.MainPlayer[1]->Inputs = Input2;
 	else if (const auto CPU = Cast<ANightSkyAIController>(BattleState.MainPlayer[1]->Controller); CPU)
 		CPU->Update();
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < Players.Num(); i++)
 	{
-		for (int j = 0; j < MaxPlayerObjects; j++)
+		for (int j = 0; j < Players.Num(); j++)
 		{
-			if (i < MaxPlayerObjects / 2)
+			if (i < BattleState.TeamData[0].TeamCount)
 			{
 				Players[i]->Enemy = GetMainPlayer(false);
 			}
@@ -483,7 +502,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	HandleHitCollision();
 
-	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
+	for (int i = 0; i < SortedObjects.Num(); i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
@@ -510,7 +529,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	}
 	if (BattleState.SuperFreezeDuration == 1)
 	{
-		for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
+		for (int i = 0; i < SortedObjects.Num(); i++)
 		{
 			SortedObjects[i]->TriggerEvent(EVT_SuperFreezeEnd);
 		}
@@ -772,10 +791,10 @@ void ANightSkyGameState::UpdateGameState()
 
 void ANightSkyGameState::SortObjects()
 {
-	BattleState.ActiveObjectCount = MaxPlayerObjects;
-	for (int i = MaxPlayerObjects; i < MaxBattleObjects + MaxPlayerObjects; i++)
+	BattleState.ActiveObjectCount = Players.Num();
+	for (int i = Players.Num(); i < SortedObjects.Num(); i++)
 	{
-		for (int j = i + 1; j < MaxBattleObjects + MaxPlayerObjects; j++)
+		for (int j = i + 1; j < SortedObjects.Num(); j++)
 		{
 			if (SortedObjects[j]->IsActive && !SortedObjects[i]->IsActive)
 			{
@@ -793,9 +812,9 @@ void ANightSkyGameState::SortObjects()
 
 void ANightSkyGameState::HandlePushCollision() const
 {
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < Players.Num(); i++)
 	{
-		for (int j = 0; j < MaxPlayerObjects; j++)
+		for (int j = 0; j < Players.Num(); j++)
 		{
 			if (Players[i]->PlayerIndex != Players[j]->PlayerIndex && Players[i]->PlayerFlags & PLF_IsOnScreen &&
 				Players[j]->PlayerFlags & PLF_IsOnScreen)
@@ -808,11 +827,11 @@ void ANightSkyGameState::HandlePushCollision() const
 
 void ANightSkyGameState::HandleHitCollision() const
 {
-	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
+	for (int i = 0; i < SortedObjects.Num(); i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
-		for (int j = 0; j < MaxBattleObjects + MaxPlayerObjects; j++)
+		for (int j = 0; j < SortedObjects.Num(); j++)
 		{
 			if (j == BattleState.ActiveObjectCount)
 				break;
@@ -831,7 +850,7 @@ void ANightSkyGameState::HandleHitCollision() const
 
 void ANightSkyGameState::UpdateVisuals() const
 {
-	for (int i = 0; i < MaxBattleObjects + MaxPlayerObjects; i++)
+	for (int i = 0; i < SortedObjects.Num(); i++)
 	{
 		if (i == BattleState.ActiveObjectCount)
 			break;
@@ -1479,6 +1498,20 @@ void ANightSkyGameState::CameraShake(const TSubclassOf<UCameraShakeBase>& Patter
 	}
 }
 
+void ANightSkyGameState::HUDInit() const
+{
+	if (BattleHudActor != nullptr)
+	{
+		if (BattleHudActor->TopWidget != nullptr)
+		{
+			BattleHudActor->TopWidget->P1Health.Init(0, BattleState.TeamData[0].TeamCount);
+			BattleHudActor->TopWidget->P2Health.Init(0, BattleState.TeamData[1].TeamCount);
+			BattleHudActor->TopWidget->P1RecoverableHealth.Init(0, BattleState.TeamData[0].TeamCount);
+			BattleHudActor->TopWidget->P2RecoverableHealth.Init(0, BattleState.TeamData[1].TeamCount);
+		}
+	}
+}
+
 void ANightSkyGameState::UpdateHUD() const
 {
 	if (BattleState.bHUDVisible)
@@ -1496,41 +1529,19 @@ void ANightSkyGameState::UpdateHUD() const
 	{
 		if (BattleHudActor->TopWidget != nullptr)
 		{
-			if (BattleHudActor->TopWidget->P1Health.Num() >= 3)
+			for (int i = 0; i < BattleState.TeamData[0].TeamCount; i++)
 			{
-				BattleHudActor->TopWidget->P1Health[0] = static_cast<float>(GetTeam(true)[0]->CurrentHealth) /
-					static_cast<float>(GetTeam(true)[0]->MaxHealth);
-				BattleHudActor->TopWidget->P1Health[1] = static_cast<float>(GetTeam(true)[1]->CurrentHealth) /
-					static_cast<float>(GetTeam(true)[1]->MaxHealth);
-				BattleHudActor->TopWidget->P1Health[2] = static_cast<float>(GetTeam(true)[2]->CurrentHealth) /
-					static_cast<float>(GetTeam(true)[2]->MaxHealth);
+				BattleHudActor->TopWidget->P1Health[i] = static_cast<float>(GetTeam(true)[i]->CurrentHealth) /
+					static_cast<float>(GetTeam(true)[i]->MaxHealth);
+				BattleHudActor->TopWidget->P1RecoverableHealth[i] = static_cast<float>(GetTeam(true)[i]->CurrentHealth +
+					GetTeam(true)[i]->RecoverableHealth) / static_cast<float>(GetTeam(true)[i]->MaxHealth);
 			}
-			if (BattleHudActor->TopWidget->P2Health.Num() >= 3)
+			for (int i = 0; i < BattleState.TeamData[1].TeamCount; i++)
 			{
-				BattleHudActor->TopWidget->P2Health[0] = static_cast<float>(GetTeam(false)[0]->CurrentHealth) /
-					static_cast<float>(GetTeam(false)[0]->MaxHealth);
-				BattleHudActor->TopWidget->P2Health[1] = static_cast<float>(GetTeam(false)[1]->CurrentHealth) /
-					static_cast<float>(GetTeam(false)[1]->MaxHealth);
-				BattleHudActor->TopWidget->P2Health[2] = static_cast<float>(GetTeam(false)[2]->CurrentHealth) /
-					static_cast<float>(GetTeam(false)[2]->MaxHealth);
-			}
-			if (BattleHudActor->TopWidget->P1RecoverableHealth.Num() >= 3)
-			{
-				BattleHudActor->TopWidget->P1RecoverableHealth[0] = static_cast<float>(GetTeam(true)[0]->CurrentHealth +
-					GetTeam(true)[0]->RecoverableHealth) / static_cast<float>(GetTeam(true)[0]->MaxHealth);
-				BattleHudActor->TopWidget->P1RecoverableHealth[1] = static_cast<float>(GetTeam(true)[1]->CurrentHealth +
-					GetTeam(true)[1]->RecoverableHealth) / static_cast<float>(GetTeam(true)[1]->MaxHealth);
-				BattleHudActor->TopWidget->P1RecoverableHealth[2] = static_cast<float>(GetTeam(true)[2]->CurrentHealth +
-					GetTeam(true)[2]->RecoverableHealth) / static_cast<float>(GetTeam(true)[2]->MaxHealth);
-			}
-			if (BattleHudActor->TopWidget->P2RecoverableHealth.Num() >= 3)
-			{
-				BattleHudActor->TopWidget->P2RecoverableHealth[0] = static_cast<float>(GetTeam(false)[0]->CurrentHealth
-					+ GetTeam(false)[0]->RecoverableHealth) / static_cast<float>(GetTeam(false)[0]->MaxHealth);
-				BattleHudActor->TopWidget->P2RecoverableHealth[1] = static_cast<float>(GetTeam(false)[1]->CurrentHealth
-					+ GetTeam(false)[1]->RecoverableHealth) / static_cast<float>(GetTeam(false)[1]->MaxHealth);
-				BattleHudActor->TopWidget->P2RecoverableHealth[2] = static_cast<float>(GetTeam(false)[2]->CurrentHealth
-					+ GetTeam(false)[2]->RecoverableHealth) / static_cast<float>(GetTeam(false)[2]->MaxHealth);
+				BattleHudActor->TopWidget->P2Health[i] = static_cast<float>(GetTeam(false)[i]->CurrentHealth) /
+					static_cast<float>(GetTeam(false)[i]->MaxHealth);
+				BattleHudActor->TopWidget->P2RecoverableHealth[i] = static_cast<float>(GetTeam(false)[i]->CurrentHealth
+					+ GetTeam(false)[i]->RecoverableHealth) / static_cast<float>(GetTeam(false)[i]->MaxHealth);
 			}
 			BattleHudActor->TopWidget->P1RoundsWon = BattleState.P1RoundsWon;
 			BattleHudActor->TopWidget->P2RoundsWon = BattleState.P2RoundsWon;
@@ -1582,7 +1593,7 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 {
 	if (InObject->IsPlayer)
 	{
-		for (int i = 0; i < MaxPlayerObjects; i++)
+		for (int i = 0; i < Players.Num(); i++)
 		{
 			if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 				SortedObjects[i]->DrawPriority++;
@@ -1590,11 +1601,11 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 		InObject->DrawPriority = 0;
 		return;
 	}
-	for (int i = MaxPlayerObjects; i < BattleState.ActiveObjectCount; i++)
+	for (int i = Players.Num(); i < BattleState.ActiveObjectCount; i++)
 	{
 		if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 			SortedObjects[i]->DrawPriority++;
-		InObject->DrawPriority = MaxPlayerObjects;
+		InObject->DrawPriority = Players.Num();
 	}
 }
 
@@ -1703,7 +1714,7 @@ TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 	if (IsP1)
 	{
 		TArray<APlayerObject*> PlayerObjects;
-		for (int i = 0; i < MaxPlayerObjects / 2; i++)
+		for (int i = 0; i < BattleState.TeamData[0].TeamCount; i++)
 		{
 			PlayerObjects.Add(Players[i]);
 			for (int j = 0; j < PlayerObjects.Num() - 1; j++)
@@ -1717,14 +1728,14 @@ TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 		return PlayerObjects;
 	}
 	TArray<APlayerObject*> PlayerObjects;
-	for (int i = MaxPlayerObjects / 2; i < MaxPlayerObjects; i++)
+	for (int i = BattleState.TeamData[1].TeamCount; i < Players.Num(); i++)
 	{
 		PlayerObjects.Add(Players[i]);
 		for (int j = 0; j < PlayerObjects.Num() - 1; j++)
 		{
-			if (PlayerObjects[i - MaxPlayerObjects / 2]->TeamIndex < PlayerObjects[j]->TeamIndex)
+			if (PlayerObjects[i - BattleState.TeamData[0].TeamCount]->TeamIndex < PlayerObjects[j]->TeamIndex)
 			{
-				PlayerObjects.Swap(i - MaxPlayerObjects / 2, j);
+				PlayerObjects.Swap(i - BattleState.TeamData[0].TeamCount, j);
 			}
 		}
 	}
@@ -2012,48 +2023,58 @@ void ANightSkyGameState::RollbackStartAudio(int32 InFrame)
 void ANightSkyGameState::SaveGameState(int32* InChecksum)
 {
 	const int BackupFrame = LocalFrame % MaxRollbackFrames;
-	BPRollbackData[BackupFrame] = FBPRollbackData();
-	memcpy(MainRollbackData[BackupFrame].BattleStateBuffer, &BattleState.BattleStateSync, SizeOfBattleState);
+	RollbackData[BackupFrame] = FRollbackData();
+	RollbackData[BackupFrame].BattleStateBuffer.AddUninitialized(SizeOfBattleState);
+	FMemory::Memcpy(RollbackData[BackupFrame].BattleStateBuffer.GetData(), &BattleState.BattleStateSync, SizeOfBattleState);
+	RollbackData[BackupFrame].BattleStateData = SaveForRollback();
 	for (int i = 0; i < BattleExtensions.Num(); i++)
 	{
-		BPRollbackData[BackupFrame].ExtensionData.Add(BattleExtensions[i]->SaveForRollback());
+		RollbackData[BackupFrame].ExtensionData.Add(BattleExtensions[i]->SaveForRollback());
 	}
 	if (BattleExtensions.Num() == 0)
 	{
-		BPRollbackData[BackupFrame].ExtensionData.Add(TArray<uint8>{1});
+		RollbackData[BackupFrame].ExtensionData.Add(TArray<uint8>{1});
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (Objects[i]->IsActive)
 		{
-			Objects[i]->SaveForRollback(MainRollbackData[BackupFrame].ObjBuffer[i]);
-			BPRollbackData[BackupFrame].StateData.Add(Objects[i]->ObjectState->SaveForRollback());
-			MainRollbackData[BackupFrame].ObjActive[i] = true;
+			RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
+			RollbackData[BackupFrame].ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
+			Objects[i]->SaveForRollback(RollbackData[BackupFrame].ObjBuffer[i].GetData());
+			RollbackData[BackupFrame].StateData.Add(Objects[i]->ObjectState->SaveForRollback());
+			RollbackData[BackupFrame].ObjActive.AddDefaulted();
+			RollbackData[BackupFrame].ObjActive[i] = true;
 		}
 		else
 		{
-			MainRollbackData[BackupFrame].ObjActive[i] = false;
-			BPRollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
+			RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
+			RollbackData[BackupFrame].ObjActive.AddDefaulted();
+			RollbackData[BackupFrame].ObjActive[i] = false;
+			RollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
 		}
 	}
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < Players.Num(); i++)
 	{
-		Players[i]->SaveForRollback(MainRollbackData[BackupFrame].ObjBuffer[i + MaxBattleObjects]);
+		RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
+		RollbackData[BackupFrame].ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
+		Players[i]->SaveForRollback(RollbackData[BackupFrame].ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
-			BPRollbackData[BackupFrame].StateData.Add(Players[i]->StoredStateMachine.CurrentState->SaveForRollback());
+			RollbackData[BackupFrame].StateData.Add(Players[i]->StoredStateMachine.CurrentState->SaveForRollback());
 		}
 		else
 		{
-			BPRollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
+			RollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
 		}
-		Players[i]->SaveForRollbackPlayer(MainRollbackData[BackupFrame].CharBuffer[i]);
-		BPRollbackData[BackupFrame].PlayerData.Add(Players[i]->SaveForRollbackBP());
+		RollbackData[BackupFrame].CharBuffer.AddDefaulted();
+		RollbackData[BackupFrame].CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);
+		Players[i]->SaveForRollbackPlayer(RollbackData[BackupFrame].CharBuffer[i].GetData());
+		RollbackData[BackupFrame].PlayerData.Add(Players[i]->SaveForRollbackBP());
 	}
 
-	BPRollbackData[BackupFrame].WidgetAnimationData.Empty();
-	BPRollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->TopWidget->WidgetAnimationRollback);
-	BPRollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->BottomWidget->WidgetAnimationRollback);
+	RollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->TopWidget->SaveForRollback());
+	RollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->BottomWidget->SaveForRollback());
 	
 	*InChecksum = CreateChecksum();
 }
@@ -2062,17 +2083,18 @@ void ANightSkyGameState::LoadGameState()
 {
 	const int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
 	const int CurrentFrame = BattleState.FrameNumber;
-	memcpy(&BattleState.BattleStateSync, MainRollbackData[CurrentRollbackFrame].BattleStateBuffer, SizeOfBattleState);
+	FMemory::Memcpy(&BattleState.BattleStateSync, RollbackData[CurrentRollbackFrame].BattleStateBuffer.GetData(), SizeOfBattleState);
+	LoadForRollback(RollbackData[CurrentRollbackFrame].BattleStateData);
 	for (int i = 0; i < BattleExtensions.Num(); i++)
 	{
-		BattleExtensions[i]->LoadForRollback(BPRollbackData[CurrentRollbackFrame].ExtensionData[i]);
+		BattleExtensions[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ExtensionData[i]);
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		if (MainRollbackData[CurrentRollbackFrame].ObjActive[i])
+		if (RollbackData[CurrentRollbackFrame].ObjActive[i])
 		{
-			Objects[i]->LoadForRollback(MainRollbackData[CurrentRollbackFrame].ObjBuffer[i]);
-			Objects[i]->ObjectState->LoadForRollback(BPRollbackData[CurrentRollbackFrame].StateData[i]);
+			Objects[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ObjBuffer[i].GetData());
+			Objects[i]->ObjectState->LoadForRollback(RollbackData[CurrentRollbackFrame].StateData[i]);
 		}
 		else
 		{
@@ -2080,26 +2102,42 @@ void ANightSkyGameState::LoadGameState()
 				Objects[i]->ResetObject();
 		}
 	}
-	for (int i = 0; i < MaxPlayerObjects; i++)
+	for (int i = 0; i < Players.Num(); i++)
 	{
-		Players[i]->LoadForRollback(MainRollbackData[CurrentRollbackFrame].ObjBuffer[i + MaxBattleObjects]);
+		Players[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
 			Players[i]->StoredStateMachine.CurrentState->LoadForRollback(
-				BPRollbackData[CurrentRollbackFrame].StateData[i + MaxBattleObjects]);
+				RollbackData[CurrentRollbackFrame].StateData[i + MaxBattleObjects]);
 		}
-		Players[i]->LoadForRollbackPlayer(MainRollbackData[CurrentRollbackFrame].CharBuffer[i]);
-		Players[i]->LoadForRollbackBP(BPRollbackData[CurrentRollbackFrame].PlayerData[i]);
+		Players[i]->LoadForRollbackPlayer(RollbackData[CurrentRollbackFrame].CharBuffer[i].GetData());
+		Players[i]->LoadForRollbackBP(RollbackData[CurrentRollbackFrame].PlayerData[i]);
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
 
-	BattleHudActor->TopWidget->WidgetAnimationRollback = BPRollbackData[CurrentRollbackFrame].WidgetAnimationData[0];
-	BattleHudActor->BottomWidget->WidgetAnimationRollback = BPRollbackData[CurrentRollbackFrame].WidgetAnimationData[1];
+	BattleHudActor->TopWidget->LoadForRollback(RollbackData[CurrentRollbackFrame].WidgetAnimationData[0]);
+	BattleHudActor->BottomWidget->LoadForRollback(RollbackData[CurrentRollbackFrame].WidgetAnimationData[1]);
 
 	BattleHudActor->TopWidget->RollbackAnimations();
 	BattleHudActor->BottomWidget->RollbackAnimations();
 	
 	if (!FighterRunner->IsA(AFighterSynctestRunner::StaticClass()))
 		GameInstance->RollbackReplay(CurrentFrame - BattleState.FrameNumber);
+}
+
+TArray<uint8> ANightSkyGameState::SaveForRollback()
+{
+	TArray<uint8> SaveData;
+	FObjectWriter Writer(SaveData);
+	Writer.ArIsSaveGame = true;
+	GetClass()->SerializeBin(Writer, this);
+	return SaveData;
+}
+
+void ANightSkyGameState::LoadForRollback(const TArray<uint8>& InBytes)
+{
+	FObjectReader Reader(InBytes);
+	Reader.ArIsSaveGame = true;
+	GetClass()->SerializeBin(Reader, this);
 }

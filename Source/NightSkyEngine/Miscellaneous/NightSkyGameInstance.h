@@ -25,7 +25,9 @@ struct FBattleData
 	GENERATED_BODY()
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<UPrimaryCharaData*> PlayerList;
+	TArray<UPrimaryCharaData*> PlayerListP1;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<UPrimaryCharaData*> PlayerListP2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<int32> ColorIndices;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

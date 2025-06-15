@@ -14,10 +14,10 @@ struct FRollbackAnimation
 	UPROPERTY(BlueprintReadWrite)
 	UWidgetAnimation* Anim;
 	
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	float Time;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	bool bPlaying;
 };
 
@@ -61,7 +61,7 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int RollbackFrames;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	TArray<FRollbackAnimation> WidgetAnimationRollback;
 
 	UFUNCTION(BlueprintImplementableEvent)
@@ -93,4 +93,7 @@ public:
 
 	void PlayStandardAnimations();
 	void RollbackAnimations();
+
+	TArray<uint8> SaveForRollback();
+	void LoadForRollback(const TArray<uint8>& InBytes);
 };

@@ -287,7 +287,7 @@ void UNSESessionSubsystem::OnSessionInviteAccepted(const bool bSuccess, const in
 		UE_LOG(LogTemp, Error, TEXT("OnSessionInviteAccepted: Invalid GameInstance"));
 		return;
 	}
-	if (GameInstance->BattleData.PlayerList.IsEmpty()) return;
+	if (GameInstance->BattleData.PlayerListP2.IsEmpty()) return;
 	
 	JoinGameSession(InviteResult);
 }

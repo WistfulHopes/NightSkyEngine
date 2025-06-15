@@ -45,7 +45,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(UPrimaryCharaData* Player, b
 {
 	if (IsP1)
 	{
-		if (P1Charas.Num() >= MaxPlayerObjects / 2)
+		if (P1Charas.Num() >= GameInstance->BattleData.PlayerListP1.Num())
 			return;
 		P1Charas.Add(GetWorld()->SpawnActor<APlayerObject>(Player->PlayerClass));
 		P1Charas.Last()->InitPlayer();
@@ -53,11 +53,11 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(UPrimaryCharaData* Player, b
 		P1Charas.Last()->SetDefaultComponentVisibility();
 		P1Charas.Last()->PlayerFlags = PLF_IsOnScreen;
 		P1Charas.Last()->SetActorLocation(P1Positions[P1Charas.Num() - 1]);
-		GameInstance->BattleData.PlayerList[P1Charas.Num() - 1] = Player;
+		GameInstance->BattleData.PlayerListP1[P1Charas.Num() - 1] = Player;
 	}
 	else
 	{
-		if (P2Charas.Num() >= MaxPlayerObjects / 2)
+		if (P2Charas.Num() >= GameInstance->BattleData.PlayerListP2.Num())
 			return;
 		P2Charas.Add(GetWorld()->SpawnActor<APlayerObject>(Player->PlayerClass));
 		P2Charas.Last()->InitPlayer();
@@ -66,7 +66,7 @@ void ANightSkyCharaSelectGameState::AddPlayerObject(UPrimaryCharaData* Player, b
 		P2Charas.Last()->PlayerFlags = PLF_IsOnScreen;
 		P2Charas.Last()->SetActorLocation(P2Positions[P2Charas.Num() - 1]);
 		P2Charas.Last()->Direction = DIR_Left;
-		GameInstance->BattleData.PlayerList[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = Player;
+		GameInstance->BattleData.PlayerListP2[P2Charas.Num() - 1] = Player;
 	}
 }
 
@@ -74,14 +74,14 @@ void ANightSkyCharaSelectGameState::AddColorIndex(int InColor, bool IsP1)
 {
 	if (IsP1)
 	{
-		if (P1Charas.Num() >= MaxPlayerObjects / 2)
+		if (P1Charas.Num() >= GameInstance->BattleData.PlayerListP1.Num())
 			return;
 		GameInstance->BattleData.ColorIndices[P1Charas.Num() - 1] = InColor;
 	}
 	else
 	{
-		if (P2Charas.Num() >= MaxPlayerObjects / 2)
+		if (P2Charas.Num() >= GameInstance->BattleData.PlayerListP2.Num())
 			return;
-		GameInstance->BattleData.ColorIndices[P2Charas.Num() - 1 + MaxPlayerObjects / 2] = InColor;
+		GameInstance->BattleData.ColorIndices[P2Charas.Num() - 1] = InColor;
 	}
 }

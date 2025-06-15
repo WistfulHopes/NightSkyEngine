@@ -10,6 +10,7 @@
 #include "CineCameraActor.h"
 #include "Camera/CameraComponent.h"
 #include "LevelSequenceActor.h"
+#include "NightSkyEngine/Data/BattleExtensionData.h"
 
 // Sets default values
 ANightSkyWTGameState::ANightSkyWTGameState()
@@ -40,53 +41,44 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 {
 	bIsBattling = true;
 
-	BattleState = FBattleState();
-	
 	for (int i = 0; i < MaxRollbackFrames; i++)
 	{
-		MainRollbackData.Add(FRollbackData());
+		RollbackData.Add(FRollbackData());
 	}
 
-	for (int i = 0 ; i < MaxPlayerObjects; i++)
+	if (IsValid(BattleExtensionData))
 	{
-		if (i == 0 || i == 3)
+		for (auto Extension : BattleExtensionData->ExtensionArray)
 		{
-			if (i == 0)
-				Players[i] = P1;
-			else
-				Players[i] = P2;
-			Players[i]->SetActorTransform(BattleSceneTransform);
-			Players[i]->PlayerFlags |= PLF_IsOnScreen;
+			BattleExtensions.Add(NewObject<UBattleExtension>(this, Extension));
+			BattleExtensions.Last()->Parent = this;
+			BattleExtensionNames.Add(BattleExtensions.Last()->Name);
 		}
-		else
-			Players[i] = GetWorld()->SpawnActor<APlayerObject>(APlayerObject::StaticClass(), BattleSceneTransform);
-		Players[i]->PlayerIndex = i * 2 >= MaxPlayerObjects;
-		Players[i]->TeamIndex = i % MaxPlayerObjects / 2;
-		Players[i]->InitPlayer();
-		Players[i]->GameState = this;
-		Players[i]->ObjNumber = MaxBattleObjects + i;
-		SortedObjects[i] = Players[i];
 	}
-	BattleState.MainPlayer[0] = Players[0];
-	BattleState.MainPlayer[1] = Players[MaxPlayerObjects / 2];
+
+	{
+		Players.Add(P1);
+		P1->SetActorTransform(BattleSceneTransform);
+		P1->PlayerFlags |= PLF_IsOnScreen;
+		SortedObjects.Add(P1);
+		P1->InitPlayer();
+		P1->GameState = this;
+	}
+	{
+		Players.Add(P2);
+		P2->SetActorTransform(BattleSceneTransform);
+		P2->PlayerFlags |= PLF_IsOnScreen;
+		SortedObjects.Add(P2);
+		P2->InitPlayer();
+		P2->GameState = this;
+	}
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		Objects[i] = GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform);
+		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform));
 		Objects[i]->GameState = this;
-		Objects[i]->ObjNumber = i;
-		SortedObjects[i + MaxPlayerObjects] = Objects[i];
+		SortedObjects.Add(Objects.Last());
 	}
-
-	for (int i = MaxBattleObjects + MaxPlayerObjects; i >= 0; i--)
-	{
-		SetDrawPriorityFront(SortedObjects[i]);
-	}
-	
-	FActorSpawnParameters SpawnParameters;
-	SpawnParameters.Owner = GetOwner();
-
-	FighterRunner = GetWorld()->SpawnActor<AFighterLocalRunner>(AFighterLocalRunner::StaticClass(),SpawnParameters);
 	
 	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
 	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
@@ -95,13 +87,8 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 	CameraActor->SetActorLocation(NewCameraLocation);
 	CameraActor->SetActorRotation(CameraRotation);
 	SequenceCameraActor->SetActorLocation(NewCameraLocation);
-	
-	SequenceCameraActor->SetActorRotation(CameraRotation);
-	BattleState.RoundFormat = ERoundFormat::FirstToOne;
-	BattleState.RoundTimer = 99 * 60;
-	
-	PlayMusic(GameInstance->BattleData.MusicName);
-	RoundInit();
+
+	MatchInit();
 }
 
 // Called every frame

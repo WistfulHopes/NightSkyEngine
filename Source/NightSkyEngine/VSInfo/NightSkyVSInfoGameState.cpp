@@ -29,7 +29,15 @@ void ANightSkyVSInfoGameState::BeginPlay()
 		FLoadPackageAsyncDelegate::CreateUObject(this,
 			&ANightSkyVSInfoGameState::OnMapPackageLoaded),
 		0, PKG_ContainsMap);
-	for (const auto PrimaryCharaData : GameInstance->BattleData.PlayerList)
+	for (const auto PrimaryCharaData : GameInstance->BattleData.PlayerListP1)
+	{
+		if (PrimaryCharaData == nullptr) continue;
+		++TotalCharaPackageCount;
+		LoadPackageAsync(PrimaryCharaData->PlayerClass->GetPathName(),
+			FLoadPackageAsyncDelegate::CreateUObject(this,
+				&ANightSkyVSInfoGameState::OnCharaPackageLoaded));
+	}
+	for (const auto PrimaryCharaData : GameInstance->BattleData.PlayerListP2)
 	{
 		if (PrimaryCharaData == nullptr) continue;
 		++TotalCharaPackageCount;

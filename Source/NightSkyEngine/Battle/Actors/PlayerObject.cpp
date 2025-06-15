@@ -793,7 +793,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		break;
 	}
 
-	for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
+	for (int i = GameState->Players.Num(); i < GameState->BattleState.ActiveObjectCount; i++)
 	{
 		if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->MiscFlags &
 			MISC_DeactivateOnReceiveHit)
@@ -2068,7 +2068,7 @@ bool APlayerObject::CheckObjectPreventingState(int InObjectID)
 	ReturnReg = false;
 	if (InObjectID != 0)
 	{
-		for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
+		for (int i = GameState->Players.Num(); i < GameState->BattleState.ActiveObjectCount; i++)
 		{
 			if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->ObjectID == InObjectID)
 				return true;
@@ -2464,7 +2464,7 @@ void APlayerObject::OnStateChange()
 	if (!GameState) return;
 
 	// Deactivate all objects that need to be destroyed on state change.
-	for (int i = MaxPlayerObjects; i < GameState->BattleState.ActiveObjectCount; i++)
+	for (int i = GameState->Players.Num(); i < GameState->BattleState.ActiveObjectCount; i++)
 	{
 		if (GameState->SortedObjects[i]->Player == this && GameState->SortedObjects[i]->MiscFlags &
 			MISC_DeactivateOnStateChange)

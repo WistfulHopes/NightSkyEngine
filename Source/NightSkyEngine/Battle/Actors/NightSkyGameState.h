@@ -8,22 +8,19 @@
 #include "GameFramework/GameStateBase.h"
 #include "include/ggponet.h"
 #include "NightSkyEngine/Battle/RandomManager.h"
-#include "NightSkyEngine/UI/NightSkyBattleWidget.h"
 #include "NightSkyGameState.generated.h"
 
 class UBattleExtensionData;
 class UBattleExtension;
 constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
-constexpr int32 MaxBattleObjects = 400;
-constexpr int32 MaxPlayerObjects = 6;
 constexpr int32 GaugeCount = 5;
 
 class ANightSkyBattleHudActor;
 
 // Battle data
 
-UENUM()
+UENUM(BlueprintType)
 enum class ERoundFormat : uint8
 {
 	FirstToOne,
@@ -79,7 +76,11 @@ struct FTeamData
 {
 	GENERATED_BODY()
 
-	int32 CooldownTimer[MaxPlayerObjects / 2];
+	UPROPERTY(SaveGame)
+	int TeamCount = 0;
+
+	UPROPERTY(SaveGame)
+	TArray<int32> CooldownTimer;
 };
 
 UENUM()
@@ -173,8 +174,6 @@ struct FBattleState
 	GENERATED_BODY()
 
 	char BattleStateSync;
-
-	FTeamData TeamData[2];
 	
 	int32 FrameNumber = 0;
 	int32 TimeUntilRoundStart = 0;
@@ -225,7 +224,7 @@ struct FBattleState
 	EWinSide CurrentWinSide = WIN_None;
 	EBattlePhase BattlePhase = EBattlePhase::Intro;
 	
-	int32 ActiveObjectCount = MaxPlayerObjects;
+	int32 ActiveObjectCount = 0;
 	int32 CurrentSequenceTime = -1;
 	
 	FAudioChannel CommonAudioChannels[CommonAudioChannelCount];
@@ -236,6 +235,9 @@ struct FBattleState
 
 	char BattleStateSyncEnd;
 
+	UPROPERTY(SaveGame)
+	FTeamData TeamData[2];
+	
 	UPROPERTY(BlueprintReadOnly)
 	ERoundFormat RoundFormat = ERoundFormat::FirstToTwo;
 };
@@ -243,22 +245,24 @@ struct FBattleState
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
 	FBattleState, BattleStateSync);
 
+USTRUCT()
 struct FRollbackData
 {
-	uint8 ObjBuffer[MaxBattleObjects + MaxPlayerObjects][SizeOfBattleObject] = { { 0 } };
-	bool ObjActive[MaxBattleObjects] = { false };
-	uint8 CharBuffer[MaxPlayerObjects][SizeOfPlayerObject] = { { 0 } };
-	uint8 BattleStateBuffer[SizeOfBattleState] = { 0 };
-	uint64 SizeOfBPRollbackData;
-};
-
-struct FBPRollbackData
-{
+	GENERATED_BODY()
+	
+	UPROPERTY()
+	TArray<bool> ObjActive;
+	TArray<TArray<uint8>> ObjBuffer;
+	TArray<TArray<uint8>> CharBuffer;
+	TArray<uint8> BattleStateBuffer;
 	TArray<TArray<uint8>> PlayerData;
+	TArray<uint8> BattleStateData;
 	TArray<TArray<uint8>> StateData;
 	TArray<TArray<uint8>> ExtensionData;
-	TArray<TArray<FRollbackAnimation>> WidgetAnimationData;
-
+	TArray<TArray<uint8>> WidgetAnimationData;
+	UPROPERTY()
+	uint64 SizeOfBPRollbackData;
+	
 	void Serialize(FArchive& Ar);
 };
 
@@ -282,21 +286,31 @@ class NIGHTSKYENGINE_API ANightSkyGameState : public AGameStateBase
 {
 	GENERATED_BODY()
 
-protected:
-	UPROPERTY()
-	ABattleObject* Objects[MaxBattleObjects] {};
-	UPROPERTY()
-	APlayerObject* Players[MaxPlayerObjects] {};
-
 public:
 	// Sets default values for this actor's properties
 	ANightSkyGameState();
+	
+	UPROPERTY(EditAnywhere)
+	int MaxBattleObjects = 400;
+	UPROPERTY()
+	TArray<ABattleObject*> Objects {};
+	UPROPERTY()
+	TArray<APlayerObject*> Players {};
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame)
+	FBattleState BattleState = FBattleState();
+	
+	UPROPERTY()
+	TArray<ABattleObject*> SortedObjects {};
 	
 	UPROPERTY(BlueprintReadWrite)
 	FTransform BattleSceneTransform;
 	
 	UPROPERTY()
-	ABattleObject* SortedObjects[MaxBattleObjects + MaxPlayerObjects] {};
+	TArray<UBattleExtension*> BattleExtensions = {};
+	TArray<FGameplayTag> BattleExtensionNames = {};
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UBattleExtensionData* BattleExtensionData = {};
 
 	UPROPERTY()
 	class UNightSkyGameInstance* GameInstance = nullptr;
@@ -329,18 +343,7 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ANightSkyBattleHudActor* BattleHudActor = nullptr;;
 
-	TArray<FRollbackData> MainRollbackData = {};
-	TArray<FBPRollbackData> BPRollbackData = {};
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	FBattleState BattleState = FBattleState();
-	
-	UPROPERTY()
-	TArray<UBattleExtension*> BattleExtensions = {};
-	TArray<FGameplayTag> BattleExtensionNames = {};
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	UBattleExtensionData* BattleExtensionData = {};
+	TArray<FRollbackData> RollbackData = {};
 	
 	int32 LocalFrame = 0;
 	int32 RemoteFrame = 0;
@@ -395,11 +398,15 @@ public:
 	
 	void SaveGameState(int32* InChecksum); //saves game state
 	void LoadGameState(); //loads game state
+	
+	TArray<uint8> SaveForRollback();
+	void LoadForRollback(const TArray<uint8>& InBytes);
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);
 	void CameraShake(const TSubclassOf<UCameraShakeBase>& Pattern, float Scale) const;
 
+	void HUDInit() const;
 	void UpdateHUD() const;
 	void BattleHudVisibility(bool Visible);
 	

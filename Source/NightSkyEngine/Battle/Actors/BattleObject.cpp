@@ -1728,9 +1728,9 @@ void ABattleObject::UpdateVisuals()
 		else
 		{
 			if (IsPlayer)
-				ScreenSpaceDepthOffset = (MaxPlayerObjects - DrawPriority) * 25;
+				ScreenSpaceDepthOffset = (GameState->Players.Num() - DrawPriority) * 25;
 			else
-				ScreenSpaceDepthOffset = (MaxBattleObjects - DrawPriority) * 15;
+				ScreenSpaceDepthOffset = (GameState->MaxBattleObjects - DrawPriority) * 15;
 			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 		}
 	}
@@ -2077,7 +2077,7 @@ void ABattleObject::ResetObject()
 	ObjectReg8 = 0;
 	Timer0 = 0;
 	Timer1 = 0;
-	DrawPriority = MaxBattleObjects;
+	DrawPriority = GameState->MaxBattleObjects;
 	HomingParams = FHomingParams();
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
