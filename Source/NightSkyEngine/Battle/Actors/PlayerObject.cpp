@@ -312,12 +312,10 @@ void APlayerObject::Update()
 		if ((AttackFlags & ATK_IsAttacking) == 0 && ComboTimer <= 0)
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
-			for (auto GaugeSide : GameState->BattleState.Gauge)
+			for (int i = 0; i < GameState->BattleState.MaxGauge.Num(); i++)
 			{
-				for (int i = 0; i < GameState->BattleState.Gauge->Num(); i++)
-				{
-					GaugeSide[i] = GameState->BattleState.MaxGauge[i];
-				}
+				if (PlayerIndex == 0) GameState->BattleState.GaugeP1[i] = GameState->BattleState.MaxGauge[i];
+				else GameState->BattleState.GaugeP2[i] = GameState->BattleState.MaxGauge[i];
 			}
 		}
 		if (PlayerIndex == 1)
@@ -1795,30 +1793,6 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 		break;
 	case EStateCondition::MeterFiveBars:
 		if (GameState->BattleState.Meter[PlayerIndex] >= 50000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeOneBar:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 10000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeTwoBars:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 20000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeThreeBars:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 30000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeFourBars:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 40000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeFiveBars:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 50000)
-			ReturnReg = true;
-		break;
-	case EStateCondition::FirstGaugeSixBars:
-		if (GameState->BattleState.Gauge[PlayerIndex][0] >= 60000)
 			ReturnReg = true;
 		break;
 	case EStateCondition::PlayerReg1True:

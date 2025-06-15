@@ -383,8 +383,8 @@ void ANightSkyGameState::MatchInit()
 	BattleState.RandomManager = GameInstance->BattleData.Random;
 	BattleState.TeamData[0].TeamCount = GameInstance->BattleData.PlayerListP1.Num();
 	BattleState.TeamData[1].TeamCount = GameInstance->BattleData.PlayerListP2.Num();
-	BattleState.Gauge[0].AddDefaulted(BattleState.MaxGauge.Num());
-	BattleState.Gauge[1].AddDefaulted(BattleState.MaxGauge.Num());
+	BattleState.GaugeP1.AddDefaulted(BattleState.MaxGauge.Num());
+	BattleState.GaugeP2.AddDefaulted(BattleState.MaxGauge.Num());
 
 	for (int i = 0; i < Players.Num(); i++)
 	{
@@ -581,14 +581,21 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			BattleState.Meter[i] = BattleState.MaxMeter[i];
 		if (BattleState.Meter[i] < 0)
 			BattleState.Meter[i] = 0;
-
-		for (int j = 0; j < BattleState.Gauge->Num(); j++)
-		{
-			if (BattleState.Gauge[i][j] > BattleState.MaxGauge[j])
-				BattleState.Gauge[i][j] = BattleState.MaxGauge[j];
-			if (BattleState.Gauge[i][j] < 0)
-				BattleState.Gauge[i][j] = 0;
-		}
+	}
+	
+	for (int i = 0; i < BattleState.MaxGauge.Num(); i++)
+	{
+		if (BattleState.GaugeP1[i] > BattleState.MaxGauge[i])
+			BattleState.GaugeP1[i] = BattleState.MaxGauge[i];
+		if (BattleState.GaugeP1[i] < 0)
+			BattleState.GaugeP1[i] = 0;
+	}
+	for (int i = 0; i < BattleState.MaxGauge.Num(); i++)
+	{
+		if (BattleState.GaugeP2[i] > BattleState.MaxGauge[i])
+			BattleState.GaugeP2[i] = BattleState.MaxGauge[i];
+		if (BattleState.GaugeP2[i] < 0)
+			BattleState.GaugeP2[i] = 0;
 	}
 
 	ParticleManager->PauseParticles();
@@ -1249,11 +1256,11 @@ int32 ANightSkyGameState::CreateChecksum()
 	Checksum += BattleState.Meter[0] ^ BattleState.Meter[0] << 16;
 	Checksum += BattleState.Meter[1] ^ BattleState.Meter[1] << 16;
 
-	for (const auto Gauge : BattleState.Gauge[0])
+	for (const auto Gauge : BattleState.GaugeP1)
 	{
 		Checksum += Gauge ^ Gauge << 16;
 	}
-	for (const auto Gauge : BattleState.Gauge[1])
+	for (const auto Gauge : BattleState.GaugeP2)
 	{
 		Checksum += Gauge ^ Gauge << 16;
 	}
@@ -1560,16 +1567,16 @@ void ANightSkyGameState::UpdateHUD() const
 
 			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty())
 				BattleHudActor->BottomWidget->P1Gauge.SetNum(
-					BattleState.Gauge->Num());
+					BattleState.MaxGauge.Num());
 			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty())
 				BattleHudActor->BottomWidget->P2Gauge.SetNum(
-					BattleState.Gauge->Num());
+					BattleState.MaxGauge.Num());
 
-			for (int j = 0; j < BattleState.Gauge->Num(); j++)
+			for (int j = 0; j < BattleState.MaxGauge.Num(); j++)
 			{
-				BattleHudActor->BottomWidget->P1Gauge[j] = static_cast<float>(BattleState.Gauge[0][j]) / BattleState.
+				BattleHudActor->BottomWidget->P1Gauge[j] = static_cast<float>(BattleState.GaugeP1[j]) / BattleState.
 					MaxGauge[j];
-				BattleHudActor->BottomWidget->P2Gauge[j] = static_cast<float>(BattleState.Gauge[1][j]) / BattleState.
+				BattleHudActor->BottomWidget->P2Gauge[j] = static_cast<float>(BattleState.GaugeP2[j]) / BattleState.
 					MaxGauge[j];
 			}
 		}
@@ -1760,10 +1767,10 @@ void ANightSkyGameState::CallBattleExtension(FGameplayTag Name)
 
 int32 ANightSkyGameState::GetGauge(bool IsP1, int32 GaugeIndex) const
 {
-	if (GaugeIndex < BattleState.Gauge->Num())
+	if (GaugeIndex < BattleState.MaxGauge.Num())
 	{
-		if (IsP1) return BattleState.Gauge[0][GaugeIndex];
-		return BattleState.Gauge[1][GaugeIndex];
+		if (IsP1) return BattleState.GaugeP1[GaugeIndex];
+		return BattleState.GaugeP2[GaugeIndex];
 	}
 
 	return -1;
@@ -1771,19 +1778,19 @@ int32 ANightSkyGameState::GetGauge(bool IsP1, int32 GaugeIndex) const
 
 void ANightSkyGameState::SetGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 {
-	if (GaugeIndex < BattleState.Gauge->Num())
+	if (GaugeIndex < BattleState.MaxGauge.Num())
 	{
-		if (IsP1) BattleState.Gauge[0][GaugeIndex] = Value;
-		else BattleState.Gauge[1][GaugeIndex] = Value;
+		if (IsP1) BattleState.GaugeP1[GaugeIndex] = Value;
+		else BattleState.GaugeP2[GaugeIndex] = Value;
 	}
 }
 
 void ANightSkyGameState::UseGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 {
-	if (GaugeIndex < BattleState.Gauge->Num())
+	if (GaugeIndex < BattleState.MaxGauge.Num())
 	{
-		if (IsP1) BattleState.Gauge[0][GaugeIndex] -= Value;
-		else BattleState.Gauge[1][GaugeIndex] -= Value;
+		if (IsP1) BattleState.GaugeP1[GaugeIndex] -= Value;
+		else BattleState.GaugeP2[GaugeIndex] -= Value;
 	}
 }
 

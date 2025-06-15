@@ -203,10 +203,6 @@ struct FBattleState
 	int32 Meter[2] {0, 0};
 	int32 MaxMeter[2] {10000, 10000};
 
-	TArray<int32> Gauge[2];
-	UPROPERTY(EditAnywhere)
-	TArray<int32> MaxGauge;
-
 	int32 SuperFreezeDuration = 0;
 	int32 SuperFreezeSelfDuration = 0;
 	
@@ -236,6 +232,13 @@ struct FBattleState
 
 	UPROPERTY(SaveGame)
 	FTeamData TeamData[2];
+	
+	UPROPERTY(SaveGame)
+	TArray<int32> GaugeP1;
+	UPROPERTY(SaveGame)
+	TArray<int32> GaugeP2;
+	UPROPERTY(EditAnywhere, SaveGame)
+	TArray<int32> MaxGauge;
 	
 	UPROPERTY(BlueprintReadOnly)
 	ERoundFormat RoundFormat = ERoundFormat::FirstToTwo;
