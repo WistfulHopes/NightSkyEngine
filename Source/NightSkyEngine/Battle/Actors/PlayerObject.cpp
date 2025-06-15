@@ -312,9 +312,9 @@ void APlayerObject::Update()
 		if ((AttackFlags & ATK_IsAttacking) == 0 && ComboTimer <= 0)
 		{
 			GameState->BattleState.Meter[PlayerIndex] = GameState->BattleState.MaxMeter[PlayerIndex];
-			for (const auto GaugeSide : GameState->BattleState.Gauge)
+			for (auto GaugeSide : GameState->BattleState.Gauge)
 			{
-				for (int i = 0; i < GaugeCount; i++)
+				for (int i = 0; i < GameState->BattleState.Gauge->Num(); i++)
 				{
 					GaugeSide[i] = GameState->BattleState.MaxGauge[i];
 				}

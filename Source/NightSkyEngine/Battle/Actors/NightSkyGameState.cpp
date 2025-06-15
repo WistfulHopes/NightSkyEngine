@@ -383,6 +383,8 @@ void ANightSkyGameState::MatchInit()
 	BattleState.RandomManager = GameInstance->BattleData.Random;
 	BattleState.TeamData[0].TeamCount = GameInstance->BattleData.PlayerListP1.Num();
 	BattleState.TeamData[1].TeamCount = GameInstance->BattleData.PlayerListP2.Num();
+	BattleState.Gauge[0].AddDefaulted(BattleState.MaxGauge.Num());
+	BattleState.Gauge[1].AddDefaulted(BattleState.MaxGauge.Num());
 
 	for (int i = 0; i < Players.Num(); i++)
 	{
@@ -580,7 +582,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 		if (BattleState.Meter[i] < 0)
 			BattleState.Meter[i] = 0;
 
-		for (int j = 0; j < GaugeCount; j++)
+		for (int j = 0; j < BattleState.Gauge->Num(); j++)
 		{
 			if (BattleState.Gauge[i][j] > BattleState.MaxGauge[j])
 				BattleState.Gauge[i][j] = BattleState.MaxGauge[j];
@@ -1558,12 +1560,12 @@ void ANightSkyGameState::UpdateHUD() const
 
 			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty())
 				BattleHudActor->BottomWidget->P1Gauge.SetNum(
-					GaugeCount);
+					BattleState.Gauge->Num());
 			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty())
 				BattleHudActor->BottomWidget->P2Gauge.SetNum(
-					GaugeCount);
+					BattleState.Gauge->Num());
 
-			for (int j = 0; j < GaugeCount; j++)
+			for (int j = 0; j < BattleState.Gauge->Num(); j++)
 			{
 				BattleHudActor->BottomWidget->P1Gauge[j] = static_cast<float>(BattleState.Gauge[0][j]) / BattleState.
 					MaxGauge[j];
@@ -1758,7 +1760,7 @@ void ANightSkyGameState::CallBattleExtension(FGameplayTag Name)
 
 int32 ANightSkyGameState::GetGauge(bool IsP1, int32 GaugeIndex) const
 {
-	if (GaugeIndex < GaugeCount)
+	if (GaugeIndex < BattleState.Gauge->Num())
 	{
 		if (IsP1) return BattleState.Gauge[0][GaugeIndex];
 		return BattleState.Gauge[1][GaugeIndex];
@@ -1769,7 +1771,7 @@ int32 ANightSkyGameState::GetGauge(bool IsP1, int32 GaugeIndex) const
 
 void ANightSkyGameState::SetGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 {
-	if (GaugeIndex < GaugeCount)
+	if (GaugeIndex < BattleState.Gauge->Num())
 	{
 		if (IsP1) BattleState.Gauge[0][GaugeIndex] = Value;
 		else BattleState.Gauge[1][GaugeIndex] = Value;
@@ -1778,7 +1780,7 @@ void ANightSkyGameState::SetGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 
 void ANightSkyGameState::UseGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 {
-	if (GaugeIndex < GaugeCount)
+	if (GaugeIndex < BattleState.Gauge->Num())
 	{
 		if (IsP1) BattleState.Gauge[0][GaugeIndex] -= Value;
 		else BattleState.Gauge[1][GaugeIndex] -= Value;

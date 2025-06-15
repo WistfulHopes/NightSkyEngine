@@ -14,7 +14,6 @@ class UBattleExtensionData;
 class UBattleExtension;
 constexpr int32 MaxRollbackFrames = 1;
 constexpr float OneFrame = 0.0166666666;
-constexpr int32 GaugeCount = 5;
 
 class ANightSkyBattleHudActor;
 
@@ -204,9 +203,9 @@ struct FBattleState
 	int32 Meter[2] {0, 0};
 	int32 MaxMeter[2] {10000, 10000};
 
-	int32 Gauge[2][GaugeCount];
+	TArray<int32> Gauge[2];
 	UPROPERTY(EditAnywhere)
-	int32 MaxGauge[GaugeCount];
+	TArray<int32> MaxGauge;
 
 	int32 SuperFreezeDuration = 0;
 	int32 SuperFreezeSelfDuration = 0;
