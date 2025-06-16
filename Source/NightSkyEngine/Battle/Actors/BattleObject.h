@@ -744,6 +744,19 @@ public:
 	int32 SubroutineReg4 = 0;
 
 	/*
+	 * Subroutine return values. Subroutines can optionally return values.
+	 * These are reset upon the next called subroutine.
+	*/
+	UPROPERTY(BlueprintReadWrite)
+	int32 SubroutineReturnVal1 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 SubroutineReturnVal2 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 SubroutineReturnVal3 = 0;
+	UPROPERTY(BlueprintReadWrite)
+	int32 SubroutineReturnVal4 = 0;
+
+	/*
 	 * Action data
 	 */
 

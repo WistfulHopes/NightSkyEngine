@@ -53,6 +53,9 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level1);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level2);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level3);
 
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_IsCorrectBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_HitCollision);
+
 /**
  * 
  */
@@ -511,6 +514,9 @@ public:
 	// Only call at the beginning of InitBP.
 	UFUNCTION(BlueprintCallable)
 	void EmptyStateMachine();
+	// Only call when resetting player object for round.
+	UFUNCTION(BlueprintImplementableEvent)
+	void RoundInit_BP();
 	
 	/*
 	 * Blueprint callable functions.

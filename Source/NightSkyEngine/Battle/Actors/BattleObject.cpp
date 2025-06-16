@@ -550,6 +550,9 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								TriggerEvent(EVT_HitOrBlockMainPlayer);
 							}
 
+							AttackedPlayer->CallSubroutine(Subroutine_HitCollision);
+							if (AttackedPlayer->SubroutineReturnVal1) return;
+							
 							if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 							{
 								CreateCommonParticle(Particle_Guard, POS_Enemy,
@@ -2075,6 +2078,14 @@ void ABattleObject::ResetObject()
 	ObjectReg6 = 0;
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
+	SubroutineReg1 = 0;
+	SubroutineReg2 = 0;
+	SubroutineReg3 = 0;
+	SubroutineReg4 = 0;
+	SubroutineReturnVal1 = 0;
+	SubroutineReturnVal2 = 0;
+	SubroutineReturnVal3 = 0;
+	SubroutineReturnVal4 = 0;
 	Timer0 = 0;
 	Timer1 = 0;
 	DrawPriority = GameState->MaxBattleObjects;
@@ -2158,6 +2169,10 @@ void ABattleObject::CallSubroutine(FGameplayTag Name)
 {
 	if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
 	{
+		SubroutineReturnVal1 = 0;
+		SubroutineReturnVal2 = 0;
+		SubroutineReturnVal3 = 0;
+		SubroutineReturnVal4 = 0;
 		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Parent = this;
 		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Exec();
 		return;
@@ -2165,6 +2180,10 @@ void ABattleObject::CallSubroutine(FGameplayTag Name)
 
 	if (Player->SubroutineNames.Find(Name) != INDEX_NONE)
 	{
+		SubroutineReturnVal1 = 0;
+		SubroutineReturnVal2 = 0;
+		SubroutineReturnVal3 = 0;
+		SubroutineReturnVal4 = 0;
 		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Parent = this;
 		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Exec();
 	}

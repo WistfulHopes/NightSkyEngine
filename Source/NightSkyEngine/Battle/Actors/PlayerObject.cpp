@@ -22,6 +22,9 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level1, "State.Label.Block.Leve
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level2, "State.Label.Block.Level2", "Block Label Level 2");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level3, "State.Label.Block.Level3", "Block Label Level 3");
 
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_IsCorrectBlock, "Subroutine.IsCorrectBlock", "Is Correct Block");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_HitCollision, "Subroutine.HitCollision", "Hit Collision");
+
 APlayerObject::APlayerObject()
 {
 	StoredStateMachine.Parent = this;
@@ -1480,6 +1483,9 @@ bool APlayerObject::IsEnemyBlocking() const
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 {
+	CallSubroutine(Subroutine_IsCorrectBlock);
+	if (SubroutineReturnVal2) return SubroutineReturnVal1;
+	
 	if (BlockType != BLK_None && EnableFlags & ENB_Block)
 	{
 		FInputCondition Left;
@@ -2607,6 +2613,14 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	ObjectReg6 = 0;
 	ObjectReg7 = 0;
 	ObjectReg8 = 0;
+	SubroutineReg1 = 0;
+	SubroutineReg2 = 0;
+	SubroutineReg3 = 0;
+	SubroutineReg4 = 0;
+	SubroutineReturnVal1 = 0;
+	SubroutineReturnVal2 = 0;
+	SubroutineReturnVal3 = 0;
+	SubroutineReturnVal4 = 0;
 	IsPlayer = true;
 	AttackTarget = nullptr;
 	AttackOwner = nullptr;
@@ -2727,6 +2741,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	{
 		SetFacing(DIR_Left);
 	}
+	RoundInit_BP();
 }
 
 void APlayerObject::DisableLastInput()
