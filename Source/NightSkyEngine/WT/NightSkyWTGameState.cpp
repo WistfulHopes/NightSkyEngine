@@ -41,11 +41,6 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 {
 	bIsBattling = true;
 
-	for (int i = 0; i < MaxRollbackFrames; i++)
-	{
-		RollbackData.Add(FRollbackData());
-	}
-
 	if (IsValid(BattleExtensionData))
 	{
 		for (auto Extension : BattleExtensionData->ExtensionArray)
@@ -89,6 +84,7 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 	SequenceCameraActor->SetActorLocation(NewCameraLocation);
 
 	MatchInit();
+	HUDInit();
 }
 
 // Called every frame
@@ -103,6 +99,9 @@ void ANightSkyWTGameState::Tick(float DeltaTime)
 	{
 		bIsBattling = false;
 		bIsMatchEnd = false;
+		Objects.Empty();
+		Players.Empty();
+		SortedObjects.Empty();
 		OnBattleEndDelegate.Broadcast();
 	}
 }
