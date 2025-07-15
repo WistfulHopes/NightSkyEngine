@@ -111,8 +111,7 @@ struct FScreenData
 	int ZoomOutBeginX = 1280;
 	
 	UPROPERTY()
-	ABattleObject* TargetObjects[6]{};
-	int TargetObjectCount;
+	TArray<ABattleObject*> TargetObjects{};
 	
 	int ObjTop = 0;
 	int ObjBottom = 0;
@@ -162,9 +161,6 @@ struct FScreenData
 	bool bStopScreenUpdate;
 	bool bStopZoomCamera;
 	bool bTouchingWorldSide;
-
-	void AddTargetObj(ABattleObject* InTarget);
-	void RemoveTargetObj(const ABattleObject* InTarget);
 };
 
 USTRUCT(BlueprintType)
@@ -299,7 +295,7 @@ public:
 	UPROPERTY()
 	TArray<APlayerObject*> Players {};
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame)
-	FBattleState BattleState = FBattleState();
+	FBattleState BattleState {};
 	
 	UPROPERTY()
 	TArray<ABattleObject*> SortedObjects {};
@@ -403,6 +399,7 @@ public:
 	
 	TArray<uint8> SaveForRollback();
 	void LoadForRollback(const TArray<uint8>& InBytes);
+	void ResetToCDO();
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);

@@ -95,7 +95,7 @@ void ANightSkyWTGameState::Tick(float DeltaTime)
 	if (bIsBattling && IsValid(FighterRunner))
 		FighterRunner->Update(DeltaTime);
 
-	if (bIsMatchEnd && BattleState.SuperFreezeCaller == nullptr)
+	if (bIsMatchEnd)
 	{
 		bIsBattling = false;
 		bIsMatchEnd = false;

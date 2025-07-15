@@ -26,37 +26,6 @@
 #include "Serialization/ObjectReader.h"
 #include "Serialization/ObjectWriter.h"
 
-void FScreenData::AddTargetObj(ABattleObject* InTarget)
-{
-	if (TargetObjectCount >= 6) return;
-
-	for (auto& TargetObj : TargetObjects)
-	{
-		if (TargetObj == nullptr)
-		{
-			TargetObj = InTarget;
-			TargetObjectCount++;
-		}
-		if (TargetObj == InTarget) return;
-	}
-}
-
-void FScreenData::RemoveTargetObj(const ABattleObject* InTarget)
-{
-	if (TargetObjectCount <= 0) return;
-
-	for (auto& TargetObj : TargetObjects)
-	{
-		if (TargetObj == nullptr) return;
-		if (TargetObj == InTarget)
-		{
-			TargetObj = nullptr;
-			TargetObjectCount--;
-			return;
-		}
-	}
-}
-
 void FRollbackData::Serialize(FArchive& Ar)
 {
 	Ar << ObjActive;
@@ -210,7 +179,7 @@ void ANightSkyGameState::RoundInit()
 	BattleState.RandomManager.Reseed(BattleState.RandomManager.Rand() + BattleState.RoundCount);
 	BattleState.RoundCount++;
 
-	BattleState.ScreenData = FScreenData();
+	BattleState.ScreenData = Cast<ANightSkyGameState>(GetClass()->GetDefaultObject())->BattleState.ScreenData;
 
 	BattleState.SuperFreezeSelfDuration = 0;
 	BattleState.SuperFreezeDuration = 0;
@@ -310,8 +279,8 @@ void ANightSkyGameState::RoundInit()
 		CallBattleExtension(BattleExtension_RoundInit);
 	}
 
-	BattleState.ScreenData.AddTargetObj(GetMainPlayer(true));
-	BattleState.ScreenData.AddTargetObj(GetMainPlayer(false));
+	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(true));
+	BattleState.ScreenData.TargetObjects.Add(GetMainPlayer(false));
 }
 
 void ANightSkyGameState::UpdateLocalInput()
@@ -377,8 +346,7 @@ void ANightSkyGameState::MatchInit()
 		break;
 	}
 
-	BattleState = FBattleState();
-	BattleState = Cast<ANightSkyGameState>(GetDefault<ANightSkyGameState>())->BattleState;
+	BattleState = Cast<ANightSkyGameState>(GetClass()->GetDefaultObject())->BattleState;
 
 	BattleState.RandomManager = GameInstance->BattleData.Random;
 	BattleState.TeamData[0].TeamCount = GameInstance->BattleData.PlayerListP1.Num();
@@ -609,7 +577,7 @@ void ANightSkyGameState::SetScreenCorners()
 {
 	const auto ScreenData = &BattleState.ScreenData;
 
-	if (ScreenData->TargetObjectCount == 0)
+	if (ScreenData->TargetObjects.Num() == 0)
 	{
 		ScreenData->ObjTop = 0;
 		ScreenData->ObjBottom = 0;
@@ -1633,8 +1601,8 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 	if (NewPlayer->PlayerFlags & PLF_IsOnScreen) return nullptr;
 	NewPlayer->TeamIndex = 0;
 	InPlayer->TeamIndex = TeamIndex;
-	BattleState.ScreenData.RemoveTargetObj(InPlayer);
-	BattleState.ScreenData.AddTargetObj(NewPlayer);
+	BattleState.ScreenData.TargetObjects.Remove(InPlayer);
+	BattleState.ScreenData.TargetObjects.Add(NewPlayer);
 	NewPlayer->JumpToState(State_Universal_TagIn);
 	NewPlayer->SetOnScreen(true);
 	for (const auto EnemyPlayer : GetTeam(!IsP1))
