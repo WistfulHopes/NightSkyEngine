@@ -177,7 +177,7 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		break;
 	case EStateType::NeutralJump:
 	case EStateType::ForwardJump:
-		Weight = GameState->BattleState.RandomManager.RandRange(10, 15);
+		Weight = GameState->BattleState.RandomManager.RandRange(5, 10);
 		if (GetEnemyDistanceY() > 105000 && Player->PosY < Player->Enemy->PosY)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(5, 15);
