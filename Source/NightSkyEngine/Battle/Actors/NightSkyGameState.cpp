@@ -144,8 +144,8 @@ void ANightSkyGameState::Init()
 
 		if (GameInstance->IsCPUBattle && !GameInstance->IsTraining)
 		{
-			Players[i]->SpawnDefaultController();
-			Players[i]->bIsCpu = true;
+			SpawnedPlayer->SpawnDefaultController();
+			SpawnedPlayer->bIsCpu = true;
 		}
 	}
 
@@ -285,27 +285,8 @@ void ANightSkyGameState::RoundInit()
 
 void ANightSkyGameState::UpdateLocalInput()
 {
-	if (GameInstance->FighterRunner == LocalPlay)
-	{
-		LocalInputs[LocalFrame % MaxRollbackFrames][0] = GetLocalInputs(0);
-		LocalInputs[LocalFrame % MaxRollbackFrames][1] = GetLocalInputs(1);
-		return;
-	}
-	const int PlayerIndex = GameInstance->PlayerIndex;
-	if (PlayerIndex == 0)
-	{
-		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] =
-			GetLocalInputs(0);
-		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[
-			RemoteFrame % MaxRollbackFrames][1];
-	}
-	else
-	{
-		RemoteInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[LocalFrame % MaxRollbackFrames][0] = LocalInputs[
-			RemoteFrame % MaxRollbackFrames][0];
-		RemoteInputs[LocalFrame % MaxRollbackFrames][1] = LocalInputs[LocalFrame % MaxRollbackFrames][1] =
-			GetLocalInputs(0);
-	}
+	LocalInputs[0] = GetLocalInputs(0);
+	LocalInputs[1] = GetLocalInputs(1);
 }
 
 // Called every frame
@@ -451,7 +432,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	if (!BattleState.MainPlayer[0]->bIsCpu) BattleState.MainPlayer[0]->Inputs = Input1;
 	else if (const auto CPU = Cast<ANightSkyAIController>(BattleState.MainPlayer[0]->Controller); CPU)
-			CPU->Update();
+		CPU->Update();
 	if (!BattleState.MainPlayer[1]->bIsCpu) BattleState.MainPlayer[1]->Inputs = Input2;
 	else if (const auto CPU = Cast<ANightSkyAIController>(BattleState.MainPlayer[1]->Controller); CPU)
 		CPU->Update();
@@ -762,7 +743,7 @@ void ANightSkyGameState::UpdateGameState()
 {
 	RemoteFrame++;
 	UpdateLocalInput();
-	UpdateGameState(LocalInputs[LocalFrame % MaxRollbackFrames][0], LocalInputs[LocalFrame % MaxRollbackFrames][1],
+	UpdateGameState(LocalInputs[0], LocalInputs[1],
 	                false);
 }
 
@@ -1659,25 +1640,6 @@ int ANightSkyGameState::GetLocalInputs(int Index) const
 		return Controller->Inputs;
 	}
 	return 0;
-}
-
-void ANightSkyGameState::UpdateRemoteInput(int RemoteInput[], int32 InFrame)
-{
-	const int PlayerIndex = GameInstance->PlayerIndex;
-	if (PlayerIndex == 0)
-	{
-		for (int i = InFrame; i > InFrame - MaxRollbackFrames; i--)
-		{
-			RemoteInputs[i % MaxRollbackFrames][1] = RemoteInput[i % MaxRollbackFrames];
-		}
-	}
-	else
-	{
-		for (int i = InFrame; i > InFrame - MaxRollbackFrames; i--)
-		{
-			RemoteInputs[i % MaxRollbackFrames][0] = RemoteInput[i % MaxRollbackFrames];
-		}
-	}
 }
 
 void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)

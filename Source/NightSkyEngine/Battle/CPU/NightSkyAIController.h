@@ -37,6 +37,7 @@ private:
 	int WaitCount = 0;
 	int WaitLimit = 1;
 	int InputCount = 0;
+	bool bBlock = false;
 	
 public:
 	// Called every frame
@@ -53,4 +54,6 @@ public:
 	int32 CheckBasicWeight(const UState* State) const;
 	UFUNCTION(BlueprintCallable)
 	int32 CheckAttackWeight(const UState* State) const;
+	UFUNCTION(BlueprintCallable)
+	int32 CheckDefenseWeight(const UState* State);
 };

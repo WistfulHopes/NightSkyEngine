@@ -503,11 +503,15 @@ void APlayerObject::Update()
 	if (MeterCooldownTimer > 0)
 		MeterCooldownTimer--;
 
-	if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >=
-		ERoundFormat::TwoVsTwo && GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree)))
-		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
-		else
-			if (!bIsCpu) StoredInputBuffer.Update(INP_Neutral);
+	if (!bIsCpu)
+	{
+		if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >=
+			ERoundFormat::TwoVsTwo && GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree)))
+		{
+			StoredInputBuffer.Update(Inputs);
+		}
+		else StoredInputBuffer.Update(INP_Neutral);
+	}
 
 	if (AirDashTimer > 0)
 		AirDashTimer--;
@@ -1479,6 +1483,11 @@ bool APlayerObject::IsEnemyBlocking() const
 {
 	return Enemy->GetCurrentStateName() == State_Universal_StandBlock || Enemy->GetCurrentStateName() ==
 		State_Universal_CrouchBlock || Enemy->GetCurrentStateName() == State_Universal_AirBlock;
+}
+
+EBlockType APlayerObject::GetAttackBlockType() const
+{
+	return HitCommon.BlockType;
 }
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)

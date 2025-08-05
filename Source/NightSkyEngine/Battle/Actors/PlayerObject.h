@@ -761,6 +761,7 @@ public:
 	bool IsEnemyAttackState() const;
 	bool IsEnemyThrow() const;
 	bool IsEnemyBlocking() const;
+	EBlockType GetAttackBlockType() const;
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);
