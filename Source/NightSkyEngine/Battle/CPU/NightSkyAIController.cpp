@@ -132,22 +132,20 @@ void ANightSkyAIController::ResetParams()
 		{
 		case EStateType::Standing:
 		case EStateType::Crouching:
-			WaitLimit = 1;
+			WaitLimit = 4;
 			break;
 		case EStateType::NeutralJump:
 		case EStateType::ForwardJump:
 		case EStateType::BackwardJump:
+		case EStateType::ForwardAirDash:
+		case EStateType::ForwardDash:
+		case EStateType::BackwardDash:
+		case EStateType::BackwardAirDash:
 			WaitLimit = 8;
 			break;
 		case EStateType::ForwardWalk:
-		case EStateType::ForwardDash:
 		case EStateType::BackwardWalk:
 			WaitLimit = 2;
-			break;
-		case EStateType::ForwardAirDash:
-		case EStateType::BackwardDash:
-		case EStateType::BackwardAirDash:
-			WaitLimit = 4;
 			break;
 		default:
 			break;
