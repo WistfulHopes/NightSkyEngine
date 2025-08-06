@@ -34,7 +34,6 @@ void ANightSkyAIController::Update()
 	bBlock = false;
 	
 	bool bDefendOnly = false;
-	bool bAttackOnly = false;
 	
 	if (Player->Enemy->CheckIsAttacking()
 		&& Player->CheckEnemyInRange(
@@ -49,7 +48,7 @@ void ANightSkyAIController::Update()
 	else
 	{
 		WaitCount++;
-		if (WaitCount <= WaitLimit) bAttackOnly = true;
+		if (WaitCount <= WaitLimit) return;
 	}
 	
 	TArray<UState*> AvailableStates{};
@@ -66,7 +65,7 @@ void ANightSkyAIController::Update()
 	}
 	else
 	{
-		auto MaxWeight = 75;
+		auto MaxWeight = 50;
 		UState* CurState = nullptr;
 		for (const auto State : AvailableStates)
 		{
@@ -92,7 +91,7 @@ void ANightSkyAIController::Update()
 					}
 				}
 			}
-			else if (!State->CPUData.bAttack && !bAttackOnly)
+			else if (!State->CPUData.bAttack)
 			{
 				Weight = CheckBasicWeight(State);
 				if (Weight > MaxWeight)
@@ -126,32 +125,8 @@ void ANightSkyAIController::ResetParams()
 {
 	WaitCount = 0;
 	InputCount = 0;
-	if (TargetState)
-	{
-		switch (TargetState->StateType)
-		{
-		case EStateType::Standing:
-		case EStateType::Crouching:
-			WaitLimit = 4;
-			break;
-		case EStateType::NeutralJump:
-		case EStateType::ForwardJump:
-		case EStateType::BackwardJump:
-		case EStateType::ForwardAirDash:
-		case EStateType::ForwardDash:
-		case EStateType::BackwardDash:
-		case EStateType::BackwardAirDash:
-			WaitLimit = 8;
-			break;
-		case EStateType::ForwardWalk:
-		case EStateType::BackwardWalk:
-			WaitLimit = 2;
-			break;
-		default:
-			break;
-		}
-		TargetState = nullptr;
-	}
+	WaitLimit = 3;
+	TargetState = nullptr;
 }
 
 bool ANightSkyAIController::SetInputs()
@@ -219,7 +194,7 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		}
 		break;
 	case EStateType::ForwardWalk:
-		Weight = GameState->BattleState.RandomManager.RandRange(25, 80);
+		Weight += GameState->BattleState.RandomManager.RandRange(25, 80);
 		if (GetEnemyDistanceX() > 420000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(30, 50);
@@ -230,7 +205,7 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		}
 		break;
 	case EStateType::ForwardDash:
-		Weight = GameState->BattleState.RandomManager.RandRange(50, 100);
+		Weight += GameState->BattleState.RandomManager.RandRange(50, 100);
 		if (GetEnemyDistanceX() > 640000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(15, 30);
@@ -243,9 +218,13 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(15, 30);
 		}
+		if (Player->Direction == Player->Enemy->Direction)
+		{
+			Weight = 0;
+		}
 		break;
 	case EStateType::BackwardWalk:
-		Weight = GameState->BattleState.RandomManager.RandRange(10, 65);
+		Weight += GameState->BattleState.RandomManager.RandRange(10, 65);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 540000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(15, 35);
@@ -256,7 +235,7 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		}
 		break;
 	case EStateType::BackwardDash:
-		Weight = GameState->BattleState.RandomManager.RandRange(20, 40);
+		Weight += GameState->BattleState.RandomManager.RandRange(20, 40);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 540000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(10, 20);
@@ -284,8 +263,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	if (!IsValid(Player)) return 0;
 
 	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
-	                               State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange)
-									&& !State->CPUData.bProjectile)
+	                               State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))
 		return 0;
 
 	int32 Weight = GameState->BattleState.RandomManager.RandRange(60, 100);
@@ -367,12 +345,12 @@ int32 ANightSkyAIController::CheckDefenseWeight(const UState* State)
 {
 	if (!IsValid(Player)) return 0;
 
-	int Weight = 50;
+	int Weight = 0;
 	
 	switch (State->StateType)
 	{
 	case EStateType::Crouching:
-		Weight = GameState->BattleState.RandomManager.RandRange(50, 80);
+		Weight += GameState->BattleState.RandomManager.RandRange(50, 80);
 		if (Player->Enemy->GetAttackBlockType() == BLK_High)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(25, 50);
@@ -380,14 +358,14 @@ int32 ANightSkyAIController::CheckDefenseWeight(const UState* State)
 		break;
 	case EStateType::BackwardJump:
 	case EStateType::BackwardAirDash:
-		Weight = GameState->BattleState.RandomManager.RandRange(25, 50);
+		Weight += GameState->BattleState.RandomManager.RandRange(25, 50);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 360000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(25, 50);
 		}
 		break;
 	case EStateType::BackwardWalk:
-		Weight = GameState->BattleState.RandomManager.RandRange(25, 100);
+		Weight += GameState->BattleState.RandomManager.RandRange(25, 100);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 360000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(15, 35);
@@ -398,7 +376,7 @@ int32 ANightSkyAIController::CheckDefenseWeight(const UState* State)
 		}
 		break;
 	case EStateType::BackwardDash:
-		Weight = GameState->BattleState.RandomManager.RandRange(50, 80);
+		Weight += GameState->BattleState.RandomManager.RandRange(50, 80);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 360000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(10, 20);
@@ -418,7 +396,7 @@ int32 ANightSkyAIController::CheckDefenseWeight(const UState* State)
 	
 	bBlock = true;
 	
-	Weight += GameState->BattleState.RandomManager.RandRange(-50, 50);
+	Weight += GameState->BattleState.RandomManager.RandRange(-25, 50);
 	
 	return Weight;
 }
