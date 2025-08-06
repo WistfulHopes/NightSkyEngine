@@ -55,6 +55,7 @@ enum class EBattlePhase
 	Battle,
 	RoundEnd,
 	MatchEnd,
+	Outro,
 	EndScreen,
 };
 
@@ -398,7 +399,7 @@ public:
 	
 	TArray<uint8> SaveForRollback();
 	void LoadForRollback(const TArray<uint8>& InBytes);
-	void ResetToCDO();
+	void EndMatch();
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);
@@ -434,7 +435,7 @@ public:
 	void UseGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 	UFUNCTION(BlueprintPure)
 	bool IsTagBattle() const;
-
+	
 	UFUNCTION(BlueprintImplementableEvent)
-	void EndMatch();
+	void EndMatch_BP();
 };

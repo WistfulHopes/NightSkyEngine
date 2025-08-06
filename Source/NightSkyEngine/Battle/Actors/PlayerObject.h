@@ -223,6 +223,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	int32 CmnPlayerReg8 = 0;
 
+	UPROPERTY(BlueprintReadWrite)
+	bool RoundEndFlag = false;
+	
 	/*
 	 * Action data.
 	 */

@@ -1337,7 +1337,7 @@ void APlayerObject::EndRound() const
 void APlayerObject::EndMatch() const
 {
 	if (!GameState) return;
-	GameState->EndMatch();
+	GameState->EndMatch_BP();
 }
 
 void APlayerObject::PauseRoundTimer(bool Pause)

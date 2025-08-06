@@ -828,6 +828,10 @@ void ANightSkyGameState::HandleRoundWin()
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(true)->RoundWinTimer == 0)
 		{
+			GetMainPlayer(true)->JumpToState(State_Universal_RoundWin);
+		}
+		if (GetMainPlayer(true)->RoundEndFlag == true)
+		{
 			if (IsTagBattle())
 			{
 				if (!HandleMatchWin())
@@ -838,11 +842,8 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 			else if (!HandleMatchWin())
 			{
-				if (!GetMainPlayer(true)->JumpToState(State_Universal_RoundWin))
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
+				BattleState.PauseTimer = false;
+				RoundInit();
 			}
 		}
 	}
@@ -856,6 +857,10 @@ void ANightSkyGameState::HandleRoundWin()
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(false)->RoundWinTimer == 0)
 		{
+			GetMainPlayer(false)->JumpToState(State_Universal_RoundWin);
+		}
+		if (GetMainPlayer(false)->RoundEndFlag == true)
+		{
 			if (IsTagBattle())
 			{
 				if (!HandleMatchWin())
@@ -866,11 +871,8 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 			else if (!HandleMatchWin())
 			{
-				if (!GetMainPlayer(false)->JumpToState(State_Universal_RoundWin))
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
+				BattleState.PauseTimer = false;
+				RoundInit();
 			}
 		}
 	}
@@ -908,6 +910,11 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(true)->RoundWinTimer == 0)
 			{
+				GetMainPlayer(true)->JumpToState(State_Universal_RoundWin);
+				GetMainPlayer(false)->JumpToState(State_Universal_RoundLose);
+			}
+			if (GetMainPlayer(true)->RoundEndFlag == true)
+			{
 				if (IsTagBattle())
 				{
 					if (!HandleMatchWin())
@@ -918,11 +925,8 @@ void ANightSkyGameState::HandleRoundWin()
 				}
 				else if (!HandleMatchWin())
 				{
-					if (!GetMainPlayer(true)->JumpToState(State_Universal_RoundWin))
-					{
-						BattleState.PauseTimer = false;
-						RoundInit();
-					}
+					BattleState.PauseTimer = false;
+					RoundInit();
 				}
 			}
 		}
@@ -937,6 +941,11 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(false)->RoundWinTimer == 0)
 			{
+				GetMainPlayer(false)->JumpToState(State_Universal_RoundWin);
+				GetMainPlayer(false)->JumpToState(State_Universal_RoundLose);
+			}
+			if (GetMainPlayer(false)->RoundEndFlag == true)
+			{
 				if (IsTagBattle())
 				{
 					if (!HandleMatchWin())
@@ -947,11 +956,8 @@ void ANightSkyGameState::HandleRoundWin()
 				}
 				else if (!HandleMatchWin())
 				{
-					if (!GetMainPlayer(false)->JumpToState(State_Universal_RoundWin))
-					{
-						BattleState.PauseTimer = false;
-						RoundInit();
-					}
+					BattleState.PauseTimer = false;
+					RoundInit();
 				}
 			}
 		}
@@ -986,18 +992,16 @@ bool ANightSkyGameState::HandleMatchWin()
 		if (BattleState.BattlePhase == EBattlePhase::EndScreen) return true;
 		if (BattleState.CurrentWinSide == WIN_P2)
 		{
-			if (GetMainPlayer(false)->RoundWinTimer == 0)
+			if (GetMainPlayer(false)->RoundEndFlag == true)
 			{
 				EndMatch();
-				BattleState.BattlePhase = EBattlePhase::EndScreen;
 			}
 		}
 		else
 		{
-			if (GetMainPlayer(true)->RoundWinTimer == 0)
+			if (GetMainPlayer(true)->RoundEndFlag == true)
 			{
 				EndMatch();
-				BattleState.BattlePhase = EBattlePhase::EndScreen;
 			}
 		}
 		return true;
@@ -2079,4 +2083,10 @@ void ANightSkyGameState::LoadForRollback(const TArray<uint8>& InBytes)
 	FObjectReader Reader(InBytes);
 	Reader.ArIsSaveGame = true;
 	GetClass()->SerializeBin(Reader, this);
+}
+
+void ANightSkyGameState::EndMatch()
+{
+	EndMatch_BP();
+	BattleState.BattlePhase = EBattlePhase::EndScreen;
 }

@@ -45,6 +45,7 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Throw, "State.Universal.Throw", "
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_ThrowLock, "State.Universal.ThrowLock", "Throw Lock State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_TagIn, "State.Universal.TagIn", "Tag In State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundWin, "State.Universal.RoundWin", "Round Win State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundLose, "State.Universal.RoundLose", "Round Lose State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_MatchWin, "State.Universal.MatchWin", "Match Win State");
 
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_S, "State.BattleObject.KO.S", "KO (Small) Battle Object");

@@ -61,6 +61,7 @@ public:
 		return FCollisionStruct();
 	}
 
+#if WITH_EDITORONLY_DATA
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override
 	{
 		Super::PostEditChangeProperty(PropertyChangedEvent);
@@ -72,4 +73,5 @@ public:
 			}
 		}
 	}
+#endif
 };
