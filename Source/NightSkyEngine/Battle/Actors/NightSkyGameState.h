@@ -20,17 +20,11 @@ class ANightSkyBattleHudActor;
 // Battle data
 
 UENUM(BlueprintType)
-enum class ERoundFormat : uint8
+enum class EBattleFormat : uint8
 {
-	FirstToOne,
-	FirstToTwo,
-	FirstToThree,
-	FirstToFour,
-	FirstToFive,
-	TwoVsTwo,
-	ThreeVsThree,
-	TwoVsTwoKOF,
-	ThreeVsThreeKOF,
+	Rounds,
+	Tag,
+	KOF,
 };
 
 enum EIntroSide
@@ -238,7 +232,9 @@ struct FBattleState
 	TArray<int32> MaxGauge;
 	
 	UPROPERTY(BlueprintReadOnly)
-	ERoundFormat RoundFormat = ERoundFormat::FirstToTwo;
+	EBattleFormat BattleFormat = EBattleFormat::Rounds;
+	UPROPERTY(BlueprintReadOnly)
+	uint8 MaxRoundCount;
 };
 
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(

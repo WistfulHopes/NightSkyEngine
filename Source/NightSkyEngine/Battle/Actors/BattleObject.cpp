@@ -2468,10 +2468,6 @@ void ABattleObject::EnableHit(bool Enabled)
 	{
 		SetProjectileAttribute(true);
 	}
-	else if (Player->StoredStateMachine.CurrentState->EntryStance == EEntryStance::Jumping)
-	{
-		Player->SetHeadAttribute(true);
-	}
 }
 
 void ABattleObject::SetAttacking(bool Attacking)

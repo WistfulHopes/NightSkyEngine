@@ -47,7 +47,7 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 	// Setup PlayerObject BP picker
 	InitializePlayerObjectBPPicker();
 	// Setup state name combo box
-	InitializeStateNameComboBox();
+	InitializeCelNameComboBox();
 
 	// Set up viewport
 	InitializePreviewScene();
@@ -132,9 +132,8 @@ void FCollisionDataEditorToolkit::OnClose()
 	FAssetEditorToolkit::OnClose();
 }
 
-void FCollisionDataEditorToolkit::InitializeStateNameComboBox()
+void FCollisionDataEditorToolkit::InitializeCelNameComboBox()
 {
-	// Add a single blank entry to AnimStructNames as a placeholder
 	for (auto Frame : CollisionData->CollisionFrames)
 	{
 		CelNames.Add(MakeShared<FGameplayTag>(Frame.CelName));
@@ -153,6 +152,13 @@ void FCollisionDataEditorToolkit::InitializeStateNameComboBox()
 void FCollisionDataEditorToolkit::OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem,
                                                     ESelectInfo::Type SelectInfo)
 {
+	CelNames.Empty();
+	
+	for (auto Frame : CollisionData->CollisionFrames)
+	{
+		CelNames.Add(MakeShared<FGameplayTag>(Frame.CelName));
+	}
+	
 	if (SelectedItem.IsValid() && SelectedItem->IsValid())
 	{
 		SelectedCel = *SelectedItem.Get();

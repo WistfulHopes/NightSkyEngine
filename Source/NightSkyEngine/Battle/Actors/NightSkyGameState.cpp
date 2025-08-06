@@ -186,7 +186,7 @@ void ANightSkyGameState::RoundInit()
 	BattleState.SuperFreezeCaller = nullptr;
 	BattleState.BattlePhase = EBattlePhase::Battle;
 
-	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo || BattleState.RoundCount == 1)
+	if (BattleState.BattleFormat != EBattleFormat::Tag || BattleState.RoundCount == 1)
 	{
 		if (BattleState.RoundCount != 1)
 		{
@@ -221,7 +221,7 @@ void ANightSkyGameState::RoundInit()
 
 		CallBattleExtension(BattleExtension_RoundInit);
 	}
-	else if (BattleState.RoundFormat < ERoundFormat::TwoVsTwoKOF)
+	else if (BattleState.BattleFormat == EBattleFormat::Rounds)
 	{
 		const bool IsP1 = GetMainPlayer(true)->CurrentHealth == 0;
 		GetMainPlayer(IsP1)->SetOnScreen(false);
@@ -237,7 +237,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
 
-		for (const auto& Player : Players) Player->RoundWinTimer = 60;
+		for (const auto& Player : Players) Player->RoundWinTimer = 120;
 	}
 	else
 	{
@@ -362,7 +362,7 @@ void ANightSkyGameState::MatchInit()
 
 	BattleState.MainPlayer[0] = Players[0];
 	BattleState.MainPlayer[1] = Players[BattleState.TeamData[0].TeamCount];
-	BattleState.RoundFormat = GameInstance->BattleData.RoundFormat;
+	BattleState.BattleFormat = GameInstance->BattleData.RoundFormat;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
 	PlayMusic(GameInstance->BattleData.MusicName);
@@ -1018,25 +1018,25 @@ bool ANightSkyGameState::HandleMatchWin()
 		}
 		return true;
 	}
-	switch (BattleState.RoundFormat)
+	switch (BattleState.BattleFormat)
 	{
-	case ERoundFormat::FirstToOne:
+	case EBattleFormat::Rounds:
 		{
-			if (BattleState.P1RoundsWon > 0 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+			if (BattleState.P1RoundsWon >= BattleState.MaxRoundCount && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
-			if (BattleState.P2RoundsWon > 0 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+			if (BattleState.P2RoundsWon >= BattleState.MaxRoundCount && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
 			}
-			if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
+			if (BattleState.P1RoundsWon > BattleState.MaxRoundCount && BattleState.P2RoundsWon > BattleState.MaxRoundCount)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
@@ -1044,145 +1044,24 @@ bool ANightSkyGameState::HandleMatchWin()
 			}
 		}
 		return false;
-	case ERoundFormat::FirstToTwo:
+	case EBattleFormat::Tag:
+	case EBattleFormat::KOF:
 		{
-			if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
+			if (BattleState.P1RoundsWon >= BattleState.TeamData[1].TeamCount && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
 			{
 				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P1;
 				return true;
 			}
-			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
+			if (BattleState.P2RoundsWon >= BattleState.TeamData[0].TeamCount && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
 			{
 				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_P2;
 				return true;
 			}
-			if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
-			{
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_Draw;
-				return true;
-			}
-		}
-		return false;
-	case ERoundFormat::FirstToThree:
-		{
-			if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
-			{
-				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P1;
-				return true;
-			}
-			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
-			{
-				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P2;
-				return true;
-			}
-			if (BattleState.P1RoundsWon == 4 && BattleState.P2RoundsWon == 4)
-			{
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_Draw;
-				return true;
-			}
-		}
-		return false;
-	case ERoundFormat::FirstToFour:
-		{
-			if (BattleState.P1RoundsWon > 3 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
-			{
-				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P1;
-				return true;
-			}
-			if (BattleState.P2RoundsWon > 3 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
-			{
-				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P2;
-				return true;
-			}
-			if (BattleState.P1RoundsWon == 5 && BattleState.P2RoundsWon == 5)
-			{
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_Draw;
-				return true;
-			}
-		}
-		return false;
-	case ERoundFormat::FirstToFive:
-		{
-			if (BattleState.P1RoundsWon > 4 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
-			{
-				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P1;
-				return true;
-			}
-			if (BattleState.P2RoundsWon > 4 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
-			{
-				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P2;
-				return true;
-			}
-			if (BattleState.P1RoundsWon == 6 && BattleState.P2RoundsWon == 6)
-			{
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_Draw;
-				return true;
-			}
-		}
-		return false;
-	case ERoundFormat::TwoVsTwo:
-	case ERoundFormat::TwoVsTwoKOF:
-		{
-			if (BattleState.P1RoundsWon > 1 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
-			{
-				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P1;
-				return true;
-			}
-			if (BattleState.P2RoundsWon > 1 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
-			{
-				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P2;
-				return true;
-			}
-			if (BattleState.P1RoundsWon == 2 && BattleState.P2RoundsWon == 2)
-			{
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_Draw;
-				return true;
-			}
-		}
-		return false;
-	case ERoundFormat::ThreeVsThree:
-	case ERoundFormat::ThreeVsThreeKOF:
-		{
-			if (BattleState.P1RoundsWon > 2 && BattleState.P2RoundsWon < BattleState.P1RoundsWon)
-			{
-				GetMainPlayer(true)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P1;
-				return true;
-			}
-			if (BattleState.P2RoundsWon > 2 && BattleState.P1RoundsWon < BattleState.P2RoundsWon)
-			{
-				GetMainPlayer(false)->JumpToState(State_Universal_MatchWin);
-				GameInstance->EndRecordReplay();
-				BattleState.CurrentWinSide = WIN_P2;
-				return true;
-			}
-			if (BattleState.P1RoundsWon == 3 && BattleState.P2RoundsWon == 3)
+			if (BattleState.P1RoundsWon >= BattleState.TeamData[1].TeamCount && BattleState.P2RoundsWon >= BattleState.TeamData[0].TeamCount)
 			{
 				GameInstance->EndRecordReplay();
 				BattleState.CurrentWinSide = WIN_Draw;
@@ -1586,12 +1465,9 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex)
 {
 	if (TeamIndex == 0) return nullptr;
-	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo) return nullptr;
-	if (BattleState.RoundFormat > ERoundFormat::ThreeVsThree) return nullptr;
-	if (BattleState.RoundFormat == ERoundFormat::TwoVsTwo && TeamIndex > 1) return nullptr;
-	if (BattleState.RoundFormat == ERoundFormat::ThreeVsThree && TeamIndex > 2) return nullptr;
 	const bool IsP1 = InPlayer->PlayerIndex == 0;
-	if (BattleState.TeamData[IsP1 == 0].CooldownTimer[TeamIndex] > 0) return nullptr;
+	if (BattleState.BattleFormat != EBattleFormat::Tag && TeamIndex >= BattleState.TeamData[IsP1 == false].TeamCount) return nullptr;
+	if (BattleState.TeamData[IsP1 == false].CooldownTimer[TeamIndex] > 0) return nullptr;
 
 	const auto NewPlayer = GetTeam(IsP1)[TeamIndex];
 	if (NewPlayer->CurrentHealth == 0) return nullptr;
@@ -1614,10 +1490,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, int
 APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistIndex, const FGameplayTag AssistName)
 {
 	if (AssistIndex == 0) return nullptr;
-	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo) return nullptr;
-	if (BattleState.RoundFormat > ERoundFormat::ThreeVsThree) return nullptr;
-	if (BattleState.RoundFormat == ERoundFormat::TwoVsTwo && AssistIndex > 1) return nullptr;
-	if (BattleState.RoundFormat == ERoundFormat::ThreeVsThree && AssistIndex > 2) return nullptr;
+	if (BattleState.BattleFormat != EBattleFormat::Tag && AssistIndex >= BattleState.TeamData[IsP1 == false].TeamCount) return nullptr;
 	if (BattleState.TeamData[IsP1 == 0].CooldownTimer[AssistIndex] > 0) return nullptr;
 
 	const auto NewPlayer = GetTeam(IsP1)[AssistIndex];
@@ -1633,11 +1506,8 @@ APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistI
 bool ANightSkyGameState::CanTag(const APlayerObject* InPlayer, int TeamIndex) const
 {
 	if (TeamIndex == 0) return false;
-	if (BattleState.RoundFormat < ERoundFormat::TwoVsTwo) return false;
-	if (BattleState.RoundFormat > ERoundFormat::ThreeVsThree) return false;
-	if (BattleState.RoundFormat == ERoundFormat::TwoVsTwo && TeamIndex > 1) return false;
-	if (BattleState.RoundFormat == ERoundFormat::ThreeVsThree && TeamIndex > 2) return false;
 	const bool IsP1 = InPlayer->PlayerIndex == 0;
+	if (BattleState.BattleFormat != EBattleFormat::Tag && TeamIndex >= BattleState.TeamData[IsP1 == false].TeamCount) return false;
 
 	if (BattleState.TeamData[IsP1 == 0].CooldownTimer[TeamIndex] > 0) return false;
 
@@ -1742,7 +1612,7 @@ void ANightSkyGameState::UseGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 
 bool ANightSkyGameState::IsTagBattle() const
 {
-	return BattleState.RoundFormat >= ERoundFormat::TwoVsTwo && BattleState.RoundFormat <= ERoundFormat::ThreeVsThree;
+	return BattleState.BattleFormat == EBattleFormat::Tag;
 }
 
 void ANightSkyGameState::ScreenPosToWorldPos(const int32 X, const int32 Y, int32* OutX, int32* OutY) const

@@ -301,7 +301,7 @@ void APlayerObject::Update()
 		return;
 	}
 
-	if (Inputs != 0 || Inputs != INP_Neutral)
+	if (Inputs != StoredInputBuffer.InputBufferInternal[89])
 	{
 		IntroEndFlag = true;
 		if (RoundWinTimer <= 0)
@@ -514,8 +514,8 @@ void APlayerObject::Update()
 
 	if (!bIsCpu)
 	{
-		if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0 || (GameState->BattleState.RoundFormat >=
-			ERoundFormat::TwoVsTwo && GameState->BattleState.RoundFormat <= ERoundFormat::ThreeVsThree)))
+		if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0
+			|| GameState->BattleState.BattleFormat == EBattleFormat::Tag))
 		{
 			StoredInputBuffer.Update(Inputs);
 		}
@@ -2727,7 +2727,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
-	RoundWinTimer = 60;
+	RoundWinTimer = 120;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
 	CurrentAirJumpCount = 0;

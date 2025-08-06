@@ -94,7 +94,7 @@ private:
 	// A cool feature that is a long way off would be a button to automatically place initial hitboxes
 	// This would be based on bone positions in the designated cel frame, if that is possible
 
-	void InitializeStateNameComboBox();
+	void InitializeCelNameComboBox();
 	void OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem, ESelectInfo::Type SelectInfo);
 	TSharedRef<SWidget> MakeAnimationNameWidget(TSharedPtr<FGameplayTag> InItem);
 

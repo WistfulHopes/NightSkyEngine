@@ -17,7 +17,7 @@ constexpr int32 MaxReplays = 999;
 
 class APlayerObject;
 class UReplaySaveInfo;
-enum class ERoundFormat : uint8;
+enum class EBattleFormat : uint8;
 
 USTRUCT(BlueprintType)
 struct FBattleData
@@ -31,7 +31,7 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<int32> ColorIndices;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	ERoundFormat RoundFormat;
+	EBattleFormat RoundFormat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 StartRoundTimer;
 	UPROPERTY()
