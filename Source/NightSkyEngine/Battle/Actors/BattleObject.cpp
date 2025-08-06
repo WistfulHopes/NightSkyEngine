@@ -687,7 +687,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 								const FHitData Data = InitHitDataByAttackLevel(false);
 								CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
-								                     FVector(0, 100, 0),
+								                     FVector(0, 0, 0),
 								                     FRotator(HitCommon.HitAngle, 0, 0));
 								PlayCommonSound(HitCommon.HitSFX);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
@@ -727,7 +727,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 								}
 
 								const FHitData CounterData = InitHitDataByAttackLevel(true);
-								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 100, 0),
+								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 0, 0),
 								                     FRotator(HitCommon.HitAngle, 0, 0));
 								PlayCommonSound(HitCommon.HitSFX);
 								AttackedPlayer->ReceivedHitCommon = HitCommon;
