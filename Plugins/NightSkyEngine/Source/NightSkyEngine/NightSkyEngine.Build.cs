@@ -10,7 +10,7 @@ public class NightSkyEngine : ModuleRules
 	
 		PublicDependencyModuleNames.AddRange(new[]
 		{
-			"Core", 
+			"Core",
 			"CoreUObject", 
 			"Engine",
 			"InputCore",
@@ -35,8 +35,6 @@ public class NightSkyEngine : ModuleRules
 			"CinematicCamera",
 			"StateTreeModule",
 		});
-
-		DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

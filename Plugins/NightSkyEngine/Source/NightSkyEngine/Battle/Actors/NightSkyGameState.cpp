@@ -188,14 +188,8 @@ void ANightSkyGameState::RoundInit()
 
 	if (BattleState.BattleFormat != EBattleFormat::Tag || BattleState.RoundCount == 1)
 	{
-		if (BattleState.RoundCount != 1)
-		{
-			GetMainPlayer(true)->JumpToState(State_Universal_Stand);
-			GetMainPlayer(false)->JumpToState(State_Universal_Stand);
-		}
-
 		if (!GameInstance->IsTraining)
-			BattleState.TimeUntilRoundStart = 180;
+			BattleState.TimeUntilRoundStart = BattleState.MaxTimeUntilRoundStart;
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
@@ -221,15 +215,12 @@ void ANightSkyGameState::RoundInit()
 
 		CallBattleExtension(BattleExtension_RoundInit);
 	}
-	else if (BattleState.BattleFormat == EBattleFormat::Rounds)
+	else if (BattleState.BattleFormat == EBattleFormat::Tag)
 	{
 		const bool IsP1 = GetMainPlayer(true)->CurrentHealth == 0;
 		GetMainPlayer(IsP1)->SetOnScreen(false);
 		const auto NewPosX = GetMainPlayer(IsP1)->PosX;
-		if (!SwitchMainPlayer(GetMainPlayer(IsP1), 1))
-		{
-			SwitchMainPlayer(GetMainPlayer(IsP1), 2);
-		}
+		SwitchMainPlayer(GetMainPlayer(IsP1), 1);
 		GetMainPlayer(IsP1)->PosX = NewPosX;
 		GetMainPlayer(IsP1)->PosY = 0;
 		GetMainPlayer(IsP1)->JumpToState(State_Universal_TagIn);
@@ -252,7 +243,7 @@ void ANightSkyGameState::RoundInit()
 		}
 
 		if (!GameInstance->IsTraining)
-			BattleState.TimeUntilRoundStart = 180;
+			BattleState.TimeUntilRoundStart = BattleState.MaxTimeUntilRoundStart;
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
@@ -358,6 +349,7 @@ void ANightSkyGameState::MatchInit()
 	BattleState.MainPlayer[1] = Players[BattleState.TeamData[0].TeamCount];
 	BattleState.MainPlayer[1]->PlayerFlags |= PLF_IsOnScreen;
 	BattleState.BattleFormat = GameInstance->BattleData.BattleFormat;
+	BattleState.MaxTimeUntilRoundStart = GameInstance->BattleData.TimeUntilRoundStart;
 	BattleState.MaxRoundCount = GameInstance->BattleData.RoundCount;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
@@ -402,6 +394,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 				BattleState.CurrentIntroSide = INT_None;
 				BattleState.BattlePhase = EBattlePhase::Battle;
 				BattleHudVisibility(true);
+				CallBattleExtension(BattleExtension_RoundInit_Hud);
 			}
 		}
 	}

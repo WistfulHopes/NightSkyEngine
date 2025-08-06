@@ -35,6 +35,8 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	EBattleFormat BattleFormat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 TimeUntilRoundStart = 180;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 RoundCount;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 StartRoundTimer;

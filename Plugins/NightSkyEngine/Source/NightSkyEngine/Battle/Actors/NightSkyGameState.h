@@ -203,6 +203,7 @@ struct FBattleState
 	
 	int32 P1RoundsWon = 0;
 	int32 P2RoundsWon = 0;
+	UPROPERTY(BlueprintReadOnly)
 	int32 RoundCount = 0;
 
 	EIntroSide CurrentIntroSide = INT_None;
@@ -233,7 +234,9 @@ struct FBattleState
 	UPROPERTY(BlueprintReadOnly)
 	EBattleFormat BattleFormat = EBattleFormat::Rounds;
 	UPROPERTY(BlueprintReadOnly)
-	uint8 MaxRoundCount;
+	int32 MaxRoundCount;
+	UPROPERTY(BlueprintReadOnly)
+	int32 MaxTimeUntilRoundStart;
 };
 
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
