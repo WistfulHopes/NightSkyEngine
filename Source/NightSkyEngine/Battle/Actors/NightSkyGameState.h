@@ -48,7 +48,6 @@ enum class EBattlePhase
 	Intro,
 	Battle,
 	RoundEnd,
-	MatchEnd,
 	Outro,
 	EndScreen,
 };

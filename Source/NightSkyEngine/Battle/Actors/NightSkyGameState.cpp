@@ -993,7 +993,6 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 		}
 	}
-	if (HandleMatchWin()) BattleState.BattlePhase = EBattlePhase::MatchEnd;
 }
 
 bool ANightSkyGameState::HandleMatchWin()
