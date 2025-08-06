@@ -33,7 +33,9 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<int32> ColorIndicesP2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	EBattleFormat RoundFormat;
+	EBattleFormat BattleFormat;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 RoundCount;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 StartRoundTimer;
 	UPROPERTY()

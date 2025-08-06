@@ -277,7 +277,7 @@ public:
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	bool bCrumpled;
-	int32 RoundWinTimer = 120;
+	int32 RoundWinTimer = 300;
 	int32 WallTouchTimer;
 	
 	/*

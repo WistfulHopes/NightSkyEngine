@@ -237,7 +237,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
 
-		for (const auto& Player : Players) Player->RoundWinTimer = 120;
+		for (const auto& Player : Players) Player->RoundWinTimer = 300;
 	}
 	else
 	{
@@ -357,7 +357,8 @@ void ANightSkyGameState::MatchInit()
 	BattleState.MainPlayer[0]->PlayerFlags |= PLF_IsOnScreen;
 	BattleState.MainPlayer[1] = Players[BattleState.TeamData[0].TeamCount];
 	BattleState.MainPlayer[1]->PlayerFlags |= PLF_IsOnScreen;
-	BattleState.BattleFormat = GameInstance->BattleData.RoundFormat;
+	BattleState.BattleFormat = GameInstance->BattleData.BattleFormat;
+	BattleState.MaxRoundCount = GameInstance->BattleData.RoundCount;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
 	PlayMusic(GameInstance->BattleData.MusicName);
@@ -825,6 +826,8 @@ void ANightSkyGameState::UpdateVisuals() const
 
 void ANightSkyGameState::HandleRoundWin()
 {
+	if (BattleState.BattlePhase == EBattlePhase::EndScreen) return;
+	
 	if (GetMainPlayer(true)->CurrentHealth > 0 && GetMainPlayer(false)->CurrentHealth <= 0)
 	{
 		if ((GetMainPlayer(true)->PlayerFlags & PLF_RoundWinInputLock) == 0)

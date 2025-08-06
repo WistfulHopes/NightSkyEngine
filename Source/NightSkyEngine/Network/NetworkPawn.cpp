@@ -89,7 +89,8 @@ void ANetworkPawn::ClientGetBattleData_Implementation(FBattleData InBattleData, 
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	UAssetManager::Get().LoadPrimaryAssets(Mirror.PlayerList, TArray<FName>(), FStreamableDelegate::CreateUObject(this, &ANetworkPawn::ClientGetCharaData, Mirror.PlayerList));
 	GameInstance->BattleData.ColorIndicesP1 = InBattleData.ColorIndicesP1;
-	GameInstance->BattleData.RoundFormat = InBattleData.RoundFormat;
+	GameInstance->BattleData.BattleFormat = InBattleData.BattleFormat;
+	GameInstance->BattleData.RoundCount = InBattleData.RoundCount;
 	GameInstance->BattleData.StartRoundTimer = InBattleData.StartRoundTimer;
 	GameInstance->BattleData.Random = InBattleData.Random;
 	GameInstance->BattleData.Stage = InBattleData.Stage;

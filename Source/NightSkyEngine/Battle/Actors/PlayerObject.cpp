@@ -2727,7 +2727,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
-	RoundWinTimer = 120;
+	RoundWinTimer = 300;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
 	CurrentAirJumpCount = 0;
