@@ -1,0 +1,35 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Night Sky Engine",
+	"Description": "A fighting game framework designed for Unreal Engine 5",
+	"Category": "Gameplay",
+	"CreatedBy": "WistfulHopes",
+	"CreatedByURL": "https://x.com/WistfulHopes",
+	"DocsURL": "https://wistfulhopes.github.io/NightSkyEngine/",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "NightSkyEngine",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "CollisionEditor",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GGPOUE4",
+			"Enabled": true
+		}
+	]
+}
