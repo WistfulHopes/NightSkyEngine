@@ -29,7 +29,9 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<UPrimaryCharaData*> PlayerListP2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<int32> ColorIndices;
+	TArray<int32> ColorIndicesP1;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<int32> ColorIndicesP2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	EBattleFormat RoundFormat;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

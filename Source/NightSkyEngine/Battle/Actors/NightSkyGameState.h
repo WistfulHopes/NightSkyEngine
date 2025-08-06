@@ -431,6 +431,8 @@ public:
 	void UseGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 	UFUNCTION(BlueprintPure)
 	bool IsTagBattle() const;
+	UFUNCTION(BlueprintPure)
+	int32 GetTeamCount(bool bIsP1) const;
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void EndMatch_BP();

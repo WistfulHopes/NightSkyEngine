@@ -91,8 +91,8 @@ void ANightSkyGameState::Init()
 															   BattleSceneTransform));
 			SpawnedPlayer = Players.Last();
 			SpawnedPlayer->ColorIndex = 1;
-			if (GameInstance->BattleData.ColorIndices.Num() > i)
-				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndices[i];
+			if (GameInstance->BattleData.ColorIndicesP1.Num() > i)
+				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndicesP1[i];
 		}
 		else
 		{
@@ -113,8 +113,8 @@ void ANightSkyGameState::Init()
 															   BattleSceneTransform));
 			SpawnedPlayer = Players.Last();
 			SpawnedPlayer->ColorIndex = 1;
-			if (GameInstance->BattleData.ColorIndices.Num() > i)
-				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndices[i];
+			if (GameInstance->BattleData.ColorIndicesP2.Num() > i)
+				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndicesP2[i];
 			for (int j = 0; j < GameInstance->BattleData.PlayerListP1.Num(); j++)
 			{
 				if (IsValid(GameInstance->BattleData.PlayerListP1[j]))
@@ -339,14 +339,7 @@ void ANightSkyGameState::MatchInit()
 	{
 		Players[i]->PlayerIndex = i >= BattleState.TeamData[0].TeamCount;
 		Players[i]->TeamIndex = i >= BattleState.TeamData[0].TeamCount ? i - BattleState.TeamData[0].TeamCount : i;
-		if (i % 3 == 0)
-		{
-			Players[i]->PlayerFlags |= PLF_IsOnScreen;
-		}
-		else
-		{
-			Players[i]->PlayerFlags &= ~PLF_IsOnScreen;
-		}
+		Players[i]->PlayerFlags &= ~PLF_IsOnScreen;
 		Players[i]->ObjNumber = i + MaxBattleObjects;
 		Players[i]->CallSubroutine(Subroutine_Cmn_MatchInit);
 		Players[i]->CallSubroutine(Subroutine_MatchInit);
@@ -359,9 +352,11 @@ void ANightSkyGameState::MatchInit()
 	{
 		SetDrawPriorityFront(SortedObjects[i]);
 	}
-
+	
 	BattleState.MainPlayer[0] = Players[0];
+	BattleState.MainPlayer[0]->PlayerFlags |= PLF_IsOnScreen;
 	BattleState.MainPlayer[1] = Players[BattleState.TeamData[0].TeamCount];
+	BattleState.MainPlayer[1]->PlayerFlags |= PLF_IsOnScreen;
 	BattleState.BattleFormat = GameInstance->BattleData.RoundFormat;
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
@@ -1613,6 +1608,11 @@ void ANightSkyGameState::UseGauge(bool IsP1, int32 GaugeIndex, int32 Value)
 bool ANightSkyGameState::IsTagBattle() const
 {
 	return BattleState.BattleFormat == EBattleFormat::Tag;
+}
+
+int32 ANightSkyGameState::GetTeamCount(const bool bIsP1) const
+{
+	return BattleState.TeamData[bIsP1 == false].TeamCount;
 }
 
 void ANightSkyGameState::ScreenPosToWorldPos(const int32 X, const int32 Y, int32* OutX, int32* OutY) const
