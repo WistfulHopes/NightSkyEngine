@@ -224,6 +224,8 @@ public:
 	int32 CmnPlayerReg8 = 0;
 
 	UPROPERTY(BlueprintReadWrite)
+	bool IntroEndFlag = false;
+	UPROPERTY(BlueprintReadWrite)
 	bool RoundEndFlag = false;
 	
 	/*
@@ -275,7 +277,7 @@ public:
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	bool bCrumpled;
-	int32 RoundWinTimer = 300;
+	int32 RoundWinTimer = 60;
 	int32 WallTouchTimer;
 	
 	/*

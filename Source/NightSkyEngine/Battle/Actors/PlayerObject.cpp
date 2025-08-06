@@ -301,6 +301,15 @@ void APlayerObject::Update()
 		return;
 	}
 
+	if (Inputs != 0 || Inputs != INP_Neutral)
+	{
+		IntroEndFlag = true;
+		if (RoundWinTimer <= 0)
+		{
+			RoundEndFlag = true;
+		}
+	}
+
 	Super::Update();
 	CallSubroutine(Subroutine_Cmn_OnUpdate);
 	CallSubroutine(Subroutine_OnUpdate);
@@ -2681,6 +2690,8 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	CmnPlayerReg6 = 0;
 	CmnPlayerReg7 = 0;
 	CmnPlayerReg8 = 0;
+	IntroEndFlag = false;
+	RoundEndFlag = false;
 	SubroutineReg1 = 0;
 	SubroutineReg2 = 0;
 	SubroutineReg3 = 0;
@@ -2716,7 +2727,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 		Gauge.Value = Gauge.InitialValue;
 	AirDashTimer = 0;
 	OTGCount = 0;
-	RoundWinTimer = 300;
+	RoundWinTimer = 60;
 	for (auto& StoredObj : StoredBattleObjects)
 		StoredObj = nullptr;
 	CurrentAirJumpCount = 0;

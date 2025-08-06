@@ -237,7 +237,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(true)->PlayerFlags &= ~PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags &= ~PLF_RoundWinInputLock;
 
-		for (const auto& Player : Players) Player->RoundWinTimer = 300;
+		for (const auto& Player : Players) Player->RoundWinTimer = 60;
 	}
 	else
 	{
@@ -381,20 +381,32 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	if (BattleState.BattlePhase == EBattlePhase::Intro)
 	{
-		if (BattleState.CurrentIntroSide == INT_P1 && GetMainPlayer(true)->GetCurrentStateName() != GetMainPlayer(true)
-			->IntroName)
+		if (BattleState.CurrentIntroSide == INT_P1)
 		{
-			GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->IntroName);
-			BattleState.CurrentIntroSide = INT_P2;
+			if (GetMainPlayer(true)->IntroEndFlag)
+			{
+				GetMainPlayer(true)->JumpToState(State_Universal_Stand);
+			}
+			if (GetMainPlayer(true)->GetCurrentStateName() != GetMainPlayer(true)->IntroName)
+			{
+				GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->IntroName);
+				BattleState.CurrentIntroSide = INT_P2;
+			}
 		}
-		else if (BattleState.CurrentIntroSide == INT_P2 && GetMainPlayer(false)->GetCurrentStateName() !=
-			GetMainPlayer(false)->IntroName)
+		else if (BattleState.CurrentIntroSide == INT_P2)
 		{
-			GetMainPlayer(true)->JumpToState(State_Universal_Stand);
-			GetMainPlayer(false)->JumpToState(State_Universal_Stand);
-			BattleState.CurrentIntroSide = INT_None;
-			BattleState.BattlePhase = EBattlePhase::Battle;
-			BattleHudVisibility(true);
+			if (GetMainPlayer(false)->IntroEndFlag)
+			{
+				GetMainPlayer(false)->JumpToState(State_Universal_Stand);
+			}
+			if (GetMainPlayer(false)->GetCurrentStateName() != GetMainPlayer(false)->IntroName)
+			{
+				GetMainPlayer(true)->JumpToState(State_Universal_Stand);
+				GetMainPlayer(false)->JumpToState(State_Universal_Stand);
+				BattleState.CurrentIntroSide = INT_None;
+				BattleState.BattlePhase = EBattlePhase::Battle;
+				BattleHudVisibility(true);
+			}
 		}
 	}
 
