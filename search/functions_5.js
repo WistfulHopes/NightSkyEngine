@@ -10,7 +10,7 @@ var searchData=
   ['flipinputsinbuffer_7',['FlipInputsInBuffer',['../struct_f_input_buffer.html#abe3833b886dd17c7d04092836719b65c',1,'FInputBuffer']]],
   ['flipobject_8',['FlipObject',['../class_a_battle_object.html#aaf93ca308ab4af11720218424dae89be',1,'ABattleObject']]],
   ['fnightskysavearchive_9',['FNightSkySaveArchive',['../struct_f_night_sky_save_archive.html#a2d65fded5342914989bbb7b2cedb7a03',1,'FNightSkySaveArchive']]],
-  ['fnsesessioninfo_10',['FNSESessionInfo',['../struct_f_n_s_e_session_info.html#a2da7b0b28864ebc04c280224c24da28c',1,'FNSESessionInfo::FNSESessionInfo()=default'],['../struct_f_n_s_e_session_info.html#a2564445bdae3df685e8fac342c2578cf',1,'FNSESessionInfo::FNSESessionInfo(FOnlineSessionSearchResult Result, FString Name, int32 OpenPrivate, int32 OpenPublic)']]],
+  ['fnsesessioninfo_10',['FNSESessionInfo',['../struct_f_n_s_e_session_info.html#a2da7b0b28864ebc04c280224c24da28c',1,'FNSESessionInfo::FNSESessionInfo()=default'],['../struct_f_n_s_e_session_info.html#a07b5ca029e6e7e991ef7de3e69b4afcf',1,'FNSESessionInfo::FNSESessionInfo(const FOnlineSessionSearchResult &amp;Result, const FString &amp;Name, int32 OpenPrivate, int32 OpenPublic)']]],
   ['fobjectrecord_11',['FObjectRecord',['../struct_f_object_record.html#a6bcdb908a3693c04dc7f78cf32ec439a',1,'FObjectRecord']]],
   ['forceenablefarnormal_12',['ForceEnableFarNormal',['../class_a_player_object.html#afa12c025e5dc0e6fc6ddbcfc15994f17',1,'APlayerObject']]],
   ['forcerollbackstate_13',['ForceRollbackState',['../struct_f_state_machine.html#a06cd5bb9cd6d98a44c47c05652fc0d68',1,'FStateMachine']]],

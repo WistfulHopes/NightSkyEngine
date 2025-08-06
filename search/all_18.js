@@ -17,11 +17,15 @@ var searchData=
   ['what_20is_20a_20state_20part_202_14',['What Is A State? Part 2',['../state-p2.html',1,'']]],
   ['what_20is_20night_20sky_20engine_20written_20in_15',['What is Night Sky Engine written in?',['../about.html#autotoc_md0',1,'']]],
   ['whiffcanceloptions_16',['WhiffCancelOptions',['../class_a_player_object.html#af8b0c889f4caaaf612810aff518e5c70',1,'APlayerObject']]],
-  ['win_5fdraw_17',['WIN_Draw',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77',1,'NightSkyGameState.h']]],
-  ['win_5fnone_18',['WIN_None',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268',1,'NightSkyGameState.h']]],
-  ['win_5fp1_19',['WIN_P1',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a2f04778ef41ba6e50b59974fe13a0f12',1,'NightSkyGameState.h']]],
-  ['win_5fp2_20',['WIN_P2',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b',1,'NightSkyGameState.h']]],
-  ['written_20in_21',['What is Night Sky Engine written in?',['../about.html#autotoc_md0',1,'']]],
-  ['wtcharacter_2ecpp_22',['WTCharacter.cpp',['../_w_t_character_8cpp.html',1,'']]],
-  ['wtcharacter_2eh_23',['WTCharacter.h',['../_w_t_character_8h.html',1,'']]]
+  ['widgetanimationdata_17',['WidgetAnimationData',['../struct_f_rollback_data.html#af19028f51de7b013bd6a9a72969ef4ab',1,'FRollbackData']]],
+  ['widgetanimationrollback_18',['WidgetAnimationRollback',['../class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e',1,'UNightSkyBattleWidget']]],
+  ['widthvelocity_19',['WidthVelocity',['../struct_f_screen_data.html#aeecb6b26f4f7130bd4e1c1cdce84f214',1,'FScreenData']]],
+  ['win_5fdraw_20',['WIN_Draw',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77',1,'NightSkyGameState.h']]],
+  ['win_5fnone_21',['WIN_None',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268',1,'NightSkyGameState.h']]],
+  ['win_5fp1_22',['WIN_P1',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a2f04778ef41ba6e50b59974fe13a0f12',1,'NightSkyGameState.h']]],
+  ['win_5fp2_23',['WIN_P2',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b',1,'NightSkyGameState.h']]],
+  ['writeinputcondition_24',['WriteInputCondition',['../struct_f_input_buffer.html#aa4756533add2897b5f0103f773b5325a',1,'FInputBuffer']]],
+  ['written_20in_25',['What is Night Sky Engine written in?',['../about.html#autotoc_md0',1,'']]],
+  ['wtcharacter_2ecpp_26',['WTCharacter.cpp',['../_w_t_character_8cpp.html',1,'']]],
+  ['wtcharacter_2eh_27',['WTCharacter.h',['../_w_t_character_8h.html',1,'']]]
 ];

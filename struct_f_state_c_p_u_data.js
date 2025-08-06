@@ -6,6 +6,7 @@ var struct_f_state_c_p_u_data =
     [ "AttackYBeginRange", "struct_f_state_c_p_u_data.html#aece146c789a7363cfdeadf2d5844fcc7", null ],
     [ "AttackYEndRange", "struct_f_state_c_p_u_data.html#a44ca605166abdc5de3ee2283bc94ff9d", null ],
     [ "bAntiAir", "struct_f_state_c_p_u_data.html#a142efd8d7660e97d3d357328b1a2aa7e", null ],
+    [ "bAttack", "struct_f_state_c_p_u_data.html#a2b52ec67d3ddb08329c218087645007c", null ],
     [ "bBigDamage", "struct_f_state_c_p_u_data.html#a58fd9a8cb7fce5510d9205cef3a82de9", null ],
     [ "bBlockstring", "struct_f_state_c_p_u_data.html#a05b32572bebb608a8d5e2c42e33de770", null ],
     [ "bCombo", "struct_f_state_c_p_u_data.html#a35076fb5521bb41077cd1299a5dfab0f", null ],

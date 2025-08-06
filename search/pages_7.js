@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['installing_20night_20sky_20engine_0',['Installing Night Sky Engine',['../installing.html',1,'']]],
-  ['is_20a_20state_20part_201_1',['What Is A State? Part 1',['../state-p1.html',1,'']]],
-  ['is_20a_20state_20part_202_2',['What Is A State? Part 2',['../state-p2.html',1,'']]]
+  ['features_20of_20night_20sky_20engine_0',['What are some key features of Night Sky Engine?',['../about.html#autotoc_md1',1,'']]],
+  ['first_20state_1',['Your First State',['../create-state.html',1,'']]],
+  ['for_20later_2',['Should I download now, or wait for later?',['../about.html#autotoc_md2',1,'']]]
 ];

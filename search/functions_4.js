@@ -23,9 +23,10 @@ var searchData=
   ['endbattle_20',['EndBattle',['../class_a_w_t_character.html#a5657675be18d4a09e4ef0d6cc47b26bd',1,'AWTCharacter']]],
   ['endbattle_5fbp_21',['EndBattle_BP',['../class_a_w_t_character.html#a2d479eadfdffb2a55e9fc6c47670ebc8',1,'AWTCharacter']]],
   ['endmatch_22',['EndMatch',['../class_a_night_sky_game_state.html#ae5a5b4a1004263186a4476fac16ae488',1,'ANightSkyGameState::EndMatch()'],['../class_a_player_object.html#ad2fcee8cc5ed98d4d3b7fbb8d15ed276',1,'APlayerObject::EndMatch()']]],
-  ['endplay_23',['EndPlay',['../class_a_fighter_multiplayer_runner.html#adea5a0a815a0f265616ec3d5173445ec',1,'AFighterMultiplayerRunner']]],
-  ['endrecordreplay_24',['EndRecordReplay',['../class_u_night_sky_game_instance.html#a9fd2d62b26f1599741bc8c8a1eb7c88a',1,'UNightSkyGameInstance']]],
-  ['endround_25',['EndRound',['../class_a_player_object.html#aac557cde77f3ea8f3fabf8c5469c445b',1,'APlayerObject']]],
-  ['enum_5fclass_5fflags_26',['ENUM_CLASS_FLAGS',['../_bitflags_8h.html#a901bd02e24f30db8ed556612c02c03d1',1,'ENUM_CLASS_FLAGS(EInputFlags):&#160;Bitflags.h'],['../_bitflags_8h.html#a4284193dc51793f2fec5963b7b60226b',1,'ENUM_CLASS_FLAGS(EEnableFlags):&#160;Bitflags.h']]],
-  ['exec_27',['Exec',['../class_u_battle_extension.html#a2893fb8bb1c01033b004f36a0b83d82e',1,'UBattleExtension::Exec()'],['../class_u_state.html#a5d455612d21898d7ada7a7b7d7154c66',1,'UState::Exec()'],['../class_u_subroutine.html#a94583af0bf1ce246182741cbc42f0899',1,'USubroutine::Exec()']]]
+  ['endmatch_5fbp_23',['EndMatch_BP',['../class_a_night_sky_game_state.html#a8236e0446711d7d818f2ec7acf232aec',1,'ANightSkyGameState']]],
+  ['endplay_24',['EndPlay',['../class_a_fighter_multiplayer_runner.html#adea5a0a815a0f265616ec3d5173445ec',1,'AFighterMultiplayerRunner']]],
+  ['endrecordreplay_25',['EndRecordReplay',['../class_u_night_sky_game_instance.html#a9fd2d62b26f1599741bc8c8a1eb7c88a',1,'UNightSkyGameInstance']]],
+  ['endround_26',['EndRound',['../class_a_player_object.html#aac557cde77f3ea8f3fabf8c5469c445b',1,'APlayerObject']]],
+  ['enum_5fclass_5fflags_27',['ENUM_CLASS_FLAGS',['../_bitflags_8h.html#a901bd02e24f30db8ed556612c02c03d1',1,'ENUM_CLASS_FLAGS(EInputFlags):&#160;Bitflags.h'],['../_bitflags_8h.html#a4284193dc51793f2fec5963b7b60226b',1,'ENUM_CLASS_FLAGS(EEnableFlags):&#160;Bitflags.h']]],
+  ['exec_28',['Exec',['../class_u_battle_extension.html#a2893fb8bb1c01033b004f36a0b83d82e',1,'UBattleExtension::Exec()'],['../class_u_state.html#a5d455612d21898d7ada7a7b7d7154c66',1,'UState::Exec()'],['../class_u_subroutine.html#a94583af0bf1ce246182741cbc42f0899',1,'USubroutine::Exec()']]]
 ];

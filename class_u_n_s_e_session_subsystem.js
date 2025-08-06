@@ -10,6 +10,7 @@ var class_u_n_s_e_session_subsystem =
     [ "OnDestroySessionComplete", "class_u_n_s_e_session_subsystem.html#ab50bf09aec6c2eeed13d88d414d81e3a", null ],
     [ "OnFindSessionsComplete", "class_u_n_s_e_session_subsystem.html#a7749a2f432f752f13e86b9f38a338fae", null ],
     [ "OnJoinSessionComplete", "class_u_n_s_e_session_subsystem.html#a40b4e614bcdb0aeb18bd1524499e0d92", null ],
+    [ "OnSessionInviteAccepted", "class_u_n_s_e_session_subsystem.html#afbe8878f8900f6fdd860ba4bf387b394", null ],
     [ "OnStartSessionComplete", "class_u_n_s_e_session_subsystem.html#a1790cb025886fd72a7220c05f796e0ec", null ],
     [ "OnUpdateSessionComplete", "class_u_n_s_e_session_subsystem.html#a9c10e347bd00a0f6adf9d94fd10f9071", null ],
     [ "StartSession", "class_u_n_s_e_session_subsystem.html#afc05599a55a34cf1eff0e2953289c7dc", null ],

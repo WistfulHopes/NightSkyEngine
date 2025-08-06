@@ -24,11 +24,13 @@ var searchData=
   ['replayindex_21',['ReplayIndex',['../class_u_replay_save_info.html#acd15d57cabaef38debf8870752420d41',1,'UReplaySaveInfo']]],
   ['replaylist_22',['ReplayList',['../class_u_night_sky_game_instance.html#a8a4ed3fd5bf379650c3a9b1f976b2bf1',1,'UNightSkyGameInstance']]],
   ['returnreg_23',['ReturnReg',['../class_a_battle_object.html#a75b4d26f67e30c7bbe12a59d1d5ef51f',1,'ABattleObject']]],
-  ['rollbackframes_24',['RollbackFrames',['../struct_f_network_stats.html#a4f2e7a760eac482034fbf50506775415',1,'FNetworkStats::RollbackFrames'],['../class_u_night_sky_battle_widget.html#a70db704afa4ecb5d400037c2105ed360',1,'UNightSkyBattleWidget::RollbackFrames']]],
-  ['rootmontage_25',['RootMontage',['../class_u_night_sky_anim_instance.html#aac624a4ab2612e163e75a541e898a126',1,'UNightSkyAnimInstance']]],
-  ['roundcount_26',['RoundCount',['../struct_f_battle_state.html#a2f646b6f7ba4d416b289ae8b1aad0ca9',1,'FBattleState']]],
-  ['roundformat_27',['RoundFormat',['../struct_f_battle_state.html#a55df1bcb18d78897b7ae96247c62c09c',1,'FBattleState::RoundFormat'],['../struct_f_battle_data.html#af4f9d3a796ff1a9728cc1f146ad45573',1,'FBattleData::RoundFormat']]],
-  ['roundstartpos_28',['RoundStartPos',['../struct_f_battle_state.html#a815de92efc6ef8ea55e4ac21ede7b9fb',1,'FBattleState']]],
-  ['roundtimer_29',['RoundTimer',['../struct_f_battle_state.html#a6564152690a6b83907283227f4b7a7c8',1,'FBattleState']]],
-  ['roundwintimer_30',['RoundWinTimer',['../class_a_player_object.html#afb255fa5b65eeffc2439b88fdce8ae5f',1,'APlayerObject']]]
+  ['rollbackdata_24',['RollbackData',['../class_a_night_sky_game_state.html#a5d0eabffc351c7f56c205ac83379c52d',1,'ANightSkyGameState']]],
+  ['rollbackframes_25',['RollbackFrames',['../struct_f_network_stats.html#a4f2e7a760eac482034fbf50506775415',1,'FNetworkStats::RollbackFrames'],['../class_u_night_sky_battle_widget.html#a70db704afa4ecb5d400037c2105ed360',1,'UNightSkyBattleWidget::RollbackFrames']]],
+  ['rootmontage_26',['RootMontage',['../class_u_night_sky_anim_instance.html#aac624a4ab2612e163e75a541e898a126',1,'UNightSkyAnimInstance']]],
+  ['roundcount_27',['RoundCount',['../struct_f_battle_state.html#a2f646b6f7ba4d416b289ae8b1aad0ca9',1,'FBattleState']]],
+  ['roundendflag_28',['RoundEndFlag',['../class_a_player_object.html#a1877803ad350cb47c665d54825c07d03',1,'APlayerObject']]],
+  ['roundformat_29',['RoundFormat',['../struct_f_battle_state.html#a55df1bcb18d78897b7ae96247c62c09c',1,'FBattleState::RoundFormat'],['../struct_f_battle_data.html#af4f9d3a796ff1a9728cc1f146ad45573',1,'FBattleData::RoundFormat']]],
+  ['roundstartpos_30',['RoundStartPos',['../struct_f_battle_state.html#a815de92efc6ef8ea55e4ac21ede7b9fb',1,'FBattleState']]],
+  ['roundtimer_31',['RoundTimer',['../struct_f_battle_state.html#a6564152690a6b83907283227f4b7a7c8',1,'FBattleState']]],
+  ['roundwintimer_32',['RoundWinTimer',['../class_a_player_object.html#afb255fa5b65eeffc2439b88fdce8ae5f',1,'APlayerObject']]]
 ];

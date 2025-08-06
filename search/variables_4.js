@@ -11,6 +11,6 @@ var searchData=
   ['eventhandlers_8',['EventHandlers',['../class_a_battle_object.html#a55e7f238d7c294ecfc36bcb3c246dd69',1,'ABattleObject']]],
   ['exestatename_9',['ExeStateName',['../class_a_player_object.html#aad5c8c84bb1b7c2bef0ac5e22d6da573',1,'APlayerObject']]],
   ['extensionarray_10',['ExtensionArray',['../class_u_battle_extension_data.html#a3014b666462b3029011a4db9e7dd2718',1,'UBattleExtensionData']]],
-  ['extensiondata_11',['ExtensionData',['../struct_f_b_p_rollback_data.html#a767cd85abfeefb5945054ae6a7594216',1,'FBPRollbackData']]],
+  ['extensiondata_11',['ExtensionData',['../struct_f_rollback_data.html#aa5c0db73df85c40bac85c72ba2ad15c4',1,'FRollbackData']]],
   ['extragauges_12',['ExtraGauges',['../class_a_player_object.html#a1091f924092a2820669c731dc4939649',1,'APlayerObject']]]
 ];

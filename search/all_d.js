@@ -16,7 +16,7 @@ var searchData=
   ['linkedactorstructs_13',['LinkedActorStructs',['../class_u_link_actor_data.html#a916ce5317504c3205c937abb5e069d54',1,'ULinkActorData']]],
   ['linkedparticle_14',['LinkedParticle',['../class_a_battle_object.html#a296ce49aea7cfae7961a4f6b5f4548fe',1,'ABattleObject']]],
   ['loaddata_15',['LoadData',['../class_u_night_sky_save_info.html#aa1678379da4afe5923c82f859ca62b03',1,'UNightSkySaveInfo']]],
-  ['loadforrollback_16',['LoadForRollback',['../class_a_battle_object.html#aa23e1ab95017d2c4c6dd110c1f75a48d',1,'ABattleObject::LoadForRollback()'],['../class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb',1,'USerializableObj::LoadForRollback()']]],
+  ['loadforrollback_16',['LoadForRollback',['../class_a_battle_object.html#aa23e1ab95017d2c4c6dd110c1f75a48d',1,'ABattleObject::LoadForRollback()'],['../class_a_night_sky_game_state.html#afa469f5702101d1dc4c27599d350a843',1,'ANightSkyGameState::LoadForRollback()'],['../class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb',1,'USerializableObj::LoadForRollback()'],['../class_u_night_sky_battle_widget.html#af7fb29c16dce88ce105a231b07e33293',1,'UNightSkyBattleWidget::LoadForRollback()']]],
   ['loadforrollbackbp_17',['LoadForRollbackBP',['../class_a_player_object.html#a84e1fc6980cebf9ec9fe8b6e7c9c6d9b',1,'APlayerObject']]],
   ['loadforrollbackplayer_18',['LoadForRollbackPlayer',['../class_a_player_object.html#ad71a5ce821e8a2ae2b71320dec85f1a3',1,'APlayerObject']]],
   ['loadgamestate_19',['LoadGameState',['../class_a_night_sky_game_state.html#a0918dd94c2173a80405146aed9b1bbee',1,'ANightSkyGameState']]],

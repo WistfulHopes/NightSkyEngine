@@ -1,5 +1,18 @@
 var class_u_night_sky_battle_widget =
 [
+    [ "LoadForRollback", "class_u_night_sky_battle_widget.html#af7fb29c16dce88ce105a231b07e33293", null ],
+    [ "PlayComboCounterAnim", "class_u_night_sky_battle_widget.html#a6255b7c281e65823ac3719eb0a261a57", null ],
+    [ "PlayGaugeAnim", "class_u_night_sky_battle_widget.html#a9c51b8e9800ea0c36bd8b080dfac0ea4", null ],
+    [ "PlayHealthAnim", "class_u_night_sky_battle_widget.html#aaa5b02b87eee267920114eec27297f44", null ],
+    [ "PlayMatchWinAnim", "class_u_night_sky_battle_widget.html#a633d010faf70a026e472f7c273cdb4a3", null ],
+    [ "PlayMeterAnim", "class_u_night_sky_battle_widget.html#a58d2ef23f26f71e31492054287936850", null ],
+    [ "PlayRecoverableHealthAnim", "class_u_night_sky_battle_widget.html#a014b1cb358c7c8cf5c0cc04e615a6ef2", null ],
+    [ "PlayRoundWinAnim", "class_u_night_sky_battle_widget.html#afb91d85bdb7c5944fb0b4804ef80870a", null ],
+    [ "PlayStandardAnimations", "class_u_night_sky_battle_widget.html#ab9e82cf7e0bd4eb7c587ab1041eaebb8", null ],
+    [ "PlayTimerAnim", "class_u_night_sky_battle_widget.html#a4229f7b6b999f65819768e2ce5651e99", null ],
+    [ "RegisterAnimationsForRollback", "class_u_night_sky_battle_widget.html#a04c638d73e3705205fe0a99187ef1b51", null ],
+    [ "RollbackAnimations", "class_u_night_sky_battle_widget.html#ac30581332466939c34659552c4bdf280", null ],
+    [ "SaveForRollback", "class_u_night_sky_battle_widget.html#a14b8f9ac82707aadc5d7197073fab520", null ],
     [ "P1ComboCounter", "class_u_night_sky_battle_widget.html#aac1649e5a3fca8f2ab89e47cbb14f86a", null ],
     [ "P1Gauge", "class_u_night_sky_battle_widget.html#a19da72cc54d901ccb2ea7ea81a31362b", null ],
     [ "P1Health", "class_u_night_sky_battle_widget.html#a33dbdbf6ccf61d080b2d93d0dfbcc05a", null ],
@@ -14,5 +27,6 @@ var class_u_night_sky_battle_widget =
     [ "P2RoundsWon", "class_u_night_sky_battle_widget.html#adad0b49e2cce08e5cb2ddd87c3690b2a", null ],
     [ "Ping", "class_u_night_sky_battle_widget.html#a8ad100262f079a3e100fb5670e02c126", null ],
     [ "RollbackFrames", "class_u_night_sky_battle_widget.html#a70db704afa4ecb5d400037c2105ed360", null ],
-    [ "Timer", "class_u_night_sky_battle_widget.html#a39119899c88e9e0dec9b65c935641ede", null ]
+    [ "Timer", "class_u_night_sky_battle_widget.html#a39119899c88e9e0dec9b65c935641ede", null ],
+    [ "WidgetAnimationRollback", "class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e", null ]
 ];

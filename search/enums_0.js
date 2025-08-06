@@ -29,8 +29,9 @@ var searchData=
   ['epostype_26',['EPosType',['../_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10',1,'BattleObject.h']]],
   ['erangetype_27',['ERangeType',['../_state_8h.html#a8cc5b590f8cfe7f655503ad05f5747ca',1,'State.h']]],
   ['eroundformat_28',['ERoundFormat',['../_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7',1,'NightSkyGameState.h']]],
-  ['estatecondition_29',['EStateCondition',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cb',1,'State.h']]],
-  ['estatetype_30',['EStateType',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921',1,'State.h']]],
-  ['esuperarmortype_31',['ESuperArmorType',['../_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5d',1,'BattleObject.h']]],
-  ['ewinside_32',['EWinSide',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966',1,'NightSkyGameState.h']]]
+  ['escreenflag_29',['EScreenFlag',['../_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88',1,'NightSkyGameState.h']]],
+  ['estatecondition_30',['EStateCondition',['../_state_8h.html#af1917f42ed524567f2f378796c3f37cb',1,'State.h']]],
+  ['estatetype_31',['EStateType',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921',1,'State.h']]],
+  ['esuperarmortype_32',['ESuperArmorType',['../_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5d',1,'BattleObject.h']]],
+  ['ewinside_33',['EWinSide',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966',1,'NightSkyGameState.h']]]
 ];

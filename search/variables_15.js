@@ -11,5 +11,8 @@ var searchData=
   ['wallbounceyrate_8',['WallBounceYRate',['../struct_f_wall_bounce_data.html#abf21bd82d5bd91975ab0735a70336b19',1,'FWallBounceData']]],
   ['wallbounceyspeed_9',['WallBounceYSpeed',['../struct_f_wall_bounce_data.html#a9da474ef4cc69b3066591a064072ca37',1,'FWallBounceData']]],
   ['walltouchtimer_10',['WallTouchTimer',['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject']]],
-  ['whiffcanceloptions_11',['WhiffCancelOptions',['../class_a_player_object.html#af8b0c889f4caaaf612810aff518e5c70',1,'APlayerObject']]]
+  ['whiffcanceloptions_11',['WhiffCancelOptions',['../class_a_player_object.html#af8b0c889f4caaaf612810aff518e5c70',1,'APlayerObject']]],
+  ['widgetanimationdata_12',['WidgetAnimationData',['../struct_f_rollback_data.html#af19028f51de7b013bd6a9a72969ef4ab',1,'FRollbackData']]],
+  ['widgetanimationrollback_13',['WidgetAnimationRollback',['../class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e',1,'UNightSkyBattleWidget']]],
+  ['widthvelocity_14',['WidthVelocity',['../struct_f_screen_data.html#aeecb6b26f4f7130bd4e1c1cdce84f214',1,'FScreenData']]]
 ];

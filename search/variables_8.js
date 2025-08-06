@@ -19,13 +19,14 @@ var searchData=
   ['inputsp1_16',['InputsP1',['../class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6',1,'UReplaySaveInfo']]],
   ['inputsp2_17',['InputsP2',['../class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7',1,'UReplaySaveInfo']]],
   ['instantblocklockouttimer_18',['InstantBlockLockoutTimer',['../class_a_player_object.html#ae0cf1d888f7424f21776c95cbcf5f317',1,'APlayerObject']]],
-  ['introname_19',['IntroName',['../class_a_player_object.html#aead9cbcb1ff2d374e32d9a681637b95d',1,'APlayerObject']]],
-  ['invulnflags_20',['InvulnFlags',['../class_a_player_object.html#a4cce0302f5cc6a953d4d3d91ec06eed4',1,'APlayerObject']]],
-  ['isactive_21',['IsActive',['../class_a_battle_object.html#aedde5cdc155d856b48171e5b6eac33bd',1,'ABattleObject']]],
-  ['iscpubattle_22',['IsCPUBattle',['../class_u_night_sky_game_instance.html#a3e837c7fd220a3719b851fac6ed62059',1,'UNightSkyGameInstance']]],
-  ['isfollowupstate_23',['IsFollowupState',['../class_u_state.html#a9f67ab39d552dd42b7395f601705e08d',1,'UState']]],
-  ['isplayer_24',['IsPlayer',['../class_a_battle_object.html#a0bdc0560a983e637659b090efeefa102',1,'ABattleObject']]],
-  ['isplayingsequence_25',['IsPlayingSequence',['../struct_f_battle_state.html#a71ce603ba6d030ec455c4ed54a0e5f40',1,'FBattleState']]],
-  ['isreplay_26',['IsReplay',['../class_u_night_sky_game_instance.html#a7b066ac5cfe306a766be8515c4f271ee',1,'UNightSkyGameInstance']]],
-  ['istraining_27',['IsTraining',['../class_u_night_sky_game_instance.html#ac30a420e1f080b7a475cb48cb46164e8',1,'UNightSkyGameInstance']]]
+  ['introendflag_19',['IntroEndFlag',['../class_a_player_object.html#a8316c1d8eb76693c1a3e63ad00a25fe0',1,'APlayerObject']]],
+  ['introname_20',['IntroName',['../class_a_player_object.html#aead9cbcb1ff2d374e32d9a681637b95d',1,'APlayerObject']]],
+  ['invulnflags_21',['InvulnFlags',['../class_a_player_object.html#a4cce0302f5cc6a953d4d3d91ec06eed4',1,'APlayerObject']]],
+  ['isactive_22',['IsActive',['../class_a_battle_object.html#aedde5cdc155d856b48171e5b6eac33bd',1,'ABattleObject']]],
+  ['iscpubattle_23',['IsCPUBattle',['../class_u_night_sky_game_instance.html#a3e837c7fd220a3719b851fac6ed62059',1,'UNightSkyGameInstance']]],
+  ['isfollowupstate_24',['IsFollowupState',['../class_u_state.html#a9f67ab39d552dd42b7395f601705e08d',1,'UState']]],
+  ['isplayer_25',['IsPlayer',['../class_a_battle_object.html#a0bdc0560a983e637659b090efeefa102',1,'ABattleObject']]],
+  ['isplayingsequence_26',['IsPlayingSequence',['../struct_f_battle_state.html#a71ce603ba6d030ec455c4ed54a0e5f40',1,'FBattleState']]],
+  ['isreplay_27',['IsReplay',['../class_u_night_sky_game_instance.html#a7b066ac5cfe306a766be8515c4f271ee',1,'UNightSkyGameInstance']]],
+  ['istraining_28',['IsTraining',['../class_u_night_sky_game_instance.html#ac30a420e1f080b7a475cb48cb46164e8',1,'UNightSkyGameInstance']]]
 ];

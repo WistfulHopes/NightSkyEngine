@@ -22,7 +22,7 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
  */
-function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
+function initMenu(relPath,searchEnabled,serverSide,searchPage,search,treeview) {
   function makeTree(data,relPath) {
     let result='';
     if ('children' in data) {
@@ -49,7 +49,7 @@ function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
       searchBoxHtml='<div id="MSearchBox" class="MSearchBoxInactive">'+
                  '<div class="left">'+
                   '<form id="FSearchBox" action="'+relPath+searchPage+
-                    '" method="get"><span id="MSearchSelectExt">&#160;</span>'+
+                    '" method="get"><span id="MSearchSelectExt" class="search-icon"></span>'+
                   '<input type="text" id="MSearchField" name="query" value="" placeholder="'+search+
                     '" size="20" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)"'+
                     ' onblur="searchBox.OnSearchFieldFocus(false)"/>'+
@@ -60,8 +60,8 @@ function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
     } else {
       searchBoxHtml='<div id="MSearchBox" class="MSearchBoxInactive">'+
                  '<span class="left">'+
-                  '<span id="MSearchSelect" onmouseover="return searchBox.OnSearchSelectShow()"'+
-                     ' onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>'+
+                  '<span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()"'+
+                     ' onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>'+
                   '<input type="text" id="MSearchField" value="" placeholder="'+search+
                     '" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" '+
                     'onblur="searchBox.OnSearchFieldFocus(false)" '+
@@ -69,8 +69,7 @@ function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
                  '</span>'+
                  '<span class="right"><a id="MSearchClose" '+
                   'href="javascript:searchBox.CloseResultsWindow()">'+
-                  '<img id="MSearchCloseImg" border="0" src="'+relPath+
-                  'search/close.svg" alt=""/></a>'+
+                  '<div id="MSearchCloseImg" class="close-icon"></div></a>'+
                  '</span>'+
                 '</div>';
     }
@@ -84,14 +83,12 @@ function initMenu(relPath,searchEnabled,serverSide,searchPage,search) {
                         '</div>');
   $('#main-nav').append(makeTree(menudata,relPath));
   $('#main-nav').children(':first').addClass('sm sm-dox').attr('id','main-menu');
-  if (searchBoxHtml) {
-    $('#main-menu').append('<li id="searchBoxPos2" style="float:right"></li>');
-  }
+  $('#main-menu').append('<li id="searchBoxPos2" style="float:right"></li>');
   const $mainMenuState = $('#main-menu-state');
   let prevWidth = 0;
   if ($mainMenuState.length) {
     const initResizableIfExists = function() {
-      if (typeof initResizable==='function') initResizable();
+      if (typeof initResizable==='function') initResizable(treeview);
     }
     // animate mobile menu
     $mainMenuState.change(function() {

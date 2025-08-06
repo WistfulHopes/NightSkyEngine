@@ -13,11 +13,12 @@ var searchData=
   ['isenemyattackstate_10',['IsEnemyAttackState',['../class_a_player_object.html#aec2e80ebb17a3820bacb411397e57368',1,'APlayerObject']]],
   ['isenemyblocking_11',['IsEnemyBlocking',['../class_a_player_object.html#a5f05ecab6ba015c253a862c13b6fe5f5',1,'APlayerObject']]],
   ['isenemythrow_12',['IsEnemyThrow',['../class_a_player_object.html#ad353f694ec7ad352b0028fd44a7f5970',1,'APlayerObject']]],
-  ['ismainplayer_13',['IsMainPlayer',['../class_a_player_object.html#aa1804005f4927779e34afba5a192961e',1,'APlayerObject']]],
-  ['isonscreen_14',['IsOnScreen',['../class_a_player_object.html#a66fd4e3f0e36fecbcff386b5e56f94f5',1,'APlayerObject']]],
-  ['isqrt_15',['isqrt',['../_globals_8cpp.html#ae49b095761db133067dd98cb9086af73',1,'isqrt(uint64 const n):&#160;Globals.cpp'],['../_globals_8h.html#ae49b095761db133067dd98cb9086af73',1,'isqrt(uint64 const n):&#160;Globals.cpp']]],
-  ['isqrt_5fimpl_16',['isqrt_impl',['../_globals_8cpp.html#a111bbcdda59b7d68031450dae90847fe',1,'isqrt_impl(uint64 const n, uint64 const xk):&#160;Globals.cpp'],['../_globals_8h.html#a111bbcdda59b7d68031450dae90847fe',1,'isqrt_impl(uint64 const n, uint64 const xk):&#160;Globals.cpp']]],
-  ['isstopped_17',['IsStopped',['../class_a_battle_object.html#a52c182a114a0ab166adb47a9c6888340',1,'ABattleObject']]],
-  ['istagbattle_18',['IsTagBattle',['../class_a_night_sky_game_state.html#a36b7ce1ad370bb8795d9f347b34d063e',1,'ANightSkyGameState']]],
-  ['istimerpaused_19',['IsTimerPaused',['../class_a_battle_object.html#a7d4c4a3215553c7e3f456ed503254eb7',1,'ABattleObject']]]
+  ['isinvulnerable_13',['IsInvulnerable',['../class_a_player_object.html#a9a5e2ec65c19d1b535cfd3f333e00310',1,'APlayerObject']]],
+  ['ismainplayer_14',['IsMainPlayer',['../class_a_player_object.html#aa1804005f4927779e34afba5a192961e',1,'APlayerObject']]],
+  ['isonscreen_15',['IsOnScreen',['../class_a_player_object.html#a66fd4e3f0e36fecbcff386b5e56f94f5',1,'APlayerObject']]],
+  ['isqrt_16',['isqrt',['../_globals_8cpp.html#ae49b095761db133067dd98cb9086af73',1,'isqrt(uint64 const n):&#160;Globals.cpp'],['../_globals_8h.html#ae49b095761db133067dd98cb9086af73',1,'isqrt(uint64 const n):&#160;Globals.cpp']]],
+  ['isqrt_5fimpl_17',['isqrt_impl',['../_globals_8cpp.html#a111bbcdda59b7d68031450dae90847fe',1,'isqrt_impl(uint64 const n, uint64 const xk):&#160;Globals.cpp'],['../_globals_8h.html#a111bbcdda59b7d68031450dae90847fe',1,'isqrt_impl(uint64 const n, uint64 const xk):&#160;Globals.cpp']]],
+  ['isstopped_18',['IsStopped',['../class_a_battle_object.html#a52c182a114a0ab166adb47a9c6888340',1,'ABattleObject']]],
+  ['istagbattle_19',['IsTagBattle',['../class_a_night_sky_game_state.html#a36b7ce1ad370bb8795d9f347b34d063e',1,'ANightSkyGameState']]],
+  ['istimerpaused_20',['IsTimerPaused',['../class_a_battle_object.html#a7d4c4a3215553c7e3f456ed503254eb7',1,'ABattleObject']]]
 ];

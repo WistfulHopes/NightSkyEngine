@@ -18,5 +18,6 @@ var searchData=
   ['enb_5fstanding_15',['ENB_Standing',['../_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba65922a5bf33eb244ceb872c9033fba3c',1,'Bitflags.h']]],
   ['enb_5fsuperattack_16',['ENB_SuperAttack',['../_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba24017e9b04d536fbfae2349462eda9fa',1,'Bitflags.h']]],
   ['enb_5ftag_17',['ENB_Tag',['../_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba632c23c980fed5dd5d06abcd2da2e539',1,'Bitflags.h']]],
-  ['enb_5ftech_18',['ENB_Tech',['../_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba280c9149cfaed1d90644b07a3eca8cbd',1,'Bitflags.h']]]
+  ['enb_5ftech_18',['ENB_Tech',['../_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba280c9149cfaed1d90644b07a3eca8cbd',1,'Bitflags.h']]],
+  ['endscreen_19',['EndScreen',['../_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a83918c373f328eda5d8b9204336f2478',1,'NightSkyGameState.h']]]
 ];

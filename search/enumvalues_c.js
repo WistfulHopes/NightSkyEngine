@@ -21,5 +21,6 @@ var searchData=
   ['obj_5fparent_18',['OBJ_Parent',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea01df3b923301f004d5c17d54b1528d91',1,'BattleObject.h']]],
   ['obj_5fself_19',['OBJ_Self',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea4a10c349f78c2af5890af3731c3a76fb',1,'BattleObject.h']]],
   ['once_20',['Once',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ae1a9dc9f23534e63de9df0d540ac1611',1,'State.h']]],
-  ['oncestrict_21',['OnceStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436',1,'State.h']]]
+  ['oncestrict_21',['OnceStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436',1,'State.h']]],
+  ['outro_22',['Outro',['../_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a21e6facb2210089479e2aa9c41762ca0',1,'NightSkyGameState.h']]]
 ];

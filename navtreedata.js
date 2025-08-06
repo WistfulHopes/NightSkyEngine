@@ -73,14 +73,15 @@ var NAVTREEINDEX =
 [
 "_audio_manager_8cpp.html",
 "_fighter_replay_runner_8cpp.html",
-"_sound_data_8h.html#a3891dec63a729e61fc156785f885cbd2",
-"_w_t_character_8cpp_source.html",
-"class_a_fighter_multiplayer_runner.html#ac20b97e60db3bddfb3bc87f60170edd9",
-"class_a_player_object.html#a21973e876bf938e1298eb23fee43772d",
-"class_u_battle_extension.html#af734549e74ed3d729bfb86f5ba22299c",
-"functions_vars_g.html",
-"struct_f_input_action_binding_handle.html"
+"_sound_data_8cpp.html#ad8f305abd6b99917d0c57772d0d9cf86",
+"_subroutine_data_8h_source.html",
+"class_a_fighter_multiplayer_runner.html#a47a49f410c529ca4339d534da50b8513",
+"class_a_player_object.html#a1877803ad350cb47c665d54825c07d03",
+"class_a_w_t_character.html#a3746a6437f17ed6e7cf5cf69dd8a6ce2",
+"functions_func_i.html",
+"struct_f_hit_data_common.html#a35c027594d4484cf79c5bc05cf01c4db"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

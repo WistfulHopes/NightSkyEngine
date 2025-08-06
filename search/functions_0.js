@@ -16,7 +16,7 @@ var searchData=
   ['addhealth_13',['AddHealth',['../class_a_player_object.html#a097ce6cc77a6ce9daf94f904dd9b643d',1,'APlayerObject']]],
   ['addmeter_14',['AddMeter',['../class_a_player_object.html#a7e7b39ef94336e716b459554b1417874',1,'APlayerObject']]],
   ['addobjectstate_15',['AddObjectState',['../class_a_player_object.html#a5a5174e15b750b10f0cc8d79e5fa1c0a',1,'APlayerObject']]],
-  ['addplayerobject_16',['AddPlayerObject',['../class_a_night_sky_chara_select_game_state.html#a091fefe43551a1bedfb1afcba5b8b4a9',1,'ANightSkyCharaSelectGameState']]],
+  ['addplayerobject_16',['AddPlayerObject',['../class_a_night_sky_chara_select_game_state.html#a09a3e897212f53a7ca5bb09ae8cef50d',1,'ANightSkyCharaSelectGameState']]],
   ['addposxwithdir_17',['AddPosXWithDir',['../class_a_battle_object.html#a0d7c9c2d17913d81de09606525080d9f',1,'ABattleObject']]],
   ['addrecoverablehealth_18',['AddRecoverableHealth',['../class_a_player_object.html#a27aae960f70c166cbeacd9ec51533a5e',1,'APlayerObject']]],
   ['addspeedxraw_19',['AddSpeedXRaw',['../class_a_battle_object.html#a2afca758d8df18da7e92ed8b8c1d9873',1,'ABattleObject']]],

@@ -20,6 +20,8 @@ var struct_f_hit_data_common =
     [ "HitSFXOverride", "struct_f_hit_data_common.html#ac236c62e3e50c2192594945efdaaa05d", null ],
     [ "HitVFX", "struct_f_hit_data_common.html#ae5aeaad0ba454fe50715a087d3d95c54", null ],
     [ "HitVFXOverride", "struct_f_hit_data_common.html#a89c9c2557ea3dfc6732ec049a99b3fa8", null ],
+    [ "ProximityBlockDistanceX", "struct_f_hit_data_common.html#a40fbad92a349fef19b52c9822d668413", null ],
+    [ "ProximityBlockDistanceY", "struct_f_hit_data_common.html#a1f32cde358c7385662fd2807a9fbf0ce", null ],
     [ "SFXType", "struct_f_hit_data_common.html#af4f457c78375ca84d3af3c366ca0a2a5", null ],
     [ "VFXType", "struct_f_hit_data_common.html#a56a8a234291f0f97618f573f329665d7", null ]
 ];
