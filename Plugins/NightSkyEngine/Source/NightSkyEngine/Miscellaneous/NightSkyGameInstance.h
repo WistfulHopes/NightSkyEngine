@@ -78,6 +78,8 @@ public:
 	TObjectPtr<UNightSkySettingsInfo> SettingsInfo;
 
 	UPROPERTY(EditAnywhere)
+	TObjectPtr<USoundData> AnnouncerData;
+	UPROPERTY(EditAnywhere)
 	TObjectPtr<USoundData> MusicData;
 
 	UPROPERTY()

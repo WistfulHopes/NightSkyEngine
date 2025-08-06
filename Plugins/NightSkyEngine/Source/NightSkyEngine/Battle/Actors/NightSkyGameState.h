@@ -408,13 +408,17 @@ public:
 	void PlayCharaAudio(USoundBase* InSoundWave, float MaxDuration);
 	void PlayVoiceLine(USoundBase* InSoundWave, float MaxDuration, int Player);
 	void PlayAnnouncerVoice(USoundBase* InSoundWave, float MaxDuration);
-	void PlayMusic(const FGameplayTag Name);
 	void PlayMusic(USoundBase* InSoundWave, float MaxDuration);
 	void ManageAudio();
 	void RollbackStartAudio(int32 InFrame);
 
 	int GetLocalInputs(int Index) const; //get local inputs from player controller
 	void SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);
+
+	UFUNCTION(BlueprintCallable)
+	void PlayAnnouncerVoice(const FGameplayTag Name);
+	UFUNCTION(BlueprintCallable)
+	void PlayMusic(const FGameplayTag Name);
 
 	UFUNCTION(BlueprintCallable)
 	TArray<APlayerObject*> GetTeam(bool IsP1) const;

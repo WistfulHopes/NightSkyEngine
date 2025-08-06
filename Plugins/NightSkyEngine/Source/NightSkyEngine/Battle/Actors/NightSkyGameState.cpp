@@ -1531,6 +1531,23 @@ void ANightSkyGameState::SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame)
 	OtherChecksumFrame = InFrame;
 }
 
+void ANightSkyGameState::PlayAnnouncerVoice(const FGameplayTag Name)
+{
+	if (!IsValid(GameInstance))
+		return;
+	if (GameInstance->AnnouncerData != nullptr)
+	{
+		for (FSoundStruct SoundStruct : GameInstance->AnnouncerData->SoundDatas)
+		{
+			if (SoundStruct.Name == Name)
+			{
+				PlayAnnouncerVoice(SoundStruct.SoundWave, SoundStruct.MaxDuration);
+				break;
+			}
+		}
+	}
+}
+
 TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 {
 	if (IsP1)
