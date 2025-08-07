@@ -1279,13 +1279,13 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 							{
 								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX
 									/ 2);
-								HitPosX = Hitbox.PosX - CollisionDepthX;
+								HitPosX = Hitbox.PosX - CollisionDepthX * 2;
 							}
 							else
 							{
 								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX
 									/ 2);
-								HitPosX = Hitbox.PosX + CollisionDepthX;
+								HitPosX = Hitbox.PosX + CollisionDepthX * 2;
 							}
 							int CollisionDepthY;
 							if (Hitbox.PosY < OtherHitbox.PosY)
