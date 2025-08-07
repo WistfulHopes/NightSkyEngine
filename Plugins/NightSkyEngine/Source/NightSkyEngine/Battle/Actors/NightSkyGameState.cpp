@@ -164,6 +164,7 @@ void ANightSkyGameState::PlayIntros()
 {
 	if (GameInstance->IsTraining)
 	{
+		BattleState.BattlePhase = EBattlePhase::Battle;
 		GetMainPlayer(true)->JumpToState(State_Universal_Stand);
 		GetMainPlayer(false)->JumpToState(State_Universal_Stand);
 		return;
