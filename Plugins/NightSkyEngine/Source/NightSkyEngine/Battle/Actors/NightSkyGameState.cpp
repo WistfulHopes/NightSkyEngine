@@ -194,6 +194,12 @@ void ANightSkyGameState::RoundInit()
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
+		if (BattleState.RoundCount != 1)
+		{
+			GetMainPlayer(true)->JumpToState(State_Universal_Stand);
+			GetMainPlayer(false)->JumpToState(State_Universal_Stand);
+		}
+
 		for (const auto Player : Players)
 			Player->RoundInit(true);
 
