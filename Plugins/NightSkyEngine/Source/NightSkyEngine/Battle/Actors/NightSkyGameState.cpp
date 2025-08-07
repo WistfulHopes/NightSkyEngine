@@ -952,7 +952,10 @@ void ANightSkyGameState::NextRoundTransition(bool bIsP1)
 			}
 			BattleState.FadeTimer--;
 			if (BattleState.FadeTimer <= 0)
+			{
 				RoundInit();
+				BattleHudActor->BottomWidget->PlayRoundInitAnim();
+			}
 		}
 	}
 }
