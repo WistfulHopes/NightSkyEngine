@@ -13,6 +13,5 @@ Discord link: https://discord.gg/mJTU9PV7jH
 The following additional plugins are used:
 
 - GGPOUE4, originally by @BwdYeti, then forked by @erebuswolf, and finally modified for use in Night Sky Engine.
-- Common Loading Screen, from the Lyra Starter Game.
 
 All sound effects are from [this site](http://osabisi.sakura.ne.jp/m2/).
