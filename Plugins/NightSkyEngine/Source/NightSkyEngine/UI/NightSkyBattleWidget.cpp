@@ -16,14 +16,26 @@ void UNightSkyBattleWidget::PlayStandardAnimations()
 	PlayComboCounterAnim();
 }
 
+void UNightSkyBattleWidget::SetAnimationRollbackData()
+{
+	for (auto& [Anim, Time, bPlaying] : WidgetAnimationRollback)
+	{
+		if (IsAnimationPlaying(Anim))
+		{
+			bPlaying = true;
+			Time = GetAnimationCurrentTime(Anim);
+		}
+	}
+}
+
 void UNightSkyBattleWidget::RollbackAnimations()
 {
-	for (const auto RollbackAnim : WidgetAnimationRollback)
+	for (const auto& [Anim, Time, bPlaying] : WidgetAnimationRollback)
 	{
-		if (RollbackAnim.bPlaying)
-			PlayAnimation(RollbackAnim.Anim, RollbackAnim.Time);
+		if (bPlaying)
+			PlayAnimation(Anim, Time);
 		else
-			SetAnimationCurrentTime(RollbackAnim.Anim, RollbackAnim.Time);
+			SetAnimationCurrentTime(Anim, Time);
 	}
 }
 

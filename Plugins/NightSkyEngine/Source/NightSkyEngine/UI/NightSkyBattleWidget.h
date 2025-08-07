@@ -69,6 +69,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void PlayFadeAnim();
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayFadeOutAnim();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void PlayHealthAnim();
@@ -98,6 +101,7 @@ public:
 	void PlayComboCounterAnim();
 
 	void PlayStandardAnimations();
+	void SetAnimationRollbackData();
 	void RollbackAnimations();
 
 	TArray<uint8> SaveForRollback();

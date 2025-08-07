@@ -363,6 +363,7 @@ void ANightSkyGameState::MatchInit()
 	BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 
 	PlayMusic(GameInstance->BattleData.MusicName);
+	BattleHudActor->BottomWidget->PlayFadeOutAnim();
 	RoundInit();
 	PlayIntros();
 }
@@ -1385,7 +1386,9 @@ void ANightSkyGameState::UpdateHUD() const
 	}
 
 	BattleHudActor->TopWidget->PlayStandardAnimations();
+	BattleHudActor->TopWidget->SetAnimationRollbackData();
 	BattleHudActor->BottomWidget->PlayStandardAnimations();
+	BattleHudActor->BottomWidget->SetAnimationRollbackData();
 	
 	for (auto& [Anim, Time, bPlaying] : BattleHudActor->TopWidget->WidgetAnimationRollback)
 	{
