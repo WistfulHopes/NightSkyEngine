@@ -301,7 +301,7 @@ void APlayerObject::Update()
 		return;
 	}
 
-	if (Inputs != StoredInputBuffer.InputBufferInternal[89])
+	if (Inputs != StoredInputBuffer.InputBufferInternal[InputBufferSize - 1])
 	{
 		IntroEndFlag = true;
 		if (RoundWinTimer <= 0)

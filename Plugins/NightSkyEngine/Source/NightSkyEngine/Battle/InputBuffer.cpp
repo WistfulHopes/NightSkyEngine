@@ -74,7 +74,7 @@ void FInputBuffer::Emplace(int32 Input, uint32 Index)
 
 bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition, bool bIsKara)
 {
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 0x20; i++)
 	{
 		if (i >= InputCondition.Sequence.Num())
 		{
@@ -83,6 +83,7 @@ bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition, bo
 		}
 		InputSequence[i] = InputCondition.Sequence[i];
 	}
+	DisallowedInputs = InputCondition.DisallowedInputs;
 	ImpreciseInputCount = InputCondition.ImpreciseInputCount;
 	bInputAllowDisable = bIsKara ? false : InputCondition.bInputAllowDisable;
 	switch (InputCondition.Method)
@@ -136,6 +137,11 @@ bool FInputBuffer::CheckInputSequence() const
 			return false;
 		FramesSinceLastMatch++;
 
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
+		
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			NoMatches = false;
@@ -183,6 +189,11 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
+
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
 
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{
@@ -250,6 +261,11 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 			return false;
 		FramesSinceLastMatch++;
 
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
+
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
@@ -298,6 +314,11 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
+
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
 
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{
@@ -365,6 +386,11 @@ bool FInputBuffer::CheckInputSequencePressAndRelease() const
 			return false;
 		FramesSinceLastMatch++;
 
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
+
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
@@ -422,6 +448,11 @@ bool FInputBuffer::CheckInputSequencePressAndReleaseStrict() const
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
+
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
 
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{
@@ -488,6 +519,11 @@ bool FInputBuffer::CheckInputSequenceNegative() const
 			return false;
 		FramesSinceLastMatch++;
 
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
+
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if ((InputBufferInternal[i + 1] & NeededInput) == NeededInput) continue;
@@ -524,6 +560,11 @@ bool FInputBuffer::CheckInputSequenceNegativeStrict() const
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
 		FramesSinceLastMatch++;
+
+		for (auto DisallowedInput : DisallowedInputs)
+		{
+			if ((InputBufferInternal[i] & DisallowedInput) == DisallowedInput) return false;
+		}
 
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{

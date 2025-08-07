@@ -224,6 +224,11 @@ struct FInputCondition
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FInputBitmask> Sequence;
 	/**
+	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
+	/**
 	 * This value determines how many imprecise inputs are allowed in this condition.
 	 * An imprecise input is a diagonal input that matches the cardinal direction.
 	 * For use with the Strict or Once Strict input methods.

@@ -6,8 +6,8 @@
 #include "State.h"
 #include "InputBuffer.generated.h"
 
-constexpr int32 InputSequenceSize = 20;
-constexpr int32 InputBufferSize = 90;
+constexpr int32 InputSequenceSize = 0x20;
+constexpr int32 InputBufferSize = 0x50;
 
 /**
  * @brief The input buffer for a player object.
@@ -19,7 +19,7 @@ struct FInputBuffer
 {
 	GENERATED_BODY()
 	
-protected:
+private:
 	/**
 	 * The input sequence. Updated by the input being checked.
 	 */
@@ -35,6 +35,11 @@ protected:
 	 * Updated by the input being checked.
 	 */
 	bool bInputAllowDisable = true;
+	/**
+	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
+	 */
+	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
+
 	
 public:
 	/**

@@ -142,7 +142,7 @@ bool ANightSkyAIController::SetInputs()
 
 	if (bBlock)
 	{
-		Player->StoredInputBuffer.InputBufferInternal[89] |= INP_Left;
+		Player->StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] |= INP_Left;
 	}
 	
 	TargetState = nullptr;
