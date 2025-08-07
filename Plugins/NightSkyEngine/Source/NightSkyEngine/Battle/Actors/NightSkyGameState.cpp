@@ -804,11 +804,8 @@ void ANightSkyGameState::HandleHitCollision() const
 			if (SortedObjects[i]->Player->PlayerIndex != SortedObjects[j]->Player->PlayerIndex && SortedObjects[j]->
 				Player->PlayerFlags & PLF_IsOnScreen)
 			{
-				SortedObjects[i]->HandleHitCollision(SortedObjects[j]);
-			}
-			if (i != j)
-			{
 				SortedObjects[i]->HandleClashCollision(SortedObjects[j]);
+				SortedObjects[i]->HandleHitCollision(SortedObjects[j]);
 			}
 		}
 	}
