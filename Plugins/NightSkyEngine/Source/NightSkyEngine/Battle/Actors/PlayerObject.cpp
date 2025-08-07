@@ -467,6 +467,12 @@ void APlayerObject::Update()
 			Hitstop = 0;
 			AttackOwner->Hitstop = 0;
 		}
+		if (Enemy->CurrentHealth == 0 && (Enemy->PlayerFlags & PLF_IsDead) == 0)
+		{
+			AddCommonBattleObject(State_BattleObject_KO_Draw);
+			Hitstop = 0;
+			AttackOwner->Hitstop = 0;
+		}
 		else if (!IsMainPlayer())
 		{
 			PlayerFlags &= ~PLF_IsOnScreen;

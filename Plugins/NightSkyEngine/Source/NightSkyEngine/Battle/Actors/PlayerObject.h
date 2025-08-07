@@ -66,10 +66,10 @@ class NIGHTSKYENGINE_API APlayerObject : public ABattleObject
 
 public:
 	APlayerObject();
-	
+
 	//Starting from this until PlayerSyncEnd, everything is saved/loaded for rollback.
 	unsigned char PlayerSync;
-	
+
 	/*
 	 * Default values
 	 */
@@ -125,7 +125,7 @@ public:
 	int32 FAirDashNoAttackTime;
 	// Time until backward air dash can be cancelled.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 BAirDashNoAttackTime; 
+	int32 BAirDashNoAttackTime;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 AirJumpCount;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -179,8 +179,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 ThrowTechWindow = 6;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 ThrowResistAfterWakeUp = 5;	
-	
+	int32 ThrowResistAfterWakeUp = 5;
+
 	/*
 	 * Player registers. These are only touched by the engine to reset per round.
 	 * Use these to keep track of values (timers, toggles, counters, etc) that are character-specific.
@@ -201,7 +201,7 @@ public:
 	int32 PlayerReg7 = 0;
 	UPROPERTY(BlueprintReadWrite)
 	int32 PlayerReg8 = 0;
-	
+
 	/*
 	 * Common player registers. These are only touched by the engine to reset per round.
 	 * These are meant to be used by any character.
@@ -227,7 +227,7 @@ public:
 	bool IntroEndFlag = false;
 	UPROPERTY(BlueprintReadWrite)
 	bool RoundEndFlag = false;
-	
+
 	/*
 	 * Action data.
 	 */
@@ -239,14 +239,14 @@ public:
 	 * Input data.
 	 */
 	uint32 Inputs;
-	
+
 	UPROPERTY()
 	FInputBuffer StoredInputBuffer;
-	
+
 	/*
 	 * Miscellaneous values.
 	 */
-	
+
 	// If true, inputs will operate as if the character is facing the opposite direction.
 	UPROPERTY(BlueprintReadWrite)
 	bool FlipInputs;
@@ -254,7 +254,7 @@ public:
 	int32 MaxOTGCount;
 	UPROPERTY(EditAnywhere)
 	bool bLimitCrumple = true;
-	
+
 	UPROPERTY(BlueprintReadOnly)
 	int32 PlayerIndex;
 	UPROPERTY(BlueprintReadOnly)
@@ -262,7 +262,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
-	
+
 	int32 CurrentHealth;
 	int32 RecoverableHealth;
 	int32 TotalProration = 10000;
@@ -279,11 +279,11 @@ public:
 	bool bCrumpled;
 	int32 RoundWinTimer = 300;
 	int32 WallTouchTimer;
-	
+
 	/*
 	 * Object pointers.
 	 */
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	APlayerObject* Enemy;
 	UPROPERTY()
@@ -294,7 +294,7 @@ public:
 	FGameplayTag StateEntryName;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FGameplayTag IntroName;
-	
+
 protected:
 	/*
 	 * Internal values.
@@ -317,21 +317,21 @@ protected:
 	FGameplayTag LastStateName;
 	FGameplayTag ExeStateName;
 	FGameplayTag BufferedStateName;
-	
+
 public:
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char PlayerSyncEnd; 
+	unsigned char PlayerSyncEnd;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bIsCpu = false;
-	
+
 	/*
 	 * These properties are saved and loaded for rollback, as they have the SaveGame tag.
 	 */
 
 	UPROPERTY(SaveGame)
 	TArray<FGameplayTag> EnabledCustomStateTypes;
-	
+
 	// All instances of actors needed for link actors.
 	UPROPERTY(SaveGame)
 	TArray<FLinkedActorContainer> StoredLinkActors;
@@ -339,7 +339,7 @@ public:
 	// Extra gauges.
 	UPROPERTY(SaveGame)
 	TArray<FExtraGauge> ExtraGauges;
-	
+
 	//options to whiff cancel into
 	UPROPERTY(SaveGame)
 	TArray<int32> ChainCancelOptions;
@@ -352,38 +352,38 @@ public:
 	//checks state indices for moves used in current combo
 	UPROPERTY(SaveGame)
 	TArray<int32> MovesUsedInChain = {};
-	
+
 	/*
 	 * Defaults
 	 */
-	
+
 	UPROPERTY(EditAnywhere)
 	TArray<FGameplayTag> DamageReactionCels;
 	UPROPERTY(EditAnywhere)
 	bool bMirrorWhenFlip;
-	
+
 	/*
 	 * States and subroutines
 	*/
-	
+
 	UPROPERTY()
 	TArray<USubroutine*> CommonSubroutines;
 	TArray<FGameplayTag> CommonSubroutineNames;
 	UPROPERTY()
 	TArray<USubroutine*> Subroutines;
 	TArray<FGameplayTag> SubroutineNames;
-	
+
 	UPROPERTY()
 	TArray<UState*> CommonObjectStates;
-	TArray<FGameplayTag> CommonObjectStateNames;	
+	TArray<FGameplayTag> CommonObjectStateNames;
 	UPROPERTY()
 	TArray<UState*> ObjectStates;
-	TArray<FGameplayTag> ObjectStateNames;	
+	TArray<FGameplayTag> ObjectStateNames;
 
 	/*
 	 * Data assets
 	 */
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UCollisionData* CommonCollisionData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -407,18 +407,18 @@ public:
 	int32 ColorIndex = 1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 MaxColorIndex = 2;
-	
-	
+
+
 	UPROPERTY(EditAnywhere)
 	ULinkActorData* CommonLinkActorData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	ULinkActorData* LinkActorData;
-	
+
 	UPROPERTY(EditAnywhere)
 	UParticleData* CommonParticleData;
 	UPROPERTY(EditAnywhere)
 	UParticleData* CharaParticleData;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USequenceData* CommonSequenceData;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -504,9 +504,9 @@ public:
 	void RoundInit(bool ResetHealth);
 	//disables last input
 	void DisableLastInput();
-	
+
 	static uint32 FlipInput(uint32 Input);
-	
+
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
 	TArray<uint8> SaveForRollbackBP();
 	void LoadForRollbackPlayer(const unsigned char* Buffer);
@@ -522,16 +522,16 @@ public:
 	// Only call when resetting player object for round.
 	UFUNCTION(BlueprintImplementableEvent)
 	void RoundInit_BP();
-	
+
 	/*
 	 * Blueprint callable functions.
 	 */
 	//add state to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddState(FGameplayTag Name, UState* State); 
+	void AddState(FGameplayTag Name, UState* State);
 	//add object state
 	UFUNCTION(BlueprintCallable)
-	void AddObjectState(FGameplayTag Name, UState* State, bool IsCommon); 
+	void AddObjectState(FGameplayTag Name, UState* State, bool IsCommon);
 	//add subroutine to state machine
 	UFUNCTION(BlueprintCallable)
 	void AddSubroutine(FGameplayTag Name, USubroutine* Subroutine, bool IsCommon);
@@ -586,10 +586,12 @@ public:
 	bool CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
-	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
+	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
+		int32 Bitmask);
 	//disables state type
 	UFUNCTION(BlueprintCallable)
-	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask);
+	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
+		int32 Bitmask);
 	//enable custom state type
 	UFUNCTION(BlueprintCallable)
 	void EnableCustomState(FGameplayTag CustomStateType);
@@ -705,7 +707,7 @@ public:
 	void SetThrowActive(bool Active);
 	//end throw
 	UFUNCTION(BlueprintCallable)
-	void ThrowEnd(); 
+	void ThrowEnd();
 	//initiate throw range
 	UFUNCTION(BlueprintCallable)
 	void SetThrowRange(int32 InThrowRange);

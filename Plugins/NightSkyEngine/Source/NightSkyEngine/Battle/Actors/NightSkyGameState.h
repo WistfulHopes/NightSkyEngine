@@ -48,6 +48,7 @@ enum class EBattlePhase
 	Intro,
 	Battle,
 	RoundEnd,
+	Fade,
 	Outro,
 	EndScreen,
 };
@@ -205,6 +206,7 @@ struct FBattleState
 	int32 P2RoundsWon = 0;
 	UPROPERTY(BlueprintReadOnly)
 	int32 RoundCount = 0;
+	int32 FadeTimer;
 
 	EIntroSide CurrentIntroSide = INT_None;
 	EWinSide CurrentWinSide = WIN_None;
@@ -237,6 +239,8 @@ struct FBattleState
 	int32 MaxRoundCount;
 	UPROPERTY(BlueprintReadOnly)
 	int32 MaxTimeUntilRoundStart;
+	UPROPERTY(EditAnywhere)
+	int32 MaxFadeTimer = 12;
 };
 
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
@@ -365,6 +369,7 @@ protected:
 	void HandleHitCollision() const;
 	void UpdateVisuals() const;
 	void HandleRoundWin();
+	void NextRoundTransition(bool bIsP1);
 	bool HandleMatchWin();
 	void CollisionView() const;
 	int32 CreateChecksum();

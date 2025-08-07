@@ -177,6 +177,7 @@ void ANightSkyGameState::PlayIntros()
 
 void ANightSkyGameState::RoundInit()
 {
+	BattleState.PauseTimer = false;
 	BattleState.RandomManager.Reseed(BattleState.RandomManager.Rand() + BattleState.RoundCount);
 	BattleState.RoundCount++;
 
@@ -186,6 +187,7 @@ void ANightSkyGameState::RoundInit()
 	BattleState.SuperFreezeDuration = 0;
 	BattleState.SuperFreezeCaller = nullptr;
 	BattleState.BattlePhase = EBattlePhase::Battle;
+	BattleState.FadeTimer = BattleState.MaxFadeTimer;
 
 	if (BattleState.BattleFormat != EBattleFormat::Tag || BattleState.RoundCount == 1)
 	{
@@ -831,28 +833,14 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.P1RoundsWon++;
 		GetMainPlayer(true)->RoundWinTimer--;
 		GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
-		BattleState.BattlePhase = EBattlePhase::RoundEnd;
+		if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(true)->RoundWinTimer == 0)
 		{
 			GetMainPlayer(true)->JumpToState(State_Universal_RoundWin);
 		}
-		if (GetMainPlayer(true)->RoundEndFlag == true)
-		{
-			if (IsTagBattle())
-			{
-				if (!HandleMatchWin())
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
-			}
-			else if (!HandleMatchWin())
-			{
-				BattleState.PauseTimer = false;
-				RoundInit();
-			}
-		}
+		NextRoundTransition(true);
 	}
 	else if (GetMainPlayer(false)->CurrentHealth > 0 && GetMainPlayer(true)->CurrentHealth <= 0)
 	{
@@ -860,28 +848,14 @@ void ANightSkyGameState::HandleRoundWin()
 			BattleState.P2RoundsWon++;
 		GetMainPlayer(false)->RoundWinTimer--;
 		GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
-		BattleState.BattlePhase = EBattlePhase::RoundEnd;
+		if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
 		if (GetMainPlayer(false)->RoundWinTimer == 0)
 		{
 			GetMainPlayer(false)->JumpToState(State_Universal_RoundWin);
 		}
-		if (GetMainPlayer(false)->RoundEndFlag == true)
-		{
-			if (IsTagBattle())
-			{
-				if (!HandleMatchWin())
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
-			}
-			else if (!HandleMatchWin())
-			{
-				BattleState.PauseTimer = false;
-				RoundInit();
-			}
-		}
+		NextRoundTransition(false);
 	}
 	else if (GetMainPlayer(true)->CurrentHealth <= 0 && GetMainPlayer(false)->CurrentHealth <= 0)
 	{
@@ -893,16 +867,10 @@ void ANightSkyGameState::HandleRoundWin()
 		GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 		GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
 		GetMainPlayer(true)->RoundWinTimer--;
-		BattleState.BattlePhase = EBattlePhase::RoundEnd;
+		if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+			BattleState.BattlePhase = EBattlePhase::RoundEnd;
 		BattleState.PauseTimer = true;
-		if (GetMainPlayer(true)->RoundWinTimer == 0)
-		{
-			if (!HandleMatchWin())
-			{
-				BattleState.PauseTimer = false;
-				RoundInit();
-			}
-		}
+		NextRoundTransition(true);
 	}
 	else if (BattleState.RoundTimer <= 0)
 	{
@@ -913,29 +881,15 @@ void ANightSkyGameState::HandleRoundWin()
 			GetMainPlayer(true)->RoundWinTimer--;
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
-			BattleState.BattlePhase = EBattlePhase::RoundEnd;
+			if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+				BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(true)->RoundWinTimer == 0)
 			{
 				GetMainPlayer(true)->JumpToState(State_Universal_RoundWin);
 				GetMainPlayer(false)->JumpToState(State_Universal_RoundLose);
 			}
-			if (GetMainPlayer(true)->RoundEndFlag == true)
-			{
-				if (IsTagBattle())
-				{
-					if (!HandleMatchWin())
-					{
-						BattleState.PauseTimer = false;
-						RoundInit();
-					}
-				}
-				else if (!HandleMatchWin())
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
-			}
+			NextRoundTransition(true);
 		}
 		else if (GetMainPlayer(false)->CurrentHealth > GetMainPlayer(true)->CurrentHealth)
 		{
@@ -944,29 +898,15 @@ void ANightSkyGameState::HandleRoundWin()
 			GetMainPlayer(false)->RoundWinTimer--;
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
-			BattleState.BattlePhase = EBattlePhase::RoundEnd;
+			if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+				BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(false)->RoundWinTimer == 0)
 			{
 				GetMainPlayer(false)->JumpToState(State_Universal_RoundWin);
-				GetMainPlayer(false)->JumpToState(State_Universal_RoundLose);
+				GetMainPlayer(true)->JumpToState(State_Universal_RoundLose);
 			}
-			if (GetMainPlayer(false)->RoundEndFlag == true)
-			{
-				if (IsTagBattle())
-				{
-					if (!HandleMatchWin())
-					{
-						BattleState.PauseTimer = false;
-						RoundInit();
-					}
-				}
-				else if (!HandleMatchWin())
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
-			}
+			NextRoundTransition(false);
 		}
 		else if (GetMainPlayer(true)->CurrentHealth == GetMainPlayer(false)->CurrentHealth)
 		{
@@ -977,17 +917,41 @@ void ANightSkyGameState::HandleRoundWin()
 			}
 			GetMainPlayer(true)->PlayerFlags |= PLF_RoundWinInputLock;
 			GetMainPlayer(false)->PlayerFlags |= PLF_RoundWinInputLock;
-			BattleState.BattlePhase = EBattlePhase::RoundEnd;
+			if (BattleState.BattlePhase < EBattlePhase::RoundEnd)
+				BattleState.BattlePhase = EBattlePhase::RoundEnd;
 			GetMainPlayer(true)->RoundWinTimer--;
 			BattleState.PauseTimer = true;
 			if (GetMainPlayer(true)->RoundWinTimer == 0)
 			{
-				if (!HandleMatchWin())
-				{
-					BattleState.PauseTimer = false;
-					RoundInit();
-				}
+				GetMainPlayer(true)->JumpToState(State_Universal_RoundLose);
+				GetMainPlayer(false)->JumpToState(State_Universal_RoundLose);
 			}
+			NextRoundTransition(true);
+		}
+	}
+}
+
+void ANightSkyGameState::NextRoundTransition(bool bIsP1)
+{
+	if (GetMainPlayer(bIsP1)->RoundWinTimer <= 0)
+	{
+		if (IsTagBattle())
+		{
+			if (!HandleMatchWin())
+			{
+				RoundInit();
+			}
+		}
+		else if (!HandleMatchWin() && GetMainPlayer(bIsP1)->RoundEndFlag == true)
+		{
+			if (BattleState.BattlePhase != EBattlePhase::Fade)
+			{
+				BattleHudActor->BottomWidget->PlayFadeAnim();
+				BattleState.BattlePhase = EBattlePhase::Fade;
+			}
+			BattleState.FadeTimer--;
+			if (BattleState.FadeTimer <= 0)
+				RoundInit();
 		}
 	}
 }

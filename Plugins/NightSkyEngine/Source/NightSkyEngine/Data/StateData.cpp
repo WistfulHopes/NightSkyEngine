@@ -51,4 +51,5 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_MatchWin, "State.Universal.MatchW
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_S, "State.BattleObject.KO.S", "KO (Small) Battle Object");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_M, "State.BattleObject.KO.M", "KO (Small) Battle Object");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_L, "State.BattleObject.KO.L", "KO (Small) Battle Object");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_Draw, "State.BattleObject.KO.Draw", "KO (Draw) Battle Object");
 

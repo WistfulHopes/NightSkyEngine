@@ -68,6 +68,9 @@ public:
 	void RegisterAnimationsForRollback();
 
 	UFUNCTION(BlueprintImplementableEvent)
+	void PlayFadeAnim();
+
+	UFUNCTION(BlueprintImplementableEvent)
 	void PlayHealthAnim();
 
 	UFUNCTION(BlueprintImplementableEvent)
@@ -81,6 +84,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void PlayGaugeAnim();
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void PlayRoundInitAnim();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void PlayRoundWinAnim(bool bIsP1);
