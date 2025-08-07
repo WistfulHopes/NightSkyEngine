@@ -8,7 +8,6 @@
 #include "BattleExtensionData.generated.h"
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(BattleExtension_RoundInit);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(BattleExtension_RoundInit_Hud);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(BattleExtension_Update);
 
 /**

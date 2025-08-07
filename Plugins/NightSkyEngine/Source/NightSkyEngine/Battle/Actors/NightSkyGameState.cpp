@@ -404,7 +404,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 				BattleState.CurrentIntroSide = INT_None;
 				BattleState.BattlePhase = EBattlePhase::Battle;
 				BattleHudVisibility(true);
-				CallBattleExtension(BattleExtension_RoundInit_Hud);
+				BattleHudActor->BottomWidget->PlayRoundInitAnim();
 			}
 		}
 	}
