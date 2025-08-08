@@ -91,7 +91,9 @@ WinBuild/*
 LinuxBuild/*
 AndroidBuild/*
 
-Doxygen/
+Doxygen/html/
+Doxygen/latex/
+Doxygen/xml/
 
 NightSkyEngine.sln.DotSettings.user
 NightSkyEngine.uproject.DotSettings.user
