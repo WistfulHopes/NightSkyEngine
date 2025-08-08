@@ -2493,6 +2493,7 @@ void APlayerObject::OnStateChange()
 	MiscFlags |= MISC_FloorCollisionActive;
 	MiscFlags |= MISC_InertiaEnable;
 	InvulnFlags = 0;
+	EnableFlags = 0;
 
 	// Reset offset, as the offset should be applied
 	PrevOffsetX = 0;
