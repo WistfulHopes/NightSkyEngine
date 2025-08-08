@@ -2454,7 +2454,7 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType, FGameplayTag CustomS
 			ReturnReg = true;
 		break;
 	case EStateType::Custom:
-		if (EnabledCustomStateTypes.Find(CustomStateType))
+		if (EnabledCustomStateTypes.Contains(CustomStateType))
 			ReturnReg = true;
 		break;
 	default:
