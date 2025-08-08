@@ -508,7 +508,7 @@ bool FInputBuffer::CheckInputSequenceNegative() const
 	}
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 2; i >= 0; i--)
 	{
 		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
