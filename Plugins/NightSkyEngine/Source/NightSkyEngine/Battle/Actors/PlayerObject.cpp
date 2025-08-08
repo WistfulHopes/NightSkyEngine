@@ -2441,8 +2441,8 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType, FGameplayTag CustomS
 			ReturnReg = true;
 		break;
 	case EStateType::Burst:
-		if (EnableFlags & ENB_Burst && Enemy->Player->PlayerFlags & PLF_LockOpponentBurst && (PlayerFlags & PLF_IsDead)
-			== 0)
+		if (EnableFlags & ENB_Burst && (Enemy->Player->PlayerFlags & PLF_LockOpponentBurst) == 0
+			&& (PlayerFlags & PLF_IsDead) == 0)
 			ReturnReg = true;
 		break;
 	case EStateType::Tag:
