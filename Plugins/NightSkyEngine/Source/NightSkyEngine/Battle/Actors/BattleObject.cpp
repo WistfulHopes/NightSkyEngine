@@ -1993,8 +1993,7 @@ void ABattleObject::Update()
 		TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
-
-
+		
 		GameState->SetScreenBounds();
 		ActionTime++;
 

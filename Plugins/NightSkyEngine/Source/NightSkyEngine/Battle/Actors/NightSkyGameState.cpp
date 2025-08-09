@@ -1107,13 +1107,13 @@ void ANightSkyGameState::SetScreenBounds() const
 
 				SortedObjects[i]->CalculatePushbox();
 
-				if (SortedObjects[i]->R >= ScreenData->ScreenBoundsRight * 1000)
+				if (SortedObjects[i]->PosX + 85000 >= ScreenData->ScreenBoundsRight * 1000)
 				{
-					SortedObjects[i]->PosX += ScreenData->ScreenBoundsRight * 1000 - SortedObjects[i]->R;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsRight * 1000 - 85000;
 				}
-				else if (SortedObjects[i]->L <= ScreenData->ScreenBoundsLeft * 1000)
+				else if (SortedObjects[i]->PosX - 85000 <= ScreenData->ScreenBoundsLeft * 1000)
 				{
-					SortedObjects[i]->PosX += ScreenData->ScreenBoundsLeft * 1000 - SortedObjects[i]->L;
+					SortedObjects[i]->PosX = ScreenData->ScreenBoundsLeft * 1000 + 85000;
 				}
 				else
 				{
