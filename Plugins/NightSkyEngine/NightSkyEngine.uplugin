@@ -21,16 +21,17 @@
 			"LoadingPhase": "Default"
 		},
 		{
+			"Name": "GGPOUE4",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "CollisionEditor",
 			"Type": "Editor",
 			"LoadingPhase": "PostEngineInit"
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "GGPOUE4",
-			"Enabled": true
-		},
 		{
 			"Name": "OnlineSubsystem",
 			"Enabled": true
