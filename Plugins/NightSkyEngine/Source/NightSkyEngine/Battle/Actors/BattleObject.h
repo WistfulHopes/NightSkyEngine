@@ -682,7 +682,9 @@ public:
 	 * Received attack data
 	 */
 
+	UPROPERTY(BlueprintReadOnly)
 	FHitDataCommon ReceivedHitCommon = {};
+	UPROPERTY(BlueprintReadOnly)
 	FHitData ReceivedHit = {};
 	uint32 StunTime = 0;
 	uint32 StunTimeMax = 0;

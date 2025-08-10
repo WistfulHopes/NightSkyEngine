@@ -2466,6 +2466,9 @@ bool APlayerObject::CheckStateEnabled(EStateType StateType, FGameplayTag CustomS
 void APlayerObject::OnStateChange()
 {
 	if (!GameState) return;
+	
+	CallSubroutine(Subroutine_Cmn_OnStateChange);
+	CallSubroutine(Subroutine_OnStateChange);
 
 	// Deactivate all objects that need to be destroyed on state change.
 	for (int i = GameState->Players.Num(); i < GameState->BattleState.ActiveObjectCount; i++)
