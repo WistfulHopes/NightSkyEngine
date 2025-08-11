@@ -1442,10 +1442,6 @@ bool APlayerObject::CanEnterState(UState* State)
 	}
 	if (State->StateConditions.Num() != 0) //only check state conditions if there are any
 	{
-		if (!State->CanEnterState()) //check bp state condition
-		{
-			return false;
-		}
 		for (int j = 0; j < State->StateConditions.Num(); j++) //iterate over state conditions
 		{
 			if (!HandleStateCondition(State->StateConditions[j])) //check state condition
@@ -1453,6 +1449,10 @@ bool APlayerObject::CanEnterState(UState* State)
 				return false;
 			}
 		}
+	}
+	if (!State->CanEnterState()) //check bp state condition
+	{
+		return false;
 	}
 
 	return true;
