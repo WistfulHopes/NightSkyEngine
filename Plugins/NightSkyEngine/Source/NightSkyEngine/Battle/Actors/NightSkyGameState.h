@@ -293,6 +293,8 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	int MaxBattleObjects = 400;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ABattleObject> BattleObjectClass;
 	UPROPERTY()
 	TArray<ABattleObject*> Objects {};
 	UPROPERTY()

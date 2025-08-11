@@ -151,7 +151,7 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform));
+		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(BattleObjectClass, BattleSceneTransform));
 		Objects[i]->GameState = this;
 		SortedObjects.Add(Objects.Last());
 	}
