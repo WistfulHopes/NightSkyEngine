@@ -1163,6 +1163,9 @@ public:
 	// Cannot be called on player objects. Deactivates the object and returns it to the pool.
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
+	UFUNCTION(BlueprintCallable)
+	bool CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
+		const EBoxType OtherType, const FGameplayTag OtherCustomType);	
 	
 	// Handles custom collision. Activates before clash or hit collision.
 	UFUNCTION(BlueprintImplementableEvent)

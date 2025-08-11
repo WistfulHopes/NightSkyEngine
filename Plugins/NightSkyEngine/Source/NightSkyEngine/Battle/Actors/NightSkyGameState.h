@@ -294,7 +294,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	int MaxBattleObjects = 400;
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<ABattleObject> BattleObjectClass;
+	TSubclassOf<ABattleObject> BattleObjectClass = ABattleObject::StaticClass();
 	UPROPERTY()
 	TArray<ABattleObject*> Objects {};
 	UPROPERTY()

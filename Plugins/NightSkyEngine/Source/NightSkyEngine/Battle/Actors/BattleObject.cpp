@@ -352,8 +352,9 @@ bool ABattleObject::SuperArmorSuccess(const ABattleObject* Attacker) const
 	if (SuperArmorData.bArmorStrike && Attacker->AttackFlags & ATK_HitActive && !(Attacker->AttackFlags &
 		ATK_AttackProjectileAttribute))
 		return true;
-	if (SuperArmorData.bArmorThrow && Attacker->IsPlayer && Attacker->Player->PlayerFlags & PLF_ThrowActive) return
-		true;
+	if (SuperArmorData.bArmorThrow && Attacker->IsPlayer && Attacker->Player->PlayerFlags & PLF_ThrowActive)
+		return
+			true;
 	if (SuperArmorData.bArmorHead && Attacker->AttackFlags & ATK_HitActive && Attacker->AttackFlags &
 		ATK_AttackHeadAttribute)
 		return true;
@@ -471,282 +472,222 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 		== INDEX_NONE)
 	{
 		if (AttackedObj->IsPlayer && AttackedObj->Player->PlayerIndex != Player->PlayerIndex && AttackedObj->Player->
-			IsInvulnerable()) return;
+			IsInvulnerable())
+			return;
 
 		auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
 		if (!AttackedPlayer) return;
-		for (auto& SelfBox : Boxes)
+		if (CheckBoxOverlap(AttackedObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hurt, FGameplayTag::EmptyTag))
 		{
-			if (SelfBox.Type == BOX_Hit)
+			AttackedPlayer->AttackOwner = this;
+			AttackedPlayer->ObjectsToIgnoreHitsFrom.AddUnique(this);
+			AttackedPlayer->StunTime = 2147483647;
+			AttackedPlayer->FaceOpponent();
+			AttackedPlayer->HaltMomentum();
+			AttackedPlayer->PlayerFlags |= PLF_IsStunned;
+			AttackFlags |= ATK_HasHit;
+			AttackTarget = AttackedPlayer;
+
+			TriggerEvent(EVT_HitOrBlock);
+			if (AttackedPlayer->IsMainPlayer())
 			{
-				for (auto& OtherBox : AttackedPlayer->Boxes)
+				TriggerEvent(EVT_HitOrBlockMainPlayer);
+			}
+
+			AttackedPlayer->CallSubroutine(Subroutine_HitCollision);
+			if (AttackedPlayer->SubroutineReturnVal1) return;
+
+			if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
+			{
+				CreateCommonParticle(Particle_Guard, POS_Enemy,
+				                     FVector(0, 100, 0),
+				                     FRotator(HitCommon.HitAngle, 0, 0));
+				TriggerEvent(EVT_Block);
+				if (AttackedPlayer->IsMainPlayer())
 				{
-					if (OtherBox.Type == BOX_Hurt)
+					TriggerEvent(EVT_BlockMainPlayer);
+				}
+
+				const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
+				AttackedPlayer->CurrentHealth -= ChipDamage;
+
+				const FHitData Data = InitHitDataByAttackLevel(false);
+				AttackedPlayer->ReceivedHitCommon = HitCommon;
+				AttackedPlayer->ReceivedHit = Data;
+
+				if (AttackedPlayer->CurrentHealth <= 0)
+				{
+					EHitAction HACT;
+
+					if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+						PlayerFlags & PLF_IsKnockedDown))
+						HACT = NormalHit.GroundHitAction;
+					else
+						HACT = NormalHit.AirHitAction;
+
+					AttackedPlayer->HandleHitAction(HACT);
+				}
+				else
+				{
+					AttackedPlayer->HandleBlockAction();
+					AttackedPlayer->AirDashTimer = 0;
+					if (AttackedPlayer->PlayerFlags & PLF_TouchingWall)
 					{
-						FCollisionBox Hitbox = SelfBox;
-
-						FCollisionBox Hurtbox = OtherBox;
-
-						if (Direction == DIR_Right)
-						{
-							Hitbox.PosX += PosX;
-						}
-						else
-						{
-							Hitbox.PosX = -Hitbox.PosX + PosX;
-						}
-						Hitbox.PosY += PosY;
-						if (AttackedPlayer->Direction == DIR_Right)
-						{
-							Hurtbox.PosX += AttackedPlayer->PosX;
-						}
-						else
-						{
-							Hurtbox.PosX = -Hurtbox.PosX + AttackedPlayer->PosX;
-						}
-						Hurtbox.PosY += AttackedPlayer->PosY;
-
-						if (Hitbox.PosY + Hitbox.SizeY / 2 >= Hurtbox.PosY - Hurtbox.SizeY / 2
-							&& Hitbox.PosY - Hitbox.SizeY / 2 <= Hurtbox.PosY + Hurtbox.SizeY / 2
-							&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
-							&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
-						{
-							AttackedPlayer->AttackOwner = this;
-							AttackedPlayer->ObjectsToIgnoreHitsFrom.AddUnique(this);
-							AttackedPlayer->StunTime = 2147483647;
-							AttackedPlayer->FaceOpponent();
-							AttackedPlayer->HaltMomentum();
-							AttackedPlayer->PlayerFlags |= PLF_IsStunned;
-							AttackFlags |= ATK_HasHit;
-							AttackTarget = AttackedPlayer;
-
-							int CollisionDepthX;
-							if (Hitbox.PosX < AttackedPlayer->PosX)
-							{
-								CollisionDepthX = AttackedPlayer->PosX - (Hitbox.PosX + Hitbox.SizeX / 2);
-								HitPosX = Hitbox.PosX + CollisionDepthX / 2;
-							}
-							else
-							{
-								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - AttackedPlayer->PosX;
-								HitPosX = Hitbox.PosX - CollisionDepthX / 2;
-							}
-							int CollisionDepthY;
-							int32 CenterPosY = AttackedPlayer->GetPosYCenter();
-							if (Hitbox.PosY < CenterPosY)
-							{
-								CollisionDepthY = CenterPosY - (Hitbox.PosY + Hitbox.SizeY / 2);
-								HitPosY = Hitbox.PosY + CollisionDepthY / 2;
-							}
-							else
-							{
-								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
-								HitPosY = Hitbox.PosY - CollisionDepthY / 2;
-							}
-
-							TriggerEvent(EVT_HitOrBlock);
-							if (AttackedPlayer->IsMainPlayer())
-							{
-								TriggerEvent(EVT_HitOrBlockMainPlayer);
-							}
-
-							AttackedPlayer->CallSubroutine(Subroutine_HitCollision);
-							if (AttackedPlayer->SubroutineReturnVal1) return;
-							
-							if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
-							{
-								CreateCommonParticle(Particle_Guard, POS_Enemy,
-								                     FVector(0, 100, 0),
-								                     FRotator(HitCommon.HitAngle, 0, 0));
-								TriggerEvent(EVT_Block);
-								if (AttackedPlayer->IsMainPlayer())
-								{
-									TriggerEvent(EVT_BlockMainPlayer);
-								}
-
-								const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
-								AttackedPlayer->CurrentHealth -= ChipDamage;
-
-								const FHitData Data = InitHitDataByAttackLevel(false);
-								AttackedPlayer->ReceivedHitCommon = HitCommon;
-								AttackedPlayer->ReceivedHit = Data;
-
-								if (AttackedPlayer->CurrentHealth <= 0)
-								{
-									EHitAction HACT;
-
-									if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
-										PlayerFlags & PLF_IsKnockedDown))
-										HACT = NormalHit.GroundHitAction;
-									else
-										HACT = NormalHit.AirHitAction;
-
-									AttackedPlayer->HandleHitAction(HACT);
-								}
-								else
-								{
-									AttackedPlayer->HandleBlockAction();
-									AttackedPlayer->AirDashTimer = 0;
-									if (AttackedPlayer->PlayerFlags & PLF_TouchingWall)
-									{
-										Pushback = AttackedPlayer->Pushback;
-										AttackedPlayer->Pushback = 0;
-									}
-								}
-								AttackedPlayer->AddMeter(
-									NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
-								Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
-							}
-							else if (AttackedPlayer->SuperArmorSuccess(this))
-							{
-								TriggerEvent(EVT_Hit);
-								if (AttackedPlayer->IsMainPlayer())
-								{
-									TriggerEvent(EVT_HitMainPlayer);
-								}
-
-								if (AttackedPlayer->SuperArmorData.ArmorHits > 0) AttackedPlayer->SuperArmorData.
-									ArmorHits--;
-								switch (AttackedPlayer->SuperArmorData.Type)
-								{
-								case ARM_Guard:
-									{
-										if (AttackedPlayer->SuperArmorData.bArmorTakeChipDamage)
-										{
-											const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent /
-												100;
-											AttackedPlayer->CurrentHealth -= ChipDamage;
-											AttackedPlayer->AddMeter(
-												NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
-											Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
-										}
-										if (AttackedPlayer->SuperArmorData.ArmorDamagePercent)
-										{
-											const int32 ArmorDamage = NormalHit.Damage * AttackedPlayer->SuperArmorData.
-												ArmorDamagePercent / 100;
-											AttackedPlayer->CurrentHealth -= ArmorDamage;
-											AttackedPlayer->AddMeter(
-												NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHit *
-												AttackedPlayer->
-												SuperArmorData.ArmorDamagePercent / 10000);
-											Player->AddMeter(
-												NormalHit.Damage * Player->MeterPercentOnHit * AttackedPlayer->
-												SuperArmorData.ArmorDamagePercent / 10000);
-										}
-										else
-										{
-											CreateCommonParticle(Particle_Guard, POS_Enemy,
-											                     FVector(0, 100, 0),
-											                     FRotator(HitCommon.HitAngle, 0, 0));
-										}
-
-										const FHitData Data = InitHitDataByAttackLevel(false);
-										AttackedPlayer->ReceivedHitCommon = HitCommon;
-										AttackedPlayer->ReceivedHit = Data;
-
-										if (AttackedPlayer->CurrentHealth <= 0)
-										{
-											EHitAction HACT;
-
-											if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer
-												->PlayerFlags & PLF_IsKnockedDown))
-												HACT = NormalHit.GroundHitAction;
-											else
-												HACT = NormalHit.AirHitAction;
-
-											AttackedPlayer->HandleHitAction(HACT);
-										}
-										else
-										{
-											Hitstop = Data.Hitstop;
-											AttackedPlayer->Hitstop = Data.Hitstop;
-										}
-									}
-									break;
-								case ARM_Dodge:
-								default:
-									break;
-								}
-							}
-							else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
-							{
-								TriggerEvent(EVT_Hit);
-								if (AttackedPlayer->IsMainPlayer())
-								{
-									TriggerEvent(EVT_HitMainPlayer);
-								}
-
-								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
-								{
-									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
-									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
-									AttackedPlayer->AttackOwner = Player;
-									Player->ThrowExe();
-									return;
-								}
-
-								const FHitData Data = InitHitDataByAttackLevel(false);
-								CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
-								                     FVector(0, 0, 0),
-								                     FRotator(HitCommon.HitAngle, 0, 0));
-								PlayCommonSound(HitCommon.HitSFX);
-								AttackedPlayer->ReceivedHitCommon = HitCommon;
-								AttackedPlayer->ReceivedHit = Data;
-								EHitAction HACT;
-
-								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
-									PlayerFlags & PLF_IsKnockedDown))
-									HACT = NormalHit.GroundHitAction;
-								else
-									HACT = NormalHit.AirHitAction;
-
-								AttackedPlayer->HandleHitAction(HACT);
-							}
-							else
-							{
-								TriggerEvent(EVT_Hit);
-								TriggerEvent(EVT_CounterHit);
-								if (AttackedPlayer->IsMainPlayer())
-								{
-									TriggerEvent(EVT_HitMainPlayer);
-									TriggerEvent(EVT_CounterHitMainPlayer);
-								}
-
-								AttackedPlayer->AddColor = FLinearColor(5, 0.2, 0.2, 1);
-								AttackedPlayer->MulColor = FLinearColor(1, 0.1, 0.1, 1);
-								AttackedPlayer->AddFadeSpeed = 0.1;
-								AttackedPlayer->MulFadeSpeed = 0.1;
-
-								if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
-								{
-									AttackedPlayer->JumpToState(State_Universal_ThrowLock);
-									AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
-									AttackedPlayer->AttackOwner = Player;
-									Player->ThrowExe();
-									return;
-								}
-
-								const FHitData CounterData = InitHitDataByAttackLevel(true);
-								CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 0, 0),
-								                     FRotator(HitCommon.HitAngle, 0, 0));
-								PlayCommonSound(HitCommon.HitSFX);
-								AttackedPlayer->ReceivedHitCommon = HitCommon;
-								AttackedPlayer->ReceivedHit = CounterData;
-								AttackedPlayer->ReceivedHit = CounterData;
-								EHitAction HACT;
-
-								if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
-									PlayerFlags & PLF_IsKnockedDown))
-									HACT = CounterHit.GroundHitAction;
-								else
-									HACT = CounterHit.AirHitAction;
-
-								AttackedPlayer->HandleHitAction(HACT);
-							}
-							return;
-						}
+						Pushback = AttackedPlayer->Pushback;
+						AttackedPlayer->Pushback = 0;
 					}
 				}
+				AttackedPlayer->AddMeter(
+					NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+				Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
+			}
+			else if (AttackedPlayer->SuperArmorSuccess(this))
+			{
+				TriggerEvent(EVT_Hit);
+				if (AttackedPlayer->IsMainPlayer())
+				{
+					TriggerEvent(EVT_HitMainPlayer);
+				}
+
+				if (AttackedPlayer->SuperArmorData.ArmorHits > 0)
+					AttackedPlayer->SuperArmorData.
+					                ArmorHits--;
+				switch (AttackedPlayer->SuperArmorData.Type)
+				{
+				case ARM_Guard:
+					{
+						if (AttackedPlayer->SuperArmorData.bArmorTakeChipDamage)
+						{
+							const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent /
+								100;
+							AttackedPlayer->CurrentHealth -= ChipDamage;
+							AttackedPlayer->AddMeter(
+								NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+							Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
+						}
+						if (AttackedPlayer->SuperArmorData.ArmorDamagePercent)
+						{
+							const int32 ArmorDamage = NormalHit.Damage * AttackedPlayer->SuperArmorData.
+								ArmorDamagePercent / 100;
+							AttackedPlayer->CurrentHealth -= ArmorDamage;
+							AttackedPlayer->AddMeter(
+								NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHit *
+								AttackedPlayer->
+								SuperArmorData.ArmorDamagePercent / 10000);
+							Player->AddMeter(
+								NormalHit.Damage * Player->MeterPercentOnHit * AttackedPlayer->
+								                                               SuperArmorData.ArmorDamagePercent /
+								10000);
+						}
+						else
+						{
+							CreateCommonParticle(Particle_Guard, POS_Enemy,
+							                     FVector(0, 100, 0),
+							                     FRotator(HitCommon.HitAngle, 0, 0));
+						}
+
+						const FHitData Data = InitHitDataByAttackLevel(false);
+						AttackedPlayer->ReceivedHitCommon = HitCommon;
+						AttackedPlayer->ReceivedHit = Data;
+
+						if (AttackedPlayer->CurrentHealth <= 0)
+						{
+							EHitAction HACT;
+
+							if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer
+								->PlayerFlags & PLF_IsKnockedDown))
+								HACT = NormalHit.GroundHitAction;
+							else
+								HACT = NormalHit.AirHitAction;
+
+							AttackedPlayer->HandleHitAction(HACT);
+						}
+						else
+						{
+							Hitstop = Data.Hitstop;
+							AttackedPlayer->Hitstop = Data.Hitstop;
+						}
+					}
+					break;
+				case ARM_Dodge:
+				default:
+					break;
+				}
+			}
+			else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
+			{
+				TriggerEvent(EVT_Hit);
+				if (AttackedPlayer->IsMainPlayer())
+				{
+					TriggerEvent(EVT_HitMainPlayer);
+				}
+
+				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+				{
+					AttackedPlayer->JumpToState(State_Universal_ThrowLock);
+					AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
+					AttackedPlayer->AttackOwner = Player;
+					Player->ThrowExe();
+					return;
+				}
+
+				const FHitData Data = InitHitDataByAttackLevel(false);
+				CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
+				                     FVector(0, 0, 0),
+				                     FRotator(HitCommon.HitAngle, 0, 0));
+				PlayCommonSound(HitCommon.HitSFX);
+				AttackedPlayer->ReceivedHitCommon = HitCommon;
+				AttackedPlayer->ReceivedHit = Data;
+				EHitAction HACT;
+
+				if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+					PlayerFlags & PLF_IsKnockedDown))
+					HACT = NormalHit.GroundHitAction;
+				else
+					HACT = NormalHit.AirHitAction;
+
+				AttackedPlayer->HandleHitAction(HACT);
+			}
+			else
+			{
+				TriggerEvent(EVT_Hit);
+				TriggerEvent(EVT_CounterHit);
+				if (AttackedPlayer->IsMainPlayer())
+				{
+					TriggerEvent(EVT_HitMainPlayer);
+					TriggerEvent(EVT_CounterHitMainPlayer);
+				}
+
+				AttackedPlayer->AddColor = FLinearColor(5, 0.2, 0.2, 1);
+				AttackedPlayer->MulColor = FLinearColor(1, 0.1, 0.1, 1);
+				AttackedPlayer->AddFadeSpeed = 0.1;
+				AttackedPlayer->MulFadeSpeed = 0.1;
+
+				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+				{
+					AttackedPlayer->JumpToState(State_Universal_ThrowLock);
+					AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
+					AttackedPlayer->AttackOwner = Player;
+					Player->ThrowExe();
+					return;
+				}
+
+				const FHitData CounterData = InitHitDataByAttackLevel(true);
+				CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 0, 0),
+				                     FRotator(HitCommon.HitAngle, 0, 0));
+				PlayCommonSound(HitCommon.HitSFX);
+				AttackedPlayer->ReceivedHitCommon = HitCommon;
+				AttackedPlayer->ReceivedHit = CounterData;
+				AttackedPlayer->ReceivedHit = CounterData;
+				EHitAction HACT;
+
+				if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+					PlayerFlags & PLF_IsKnockedDown))
+					HACT = CounterHit.GroundHitAction;
+				else
+					HACT = CounterHit.AirHitAction;
+
+				AttackedPlayer->HandleHitAction(HACT);
 			}
 		}
 	}
@@ -1238,108 +1179,41 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 		PlayerIndex
 		&& OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
 	{
-		for (auto& SelfBox : Boxes)
+		if (CheckBoxOverlap(OtherObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hit, FGameplayTag::EmptyTag))
 		{
-			if (SelfBox.Type == BOX_Hit)
+		
+			if (IsPlayer && OtherObj->IsPlayer)
 			{
-				for (auto& OtherBox : OtherObj->Boxes)
-				{
-					if (OtherBox.Type == BOX_Hit)
-					{
-						FCollisionBox Hitbox = SelfBox;
-
-						FCollisionBox OtherHitbox = OtherBox;
-
-						if (Direction == DIR_Right)
-						{
-							Hitbox.PosX += PosX;
-						}
-						else
-						{
-							Hitbox.PosX = -Hitbox.PosX + PosX;
-						}
-						Hitbox.PosY += PosY;
-						if (OtherObj->Direction == DIR_Right)
-						{
-							OtherHitbox.PosX += OtherObj->PosX;
-						}
-						else
-						{
-							OtherHitbox.PosX = -OtherHitbox.PosX + OtherObj->PosX;
-						}
-						OtherHitbox.PosY += OtherObj->PosY;
-
-						if (Hitbox.PosY + Hitbox.SizeY / 2 >= OtherHitbox.PosY - OtherHitbox.SizeY / 2
-							&& Hitbox.PosY - Hitbox.SizeY / 2 <= OtherHitbox.PosY + OtherHitbox.SizeY / 2
-							&& Hitbox.PosX + Hitbox.SizeX / 2 >= OtherHitbox.PosX - OtherHitbox.SizeX / 2
-							&& Hitbox.PosX - Hitbox.SizeX / 2 <= OtherHitbox.PosX + OtherHitbox.SizeX / 2)
-						{
-							int CollisionDepthX;
-							if (Hitbox.PosX < OtherHitbox.PosX)
-							{
-								CollisionDepthX = OtherHitbox.PosX - OtherHitbox.SizeX / 2 - (Hitbox.PosX + Hitbox.SizeX
-									/ 2);
-								HitPosX = Hitbox.PosX - CollisionDepthX * 2;
-							}
-							else
-							{
-								CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - (OtherHitbox.PosX + OtherHitbox.SizeX
-									/ 2);
-								HitPosX = Hitbox.PosX + CollisionDepthX * 2;
-							}
-							int CollisionDepthY;
-							if (Hitbox.PosY < OtherHitbox.PosY)
-							{
-								CollisionDepthY = OtherHitbox.PosY - OtherHitbox.SizeY / 2 - (Hitbox.PosY + Hitbox.SizeY
-									/ 2);
-								HitPosY = Hitbox.PosY - CollisionDepthY;
-							}
-							else
-							{
-								CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - (OtherHitbox.PosY + OtherHitbox.SizeY
-									/ 2);
-								HitPosY = Hitbox.PosY + CollisionDepthY;
-							}
-
-							if (IsPlayer && OtherObj->IsPlayer)
-							{
-								Hitstop = 16;
-								OtherObj->Hitstop = 16;
-								AttackFlags &= ~ATK_HitActive;
-								OtherObj->AttackFlags &= ~ATK_HitActive;
-								OtherObj->HitPosX = HitPosX;
-								OtherObj->HitPosY = HitPosY;
-								Player->EnableAttacks();
-								Player->EnableCancelIntoSelf(true);
-								Player->EnableState(ENB_ForwardDash);
-								OtherObj->Player->EnableAttacks();
-								OtherObj->Player->EnableCancelIntoSelf(true);
-								OtherObj->Player->EnableState(ENB_ForwardDash);
-								TriggerEvent(EVT_HitOrBlock);
-								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
-								PlayCommonSound(Sound_Hit_Clash);
-								return;
-							}
-							if (!IsPlayer && !OtherObj->IsPlayer)
-							{
-								OtherObj->Hitstop = 16;
-								Hitstop = 16;
-								AttackFlags &= ~ATK_HitActive;
-								OtherObj->AttackFlags &= ~ATK_HitActive;
-								OtherObj->HitPosX = HitPosX;
-								OtherObj->HitPosY = HitPosY;
-								TriggerEvent(EVT_HitOrBlock);
-								OtherObj->TriggerEvent(EVT_HitOrBlock);
-								CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
-								PlayCommonSound(Sound_Hit_Clash);
-								return;
-							}
-							return;
-						}
-					}
-				}
+				Hitstop = 16;
+				OtherObj->Hitstop = 16;
+				AttackFlags &= ~ATK_HitActive;
+				OtherObj->AttackFlags &= ~ATK_HitActive;
+				OtherObj->HitPosX = HitPosX;
+				OtherObj->HitPosY = HitPosY;
+				Player->EnableAttacks();
+				Player->EnableCancelIntoSelf(true);
+				Player->EnableState(ENB_ForwardDash);
+				OtherObj->Player->EnableAttacks();
+				OtherObj->Player->EnableCancelIntoSelf(true);
+				OtherObj->Player->EnableState(ENB_ForwardDash);
+				TriggerEvent(EVT_HitOrBlock);
+				OtherObj->TriggerEvent(EVT_HitOrBlock);
+				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+				PlayCommonSound(Sound_Hit_Clash);
 			}
+			else if (!IsPlayer && !OtherObj->IsPlayer)
+			{
+				OtherObj->Hitstop = 16;
+				Hitstop = 16;
+				AttackFlags &= ~ATK_HitActive;
+				OtherObj->AttackFlags &= ~ATK_HitActive;
+				OtherObj->HitPosX = HitPosX;
+				OtherObj->HitPosY = HitPosY;
+				TriggerEvent(EVT_HitOrBlock);
+				OtherObj->TriggerEvent(EVT_HitOrBlock);
+				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+				PlayCommonSound(Sound_Hit_Clash);
+			}	
 		}
 	}
 }
@@ -1944,7 +1818,7 @@ void ABattleObject::Update()
 		TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
-		
+
 		GameState->SetScreenBounds();
 		ActionTime++;
 
@@ -2490,6 +2364,81 @@ void ABattleObject::DeactivateObject()
 
 	// Wait until the next frame to complete
 	MiscFlags |= MISC_DeactivateOnNextUpdate;
+}
+
+bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
+                                    const EBoxType OtherType, const FGameplayTag OtherCustomType)
+{
+	for (auto& SelfBox : Boxes)
+	{
+		if (SelfBox.Type == SelfType)
+		{
+			if (SelfBox.Type == BOX_Custom && SelfBox.CustomType != SelfCustomType) continue;
+			for (auto& OtherBox : OtherObj->Boxes)
+			{
+				if (OtherBox.Type == OtherType)
+				{
+					if (OtherBox.Type == BOX_Custom && OtherBox.CustomType != OtherCustomType) continue;
+
+					FCollisionBox Hitbox = SelfBox;
+					FCollisionBox Hurtbox = OtherBox;
+
+					if (Direction == DIR_Right)
+					{
+						Hitbox.PosX += PosX;
+					}
+					else
+					{
+						Hitbox.PosX = -Hitbox.PosX + PosX;
+					}
+					Hitbox.PosY += PosY;
+					if (OtherObj->Direction == DIR_Right)
+					{
+						Hurtbox.PosX += OtherObj->PosX;
+					}
+					else
+					{
+						Hurtbox.PosX = -Hurtbox.PosX + OtherObj->PosX;
+					}
+					Hurtbox.PosY += OtherObj->PosY;
+
+					if (Hitbox.PosY + Hitbox.SizeY / 2 >= Hurtbox.PosY - Hurtbox.SizeY / 2
+						&& Hitbox.PosY - Hitbox.SizeY / 2 <= Hurtbox.PosY + Hurtbox.SizeY / 2
+						&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
+						&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
+					{
+						
+						int CollisionDepthX;
+						if (Hitbox.PosX < OtherObj->PosX)
+						{
+							CollisionDepthX = OtherObj->PosX - (Hitbox.PosX + Hitbox.SizeX / 2);
+							HitPosX = Hitbox.PosX + CollisionDepthX / 2;
+						}
+						else
+						{
+							CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - OtherObj->PosX;
+							HitPosX = Hitbox.PosX - CollisionDepthX / 2;
+						}
+						int CollisionDepthY;
+						int32 CenterPosY = OtherObj->GetPosYCenter();
+						if (Hitbox.PosY < CenterPosY)
+						{
+							CollisionDepthY = CenterPosY - (Hitbox.PosY + Hitbox.SizeY / 2);
+							HitPosY = Hitbox.PosY + CollisionDepthY / 2;
+						}
+						else
+						{
+							CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
+							HitPosY = Hitbox.PosY - CollisionDepthY / 2;
+						}
+						return true;
+					}
+				}
+			}
+		}
+	}
+
+	return false;
 }
 
 void ABattleObject::EnableFlip(bool Enabled)
