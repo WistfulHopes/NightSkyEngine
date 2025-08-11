@@ -475,17 +475,17 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 		auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
 		if (!AttackedPlayer) return;
-		for (int i = 0; i < CollisionArraySize; i++)
+		for (auto& SelfBox : Boxes)
 		{
-			if (Boxes[i].Type == BOX_Hit)
+			if (SelfBox.Type == BOX_Hit)
 			{
-				for (int j = 0; j < CollisionArraySize; j++)
+				for (auto& OtherBox : AttackedPlayer->Boxes)
 				{
-					if (AttackedPlayer->Boxes[j].Type == BOX_Hurt)
+					if (OtherBox.Type == BOX_Hurt)
 					{
-						FCollisionBox Hitbox = Boxes[i];
+						FCollisionBox Hitbox = SelfBox;
 
-						FCollisionBox Hurtbox = AttackedPlayer->Boxes[j];
+						FCollisionBox Hurtbox = OtherBox;
 
 						if (Direction == DIR_Right)
 						{
@@ -1238,17 +1238,17 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 		PlayerIndex
 		&& OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
 	{
-		for (int i = 0; i < CollisionArraySize; i++)
+		for (auto& SelfBox : Boxes)
 		{
-			if (Boxes[i].Type == BOX_Hit)
+			if (SelfBox.Type == BOX_Hit)
 			{
-				for (int j = 0; j < CollisionArraySize; j++)
+				for (auto& OtherBox : OtherObj->Boxes)
 				{
-					if (OtherObj->Boxes[j].Type == BOX_Hit)
+					if (OtherBox.Type == BOX_Hit)
 					{
-						FCollisionBox Hitbox = Boxes[i];
+						FCollisionBox Hitbox = SelfBox;
 
-						FCollisionBox OtherHitbox = OtherObj->Boxes[j];
+						FCollisionBox OtherHitbox = OtherBox;
 
 						if (Direction == DIR_Right)
 						{
@@ -1797,14 +1797,7 @@ void ABattleObject::FuncCall(const FName& FuncName) const
 
 void ABattleObject::GetBoxes()
 {
-	for (int j = 0; j < CollisionArraySize; j++)
-	{
-		Boxes[j].Type = BOX_Hurt;
-		Boxes[j].PosX = -10000000;
-		Boxes[j].PosY = -10000000;
-		Boxes[j].SizeX = 0;
-		Boxes[j].SizeY = 0;
-	}
+	Boxes.Empty();
 	if (Player->CommonCollisionData != nullptr)
 	{
 		for (int i = 0; i < Player->CommonCollisionData->CollisionFrames.Num(); i++)
@@ -1816,40 +1809,17 @@ void ABattleObject::GetBoxes()
 				AnimBlendOut = Player->CommonCollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
-				for (int j = 0; j < CollisionArraySize; j++)
-				{
-					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
-					{
-						FCollisionBox CollisionBoxInternal;
-						CollisionBoxInternal.Type = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].Type;
-						CollisionBoxInternal.PosX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosX;
-						CollisionBoxInternal.PosY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosY;
-						CollisionBoxInternal.SizeX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].SizeX;
-						CollisionBoxInternal.SizeY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].SizeY;
-						Boxes[j] = CollisionBoxInternal;
-					}
-					else
-					{
-						Boxes[j].Type = BOX_Hurt;
-						Boxes[j].PosX = -10000000;
-						Boxes[j].PosY = -10000000;
-						Boxes[j].SizeX = 0;
-						Boxes[j].SizeY = 0;
-					}
-				}
+				Boxes = Player->CommonCollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
 				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
-				for (int j = 0; j < CollisionArraySize; j++)
+				for (auto& Box : Player->CommonCollisionData->CollisionFrames[i].Boxes)
 				{
-					if (j < Player->CommonCollisionData->CollisionFrames[i].Boxes.Num())
-					{
-						if (Player->CommonCollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
+					if (Box.Type != BOX_Offset) continue;
 
-						NextOffsetX = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosX;
-						NextOffsetY = Player->CommonCollisionData->CollisionFrames[i].Boxes[j].PosY;
-					}
+					NextOffsetX = Box.PosX;
+					NextOffsetY = Box.PosY;
 				}
 			}
 		}
@@ -1865,39 +1835,20 @@ void ABattleObject::GetBoxes()
 				AnimBlendOut = Player->CollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
-				for (int j = 0; j < CollisionArraySize; j++)
-				{
-					if (j < Player->CollisionData->CollisionFrames[i].Boxes.Num())
-					{
-						FCollisionBox CollisionBoxInternal;
-						CollisionBoxInternal.Type = Player->CollisionData->CollisionFrames[i].Boxes[j].Type;
-						CollisionBoxInternal.PosX = Player->CollisionData->CollisionFrames[i].Boxes[j].PosX;
-						CollisionBoxInternal.PosY = Player->CollisionData->CollisionFrames[i].Boxes[j].PosY;
-						CollisionBoxInternal.SizeX = Player->CollisionData->CollisionFrames[i].Boxes[j].SizeX;
-						CollisionBoxInternal.SizeY = Player->CollisionData->CollisionFrames[i].Boxes[j].SizeY;
-						Boxes[j] = CollisionBoxInternal;
-					}
-					else
-					{
-						Boxes[j].Type = BOX_Hurt;
-						Boxes[j].PosX = -10000000;
-						Boxes[j].PosY = -10000000;
-						Boxes[j].SizeX = 0;
-						Boxes[j].SizeY = 0;
-					}
-				}
+				Boxes = Player->CollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
-				for (int j = 0; j < CollisionArraySize; j++)
+				if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
 				{
-					if (j < Player->CollisionData->CollisionFrames[i].Boxes.Num())
+					BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+					for (auto& Box : Player->CollisionData->CollisionFrames[i].Boxes)
 					{
-						if (Player->CollisionData->CollisionFrames[i].Boxes[j].Type != BOX_Offset) continue;
+						if (Box.Type != BOX_Offset) continue;
 
-						NextOffsetX = Player->CollisionData->CollisionFrames[i].Boxes[j].PosX;
-						NextOffsetY = Player->CollisionData->CollisionFrames[i].Boxes[j].PosY;
+						NextOffsetX = Box.PosX;
+						NextOffsetY = Box.PosY;
 					}
 				}
 			}

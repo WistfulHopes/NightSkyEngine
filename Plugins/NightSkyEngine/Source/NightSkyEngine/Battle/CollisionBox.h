@@ -25,6 +25,10 @@ enum EBoxType
 	 * Offset. The X and Y positions are used as a semi-root motion system.
 	 */
 	BOX_Offset UMETA(DisplayName="Offset"),
+	/**
+	 * Custom. Set the Custom Box Type as well.
+	 */
+	BOX_Custom UMETA(DisplayName="Custom"),
 };
 
 /**
@@ -32,7 +36,7 @@ enum EBoxType
  *
  * Primarily used for push and hit collision, but some box types are used for specific operations.
  */
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FCollisionBox
 {
 	GENERATED_BODY()
@@ -40,27 +44,32 @@ struct FCollisionBox
 	/**
 	 * The type of box.
 	 */
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBoxType> Type = BOX_Hurt;
+	/**
+	 * The custom box type. Used with BOX_Custom to define custom box behaviors.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FGameplayTag CustomType;
 	/**
 	 * X position.
 	 */
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	int32 PosX = 0;
 	/**
 	 * Y position.
 	 */
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	int32 PosY = 0;
 	/**
 	 * X size.
 	 */
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	int32 SizeX = 0;
 	/**
 	 * Y size.
 	 */
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	int32 SizeY = 0;
 
 #if WITH_EDITORONLY_DATA
@@ -148,7 +157,7 @@ struct FCollisionBox
 	 */
 	bool operator!=(const FCollisionBox& OtherBox) const
 	{
-		return this->Type != OtherBox.Type || this->PosX != OtherBox.PosX || this->PosY != OtherBox.PosY
-			|| this->SizeX != OtherBox.SizeX || this->SizeY != OtherBox.SizeY;
+		return this->Type != OtherBox.Type || this->CustomType != OtherBox.CustomType || this->PosX != OtherBox.PosX
+			|| this->PosY != OtherBox.PosY || this->SizeX != OtherBox.SizeX || this->SizeY != OtherBox.SizeY;
 	}
 };

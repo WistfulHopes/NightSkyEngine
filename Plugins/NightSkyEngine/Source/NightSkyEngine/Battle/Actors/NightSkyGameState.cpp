@@ -807,8 +807,10 @@ void ANightSkyGameState::HandleHitCollision() const
 			if (SortedObjects[i]->Player->PlayerIndex != SortedObjects[j]->Player->PlayerIndex && SortedObjects[j]->
 				Player->PlayerFlags & PLF_IsOnScreen)
 			{
+				SortedObjects[i]->HandleCustomCollision_PreHit(SortedObjects[j]);
 				SortedObjects[i]->HandleClashCollision(SortedObjects[j]);
 				SortedObjects[i]->HandleHitCollision(SortedObjects[j]);
+				SortedObjects[i]->HandleCustomCollision_PostHit(SortedObjects[j]);
 			}
 		}
 	}
@@ -1327,7 +1329,7 @@ void ANightSkyGameState::HUDInit() const
 	}
 }
 
-void ANightSkyGameState::UpdateHUD() const
+void ANightSkyGameState::UpdateHUD()
 {
 	if (BattleState.bHUDVisible)
 	{
@@ -1386,8 +1388,11 @@ void ANightSkyGameState::UpdateHUD() const
 					MaxGauge[j];
 			}
 		}
+		UpdateHUD_BP();
 	}
 
+	UpdateHUDAnimations_BP();
+	
 	BattleHudActor->TopWidget->PlayStandardAnimations();
 	BattleHudActor->TopWidget->SetAnimationRollbackData();
 	BattleHudActor->BottomWidget->PlayStandardAnimations();

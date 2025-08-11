@@ -409,7 +409,7 @@ public:
 	void CameraShake(const TSubclassOf<UCameraShakeBase>& Pattern, float Scale) const;
 
 	void HUDInit() const;
-	void UpdateHUD() const;
+	void UpdateHUD();
 	void BattleHudVisibility(bool Visible);
 	
 	void PlayCommonAudio(USoundBase* InSoundWave, float MaxDuration);
@@ -447,4 +447,8 @@ public:
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void EndMatch_BP();
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateHUD_BP();
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateHUDAnimations_BP();
 };

@@ -17,7 +17,6 @@ class UNiagaraComponent;
 class ANightSkyGameState;
 class UState;
 class APlayerObject;
-constexpr int32 CollisionArraySize = 64;
 
 // Event handler data.
 
@@ -821,8 +820,6 @@ protected:
 	int32 PushWidth = 0;
 	int32 PushWidthExtend = 0;
 
-	FCollisionBox Boxes[CollisionArraySize];
-
 public:
 	/*
 	 * Push collision
@@ -910,7 +907,10 @@ public:
 
 	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
-
+	
+	UPROPERTY(BlueprintReadOnly, SaveGame)
+	TArray<FCollisionBox> Boxes;
+	
 	/*
 	 * Link data (for object), not serialized
 	 */
@@ -1163,6 +1163,13 @@ public:
 	// Cannot be called on player objects. Deactivates the object and returns it to the pool.
 	UFUNCTION(BlueprintCallable)
 	void DeactivateObject();
+	
+	// Handles custom collision. Activates before clash or hit collision.
+	UFUNCTION(BlueprintImplementableEvent)
+	void HandleCustomCollision_PreHit(ABattleObject* OtherObj);
+	// Handles custom collision. Activates after clash and hit collision.
+	UFUNCTION(BlueprintImplementableEvent)
+	void HandleCustomCollision_PostHit(ABattleObject* OtherObj);
 };
 
 constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);
