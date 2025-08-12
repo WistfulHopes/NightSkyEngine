@@ -1027,6 +1027,9 @@ public:
 	//sets time until next cel
 	UFUNCTION(BlueprintCallable)
 	void SetTimeUntilNextCel(int32 InTime);
+	// sets cel duration
+	UFUNCTION(BlueprintCallable)
+	void SetCelDuration(int32 InTime);
 	//adds x position
 	UFUNCTION(BlueprintCallable)
 	void AddPosXWithDir(int InPosX);

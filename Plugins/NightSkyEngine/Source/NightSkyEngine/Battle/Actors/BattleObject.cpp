@@ -2099,6 +2099,11 @@ void ABattleObject::GotoLabel(FGameplayTag InName, bool ResetState)
 
 void ABattleObject::SetTimeUntilNextCel(int32 InTime)
 {
+	TimeUntilNextCel = InTime;
+}
+
+void ABattleObject::SetCelDuration(int32 InTime)
+{
 	TimeUntilNextCel = MaxCelTime = InTime;
 }
 
