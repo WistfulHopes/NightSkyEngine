@@ -804,8 +804,9 @@ void ANightSkyGameState::HandleHitCollision() const
 		{
 			if (j == BattleState.ActiveObjectCount)
 				break;
-			if (SortedObjects[i]->Player->PlayerIndex != SortedObjects[j]->Player->PlayerIndex && SortedObjects[j]->
-				Player->PlayerFlags & PLF_IsOnScreen)
+			if (SortedObjects[i]->Player->PlayerIndex != SortedObjects[j]->Player->PlayerIndex 
+				&& SortedObjects[i]->Player->PlayerFlags & PLF_IsOnScreen
+				&& SortedObjects[j]->Player->PlayerFlags & PLF_IsOnScreen)
 			{
 				SortedObjects[i]->HandleCustomCollision_PreHit(SortedObjects[j]);
 				SortedObjects[i]->HandleClashCollision(SortedObjects[j]);
