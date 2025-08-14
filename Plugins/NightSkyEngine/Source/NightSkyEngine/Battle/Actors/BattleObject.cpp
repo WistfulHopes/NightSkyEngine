@@ -1714,16 +1714,12 @@ void ABattleObject::GetBoxes()
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
 			{
 				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
-				if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
+				for (auto& Box : Player->CollisionData->CollisionFrames[i].Boxes)
 				{
-					BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
-					for (auto& Box : Player->CollisionData->CollisionFrames[i].Boxes)
-					{
-						if (Box.Type != BOX_Offset) continue;
+					if (Box.Type != BOX_Offset) continue;
 
-						NextOffsetX = Box.PosX;
-						NextOffsetY = Box.PosY;
-					}
+					NextOffsetX = Box.PosX;
+					NextOffsetY = Box.PosY;
 				}
 			}
 		}
