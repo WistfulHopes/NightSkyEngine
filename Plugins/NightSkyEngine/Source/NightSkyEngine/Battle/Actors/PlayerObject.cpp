@@ -76,6 +76,7 @@ APlayerObject::APlayerObject()
 	for (bool& Visible : ComponentVisible)
 		Visible = true;
 
+	PrimaryStateMachine.bPrimary = true;
 	PrimaryStateMachine.StateMachineName = StateMachine_Primary;
 }
 
