@@ -1,25 +1,38 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "NativeGameplayTags.h"
 #include "State.h"
 #include "StateMachine.generated.h"
 
 class APlayerObject;
+
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateMachine_Primary);
 
 /**
  * @brief The player object's state machine.
  *
  * Contains all player states and state names, as well as the currently active state.
  */
-USTRUCT()
+USTRUCT(BlueprintType)
 struct NIGHTSKYENGINE_API FStateMachine
 {
 	GENERATED_BODY()
-
+	
 	/**
 	 * The currently active state.
 	 */
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly, SaveGame)
+	FGameplayTag StateMachineName;
+	/**
+	 * Flags of currently enabled states.
+	 */
+	UPROPERTY(SaveGame, meta=(Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
+	int32 EnableFlags = 0;
+	/**
+	 * The currently active state.
+	 */
+	UPROPERTY(SaveGame)
 	UState* CurrentState;
 	/**
 	 * An array of all player states.

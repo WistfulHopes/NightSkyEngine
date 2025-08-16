@@ -1181,7 +1181,6 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 	{
 		if (CheckBoxOverlap(OtherObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hit, FGameplayTag::EmptyTag))
 		{
-		
 			if (IsPlayer && OtherObj->IsPlayer)
 			{
 				Hitstop = 16;
@@ -1192,10 +1191,10 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->HitPosY = HitPosY;
 				Player->EnableAttacks();
 				Player->EnableCancelIntoSelf(true);
-				Player->EnableState(ENB_ForwardDash);
+				Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
 				OtherObj->Player->EnableAttacks();
 				OtherObj->Player->EnableCancelIntoSelf(true);
-				OtherObj->Player->EnableState(ENB_ForwardDash);
+				OtherObj->Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
 				TriggerEvent(EVT_HitOrBlock);
 				OtherObj->TriggerEvent(EVT_HitOrBlock);
 				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
@@ -1240,11 +1239,11 @@ void ABattleObject::HandleFlip()
 		if (IsPlayer)
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
-			if (Player->Stance == ACT_Standing && Player->EnableFlags & ENB_Standing)
+			if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
 				Player->JumpToState(State_Universal_StandFlip);
-			else if (Player->Stance == ACT_Crouching && Player->EnableFlags & ENB_Standing)
+			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
 				Player->JumpToState(State_Universal_CrouchFlip);
-			else if (Player->Stance == ACT_Jumping && Player->EnableFlags & ENB_Jumping)
+			else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
 				Player->JumpToState(State_Universal_JumpFlip);
 		}
 	}
@@ -1324,7 +1323,7 @@ void ABattleObject::TriggerEvent(EEventType EventType)
 
 	UState* State = ObjectState;
 	if (IsPlayer)
-		State = Player->StoredStateMachine.CurrentState;
+		State = Player->PrimaryStateMachine.CurrentState;
 	if (!IsValid(State))
 		return;
 	UFunction* const Func = State->FindFunction(EventHandlers[EventType].FunctionName);
@@ -1660,7 +1659,7 @@ void ABattleObject::FuncCall(const FName& FuncName) const
 {
 	UState* CurrentState = ObjectState;
 	if (IsPlayer)
-		CurrentState = Player->StoredStateMachine.CurrentState;
+		CurrentState = Player->PrimaryStateMachine.CurrentState;
 
 	UFunction* const Func = CurrentState->FindFunction(FuncName);
 	if (IsValid(Func) && Func->ParmsSize == 0)

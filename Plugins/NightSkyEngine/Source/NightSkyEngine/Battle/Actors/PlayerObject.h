@@ -74,111 +74,111 @@ public:
 	 * Default values
 	 */
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FWalkSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BWalkSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FDashInitSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FDashAccel;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FDashMaxSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FDashFriction;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BDashSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BDashHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BDashGravity;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 JumpHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FJumpSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BJumpSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 JumpGravity;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 SuperJumpHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FSuperJumpSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BSuperJumpSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 SuperJumpGravity;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirDashMinimumHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FAirDashSpeed;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BAirDashSpeed;
 	// Time until forward air dash properties stop applying.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FAirDashTime;
 	// Time until backward air dash properties stop applying.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BAirDashTime;
 	// Time until forward air dash can be cancelled.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 FAirDashNoAttackTime;
 	// Time until backward air dash can be cancelled.
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 BAirDashNoAttackTime;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirJumpCount;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirDashCount;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 StandPushWidth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 StandPushHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 CrouchPushWidth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 CrouchPushHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirPushWidth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirPushHeight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 AirPushHeightLow;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 CloseNormalRange;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MaxHealth;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MaxMeter = 10000;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ComboRate = 60;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 OtgProration = 80;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ForwardWalkMeterGain;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ForwardJumpMeterGain;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ForwardDashMeterGain;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ForwardAirDashMeterGain;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MeterPercentOnHit = 72;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MeterPercentOnHitGuard = 18;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MeterPercentOnReceiveHitGuard = 10;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 MeterPercentOnReceiveHit = 40;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool CanReverseBeat;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool CanProximityThrow;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	FInputCondition ProximityThrowInput;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ThrowTechWindow = 6;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	int32 ThrowResistAfterWakeUp = 5;
 
 	/*
@@ -229,13 +229,6 @@ public:
 	bool RoundEndFlag = false;
 
 	/*
-	 * Action data.
-	 */
-
-	UPROPERTY()
-	FStateMachine StoredStateMachine;
-
-	/*
 	 * Input data.
 	 */
 	uint32 Inputs;
@@ -250,9 +243,9 @@ public:
 	// If true, inputs will operate as if the character is facing the opposite direction.
 	UPROPERTY(BlueprintReadWrite)
 	bool FlipInputs;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	int32 MaxOTGCount;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	bool bLimitCrumple = true;
 
 	UPROPERTY(BlueprintReadOnly)
@@ -270,7 +263,6 @@ public:
 	int32 ComboTimer;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
-	uint32 EnableFlags = 0;
 	uint32 StrikeInvulnerableTimer = 0;
 	uint32 ThrowInvulnerableTimer = 0;
 	uint32 ThrowResistTimer = 0;
@@ -292,7 +284,7 @@ public:
 	bool ComponentVisible[MaxComponentCount];
 
 	FGameplayTag StateEntryName;
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category=Intro)
 	FGameplayTag IntroName;
 
 protected:
@@ -328,7 +320,13 @@ public:
 	/*
 	 * These properties are saved and loaded for rollback, as they have the SaveGame tag.
 	 */
+	
+	UPROPERTY(SaveGame)
+	FStateMachine PrimaryStateMachine;
 
+	UPROPERTY(EditDefaultsOnly, SaveGame)
+	TArray<FStateMachine> SubStateMachines;
+	
 	UPROPERTY(SaveGame)
 	TArray<FGameplayTag> EnabledCustomStateTypes;
 
@@ -357,9 +355,9 @@ public:
 	 * Defaults
 	 */
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	TArray<FGameplayTag> DamageReactionCels;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	bool bMirrorWhenFlip;
 
 	/*
@@ -384,53 +382,53 @@ public:
 	 * Data assets
 	 */
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UCollisionData* CommonCollisionData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UCollisionData* CollisionData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	USubroutineData* CommonSubroutineData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	USubroutineData* CharaSubroutineData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UStateData* CommonObjectStateData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UStateData* ObjectStateData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UStateData* CharaStateData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Assets)
 	UMaterialData* MaterialData;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Assets)
 	int32 ColorIndex = 1;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	int32 MaxColorIndex = 2;
 
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	ULinkActorData* CommonLinkActorData;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	ULinkActorData* LinkActorData;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	UParticleData* CommonParticleData;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	UParticleData* CharaParticleData;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	USequenceData* CommonSequenceData;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	USequenceData* SequenceData;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	UCameraShakeData* CameraShakeData;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	USoundData* CommonSoundData;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	USoundData* SoundData;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Assets)
 	USoundData* VoiceData;
 
 	UPROPERTY()
@@ -470,13 +468,13 @@ public:
 	//update object
 	virtual void Update() override;
 	// handle state machine
-	void HandleStateMachine(bool Buffer);
+	void HandleStateMachine(bool Buffer, FStateMachine& StateMachine);
 	// handle auto combos for state transition
-	bool HandleAutoCombo(int32 StateIndex);
+	bool HandleAutoCombo(int32 StateIndex, FStateMachine& StateMachine);
 	// handle input conditions for state transition
-	bool HandleStateInputs(int32 StateIndex, bool Buffer);
+	bool HandleStateInputs(int32 StateIndex, bool Buffer, FStateMachine& StateMachine);
 	// handle state transition
-	bool HandleStateTransition(int32 StateIndex, bool Buffer);
+	bool HandleStateTransition(int32 StateIndex, bool Buffer, FStateMachine& StateMachine);
 	//buffer state
 	void HandleBufferedState();
 	//update object for non-battle modes (like character select)
@@ -528,7 +526,7 @@ public:
 	 */
 	//add state to state machine
 	UFUNCTION(BlueprintCallable)
-	void AddState(FGameplayTag Name, UState* State);
+	void AddState(FGameplayTag Name, UState* State, FGameplayTag StateMachineName);
 	//add object state
 	UFUNCTION(BlueprintCallable)
 	void AddObjectState(FGameplayTag Name, UState* State, bool IsCommon);
@@ -547,7 +545,7 @@ public:
 	void RecoverHealth(int Value);
 	//check if state can be entered
 	UFUNCTION(BlueprintCallable)
-	bool CanEnterState(UState* State);
+	bool CanEnterState(UState* State, FGameplayTag StateMachineName);
 	//use meter
 	UFUNCTION(BlueprintCallable)
 	void UseMeter(int Use);
@@ -581,17 +579,23 @@ public:
 	//gets state entry name
 	UFUNCTION(BlueprintPure)
 	FGameplayTag GetStateEntryName() const;
-	//check if state can be entered
+	// Get state machine by name.
+	UFUNCTION(BlueprintPure)
+	FStateMachine& GetStateMachine(FGameplayTag StateMachineName);
+	// Get enable flags.
+	UFUNCTION(BlueprintPure)
+	int32 GetEnableFlags(FGameplayTag StateMachineName);
+	// check if state can be entered
 	UFUNCTION(BlueprintPure)
 	bool CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
 	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
-		int32 Bitmask);
+		int32 Bitmask, FGameplayTag StateMachineName);
 	//disables state type
 	UFUNCTION(BlueprintCallable)
 	void DisableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
-		int32 Bitmask);
+		int32 Bitmask, FGameplayTag StateMachineName);
 	//enable custom state type
 	UFUNCTION(BlueprintCallable)
 	void EnableCustomState(FGameplayTag CustomStateType);
@@ -761,7 +765,9 @@ public:
 	void ToggleComponentVisibility(FName ComponentName, bool Visible);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDefaultComponentVisibility();
-
+	UFUNCTION(BlueprintImplementableEvent)
+	bool IsInvulnerable_BP() const;
+	
 	// Intended for CPU opponents
 	void SetStateForCPU(FGameplayTag StateName);
 	bool CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const;

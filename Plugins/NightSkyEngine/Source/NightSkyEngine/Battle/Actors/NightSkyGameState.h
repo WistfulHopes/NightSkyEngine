@@ -291,15 +291,15 @@ public:
 	// Sets default values for this actor's properties
 	ANightSkyGameState();
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	int MaxBattleObjects = 400;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category=Defaults)
 	TSubclassOf<ABattleObject> BattleObjectClass = ABattleObject::StaticClass();
 	UPROPERTY()
 	TArray<ABattleObject*> Objects {};
 	UPROPERTY()
 	TArray<APlayerObject*> Players {};
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame, Category=Defaults)
 	FBattleState BattleState {};
 	
 	UPROPERTY()
@@ -312,7 +312,7 @@ public:
 	TArray<UBattleExtension*> BattleExtensions = {};
 	TArray<FGameplayTag> BattleExtensionNames = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UBattleExtensionData* BattleExtensionData = {};
 
 	UPROPERTY()
@@ -335,7 +335,7 @@ public:
 	APlayerObject* SequenceEnemy = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	bool bPauseGame = false;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Debug)
 	bool bViewCollision = false;
 
 	UPROPERTY(BlueprintReadOnly)

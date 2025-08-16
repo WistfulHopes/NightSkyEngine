@@ -4,6 +4,8 @@
 #include "SubroutineState.h"
 #include "Actors/PlayerObject.h"
 
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(StateMachine_Primary, "StateMachine.Primary", "Primary State Machine");
+
 void FStateMachine::AddState(const FGameplayTag& Name, UState* Config)
 {
 	Config->Parent = Parent;

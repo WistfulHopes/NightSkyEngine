@@ -37,10 +37,10 @@ void ANightSkyAIController::Update()
 	
 	if (Player->Enemy->CheckIsAttacking()
 		&& Player->CheckEnemyInRange(
-			Player->Enemy->StoredStateMachine.CurrentState->CPUData.AttackXBeginRange, 
-			Player->Enemy->StoredStateMachine.CurrentState->CPUData.AttackXEndRange,
-			Player->Enemy->StoredStateMachine.CurrentState->CPUData.AttackYBeginRange, 
-			Player->Enemy->StoredStateMachine.CurrentState->CPUData.AttackYEndRange)
+			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackXBeginRange, 
+			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackXEndRange,
+			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackYBeginRange, 
+			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackYEndRange)
 		&& WaitCount <= WaitLimit)
 	{
 		bDefendOnly = true;
@@ -52,9 +52,9 @@ void ANightSkyAIController::Update()
 	}
 	
 	TArray<UState*> AvailableStates{};
-	for (auto State : Player->StoredStateMachine.States)
+	for (auto State : Player->PrimaryStateMachine.States)
 	{
-		if (!Player->CanEnterState(State)) continue;
+		if (!Player->CanEnterState(State, StateMachine_Primary)) continue;
 		AvailableStates.Add(State);
 	}
 
@@ -287,7 +287,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	default: break;
 	}
 
-	if (Player->Enemy->StoredStateMachine.CurrentState->StateType == EStateType::Hitstun)
+	if (Player->Enemy->PrimaryStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
 		if (State->CPUData.bThrow && !State->CPUData.bCombo) Weight = 0;
 		if (State->CPUData.bCombo) Weight += GameState->BattleState.RandomManager.RandRange(35, 60);

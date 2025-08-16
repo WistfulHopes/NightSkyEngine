@@ -478,7 +478,13 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 					SortedObjects[i]->Player->HandleBufferedState();
 				SortedObjects[i]->GetBoxes();
 				SortedObjects[i]->Player->StoredInputBuffer.Update(SortedObjects[i]->Player->Inputs);
-				SortedObjects[i]->Player->HandleStateMachine(true); //handle state transitions
+
+				// Handle state transitions
+				SortedObjects[i]->Player->HandleStateMachine(true, SortedObjects[i]->Player->GetStateMachine(StateMachine_Primary));
+				for (auto& StateMachine : SortedObjects[i]->Player->SubStateMachines)
+				{
+					SortedObjects[i]->Player->HandleStateMachine(true, StateMachine);
+				}
 			}
 			continue;
 		}
@@ -1878,7 +1884,7 @@ void ANightSkyGameState::SaveGameState(int32* InChecksum)
 		Players[i]->SaveForRollback(RollbackData[BackupFrame].ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
-			RollbackData[BackupFrame].StateData.Add(Players[i]->StoredStateMachine.CurrentState->SaveForRollback());
+			RollbackData[BackupFrame].StateData.Add(Players[i]->PrimaryStateMachine.CurrentState->SaveForRollback());
 		}
 		else
 		{
@@ -1924,7 +1930,7 @@ void ANightSkyGameState::LoadGameState()
 		Players[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
-			Players[i]->StoredStateMachine.CurrentState->LoadForRollback(
+			Players[i]->PrimaryStateMachine.CurrentState->LoadForRollback(
 				RollbackData[CurrentRollbackFrame].StateData[i + MaxBattleObjects]);
 		}
 		Players[i]->LoadForRollbackPlayer(RollbackData[CurrentRollbackFrame].CharBuffer[i].GetData());
