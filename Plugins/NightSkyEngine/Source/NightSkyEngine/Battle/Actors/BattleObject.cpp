@@ -1197,7 +1197,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
 				TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
-				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 0, 0));
 				PlayCommonSound(Sound_Hit_Clash);
 			}
 			else if (!IsPlayer && !OtherObj->IsPlayer)
@@ -1210,7 +1210,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->HitPosY = HitPosY;
 				TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
-				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 100, 0));
+				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 0, 0));
 				PlayCommonSound(Sound_Hit_Clash);
 			}	
 		}
