@@ -570,8 +570,8 @@ void APlayerObject::Update()
 				JumpToState(State_Universal_AirBlockEnd);
 			}
 		}
-		else if (PosY == GroundHeight && GetCurrentStateName() != State_Universal_FaceDownWakeUp
-			&& GetCurrentStateName() != State_Universal_FaceUpWakeUp && !(PlayerFlags & PLF_IsKnockedDown))
+		else if (PosY == GroundHeight && GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceDownWakeUp
+			&& GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceUpWakeUp && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (Stance == ACT_Standing)
 			{
@@ -613,7 +613,7 @@ void APlayerObject::Update()
 		DisableState(ENB_Tech, StateMachine_Primary);
 	}
 
-	if ((GetCurrentStateName() == State_Universal_FaceDownLoop || GetCurrentStateName() == State_Universal_FaceUpLoop)
+	if ((GetCurrentStateName(StateMachine_Primary) == State_Universal_FaceDownLoop || GetCurrentStateName(StateMachine_Primary) == State_Universal_FaceUpLoop)
 		&& ActionTime >= ReceivedHit.KnockdownTime && (PlayerFlags & PLF_IsDead) == 0)
 	{
 		Enemy->ComboCounter = 0;
@@ -645,7 +645,7 @@ void APlayerObject::Update()
 			JumpToState(State_Universal_JumpLanding);
 		}
 		SetStance(ACT_Standing);
-		TriggerEvent(EVT_Landing);
+		TriggerEvent(EVT_Landing, StateMachine_Primary);
 		CallSubroutine(Subroutine_Cmn_OnLanding);
 		CallSubroutine(Subroutine_OnLanding);
 		CreateCommonParticle(Particle_JumpSmoke_Land, POS_Player);
@@ -654,7 +654,7 @@ void APlayerObject::Update()
 	if (PosY <= GroundHeight && PrevPosY > GroundHeight && PrimaryStateMachine.CurrentState->StateType ==
 		EStateType::Hitstun)
 	{
-		if (GetCurrentStateName() != State_Universal_FloatingCrumpleBody && GetCurrentStateName() !=
+		if (GetCurrentStateName(StateMachine_Primary) != State_Universal_FloatingCrumpleBody && GetCurrentStateName(StateMachine_Primary) !=
 			State_Universal_FloatingCrumpleHead)
 		{
 			if (ReceivedHit.GroundBounce.GroundBounceCount > 0)
@@ -700,7 +700,7 @@ void APlayerObject::Update()
 		StateMachine.Update();
 	}
 
-	TriggerEvent(EVT_Update);
+	TriggerEvent(EVT_Update, StateMachine_Primary);
 
 	if (TimeUntilNextCel > 0)
 		TimeUntilNextCel--;
@@ -993,7 +993,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 void APlayerObject::SetHitValuesOverTime()
 {
 	if (PrimaryStateMachine.CurrentState->StateType == EStateType::Hitstun && PosY > GroundHeight
-		&& GetCurrentStateName() != State_Universal_FloatingCrumpleBody && GetCurrentStateName() !=
+		&& GetCurrentStateName(StateMachine_Primary) != State_Universal_FloatingCrumpleBody && GetCurrentStateName(StateMachine_Primary) !=
 		State_Universal_FloatingCrumpleHead)
 	{
 		const int32 CurrentStunTime = StunTimeMax - StunTime;
@@ -1182,16 +1182,16 @@ void APlayerObject::SetHitValues()
 		default:
 			break;
 		case 1:
-			GotoLabel(State_Label_Blowback_1, false);
+			GotoLabel(State_Label_Blowback_1);
 			break;
 		case 2:
-			GotoLabel(State_Label_Blowback_2, false);
+			GotoLabel(State_Label_Blowback_2);
 			break;
 		case 3:
-			GotoLabel(State_Label_Blowback_3, false);
+			GotoLabel(State_Label_Blowback_3);
 			break;
 		case 4:
-			GotoLabel(State_Label_Blowback_4, false);
+			GotoLabel(State_Label_Blowback_4);
 			break;
 		}
 		if (PosY <= GroundHeight)
@@ -1446,7 +1446,7 @@ bool APlayerObject::CanEnterState(UState* State, FGameplayTag StateMachineName)
 			|| (CheckKaraCancel(State->StateType)
 				&& !State->IsFollowupState
 				&& StateMachine.GetStateIndex(State->Name) > StateMachine.GetStateIndex(
-					GetCurrentStateName()))
+					GetCurrentStateName(StateMachine_Primary)))
 		)) //check if the state is enabled
 	{
 		return false;
@@ -1516,8 +1516,8 @@ bool APlayerObject::IsEnemyThrow() const
 
 bool APlayerObject::IsEnemyBlocking() const
 {
-	return Enemy->GetCurrentStateName() == State_Universal_StandBlock || Enemy->GetCurrentStateName() ==
-		State_Universal_CrouchBlock || Enemy->GetCurrentStateName() == State_Universal_AirBlock;
+	return Enemy->GetCurrentStateName(StateMachine_Primary) == State_Universal_StandBlock || Enemy->GetCurrentStateName(StateMachine_Primary) ==
+		State_Universal_CrouchBlock || Enemy->GetCurrentStateName(StateMachine_Primary) == State_Universal_AirBlock;
 }
 
 EBlockType APlayerObject::GetAttackBlockType() const
@@ -1542,7 +1542,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputBitmask BitmaskRight;
 		BitmaskRight.InputFlag = INP_Right;
 		Right.Sequence.Add(BitmaskRight);
-		if ((CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight) || GetCurrentStateName() ==
+		if ((CheckInput(Left) && !CheckInput(Right) && PosY > GroundHeight) || GetCurrentStateName(StateMachine_Primary) ==
 			State_Universal_AirBlock)
 		{
 			Left.Method = EInputMethod::Once;
@@ -1559,7 +1559,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input1.Sequence.Add(BitmaskDownLeft);
 		Input1.Method = EInputMethod::Strict;
 		Input1.bInputAllowDisable = false;
-		if ((CheckInput(Input1) || GetCurrentStateName() == State_Universal_CrouchBlock) && BlockType != BLK_High && !
+		if ((CheckInput(Input1) || GetCurrentStateName(StateMachine_Primary) == State_Universal_CrouchBlock) && BlockType != BLK_High && !
 			CheckInput(Right))
 		{
 			Input1.Method = EInputMethod::OnceStrict;
@@ -1573,7 +1573,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		Input4.Sequence.Add(BitmaskLeft);
 		Input4.Method = EInputMethod::Strict;
 		Input4.bInputAllowDisable = false;
-		if ((CheckInput(Input4) || GetCurrentStateName() == State_Universal_StandBlock) && BlockType != BLK_Low && !
+		if ((CheckInput(Input4) || GetCurrentStateName(StateMachine_Primary) == State_Universal_StandBlock) && BlockType != BLK_Low && !
 			CheckInput(Right))
 		{
 			Input4.Method = EInputMethod::OnceStrict;
@@ -1624,12 +1624,12 @@ void APlayerObject::HandleBlockAction()
 		GotoLabel(State_Label_Block_Level3);
 		break;
 	}
-	if (Stance == ACT_Jumping || GetCurrentStateName() == State_Universal_AirBlock)
+	if (Stance == ACT_Jumping || GetCurrentStateName(StateMachine_Primary) == State_Universal_AirBlock)
 	{
 		JumpToState(State_Universal_AirBlock, true);
 		Stance = ACT_Jumping;
 	}
-	else if (CheckInput(Input1) || GetCurrentStateName() == State_Universal_CrouchBlock)
+	else if (CheckInput(Input1) || GetCurrentStateName(StateMachine_Primary) == State_Universal_CrouchBlock)
 	{
 		PosY = 0;
 		JumpToState(State_Universal_CrouchBlock, true);
@@ -2383,9 +2383,9 @@ bool APlayerObject::JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel)
 	return false;
 }
 
-FGameplayTag APlayerObject::GetCurrentStateName() const
+FGameplayTag APlayerObject::GetCurrentStateName(FGameplayTag StateMachineName)
 {
-	return PrimaryStateMachine.CurrentState->Name;
+	return GetStateMachine(StateMachineName).CurrentState->Name;
 }
 
 FGameplayTag APlayerObject::GetLastStateName() const
@@ -2582,13 +2582,13 @@ void APlayerObject::OnStateChange()
 	CounterHit = FHitData();
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
-	LastStateName = GetCurrentStateName();
+	LastStateName = GetCurrentStateName(StateMachine_Primary);
 	HomingParams = FHomingParams();
 }
 
 void APlayerObject::PostStateChange()
 {
-	MovesUsedInCombo.Add(PrimaryStateMachine.GetStateIndex(GetCurrentStateName()));
+	MovesUsedInCombo.Add(PrimaryStateMachine.GetStateIndex(GetCurrentStateName(StateMachine_Primary)));
 	if (PrimaryStateMachine.CurrentState->StateType >= EStateType::NormalAttack
 		&& PrimaryStateMachine.CurrentState->StateType <= EStateType::SuperAttack)
 	{

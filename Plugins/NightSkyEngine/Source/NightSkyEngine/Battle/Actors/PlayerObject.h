@@ -572,7 +572,7 @@ public:
 	bool JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
-	FGameplayTag GetCurrentStateName() const;
+	FGameplayTag GetCurrentStateName(FGameplayTag StateMachineName);
 	//gets last state name
 	UFUNCTION(BlueprintPure)
 	FGameplayTag GetLastStateName() const;

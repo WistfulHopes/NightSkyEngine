@@ -385,7 +385,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			{
 				GetMainPlayer(true)->JumpToState(State_Universal_Stand);
 			}
-			if (GetMainPlayer(true)->GetCurrentStateName() != GetMainPlayer(true)->IntroName)
+			if (GetMainPlayer(true)->GetCurrentStateName(StateMachine_Primary) != GetMainPlayer(true)->IntroName)
 			{
 				GetMainPlayer(false)->JumpToState(GetMainPlayer(false)->IntroName);
 				BattleState.CurrentIntroSide = INT_P2;
@@ -397,7 +397,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			{
 				GetMainPlayer(false)->JumpToState(State_Universal_Stand);
 			}
-			if (GetMainPlayer(false)->GetCurrentStateName() != GetMainPlayer(false)->IntroName)
+			if (GetMainPlayer(false)->GetCurrentStateName(StateMachine_Primary) != GetMainPlayer(false)->IntroName)
 			{
 				GetMainPlayer(true)->JumpToState(State_Universal_Stand);
 				GetMainPlayer(false)->JumpToState(State_Universal_Stand);
@@ -493,13 +493,13 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 
 	if (BattleState.SuperFreezeSelfDuration == 1)
 	{
-		BattleState.SuperFreezeCaller->TriggerEvent(EVT_SuperFreezeEnd);
+		BattleState.SuperFreezeCaller->TriggerEvent(EVT_SuperFreezeEnd, StateMachine_Primary);
 	}
 	if (BattleState.SuperFreezeDuration == 1)
 	{
 		for (int i = 0; i < SortedObjects.Num(); i++)
 		{
-			SortedObjects[i]->TriggerEvent(EVT_SuperFreezeEnd);
+			SortedObjects[i]->TriggerEvent(EVT_SuperFreezeEnd, StateMachine_Primary);
 		}
 
 		BattleState.PauseTimer = false;

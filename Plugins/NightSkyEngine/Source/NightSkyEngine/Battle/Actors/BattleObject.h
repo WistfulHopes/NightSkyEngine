@@ -960,7 +960,7 @@ public:
 	void HandleFlip();
 	//gets position from pos type
 	void PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const;
-	void TriggerEvent(EEventType EventType);
+	void TriggerEvent(EEventType EventType, FGameplayTag StateMachineName);
 
 	UFUNCTION(BlueprintCallable)
 	void CollisionView();
@@ -1023,7 +1023,7 @@ public:
 	void SetBlendCelName(FGameplayTag InName);
 	//jumps to label
 	UFUNCTION(BlueprintCallable)
-	void GotoLabel(FGameplayTag InName, bool ResetState = true);
+	void GotoLabel(FGameplayTag InName);
 	//sets time until next cel
 	UFUNCTION(BlueprintCallable)
 	void SetTimeUntilNextCel(int32 InTime);
