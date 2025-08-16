@@ -987,7 +987,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 	case HACT_None: break;
 	default: ;
 	}
-	DisableAll();
+	DisableAll(StateMachine_Primary);
 }
 
 void APlayerObject::SetHitValuesOverTime()
@@ -2514,7 +2514,7 @@ void APlayerObject::OnStateChange()
 	}
 
 	DisableLastInput();
-	DisableAll();
+	DisableAll(StateMachine_Primary);
 
 	// Reset flags
 	CancelFlags = CNC_EnableKaraCancel | CNC_ChainCancelEnabled;
@@ -2903,49 +2903,48 @@ void APlayerObject::EnableCancelIntoSelf(bool Enable)
 	}
 }
 
-void APlayerObject::EnableAll()
+void APlayerObject::EnableAll(FGameplayTag StateMachineName)
 {
-	EnableState(ENB_Standing, StateMachine_Primary);
-	EnableState(ENB_Crouching, StateMachine_Primary);
-	EnableState(ENB_Jumping, StateMachine_Primary);
-	EnableState(ENB_ForwardWalk, StateMachine_Primary);
-	EnableState(ENB_BackWalk, StateMachine_Primary);
-	EnableState(ENB_ForwardDash, StateMachine_Primary);
-	EnableState(ENB_BackDash, StateMachine_Primary);
-	EnableState(ENB_ForwardAirDash, StateMachine_Primary);
-	EnableState(ENB_BackAirDash, StateMachine_Primary);
-	EnableState(ENB_NormalAttack, StateMachine_Primary);
-	EnableState(ENB_SpecialAttack, StateMachine_Primary);
-	EnableState(ENB_SuperAttack, StateMachine_Primary);
-	EnableState(ENB_Block, StateMachine_Primary);
-	EnableState(ENB_ProximityBlock, StateMachine_Primary);
-	EnableState(ENB_Tech, StateMachine_Primary);
-	EnableState(ENB_Burst, StateMachine_Primary);
-	EnableState(ENB_Tag, StateMachine_Primary);
-	EnableState(ENB_Assist, StateMachine_Primary);
+	EnableState(ENB_Standing, StateMachineName);
+	EnableState(ENB_Crouching, StateMachineName);
+	EnableState(ENB_Jumping, StateMachineName);
+	EnableState(ENB_ForwardWalk, StateMachineName);
+	EnableState(ENB_BackWalk, StateMachineName);
+	EnableState(ENB_ForwardDash, StateMachineName);
+	EnableState(ENB_BackDash, StateMachineName);
+	EnableState(ENB_ForwardAirDash, StateMachineName);
+	EnableState(ENB_BackAirDash, StateMachineName);
+	EnableState(ENB_NormalAttack, StateMachineName);
+	EnableState(ENB_SpecialAttack, StateMachineName);
+	EnableState(ENB_SuperAttack, StateMachineName);
+	EnableState(ENB_Block, StateMachineName);
+	EnableState(ENB_ProximityBlock, StateMachineName);
+	EnableState(ENB_Tech, StateMachineName);
+	EnableState(ENB_Burst, StateMachineName);
+	EnableState(ENB_Tag, StateMachineName);
+	EnableState(ENB_Assist, StateMachineName);
 }
 
-void APlayerObject::DisableAll()
+void APlayerObject::DisableAll(FGameplayTag StateMachineName)
 {
-	DisableState(ENB_Standing, StateMachine_Primary);
-	DisableState(ENB_Crouching, StateMachine_Primary);
-	DisableState(ENB_Jumping, StateMachine_Primary);
-	DisableState(ENB_ForwardWalk, StateMachine_Primary);
-	DisableState(ENB_BackWalk, StateMachine_Primary);
-	DisableState(ENB_ForwardDash, StateMachine_Primary);
-	DisableState(ENB_BackDash, StateMachine_Primary);
-	DisableState(ENB_ForwardAirDash, StateMachine_Primary);
-	DisableState(ENB_BackAirDash, StateMachine_Primary);
-	DisableState(ENB_NormalAttack, StateMachine_Primary);
-	DisableState(ENB_SpecialAttack, StateMachine_Primary);
-	DisableState(ENB_SuperAttack, StateMachine_Primary);
-	DisableState(ENB_Block, StateMachine_Primary);
-	DisableState(ENB_ProximityBlock, StateMachine_Primary);
-	DisableState(ENB_Tech, StateMachine_Primary);
-	DisableState(ENB_Burst, StateMachine_Primary);
-	DisableState(ENB_Tag, StateMachine_Primary);
-	DisableState(ENB_Assist, StateMachine_Primary);
-}
+	DisableState(ENB_Standing, StateMachineName);
+	DisableState(ENB_Crouching, StateMachineName);
+	DisableState(ENB_Jumping, StateMachineName);
+	DisableState(ENB_ForwardWalk, StateMachineName);
+	DisableState(ENB_BackWalk, StateMachineName);
+	DisableState(ENB_ForwardDash, StateMachineName);
+	DisableState(ENB_BackDash, StateMachineName);
+	DisableState(ENB_ForwardAirDash, StateMachineName);
+	DisableState(ENB_BackAirDash, StateMachineName);
+	DisableState(ENB_NormalAttack, StateMachineName);
+	DisableState(ENB_SpecialAttack, StateMachineName);
+	DisableState(ENB_SuperAttack, StateMachineName);
+	DisableState(ENB_Block, StateMachineName);
+	DisableState(ENB_ProximityBlock, StateMachineName);
+	DisableState(ENB_Tech, StateMachineName);
+	DisableState(ENB_Burst, StateMachineName);
+	DisableState(ENB_Tag, StateMachineName);
+	DisableState(ENB_Assist, StateMachineName);}
 
 bool APlayerObject::CheckInput(const FInputCondition& Input)
 {

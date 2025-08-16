@@ -62,10 +62,10 @@ bool FStateMachine::SetState(const FGameplayTag Name, bool bIsAlias)
 	}
 	
 	Parent->TriggerEvent(EVT_Exit, StateMachineName);
-	Parent->OnStateChange();
+	if (bPrimary) Parent->OnStateChange();
 
 	CurrentState = StateToEnter;
-	Parent->PostStateChange();
+	if (bPrimary) Parent->PostStateChange();
 	CurrentState->Init();
 	Update();
 
@@ -95,10 +95,10 @@ bool FStateMachine::ForceSetState(const FGameplayTag Name, bool bIsAlias)
 	}
 
 	Parent->TriggerEvent(EVT_Exit, StateMachineName);
-	Parent->OnStateChange();	
+	if (bPrimary) Parent->OnStateChange();
 
 	CurrentState = StateToEnter;
-	Parent->PostStateChange();
+	if (bPrimary) Parent->PostStateChange();
 	CurrentState->Init();
 	Update();
 
@@ -126,10 +126,10 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 			}
 
 			Parent->TriggerEvent(EVT_Exit, StateMachineName);
-			Parent->OnStateChange();	
+			if (bPrimary) Parent->OnStateChange();
 
 			CurrentState = State;
-			Parent->PostStateChange();
+			if (bPrimary) Parent->PostStateChange();
 			CurrentState->Init();
 			Update();
 

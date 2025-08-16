@@ -608,12 +608,12 @@ public:
 	//enable cancelling into same state
 	UFUNCTION(BlueprintCallable)
 	void EnableCancelIntoSelf(bool Enable);
-	//enables all state types besides tech
+	//enables all state types
 	UFUNCTION(BlueprintCallable)
-	void EnableAll();
-	//disable all state types besides tech
+	void EnableAll(FGameplayTag StateMachineName);
+	//disable all state types
 	UFUNCTION(BlueprintCallable)
-	void DisableAll();
+	void DisableAll(FGameplayTag StateMachineName);
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
