@@ -585,7 +585,7 @@ void APlayerObject::Update()
 		}
 		else
 		{
-			if ((PlayerFlags & PLF_IsKnockedDown) == 0 && (PlayerFlags & PLF_IsHardKnockedDown) == 0 && (PlayerFlags &
+			if (((PlayerFlags & PLF_IsKnockedDown) == 0 || (PlayerFlags & PLF_IsHardKnockedDown) == 0) && (PlayerFlags &
 				PLF_IsDead) == 0)
 				EnableState(ENB_Tech, StateMachine_Primary);
 		}
@@ -2386,6 +2386,7 @@ bool APlayerObject::JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel)
 
 FGameplayTag APlayerObject::GetCurrentStateName(FGameplayTag StateMachineName)
 {
+	if (!GetStateMachine(StateMachineName).CurrentState) return FGameplayTag::EmptyTag;
 	return GetStateMachine(StateMachineName).CurrentState->Name;
 }
 
@@ -3175,8 +3176,8 @@ bool APlayerObject::IsInvulnerable() const
 {
 	if (IsInvulnerable_BP()) return true;
 	
-	return InvulnFlags & INV_StrikeInvulnerable || StrikeInvulnerableTimer || (AttackFlags & ATK_AttackHeadAttribute
-		&& InvulnFlags & INV_HeadInvulnerable) || (AttackFlags & ATK_AttackProjectileAttribute && InvulnFlags &
+	return InvulnFlags & INV_StrikeInvulnerable || StrikeInvulnerableTimer || (Enemy->AttackFlags & ATK_AttackHeadAttribute
+		&& InvulnFlags & INV_HeadInvulnerable) || (Enemy->AttackFlags & ATK_AttackProjectileAttribute && InvulnFlags &
 		INV_ProjectileInvulnerable);
 }
 
