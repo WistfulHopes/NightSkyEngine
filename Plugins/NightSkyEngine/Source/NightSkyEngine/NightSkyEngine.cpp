@@ -3,4 +3,4 @@
 #include "NightSkyEngine.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, NightSkyEngine, "NightSkyEngine" );
+IMPLEMENT_MODULE(FDefaultModuleImpl, NightSkyEngine);
