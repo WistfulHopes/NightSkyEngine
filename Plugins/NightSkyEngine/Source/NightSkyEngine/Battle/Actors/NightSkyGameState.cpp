@@ -329,8 +329,12 @@ void ANightSkyGameState::MatchInit()
 	BattleState.RandomManager = GameInstance->BattleData.Random;
 	BattleState.TeamData[0].TeamCount = GameInstance->BattleData.PlayerListP1.Num();
 	BattleState.TeamData[1].TeamCount = GameInstance->BattleData.PlayerListP2.Num();
+	BattleState.GaugeP1.Empty();
+	BattleState.GaugeP2.Empty();
 	BattleState.GaugeP1.AddDefaulted(BattleState.MaxGauge.Num());
 	BattleState.GaugeP2.AddDefaulted(BattleState.MaxGauge.Num());
+	
+	CallBattleExtension(BattleExtension_MatchInit);
 
 	for (int i = 0; i < Players.Num(); i++)
 	{
