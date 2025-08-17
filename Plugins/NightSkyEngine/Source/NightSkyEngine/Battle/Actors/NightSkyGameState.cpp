@@ -1376,11 +1376,11 @@ void ANightSkyGameState::UpdateHUD()
 			BattleHudActor->TopWidget->Ping = NetworkStats.Ping;
 			BattleHudActor->TopWidget->RollbackFrames = NetworkStats.RollbackFrames;
 			
-			if (BattleHudActor->BottomWidget->P1Gauge.IsEmpty())
-				BattleHudActor->BottomWidget->P1Gauge.SetNum(
+			if (BattleHudActor->TopWidget->P1Gauge.IsEmpty())
+				BattleHudActor->TopWidget->P1Gauge.SetNum(
 					BattleState.MaxGauge.Num());
-			if (BattleHudActor->BottomWidget->P2Gauge.IsEmpty())
-				BattleHudActor->BottomWidget->P2Gauge.SetNum(
+			if (BattleHudActor->TopWidget->P2Gauge.IsEmpty())
+				BattleHudActor->TopWidget->P2Gauge.SetNum(
 					BattleState.MaxGauge.Num());
 			
 			for (int j = 0; j < BattleState.MaxGauge.Num(); j++)
