@@ -40,12 +40,12 @@ struct FBattleData
 	int32 RoundCount;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 StartRoundTimer;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPrimaryStageData* Stage;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FGameplayTag MusicName;
 	UPROPERTY()
 	FRandomManager Random;
-	UPROPERTY(BlueprintReadWrite)
-	UPrimaryStageData* Stage;
-	UPROPERTY(BlueprintReadWrite)
-	FGameplayTag MusicName;
 };
 
 /**
