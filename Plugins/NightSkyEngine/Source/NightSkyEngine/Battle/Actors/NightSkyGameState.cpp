@@ -189,21 +189,21 @@ void ANightSkyGameState::RoundInit()
 	BattleState.BattlePhase = EBattlePhase::Battle;
 	BattleState.FadeTimer = BattleState.MaxFadeTimer;
 
-	if (BattleState.BattleFormat != EBattleFormat::Tag || BattleState.RoundCount == 1)
+	if (BattleState.BattleFormat == EBattleFormat::Rounds || BattleState.RoundCount == 1)
 	{
 		if (!GameInstance->IsTraining)
 			BattleState.TimeUntilRoundStart = BattleState.MaxTimeUntilRoundStart;
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
+		for (const auto Player : Players)
+			Player->RoundInit(true);
+
 		if (BattleState.RoundCount != 1)
 		{
 			GetMainPlayer(true)->JumpToState(State_Universal_Stand);
 			GetMainPlayer(false)->JumpToState(State_Universal_Stand);
 		}
-
-		for (const auto Player : Players)
-			Player->RoundInit(true);
 
 		Players[0]->PlayerFlags = PLF_IsOnScreen;
 		Players[BattleState.TeamData[0].TeamCount]->PlayerFlags = PLF_IsOnScreen;
@@ -245,25 +245,22 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(IsP1)->SetOnScreen(false);
 		SwitchMainPlayer(GetMainPlayer(IsP1), 1);
 
-		if (BattleState.RoundCount != 1)
-		{
-			GetMainPlayer(true)->JumpToState(State_Universal_Stand);
-			GetMainPlayer(false)->JumpToState(State_Universal_Stand);
-		}
-
 		if (!GameInstance->IsTraining)
 			BattleState.TimeUntilRoundStart = BattleState.MaxTimeUntilRoundStart;
 		for (int i = 0; i < MaxBattleObjects; i++)
 			Objects[i]->ResetObject();
 
 		for (const auto Player : Players)
-			Player->RoundInit(true);
+			Player->RoundInit(false);
 
-		Players[0]->PlayerFlags = PLF_IsOnScreen;
-		Players[BattleState.TeamData[0].TeamCount]->PlayerFlags = PLF_IsOnScreen;
+		GetMainPlayer(true)->JumpToState(State_Universal_Stand);
+		GetMainPlayer(false)->JumpToState(State_Universal_Stand);
 
-		BattleState.MaxMeter[0] = Players[0]->MaxMeter;
-		BattleState.MaxMeter[1] = Players[BattleState.TeamData[0].TeamCount]->MaxMeter;
+		GetMainPlayer(true)->PlayerFlags = PLF_IsOnScreen;
+		GetMainPlayer(false)->PlayerFlags = PLF_IsOnScreen;
+
+		BattleState.MaxMeter[0] = GetMainPlayer(true)->MaxMeter;
+		BattleState.MaxMeter[1] = GetMainPlayer(false)->MaxMeter;
 
 		BattleState.RoundTimer = GameInstance->BattleData.StartRoundTimer * 60;
 		BattleState.bHUDVisible = true;

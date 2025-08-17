@@ -2781,6 +2781,12 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	AirDashTimerMax = 0;
 	CancelFlags = 0;
 	GetStateMachine(StateMachine_Primary).EnableFlags = 0;
+	for (auto& StateMachine : SubStateMachines)
+	{
+		if (!StateMachine.States.IsEmpty()) 
+			StateMachine.CurrentState = StateMachine.States[0];
+		StateMachine.EnableFlags = 0;
+	}
 	AirDashNoAttackTime = 0;
 	InstantBlockLockoutTimer = 0;
 	MeterCooldownTimer = 0;

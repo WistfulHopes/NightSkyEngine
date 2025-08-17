@@ -10,5 +10,6 @@ public class NightSkyEngineEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V4;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+		ExtraModuleNames.Add("NightSkyEngineDemo");
 	}
 }

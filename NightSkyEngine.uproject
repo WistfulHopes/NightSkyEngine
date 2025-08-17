@@ -13,13 +13,6 @@
       "Enabled": true
     },
     {
-      "Name": "OnlineSubsystemGooglePlay",
-      "Enabled": false,
-      "SupportedTargetPlatforms": [
-        "Android"
-      ]
-    },
-    {
       "Name": "OnlineSubsystemSteam",
       "Enabled": true
     },
@@ -31,14 +24,6 @@
         "Linux",
         "Mac"
       ]
-    },
-    {
-      "Name": "GameplayStateTree",
-      "Enabled": true
-    },
-    {
-      "Name": "StateTree",
-      "Enabled": true
     }
   ],
   "TargetPlatforms": [],
