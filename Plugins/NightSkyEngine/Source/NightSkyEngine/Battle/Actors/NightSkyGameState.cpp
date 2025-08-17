@@ -1375,6 +1375,14 @@ void ANightSkyGameState::UpdateHUD()
 			BattleHudActor->TopWidget->P2ComboCounter = BattleState.MainPlayer[1]->ComboCounter;
 			BattleHudActor->TopWidget->Ping = NetworkStats.Ping;
 			BattleHudActor->TopWidget->RollbackFrames = NetworkStats.RollbackFrames;
+			
+			for (int j = 0; j < BattleState.MaxGauge.Num(); j++)
+			{
+				BattleHudActor->TopWidget->P1Gauge[j] = static_cast<float>(BattleState.GaugeP1[j]) / BattleState.
+					MaxGauge[j];
+				BattleHudActor->TopWidget->P2Gauge[j] = static_cast<float>(BattleState.GaugeP2[j]) / BattleState.
+					MaxGauge[j];
+			}
 		}
 		if (BattleHudActor->BottomWidget != nullptr)
 		{
