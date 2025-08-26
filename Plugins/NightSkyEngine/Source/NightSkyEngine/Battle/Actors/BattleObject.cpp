@@ -624,7 +624,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 				{
-					AttackedPlayer->JumpToState(State_Universal_ThrowLock);
+					AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
 					AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 					AttackedPlayer->AttackOwner = Player;
 					Player->ThrowExe();
@@ -665,7 +665,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 				{
-					AttackedPlayer->JumpToState(State_Universal_ThrowLock);
+					AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
 					AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
 					AttackedPlayer->AttackOwner = Player;
 					Player->ThrowExe();
@@ -1240,11 +1240,11 @@ void ABattleObject::HandleFlip()
 		{
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
-				Player->JumpToState(State_Universal_StandFlip);
+				Player->JumpToStatePrimary(State_Universal_StandFlip);
 			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
-				Player->JumpToState(State_Universal_CrouchFlip);
+				Player->JumpToStatePrimary(State_Universal_CrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
-				Player->JumpToState(State_Universal_JumpFlip);
+				Player->JumpToStatePrimary(State_Universal_JumpFlip);
 		}
 	}
 }

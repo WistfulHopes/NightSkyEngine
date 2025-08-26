@@ -438,19 +438,19 @@ private:
 	//check state conditions
 	bool HandleStateCondition(EStateCondition StateCondition);
 	//check if chain cancel option exists
-	bool FindChainCancelOption(const FGameplayTag Name);
+	bool FindChainCancelOption(const FGameplayTag Name, FStateMachine& StateMachine);
 	//check if chain cancel option exists
-	bool FindAutoComboCancelOption(const FGameplayTag Name);
+	bool FindAutoComboCancelOption(const FGameplayTag Name, FStateMachine& StateMachine);
 	//check if whiff cancel option exists
-	bool FindWhiffCancelOption(const FGameplayTag Name);
+	bool FindWhiffCancelOption(const FGameplayTag Name, FStateMachine& StateMachine);
 	//check reverse beat
-	bool CheckReverseBeat(const FGameplayTag Name);
+	bool CheckReverseBeat(const FGameplayTag Name, FStateMachine& StateMachine);
 	//checks moves used in combo
-	bool CheckMovesUsedInChain(const FGameplayTag Name);
+	bool CheckMovesUsedInChain(const FGameplayTag Name, FStateMachine& StateMachine);
 	//handles throwing objects
 	void HandleThrowCollision();
 	//checks kara cancel
-	bool CheckKaraCancel(EStateType InStateType);
+	bool CheckKaraCancel(EStateType InStateType, FStateMachine& StateMachine);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
 	bool CheckObjectPreventingState(int InObjectID);
 	//handles wall bounce
@@ -475,6 +475,7 @@ public:
 	bool HandleStateTransition(int32 StateIndex, bool Buffer, FStateMachine& StateMachine);
 	//buffer state
 	void HandleBufferedState();
+	void HandleBufferedState(FStateMachine& StateMachine);
 	//update object for non-battle modes (like character select)
 	void UpdateNotBattle();
 	//update object (editor only, compiled out otherwise)
@@ -563,11 +564,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetStance(EActionStance InStance);
 	//force set state
-	UFUNCTION(BlueprintCallable, CallInEditor)
-	bool JumpToState(FGameplayTag NewName, bool IsLabel = false);
+	bool JumpToStatePrimary	(FGameplayTag NewName, bool IsLabel = false);
 	//force set state
 	UFUNCTION(BlueprintCallable, CallInEditor)
-	bool JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel = false);
+	bool JumpToState(FGameplayTag NewName, FGameplayTag StateMachineName, bool IsLabel = false);
+	//force set state
+	bool JumpToStateByClassPrimary(TSubclassOf<UState> Class, bool IsLabel = false);
+	//force set state
+	UFUNCTION(BlueprintCallable, CallInEditor)
+	bool JumpToStateByClass(TSubclassOf<UState> Class, FGameplayTag StateMachineName, bool IsLabel = false);
 	//gets current state name
 	UFUNCTION(BlueprintPure)
 	FGameplayTag GetCurrentStateName(FGameplayTag StateMachineName);
@@ -767,7 +772,7 @@ public:
 	bool IsInvulnerable_BP() const;
 	
 	// Intended for CPU opponents
-	void SetStateForCPU(FGameplayTag StateName);
+	void SetStateForCPU(FGameplayTag StateName, FGameplayTag StateMachineName);
 	bool CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const;
 	bool IsEnemyAttackState() const;
 	bool IsEnemyThrow() const;

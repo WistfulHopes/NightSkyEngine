@@ -212,7 +212,7 @@ void APlayerObject::HandleStateMachine(bool Buffer, FStateMachine& StateMachine)
 
 bool APlayerObject::HandleAutoCombo(int32 StateIndex, FStateMachine& StateMachine)
 {
-	if (!FindAutoComboCancelOption(StateMachine.States[StateIndex]->Name)) return false;
+	if (!FindAutoComboCancelOption(StateMachine.States[StateIndex]->Name, StateMachine)) return false;
 
 	bool AutoComboSuccess = false;
 	for (int i = 0; i < 8; i++)
@@ -297,9 +297,9 @@ bool APlayerObject::HandleStateInputs(int32 StateIndex, bool Buffer, FStateMachi
 
 bool APlayerObject::HandleStateTransition(int32 StateIndex, bool Buffer, FStateMachine& StateMachine)
 {
-	if (FindChainCancelOption(StateMachine.States[StateIndex]->Name)
-		|| FindAutoComboCancelOption(StateMachine.States[StateIndex]->Name)
-		|| FindWhiffCancelOption(StateMachine.States[StateIndex]->Name)
+	if (FindChainCancelOption(StateMachine.States[StateIndex]->Name, StateMachine)
+		|| FindAutoComboCancelOption(StateMachine.States[StateIndex]->Name, StateMachine)
+		|| FindWhiffCancelOption(StateMachine.States[StateIndex]->Name, StateMachine)
 		|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
 	{
 		if (Buffer)
@@ -493,15 +493,15 @@ void APlayerObject::Update()
 					FaceOpponent();
 					if (Enemy->Stance != ACT_Jumping)
 					{
-						JumpToState(State_Universal_GuardBreakStand);
-						Enemy->JumpToState(State_Universal_GuardBreakStand);
+						JumpToStatePrimary(State_Universal_GuardBreakStand);
+						Enemy->JumpToStatePrimary(State_Universal_GuardBreakStand);
 						InitEventHandler(EVT_Update, "ThrowTech", 0, FGameplayTag::EmptyTag);
 						Enemy->InitEventHandler(EVT_Update, "ThrowTech", 0, FGameplayTag::EmptyTag);
 					}
 					else
 					{
-						JumpToState(State_Universal_GuardBreakAir);
-						Enemy->JumpToState(State_Universal_GuardBreakAir);
+						JumpToStatePrimary(State_Universal_GuardBreakAir);
+						Enemy->JumpToStatePrimary(State_Universal_GuardBreakAir);
 						InitEventHandler(EVT_Update, "ThrowTechAir", 0, FGameplayTag::EmptyTag);
 						Enemy->InitEventHandler(EVT_Update, "ThrowTechAir", 0, FGameplayTag::EmptyTag);
 					}
@@ -552,7 +552,7 @@ void APlayerObject::Update()
 	if (Hitstop > 0)
 	{
 		if (PlayerFlags & PLF_IsStunned)
-			HandleBufferedState();
+			HandleBufferedState(PrimaryStateMachine);
 		GetBoxes();
 		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
 		HandleStateMachine(true, PrimaryStateMachine); //handle state transitions
@@ -571,7 +571,7 @@ void APlayerObject::Update()
 		MovesUsedInCombo.Empty();
 	}
 
-	HandleBufferedState();
+	HandleBufferedState(PrimaryStateMachine);
 
 	if (!(AttackFlags & ATK_IsAttacking)) //enable kara cancel when not attacking
 		CancelFlags |= CNC_EnableKaraCancel;
@@ -620,15 +620,15 @@ void APlayerObject::Update()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState(State_Universal_StandBlockEnd);
+				JumpToStatePrimary(State_Universal_StandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState(State_Universal_CrouchBlockEnd);
+				JumpToStatePrimary(State_Universal_CrouchBlockEnd);
 			}
 			else
 			{
-				JumpToState(State_Universal_AirBlockEnd);
+				JumpToStatePrimary(State_Universal_AirBlockEnd);
 			}
 		}
 		else if (PosY == GroundHeight && GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceDownWakeUp
@@ -636,11 +636,11 @@ void APlayerObject::Update()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState(State_Universal_Stand);
+				JumpToStatePrimary(State_Universal_Stand);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState(State_Universal_Crouch);
+				JumpToStatePrimary(State_Universal_Crouch);
 			}
 		}
 		else
@@ -681,9 +681,9 @@ void APlayerObject::Update()
 		Enemy->ComboTimer = 0;
 		OTGCount = 0;
 		if (PrimaryStateMachine.CurrentState->Name == State_Universal_FaceDownLoop)
-			JumpToState(State_Universal_FaceDownWakeUp);
+			JumpToStatePrimary(State_Universal_FaceDownWakeUp);
 		else if (PrimaryStateMachine.CurrentState->Name == State_Universal_FaceUpLoop)
-			JumpToState(State_Universal_FaceUpWakeUp);
+			JumpToStatePrimary(State_Universal_FaceUpWakeUp);
 		PlayerFlags &= ~PLF_IsKnockedDown;
 		DisableState(ENB_Tech, StateMachine_Primary);
 	}
@@ -703,7 +703,7 @@ void APlayerObject::Update()
 		CurrentAirDashCount = AirDashCount;
 		if (PlayerFlags & PLF_DefaultLandingAction && PrimaryStateMachine.CurrentState->StateType != EStateType::Hitstun)
 		{
-			JumpToState(State_Universal_JumpLanding);
+			JumpToStatePrimary(State_Universal_JumpLanding);
 		}
 		SetStance(ACT_Standing);
 		TriggerEvent(EVT_Landing, StateMachine_Primary);
@@ -1499,12 +1499,12 @@ bool APlayerObject::CanEnterState(UState* State, FGameplayTag StateMachineName)
 	const FGameplayTag MoveChainName = State->ShareChainName != FGameplayTag::EmptyTag
 		                                   ? State->ShareChainName
 		                                   : State->Name;
-	if (!CheckMovesUsedInChain(MoveChainName) ||
+	if (!CheckMovesUsedInChain(MoveChainName, StateMachine) ||
 		!((CheckStateEnabled(State->StateType, State->CustomStateType, StateMachineName) && !State->IsFollowupState)
-			|| FindChainCancelOption(State->Name)
-			|| FindAutoComboCancelOption(State->Name)
-			|| FindWhiffCancelOption(State->Name)
-			|| (CheckKaraCancel(State->StateType)
+			|| FindChainCancelOption(State->Name, StateMachine)
+			|| FindAutoComboCancelOption(State->Name, StateMachine)
+			|| FindWhiffCancelOption(State->Name, StateMachine)
+			|| (CheckKaraCancel(State->StateType, StateMachine)
 				&& !State->IsFollowupState
 				&& StateMachine.GetStateIndex(State->Name) > StateMachine.GetStateIndex(
 					GetCurrentStateName(StateMachine_Primary)))
@@ -1539,9 +1539,9 @@ bool APlayerObject::CanEnterState(UState* State, FGameplayTag StateMachineName)
 	return true;
 }
 
-void APlayerObject::SetStateForCPU(FGameplayTag StateName)
+void APlayerObject::SetStateForCPU(FGameplayTag StateName, FGameplayTag StateMachineName)
 {
-	HandleStateTransition(PrimaryStateMachine.GetStateIndex(StateName), false, PrimaryStateMachine);
+	HandleStateTransition(GetStateMachine(StateMachineName).GetStateIndex(StateName), false, GetStateMachine(StateMachineName));
 }
 
 bool APlayerObject::CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, int32 YEnd) const
@@ -1687,19 +1687,19 @@ void APlayerObject::HandleBlockAction()
 	}
 	if (Stance == ACT_Jumping || GetCurrentStateName(StateMachine_Primary) == State_Universal_AirBlock)
 	{
-		JumpToState(State_Universal_AirBlock, true);
+		JumpToStatePrimary(State_Universal_AirBlock, true);
 		Stance = ACT_Jumping;
 	}
 	else if (CheckInput(Input1) || GetCurrentStateName(StateMachine_Primary) == State_Universal_CrouchBlock)
 	{
 		PosY = 0;
-		JumpToState(State_Universal_CrouchBlock, true);
+		JumpToStatePrimary(State_Universal_CrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else
 	{
 		PosY = 0;
-		JumpToState(State_Universal_StandBlock, true);
+		JumpToStatePrimary(State_Universal_StandBlock, true);
 		Stance = ACT_Standing;
 	}
 	if (Stance == ACT_Jumping)
@@ -1722,15 +1722,15 @@ void APlayerObject::HandleProximityBlock()
 		{
 			if (Stance == ACT_Standing)
 			{
-				JumpToState(State_Universal_StandBlockEnd);
+				JumpToStatePrimary(State_Universal_StandBlockEnd);
 			}
 			else if (Stance == ACT_Crouching)
 			{
-				JumpToState(State_Universal_CrouchBlockEnd);
+				JumpToStatePrimary(State_Universal_CrouchBlockEnd);
 			}
 			else
 			{
-				JumpToState(State_Universal_AirBlockEnd);
+				JumpToStatePrimary(State_Universal_AirBlockEnd);
 			}
 		}
 		return;
@@ -1747,17 +1747,17 @@ void APlayerObject::HandleProximityBlock()
 	GotoLabel(State_Label_Block_PreGuard);
 	if (PosY > GroundHeight)
 	{
-		JumpToState(State_Universal_AirBlock, true);
+		JumpToStatePrimary(State_Universal_AirBlock, true);
 		Stance = ACT_Jumping;
 	}
 	else if (CheckInput(Input1))
 	{
-		JumpToState(State_Universal_CrouchBlock, true);
+		JumpToStatePrimary(State_Universal_CrouchBlock, true);
 		Stance = ACT_Crouching;
 	}
 	else
 	{
-		JumpToState(State_Universal_StandBlock, true);
+		JumpToStatePrimary(State_Universal_StandBlock, true);
 		Stance = ACT_Standing;
 	}
 }
@@ -1775,13 +1775,17 @@ void APlayerObject::EmptyStateMachine()
 	}
 }
 
-void APlayerObject::HandleBufferedState()
+void APlayerObject::HandleBufferedState() {
+	HandleBufferedState(PrimaryStateMachine);
+}
+
+void APlayerObject::HandleBufferedState(FStateMachine& StateMachine)
 {
 	if (BufferedStateName != FGameplayTag())
 	{
-		if (FindChainCancelOption(BufferedStateName)
-			|| FindAutoComboCancelOption(BufferedStateName)
-			|| FindWhiffCancelOption(BufferedStateName)
+		if (FindChainCancelOption(BufferedStateName, StateMachine)
+			|| FindAutoComboCancelOption(BufferedStateName, StateMachine)
+			|| FindWhiffCancelOption(BufferedStateName, StateMachine)
 			|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
 		{
 			if (PrimaryStateMachine.ForceSetState(BufferedStateName))
@@ -1966,98 +1970,94 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
 	}
 	return ReturnReg;
 }
-
-bool APlayerObject::FindChainCancelOption(const FGameplayTag Name)
+bool APlayerObject::FindChainCancelOption(const FGameplayTag Name, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	if (AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking && CancelFlags & CNC_ChainCancelEnabled)
 	{
-		if (CheckReverseBeat(Name))
+		if (CheckReverseBeat(Name, StateMachine))
 			return ReturnReg;
 		for (int i = 0; i < ChainCancelOptions.Num(); i++)
 		{
-			if (ChainCancelOptions[i] == PrimaryStateMachine.GetStateIndex(Name) && ChainCancelOptions[i] != INDEX_NONE)
+			if (ChainCancelOptions[i] == StateMachine.GetStateIndex(Name) && ChainCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInChain(Name);
+				CheckMovesUsedInChain(Name, StateMachine);
 				break;
 			}
 		}
 	}
 	return ReturnReg;
 }
-
-bool APlayerObject::FindAutoComboCancelOption(const FGameplayTag Name)
+bool APlayerObject::FindAutoComboCancelOption(const FGameplayTag Name, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	if (AttackFlags & ATK_HasHit && CancelFlags & CNC_ChainCancelEnabled)
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			if (AutoComboCancels[i] == PrimaryStateMachine.GetStateIndex(Name) && AutoComboCancels[i] != INDEX_NONE)
+			if (AutoComboCancels[i] == StateMachine.GetStateIndex(Name) && AutoComboCancels[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInChain(Name);
+				CheckMovesUsedInChain(Name, StateMachine);
 				break;
 			}
 		}
 	}
 	return ReturnReg;
 }
-
-bool APlayerObject::FindWhiffCancelOption(const FGameplayTag Name)
+bool APlayerObject::FindWhiffCancelOption(const FGameplayTag Name, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	if (CancelFlags & CNC_WhiffCancelEnabled)
 	{
-		if (CheckReverseBeat(Name))
+		if (CheckReverseBeat(Name, StateMachine))
 			return ReturnReg;
 		for (int i = 0; i < WhiffCancelOptions.Num(); i++)
 		{
-			if (WhiffCancelOptions[i] == PrimaryStateMachine.GetStateIndex(Name) && WhiffCancelOptions[i] != INDEX_NONE)
+			if (WhiffCancelOptions[i] == StateMachine.GetStateIndex(Name) && WhiffCancelOptions[i] != INDEX_NONE)
 			{
 				ReturnReg = true;
-				CheckMovesUsedInChain(Name);
+				CheckMovesUsedInChain(Name, StateMachine);
 				break;
 			}
 		}
 	}
 	return ReturnReg;
 }
-
-bool APlayerObject::CheckReverseBeat(const FGameplayTag Name)
+bool APlayerObject::CheckReverseBeat(const FGameplayTag Name, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	if (!CanReverseBeat)
 		return ReturnReg;
 
-	const int32 Index = PrimaryStateMachine.GetStateIndex(Name);
-	if (PrimaryStateMachine.CurrentState->StateType == EStateType::NormalAttack
-		&& Index != INDEX_NONE && PrimaryStateMachine.States[Index]->StateType == EStateType::NormalAttack)
+	const int32 Index = StateMachine.GetStateIndex(Name);
+	if (StateMachine.CurrentState->StateType == EStateType::NormalAttack
+		&& Index != INDEX_NONE && StateMachine.States[Index]->StateType == EStateType::NormalAttack)
 	{
-		CheckMovesUsedInChain(Name);
+		CheckMovesUsedInChain(Name, StateMachine);
 	}
 	return ReturnReg;
 }
 
-bool APlayerObject::CheckMovesUsedInChain(const FGameplayTag Name)
+bool APlayerObject::CheckMovesUsedInChain(const FGameplayTag Name, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	int32 Usages = 0;
 	for (const int32 Index : MovesUsedInChain)
 	{
-		if (Index == PrimaryStateMachine.GetStateIndex(Name) && Index != INDEX_NONE)
+		if (Index == StateMachine.GetStateIndex(Name) && Index != INDEX_NONE)
 			Usages++;
 	}
-	if (Usages < PrimaryStateMachine.States[PrimaryStateMachine.GetStateIndex(Name)]->MaxChain
-		|| PrimaryStateMachine.States[PrimaryStateMachine.GetStateIndex(Name)]->MaxChain == -1)
+	if (Usages < StateMachine.States[StateMachine.GetStateIndex(Name)]->MaxChain
+		|| StateMachine.States[StateMachine.GetStateIndex(Name)]->MaxChain == -1)
 		ReturnReg = true;
 	return ReturnReg;
 }
 
 void APlayerObject::ThrowExe()
 {
-	JumpToState(ExeStateName);
+	JumpToStatePrimary(ExeStateName);
 	PlayerFlags &= ~PLF_ThrowActive;
 }
 
@@ -2114,7 +2114,7 @@ void APlayerObject::HandleThrowCollision()
 		{
 			if (CheckInput(Left))
 				FlipObject();
-			Enemy->JumpToState(State_Universal_ThrowLock);
+			Enemy->JumpToStatePrimary(State_Universal_ThrowLock);
 			Enemy->PlayerFlags |= PLF_IsThrowLock;
 			Enemy->ThrowTechTimer = ThrowTechWindow;
 			Enemy->AttackOwner = this;
@@ -2123,7 +2123,7 @@ void APlayerObject::HandleThrowCollision()
 	}
 }
 
-bool APlayerObject::CheckKaraCancel(EStateType InStateType)
+bool APlayerObject::CheckKaraCancel(EStateType InStateType, FStateMachine& StateMachine)
 {
 	ReturnReg = false;
 	if ((CancelFlags & CNC_EnableKaraCancel) == 0 || AttackFlags & ATK_HasHit)
@@ -2135,18 +2135,18 @@ bool APlayerObject::CheckKaraCancel(EStateType InStateType)
 		return ReturnReg;
 
 	//two checks: if it's an attack, and if the given state type has a higher or equal priority to the current state
-	if (InStateType == EStateType::NormalAttack && PrimaryStateMachine.CurrentState->StateType ==
+	if (InStateType == EStateType::NormalAttack && StateMachine.CurrentState->StateType ==
 		EStateType::NormalAttack)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SpecialAttack && PrimaryStateMachine.CurrentState->StateType >
-		EStateType::NormalAttack && PrimaryStateMachine.CurrentState->StateType < EStateType::SpecialAttack)
+	if (InStateType == EStateType::SpecialAttack && StateMachine.CurrentState->StateType >
+		EStateType::NormalAttack && StateMachine.CurrentState->StateType < EStateType::SpecialAttack)
 	{
 		ReturnReg = true;
 	}
-	if (InStateType == EStateType::SuperAttack && PrimaryStateMachine.CurrentState->StateType >
-		EStateType::NormalAttack && PrimaryStateMachine.CurrentState->StateType < EStateType::SuperAttack)
+	if (InStateType == EStateType::SuperAttack && StateMachine.CurrentState->StateType >
+		EStateType::NormalAttack && StateMachine.CurrentState->StateType < EStateType::SuperAttack)
 	{
 		ReturnReg = true;
 	}
@@ -2400,13 +2400,18 @@ void APlayerObject::SetStance(EActionStance InStance)
 	Stance = InStance;
 }
 
-bool APlayerObject::JumpToState(FGameplayTag NewName, bool IsLabel)
+bool APlayerObject::JumpToStatePrimary(FGameplayTag NewName, bool IsLabel)
+{
+	return JumpToState(NewName, StateMachine_Primary, IsLabel);
+}
+bool APlayerObject::JumpToState(FGameplayTag NewName, FGameplayTag StateMachineName, bool IsLabel)
 {
 	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
-	if (PrimaryStateMachine.ForceSetState(NewName) && PrimaryStateMachine.CurrentState != nullptr)
+	FStateMachine& StateMachine = GetStateMachine(StateMachineName);
+	if (StateMachine.ForceSetState(NewName) && StateMachine.CurrentState != nullptr)
 	{
-		switch (PrimaryStateMachine.CurrentState->EntryStance)
+		switch (StateMachine.CurrentState->EntryStance)
 		{
 		case EEntryStance::Standing:
 			Stance = ACT_Standing;
@@ -2425,13 +2430,20 @@ bool APlayerObject::JumpToState(FGameplayTag NewName, bool IsLabel)
 	return false;
 }
 
-bool APlayerObject::JumpToStateByClass(TSubclassOf<UState> Class, bool IsLabel)
+
+bool APlayerObject::JumpToStateByClassPrimary(TSubclassOf<UState> Class, bool IsLabel)
+{
+	return JumpToStateByClass(Class, StateMachine_Primary, IsLabel);
+}
+
+bool APlayerObject::JumpToStateByClass(TSubclassOf<UState> Class, FGameplayTag StateMachineName, bool IsLabel)
 {
 	if (!GameState && !CharaSelectGameState) return false;
 	GotoLabelActive = IsLabel;
-	if (PrimaryStateMachine.ForceSetState(Class) && PrimaryStateMachine.CurrentState != nullptr)
+	FStateMachine& StateMachine = GetStateMachine(StateMachineName);
+	if (StateMachine.ForceSetState(Class) && StateMachine.CurrentState != nullptr)
 	{
-		switch (PrimaryStateMachine.CurrentState->EntryStance)
+		switch (StateMachine.CurrentState->EntryStance)
 		{
 		case EEntryStance::Standing:
 			Stance = ACT_Standing;
@@ -2475,7 +2487,9 @@ FStateMachine& APlayerObject::GetStateMachine(FGameplayTag StateMachineName)
 			return StateMachine;
 		}
 	}
-	
+	if (StateMachineName != StateMachine_Primary && StateMachineName != FGameplayTag::EmptyTag) {
+		UE_LOGFMT(LogCore, Error, "State machine `{Name}` was not found, returning primary.", ("Name", StateMachineName.ToString()));
+	}
 	return PrimaryStateMachine;
 }
 
