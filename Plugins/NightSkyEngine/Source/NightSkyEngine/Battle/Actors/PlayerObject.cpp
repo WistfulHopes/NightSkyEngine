@@ -1707,6 +1707,12 @@ void APlayerObject::EmptyStateMachine()
 	PrimaryStateMachine.States.Empty();
 	PrimaryStateMachine.StateNames.Empty();
 	PrimaryStateMachine.CurrentState = nullptr;
+	for (auto& StateMachine : SubStateMachines) 
+	{
+		StateMachine.States.Empty();
+		StateMachine.StateNames.Empty();
+		StateMachine.CurrentState = nullptr;
+	}
 }
 
 void APlayerObject::HandleBufferedState()
