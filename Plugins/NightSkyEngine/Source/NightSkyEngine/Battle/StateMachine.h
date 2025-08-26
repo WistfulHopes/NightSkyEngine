@@ -33,6 +33,11 @@ struct NIGHTSKYENGINE_API FStateMachine
 	UPROPERTY(SaveGame, meta=(Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
 	int32 EnableFlags = 0;
 	/**
+	 * Currently enabled custom state types.
+	 */
+	UPROPERTY(SaveGame)
+	TArray<FGameplayTag> EnabledCustomStateTypes;
+	/**
 	 * The currently active state.
 	 */
 	UPROPERTY(SaveGame)

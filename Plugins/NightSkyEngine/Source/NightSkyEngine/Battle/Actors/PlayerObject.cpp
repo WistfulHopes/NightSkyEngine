@@ -1440,7 +1440,7 @@ bool APlayerObject::CanEnterState(UState* State, FGameplayTag StateMachineName)
 		                                   ? State->ShareChainName
 		                                   : State->Name;
 	if (!CheckMovesUsedInChain(MoveChainName) ||
-		!((CheckStateEnabled(State->StateType, State->CustomStateType) && !State->IsFollowupState)
+		!((CheckStateEnabled(State->StateType, State->CustomStateType, StateMachineName) && !State->IsFollowupState)
 			|| FindChainCancelOption(State->Name)
 			|| FindAutoComboCancelOption(State->Name)
 			|| FindWhiffCancelOption(State->Name)
@@ -2419,85 +2419,85 @@ FStateMachine& APlayerObject::GetStateMachine(FGameplayTag StateMachineName)
 	return PrimaryStateMachine;
 }
 
-bool APlayerObject::CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType)
+bool APlayerObject::CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType, FGameplayTag StateMachineName)
 {
 	ReturnReg = false;
 	switch (StateType)
 	{
 	case EStateType::Standing:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Standing)
+		if (GetEnableFlags(StateMachineName) & ENB_Standing)
 			ReturnReg = true;
 		break;
 	case EStateType::Crouching:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Crouching)
+		if (GetEnableFlags(StateMachineName) & ENB_Crouching)
 			ReturnReg = true;
 		break;
 	case EStateType::NeutralJump:
 	case EStateType::ForwardJump:
 	case EStateType::BackwardJump:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Jumping || (CancelFlags & CNC_JumpCancel && AttackFlags & ATK_HasHit && AttackFlags &
+		if (GetEnableFlags(StateMachineName) & ENB_Jumping || (CancelFlags & CNC_JumpCancel && AttackFlags & ATK_HasHit && AttackFlags &
 			ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::ForwardWalk:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_ForwardWalk)
+		if (GetEnableFlags(StateMachineName) & ENB_ForwardWalk)
 			ReturnReg = true;
 		break;
 	case EStateType::BackwardWalk:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_BackWalk)
+		if (GetEnableFlags(StateMachineName) & ENB_BackWalk)
 			ReturnReg = true;
 		break;
 	case EStateType::ForwardDash:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_ForwardDash)
+		if (GetEnableFlags(StateMachineName) & ENB_ForwardDash)
 			ReturnReg = true;
 		break;
 	case EStateType::BackwardDash:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_BackDash)
+		if (GetEnableFlags(StateMachineName) & ENB_BackDash)
 			ReturnReg = true;
 		break;
 	case EStateType::ForwardAirDash:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_ForwardAirDash || (CancelFlags & CNC_FAirDashCancel && AttackFlags & ATK_HasHit &&
+		if (GetEnableFlags(StateMachineName) & ENB_ForwardAirDash || (CancelFlags & CNC_FAirDashCancel && AttackFlags & ATK_HasHit &&
 			AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::BackwardAirDash:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_BackAirDash || (CancelFlags & CNC_BAirDashCancel && AttackFlags & ATK_HasHit &&
+		if (GetEnableFlags(StateMachineName) & ENB_BackAirDash || (CancelFlags & CNC_BAirDashCancel && AttackFlags & ATK_HasHit &&
 			AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::NormalAttack:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_NormalAttack)
+		if (GetEnableFlags(StateMachineName) & ENB_NormalAttack)
 			ReturnReg = true;
 		break;
 	case EStateType::SpecialAttack:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_SpecialAttack || (CancelFlags & CNC_SpecialCancel && AttackFlags & ATK_HasHit &&
+		if (GetEnableFlags(StateMachineName) & ENB_SpecialAttack || (CancelFlags & CNC_SpecialCancel && AttackFlags & ATK_HasHit &&
 			AttackFlags & ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::SuperAttack:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_SuperAttack || (CancelFlags & CNC_SuperCancel && AttackFlags & ATK_HasHit && AttackFlags &
+		if (GetEnableFlags(StateMachineName) & ENB_SuperAttack || (CancelFlags & CNC_SuperCancel && AttackFlags & ATK_HasHit && AttackFlags &
 			ATK_IsAttacking))
 			ReturnReg = true;
 		break;
 	case EStateType::Tech:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Tech && CheckIsStunned())
+		if (GetEnableFlags(StateMachineName) & ENB_Tech && CheckIsStunned())
 			ReturnReg = true;
 		break;
 	case EStateType::Burst:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Burst && (Enemy->Player->PlayerFlags & PLF_LockOpponentBurst) == 0
+		if (GetEnableFlags(StateMachineName) & ENB_Burst && (Enemy->Player->PlayerFlags & PLF_LockOpponentBurst) == 0
 			&& (PlayerFlags & PLF_IsDead) == 0)
 			ReturnReg = true;
 		break;
 	case EStateType::Tag:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Tag)
+		if (GetEnableFlags(StateMachineName) & ENB_Tag)
 			ReturnReg = true;
 		break;
 	case EStateType::Assist:
-		if (GetEnableFlags(StateMachine_Primary) & ENB_Assist)
+		if (GetEnableFlags(StateMachineName) & ENB_Assist)
 			ReturnReg = true;
 		break;
 	case EStateType::Custom:
-		if (EnabledCustomStateTypes.Contains(CustomStateType))
+		if (GetStateMachine(StateMachineName).EnabledCustomStateTypes.Contains(CustomStateType))
 			ReturnReg = true;
 		break;
 	default:
@@ -2582,7 +2582,11 @@ void APlayerObject::OnStateChange()
 	{
 		CancelOption = -1;
 	}
-	EnabledCustomStateTypes.Empty();
+	GetStateMachine(StateMachine_Primary).EnabledCustomStateTypes.Empty();
+	for (auto& StateMachine : SubStateMachines)
+	{
+		StateMachine.EnabledCustomStateTypes.Empty();
+	}
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
 	HitCommon = FHitDataCommon();
@@ -2806,7 +2810,11 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	{
 		CancelOption = -1;
 	}
-	EnabledCustomStateTypes.Empty();
+	GetStateMachine(StateMachine_Primary).EnabledCustomStateTypes.Empty();
+	for (auto& StateMachine : SubStateMachines)
+	{
+		StateMachine.EnabledCustomStateTypes.Empty();
+	}
 	ChainCancelOptions.Empty();
 	WhiffCancelOptions.Empty();
 	MovesUsedInCombo.Empty();
@@ -2888,14 +2896,14 @@ int32 APlayerObject::GetEnableFlags(FGameplayTag StateMachineName)
 	return GetStateMachine(StateMachineName).EnableFlags;
 }
 
-void APlayerObject::EnableCustomState(FGameplayTag CustomStateType)
+void APlayerObject::EnableCustomState(FGameplayTag CustomStateType, FGameplayTag StateMachineName)
 {
-	EnabledCustomStateTypes.AddUnique(CustomStateType);
+	GetStateMachine(StateMachineName).EnabledCustomStateTypes.AddUnique(CustomStateType);
 }
 
-void APlayerObject::DisableCustomState(FGameplayTag CustomStateType)
+void APlayerObject::DisableCustomState(FGameplayTag CustomStateType, FGameplayTag StateMachineName)
 {
-	EnabledCustomStateTypes.Remove(CustomStateType);
+	GetStateMachine(StateMachineName).EnabledCustomStateTypes.Remove(CustomStateType);
 }
 
 void APlayerObject::EnableAttacks()

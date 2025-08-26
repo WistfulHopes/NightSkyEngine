@@ -326,9 +326,6 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, SaveGame)
 	TArray<FStateMachine> SubStateMachines;
-	
-	UPROPERTY(SaveGame)
-	TArray<FGameplayTag> EnabledCustomStateTypes;
 
 	// All instances of actors needed for link actors.
 	UPROPERTY(SaveGame)
@@ -398,6 +395,8 @@ public:
 	UStateData* ObjectStateData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	UStateData* CharaStateData;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
+	TMap<FGameplayTag, UStateData*> SubStateData;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Assets)
 	UMaterialData* MaterialData;
@@ -405,8 +404,7 @@ public:
 	int32 ColorIndex = 1;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
 	int32 MaxColorIndex = 2;
-
-
+	
 	UPROPERTY(EditAnywhere, Category=Assets)
 	ULinkActorData* CommonLinkActorData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)
@@ -587,7 +585,7 @@ public:
 	int32 GetEnableFlags(FGameplayTag StateMachineName);
 	// check if state can be entered
 	UFUNCTION(BlueprintPure)
-	bool CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType);
+	bool CheckStateEnabled(EStateType StateType, FGameplayTag CustomStateType, FGameplayTag StateMachineName);
 	//enable state type
 	UFUNCTION(BlueprintCallable)
 	void EnableState(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EEnableFlags"))
@@ -598,10 +596,10 @@ public:
 		int32 Bitmask, FGameplayTag StateMachineName);
 	//enable custom state type
 	UFUNCTION(BlueprintCallable)
-	void EnableCustomState(FGameplayTag CustomStateType);
+	void EnableCustomState(FGameplayTag CustomStateType, FGameplayTag StateMachineName);
 	//disable custom state type
 	UFUNCTION(BlueprintCallable)
-	void DisableCustomState(FGameplayTag CustomStateType);
+	void DisableCustomState(FGameplayTag CustomStateType, FGameplayTag StateMachineName);
 	//enable all attacks only
 	UFUNCTION(BlueprintCallable)
 	void EnableAttacks();
