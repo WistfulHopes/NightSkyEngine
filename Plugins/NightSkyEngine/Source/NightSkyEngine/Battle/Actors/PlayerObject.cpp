@@ -131,7 +131,67 @@ void APlayerObject::InitPlayer()
 	Player = this;
 	CurrentHealth = MaxHealth;
 	EnableFlip(true);
-	InitBP();
+	
+	EmptyStateMachine();
+	for (auto StateClass : CharaStateData->StateArray)
+	{
+		if (!IsValid(StateClass)) continue;
+		auto State = NewObject<UState>(this, StateClass);
+		AddState(State->Name, State, StateMachine_Primary);
+	}
+	for (auto SubStatePair : SubStateData)
+	{
+		for (auto StateClass : SubStatePair.Value->StateArray)
+		{
+			if (!IsValid(StateClass)) continue;
+			auto State = NewObject<UState>(this, StateClass);
+			AddState(State->Name, State, SubStatePair.Key);
+		}
+	}
+	if (IsValid(CommonSubroutineData))
+	{
+		for (auto SubroutineClass : CommonSubroutineData->SubroutineArray)
+		{
+			if (!IsValid(SubroutineClass)) continue;
+			auto Subroutine = NewObject<USubroutine>(this, SubroutineClass);
+			AddSubroutine(Subroutine->Name, Subroutine, true);
+		}
+	}
+	if (IsValid(CharaSubroutineData))
+	{
+		for (auto SubroutineClass : CharaSubroutineData->SubroutineArray)
+		{
+			if (!IsValid(SubroutineClass)) continue;
+			auto Subroutine = NewObject<USubroutine>(this, SubroutineClass);
+			AddSubroutine(Subroutine->Name, Subroutine, false);
+		}
+	}
+	if (IsValid(CommonObjectStateData))
+	{
+		for (auto StateClass : CommonObjectStateData->StateArray)
+		{
+			if (!IsValid(StateClass)) continue;
+
+			for (int i = 0; i < StateClass.GetDefaultObject()->MaxInstances; i++)
+			{
+				auto State = NewObject<UState>(this, StateClass);
+				AddObjectState(State->Name, State, false);
+			}
+		}
+	}
+	if (IsValid(ObjectStateData))
+	{
+		for (auto StateClass : ObjectStateData->StateArray)
+		{
+			if (!IsValid(StateClass)) continue;
+
+			for (int i = 0; i < StateClass.GetDefaultObject()->MaxInstances; i++)
+			{
+				auto State = NewObject<UState>(this, StateClass);
+				AddObjectState(State->Name, State, false);
+			}
+		}
+	}
 }
 
 void APlayerObject::HandleStateMachine(bool Buffer, FStateMachine& StateMachine)
