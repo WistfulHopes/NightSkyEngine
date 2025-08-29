@@ -36,7 +36,8 @@ void ANetworkPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-	
+
+	GameInstance->BattleData.PlayerListP2.Empty();
 	for (const auto CharaData : Assets)
 	{
 		GameInstance->BattleData.PlayerListP2.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
@@ -48,7 +49,8 @@ void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
 void ANetworkPawn::ClientGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
-	
+
+	GameInstance->BattleData.PlayerListP1.Empty();
 	for (const auto CharaData : Assets)
 	{
 		GameInstance->BattleData.PlayerListP1.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
