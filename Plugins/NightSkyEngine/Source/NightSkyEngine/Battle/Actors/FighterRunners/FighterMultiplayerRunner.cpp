@@ -147,9 +147,9 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		for (int i = GameState->MaxBattleObjects; i < GameState->MaxBattleObjects + GameState->Players.Num(); i++)
 		{
 			FPlayerObjectLog PlayerObject = FPlayerObjectLog();
-			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(ABattleObject, ObjSync),
+			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FBattleObjectLog, ObjSync),
 			                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
-			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(APlayerObject, PlayerSync),
+			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FPlayerObjectLog, PlayerSync),
 			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].GetData(), SizeOfPlayerObject);
 			PlayerObject.LogForSyncTestFile(file);
 		}
