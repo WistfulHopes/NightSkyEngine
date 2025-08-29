@@ -170,7 +170,7 @@ SyncTestBackend::RaiseSyncError(const char *fmt, ...)
 
    puts(buf);
    EndLog();
-   //DebugBreak();
+   DebugBreak();
 }
 
 GGPOErrorCode
