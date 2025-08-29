@@ -25,6 +25,24 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level3, "State.Label.Block.Leve
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_IsCorrectBlock, "Subroutine.IsCorrectBlock", "Is Correct Block");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_HitCollision, "Subroutine.HitCollision", "Hit Collision");
 
+void FPlayerObjectLog::LogForSyncTestFile(std::ofstream& file)
+{
+	FBattleObjectLog::LogForSyncTestFile(file);
+	if (file)
+	{
+		file << "PlayerObject:\n";
+		file << "\tCurrentAirJumpCount: " << CurrentAirJumpCount << std::endl;
+		file << "\tCurrentAirDashCount: " << CurrentAirDashCount << std::endl;
+		file << "\tAirDashTimer: " << AirDashTimer << std::endl;
+		file << "\tAirDashTimerMax: " << AirDashTimerMax << std::endl;
+		file << "\tCurrentHealth: " << CurrentHealth << std::endl;
+		file << "\tCancelFlags: " << CancelFlags << std::endl;
+		file << "\tPlayerFlags: " << PlayerFlags << std::endl;
+		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] << std::endl;
+		file << "\tStance: " << Stance.GetValue() << std::endl;
+	}
+}
+
 APlayerObject::APlayerObject()
 {
 	PrimaryStateMachine.Parent = this;
@@ -2929,25 +2947,6 @@ void APlayerObject::LoadForRollbackBP(TArray<uint8> InBytes)
 	FObjectReader Reader(InBytes);
 	Reader.ArIsSaveGame = true;
 	GetClass()->SerializeBin(Reader, this);
-}
-
-void APlayerObject::LogForSyncTestFile(std::ofstream& file)
-{
-	Super::LogForSyncTestFile(file);
-	if (file)
-	{
-		file << "PlayerObject:\n";
-		file << "\tEnableFlags: " << GetStateMachine(StateMachine_Primary).EnableFlags << std::endl;
-		file << "\tCurrentAirJumpCount: " << CurrentAirJumpCount << std::endl;
-		file << "\tCurrentAirDashCount: " << CurrentAirDashCount << std::endl;
-		file << "\tAirDashTimer: " << AirDashTimer << std::endl;
-		file << "\tAirDashTimerMax: " << AirDashTimerMax << std::endl;
-		file << "\tCurrentHealth: " << CurrentHealth << std::endl;
-		file << "\tCancelFlags: " << CancelFlags << std::endl;
-		file << "\tPlayerFlags: " << PlayerFlags << std::endl;
-		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] << std::endl;
-		file << "\tStance: " << Stance.GetValue() << std::endl;
-	}
 }
 
 void APlayerObject::EnableState(int32 EnableType, FGameplayTag StateMachineName)

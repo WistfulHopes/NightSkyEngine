@@ -1509,7 +1509,7 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 	}
 }
 
-void ABattleObject::LogForSyncTestFile(std::ofstream& file)
+void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
 {
 	if (file)
 	{

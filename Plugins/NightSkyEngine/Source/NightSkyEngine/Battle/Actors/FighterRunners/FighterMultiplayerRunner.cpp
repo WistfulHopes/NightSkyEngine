@@ -138,20 +138,20 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		{
 			if (RollbackData.ObjActive[i])
 			{
-				ABattleObject* BattleActor = NewObject<ABattleObject>();
-				FMemory::Memcpy(reinterpret_cast<char*>(BattleActor) + offsetof(ABattleObject, ObjSync),
+				FBattleObjectLog BattleObject = FBattleObjectLog();
+				FMemory::Memcpy(reinterpret_cast<char*>(&BattleObject) + offsetof(FBattleObjectLog, ObjSync),
 				                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
-				BattleActor->LogForSyncTestFile(file);
+				BattleObject.LogForSyncTestFile(file);
 			}
 		}
 		for (int i = GameState->MaxBattleObjects; i < GameState->MaxBattleObjects + GameState->Players.Num(); i++)
 		{
-			APlayerObject* PlayerCharacter = NewObject<APlayerObject>();
-			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(ABattleObject, ObjSync),
+			FPlayerObjectLog PlayerObject = FPlayerObjectLog();
+			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(ABattleObject, ObjSync),
 			                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
-			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(APlayerObject, PlayerSync),
+			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(APlayerObject, PlayerSync),
 			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].GetData(), SizeOfPlayerObject);
-			PlayerCharacter->LogForSyncTestFile(file);
+			PlayerObject.LogForSyncTestFile(file);
 		}
 
 		file << "RawRollbackData:\n";
