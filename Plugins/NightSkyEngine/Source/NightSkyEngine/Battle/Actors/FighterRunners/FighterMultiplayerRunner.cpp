@@ -229,6 +229,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
 				}
 			}
+			file << "\n";
 		}
 		file << "\n";
 		
