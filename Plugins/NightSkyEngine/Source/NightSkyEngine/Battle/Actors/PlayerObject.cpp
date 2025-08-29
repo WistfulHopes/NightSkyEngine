@@ -1570,11 +1570,11 @@ bool APlayerObject::CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, in
 
 	if (Direction == DIR_Right)
 	{
-		return XBegin + R < Enemy->PosX && XEnd + R > Enemy->PosX && YBegin + GetPosYCenter() < Enemy->GetPosYCenter()
-			&& YEnd + GetPosYCenter() > Enemy->GetPosYCenter();
+		return XBegin + R <= Enemy->L && XEnd + R >= Enemy->L && YBegin + GetPosYCenter() <= Enemy->GetPosYCenter()
+			&& YEnd + GetPosYCenter() >= Enemy->GetPosYCenter();
 	}
-	return XEnd + L < Enemy->PosX && XBegin + L > Enemy->PosX  && YBegin + GetPosYCenter() < Enemy->GetPosYCenter()
-		&& YEnd + GetPosYCenter() > Enemy->GetPosYCenter();
+	return XEnd + L <= Enemy->R && XBegin + L >= Enemy->R && YBegin + GetPosYCenter() <= Enemy->GetPosYCenter()
+		&& YEnd + GetPosYCenter() >= Enemy->GetPosYCenter();
 }
 
 bool APlayerObject::IsEnemyAttackState() const

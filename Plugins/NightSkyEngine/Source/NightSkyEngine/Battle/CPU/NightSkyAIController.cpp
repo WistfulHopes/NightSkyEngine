@@ -36,7 +36,7 @@ void ANightSkyAIController::Update()
 	bool bDefendOnly = false;
 	
 	if (Player->Enemy->CheckIsAttacking()
-		&& Player->CheckEnemyInRange(
+		&& Player->Enemy->CheckEnemyInRange(
 			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackXBeginRange, 
 			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackXEndRange,
 			Player->Enemy->PrimaryStateMachine.CurrentState->CPUData.AttackYBeginRange, 
@@ -65,7 +65,7 @@ void ANightSkyAIController::Update()
 	}
 	else
 	{
-		auto MaxWeight = 50;
+		auto MaxWeight = GameState->BattleState.RandomManager.RandRange(25, 75);;
 		UState* CurState = nullptr;
 		for (const auto State : AvailableStates)
 		{
@@ -126,7 +126,7 @@ void ANightSkyAIController::ResetParams()
 	WaitCount = 0;
 	InputCount = 0;
 	WaitLimit = 3;
-	if (Player->CheckIsAttacking()) WaitLimit = 1;
+	if (Player->CheckIsAttacking()) WaitLimit = 0;
 	TargetState = nullptr;
 }
 
@@ -267,7 +267,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 
 	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
 								   State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))
-		Weight -= 75;
+		Weight -= 50;
 
 	if (Player->PosY < Player->Enemy->PosY && State->CPUData.bAntiAir) Weight += GameState->BattleState.RandomManager.RandRange(15, 40);
 
@@ -291,7 +291,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	if (Player->Enemy->PrimaryStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
 		if (State->CPUData.bThrow && !State->CPUData.bCombo) Weight = 0;
-		if (State->CPUData.bCombo) Weight += GameState->BattleState.RandomManager.RandRange(50, 80);
+		if (State->CPUData.bCombo) Weight += GameState->BattleState.RandomManager.RandRange(80, 250);
 	}
 	else if (Player->IsEnemyBlocking())
 	{
