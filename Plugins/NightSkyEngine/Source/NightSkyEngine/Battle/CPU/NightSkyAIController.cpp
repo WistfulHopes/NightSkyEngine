@@ -126,6 +126,7 @@ void ANightSkyAIController::ResetParams()
 	WaitCount = 0;
 	InputCount = 0;
 	WaitLimit = 3;
+	if (Player->CheckIsAttacking()) WaitLimit = 1;
 	TargetState = nullptr;
 }
 
@@ -266,18 +267,18 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 
 	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
 								   State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))
-		Weight -= 100;
+		Weight -= 75;
 
 	if (Player->PosY < Player->Enemy->PosY && State->CPUData.bAntiAir) Weight += GameState->BattleState.RandomManager.RandRange(15, 40);
 
 	if (State->CPUData.bUsesResource) Weight -= GameState->BattleState.RandomManager.RandRange(15, 40);
 	if (State->CPUData.bBigDamage) Weight += GameState->BattleState.RandomManager.RandRange(15, 40);
-	if (State->CPUData.bNoCombo && Player->ComboCounter > 2) Weight -= GameState->BattleState.RandomManager.RandRange(15, 40);
+	if (State->CPUData.bNoCombo && Player->ComboCounter) Weight -= GameState->BattleState.RandomManager.RandRange(15, 40);
 	
 	switch (State->CPUData.AttackSpeed)
 	{
 	case ASPD_Fast:
-		Weight += GameState->BattleState.RandomManager.RandRange(25, 50);
+		Weight += GameState->BattleState.RandomManager.RandRange(15, 30);
 		break;
 	case ASPD_Medium:
 		break;
@@ -290,7 +291,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 	if (Player->Enemy->PrimaryStateMachine.CurrentState->StateType == EStateType::Hitstun)
 	{
 		if (State->CPUData.bThrow && !State->CPUData.bCombo) Weight = 0;
-		if (State->CPUData.bCombo) Weight += GameState->BattleState.RandomManager.RandRange(35, 60);
+		if (State->CPUData.bCombo) Weight += GameState->BattleState.RandomManager.RandRange(50, 80);
 	}
 	else if (Player->IsEnemyBlocking())
 	{
@@ -336,7 +337,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 
 		if (State->CPUData.bInvuln) Weight += GameState->BattleState.RandomManager.RandRange(15, 40);
 	}
-	Weight += GameState->BattleState.RandomManager.RandRange(-50, 50);
+	Weight += GameState->BattleState.RandomManager.RandRange(-25, 25);
 	
 	return Weight;
 }
