@@ -37,9 +37,10 @@ void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	
-	GameInstance->BattleData.PlayerListP2[0] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[0]));
-	GameInstance->BattleData.PlayerListP2[1] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[1]));
-	GameInstance->BattleData.PlayerListP2[2] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[2]));
+	for (const auto CharaData : Assets)
+	{
+		GameInstance->BattleData.PlayerListP2.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
+	}
 
 	CharaDataReceived = true;
 }
@@ -48,9 +49,10 @@ void ANetworkPawn::ClientGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	
-	GameInstance->BattleData.PlayerListP1[0] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[0]));
-	GameInstance->BattleData.PlayerListP1[1] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[1]));
-	GameInstance->BattleData.PlayerListP1[2] = Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(Assets[2]));
+	for (const auto CharaData : Assets)
+	{
+		GameInstance->BattleData.PlayerListP1.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
+	}
 
 	CharaDataReceived = true;
 }
