@@ -469,12 +469,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 {
 	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && AttackedObj->ObjectsToIgnoreHitsFrom.Find(this)
-		== INDEX_NONE)
+		== INDEX_NONE && !AttackedObj->Player->IsInvulnerable())
 	{
-		if (AttackedObj->IsPlayer && AttackedObj->Player->PlayerIndex != Player->PlayerIndex && AttackedObj->Player->
-			IsInvulnerable())
-			return;
-
 		auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
 		if (!AttackedPlayer) return;
 		if (CheckBoxOverlap(AttackedObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hurt, FGameplayTag::EmptyTag))
@@ -2404,7 +2400,6 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 						&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
 						&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
 					{
-						
 						int CollisionDepthX;
 						if (Hitbox.PosX < OtherObj->PosX)
 						{

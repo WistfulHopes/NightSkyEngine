@@ -113,7 +113,7 @@ struct FHitDataCommon
 	int32 EnemyBlockstopModifier = 0;
 	// How long the opponent will be stunned while blocking.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Blockstun = -1;
+	int32 Blockstun =6 -1;
 	// The percent of normal hit damage the opponent will take when blocking this attack.
 	UPROPERTY(BlueprintReadWrite)
 	int32 ChipDamagePercent = 0;

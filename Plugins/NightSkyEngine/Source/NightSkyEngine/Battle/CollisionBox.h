@@ -44,32 +44,32 @@ struct FCollisionBox
 	/**
 	 * The type of box.
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame)
 	TEnumAsByte<EBoxType> Type = BOX_Hurt;
 	/**
 	 * The custom box type. Used with BOX_Custom to define custom box behaviors.
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame)
 	FGameplayTag CustomType;
 	/**
 	 * X position.
 	 */
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	int32 PosX = 0;
 	/**
 	 * Y position.
 	 */
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	int32 PosY = 0;
 	/**
 	 * X size.
 	 */
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	int32 SizeX = 0;
 	/**
 	 * Y size.
 	 */
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	int32 SizeY = 0;
 
 #if WITH_EDITORONLY_DATA
