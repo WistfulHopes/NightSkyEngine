@@ -226,7 +226,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 				file << std::hex << std::uppercase << static_cast<int>(RollbackData.PlayerData[i][x]) << " ";
 				if ((x + 1) % 16 == 0)
 				{
-					file << "\n\t" << std::hex << std::uppercase << x << ": ";
+					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
 				}
 			}
 		}
