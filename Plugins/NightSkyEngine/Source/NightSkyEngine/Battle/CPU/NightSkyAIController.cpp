@@ -262,11 +262,11 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 {
 	if (!IsValid(Player)) return 0;
 
-	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
-	                               State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))
-		return 0;
-
 	int32 Weight = GameState->BattleState.RandomManager.RandRange(60, 100);
+
+	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
+								   State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))
+		Weight -= 100;
 
 	if (Player->PosY < Player->Enemy->PosY && State->CPUData.bAntiAir) Weight += GameState->BattleState.RandomManager.RandRange(15, 40);
 
@@ -319,13 +319,13 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 			switch (State->CPUData.PunishRange)
 			{
 			case RAN_Near:
-				bInPunishRange = GetEnemyDistanceX() <= 420000;
+				bInPunishRange = GetEnemyDistanceX() <= 360000;
 				break;
 			case RAN_Mid:
-				bInPunishRange = GetEnemyDistanceX() > 420000 && GetEnemyDistanceX() <= 840000;
+				bInPunishRange = GetEnemyDistanceX() > 360000 && GetEnemyDistanceX() <= 720000;
 				break;
 			case RAN_Far:
-				bInPunishRange = GetEnemyDistanceX() > 840000;
+				bInPunishRange = GetEnemyDistanceX() > 720000;
 				break;
 			default:
 				break;

@@ -32,11 +32,11 @@ void FRollbackData::Serialize(FArchive& Ar)
 	Ar << ObjBuffer;
 	Ar << CharBuffer;
 	Ar << BattleStateBuffer;
+	Ar << BattleStateData;
 	Ar << PlayerData;
 	Ar << StateData;
 	Ar << ExtensionData;
 	Ar << WidgetAnimationData;
-	Ar << SizeOfBPRollbackData;
 }
 
 // Sets default values
@@ -67,11 +67,6 @@ void ANightSkyGameState::BeginPlay()
 
 void ANightSkyGameState::Init()
 {
-	for (int i = 0; i < MaxRollbackFrames; i++)
-	{
-		RollbackData.Add(FRollbackData());
-	}
-
 	if (IsValid(BattleExtensionData))
 	{
 		for (auto Extension : BattleExtensionData->ExtensionArray)
@@ -1859,81 +1854,78 @@ void ANightSkyGameState::RollbackStartAudio(int32 InFrame)
 	}
 }
 
-void ANightSkyGameState::SaveGameState(int32* InChecksum)
+void ANightSkyGameState::SaveGameState(FRollbackData& RollbackData, int32* InChecksum)
 {
-	const int BackupFrame = LocalFrame % MaxRollbackFrames;
-	RollbackData[BackupFrame] = FRollbackData();
-	RollbackData[BackupFrame].BattleStateBuffer.AddUninitialized(SizeOfBattleState);
-	FMemory::Memcpy(RollbackData[BackupFrame].BattleStateBuffer.GetData(), &BattleState.BattleStateSync, SizeOfBattleState);
-	RollbackData[BackupFrame].BattleStateData = SaveForRollback();
+	RollbackData.BattleStateBuffer.AddUninitialized(SizeOfBattleState);
+	FMemory::Memcpy(RollbackData.BattleStateBuffer.GetData(), &BattleState.BattleStateSync, SizeOfBattleState);
+	RollbackData.BattleStateData = SaveForRollback();
 	for (int i = 0; i < BattleExtensions.Num(); i++)
 	{
-		RollbackData[BackupFrame].ExtensionData.Add(BattleExtensions[i]->SaveForRollback());
+		RollbackData.ExtensionData.Add(BattleExtensions[i]->SaveForRollback());
 	}
 	if (BattleExtensions.Num() == 0)
 	{
-		RollbackData[BackupFrame].ExtensionData.Add(TArray<uint8>{1});
+		RollbackData.ExtensionData.Add(TArray<uint8>{1});
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (Objects[i]->IsActive)
 		{
-			RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
-			RollbackData[BackupFrame].ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
-			Objects[i]->SaveForRollback(RollbackData[BackupFrame].ObjBuffer[i].GetData());
-			RollbackData[BackupFrame].StateData.Add(Objects[i]->ObjectState->SaveForRollback());
-			RollbackData[BackupFrame].ObjActive.AddDefaulted();
-			RollbackData[BackupFrame].ObjActive[i] = true;
+			RollbackData.ObjBuffer.AddDefaulted();
+			RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
+			Objects[i]->SaveForRollback(RollbackData.ObjBuffer[i].GetData());
+			RollbackData.StateData.Add(Objects[i]->ObjectState->SaveForRollback());
+			RollbackData.ObjActive.AddDefaulted();
+			RollbackData.ObjActive[i] = true;
 		}
 		else
 		{
-			RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
-			RollbackData[BackupFrame].ObjActive.AddDefaulted();
-			RollbackData[BackupFrame].ObjActive[i] = false;
-			RollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
+			RollbackData.ObjBuffer.AddDefaulted();
+			RollbackData.ObjActive.AddDefaulted();
+			RollbackData.ObjActive[i] = false;
+			RollbackData.StateData.Add(TArray<uint8>{1});
 		}
 	}
 	for (int i = 0; i < Players.Num(); i++)
 	{
-		RollbackData[BackupFrame].ObjBuffer.AddDefaulted();
-		RollbackData[BackupFrame].ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
-		Players[i]->SaveForRollback(RollbackData[BackupFrame].ObjBuffer[i + MaxBattleObjects].GetData());
+		RollbackData.ObjBuffer.AddDefaulted();
+		RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
+		Players[i]->SaveForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
-			RollbackData[BackupFrame].StateData.Add(Players[i]->PrimaryStateMachine.CurrentState->SaveForRollback());
+			RollbackData.StateData.Add(Players[i]->PrimaryStateMachine.CurrentState->SaveForRollback());
 		}
 		else
 		{
-			RollbackData[BackupFrame].StateData.Add(TArray<uint8>{1});
+			RollbackData.StateData.Add(TArray<uint8>{1});
 		}
-		RollbackData[BackupFrame].CharBuffer.AddDefaulted();
-		RollbackData[BackupFrame].CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);
-		Players[i]->SaveForRollbackPlayer(RollbackData[BackupFrame].CharBuffer[i].GetData());
-		RollbackData[BackupFrame].PlayerData.Add(Players[i]->SaveForRollbackBP());
+		RollbackData.CharBuffer.AddDefaulted();
+		RollbackData.CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);
+		Players[i]->SaveForRollbackPlayer(RollbackData.CharBuffer[i].GetData());
+		RollbackData.PlayerData.Add(Players[i]->SaveForRollbackBP());
 	}
 
-	RollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->TopWidget->SaveForRollback());
-	RollbackData[BackupFrame].WidgetAnimationData.Add(BattleHudActor->BottomWidget->SaveForRollback());
+	RollbackData.WidgetAnimationData.Add(BattleHudActor->TopWidget->SaveForRollback());
+	RollbackData.WidgetAnimationData.Add(BattleHudActor->BottomWidget->SaveForRollback());
 	
 	*InChecksum = CreateChecksum();
 }
 
-void ANightSkyGameState::LoadGameState()
+void ANightSkyGameState::LoadGameState(FRollbackData& RollbackData)
 {
-	const int CurrentRollbackFrame = LocalFrame % MaxRollbackFrames;
 	const int CurrentFrame = BattleState.FrameNumber;
-	FMemory::Memcpy(&BattleState.BattleStateSync, RollbackData[CurrentRollbackFrame].BattleStateBuffer.GetData(), SizeOfBattleState);
-	LoadForRollback(RollbackData[CurrentRollbackFrame].BattleStateData);
+	FMemory::Memcpy(&BattleState.BattleStateSync, RollbackData.BattleStateBuffer.GetData(), SizeOfBattleState);
+	LoadForRollback(RollbackData.BattleStateData);
 	for (int i = 0; i < BattleExtensions.Num(); i++)
 	{
-		BattleExtensions[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ExtensionData[i]);
+		BattleExtensions[i]->LoadForRollback(RollbackData.ExtensionData[i]);
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
-		if (RollbackData[CurrentRollbackFrame].ObjActive[i])
+		if (RollbackData.ObjActive[i])
 		{
-			Objects[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ObjBuffer[i].GetData());
-			Objects[i]->ObjectState->LoadForRollback(RollbackData[CurrentRollbackFrame].StateData[i]);
+			Objects[i]->LoadForRollback(RollbackData.ObjBuffer[i].GetData());
+			Objects[i]->ObjectState->LoadForRollback(RollbackData.StateData[i]);
 		}
 		else
 		{
@@ -1943,20 +1935,20 @@ void ANightSkyGameState::LoadGameState()
 	}
 	for (int i = 0; i < Players.Num(); i++)
 	{
-		Players[i]->LoadForRollback(RollbackData[CurrentRollbackFrame].ObjBuffer[i + MaxBattleObjects].GetData());
+		Players[i]->LoadForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].GetData());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
 			Players[i]->PrimaryStateMachine.CurrentState->LoadForRollback(
-				RollbackData[CurrentRollbackFrame].StateData[i + MaxBattleObjects]);
+				RollbackData.StateData[i + MaxBattleObjects]);
 		}
-		Players[i]->LoadForRollbackPlayer(RollbackData[CurrentRollbackFrame].CharBuffer[i].GetData());
-		Players[i]->LoadForRollbackBP(RollbackData[CurrentRollbackFrame].PlayerData[i]);
+		Players[i]->LoadForRollbackPlayer(RollbackData.CharBuffer[i].GetData());
+		Players[i]->LoadForRollbackBP(RollbackData.PlayerData[i]);
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
 
-	BattleHudActor->TopWidget->LoadForRollback(RollbackData[CurrentRollbackFrame].WidgetAnimationData[0]);
-	BattleHudActor->BottomWidget->LoadForRollback(RollbackData[CurrentRollbackFrame].WidgetAnimationData[1]);
+	BattleHudActor->TopWidget->LoadForRollback(RollbackData.WidgetAnimationData[0]);
+	BattleHudActor->BottomWidget->LoadForRollback(RollbackData.WidgetAnimationData[1]);
 
 	BattleHudActor->TopWidget->RollbackAnimations();
 	BattleHudActor->BottomWidget->RollbackAnimations();

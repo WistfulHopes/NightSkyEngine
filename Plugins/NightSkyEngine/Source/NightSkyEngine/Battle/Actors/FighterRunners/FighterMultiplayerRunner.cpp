@@ -88,13 +88,11 @@ bool AFighterMultiplayerRunner::BeginGameCallback(const char*)
 
 bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, int32* len, int32* checksum, int32)
 {
-	GameState->SaveGameState(checksum);
-	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
-	FRollbackData rollbackdata = GameState->RollbackData[BackupFrame];
+	FRollbackData RollbackData = FRollbackData();
+	GameState->SaveGameState(RollbackData, checksum);
 	FBufferArchive Ar(false);
 	Ar.SetWantBinaryPropertySerialization(true);
-	rollbackdata.Serialize(Ar);
-	rollbackdata.SizeOfBPRollbackData = Ar.Num();
+	RollbackData.Serialize(Ar);
 
 	*len = Ar.Num();
 	*buffer = new unsigned char[*len];
@@ -105,15 +103,14 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 
 bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int32 len)
 {
-	int BackupFrame = GameState->LocalFrame % MaxRollbackFrames;
-	FRollbackData* RollbackData = &GameState->RollbackData[BackupFrame];
+	FRollbackData RollbackData = FRollbackData();
 
 	const TArray BPArray(buffer, len);
 	FMemoryReader Ar(BPArray);
 	Ar.SetWantBinaryPropertySerialization(true);
-	RollbackData->Serialize(Ar);
+	RollbackData.Serialize(Ar);
 
-	GameState->LoadGameState();
+	GameState->LoadGameState(RollbackData);
 	return true;
 }
 
@@ -126,11 +123,10 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	file.open(TCHAR_TO_ANSI(*savedDir));
 	if (file.is_open())
 	{
-		FRollbackData* rollbackdata = (FRollbackData*)malloc(sizeof(FRollbackData));
-		memcpy(rollbackdata, buffer, sizeof(FRollbackData));
+		FRollbackData* rollbackdata = (FRollbackData*)buffer;
 		file << "GameState:\n";
-		FBattleState BattleState;
-		FMemory::Memcpy(&BattleState, rollbackdata->BattleStateBuffer.GetData(), SizeOfBattleState);
+		FBattleState BattleState = FBattleState();
+		FMemory::Memcpy(&BattleState.BattleStateSync, rollbackdata->BattleStateBuffer.GetData(), SizeOfBattleState);
 		file << "\tFrameNumber: " << BattleState.FrameNumber << std::endl;
 		file << "\tActiveObjectCount: " << BattleState.ActiveObjectCount << std::endl;
 		for (int i = 0; i < GameState->MaxBattleObjects; i++)

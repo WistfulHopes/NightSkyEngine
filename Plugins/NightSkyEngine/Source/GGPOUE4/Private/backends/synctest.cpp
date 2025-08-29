@@ -7,6 +7,8 @@
 
 #include "synctest.h"
 
+#include "Kismet/KismetSystemLibrary.h"
+
 SyncTestBackend::SyncTestBackend(GGPOSessionCallbacks *cb,
                                  const char *gamename,
                                  int frames,
@@ -186,7 +188,7 @@ SyncTestBackend::BeginLog(int saving)
    EndLog();
 
    char filename[MAX_PATH];
-   Platform::CreateDirectory("synclogs", NULL);
+   Platform::CreateDirectory(TCHAR_TO_ANSI(*(UKismetSystemLibrary::GetProjectSavedDirectory() + "synclogs")), NULL);
    sprintf(filename, "synclogs\\%s-%04d-%s.log",
            saving ? "state" : "log",
            _sync.GetFrameCount(),

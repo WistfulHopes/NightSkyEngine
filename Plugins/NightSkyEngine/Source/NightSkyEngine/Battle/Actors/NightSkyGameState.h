@@ -261,8 +261,6 @@ struct FRollbackData
 	TArray<TArray<uint8>> StateData;
 	TArray<TArray<uint8>> ExtensionData;
 	TArray<TArray<uint8>> WidgetAnimationData;
-	UPROPERTY()
-	uint64 SizeOfBPRollbackData;
 	
 	void Serialize(FArchive& Ar);
 };
@@ -345,8 +343,6 @@ public:
 	class AFighterLocalRunner* FighterRunner = nullptr;;
 	UPROPERTY(BlueprintReadWrite)
 	ANightSkyBattleHudActor* BattleHudActor = nullptr;;
-
-	TArray<FRollbackData> RollbackData = {};
 	
 	int32 LocalFrame = 0;
 	int32 RemoteFrame = 0;
@@ -399,8 +395,8 @@ public:
 	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FGameplayTag AssistName);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
-	void SaveGameState(int32* InChecksum); //saves game state
-	void LoadGameState(); //loads game state
+	void SaveGameState(FRollbackData& RollbackData, int32* InChecksum); //saves game state
+	void LoadGameState(FRollbackData& RollbackData); //loads game state
 	
 	TArray<uint8> SaveForRollback();
 	void LoadForRollback(const TArray<uint8>& InBytes);
