@@ -123,19 +123,24 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	file.open(TCHAR_TO_ANSI(*savedDir));
 	if (file.is_open())
 	{
-		FRollbackData* rollbackdata = (FRollbackData*)buffer;
+		FRollbackData RollbackData = FRollbackData();
+		const TArray BPArray(buffer, len);
+		FMemoryReader Ar(BPArray);
+		Ar.SetWantBinaryPropertySerialization(true);
+		RollbackData.Serialize(Ar);
+		
 		file << "GameState:\n";
 		FBattleState BattleState = FBattleState();
-		FMemory::Memcpy(&BattleState.BattleStateSync, rollbackdata->BattleStateBuffer.GetData(), SizeOfBattleState);
+		FMemory::Memcpy(&BattleState.BattleStateSync, RollbackData.BattleStateBuffer.GetData(), SizeOfBattleState);
 		file << "\tFrameNumber: " << BattleState.FrameNumber << std::endl;
 		file << "\tActiveObjectCount: " << BattleState.ActiveObjectCount << std::endl;
 		for (int i = 0; i < GameState->MaxBattleObjects; i++)
 		{
-			if (rollbackdata->ObjActive[i])
+			if (RollbackData.ObjActive[i])
 			{
 				ABattleObject* BattleActor = NewObject<ABattleObject>();
 				FMemory::Memcpy(reinterpret_cast<char*>(BattleActor) + offsetof(ABattleObject, ObjSync),
-				                rollbackdata->ObjBuffer[i].GetData(), SizeOfBattleObject);
+				                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
 				BattleActor->LogForSyncTestFile(file);
 			}
 		}
@@ -143,9 +148,9 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		{
 			APlayerObject* PlayerCharacter = NewObject<APlayerObject>();
 			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(ABattleObject, ObjSync),
-			                rollbackdata->ObjBuffer[i].GetData(), SizeOfBattleObject);
+			                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
 			FMemory::Memcpy(reinterpret_cast<char*>(PlayerCharacter) + offsetof(APlayerObject, PlayerSync),
-			                rollbackdata->CharBuffer[i - GameState->MaxBattleObjects].GetData(), SizeOfPlayerObject);
+			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].GetData(), SizeOfPlayerObject);
 			PlayerCharacter->LogForSyncTestFile(file);
 		}
 
@@ -154,7 +159,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		file << "\n\t0: ";
 		for (int x = 0; x < SizeOfBattleState; x++)
 		{
-			file << std::hex << std::uppercase << static_cast<int>(rollbackdata->BattleStateBuffer[x]) << " ";
+			file << std::hex << std::uppercase << static_cast<int>(RollbackData.BattleStateBuffer[x]) << " ";
 			if (x % 16 == 0)
 			{
 				file << "\n\t" << std::hex << std::uppercase << x << ": ";
@@ -168,7 +173,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfBattleObject; x++)
 			{
-				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->ObjBuffer[i][x]) << " ";
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i][x]) << " ";
 				if (x % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
@@ -180,7 +185,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		file << "\tObjActive:\n";
 		for (int i = 0; i < GameState->MaxBattleObjects; i++)
 		{
-			file << rollbackdata->ObjActive[i] << " ";
+			file << RollbackData.ObjActive[i] << " ";
 		}
 		file << "\n";
 		file << "\tPlayerBuffer:\n";
@@ -190,7 +195,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfPlayerObject; x++)
 			{
-				file << std::hex << std::uppercase << static_cast<int>(rollbackdata->CharBuffer[i][x]) << " ";
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.CharBuffer[i][x]) << " ";
 				if (x % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
