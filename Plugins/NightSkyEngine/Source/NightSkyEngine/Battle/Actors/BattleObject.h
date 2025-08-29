@@ -1229,9 +1229,9 @@ public:
 
 	uint32 ObjNumber = 0;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	float ScreenSpaceDepthOffset = 0;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, SaveGame)
 	float OrthoBlendActive = 0;
 
 	UPROPERTY()

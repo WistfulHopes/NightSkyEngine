@@ -160,7 +160,18 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		for (int x = 0; x < SizeOfBattleState; x++)
 		{
 			file << std::hex << std::uppercase << static_cast<int>(RollbackData.BattleStateBuffer[x]) << " ";
-			if (x % 16 == 0)
+			if ((x + 1) % 16 == 0)
+			{
+				file << "\n\t" << std::hex << std::uppercase << x << ": ";
+			}
+		}
+		file << "\n";
+		file << "\tStateData:\n";
+		file << "\n\t0: ";
+		for (int x = 0; x < RollbackData.BattleStateData.Num(); x++)
+		{
+			file << std::hex << std::uppercase << static_cast<int>(RollbackData.BattleStateData[x]) << " ";
+			if ((x + 1) % 16 == 0)
 			{
 				file << "\n\t" << std::hex << std::uppercase << x << ": ";
 			}
@@ -175,7 +186,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			{
 				if (RollbackData.ObjBuffer[i].IsEmpty()) continue;
 				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i][x]) << " ";
-				if (x % 16 == 0)
+				if ((x + 1) % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
 				}
@@ -197,28 +208,30 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			for (int x = 0; x < SizeOfPlayerObject; x++)
 			{
 				file << std::hex << std::uppercase << static_cast<int>(RollbackData.CharBuffer[i][x]) << " ";
-				if (x % 16 == 0)
+				if ((x + 1) % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x << ": ";
 				}
 			}
 			file << "\n";
 		}
-		file << "\n";
-
-		int checksum = fletcher32_checksum((short*)buffer, sizeof(FRollbackData) / 2);
-		file << "RawBuffer:\n";
-		file << "\tFletcher32Checksum: " << checksum << "\n";
-		file << "\tBuffer:\n\t0: ";
-		for (int i = 0; i < sizeof(FRollbackData); i++)
+		file << "\tPlayerData:\n";
+		file << "\n\t0: ";
+		for (int i = 0; i < GameState->Players.Num(); i++)
 		{
-			file << std::hex << std::uppercase << static_cast<int>(buffer[i]) << " ";
-			if (i % 16 == 0)
+			file << "Player " << i << ":\n";
+			file << "\n\t0: ";
+			for (int x = 0; x < RollbackData.PlayerData.Num(); x++)
 			{
-				file << "\n\t" << std::hex << std::uppercase << i << ": ";
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.PlayerData[i][x]) << " ";
+				if ((x + 1) % 16 == 0)
+				{
+					file << "\n\t" << std::hex << std::uppercase << x << ": ";
+				}
 			}
 		}
-
+		file << "\n";
+		
 		file.close();
 	}
 	return true;
