@@ -173,6 +173,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfBattleObject; x++)
 			{
+				if (RollbackData.ObjBuffer[i].IsEmpty()) continue;
 				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i][x]) << " ";
 				if (x % 16 == 0)
 				{
