@@ -321,16 +321,18 @@ void ANightSkyPlayerController::SendBattleData()
 		const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 		if (PlayerIndex == 0)
 		{
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[0]->GetPrimaryAssetId());
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[1]->GetPrimaryAssetId());
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[2]->GetPrimaryAssetId());
+			for (const auto Player : GameInstance->BattleData.PlayerListP1)
+			{
+				NetworkMirror.PlayerList.Add(Player->GetPrimaryAssetId());
+			}
 			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData, NetworkMirror);
 		}
 		else
 		{
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[3]->GetPrimaryAssetId());
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[4]->GetPrimaryAssetId());
-			NetworkMirror.PlayerList.Add(GameInstance->BattleData.PlayerListP1[5]->GetPrimaryAssetId());
+			for (const auto Player : GameInstance->BattleData.PlayerListP2)
+			{
+				NetworkMirror.PlayerList.Add(Player->GetPrimaryAssetId());
+			}
 			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData, NetworkMirror);
 		}
 	}
