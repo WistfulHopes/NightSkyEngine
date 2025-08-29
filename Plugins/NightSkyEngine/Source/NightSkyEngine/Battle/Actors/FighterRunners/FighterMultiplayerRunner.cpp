@@ -219,7 +219,6 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			}
 		}
 
-		delete[] buffer;
 		file.close();
 	}
 	return true;
