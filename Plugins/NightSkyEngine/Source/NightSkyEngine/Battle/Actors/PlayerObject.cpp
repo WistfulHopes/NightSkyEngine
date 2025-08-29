@@ -193,7 +193,7 @@ void APlayerObject::InitPlayer()
 			for (int i = 0; i < StateClass.GetDefaultObject()->MaxInstances; i++)
 			{
 				auto State = NewObject<UState>(this, StateClass);
-				AddObjectState(State->Name, State, false);
+				AddObjectState(State->Name, State, true);
 			}
 		}
 	}
