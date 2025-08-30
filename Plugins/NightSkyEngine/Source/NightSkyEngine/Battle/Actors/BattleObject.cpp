@@ -159,7 +159,7 @@ void ABattleObject::CalculateHoming()
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
 				SpeedXRatePerFrame = HomingParams.ParamB;
 				SpeedYRatePerFrame = HomingParams.ParamB;
-				AddSpeedXRaw(HomingParams.ParamA * TmpPosX / 100);
+				SpeedX += HomingParams.ParamA * TmpPosX / 100;
 				SpeedY += HomingParams.ParamA * TmpPosY / 100;
 			}
 			else if (HomingParams.Type == HOMING_FixAccel)
@@ -171,7 +171,7 @@ void ABattleObject::CalculateHoming()
 				SpeedYRate = HomingParams.ParamB;
 				int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
 				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
-				AddSpeedXRaw(CosParamA);
+				SpeedX += CosParamA;
 				SpeedY += SinParamA;
 			}
 			else if (HomingParams.Type == HOMING_ToSpeed)
@@ -196,7 +196,7 @@ void ABattleObject::CalculateHoming()
 					}
 					while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 					{
-						SetSpeedXRaw(-CosParamA);
+						SpeedX = -CosParamA;
 						if (HomingParams.ParamB <= 0)
 						{
 							if (HomingParams.ParamB >= 0)
@@ -237,7 +237,7 @@ void ABattleObject::CalculateHoming()
 						}
 						while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 						{
-							SetSpeedXRaw(CosParamA);
+							SpeedX = CosParamA;
 							if (HomingParams.ParamB <= 0)
 							{
 								if (HomingParams.ParamB >= 0)
@@ -272,7 +272,7 @@ void ABattleObject::CalculateHoming()
 					{
 						while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 						{
-							SetSpeedXRaw(CosParamA);
+							SpeedX = CosParamA;
 							if (HomingParams.ParamB <= 0)
 							{
 								if (HomingParams.ParamB >= 0)
@@ -306,7 +306,7 @@ void ABattleObject::CalculateHoming()
 				}
 				while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
 				{
-					SetSpeedXRaw(CosParamA);
+					SpeedX = CosParamA;
 					if (HomingParams.ParamB <= 0)
 					{
 						if (HomingParams.ParamB >= 0)
@@ -1540,6 +1540,10 @@ void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
 
 void ABattleObject::UpdateVisuals()
 {
+	if (LinkedParticle)
+	{
+		LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -GetActorRotation().Pitch);
+	}
 	if (IsPlayer)
 	{
 		if (Player->PlayerFlags & PLF_IsOnScreen) SetActorHiddenInGame(false);
@@ -1829,6 +1833,7 @@ void ABattleObject::ResetObject()
 
 	if (IsValid(LinkedParticle))
 	{
+		LinkedParticle->ToggleVisibility();
 		LinkedParticle->Deactivate();
 	}
 	RemoveLinkActor();
