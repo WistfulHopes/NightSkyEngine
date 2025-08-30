@@ -157,6 +157,7 @@ void ABattleObject::CalculateHoming()
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+				if (Direction == DIR_Left) TmpPosX *= -1;
 				SpeedXRatePerFrame = HomingParams.ParamB;
 				SpeedYRatePerFrame = HomingParams.ParamB;
 				SpeedX += HomingParams.ParamA * TmpPosX / 100;
@@ -166,6 +167,7 @@ void ABattleObject::CalculateHoming()
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+				if (Direction == DIR_Left) TmpPosX *= -1;
 				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
 				SpeedXRate = HomingParams.ParamB;
 				SpeedYRate = HomingParams.ParamB;
@@ -178,12 +180,12 @@ void ABattleObject::CalculateHoming()
 			{
 				int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
 				int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+				if (Direction == DIR_Left) TmpPosX *= -1;
 				int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
-				int32 CosParamA = (Direction == DIR_Right ? HomingParams.ParamA : -HomingParams.ParamA) *
-					UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+				int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
 				int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
-				int32 TmpParamB = Direction == DIR_Right ? HomingParams.ParamB : -HomingParams.ParamB;
-				int32 TmpSpeedX = Direction == DIR_Right ? SpeedX : -SpeedX;
+				int32 TmpParamB = HomingParams.ParamB;
+				int32 TmpSpeedX = SpeedX;
 				if (TmpParamB <= 0)
 				{
 					if (TmpParamB >= 0)
