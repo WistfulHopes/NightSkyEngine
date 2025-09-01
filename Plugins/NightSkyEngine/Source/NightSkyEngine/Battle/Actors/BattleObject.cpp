@@ -1545,7 +1545,14 @@ void ABattleObject::UpdateVisuals()
 {
 	if (LinkedParticle)
 	{
-		LinkedParticle->SetVariableFloat(FName("SpriteRotate"), ObjectRotation.Pitch * Direction == DIR_Right ? -1 : 1);
+		if (Direction == DIR_Left)
+		{
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), ObjectRotation.Pitch);
+		}
+		else
+		{
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -ObjectRotation.Pitch);
+		}
 	}
 	if (IsPlayer)
 	{
