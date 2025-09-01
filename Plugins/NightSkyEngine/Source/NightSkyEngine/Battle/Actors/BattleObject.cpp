@@ -484,6 +484,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			AttackedPlayer->HaltMomentum();
 			AttackedPlayer->PlayerFlags |= PLF_IsStunned;
 			AttackFlags |= ATK_HasHit;
+			if (AttackFlags & ATK_SetPlayerHit) Player->AttackFlags |= ATK_HasHit;
 			AttackTarget = AttackedPlayer;
 
 			TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
@@ -2306,6 +2307,21 @@ void ABattleObject::SetAttacking(bool Attacking)
 	}
 	AttackFlags &= ~ATK_HasHit;
 	AttackFlags &= ~ATK_HitActive;
+}
+
+void ABattleObject::SetPlayerHit(bool Enable)
+{
+	if (!IsPlayer)
+	{
+		if (Enable)
+		{
+			AttackFlags |= ATK_SetPlayerHit;
+		}
+		else
+		{
+			AttackFlags &= ~ATK_SetPlayerHit;
+		}
+	}
 }
 
 void ABattleObject::SetProjectileAttribute(bool Attribute)

@@ -150,6 +150,10 @@ enum EAttackFlags
 	 * Flag sets if object will ignore hitstun scaling.
 	 */
 	ATK_IgnoreHitstunScaling = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling"),
+	/**
+	 * Flag sets if object will set ATK_HasHit in owning player on hit. Does nothing if already is a player object.
+	 */
+	ATK_SetPlayerHit = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling"),
 };
 
 /**

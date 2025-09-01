@@ -970,6 +970,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EObjDir> Direction = DIR_Right;
 	// Ground hit pushback.
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 Pushback = 0;
 
 	/*
@@ -1373,6 +1374,8 @@ public:
 	//sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
 	UFUNCTION(BlueprintCallable)
 	void SetAttacking(bool Attacking);
+	UFUNCTION(BlueprintCallable)
+	void SetPlayerHit(bool Enable);
 	UFUNCTION(BlueprintCallable)
 	void SetProjectileAttribute(bool Attribute);
 	UFUNCTION(BlueprintCallable)

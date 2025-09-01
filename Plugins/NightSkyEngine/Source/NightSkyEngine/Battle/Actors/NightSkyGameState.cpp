@@ -649,7 +649,8 @@ void ANightSkyGameState::UpdateScreen()
 		{
 			int TargetOffsetY;
 
-			auto Ratio = 1280000 / ScreenData->TargetWidth;
+			auto Ratio = ScreenData->DefaultWidth * 1000 / ScreenData->TargetWidth;
+			
 			if (Ratio * ScreenData->ObjBottom / 1000 <= ScreenData->TargetOffsetAirYPos ||
 				Ratio * (ScreenData->HigherObjBottom - ScreenData->ObjBottom) / 1000 >= ScreenData->
 				TargetOffsetAirYDist)
@@ -658,7 +659,7 @@ void ANightSkyGameState::UpdateScreen()
 			}
 			else
 			{
-				TargetOffsetY = FMath::Max(ScreenData->TargetOffsetY + ScreenData->TargetOffsetAirYAdd, ScreenData->TargetOffsetAirYMax);
+				TargetOffsetY = FMath::Max(ScreenData->TargetOffsetY - ScreenData->TargetOffsetAirYAdd, ScreenData->TargetOffsetAirYMax);
 			}
 
 			ScreenData->TargetOffsetY = TargetOffsetY;
@@ -667,7 +668,7 @@ void ANightSkyGameState::UpdateScreen()
 			ScreenData->TargetCenterY = FMath::Clamp(Ratio, 0, ScreenData->StageBoundsTop);
 		}
 	}
-
+	
 	const auto Width = ScreenData->TargetWidth - ScreenData->ScreenWorldWidth;
 	ScreenData->WidthVelocity = Width / 14 - 1;
 	ScreenData->ScreenWorldWidth += ScreenData->WidthVelocity;

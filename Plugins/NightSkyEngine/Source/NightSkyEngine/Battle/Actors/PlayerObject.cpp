@@ -430,7 +430,7 @@ void APlayerObject::Update()
 		Player->Inputs = FlipInput(Player->Inputs);
 	}
 
-	if ((PlayerFlags & PLF_IsStunned) == 0)
+	if ((PlayerFlags & PLF_IsStunned) == 0 && IsMainPlayer())
 	{
 		Enemy->ComboCounter = 0;
 		Enemy->ComboTimer = 0;
@@ -444,7 +444,10 @@ void APlayerObject::Update()
 		Inputs |= INP_Neutral;
 	else
 		Inputs = Inputs & ~INP_Neutral; //remove neutral input if directional input
-
+	
+	if (ComboCounter > 0)
+		ComboTimer++;
+	
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
 		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
@@ -603,9 +606,6 @@ void APlayerObject::Update()
 
 	if (PosY > GroundHeight) //set jumping if above ground
 		Stance = ACT_Jumping;
-
-	if (ComboCounter > 0)
-		ComboTimer++;
 
 	if (MeterCooldownTimer > 0)
 		MeterCooldownTimer--;
@@ -864,8 +864,8 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 
 	if (FinalDamage < ReceivedHit.MinimumDamagePercent * ReceivedHit.Damage / 100)
 		FinalDamage = ReceivedHit.Damage * ReceivedHit.MinimumDamagePercent / 100;
-
-	if (OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
+	
+	if (MaxOTGCount >= 0 && OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
 		FinalDamage = FinalDamage * OtgProration / 100;
 
 	CurrentHealth -= FinalDamage;
@@ -1106,7 +1106,7 @@ void APlayerObject::SetHitValues()
 	int32 FinalAirHitPushbackY;
 	int32 FinalGravity;
 
-	if (!(AttackFlags & ATK_IgnorePushbackScaling))
+	if (!(AttackOwner->AttackFlags & ATK_IgnorePushbackScaling))
 	{
 		FinalHitPushbackX = ReceivedHit.GroundPushbackX + MovesUsedInCombo.Num() * 500;
 		FinalAirHitPushbackX = ReceivedHit.AirPushbackX + MovesUsedInCombo.Num() * 150;
@@ -1128,10 +1128,7 @@ void APlayerObject::SetHitValues()
 	else
 		HACT = ReceivedHit.AirHitAction;
 
-	if (FinalHitPushbackX != -1)
-		Pushback = -FinalHitPushbackX;
-	else
-		Pushback = 0;
+	Pushback = -FinalHitPushbackX;
 
 	switch (ReceivedHit.Position.Type)
 	{
@@ -1157,30 +1154,30 @@ void APlayerObject::SetHitValues()
 
 	int32 FinalHitstun = ReceivedHit.Hitstun;
 	int32 FinalUntech = ReceivedHit.Untech;
-	if (!(AttackFlags & ATK_IgnoreHitstunScaling))
+	if (!(AttackOwner->AttackFlags & ATK_IgnoreHitstunScaling))
 	{
 		if (Enemy->ComboTimer >= 14 * 60)
 		{
-			FinalHitstun = FinalHitstun * 50 / 100;
-			FinalUntech = FinalUntech * 70 / 100;
+			FinalHitstun = FinalHitstun * 70 / 100;
+			FinalUntech = FinalUntech * 50 / 100;
 		}
 		else if (Enemy->ComboTimer >= 10 * 60)
 		{
-			FinalHitstun = FinalHitstun * 60 / 100;
-			FinalUntech = FinalUntech * 80 / 100;
+			FinalHitstun = FinalHitstun * 80 / 100;
+			FinalUntech = FinalUntech * 60 / 100;
 		}
 		else if (Enemy->ComboTimer >= 7 * 60)
 		{
-			FinalHitstun = FinalHitstun * 70 / 100;
-			FinalUntech = FinalUntech * 90 / 100;
-		}
-		else if (Enemy->ComboTimer >= 5 * 60)
-		{
-			FinalHitstun = FinalHitstun * 80 / 100;
-		}
-		else if (Enemy->ComboTimer >= 3 * 60)
-		{
 			FinalHitstun = FinalHitstun * 90 / 100;
+			FinalUntech = FinalUntech * 70 / 100;
+		}
+		else if (Enemy->ComboTimer >= 4 * 60)
+		{
+			FinalUntech = FinalUntech * 80 / 100;
+		}
+		else if (Enemy->ComboTimer >= 2 * 60)
+		{
+			FinalUntech = FinalUntech * 90 / 100;
 		}
 	}
 
@@ -1296,7 +1293,7 @@ void APlayerObject::SetHitValues()
 	else
 		PlayerFlags &= ~PLF_IsHardKnockedDown;
 
-	if (OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
+	if (MaxOTGCount >= 0 && OTGCount > MaxOTGCount && !(AttackOwner->AttackFlags & ATK_IgnoreOTG))
 	{
 		SpeedX = -30000;
 		SpeedY = 8000;
