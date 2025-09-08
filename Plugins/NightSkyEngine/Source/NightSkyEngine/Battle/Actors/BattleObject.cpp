@@ -1240,7 +1240,7 @@ void ABattleObject::HandleFlip()
 			Player->StoredInputBuffer.FlipInputsInBuffer();
 			if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
 				Player->JumpToStatePrimary(State_Universal_StandFlip);
-			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
+			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Crouching)
 				Player->JumpToStatePrimary(State_Universal_CrouchFlip);
 			else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
 				Player->JumpToStatePrimary(State_Universal_JumpFlip);
@@ -2098,6 +2098,9 @@ void ABattleObject::GotoLabel(FGameplayTag InName)
 	if (!GameState && !CharaSelectGameState) return;
 	LabelName = InName;
 	GotoLabelActive = true;
+	
+	if (!Player) ObjectState->CallExec();
+	else Player->PrimaryStateMachine.Update();
 }
 
 void ABattleObject::SetTimeUntilNextCel(int32 InTime)
