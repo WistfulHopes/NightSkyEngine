@@ -33,14 +33,15 @@ ANightSkyPlayerController::ANightSkyPlayerController()
 void ANightSkyPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
 }
 
 // Called every frame
 void ANightSkyPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	NetworkPawn = Cast<ANetworkPawn>(GetPawn());
+	
 	if (NetworkPawn != nullptr)
 	{
 		const int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
@@ -307,9 +308,9 @@ void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Clien
 
 void ANightSkyPlayerController::SendBattleData()
 {
-	int PlayerIndex = 0;
-	if (GetWorld()->GetNetMode() == NM_Client)
-		PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex = 1;
+	if (bSentCharaData) return;
+	
+	int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
 	TArray<ANetworkPawn*> NetworkPawns;
 	for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
 	{
@@ -318,14 +319,17 @@ void ANightSkyPlayerController::SendBattleData()
 	if (NetworkPawns.Num() > 1)
 	{
 		FNetworkMirror NetworkMirror{};
-		const UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
+		UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 		if (PlayerIndex == 0)
 		{
+			if (NetworkPawns[1]->CharaDataReceived) return;
 			for (const auto CharaData : GameInstance->BattleData.PlayerListP1)
 			{
 				NetworkMirror.PlayerList.Add(CharaData->GetPrimaryAssetId());
 			}
 			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData, NetworkMirror);
+			NetworkPawns[1]->CharaDataReceived = true;
+			bSentCharaData = true;
 		}
 		else
 		{
@@ -334,6 +338,7 @@ void ANightSkyPlayerController::SendBattleData()
 				NetworkMirror.PlayerList.Add(CharaData->GetPrimaryAssetId());
 			}
 			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData, NetworkMirror);
+			bSentCharaData = true;
 		}
 	}
 }
@@ -348,8 +353,17 @@ void ANightSkyPlayerController::Rematch()
 		bRematch = false;
 	}
 	else
-	{	
-		if (GetWorld()->GetNetMode() == NM_Client) NetworkPawn->SendRematchToServer();
-		else NetworkPawn->SendRematchToClient();
+	{
+		int PlayerIndex = Cast<UNightSkyGameInstance>(GetGameInstance())->PlayerIndex;
+		TArray<ANetworkPawn*> NetworkPawns;
+		for (TActorIterator<ANetworkPawn> It(GetWorld()); It; ++It)
+		{
+			NetworkPawns.Add(*It);
+		}
+		if (NetworkPawns.Num() > 1)
+		{
+			if (PlayerIndex != 0) NetworkPawns[0]->SendRematchToServer();
+			else NetworkPawns[1]->bRematchAccepted = true;
+		}
 	}
 }

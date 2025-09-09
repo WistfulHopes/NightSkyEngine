@@ -34,6 +34,7 @@ enum EIntroSide
 	INT_None,
 };
 
+UENUM(BlueprintType)
 enum EWinSide 
 {
 	WIN_None,
@@ -209,7 +210,8 @@ struct FBattleState
 	int32 FadeTimer;
 
 	EIntroSide CurrentIntroSide = INT_None;
-	EWinSide CurrentWinSide = WIN_None;
+	UPROPERTY(BlueprintReadOnly)
+	TEnumAsByte<EWinSide> CurrentWinSide = WIN_None;
 	EBattlePhase BattlePhase = EBattlePhase::Intro;
 	
 	int32 ActiveObjectCount = 0;

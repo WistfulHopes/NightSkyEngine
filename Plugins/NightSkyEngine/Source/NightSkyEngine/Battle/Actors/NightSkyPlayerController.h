@@ -89,6 +89,8 @@ public:
 	int Inputs;
 	int Frame;
 	bool bRematch;
+	bool bRematchAccepted;
+	bool bSentCharaData;
 
 	UPROPERTY(EditAnywhere, Category="Input")
 	TSoftObjectPtr<UInputMappingContext> InputMapping;

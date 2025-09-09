@@ -8,6 +8,7 @@
 #include "Engine/AssetManager.h"
 #include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
 #include "Net/UnrealNetwork.h"
+#include "NightSkyEngine/Battle/Actors/NightSkyPlayerController.h"
 #include "NightSkyEngine/Battle/Actors/FighterRunners/FighterMultiplayerRunner.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 
@@ -35,6 +36,9 @@ void ANetworkPawn::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 
 void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
+	auto NetworkPawn = Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->NetworkPawn;
+	if (NetworkPawn->CharaDataReceived) return;
+	
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 
 	GameInstance->BattleData.PlayerListP2.Empty();
@@ -43,11 +47,13 @@ void ANetworkPawn::ServerGetCharaData(TArray<FPrimaryAssetId> Assets)
 		GameInstance->BattleData.PlayerListP2.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
 	}
 
-	CharaDataReceived = true;
+	NetworkPawn->CharaDataReceived = true;
 }
 
 void ANetworkPawn::ClientGetCharaData(TArray<FPrimaryAssetId> Assets)
 {
+	if (CharaDataReceived) return;
+	
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 
 	GameInstance->BattleData.PlayerListP1.Empty();
@@ -55,18 +61,11 @@ void ANetworkPawn::ClientGetCharaData(TArray<FPrimaryAssetId> Assets)
 	{
 		GameInstance->BattleData.PlayerListP1.Add(Cast<UPrimaryCharaData>(UAssetManager::Get().GetPrimaryAssetObject(CharaData)));
 	}
-
-	CharaDataReceived = true;
-}
-
-void ANetworkPawn::SendRematchToClient_Implementation()
-{
-	bRematchAccepted = true;
 }
 
 void ANetworkPawn::SendRematchToServer_Implementation()
 {
-	bRematchAccepted = true;
+	Cast<ANightSkyPlayerController>(GetWorld()->GetFirstPlayerController())->NetworkPawn->bRematchAccepted = true;
 }
 
 void ANetworkPawn::ServerGetFinishedLoading_Implementation(bool Finished)
@@ -106,7 +105,6 @@ void ANetworkPawn::ServerGetBattleData_Implementation(FBattleData InBattleData, 
 	UNightSkyGameInstance* GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	UAssetManager::Get().LoadPrimaryAssets(Mirror.PlayerList, TArray<FName>(), FStreamableDelegate::CreateUObject(this, &ANetworkPawn::ServerGetCharaData, Mirror.PlayerList));
 	GameInstance->BattleData.ColorIndicesP2 = InBattleData.ColorIndicesP2;
-	CharaDataReceived = true;
 }
 
 void ANetworkPawn::ServerChecksumCheck_Implementation(uint32 Checksum, int32 InFrame)
