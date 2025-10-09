@@ -2466,6 +2466,29 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 	return false;
 }
 
+void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX, int& OutPosY) const
+{
+	for (auto& Box : Boxes)
+	{
+		if (Box.Type == BoxType)
+		{
+			if (Box.Type == BOX_Custom && Box.CustomType != CustomType) continue;
+
+			if (Direction == DIR_Right)
+			{
+				OutPosX = Box.PosX + PosX;
+			}
+			else
+			{
+				OutPosX = -Box.PosX + PosX;
+			}
+			OutPosY = Box.PosY + PosY;
+
+			return;
+		}
+	}
+}
+
 void ABattleObject::EnableFlip(bool Enabled)
 {
 	if (Enabled)
