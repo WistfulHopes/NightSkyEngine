@@ -292,14 +292,14 @@ protected:
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
-	int32 ThrowRange;
-	int32 ThrowTechTimer;
+	int32 ThrowRange = 0;
+	int32 ThrowTechTimer = 0;
 
 	//Auto combo cancels
 	int32 AutoComboCancels[8] = {};
 
 	UPROPERTY(BlueprintReadOnly)
-	bool bIsAutoCombo;
+	bool bIsAutoCombo = false;
 	FGameplayTag LastStateName;
 	FGameplayTag ExeStateName;
 	FGameplayTag BufferedStateName;
@@ -553,14 +553,14 @@ protected:
 	uint32 AirDashNoAttackTime = 0;
 	uint32 InstantBlockLockoutTimer = 0;
 	uint32 MeterCooldownTimer = 0;
-	int32 ThrowRange;
-	int32 ThrowTechTimer;
+	int32 ThrowRange = 0;
+	int32 ThrowTechTimer = 0;
 
 	//Auto combo cancels
 	int32 AutoComboCancels[8] = {};
 
 	UPROPERTY(BlueprintReadOnly)
-	bool bIsAutoCombo;
+	bool bIsAutoCombo = false;
 	FGameplayTag LastStateName;
 	FGameplayTag ExeStateName;
 	FGameplayTag BufferedStateName;
@@ -1035,3 +1035,4 @@ public:
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);
+static_assert(offsetof(FPlayerObjectLog, PlayerSyncEnd) - offsetof(FPlayerObjectLog, PlayerSync) == SizeOfPlayerObject, "FPlayerObjectLog must contain all members from ABattleObject between PlayerSync and PlayerSyncEnd");
