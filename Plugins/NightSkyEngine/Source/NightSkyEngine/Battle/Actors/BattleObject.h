@@ -599,6 +599,301 @@ struct FSuperArmorData
 	int32 ArmorHits;
 };
 
+#define BATTLE_OBJECT_BODY \
+	/* Starting from this until ObjSyncEnd, everything is saved/loaded for rollback. */ \
+	unsigned char ObjSync = 0; \
+ \
+	/* \
+	 * Movement and position values \
+	 */ \
+ \
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) \
+	int32 PosX = 0; \
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) \
+	int32 PosY = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 PosZ = 0; \
+	int32 PrevPosX = 0; \
+	int32 PrevPosY = 0; \
+	int32 PrevPosZ = 0; \
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults) \
+	bool BlendOffset = false; \
+	int32 PrevOffsetX = 0; \
+	int32 PrevOffsetY = 0; \
+	int32 NextOffsetX = 0; \
+	int32 NextOffsetY = 0; \
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) \
+	int32 SpeedX = 0; \
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) \
+	int32 SpeedY = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedZ = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedXRate = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedXRatePerFrame = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedYRate = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedYRatePerFrame = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedZRate = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SpeedZRatePerFrame = 100; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 Gravity = 1900; \
+	/* Inertia adds to the position every frame, but also decays every frame until it reaches zero. */ \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 Inertia = 0; \
+	/* The minimum Y position before considered grounded. */ \
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) \
+	int32 GroundHeight = 0; \
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly) \
+	TEnumAsByte<EObjDir> Direction = DIR_Right; \
+	/* Ground hit pushback. */ \
+	int32 Pushback = 0; \
+ \
+	/* \
+	 * Attack data \
+	 */ \
+ \
+	UPROPERTY(BlueprintReadWrite) \
+	FHitDataCommon HitCommon = {}; \
+	UPROPERTY(BlueprintReadWrite) \
+	FHitData NormalHit = {}; \
+	UPROPERTY(BlueprintReadWrite) \
+	FHitData CounterHit = {}; \
+	uint32 AttackFlags = 0; \
+ \
+	/* \
+	 * Received attack data \
+	 */ \
+ \
+	UPROPERTY(BlueprintReadOnly) \
+	FHitDataCommon ReceivedHitCommon = {}; \
+	UPROPERTY(BlueprintReadOnly) \
+	FHitData ReceivedHit = {}; \
+	uint32 StunTime = 0; \
+	uint32 StunTimeMax = 0; \
+	uint32 Hitstop = 0; \
+ \
+	/* \
+	 * Registers \
+	*/ \
+ \
+	/*This value stores the return value for functions. */ \
+	bool ReturnReg = false; \
+ \
+	/*The following values are per-action registers. Shared between the player and its child objects. */ \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg1 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg2 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg3 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg4 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg5 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg6 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg7 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ActionReg8 = 0; \
+ \
+	/* The following values are per-object registers. */ \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg1 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg2 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg3 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg4 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg5 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg6 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg7 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 ObjectReg8 = 0; \
+ \
+	/* \
+	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end. \
+	 */ \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 SubroutineReg1 = 0; \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 SubroutineReg2 = 0; \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 SubroutineReg3 = 0; \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 SubroutineReg4 = 0; \
+ \
+	/* \
+	 * Subroutine return values. Subroutines can optionally return values. \
+	 * These are reset upon the next called subroutine. \
+	*/ \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SubroutineReturnVal1 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SubroutineReturnVal2 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SubroutineReturnVal3 = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 SubroutineReturnVal4 = 0; \
+ \
+	/* \
+	 * Action data \
+	 */ \
+ \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 ActionTime = 0; \
+	/* \
+	 * The current cel name. \
+	 * Cels map to collision data. \
+	 * The collision frame also stores animation data. \
+	 */ \
+	FGameplayTag CelName = {}; \
+	/* \
+	 * The blend cel name. \
+	 * This is used to make traditional 3D animations. \
+	 */ \
+	FGameplayTag BlendCelName = {}; \
+	/* \
+	 * The name of the label that is currently being jumped to. \
+	 */ \
+	FGameplayTag LabelName = {}; \
+ \
+	UPROPERTY() \
+	TArray<FAnimStruct> AnimStructs; \
+	UPROPERTY(BlueprintReadOnly) \
+	float AnimBlendIn{}; \
+	UPROPERTY(BlueprintReadOnly) \
+	float AnimBlendOut{}; \
+	/* Are we jumping to a label right now? */ \
+	UPROPERTY(BlueprintReadWrite) \
+	bool GotoLabelActive = false; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 AnimFrame = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 BlendAnimFrame = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	float FrameBlendPosition = 0; \
+	/* The index of the current cel in blueprint. */ \
+	UPROPERTY(BlueprintReadWrite) \
+	int32 CelIndex = 0; \
+	/* How long until the next cel activates. */ \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 TimeUntilNextCel = 0; \
+	/* Max time of the cel. */ \
+	int32 MaxCelTime = 0; \
+	/* Event handlers for every function. */ \
+	FEventHandler EventHandlers[EVT_NUM] = {}; \
+ \
+	/* \
+	 * Action data for objects only. \
+	 */ \
+	FGameplayTag ObjectStateName = {}; \
+	uint32 ObjectID = 0; \
+ \
+protected: \
+	/* \
+	 * Collision data \
+	 */ \
+	int32 PushHeight = 0; \
+	int32 PushHeightLow = 0; \
+	int32 PushWidth = 0; \
+	int32 PushWidthExtend = 0; \
+ \
+public: \
+	/* \
+	 * Push collision \
+	 */ \
+	 \
+	int32 L = 0; \
+	int32 R = 0; \
+	int32 T = 0; \
+	int32 B = 0; \
+ \
+	/* \
+	 * Socket data \
+	 */ \
+	FName SocketName = {}; \
+	EObjType SocketObj = OBJ_Self; \
+	FVector SocketOffset = FVector::ZeroVector; \
+ \
+	/* material parameters */ \
+	UPROPERTY(BlueprintReadWrite) \
+	FLinearColor MulColor = FLinearColor(1, 1, 1, 1); \
+	UPROPERTY(BlueprintReadWrite) \
+	FLinearColor AddColor = FLinearColor(0, 0, 0, 1); \
+	UPROPERTY(BlueprintReadWrite) \
+	FLinearColor MulFadeColor = {}; \
+	UPROPERTY(BlueprintReadWrite) \
+	FLinearColor AddFadeColor = {}; \
+	UPROPERTY(BlueprintReadWrite) \
+	float MulFadeSpeed = 0; \
+	UPROPERTY(BlueprintReadWrite) \
+	float AddFadeSpeed = 0; \
+ \
+	/* \
+	 * Miscellaneous data \
+	 */ \
+	int32 HitPosX = 0; \
+	int32 HitPosY = 0; \
+	int32 MiscFlags = 0; \
+	int32 Timer0 = 0; \
+	int32 Timer1 = 0; \
+	bool IsPlayer = false; \
+	bool IsActive = false; \
+	int32 DrawPriority = 0; /* the higher the number, the farther in front the object will be drawn */ \
+ \
+	UPROPERTY(BlueprintReadWrite) \
+	FHomingParams HomingParams = FHomingParams(); \
+	UPROPERTY(BlueprintReadWrite) \
+	FSuperArmorData SuperArmorData = FSuperArmorData(); \
+ \
+	UPROPERTY(BlueprintReadOnly) \
+	int32 UpdateTime = 0; \
+ \
+	/* \
+	 * Visual object transform \
+	 */ \
+	UPROPERTY(BlueprintReadWrite) \
+	FVector ObjectOffset = FVector::ZeroVector; \
+	UPROPERTY(BlueprintReadWrite) \
+	FRotator ObjectRotation = FRotator::ZeroRotator; \
+	UPROPERTY(BlueprintReadWrite) \
+	FVector ObjectScale = FVector::One(); \
+ \
+	/* \
+	 * Object pointers. \
+	 */ \
+ \
+	/* Pointer to player object. If this is not a player, it will point to the owning player. */ \
+	UPROPERTY(BlueprintReadOnly) \
+	APlayerObject* Player = nullptr; \
+	UPROPERTY(BlueprintReadOnly) \
+	ABattleObject* AttackOwner; \
+	UPROPERTY(BlueprintReadOnly) \
+	ABattleObject* AttackTarget = nullptr; \
+	UPROPERTY(BlueprintReadWrite) \
+	ABattleObject* PositionLinkObj = nullptr; \
+	UPROPERTY(BlueprintReadWrite) \
+	ABattleObject* StopLinkObj = nullptr; \
+	UPROPERTY(BlueprintReadWrite) \
+	ABattleObject* MaterialLinkObj = nullptr; \
+ \
+	int32 ObjectStateIndex = 0; \
+	bool bIsCommonState = false; \
+ \
+	/* Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag. */ \
+	unsigned char ObjSyncEnd = 0; \
+ \
+
 /**
  * This struct is only for sync logs.
  */
@@ -610,298 +905,7 @@ struct FBattleObjectLog
 public:
 	virtual ~FBattleObjectLog() = default;
 
-	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
-
-	/*
-	 * Movement and position values
-	 */
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosX = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosY = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 PosZ = 0;
-	int32 PrevPosX = 0;
-	int32 PrevPosY = 0;
-	int32 PrevPosZ = 0;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
-	bool BlendOffset = false;
-	int32 PrevOffsetX = 0;
-	int32 PrevOffsetY = 0;
-	int32 NextOffsetX = 0;
-	int32 NextOffsetY = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedX = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedY = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZ = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedXRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedXRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedYRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedYRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 Gravity = 1900;
-	// Inertia adds to the position every frame, but also decays every frame until it reaches zero.
-	UPROPERTY(BlueprintReadWrite)
-	int32 Inertia = 0;
-	// The minimum Y position before considered grounded.
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 GroundHeight = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TEnumAsByte<EObjDir> Direction = DIR_Right;
-	// Ground hit pushback.
-	int32 Pushback = 0;
-
-	/*
-	 * Attack data
-	 */
-
-	UPROPERTY(BlueprintReadWrite)
-	FHitDataCommon HitCommon = {};
-	UPROPERTY(BlueprintReadWrite)
-	FHitData NormalHit = {};
-	UPROPERTY(BlueprintReadWrite)
-	FHitData CounterHit = {};
-	uint32 AttackFlags = 0;
-
-	/*
-	 * Received attack data
-	 */
-
-	UPROPERTY(BlueprintReadOnly)
-	FHitDataCommon ReceivedHitCommon = {};
-	UPROPERTY(BlueprintReadOnly)
-	FHitData ReceivedHit = {};
-	uint32 StunTime = 0;
-	uint32 StunTimeMax = 0;
-	uint32 Hitstop = 0;
-
-	/*
-	 * Registers
-	*/
-
-	//This value stores the return value for functions.
-	bool ReturnReg = false;
-
-	//The following values are per-action registers. Shared between the player and its child objects.
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg4 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg5 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg6 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg7 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg8 = 0;
-
-	//The following values are per-object registers.
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg4 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg5 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg6 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg7 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg8 = 0;
-
-	/*
-	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
-	 */
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg1 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg2 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg3 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg4 = 0;
-
-	/*
-	 * Subroutine return values. Subroutines can optionally return values.
-	 * These are reset upon the next called subroutine.
-	*/
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal4 = 0;
-
-	/*
-	 * Action data
-	 */
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 ActionTime = 0;
-	/*
-	 * The current cel name.
-	 * Cels map to collision data.
-	 * The collision frame also stores animation data.
-	 */
-	FGameplayTag CelName = {};
-	/*
-	 * The blend cel name.
-	 * This is used to make traditional 3D animations.
-	 */
-	FGameplayTag BlendCelName = {};
-	/*
-	 * The name of the label that is currently being jumped to.
-	 */
-	FGameplayTag LabelName = {};
-
-	UPROPERTY()
-	TArray<FAnimStruct> AnimStructs;
-	UPROPERTY(BlueprintReadOnly)
-	float AnimBlendIn{};
-	UPROPERTY(BlueprintReadOnly)
-	float AnimBlendOut{};
-	// Are we jumping to a label right now?
-	UPROPERTY(BlueprintReadWrite)
-	bool GotoLabelActive = false;
-	UPROPERTY(BlueprintReadWrite)
-	int32 AnimFrame = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 BlendAnimFrame = 0;
-	UPROPERTY(BlueprintReadWrite)
-	float FrameBlendPosition = 0;
-	// The index of the current cel in blueprint.
-	UPROPERTY(BlueprintReadWrite)
-	int32 CelIndex = 0;
-	// How long until the next cel activates.
-	UPROPERTY(BlueprintReadOnly)
-	int32 TimeUntilNextCel = 0;
-	// Max time of the cel.
-	int32 MaxCelTime = 0;
-	// Event handlers for every function.
-	FEventHandler EventHandlers[EVT_NUM] = {};
-
-	/*
-	 * Action data for objects only.
-	 */
-	FGameplayTag ObjectStateName = {};
-	uint32 ObjectID = 0;
-
-protected:
-	/*
-	 * Collision data
-	 */
-	int32 PushHeight = 0;
-	int32 PushHeightLow = 0;
-	int32 PushWidth = 0;
-	int32 PushWidthExtend = 0;
-
-public:
-	/*
-	 * Push collision
-	 */
-	
-	int32 L = 0;
-	int32 R = 0;
-	int32 T = 0;
-	int32 B = 0;
-
-	/*
-	 * Socket data
-	 */
-	FName SocketName = {};
-	EObjType SocketObj = OBJ_Self;
-	FVector SocketOffset = FVector::ZeroVector;
-
-	//material parameters
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulColor = FLinearColor(1, 1, 1, 1);
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddColor = FLinearColor(0, 0, 0, 1);
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulFadeColor = {};
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddFadeColor = {};
-	UPROPERTY(BlueprintReadWrite)
-	float MulFadeSpeed = 0;
-	UPROPERTY(BlueprintReadWrite)
-	float AddFadeSpeed = 0;
-
-	/*
-	 * Miscellaneous data
-	 */
-	int32 HitPosX = 0;
-	int32 HitPosY = 0;
-	int32 MiscFlags = 0;
-	int32 Timer0 = 0;
-	int32 Timer1 = 0;
-	bool IsPlayer = false;
-	bool IsActive = false;
-	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
-
-	UPROPERTY(BlueprintReadWrite)
-	FHomingParams HomingParams = FHomingParams();
-	UPROPERTY(BlueprintReadWrite)
-	FSuperArmorData SuperArmorData = FSuperArmorData();
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 UpdateTime = 0;
-
-	/*
-	 * Visual object transform
-	 */
-	UPROPERTY(BlueprintReadWrite)
-	FVector ObjectOffset = FVector::ZeroVector;
-	UPROPERTY(BlueprintReadWrite)
-	FRotator ObjectRotation = FRotator::ZeroRotator;
-	UPROPERTY(BlueprintReadWrite)
-	FVector ObjectScale = FVector::One();
-
-	/*
-	 * Object pointers.
-	 */
-
-	// Pointer to player object. If this is not a player, it will point to the owning player.
-	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* Player = nullptr;
-	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackOwner;
-	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackTarget = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* PositionLinkObj = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* StopLinkObj = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* MaterialLinkObj = nullptr;
-
-	int32 ObjectStateIndex = 0;
-	bool bIsCommonState = false;
-
-	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	BATTLE_OBJECT_BODY
 	
 	virtual void LogForSyncTestFile(std::ofstream& file);
 };
@@ -919,299 +923,7 @@ public:
 	// Sets default values for this pawn's properties
 	ABattleObject();
 
-	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
-
-	/*
-	 * Movement and position values
-	 */
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosX = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 PosY = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 PosZ = 0;
-	int32 PrevPosX = 0;
-	int32 PrevPosY = 0;
-	int32 PrevPosZ = 0;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
-	bool BlendOffset = false;
-	int32 PrevOffsetX = 0;
-	int32 PrevOffsetY = 0;
-	int32 NextOffsetX = 0;
-	int32 NextOffsetY = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedX = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 SpeedY = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZ = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedXRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedXRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedYRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedYRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZRate = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SpeedZRatePerFrame = 100;
-	UPROPERTY(BlueprintReadWrite)
-	int32 Gravity = 1900;
-	// Inertia adds to the position every frame, but also decays every frame until it reaches zero.
-	UPROPERTY(BlueprintReadWrite)
-	int32 Inertia = 0;
-	// The minimum Y position before considered grounded.
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 GroundHeight = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TEnumAsByte<EObjDir> Direction = DIR_Right;
-	// Ground hit pushback.
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 Pushback = 0;
-
-	/*
-	 * Attack data
-	 */
-
-	UPROPERTY(BlueprintReadWrite)
-	FHitDataCommon HitCommon = {};
-	UPROPERTY(BlueprintReadWrite)
-	FHitData NormalHit = {};
-	UPROPERTY(BlueprintReadWrite)
-	FHitData CounterHit = {};
-	uint32 AttackFlags = 0;
-
-	/*
-	 * Received attack data
-	 */
-
-	UPROPERTY(BlueprintReadOnly)
-	FHitDataCommon ReceivedHitCommon = {};
-	UPROPERTY(BlueprintReadOnly)
-	FHitData ReceivedHit = {};
-	uint32 StunTime = 0;
-	uint32 StunTimeMax = 0;
-	uint32 Hitstop = 0;
-
-	/*
-	 * Registers
-	*/
-
-	//This value stores the return value for functions.
-	bool ReturnReg = false;
-
-	//The following values are per-action registers. Shared between the player and its child objects.
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg4 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg5 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg6 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg7 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ActionReg8 = 0;
-
-	//The following values are per-object registers.
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg4 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg5 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg6 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg7 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 ObjectReg8 = 0;
-
-	/*
-	 * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
-	 */
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg1 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg2 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg3 = 0;
-	UPROPERTY(BlueprintReadOnly)
-	int32 SubroutineReg4 = 0;
-
-	/*
-	 * Subroutine return values. Subroutines can optionally return values.
-	 * These are reset upon the next called subroutine.
-	*/
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal1 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal2 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal3 = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 SubroutineReturnVal4 = 0;
-
-	/*
-	 * Action data
-	 */
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 ActionTime = 0;
-	/*
-	 * The current cel name.
-	 * Cels map to collision data.
-	 * The collision frame also stores animation data.
-	 */
-	FGameplayTag CelName = {};
-	/*
-	 * The blend cel name.
-	 * This is used to make traditional 3D animations.
-	 */
-	FGameplayTag BlendCelName = {};
-	/*
-	 * The name of the label that is currently being jumped to.
-	 */
-	FGameplayTag LabelName = {};
-
-	UPROPERTY()
-	TArray<FAnimStruct> AnimStructs;
-	UPROPERTY(BlueprintReadOnly)
-	float AnimBlendIn{};
-	UPROPERTY(BlueprintReadOnly)
-	float AnimBlendOut{};
-	// Are we jumping to a label right now?
-	UPROPERTY(BlueprintReadWrite)
-	bool GotoLabelActive = false;
-	UPROPERTY(BlueprintReadWrite)
-	int32 AnimFrame = 0;
-	UPROPERTY(BlueprintReadWrite)
-	int32 BlendAnimFrame = 0;
-	UPROPERTY(BlueprintReadWrite)
-	float FrameBlendPosition = 0;
-	// The index of the current cel in blueprint.
-	UPROPERTY(BlueprintReadWrite)
-	int32 CelIndex = 0;
-	// How long until the next cel activates.
-	UPROPERTY(BlueprintReadOnly)
-	int32 TimeUntilNextCel = 0;
-	// Max time of the cel.
-	int32 MaxCelTime = 0;
-	// Event handlers for every function.
-	FEventHandler EventHandlers[EVT_NUM] = {};
-
-	/*
-	 * Action data for objects only.
-	 */
-	FGameplayTag ObjectStateName = {};
-	uint32 ObjectID = 0;
-
-protected:
-	/*
-	 * Collision data
-	 */
-	int32 PushHeight = 0;
-	int32 PushHeightLow = 0;
-	int32 PushWidth = 0;
-	int32 PushWidthExtend = 0;
-
-public:
-	/*
-	 * Push collision
-	 */
-	
-	int32 L = 0;
-	int32 R = 0;
-	int32 T = 0;
-	int32 B = 0;
-
-	/*
-	 * Socket data
-	 */
-	FName SocketName = {};
-	EObjType SocketObj = OBJ_Self;
-	FVector SocketOffset = FVector::ZeroVector;
-
-	//material parameters
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulColor = FLinearColor(1, 1, 1, 1);
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddColor = FLinearColor(0, 0, 0, 1);
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulFadeColor = {};
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddFadeColor = {};
-	UPROPERTY(BlueprintReadWrite)
-	float MulFadeSpeed = 0;
-	UPROPERTY(BlueprintReadWrite)
-	float AddFadeSpeed = 0;
-
-	/*
-	 * Miscellaneous data
-	 */
-	int32 HitPosX = 0;
-	int32 HitPosY = 0;
-	int32 MiscFlags = 0;
-	int32 Timer0 = 0;
-	int32 Timer1 = 0;
-	bool IsPlayer = false;
-	bool IsActive = false;
-	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
-
-	UPROPERTY(BlueprintReadWrite)
-	FHomingParams HomingParams = FHomingParams();
-	UPROPERTY(BlueprintReadWrite)
-	FSuperArmorData SuperArmorData = FSuperArmorData();
-
-	UPROPERTY(BlueprintReadOnly)
-	int32 UpdateTime = 0;
-
-	/*
-	 * Visual object transform
-	 */
-	UPROPERTY(BlueprintReadWrite)
-	FVector ObjectOffset = FVector::ZeroVector;
-	UPROPERTY(BlueprintReadWrite)
-	FRotator ObjectRotation = FRotator::ZeroRotator;
-	UPROPERTY(BlueprintReadWrite)
-	FVector ObjectScale = FVector::One();
-
-	/*
-	 * Object pointers.
-	 */
-
-	// Pointer to player object. If this is not a player, it will point to the owning player.
-	UPROPERTY(BlueprintReadOnly)
-	APlayerObject* Player = nullptr;
-	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackOwner;
-	UPROPERTY(BlueprintReadOnly)
-	ABattleObject* AttackTarget = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* PositionLinkObj = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* StopLinkObj = nullptr;
-	UPROPERTY(BlueprintReadWrite)
-	ABattleObject* MaterialLinkObj = nullptr;
-
-	int32 ObjectStateIndex = 0;
-	bool bIsCommonState = false;
-
-	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	BATTLE_OBJECT_BODY
 
 	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
