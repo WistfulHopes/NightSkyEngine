@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "NightSkyEngine/Network/FighterRunners.h"
 #include "GameplayTagContainer.h"
-#include "NightSkyEngine/Battle/RandomManager.h"
+#include "NightSkyEngine/Battle/Misc/RandomManager.h"
 #include "Engine/GameInstance.h"
 #include "NightSkyGameInstance.generated.h"
 

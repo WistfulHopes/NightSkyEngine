@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyPlayerController.h"
+#include "NightSkyEngine/Battle/NightSkyPlayerController.h"
 #include "NightSkyWTPlayerController.generated.h"
 
 UCLASS()

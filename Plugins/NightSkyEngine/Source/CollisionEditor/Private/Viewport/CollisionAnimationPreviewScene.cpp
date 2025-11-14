@@ -3,7 +3,7 @@
 #include "Data/CollisionData.h"
 #include "CollisionDataEditorToolkit.h"
 #include "DrawDebugHelpers.h"
-#include "Battle/Actors/PlayerObject.h"
+#include "Battle/Objects/PlayerObject.h"
 
 FCollisionAnimationPreviewScene::FCollisionAnimationPreviewScene(ConstructionValues CVS, const TSharedRef<FCollisionDataEditorToolkit>& EditorToolkit)
     : FAdvancedPreviewScene(CVS), EditorPtr(EditorToolkit)

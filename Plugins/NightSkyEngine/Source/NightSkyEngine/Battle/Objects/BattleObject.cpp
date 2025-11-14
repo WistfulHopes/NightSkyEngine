@@ -4,16 +4,16 @@
 #include "BattleObject.h"
 #include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
-#include "NightSkyEngine/Battle/NightSkyBlueprintFunctionLibrary.h"
-#include "NightSkyGameState.h"
-#include "ParticleManager.h"
+#include "NightSkyEngine/Battle/Misc/NightSkyBlueprintFunctionLibrary.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "PlayerObject.h"
-#include "NightSkyEngine/Battle/Bitflags.h"
-#include "NightSkyEngine/Battle/Globals.h"
-#include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/Battle/Misc/Bitflags.h"
+#include "NightSkyEngine/Battle/Misc/Globals.h"
+#include "NightSkyEngine/Battle/Script/Subroutine.h"
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
-#include "NightSkyEngine/Battle/RandomManager.h"
+#include "NightSkyEngine/Battle/Misc/RandomManager.h"
 
 // Sets default values
 ABattleObject::ABattleObject()

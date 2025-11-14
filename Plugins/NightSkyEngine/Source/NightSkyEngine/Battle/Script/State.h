@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Bitflags.h"
+#include "NightSkyEngine/Battle/Misc/Bitflags.h"
 #include "GameplayTagContainer.h"
-#include "SerializableObj.h"
-#include "Actors/BattleObject.h"
+#include "NightSkyEngine/Battle/Misc/SerializableObj.h"
+#include "NightSkyEngine/Battle/Objects/BattleObject.h"
 #include "State.generated.h"
 
 class APlayerObject;

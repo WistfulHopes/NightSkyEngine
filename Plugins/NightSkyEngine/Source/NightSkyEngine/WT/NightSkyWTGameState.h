@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyWTGameState.generated.h"
 
 UDELEGATE()

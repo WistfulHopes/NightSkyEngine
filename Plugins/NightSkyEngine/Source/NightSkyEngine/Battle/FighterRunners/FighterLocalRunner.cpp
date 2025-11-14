@@ -3,7 +3,7 @@
 
 #include "FighterLocalRunner.h"
 
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values

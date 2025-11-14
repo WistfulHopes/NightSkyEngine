@@ -2,7 +2,7 @@
 
 
 #include "NightSkyCharaSelectGameState.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 

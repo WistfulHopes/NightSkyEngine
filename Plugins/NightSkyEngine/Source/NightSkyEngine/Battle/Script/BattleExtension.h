@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Actors/NightSkyGameState.h"
-#include "UObject/Object.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/Misc/SerializableObj.h"
 #include "BattleExtension.generated.h"
 
 /**

@@ -6,7 +6,7 @@
 #include <fstream>
 
 #include "Kismet/GameplayStatics.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Network/RpcConnectionManager.h"
 #include <iostream>

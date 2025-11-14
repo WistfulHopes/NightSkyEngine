@@ -3,7 +3,7 @@
 
 #include "NightSkyBlueprintFunctionLibrary.h"
 
-#include "NightSkyEngine/Battle/Globals.h"
+#include "Globals.h"
 
 int32 UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(int32 x, int32 y)
 {

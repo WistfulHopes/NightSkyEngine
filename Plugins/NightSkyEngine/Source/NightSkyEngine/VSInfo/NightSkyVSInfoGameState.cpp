@@ -6,7 +6,7 @@
 #include "NightSkyEngine/Network/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Kismet/GameplayStatics.h"
-#include "NightSkyEngine/Battle/Actors/PlayerObject.h"
+#include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Data/PrimaryStageData.h"
 

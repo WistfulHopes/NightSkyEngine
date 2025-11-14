@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "State.h"
+#include "NightSkyEngine/Battle/Script/State.h"
 #include "InputBuffer.generated.h"
 
 constexpr int32 InputSequenceSize = 0x20;

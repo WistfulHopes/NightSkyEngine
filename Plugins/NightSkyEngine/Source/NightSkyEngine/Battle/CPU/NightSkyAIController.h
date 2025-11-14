@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "NightSkyEngine/Battle/State.h"
+#include "NightSkyEngine/Battle/Script/State.h"
 #include "Runtime/AIModule/Classes/AIController.h"
 #include "NightSkyAIController.generated.h"
 

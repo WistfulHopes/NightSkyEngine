@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AudioManager.h"
-#include "PlayerObject.h"
+#include "Actors/AudioManager.h"
+#include "Objects/PlayerObject.h"
 #include "GameFramework/GameStateBase.h"
 #include "include/ggponet.h"
-#include "NightSkyEngine/Battle/RandomManager.h"
+#include "Misc/RandomManager.h"
 #include "NightSkyGameState.generated.h"
 
 class UBattleExtensionData;

@@ -3,8 +3,8 @@
 
 #include "PlayerObject.h"
 
-#include "NightSkyGameState.h"
-#include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/Script/Subroutine.h"
 #include "NightSkyEngine/Data/LinkActorData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Data/SubroutineData.h"

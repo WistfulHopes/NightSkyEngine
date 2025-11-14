@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "NativeGameplayTags.h"
 #include "Engine/DataAsset.h"
-#include "NightSkyEngine/Battle/State.h"
+#include "NightSkyEngine/Battle/Script/State.h"
 #include "StateData.generated.h"
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Stand);

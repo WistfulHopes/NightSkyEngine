@@ -1,6 +1,6 @@
 #include "CollisionDataEditorToolkit.h"
 #include "Logging.h"
-#include "Battle/Actors/PlayerObject.h"
+#include "Battle/Objects/PlayerObject.h"
 #include "Data/CollisionData.h"
 #include "Editor/PropertyEditor/Public/PropertyEditorModule.h"
 #include "Viewport/CollisionAnimationPreviewScene.h"

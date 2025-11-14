@@ -5,7 +5,7 @@
 
 #include "Camera/CameraActor.h"
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
-#include "NightSkyEngine/Battle/Actors/FighterRunners/FighterLocalRunner.h"
+#include "NightSkyEngine/Battle/FighterRunners/FighterLocalRunner.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "CineCameraActor.h"
 #include "Camera/CameraComponent.h"

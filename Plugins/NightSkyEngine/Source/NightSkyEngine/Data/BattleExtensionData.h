@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
-#include "NightSkyEngine/Battle/BattleExtension.h"
+#include "NightSkyEngine/Battle/Script/BattleExtension.h"
 #include "BattleExtensionData.generated.h"
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(BattleExtension_MatchInit);

@@ -4,7 +4,7 @@
 #include "WTCharacter.h"
 
 #include "NightSkyWTGameState.h"
-#include "NightSkyEngine/Battle/Actors/PlayerObject.h"
+#include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
 
 // Sets default values

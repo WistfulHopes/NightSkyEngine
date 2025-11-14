@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
-#include "SerializableObj.h"
+#include "NightSkyEngine/Battle/Misc/SerializableObj.h"
 #include "UObject/Object.h"
 #include "Subroutine.generated.h"
 

@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "NativeGameplayTags.h"
 #include "Engine/DataAsset.h"
-#include "NightSkyEngine/Battle/Subroutine.h"
+#include "NightSkyEngine/Battle/Script/Subroutine.h"
 #include "SubroutineData.generated.h"
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_MatchInit);

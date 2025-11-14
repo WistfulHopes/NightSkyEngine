@@ -6,7 +6,7 @@
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
 #include "PaperFlipbook.h"
-#include "NightSkyEngine/Battle/CollisionBox.h"
+#include "NightSkyEngine/Battle/Misc/CollisionBox.h"
 #include "CollisionData.generated.h"
 
 USTRUCT()

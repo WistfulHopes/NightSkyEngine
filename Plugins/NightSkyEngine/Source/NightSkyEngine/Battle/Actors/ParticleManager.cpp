@@ -3,7 +3,7 @@
 
 #include "ParticleManager.h"
 #include "NiagaraComponent.h"
-#include "NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 
 
 // Sets default values

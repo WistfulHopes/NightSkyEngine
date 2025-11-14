@@ -7,7 +7,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "GameFramework/Pawn.h"
-#include "NightSkyEngine/Battle/CollisionBox.h"
+#include "NightSkyEngine/Battle/Misc/CollisionBox.h"
 #include "NightSkyEngine/Data/CollisionData.h"
 #include "BattleObject.generated.h"
 

@@ -11,7 +11,7 @@
 #include "FighterRunners/FighterMultiplayerRunner.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/GameplayStatics.h"
-#include "NightSkyEngine/Battle/Bitflags.h"
+#include "NightSkyEngine/Battle/Misc/Bitflags.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Network/NetworkPawn.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"

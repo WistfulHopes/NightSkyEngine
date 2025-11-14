@@ -3,8 +3,8 @@
 
 #include "NightSkyAIController.h"
 
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
-#include "NightSkyEngine/Battle/Actors/PlayerObject.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
 
 // Sets default values

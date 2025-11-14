@@ -6,10 +6,10 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "RpcConnectionManager.h"
 #include "Engine/AssetManager.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "Net/UnrealNetwork.h"
-#include "NightSkyEngine/Battle/Actors/NightSkyPlayerController.h"
-#include "NightSkyEngine/Battle/Actors/FighterRunners/FighterMultiplayerRunner.h"
+#include "NightSkyEngine/Battle/NightSkyPlayerController.h"
+#include "NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 
 // Sets default values

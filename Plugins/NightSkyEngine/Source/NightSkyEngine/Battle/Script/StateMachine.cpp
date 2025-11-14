@@ -2,7 +2,7 @@
 
 #include "StateAlias.h"
 #include "SubroutineState.h"
-#include "Actors/PlayerObject.h"
+#include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(StateMachine_Primary, "StateMachine.Primary", "Primary State Machine");
 
