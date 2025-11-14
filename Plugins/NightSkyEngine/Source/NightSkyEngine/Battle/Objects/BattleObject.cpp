@@ -1427,24 +1427,32 @@ void ABattleObject::CollisionView()
 		if (Direction == DIR_Right)
 		{
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated((float)AnglePitch_x1000 / 1000));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated((float)AnglePitch_x1000 / 1000));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated((float)AnglePitch_x1000 / 1000));
 			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated((float)AnglePitch_x1000 / 1000));
 		}
 		else
 		{
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
 			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2));
+			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
 		}
 		Corners.Add(CurrentCorners);
 		TArray<TArray<FVector2D>> CurrentLines;
@@ -1547,11 +1555,11 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (Direction == DIR_Left)
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x10 / 10);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x1000 / 10);
 		}
 		else
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x10 / 10);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 10);
 		}
 	}
 	if (IsPlayer)
@@ -1579,7 +1587,9 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (SocketName == NAME_None) //only set visual location if not attached to socket
 		{
-			FRotator Rotation = FRotator(AnglePitch_x10 / 10, AngleYaw_x10 / 10, AngleRoll_x10 / 10);
+			FRotator Rotation = FRotator(AnglePitch_x1000 / 1000, AngleYaw_x1000 / 1000, AngleRoll_x1000 / 1000);
+			if (Direction == DIR_Left)
+				Rotation.Pitch = 180 - Rotation.Pitch + 180;
 			SetActorRotation(
 				GameState->BattleSceneTransform.GetRotation() * (Rotation.Quaternion() * FlipRotation.
 					Quaternion() * ObjectRotation.Quaternion()));
@@ -2170,6 +2180,28 @@ int32 ABattleObject::GetPosYCenter() const
 	return CenterPosY;
 }
 
+void ABattleObject::SetPitch(int32 Pitch_x1000)
+{
+	AnglePitch_x1000 = NormalizeAngle(Pitch_x1000);
+}
+
+void ABattleObject::SetYaw(int32 Yaw_x1000)
+{
+	AngleYaw_x1000 = NormalizeAngle(Yaw_x1000);
+}
+
+void ABattleObject::SetRoll(int32 Roll_x1000)
+{
+	AngleRoll_x1000 = NormalizeAngle(Roll_x1000);
+}
+
+int32 ABattleObject::NormalizeAngle(int32 Angle_x1000)
+{
+	Angle_x1000 %= 360000;
+	if (Angle_x1000 < 0) Angle_x1000 += 360000;
+	return Angle_x1000;
+}
+
 int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
                                                     EPosType Pos2)
 {
@@ -2431,7 +2463,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 
 		for (int i = 0; i < std::size(Vertices); i++)
 		{
-			const int32 P = (int64)Vertices[i][0] * Normal[0] / COORD_SCALE + (int64)Vertices[i][1] * Normal[1] / COORD_SCALE;
+			const int32 P = (int64)Vertices[i][0] * Normal[0] / COORD_SCALE + (int64)Vertices[i][1] * Normal[1] /
+				COORD_SCALE;
 			if (P < Min)
 				Min = P;
 			else if (P > Max)
@@ -2447,7 +2480,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 	{
 		return !(Proj1[1] < Proj2[0] || Proj2[1] < Proj1[0]);
 	};
-	
+
 	// Calculate boxes for self
 	for (auto& Box : Boxes)
 	{
@@ -2455,7 +2488,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			continue;
 		if (Box.Type == BOX_Custom && Box.CustomType != SelfCustomType)
 			continue;
-		
+
 		// Calculate vertices
 		int32 P1[2] = {-Box.SizeX / 2, -Box.SizeY / 2};
 		int32 P2[2] = {-Box.SizeX / 2, Box.SizeY / 2};
@@ -2463,12 +2496,12 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 		int32 P4[2] = {Box.SizeX / 2, Box.SizeY / 2};
 
 		// Calculate rotated points
-		auto Angle = AnglePitch_x10;
+		auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000;
 
-		P1[0] = P1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000 - P1[1] *
-			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
-		P1[1] = -(P1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle)) / 1000 + P1[1] *
-			UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+		P1[0] = P1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000 - P1[1] *
+			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000;
+		P1[1] = -(P1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100)) / 1000 + P1[1] *
+			UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000;
 
 		// Calculate scene transform
 		if (Direction == DIR_Right)
@@ -2513,12 +2546,12 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
 			int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
 
-			auto OtherAngle = OtherObj->AnglePitch_x10;
+			auto OtherAngle = OtherObj->Direction == DIR_Right ? OtherObj->AnglePitch_x1000 : 180000 - OtherObj->AnglePitch_x1000;
 
-			OtherP1[0] = OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle) / 1000 - OtherP1[1] *
-				UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle) / 1000;
-			OtherP1[1] = -(OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle)) / 1000 + OtherP1[1] *
-				UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle) / 1000;
+			OtherP1[0] = OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle / 100) / 1000 - OtherP1[1] *
+				UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle / 100) / 1000;
+			OtherP1[1] = -(OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle / 100)) / 1000 + OtherP1[1] *
+				UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle / 100) / 1000;
 
 			if (OtherObj->Direction == DIR_Right)
 			{

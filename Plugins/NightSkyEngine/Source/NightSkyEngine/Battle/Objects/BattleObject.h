@@ -626,11 +626,11 @@ public:
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AnglePitch_x10 = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AngleYaw_x10 = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AngleRoll_x10 = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool BlendOffset = false;
@@ -941,12 +941,12 @@ public:
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 AnglePitch_x10 = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 AngleYaw_x10 = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-	int32 AngleRoll_x10 = 0;
+	UPROPERTY(VisibleAnywhere)
+	int32 AnglePitch_x1000 = 0;
+	UPROPERTY(VisibleAnywhere)
+	int32 AngleYaw_x1000 = 0;
+	UPROPERTY(VisibleAnywhere)
+	int32 AngleRoll_x1000 = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool BlendOffset = false;
 	int32 PrevOffsetX = 0;
@@ -1361,6 +1361,18 @@ public:
 	//gets y center
 	UFUNCTION(BlueprintPure)
 	int32 GetPosYCenter() const;
+	// Sets pitch.
+	UFUNCTION(BlueprintCallable)
+	void SetPitch(int32 Pitch_x1000);
+	// Sets pitch.
+	UFUNCTION(BlueprintCallable)
+	void SetYaw(int32 Yaw_x1000);
+	// Sets pitch.
+	UFUNCTION(BlueprintCallable)
+	void SetRoll(int32 Roll_x1000);
+	// Normalizes angle to between 0 and 360 degrees.
+	UFUNCTION(BlueprintPure)
+	static int32 NormalizeAngle(int32 Angle_x1000);
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
