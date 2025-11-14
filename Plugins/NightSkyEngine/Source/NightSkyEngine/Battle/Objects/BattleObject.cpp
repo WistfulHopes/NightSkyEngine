@@ -1426,33 +1426,41 @@ void ABattleObject::CollisionView()
 		TArray<FVector2D> CurrentCorners;
 		if (Direction == DIR_Right)
 		{
-			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+			CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
 				GetRotated((float)AnglePitch_x1000 / 1000));
-			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
 				GetRotated((float)AnglePitch_x1000 / 1000));
-			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
 				GetRotated((float)AnglePitch_x1000 / 1000));
-			CurrentCorners.Add(FVector2D(float(Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
 				GetRotated((float)AnglePitch_x1000 / 1000));
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
 		}
 		else
 		{
-			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
-				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
-			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
-				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
-			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
-				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
-			CurrentCorners.Add(FVector2D(float(-Box.PosX + PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
-			                             float(Box.PosY + PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
-				GetRotated(180 - (float)AnglePitch_x1000 / 1000) + 180);
+			CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+			CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+			                             float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+				GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+			CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
 		}
 		Corners.Add(CurrentCorners);
 		TArray<TArray<FVector2D>> CurrentLines;
@@ -2496,7 +2504,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 		int32 P4[2] = {Box.SizeX / 2, Box.SizeY / 2};
 
 		// Calculate rotated points
-		auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000;
+		auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000 + 180000;
 
 		P1[0] = P1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000 - P1[1] *
 			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000;
@@ -2546,7 +2554,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
 			int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
 
-			auto OtherAngle = OtherObj->Direction == DIR_Right ? OtherObj->AnglePitch_x1000 : 180000 - OtherObj->AnglePitch_x1000;
+			auto OtherAngle = OtherObj->Direction == DIR_Right ? OtherObj->AnglePitch_x1000 : 180000 - OtherObj->AnglePitch_x1000 + 180000;
 
 			OtherP1[0] = OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle / 100) / 1000 - OtherP1[1] *
 				UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle / 100) / 1000;
