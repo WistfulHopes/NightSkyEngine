@@ -526,9 +526,9 @@ void APlayerObject::Update()
 						InitEventHandler(EVT_Update, "ThrowTechAir", 0, FGameplayTag::EmptyTag);
 						Enemy->InitEventHandler(EVT_Update, "ThrowTechAir", 0, FGameplayTag::EmptyTag);
 					}
-					HitPosX = (PosX + Enemy->PosX) / 2;
-					HitPosY = (PosY + Enemy->PosY) / 2 + 250000;
-					CreateCommonParticle(Particle_ThrowTech, POS_Hit);
+					ColPosX = (PosX + Enemy->PosX) / 2;
+					ColPosY = (PosY + Enemy->PosY) / 2 + 250000;
+					CreateCommonParticle(Particle_ThrowTech, POS_Col);
 					return;
 				}
 			}
@@ -1192,7 +1192,7 @@ void APlayerObject::SetHitValues()
 	case HACT_ForceStand:
 		StunTime = FinalHitstun;
 		StunTimeMax = FinalHitstun;
-		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 		{
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
@@ -1208,7 +1208,7 @@ void APlayerObject::SetHitValues()
 			SpeedX = -FinalAirHitPushbackX;
 			SpeedY = FinalAirHitPushbackY;
 			Gravity = FinalGravity;
-			if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+			if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 			{
 				AttackOwner->Pushback = -FinalHitPushbackX;
 				Pushback = 0;
@@ -1217,7 +1217,7 @@ void APlayerObject::SetHitValues()
 		}
 		StunTime = FinalUntech;
 		StunTimeMax = FinalUntech;
-		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 		{
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
@@ -1235,7 +1235,7 @@ void APlayerObject::SetHitValues()
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
-		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 		{
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
@@ -1244,7 +1244,7 @@ void APlayerObject::SetHitValues()
 	case HACT_Crumple:
 		StunTime = FinalUntech;
 		StunTimeMax = FinalUntech;
-		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 		{
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
@@ -1277,7 +1277,7 @@ void APlayerObject::SetHitValues()
 		SpeedX = -FinalAirHitPushbackX;
 		SpeedY = FinalAirHitPushbackY;
 		Gravity = FinalGravity;
-		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != -1)
+		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
 		{
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
@@ -2190,7 +2190,7 @@ void APlayerObject::HandleWallBounce()
 				ReceivedHit.GroundBounce.GroundBounceCount = 0;
 				PlayerFlags &= ~PLF_TouchingWall;
 				ReceivedHit.WallBounce.WallBounceCount--;
-				ReceivedHit.GroundPushbackX = -1;
+				ReceivedHit.GroundPushbackX = INT_MAX;
 				ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 				ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.
 					WallBounceYRate / 100;
@@ -2221,7 +2221,7 @@ void APlayerObject::HandleWallBounce()
 			ReceivedHit.GroundBounce.GroundBounceCount = 0;
 			PlayerFlags &= ~PLF_TouchingWall;
 			ReceivedHit.WallBounce.WallBounceCount--;
-			ReceivedHit.GroundPushbackX = -1;
+			ReceivedHit.GroundPushbackX = INT_MAX;
 			ReceivedHit.AirPushbackX = SpeedX * ReceivedHit.WallBounce.WallBounceXRate / 100;
 			ReceivedHit.AirPushbackY = ReceivedHit.WallBounce.WallBounceYSpeed * ReceivedHit.WallBounce.WallBounceYRate
 				/ 100;
@@ -2249,7 +2249,7 @@ void APlayerObject::HandleGroundBounce()
 {
 	CreateCommonParticle(Particle_JumpSmoke_Land, POS_Player);
 	ReceivedHit.GroundBounce.GroundBounceCount--;
-	ReceivedHit.GroundPushbackX = -1;
+	ReceivedHit.GroundPushbackX = INT_MAX;
 	if (SpeedX > 0)
 		ReceivedHit.AirPushbackX = -ReceivedHit.GroundBounce.GroundBounceXSpeed * ReceivedHit.GroundBounce.
 			GroundBounceXRate / 100;
@@ -2809,8 +2809,6 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	AddFadeSpeed = 0;
 	MulFadeSpeed = 0;
 	ObjectsToIgnoreHitsFrom.Empty();
-	HitPosX = 0;
-	HitPosY = 0;
 	for (auto& Box : Boxes)
 	{
 		Box = FCollisionBox();

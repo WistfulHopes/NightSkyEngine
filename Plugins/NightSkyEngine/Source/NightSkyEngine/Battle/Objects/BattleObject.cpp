@@ -631,7 +631,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				}
 
 				const FHitData Data = InitHitDataByAttackLevel(false);
-				CreateCommonParticle(HitCommon.HitVFX, POS_Hit,
+				CreateCommonParticle(HitCommon.HitVFX, POS_Col,
 				                     FVector(0, 0, 0),
 				                     FRotator(HitCommon.HitAngle, 0, 0));
 				PlayCommonSound(HitCommon.HitSFX);
@@ -672,7 +672,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				}
 
 				const FHitData CounterData = InitHitDataByAttackLevel(true);
-				CreateCommonParticle(HitCommon.HitVFX, POS_Hit, FVector(0, 0, 0),
+				CreateCommonParticle(HitCommon.HitVFX, POS_Col, FVector(0, 0, 0),
 				                     FRotator(HitCommon.HitAngle, 0, 0));
 				PlayCommonSound(HitCommon.HitSFX);
 				AttackedPlayer->ReceivedHitCommon = HitCommon;
@@ -703,35 +703,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	{
 	case 0:
 	default:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 9;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 20000;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15000;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 11;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 10;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 10;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 300;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 25000;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30000;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop;
 		switch (HitCommon.VFXType)
 		{
@@ -757,35 +757,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	case 1:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 11;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 22500;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15025;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 12;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 12;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 12;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 400;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 27500;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30050;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop + 2;
 		switch (HitCommon.VFXType)
 		{
@@ -811,35 +811,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	case 2:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 13;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 27000;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15050;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 13;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 14;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 14;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 600;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 30000;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30100;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop + 4;
 		switch (HitCommon.VFXType)
 		{
@@ -865,35 +865,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	case 3:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 16;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 30000;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15075;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 14;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 17;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 16;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 800;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 35000;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30150;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop + 8;
 		switch (HitCommon.VFXType)
 		{
@@ -919,35 +919,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	case 4:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 18;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 35000;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15100;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 15;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 19;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 18;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 1000;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 40000;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30200;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop + 12;
 		switch (HitCommon.VFXType)
 		{
@@ -973,35 +973,35 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		}
 		break;
 	case 5:
-		if (HitCommon.BlockstopModifier == -1)
+		if (HitCommon.BlockstopModifier == INT_MAX)
 			HitCommon.BlockstopModifier = 0;
-		if (HitCommon.Blockstun == -1)
+		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 20;
-		if (HitCommon.GroundGuardPushbackX == -1)
+		if (HitCommon.GroundGuardPushbackX == INT_MAX)
 			HitCommon.GroundGuardPushbackX = 45000;
-		if (HitCommon.AirGuardPushbackX == -1)
+		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
-		if (HitCommon.AirGuardPushbackY == -1)
+		if (HitCommon.AirGuardPushbackY == INT_MAX)
 			HitCommon.AirGuardPushbackY = 15125;
-		if (HitCommon.GuardGravity == -1)
+		if (HitCommon.GuardGravity == INT_MAX)
 			HitCommon.GuardGravity = 1900;
-		if (NormalHit.Hitstop == -1)
+		if (NormalHit.Hitstop == INT_MAX)
 			NormalHit.Hitstop = 18;
-		if (NormalHit.Hitstun == -1)
+		if (NormalHit.Hitstun == INT_MAX)
 			NormalHit.Hitstun = 22;
-		if (NormalHit.Untech == -1)
+		if (NormalHit.Untech == INT_MAX)
 			NormalHit.Untech = 21;
-		if (NormalHit.Damage == -1)
+		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 1250;
-		if (NormalHit.GroundPushbackX == -1)
+		if (NormalHit.GroundPushbackX == INT_MAX)
 			NormalHit.GroundPushbackX = 50000;
-		if (NormalHit.AirPushbackX == -1)
+		if (NormalHit.AirPushbackX == INT_MAX)
 			NormalHit.AirPushbackX = 15000;
-		if (NormalHit.AirPushbackY == -1)
+		if (NormalHit.AirPushbackY == INT_MAX)
 			NormalHit.AirPushbackY = 30200;
-		if (NormalHit.Gravity == -1)
+		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
-		if (CounterHit.Hitstop == -1)
+		if (CounterHit.Hitstop == INT_MAX)
 			CounterHit.Hitstop = NormalHit.Hitstop + 16;
 		switch (HitCommon.VFXType)
 		{
@@ -1028,68 +1028,68 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		break;
 	}
 
-	if (NormalHit.EnemyHitstopModifier == -1)
+	if (NormalHit.EnemyHitstopModifier == INT_MAX)
 		NormalHit.EnemyHitstopModifier = 0;
-	if (NormalHit.RecoverableDamagePercent == -1)
+	if (NormalHit.RecoverableDamagePercent == INT_MAX)
 		NormalHit.RecoverableDamagePercent = 40;
-	if (NormalHit.MinimumDamagePercent == -1)
+	if (NormalHit.MinimumDamagePercent == INT_MAX)
 		NormalHit.MinimumDamagePercent = 0;
-	if (NormalHit.InitialProration == -1)
+	if (NormalHit.InitialProration == INT_MAX)
 		NormalHit.InitialProration = 100;
-	if (NormalHit.ForcedProration == -1)
+	if (NormalHit.ForcedProration == INT_MAX)
 		NormalHit.ForcedProration = 90;
 
-	if (CounterHit.EnemyHitstopModifier == -1)
+	if (CounterHit.EnemyHitstopModifier == INT_MAX)
 		CounterHit.EnemyHitstopModifier = NormalHit.EnemyHitstopModifier;
-	if (CounterHit.MinimumDamagePercent == -1)
+	if (CounterHit.MinimumDamagePercent == INT_MAX)
 		CounterHit.MinimumDamagePercent = NormalHit.MinimumDamagePercent;
-	if (CounterHit.InitialProration == -1)
+	if (CounterHit.InitialProration == INT_MAX)
 		CounterHit.InitialProration = NormalHit.InitialProration;
-	if (CounterHit.ForcedProration == -1)
+	if (CounterHit.ForcedProration == INT_MAX)
 		CounterHit.ForcedProration = NormalHit.ForcedProration;
 
-	if (CounterHit.Hitstun == -1)
+	if (CounterHit.Hitstun == INT_MAX)
 		CounterHit.Hitstun = NormalHit.Hitstun;
-	if (CounterHit.Untech == -1)
+	if (CounterHit.Untech == INT_MAX)
 		CounterHit.Untech = NormalHit.Untech * 2;
-	if (CounterHit.Damage == -1)
+	if (CounterHit.Damage == INT_MAX)
 		CounterHit.Damage = NormalHit.Damage * 110 / 100;
-	if (CounterHit.GroundPushbackX == -1)
+	if (CounterHit.GroundPushbackX == INT_MAX)
 		CounterHit.GroundPushbackX = NormalHit.GroundPushbackX;
-	if (CounterHit.AirPushbackX == -1)
+	if (CounterHit.AirPushbackX == INT_MAX)
 		CounterHit.AirPushbackX = NormalHit.AirPushbackX;
-	if (CounterHit.AirPushbackY == -1)
+	if (CounterHit.AirPushbackY == INT_MAX)
 		CounterHit.AirPushbackY = NormalHit.AirPushbackY;
-	if (CounterHit.Gravity == -1)
+	if (CounterHit.Gravity == INT_MAX)
 		CounterHit.Gravity = NormalHit.Gravity;
-	if (CounterHit.AirPushbackXOverTime.Value == -1)
+	if (CounterHit.AirPushbackXOverTime.Value == INT_MAX)
 		CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
-	if (CounterHit.AirPushbackXOverTime.BeginFrame == -1)
+	if (CounterHit.AirPushbackXOverTime.BeginFrame == INT_MAX)
 		CounterHit.AirPushbackXOverTime.BeginFrame = NormalHit.AirPushbackXOverTime.BeginFrame;
-	if (CounterHit.AirPushbackXOverTime.EndFrame == -1)
+	if (CounterHit.AirPushbackXOverTime.EndFrame == INT_MAX)
 		CounterHit.AirPushbackXOverTime.EndFrame = NormalHit.AirPushbackXOverTime.EndFrame;
-	if (CounterHit.AirPushbackYOverTime.Value == -1)
+	if (CounterHit.AirPushbackYOverTime.Value == INT_MAX)
 		CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
-	if (CounterHit.AirPushbackYOverTime.BeginFrame == -1)
+	if (CounterHit.AirPushbackYOverTime.BeginFrame == INT_MAX)
 		CounterHit.AirPushbackYOverTime.BeginFrame = NormalHit.AirPushbackYOverTime.BeginFrame;
-	if (CounterHit.AirPushbackYOverTime.EndFrame == -1)
+	if (CounterHit.AirPushbackYOverTime.EndFrame == INT_MAX)
 		CounterHit.AirPushbackYOverTime.EndFrame = NormalHit.AirPushbackYOverTime.EndFrame;
-	if (CounterHit.GravityOverTime.Value == -1)
+	if (CounterHit.GravityOverTime.Value == INT_MAX)
 		CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
-	if (CounterHit.GravityOverTime.BeginFrame == -1)
+	if (CounterHit.GravityOverTime.BeginFrame == INT_MAX)
 		CounterHit.GravityOverTime.BeginFrame = NormalHit.GravityOverTime.BeginFrame;
-	if (CounterHit.GravityOverTime.EndFrame == -1)
+	if (CounterHit.GravityOverTime.EndFrame == INT_MAX)
 		CounterHit.GravityOverTime.EndFrame = NormalHit.GravityOverTime.EndFrame;
-	if (CounterHit.BlowbackLevel == -1)
+	if (CounterHit.BlowbackLevel == INT_MAX)
 		CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
 	if (CounterHit.FloatingCrumpleType == FLT_None)
 		CounterHit.FloatingCrumpleType = NormalHit.FloatingCrumpleType;
 
 	if (CounterHit.Position.Type == HPT_Non)
 		CounterHit.Position.Type = NormalHit.Position.Type;
-	if (CounterHit.Position.PosX == -1)
+	if (CounterHit.Position.PosX == INT_MAX)
 		CounterHit.Position.PosX = NormalHit.Position.PosX;
-	if (CounterHit.Position.PosY == -1)
+	if (CounterHit.Position.PosY == INT_MAX)
 		CounterHit.Position.PosY = NormalHit.Position.PosY;
 
 	if (CounterHit.GroundHitAction == HACT_GroundNormal)
@@ -1097,70 +1097,70 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (CounterHit.AirHitAction == HACT_AirNormal)
 		CounterHit.AirHitAction = NormalHit.AirHitAction;
 
-	if (NormalHit.KnockdownTime == -1)
+	if (NormalHit.KnockdownTime == INT_MAX)
 		NormalHit.KnockdownTime = 12;
-	if (CounterHit.KnockdownTime == -1)
+	if (CounterHit.KnockdownTime == INT_MAX)
 		CounterHit.KnockdownTime = NormalHit.KnockdownTime;
 
-	if (NormalHit.HardKnockdown == -1)
+	if (NormalHit.HardKnockdown == INT_MAX)
 		NormalHit.HardKnockdown = 0;
-	if (CounterHit.HardKnockdown == -1)
+	if (CounterHit.HardKnockdown == INT_MAX)
 		CounterHit.HardKnockdown = NormalHit.HardKnockdown;
 
-	if (NormalHit.WallBounce.WallBounceStop == -1)
+	if (NormalHit.WallBounce.WallBounceStop == INT_MAX)
 		NormalHit.WallBounce.WallBounceStop = 6;
-	if (NormalHit.WallBounce.WallBounceXSpeed == -1)
+	if (NormalHit.WallBounce.WallBounceXSpeed == INT_MAX)
 		NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
-	if (NormalHit.WallBounce.WallBounceXRate == -1)
+	if (NormalHit.WallBounce.WallBounceXRate == INT_MAX)
 		NormalHit.WallBounce.WallBounceXRate = 33;
-	if (NormalHit.WallBounce.WallBounceYSpeed == -1)
+	if (NormalHit.WallBounce.WallBounceYSpeed == INT_MAX)
 		NormalHit.WallBounce.WallBounceYSpeed = NormalHit.AirPushbackY;
-	if (NormalHit.WallBounce.WallBounceYRate == -1)
+	if (NormalHit.WallBounce.WallBounceYRate == INT_MAX)
 		NormalHit.WallBounce.WallBounceYRate = 100;
-	if (NormalHit.WallBounce.WallBounceGravity == -1)
+	if (NormalHit.WallBounce.WallBounceGravity == INT_MAX)
 		NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
 
-	if (CounterHit.WallBounce.WallBounceStop == -1)
+	if (CounterHit.WallBounce.WallBounceStop == INT_MAX)
 		CounterHit.WallBounce.WallBounceStop = NormalHit.WallBounce.WallBounceStop;
-	if (CounterHit.WallBounce.WallBounceCount == -1)
+	if (CounterHit.WallBounce.WallBounceCount == INT_MAX)
 		CounterHit.WallBounce.WallBounceCount = NormalHit.WallBounce.WallBounceCount;
-	if (CounterHit.WallBounce.WallBounceXSpeed == -1)
+	if (CounterHit.WallBounce.WallBounceXSpeed == INT_MAX)
 		CounterHit.WallBounce.WallBounceXSpeed = NormalHit.WallBounce.WallBounceXSpeed;
-	if (CounterHit.WallBounce.WallBounceXRate == -1)
+	if (CounterHit.WallBounce.WallBounceXRate == INT_MAX)
 		CounterHit.WallBounce.WallBounceXRate = NormalHit.WallBounce.WallBounceXRate;
-	if (CounterHit.WallBounce.WallBounceYSpeed == -1)
+	if (CounterHit.WallBounce.WallBounceYSpeed == INT_MAX)
 		CounterHit.WallBounce.WallBounceYSpeed = NormalHit.WallBounce.WallBounceYSpeed;
-	if (CounterHit.WallBounce.WallBounceYRate == -1)
+	if (CounterHit.WallBounce.WallBounceYRate == INT_MAX)
 		CounterHit.WallBounce.WallBounceYRate = NormalHit.WallBounce.WallBounceYRate;
-	if (CounterHit.WallBounce.WallBounceGravity == -1)
+	if (CounterHit.WallBounce.WallBounceGravity == INT_MAX)
 		CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
 
-	if (NormalHit.GroundBounce.GroundBounceStop == -1)
+	if (NormalHit.GroundBounce.GroundBounceStop == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceStop = 6;
-	if (NormalHit.GroundBounce.GroundBounceXSpeed == -1)
+	if (NormalHit.GroundBounce.GroundBounceXSpeed == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
-	if (NormalHit.GroundBounce.GroundBounceXRate == -1)
+	if (NormalHit.GroundBounce.GroundBounceXRate == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceXRate = 100;
-	if (NormalHit.GroundBounce.GroundBounceYSpeed == -1)
+	if (NormalHit.GroundBounce.GroundBounceYSpeed == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceYSpeed = NormalHit.AirPushbackY;
-	if (NormalHit.GroundBounce.GroundBounceYRate == -1)
+	if (NormalHit.GroundBounce.GroundBounceYRate == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceYRate = 100;
-	if (NormalHit.GroundBounce.GroundBounceGravity == -1)
+	if (NormalHit.GroundBounce.GroundBounceGravity == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
 
-	if (CounterHit.GroundBounce.GroundBounceStop == -1)
+	if (CounterHit.GroundBounce.GroundBounceStop == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceStop = NormalHit.GroundBounce.GroundBounceStop;
-	if (CounterHit.GroundBounce.GroundBounceCount == -1)
+	if (CounterHit.GroundBounce.GroundBounceCount == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceCount = NormalHit.GroundBounce.GroundBounceCount;
-	if (CounterHit.GroundBounce.GroundBounceXSpeed == -1)
+	if (CounterHit.GroundBounce.GroundBounceXSpeed == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceXSpeed = NormalHit.GroundBounce.GroundBounceXSpeed;
-	if (CounterHit.GroundBounce.GroundBounceXRate == -1)
+	if (CounterHit.GroundBounce.GroundBounceXRate == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceXRate = NormalHit.GroundBounce.GroundBounceXRate;
-	if (CounterHit.GroundBounce.GroundBounceYSpeed == -1)
+	if (CounterHit.GroundBounce.GroundBounceYSpeed == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceYSpeed = NormalHit.GroundBounce.GroundBounceYSpeed;
-	if (CounterHit.GroundBounce.GroundBounceYRate == -1)
+	if (CounterHit.GroundBounce.GroundBounceYRate == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceYRate = NormalHit.GroundBounce.GroundBounceYRate;
-	if (CounterHit.GroundBounce.GroundBounceGravity == -1)
+	if (CounterHit.GroundBounce.GroundBounceGravity == INT_MAX)
 		CounterHit.GroundBounce.GroundBounceGravity = NormalHit.GroundBounce.GroundBounceGravity;
 
 	FHitData Data;
@@ -1186,8 +1186,8 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->Hitstop = 16;
 				AttackFlags &= ~ATK_HitActive;
 				OtherObj->AttackFlags &= ~ATK_HitActive;
-				OtherObj->HitPosX = HitPosX;
-				OtherObj->HitPosY = HitPosY;
+				OtherObj->ColPosX = ColPosX;
+				OtherObj->ColPosY = ColPosY;
 				Player->EnableAttacks();
 				Player->EnableCancelIntoSelf(true);
 				Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
@@ -1196,7 +1196,7 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
 				TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
-				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 0, 0));
+				CreateCommonParticle(Particle_Hit_Clash, POS_Col, FVector(0, 0, 0));
 				PlayCommonSound(Sound_Hit_Clash);
 			}
 			else if (!IsPlayer && !OtherObj->IsPlayer)
@@ -1205,13 +1205,13 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				Hitstop = 16;
 				AttackFlags &= ~ATK_HitActive;
 				OtherObj->AttackFlags &= ~ATK_HitActive;
-				OtherObj->HitPosX = HitPosX;
-				OtherObj->HitPosY = HitPosY;
+				OtherObj->ColPosX = ColPosX;
+				OtherObj->ColPosY = ColPosY;
 				TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
-				CreateCommonParticle(Particle_Hit_Clash, POS_Hit, FVector(0, 0, 0));
+				CreateCommonParticle(Particle_Hit_Clash, POS_Col, FVector(0, 0, 0));
 				PlayCommonSound(Sound_Hit_Clash);
-			}	
+			}
 		}
 	}
 }
@@ -1287,9 +1287,9 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 		*OutPosX = Player->Enemy->PosX;
 		*OutPosY = Player->Enemy->PosY;
 		break;
-	case POS_Hit:
-		*OutPosX = HitPosX;
-		*OutPosY = HitPosY;
+	case POS_Col:
+		*OutPosX = ColPosX;
+		*OutPosY = ColPosY;
 		break;
 	default:
 		break;
@@ -1547,11 +1547,11 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (Direction == DIR_Left)
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), ObjectRotation.Pitch);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x10 / 10);
 		}
 		else
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -ObjectRotation.Pitch);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x10 / 10);
 		}
 	}
 	if (IsPlayer)
@@ -1579,9 +1579,10 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (SocketName == NAME_None) //only set visual location if not attached to socket
 		{
+			FRotator Rotation = FRotator(AnglePitch_x10 / 10, AngleYaw_x10 / 10, AngleRoll_x10 / 10);
 			SetActorRotation(
-				GameState->BattleSceneTransform.GetRotation() * (ObjectRotation.Quaternion() * FlipRotation.
-					Quaternion()));
+				GameState->BattleSceneTransform.GetRotation() * (Rotation.Quaternion() * FlipRotation.
+					Quaternion() * ObjectRotation.Quaternion()));
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
 			                           static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->
@@ -1930,8 +1931,8 @@ void ABattleObject::ResetObject()
 	MaxCelTime = 0;
 	for (auto& Handler : EventHandlers)
 		Handler = FEventHandler();
-	HitPosX = 0;
-	HitPosY = 0;
+	ColPosX = 0;
+	ColPosY = 0;
 	for (auto& Box : Boxes)
 	{
 		Box = FCollisionBox();
@@ -2098,7 +2099,7 @@ void ABattleObject::GotoLabel(FGameplayTag InName)
 	if (!GameState && !CharaSelectGameState) return;
 	LabelName = InName;
 	GotoLabelActive = true;
-	
+
 	if (!Player) ObjectState->CallExec();
 	else Player->PrimaryStateMachine.Update();
 }
@@ -2395,78 +2396,235 @@ void ABattleObject::DeactivateObject()
 bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
                                     const EBoxType OtherType, const FGameplayTag OtherCustomType)
 {
-	for (auto& SelfBox : Boxes)
+	// Lambda to automate getting the normal vectors for a box
+	auto GetNormalAxes = [](const int32 (&Vertices)[4][2], int32 (&Normals)[4][2])
 	{
-		if (SelfBox.Type == SelfType)
+		// Loop over verts
+		for (int i = 0; i < std::size(Vertices); i++)
 		{
-			if (SelfBox.Type == BOX_Custom && SelfBox.CustomType != SelfCustomType) continue;
-			for (auto& OtherBox : OtherObj->Boxes)
+			// Get vertices
+			const auto P1 = Vertices[i];
+			const auto P2 = Vertices[i + 1 == std::size(Vertices) ? 0 : i + 1];
+			// Get edge vector
+			const int32 Edge[2] = {P1[0] - P2[0], P1[1] - P2[1]};
+			// Get normal vector
+			int32 Normal[2] = {Edge[1], -Edge[0]};
+			// Normalize vector
+			auto Length = isqrt((int64)Normal[0] * Normal[0] + (int64)Normal[1] * Normal[1]);
+			if (Length == 0)
+				Length = 1;
+			Normal[0] = Normal[0] * COORD_SCALE / Length;
+			Normal[1] = Normal[1] * COORD_SCALE / Length;
+			// Assign to passed in array
+			Normals[i][0] = Normal[0];
+			Normals[i][1] = Normal[1];
+		}
+	};
+
+	// Lambda to project a box onto an axis.
+	auto ProjectBoxOntoAxis = [](const int32 (&Vertices)[4][2], const int32 (&Normal)[2],
+	                             int32 (&Proj)[2])
+	{
+		// Calculate minimum from dot product
+		int32 Min = (int64)Vertices[0][0] * Normal[0] / COORD_SCALE + (int64)Vertices[0][1] * Normal[1] / COORD_SCALE;
+		int32 Max = Min;
+
+		for (int i = 0; i < std::size(Vertices); i++)
+		{
+			const int32 P = (int64)Vertices[i][0] * Normal[0] / COORD_SCALE + (int64)Vertices[i][1] * Normal[1] / COORD_SCALE;
+			if (P < Min)
+				Min = P;
+			else if (P > Max)
+				Max = P;
+		}
+
+		Proj[0] = Min;
+		Proj[1] = Max;
+	};
+
+	// Lambda to check if projections overlap.
+	auto IsOverlapping = [](const int32 (&Proj1)[2], const int32 (&Proj2)[2]) -> bool
+	{
+		return !(Proj1[1] < Proj2[0] || Proj2[1] < Proj1[0]);
+	};
+	
+	// Calculate boxes for self
+	for (auto& Box : Boxes)
+	{
+		if (Box.Type != SelfType)
+			continue;
+		if (Box.Type == BOX_Custom && Box.CustomType != SelfCustomType)
+			continue;
+		
+		// Calculate vertices
+		int32 P1[2] = {-Box.SizeX / 2, -Box.SizeY / 2};
+		int32 P2[2] = {-Box.SizeX / 2, Box.SizeY / 2};
+		int32 P3[2] = {Box.SizeX / 2, -Box.SizeY / 2};
+		int32 P4[2] = {Box.SizeX / 2, Box.SizeY / 2};
+
+		// Calculate rotated points
+		auto Angle = AnglePitch_x10;
+
+		P1[0] = P1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000 - P1[1] *
+			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
+		P1[1] = -(P1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle)) / 1000 + P1[1] *
+			UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+
+		// Calculate scene transform
+		if (Direction == DIR_Right)
+		{
+			P1[0] += Box.PosX + PosX;
+			P2[0] += Box.PosX + PosX;
+			P3[0] += Box.PosX + PosX;
+			P4[0] += Box.PosX + PosX;
+		}
+		else
+		{
+			P1[0] += -Box.PosX + PosX;
+			P2[0] += -Box.PosX + PosX;
+			P3[0] += -Box.PosX + PosX;
+			P4[0] += -Box.PosX + PosX;
+		}
+
+		P1[1] += Box.PosY + PosY;
+		P2[1] += Box.PosY + PosY;
+		P3[1] += Box.PosY + PosY;
+		P4[1] += Box.PosY + PosY;
+
+		int32 Vertices[4][2] = {
+			{P1[0], P1[1]},
+			{P2[0], P2[1]},
+			{P3[0], P3[1]},
+			{P4[0], P4[1]},
+		};
+		int32 Normals[4][2];
+		GetNormalAxes(Vertices, Normals);
+
+		// Repeat for other object
+		for (auto& OtherBox : OtherObj->Boxes)
+		{
+			if (OtherBox.Type != OtherType)
+				continue;
+			if (OtherBox.Type == BOX_Custom && OtherBox.CustomType != OtherCustomType)
+				continue;
+
+			int32 OtherP1[2] = {-OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
+			int32 OtherP2[2] = {-OtherBox.SizeX / 2, OtherBox.SizeY / 2};
+			int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
+			int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
+
+			auto OtherAngle = OtherObj->AnglePitch_x10;
+
+			OtherP1[0] = OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle) / 1000 - OtherP1[1] *
+				UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle) / 1000;
+			OtherP1[1] = -(OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle)) / 1000 + OtherP1[1] *
+				UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle) / 1000;
+
+			if (OtherObj->Direction == DIR_Right)
 			{
-				if (OtherBox.Type == OtherType)
+				OtherP1[0] += OtherBox.PosX + OtherObj->PosX;
+				OtherP2[0] += OtherBox.PosX + OtherObj->PosX;
+				OtherP3[0] += OtherBox.PosX + OtherObj->PosX;
+				OtherP4[0] += OtherBox.PosX + OtherObj->PosX;
+			}
+			else
+			{
+				OtherP1[0] += -OtherBox.PosX + OtherObj->PosX;
+				OtherP2[0] += -OtherBox.PosX + OtherObj->PosX;
+				OtherP3[0] += -OtherBox.PosX + OtherObj->PosX;
+				OtherP4[0] += -OtherBox.PosX + OtherObj->PosX;
+			}
+
+			OtherP1[1] += OtherBox.PosY + OtherObj->PosY;
+			OtherP2[1] += OtherBox.PosY + OtherObj->PosY;
+			OtherP3[1] += OtherBox.PosY + OtherObj->PosY;
+			OtherP4[1] += OtherBox.PosY + OtherObj->PosY;
+
+			int32 OtherVertices[4][2] = {
+				{OtherP1[0], OtherP1[1]},
+				{OtherP2[0], OtherP2[1]},
+				{OtherP3[0], OtherP3[1]},
+				{OtherP4[0], OtherP4[1]},
+			};
+			int32 OtherNormals[4][2];
+			GetNormalAxes(OtherVertices, OtherNormals);
+
+			int32 Overlap = INT_MAX;
+			int32 Smallest[2];
+
+			auto BoxPosX = Direction == DIR_Right ? Box.PosX + PosX : -Box.PosX + PosX;
+			auto BoxPosY = Box.PosY + PosY;
+
+			// Loop over the first set of normals
+			for (int i = 0; i < std::size(Normals); i++)
+			{
+				int32 Axis[2] = {Normals[i][0], Normals[i][1]};
+				// Project both shapes onto the axis
+				int32 Proj1[2];
+				ProjectBoxOntoAxis(Vertices, Axis, Proj1);
+				int32 Proj2[2];
+				ProjectBoxOntoAxis(OtherVertices, Axis, Proj2);
+				// If the projections overlap...
+				if (IsOverlapping(Proj1, Proj2))
 				{
-					if (OtherBox.Type == BOX_Custom && OtherBox.CustomType != OtherCustomType) continue;
-
-					FCollisionBox Hitbox = SelfBox;
-					FCollisionBox Hurtbox = OtherBox;
-
-					if (Direction == DIR_Right)
+					int32 O = FMath::Abs(FMath::Min(Proj1[1], Proj2[1]) - FMath::Min(Proj1[0], Proj2[0]));
+					if (O < Overlap)
 					{
-						Hitbox.PosX += PosX;
-					}
-					else
-					{
-						Hitbox.PosX = -Hitbox.PosX + PosX;
-					}
-					Hitbox.PosY += PosY;
-					if (OtherObj->Direction == DIR_Right)
-					{
-						Hurtbox.PosX += OtherObj->PosX;
-					}
-					else
-					{
-						Hurtbox.PosX = -Hurtbox.PosX + OtherObj->PosX;
-					}
-					Hurtbox.PosY += OtherObj->PosY;
-
-					if (Hitbox.PosY + Hitbox.SizeY / 2 >= Hurtbox.PosY - Hurtbox.SizeY / 2
-						&& Hitbox.PosY - Hitbox.SizeY / 2 <= Hurtbox.PosY + Hurtbox.SizeY / 2
-						&& Hitbox.PosX + Hitbox.SizeX / 2 >= Hurtbox.PosX - Hurtbox.SizeX / 2
-						&& Hitbox.PosX - Hitbox.SizeX / 2 <= Hurtbox.PosX + Hurtbox.SizeX / 2)
-					{
-						int CollisionDepthX;
-						if (Hitbox.PosX < OtherObj->PosX)
-						{
-							CollisionDepthX = OtherObj->PosX - (Hitbox.PosX + Hitbox.SizeX / 2);
-							HitPosX = Hitbox.PosX + CollisionDepthX / 2;
-						}
-						else
-						{
-							CollisionDepthX = Hitbox.PosX - Hitbox.SizeX / 2 - OtherObj->PosX;
-							HitPosX = Hitbox.PosX - CollisionDepthX / 2;
-						}
-						int CollisionDepthY;
-						int32 CenterPosY = OtherObj->GetPosYCenter();
-						if (Hitbox.PosY < CenterPosY)
-						{
-							CollisionDepthY = CenterPosY - (Hitbox.PosY + Hitbox.SizeY / 2);
-							HitPosY = Hitbox.PosY + CollisionDepthY / 2;
-						}
-						else
-						{
-							CollisionDepthY = Hitbox.PosY - Hitbox.SizeY / 2 - CenterPosY;
-							HitPosY = Hitbox.PosY - CollisionDepthY / 2;
-						}
-						return true;
+						Overlap = O;
+						Smallest[0] = Axis[0];
+						Smallest[1] = Axis[1];
 					}
 				}
+				else
+				{
+					// Otherwise, the shapes don't overlap.
+					goto END;
+				}
 			}
+
+			// Loop over the second set of normals
+			for (int i = 0; i < std::size(OtherNormals); i++)
+			{
+				int32 Axis[2] = {OtherNormals[i][0], OtherNormals[i][1]};
+				// Project both shapes onto the axis
+				int32 Proj1[2];
+				ProjectBoxOntoAxis(Vertices, Axis, Proj1);
+				int32 Proj2[2];
+				ProjectBoxOntoAxis(OtherVertices, Axis, Proj2);
+				// If the projections overlap...
+				if (IsOverlapping(Proj1, Proj2))
+				{
+					int32 O = FMath::Abs(FMath::Min(Proj1[1], Proj2[1]) - FMath::Min(Proj1[0], Proj2[0]));
+					if (O < Overlap)
+					{
+						Overlap = O;
+						Smallest[0] = Axis[0];
+						Smallest[1] = Axis[1];
+					}
+				}
+				else
+				{
+					// Otherwise, the shapes don't overlap.
+					goto END;
+				}
+			}
+
+			ColPosX = BoxPosX + (int64)-Smallest[0] * Overlap / COORD_SCALE;
+			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / COORD_SCALE;
+
+			return true;
+
+		END:
+			// Collision not detected, continue to next box.
+			continue;
 		}
 	}
 
 	return false;
 }
 
-void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX, int& OutPosY) const
+void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX,
+                                   int& OutPosY) const
 {
 	for (auto& Box : Boxes)
 	{

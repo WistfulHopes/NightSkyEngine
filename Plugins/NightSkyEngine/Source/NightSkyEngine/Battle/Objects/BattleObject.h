@@ -88,7 +88,7 @@ enum class EHitVFXType : uint8
 /*
  * Common data for attacks.
  * These values will be used for blocking, normal hit, and counter hit.
- * Values that are set to -1 will be replaced by a default value depending on attack level.
+ * Values that are set to INT_MAX will be replaced by a default value depending on attack level.
  */
 
 USTRUCT(BlueprintType)
@@ -107,13 +107,13 @@ struct FHitDataCommon
 	TEnumAsByte<EBlockType> BlockType = BLK_Mid;
 	// Hitstop modifier for self on block, relative to normal hit's hitstop.
 	UPROPERTY(BlueprintReadWrite)
-	int32 BlockstopModifier = -1;
+	int32 BlockstopModifier = INT_MAX;
 	// Hitstop modifier for opponent on block, relative to normal hit's hitstop.
 	UPROPERTY(BlueprintReadWrite)
 	int32 EnemyBlockstopModifier = 0;
 	// How long the opponent will be stunned while blocking.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Blockstun =6 -1;
+	int32 Blockstun = INT_MAX;
 	// The percent of normal hit damage the opponent will take when blocking this attack.
 	UPROPERTY(BlueprintReadWrite)
 	int32 ChipDamagePercent = 0;
@@ -123,16 +123,16 @@ struct FHitDataCommon
 	 * even if you are airborne.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundGuardPushbackX = -1;
+	int32 GroundGuardPushbackX = INT_MAX;
 	// Air x pushback for blocking.
 	UPROPERTY(BlueprintReadWrite)
-	int32 AirGuardPushbackX = -1;
+	int32 AirGuardPushbackX = INT_MAX;
 	// Air y pushback for blocking.
 	UPROPERTY(BlueprintReadWrite)
-	int32 AirGuardPushbackY = -1;
+	int32 AirGuardPushbackY = INT_MAX;
 	// Gravity for blocking.
 	UPROPERTY(BlueprintReadWrite)
-	int32 GuardGravity = -1;
+	int32 GuardGravity = INT_MAX;
 	UPROPERTY(BlueprintReadWrite)
 	int32 ProximityBlockDistanceX = 240000;
 	UPROPERTY(BlueprintReadWrite)
@@ -218,7 +218,7 @@ enum EHitPositionType
 
 /*
  * Data for wall bounce.
- * Values that are set to -1 will be replaced by a default value.
+ * Values that are set to INT_MAX will be replaced by a default value.
  */
 USTRUCT(BlueprintType)
 struct FWallBounceData
@@ -227,43 +227,43 @@ struct FWallBounceData
 
 	// How many times the opponent will wall bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceCount = -1;
-	// If this value is not -1, it will override the current untech duration.
+	int32 WallBounceCount = INT_MAX;
+	// If this value is not INT_MAX, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceUntech = -1;
+	int32 WallBounceUntech = INT_MAX;
 	// The hitstop upon wall bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceStop = -1;
+	int32 WallBounceStop = INT_MAX;
 	/*
 	 * Wall bounce x speed.
-	 * If this value is -1, it will be set to the current x speed.
+	 * If this value is INT_MAX, it will be set to the current x speed.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceXSpeed = -1;
+	int32 WallBounceXSpeed = INT_MAX;
 	/*
 	 * The percent of wall bounce x speed.
-	 * If this value is -1, it will be set to 33%.
+	 * If this value is INT_MAX, it will be set to 33%.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceXRate = -1;
+	int32 WallBounceXRate = INT_MAX;
 	/*
 	 * Wall bounce y speed.
-	 * If this value is -1, it will be set to the received y pushback.
+	 * If this value is INT_MAX, it will be set to the received y pushback.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceYSpeed = -1;
+	int32 WallBounceYSpeed = INT_MAX;
 	/*
      * The percent of wall bounce y speed.
-     * If this value is -1, it will be set to 100%.
+     * If this value is INT_MAX, it will be set to 100%.
      */
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceYRate = -1;
+	int32 WallBounceYRate = INT_MAX;
 	/*
 	 * Wall bounce gravity.
-	 * If this value is -1, it will be set to the received hit gravity.
+	 * If this value is INT_MAX, it will be set to the received hit gravity.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceGravity = -1;
+	int32 WallBounceGravity = INT_MAX;
 	// Determines if wall bounce can happen anywhere, or only in stage corner.
 	UPROPERTY(BlueprintReadWrite)
 	bool WallBounceInCornerOnly = false;
@@ -271,7 +271,7 @@ struct FWallBounceData
 
 /*
  * Data for ground bounce.
- * Values that are set to -1 will be replaced by a default value.
+ * Values that are set to INT_MAX will be replaced by a default value.
  */
 USTRUCT(BlueprintType)
 struct FGroundBounceData
@@ -280,43 +280,43 @@ struct FGroundBounceData
 
 	// How many times the opponent will ground bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceCount = -1;
-	// If this value is not -1, it will override the current untech duration.
+	int32 GroundBounceCount = INT_MAX;
+	// If this value is not INT_MAX, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceUntech = -1;
+	int32 GroundBounceUntech = INT_MAX;
 	// The hitstop upon ground bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceStop = -1;
+	int32 GroundBounceStop = INT_MAX;
 	/*
 	 * Ground bounce x speed.
-	 * If this value is -1, it will be set to the received x pushback.
+	 * If this value is INT_MAX, it will be set to the received x pushback.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceXSpeed = -1;
+	int32 GroundBounceXSpeed = INT_MAX;
 	/*
 	 * The percent of ground bounce x speed.
-	 * If this value is -1, it will be set to 100%.
+	 * If this value is INT_MAX, it will be set to 100%.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceXRate = -1;
+	int32 GroundBounceXRate = INT_MAX;
 	/*
 	 * Ground bounce y speed.
-	 * If this value is -1, it will be set to the current y speed.
+	 * If this value is INT_MAX, it will be set to the current y speed.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceYSpeed = -1;
+	int32 GroundBounceYSpeed = INT_MAX;
 	/*
 	 * The percent of ground bounce y speed.
-	 * If this value is -1, it will be set to 100%.
+	 * If this value is INT_MAX, it will be set to 100%.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceYRate = -1;
+	int32 GroundBounceYRate = INT_MAX;
 	/*
 	 * Ground bounce gravity.
-	 * If this value is -1, it will be set to the received hit gravity.
+	 * If this value is INT_MAX, it will be set to the received hit gravity.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceGravity = -1;
+	int32 GroundBounceGravity = INT_MAX;
 };
 
 /*
@@ -329,11 +329,11 @@ struct FHitValueOverTime
 	GENERATED_BODY()
 
 	UPROPERTY(BlueprintReadWrite)
-	int32 Value = -1;
+	int32 Value = INT_MAX;
 	UPROPERTY(BlueprintReadWrite)
-	int32 BeginFrame = -1;
+	int32 BeginFrame = INT_MAX;
 	UPROPERTY(BlueprintReadWrite)
-	int32 EndFrame = -1;
+	int32 EndFrame = INT_MAX;
 };
 
 // Determines the opponent's position after being hit.
@@ -345,16 +345,16 @@ struct FHitPosition
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitPositionType> Type;
 	UPROPERTY(BlueprintReadWrite)
-	int32 PosX = -1;
+	int32 PosX = INT_MAX;
 	UPROPERTY(BlueprintReadWrite)
-	int32 PosY = -1;
+	int32 PosY = INT_MAX;
 };
 
 /*
  * Hit data.
  * There is one for normal hit, and one for counter hit.
- * For normal hit, values that are set to -1 will be replaced by a default value depending on attack level.
- * For counter hit, values that are set to -1 will be replaced by the normal hit's value.
+ * For normal hit, values that are set to INT_MAX will be replaced by a default value depending on attack level.
+ * For counter hit, values that are set to INT_MAX will be replaced by the normal hit's value.
  */
 USTRUCT(BlueprintType)
 struct FHitData
@@ -363,56 +363,56 @@ struct FHitData
 
 	// Hitstop duration for attacker and defender.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Hitstop = -1;
+	int32 Hitstop = INT_MAX;
 	// How long the opponent will be stunned if hit grounded.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Hitstun = -1;
+	int32 Hitstun = INT_MAX;
 	// How long the opponent will be stunned if hit airborne.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Untech = -1;
+	int32 Untech = INT_MAX;
 	// Hitstop modifier for the opponent on hit.
 	UPROPERTY(BlueprintReadWrite)
-	int32 EnemyHitstopModifier = -1;
+	int32 EnemyHitstopModifier = INT_MAX;
 	// How much damage the opponent will take.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Damage = -1;
+	int32 Damage = INT_MAX;
 	// The percent of damage that can be recovered.
 	UPROPERTY(BlueprintReadWrite)
-	int32 RecoverableDamagePercent = -1;
+	int32 RecoverableDamagePercent = INT_MAX;
 	/*
 	 * The minimum damage percent.
 	 * Damage scaling cannot bring damage lower than this.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 MinimumDamagePercent = -1;
+	int32 MinimumDamagePercent = INT_MAX;
 	/*
 	 * Initial proration for hit.
 	 * This is scaling that is applied only as the first hit of a combo.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 InitialProration = -1;
+	int32 InitialProration = INT_MAX;
 	/*
 	 * Initial proration for hit.
 	 * This is scaling that is applied every hit.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 ForcedProration = -1;
+	int32 ForcedProration = INT_MAX;
 	/*
 	 * Ground pushback for hit.
      * If the opponent is in the corner, this will instead apply to self,
 	 * even if you are airborne.
 	 */
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundPushbackX = -1;
+	int32 GroundPushbackX = INT_MAX;
 	// Air x pushback for hit.
 	UPROPERTY(BlueprintReadWrite)
-	int32 AirPushbackX = -1;
+	int32 AirPushbackX = INT_MAX;
 	// Air y pushback for hit.
 	UPROPERTY(BlueprintReadWrite)
-	int32 AirPushbackY = -1;
+	int32 AirPushbackY = INT_MAX;
 	// Gravity for hit.
 	UPROPERTY(BlueprintReadWrite)
-	int32 Gravity = -1;
+	int32 Gravity = INT_MAX;
 	/*
 	 * The hit value over time for air pushback x.
 	 * The value is a percentage.
@@ -442,16 +442,16 @@ struct FHitData
 	TEnumAsByte<EHitAction> AirHitAction = HACT_AirNormal;
 	// Blowback animation level. Used with the Blowback hit action.
 	UPROPERTY(BlueprintReadWrite)
-	int32 BlowbackLevel = -1;
+	int32 BlowbackLevel = INT_MAX;
 	// Floating crumple type. Used with the Floating Crumple hit action.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EFloatingCrumpleType> FloatingCrumpleType;
 	// How long the opponent will be knocked down for before recovery. Defaults to 12 frames.
 	UPROPERTY(BlueprintReadWrite)
-	int32 KnockdownTime = -1;
+	int32 KnockdownTime = INT_MAX;
 	// Determines if the opponent can tech after being knocked down. Default is soft knockdown.
 	UPROPERTY(BlueprintReadWrite)
-	int32 HardKnockdown = -1;
+	int32 HardKnockdown = INT_MAX;
 	// Ground bounce data.
 	UPROPERTY(BlueprintReadWrite)
 	FGroundBounceData GroundBounce;
@@ -499,7 +499,7 @@ enum EPosType
 	POS_Self,
 	POS_Center,
 	POS_Enemy,
-	POS_Hit,
+	POS_Col,
 };
 
 // Determines object type.
@@ -626,6 +626,12 @@ public:
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AnglePitch_x10 = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AngleYaw_x10 = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AngleRoll_x10 = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool BlendOffset = false;
 	int32 PrevOffsetX = 0;
@@ -852,8 +858,8 @@ public:
 	/*
 	 * Miscellaneous data
 	 */
-	int32 HitPosX = 0;
-	int32 HitPosY = 0;
+	int32 ColPosX = 0;
+	int32 ColPosY = 0;
 	int32 MiscFlags = 0;
 	int32 Timer0 = 0;
 	int32 Timer1 = 0;
@@ -935,6 +941,12 @@ public:
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AnglePitch_x10 = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AngleYaw_x10 = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	int32 AngleRoll_x10 = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
 	bool BlendOffset = false;
 	int32 PrevOffsetX = 0;
@@ -1162,8 +1174,8 @@ public:
 	/*
 	 * Miscellaneous data
 	 */
-	int32 HitPosX = 0;
-	int32 HitPosY = 0;
+	int32 ColPosX = 0;
+	int32 ColPosY = 0;
 	int32 MiscFlags = 0;
 	int32 Timer0 = 0;
 	int32 Timer1 = 0;
