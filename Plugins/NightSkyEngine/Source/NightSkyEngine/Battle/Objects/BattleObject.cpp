@@ -2448,7 +2448,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 	};
 
 	// Lambda to automate getting the normal vectors for a box
-	auto GetNormalAxes = [](const int32 (&Vertices)[4][2], int32 (&Normals)[4][2])
+	auto GetNormalAxes = [](const int32 (&Vertices)[4][2], int32 (&Normals)[4][2], bool bFacingRight)
 	{
 		// Loop over verts
 		for (int i = 0; i < std::size(Vertices); i++)
@@ -2460,6 +2460,11 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			const int32 Edge[2] = {P1[0] - P2[0], P1[1] - P2[1]};
 			// Get normal vector
 			int32 Normal[2] = {Edge[1], -Edge[0]};
+			if (bFacingRight)
+			{
+				Normal[0] = -Normal[0];
+				Normal[1] = -Normal[1];
+			}
 			// Normalize vector
 			auto Length = isqrt((int64)Normal[0] * Normal[0] + (int64)Normal[1] * Normal[1]);
 			if (Length == 0)
@@ -2561,7 +2566,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			{P4[0], P4[1]},
 		};
 		int32 Normals[4][2];
-		GetNormalAxes(Vertices, Normals);
+		GetNormalAxes(Vertices, Normals, Direction == DIR_Right);
 
 		// Repeat for other object
 		for (auto& OtherBox : OtherObj->Boxes)
@@ -2622,7 +2627,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 				{OtherP4[0], OtherP4[1]},
 			};
 			int32 OtherNormals[4][2];
-			GetNormalAxes(OtherVertices, OtherNormals);
+			GetNormalAxes(OtherVertices, OtherNormals, Direction == DIR_Right);
 
 			int32 Overlap = INT_MAX;
 			int32 Smallest[2];
@@ -2684,7 +2689,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 				}
 			}
 			
-			ColPosX = BoxPosX + (int64)Smallest[0] * (Direction == DIR_Right ? -1 : 1) * Overlap / COORD_SCALE;
+			ColPosX = BoxPosX + (int64)Smallest[0] * Overlap / COORD_SCALE;
 			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / COORD_SCALE;
 
 			return true;
