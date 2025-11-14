@@ -2683,8 +2683,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 					goto END;
 				}
 			}
-
-			ColPosX = BoxPosX + (int64)-Smallest[0] * Overlap / COORD_SCALE;
+			
+			ColPosX = BoxPosX + (int64)Smallest[0] * (Direction == DIR_Right ? -1 : 1) * Overlap / COORD_SCALE;
 			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / COORD_SCALE;
 
 			return true;
