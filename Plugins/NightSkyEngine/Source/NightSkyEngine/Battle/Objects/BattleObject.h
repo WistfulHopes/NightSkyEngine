@@ -227,7 +227,7 @@ struct FWallBounceData
 
 	// How many times the opponent will wall bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 WallBounceCount = INT_MAX;
+	int32 WallBounceCount = -1;
 	// If this value is not INT_MAX, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 WallBounceUntech = INT_MAX;
@@ -280,7 +280,7 @@ struct FGroundBounceData
 
 	// How many times the opponent will ground bounce.
 	UPROPERTY(BlueprintReadWrite)
-	int32 GroundBounceCount = INT_MAX;
+	int32 GroundBounceCount = -1;
 	// If this value is not INT_MAX, it will override the current untech duration.
 	UPROPERTY(BlueprintReadWrite)
 	int32 GroundBounceUntech = INT_MAX;
