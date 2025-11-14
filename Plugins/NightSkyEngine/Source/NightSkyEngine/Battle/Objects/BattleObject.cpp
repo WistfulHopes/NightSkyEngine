@@ -1563,11 +1563,11 @@ void ABattleObject::UpdateVisuals()
 	{
 		if (Direction == DIR_Left)
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x1000 / 10);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x1000 / 1000);
 		}
 		else
 		{
-			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 10);
+			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 1000);
 		}
 	}
 	if (IsPlayer)
