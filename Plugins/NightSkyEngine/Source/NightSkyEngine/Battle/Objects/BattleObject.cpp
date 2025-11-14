@@ -2436,6 +2436,17 @@ void ABattleObject::DeactivateObject()
 bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
                                     const EBoxType OtherType, const FGameplayTag OtherCustomType)
 {
+	auto RotatePoint = [](int32 (&Point)[2], int32 Angle)
+	{
+		const int OrigPoint[] = {Point[0], Point[1]};
+		Point[0] = (int64)OrigPoint[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000 - (int64)
+			OrigPoint[1] *
+			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000;
+		Point[1] = (int64)OrigPoint[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000 + (int64)
+			OrigPoint[1] *
+			UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000;
+	};
+
 	// Lambda to automate getting the normal vectors for a box
 	auto GetNormalAxes = [](const int32 (&Vertices)[4][2], int32 (&Normals)[4][2])
 	{
@@ -2506,31 +2517,42 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 		// Calculate rotated points
 		auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000 + 180000;
 
-		P1[0] = P1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000 - P1[1] *
-			UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000;
-		P1[1] = -(P1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100)) / 1000 + P1[1] *
-			UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000;
-
-		// Calculate scene transform
+		// Calculate box transform
 		if (Direction == DIR_Right)
 		{
-			P1[0] += Box.PosX + PosX;
-			P2[0] += Box.PosX + PosX;
-			P3[0] += Box.PosX + PosX;
-			P4[0] += Box.PosX + PosX;
+			P1[0] += Box.PosX;
+			P2[0] += Box.PosX;
+			P3[0] += Box.PosX;
+			P4[0] += Box.PosX;
 		}
 		else
 		{
-			P1[0] += -Box.PosX + PosX;
-			P2[0] += -Box.PosX + PosX;
-			P3[0] += -Box.PosX + PosX;
-			P4[0] += -Box.PosX + PosX;
+			P1[0] += -Box.PosX;
+			P2[0] += -Box.PosX;
+			P3[0] += -Box.PosX;
+			P4[0] += -Box.PosX;
 		}
 
-		P1[1] += Box.PosY + PosY;
-		P2[1] += Box.PosY + PosY;
-		P3[1] += Box.PosY + PosY;
-		P4[1] += Box.PosY + PosY;
+		P1[1] += Box.PosY;
+		P2[1] += Box.PosY;
+		P3[1] += Box.PosY;
+		P4[1] += Box.PosY;
+
+		RotatePoint(P1, Angle);
+		RotatePoint(P2, Angle);
+		RotatePoint(P3, Angle);
+		RotatePoint(P4, Angle);
+
+		// Calculate scene transform
+		P1[0] += PosX;
+		P2[0] += PosX;
+		P3[0] += PosX;
+		P4[0] += PosX;
+
+		P1[1] += PosY;
+		P2[1] += PosY;
+		P3[1] += PosY;
+		P4[1] += PosY;
 
 		int32 Vertices[4][2] = {
 			{P1[0], P1[1]},
@@ -2554,32 +2576,44 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
 			int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
 
-			auto OtherAngle = OtherObj->Direction == DIR_Right ? OtherObj->AnglePitch_x1000 : 180000 - OtherObj->AnglePitch_x1000 + 180000;
-
-			OtherP1[0] = OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle / 100) / 1000 - OtherP1[1] *
-				UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle / 100) / 1000;
-			OtherP1[1] = -(OtherP1[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(OtherAngle / 100)) / 1000 + OtherP1[1] *
-				UNightSkyBlueprintFunctionLibrary::Cos_x1000(OtherAngle / 100) / 1000;
-
+			auto OtherAngle = OtherObj->Direction == DIR_Right
+				                  ? OtherObj->AnglePitch_x1000
+				                  : 180000 - OtherObj->AnglePitch_x1000 + 180000;
+			
 			if (OtherObj->Direction == DIR_Right)
 			{
-				OtherP1[0] += OtherBox.PosX + OtherObj->PosX;
-				OtherP2[0] += OtherBox.PosX + OtherObj->PosX;
-				OtherP3[0] += OtherBox.PosX + OtherObj->PosX;
-				OtherP4[0] += OtherBox.PosX + OtherObj->PosX;
+				OtherP1[0] += OtherBox.PosX;
+				OtherP2[0] += OtherBox.PosX;
+				OtherP3[0] += OtherBox.PosX;
+				OtherP4[0] += OtherBox.PosX;
 			}
 			else
 			{
-				OtherP1[0] += -OtherBox.PosX + OtherObj->PosX;
-				OtherP2[0] += -OtherBox.PosX + OtherObj->PosX;
-				OtherP3[0] += -OtherBox.PosX + OtherObj->PosX;
-				OtherP4[0] += -OtherBox.PosX + OtherObj->PosX;
+				OtherP1[0] += -OtherBox.PosX;
+				OtherP2[0] += -OtherBox.PosX;
+				OtherP3[0] += -OtherBox.PosX;
+				OtherP4[0] += -OtherBox.PosX;
 			}
 
-			OtherP1[1] += OtherBox.PosY + OtherObj->PosY;
-			OtherP2[1] += OtherBox.PosY + OtherObj->PosY;
-			OtherP3[1] += OtherBox.PosY + OtherObj->PosY;
-			OtherP4[1] += OtherBox.PosY + OtherObj->PosY;
+			OtherP1[1] += OtherBox.PosY;
+			OtherP2[1] += OtherBox.PosY;
+			OtherP3[1] += OtherBox.PosY;
+			OtherP4[1] += OtherBox.PosY;
+
+			RotatePoint(OtherP1, OtherAngle);
+			RotatePoint(OtherP2, OtherAngle);
+			RotatePoint(OtherP3, OtherAngle);
+			RotatePoint(OtherP4, OtherAngle);
+
+			OtherP1[0] += OtherObj->PosX;
+			OtherP2[0] += OtherObj->PosX;
+			OtherP3[0] += OtherObj->PosX;
+			OtherP4[0] += OtherObj->PosX;
+
+			OtherP1[1] += OtherObj->PosY;
+			OtherP2[1] += OtherObj->PosY;
+			OtherP3[1] += OtherObj->PosY;
+			OtherP4[1] += OtherObj->PosY;
 
 			int32 OtherVertices[4][2] = {
 				{OtherP1[0], OtherP1[1]},
