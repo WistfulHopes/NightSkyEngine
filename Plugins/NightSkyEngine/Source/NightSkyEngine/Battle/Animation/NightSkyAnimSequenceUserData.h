@@ -82,13 +82,25 @@ private:
 
 public:
 	virtual void PostEditChangeOwner(const FPropertyChangedEvent& PropertyChangedEvent) override;
+
+	UFUNCTION(BlueprintPure)
+	int32 GetFrameCount() const
+	{
+		return FrameCount;
+	}
+
+	UFUNCTION(BlueprintPure)
+	int32 GetFrameRate() const
+	{
+		return FrameRate;
+	}
 	
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintPure)
 	FAnimVector GetRootTranslationAtTime(int32 Time) const;
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintPure)
 	FAnimTransform GetCachedBoneTransformAtTime(FName BoneName, int32 Time, bool bRelativeToRoot) const;
     
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintPure)
 	FAnimVector GetCachedBoneLocationAtTime(FName BoneName, int32 Time, bool bRelativeToRoot) const;
 };

@@ -12,7 +12,7 @@ Another important system in States is the Event Handler system. There are severa
 Event Handlers must be initialized before they can be used. Once initialized, they will remain until the State is exited, or if removed by type. Only one Event Handler of a type may be active at once; if another Event Handler of the same type is initialized, it will overwrite the old one.
 
 @warning
-- If an Event Handler attempts to call a Blueprint Function that doesn't exist in the current State, nothing will happen. Make sure not to misspell the function name.
+- If an Event Handler attempts to call a Blueprint Function that doesn't exist in the current State, nothing will happen! Make sure not to misspell the function name.
 
 For large States, reading an Event Graph can become unwieldy. As a result, there are two main ways to clean up your Blueprint Code: Functions and Macros. I recommend using Macros to group Cels, and Functions to group non-Cel code that needs to be used often.
 

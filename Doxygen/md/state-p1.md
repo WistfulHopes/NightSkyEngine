@@ -3,11 +3,13 @@ What Is A State? Part 1 {#state-p1}
 
 In Night Sky Engine, all characters have their logic built using States and Subroutines. For now, we'll focus on States.
 
-If you're familiar with a finite state machine, the concept here is similar. Characters can be in one state at a time, and there are rules for transitioning between states. However, unlike a traditional finite state machine, the Night Sky State Machine allows for more broad categorization of states, in addition to fine-tuned control over transitions.
+If you're familiar with a finite state machine, the concept here is similar. A character's state machine can be in one state at a time, and there are rules for transitioning between states. However, unlike a traditional finite state machine, the Night Sky State Machine allows for more broad categorization of states, in addition to fine-tuned control over transitions.
 
 States have two types of main conditions: Input and State Conditions. Input Conditions are based on the controller input: in other words, anything from holding a direction to doing a quarter circle forward and a button together, and even more. Meanwhile, a State Condition is a pre-determined condition for entering the state. Several examples of State Conditions are having enough meter, a Player Register being true or false, and so on.
 
 Every state can be grouped into a "State Type", such as Standing, Jumping, Normal Attack, etc. You can broadly toggle on and off transitioning into other states. For example, by toggling on the Jumping State Type, any Jumping States can be entered when its Input and State Conditions are met. Additionally, custom State Types may be created in Blueprints.
+
+Finally, if you need even more control over entering a state, you can override the "Can Enter State" function of a state to set custom conditions.
 
 If you need a more specific way to transition between different states, there are two ways to handle this: Cancels and Jump to State.
 

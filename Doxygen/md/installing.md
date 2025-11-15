@@ -6,12 +6,8 @@ To get Night Sky Engine, use a Git client (such as the [official client](https:/
 
 ```git git clone https://github.com/WistfulHopes/NightSkyEngine.git```
 
-Then, initialize the submodules with the following:
-
-```git git submodule update --init --recursive```
-
 ## Compile the engine
-To compile the Night Sky Engine, you will need Unreal Engine 5.5 and Visual Studio. The version of Visual Studio must be 2022. For detailed instructions on installing Visual Studio for use with Unreal Engine, [click here](https://docs.unrealengine.com/5.4/en-US/setting-up-visual-studio-development-environment-for-cplusplus-projects-in-unreal-engine/).
+To compile the Night Sky Engine, you will need Unreal Engine 5.6 and Visual Studio. The version of Visual Studio must be 2022. For detailed instructions on installing Visual Studio for use with Unreal Engine, [click here](https://docs.unrealengine.com/5.4/en-US/setting-up-visual-studio-development-environment-for-cplusplus-projects-in-unreal-engine/).
 
 After Visual Studio is set up, you will need to generate Visual Studio project files for Night Sky Engine. To do so, right-click on NightSkyEngine.uproject, and click on "Generate Visual Studio project files".
 

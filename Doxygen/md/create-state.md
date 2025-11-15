@@ -15,7 +15,7 @@ First, you should define default values for your State. On the rightmost panel, 
 - The Entry Stance determines what character stance (standing, crouching, jumping) the state may be entered from. If it is set to None, any state will work.
 - Input Condition Lists handles input conditions. If one Condition List's requirements is met, the state may be entered. 
 
-Start by setting the State name to 5A, and the entry stance to Standing. For the Input Condition Lists, add one entry, then open the dropdowns. You will notice a new array, called Input Conditions. These are the actual conditions that the list contains. All of these conditions must be met in order for the list to be considered successful.
+Start by setting the State name to a fitting Gameplay Tag (such as "Attack.Normal.5A"), and the entry stance to Standing. For the Input Condition Lists, add one entry, then open the dropdowns. You will notice a new array, called Input Conditions. These are the actual conditions that the list contains. All of these conditions must be met in order for the list to be considered successful.
 
 For now, add a new entry into the Condition's Sequence, and set the Input Flag to A (for light). Then, set the Method of the condition to Once. This means that it will only register the input on first press.
 
@@ -27,7 +27,7 @@ Under Init, you will handle all state values that need to be set when netering t
 
 To interact with the State's owning object, you will need to Get the Parent. Right-click on an empty spot in the Function Graph, and type "Get Parent". Find the bottommost entry and click it. This will create a node in the Function Graph which gives you access to the owning object.
 
-In this case, we want to call a Subroutine that initializes the default attack values. Drag on the blue circle at the rightmost edge of the Parent node, release the mouse, and type "Call Subroutine". Click on the entry, and a new node will appear. This node will call a Subroutine that is stored within the Common Subroutine Data. Under Name, type in "CmnAttackLevel1", which will set default attack values. Then, connect the leftmost white arrow to the "Parent: Init" node's rightmost white arrow.
+In this case, we want to call a Subroutine that initializes the default attack values. Drag on the blue circle at the rightmost edge of the Parent node, release the mouse, and type "Call Subroutine". Click on the entry, and a new node will appear. This node will call a Subroutine that is stored within the Common Subroutine Data. Under Name, find the gameplay tag for "Subroutine.Cmn.AttackLevel.1", which will set default attack values. Then, connect the leftmost white arrow to the "Parent: Init" node's rightmost white arrow.
 
 Now, we'll go back to the "Override" menu, and override the Exec function. This will create a new Event in the Event Graph. You may notice the lack of a "Parent: Exec" node in this override. Unless you are sure that you do not want the parent State's default functionality, it is best to create this node yourself. Right-click on the "Event Exec" node, and click "Add Call to Parent Function". Then, wire in the "Parent: Exec" node to "Event Exec".
 

@@ -11,6 +11,7 @@
 #include "NightSkyEngine/Data/CollisionData.h"
 #include "BattleObject.generated.h"
 
+class UNightSkyAnimSequenceUserData;
 class ANightSkyCharaSelectGameState;
 class UPaperFlipbookComponent;
 class UNiagaraComponent;
@@ -626,6 +627,9 @@ public:
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
+	int32 PrevRootMotionX = 0;
+	int32 PrevRootMotionY = 0;
+	int32 PrevRootMotionZ = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 AnglePitch_x10 = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -936,11 +940,14 @@ public:
 	int32 PosX = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 PosY = 0;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 PosZ = 0;
 	int32 PrevPosX = 0;
 	int32 PrevPosY = 0;
 	int32 PrevPosZ = 0;
+	int32 PrevRootMotionX = 0;
+	int32 PrevRootMotionY = 0;
+	int32 PrevRootMotionZ = 0;
 	UPROPERTY(VisibleAnywhere)
 	int32 AnglePitch_x1000 = 0;
 	UPROPERTY(VisibleAnywhere)
@@ -1290,6 +1297,8 @@ public:
 
 protected:
 	void FuncCall(const FName& FuncName) const;
+	UNightSkyAnimSequenceUserData* GetAnimSequenceUserData(const FName PartName) const;
+	TArray<UNightSkyAnimSequenceUserData*> GetAnimSequenceUserDatas() const;
 
 public:
 	// Cannot be called on player objects. Initializes the object for use.

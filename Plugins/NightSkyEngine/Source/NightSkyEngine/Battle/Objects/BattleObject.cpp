@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "PlayerObject.h"
+#include "NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h"
 #include "NightSkyEngine/Battle/Misc/Bitflags.h"
 #include "NightSkyEngine/Battle/Misc/Globals.h"
 #include "NightSkyEngine/Battle/Script/Subroutine.h"
@@ -65,6 +66,24 @@ void ABattleObject::Move()
 		AddPosXWithDir(TmpOffsetX);
 		PosY += TmpOffsetY;
 	}
+
+	// Root motion
+	if (const auto BodyAnimUserData = GetAnimSequenceUserData("Body"))
+	{
+		const auto Frame60 = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+		const auto FrameAnim = Frame60 * BodyAnimUserData->GetFrameRate() / 60;
+		const auto RootMotion = BodyAnimUserData->GetRootTranslationAtTime(FrameAnim);
+
+		AddPosXWithDir(RootMotion.X - PrevRootMotionX);
+		PosY += RootMotion.Y - PrevRootMotionY;
+		PosZ += RootMotion.Z - PrevRootMotionZ;
+
+		return;
+	}
+
+	PrevRootMotionX = 0;
+	PrevRootMotionY = 0;
+	PrevRootMotionZ = 0;
 
 	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
 	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
@@ -1697,6 +1716,45 @@ void ABattleObject::FuncCall(const FName& FuncName) const
 	}
 }
 
+UNightSkyAnimSequenceUserData* ABattleObject::GetAnimSequenceUserData(const FName PartName) const
+{
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (int i = 0; i < Components.Num(); i++)
+	{
+		const auto Component = Components[i];
+		if (Component->GetName() != PartName) continue;
+		
+		const auto AnimSequence = GetAnimSequenceForPart(*Component->GetName());
+		if (!AnimSequence) continue;
+
+		return AnimSequence->GetAssetUserData<UNightSkyAnimSequenceUserData>();
+	}
+
+	return nullptr;
+}
+
+TArray<UNightSkyAnimSequenceUserData*> ABattleObject::GetAnimSequenceUserDatas() const
+{
+	TArray<UNightSkyAnimSequenceUserData*> UserDatas;
+	
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (int i = 0; i < Components.Num(); i++)
+	{
+		const auto Component = Components[i];
+		const auto AnimSequence = GetAnimSequenceForPart(*Component->GetName());
+		if (!AnimSequence) continue;
+
+		auto UserData = AnimSequence->GetAssetUserData<UNightSkyAnimSequenceUserData>();
+		if (!UserData) continue;
+
+		UserDatas.Add(UserData);
+	}
+
+	return UserDatas;
+}
+
 void ABattleObject::GetBoxes()
 {
 	Boxes.Empty();
@@ -1877,6 +1935,9 @@ void ABattleObject::ResetObject()
 	PrevOffsetY = 0;
 	NextOffsetX = 0;
 	NextOffsetY = 0;
+	PrevRootMotionX = 0;
+	PrevRootMotionY = 0;
+	PrevRootMotionZ = 0;
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
@@ -2089,7 +2150,7 @@ void ABattleObject::SetCelName(FGameplayTag InName)
 	SetBlendCelName(FGameplayTag::EmptyTag);
 
 	GetBoxes();
-
+	
 	// Get position offset from boxes
 	for (auto Box : Boxes)
 	{

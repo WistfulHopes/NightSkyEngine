@@ -14,7 +14,9 @@ If the Night Sky Game State is the foundation of the battle scene, then a Battle
 On the other hand, Player Objects are a specialized version of Battle Objects intended for use with player characters. In other words, you directly control Player Objects. These contain even more data, such as health, meter, a state machine, and more.
 
 ## The State Machine
-Player Objects have access to their own state machine. This contains all states the Player Object has access to, and methods for changing state. You will most likely never need to modify the state machine itself, as the transition logic lies in the Player Object itself. The state machine's purpose is to keep track of the current state and contain all other states.
+Player Objects have access to a primary state machines. This state machine contains states the Player Object has access to, and methods for changing state. You will most likely never need to modify the state machine itself, as the transition logic lies in the Player Object itself. The state machine's purpose is to keep track of the current state and contain all other states.
+
+There's also an advanced, experimental feature for additional state machines. These states run in tandem with the primary state machine, and can be used to run background code independent of the main states. For more experimental games, this is useful for blending logic of multiple states together.
 
 ## States
 In Night Sky Engine, a state is a Blueprint that contains logic for how a Battle Object should behave. They can informally be divided between object states and player states.
@@ -26,7 +28,7 @@ A player state is attached to a Player Object's state machine for much the same 
 ## Cels
 Frame data and anything else that should only update at a specific point of a state is handled by the Cel system. Cels are a two-part system: one part being the Cel Gate, and the other part being in the Player Object's Collision Data.
 
-By using a Cel Gate macro in a state, you can create a "divider" of sorts for your state code. Code connected to the Exec line will execute immediately upon a Cel's activation, and code connected to the Skip line will execute any other time. The Duration parameter of the macro sets how long a Cel lasts. Once a Cel's duration elapses, the next Cel Gate will activate, thereby creating a frame data system.
+By using a Cel Gate macro in a state, you can create a "divider" of sorts for your state code. Code connected to the On Enter line will execute immediately upon a Cel's activation, and code connected to the On Update line will execute otherwise. The Duration parameter of the macro sets how long a Cel lasts. Once a Cel's duration elapses, the Next Cel line will activate, thereby creating a frame data system. All Cel Gates should be connected via the Next Cel line.
 
 For the Collision Data part, Cels can be connected to animation frames and collision data via the Set Cel Name function. By setting the current Battle Object's Cel name to the corresponding entry in the Collision Data, the Battle Object's animation and collision data will be updated.
 
