@@ -824,8 +824,6 @@ void ANightSkyGameState::UpdateVisuals() const
 {
 	for (int i = 0; i < SortedObjects.Num(); i++)
 	{
-		if (i == BattleState.ActiveObjectCount)
-			break;
 		SortedObjects[i]->UpdateVisuals();
 	}
 }

@@ -1578,6 +1578,24 @@ void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
 
 void ABattleObject::UpdateVisuals()
 {
+	if (IsPlayer)
+	{
+		if ((Player->PlayerFlags & PLF_IsOnScreen) == 0)
+		{
+			SetActorHiddenInGame(true);
+			return;
+		}
+		SetActorHiddenInGame(false);
+	}
+	else
+	{
+		if (!IsActive)
+		{
+			SetActorHiddenInGame(true);
+			return;
+		}
+		SetActorHiddenInGame(false);
+	}
 	if (LinkedParticle)
 	{
 		if (Direction == DIR_Left)
@@ -1588,11 +1606,6 @@ void ABattleObject::UpdateVisuals()
 		{
 			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 1000);
 		}
-	}
-	if (IsPlayer)
-	{
-		if (Player->PlayerFlags & PLF_IsOnScreen) SetActorHiddenInGame(false);
-		else SetActorHiddenInGame(true);
 	}
 	FRotator FlipRotation = FRotator::ZeroRotator;
 	if (Direction == DIR_Left)
