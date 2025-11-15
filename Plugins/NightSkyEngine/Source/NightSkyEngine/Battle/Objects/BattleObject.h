@@ -1012,9 +1012,9 @@ public:
 	FHitDataCommon ReceivedHitCommon = {};
 	UPROPERTY(BlueprintReadOnly)
 	FHitData ReceivedHit = {};
-	uint32 StunTime = 0;
-	uint32 StunTimeMax = 0;
-	uint32 Hitstop = 0;
+	int32 StunTime = 0;
+	int32 StunTimeMax = 0;
+	int32 Hitstop = 0;
 
 	/*
 	 * Registers
@@ -1382,6 +1382,9 @@ public:
 	// Normalizes angle to between 0 and 360 degrees.
 	UFUNCTION(BlueprintPure)
 	static int32 NormalizeAngle(int32 Angle_x1000);
+	//calculates angle between points
+    UFUNCTION(BlueprintPure)
+    int32 CalculateSpeedAngle() const;
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,

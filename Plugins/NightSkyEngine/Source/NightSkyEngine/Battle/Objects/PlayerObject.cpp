@@ -637,7 +637,7 @@ void APlayerObject::Update()
 
 	if (StunTime > 0)
 		StunTime--;
-	if (StunTime == 0 && !(PlayerFlags & PLF_IsDead) && CheckIsStunned())
+	if (StunTime <= 0 && !(PlayerFlags & PLF_IsDead) && CheckIsStunned())
 	{
 		if (PrimaryStateMachine.CurrentState->StateType == EStateType::Blockstun)
 		{
@@ -836,7 +836,6 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 {
 	int32 FinalHitstop = ReceivedHit.Hitstop + ReceivedHit.EnemyHitstopModifier;
 
-	AttackOwner->Hitstop = ReceivedHit.Hitstop;
 	Hitstop = FinalHitstop;
 
 	int32 Proration = ReceivedHit.ForcedProration;
@@ -1196,6 +1195,8 @@ void APlayerObject::SetHitValues()
 			FinalUntech = FinalUntech * 90 / 100;
 		}
 	}
+	if (FinalHitstun < 1) FinalHitstun = 1;
+	if (FinalUntech < 1) FinalUntech = 1;
 
 	if (bLimitCrumple && bCrumpled && HACT == HACT_Crumple)
 	{
@@ -1206,6 +1207,7 @@ void APlayerObject::SetHitValues()
 	case HACT_GroundNormal:
 	case HACT_ForceCrouch:
 	case HACT_ForceStand:
+	default:
 		StunTime = FinalHitstun;
 		StunTimeMax = FinalHitstun;
 		if (PlayerFlags & PLF_TouchingWall && FinalHitPushbackX != INT_MAX)
@@ -1298,8 +1300,6 @@ void APlayerObject::SetHitValues()
 			AttackOwner->Pushback = -FinalHitPushbackX;
 			Pushback = 0;
 		}
-	default:
-		break;
 	}
 	AirDashTimer = 0;
 	AirDashNoAttackTime = 0;
@@ -1746,7 +1746,7 @@ void APlayerObject::HandleProximityBlock()
 			|| CalculateDistanceBetweenPoints(DIST_DistanceY, OBJ_Self, POS_Self, OBJ_Enemy, POS_Self) > Enemy->
 			HitCommon.ProximityBlockDistanceY))
 	{
-		if (PrimaryStateMachine.CurrentState->StateType == EStateType::Blockstun && StunTime == 0)
+		if (PrimaryStateMachine.CurrentState->StateType == EStateType::Blockstun && StunTime <= 0)
 		{
 			if (Stance == ACT_Standing)
 			{

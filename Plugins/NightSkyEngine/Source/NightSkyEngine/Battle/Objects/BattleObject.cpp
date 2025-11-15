@@ -665,6 +665,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					HACT = NormalHit.AirHitAction;
 
 				AttackedPlayer->HandleHitAction(HACT);
+				Hitstop = Data.Hitstop;
 			}
 			else
 			{
@@ -690,6 +691,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					return;
 				}
 
+				const FHitData Data = InitHitDataByAttackLevel(false);
 				const FHitData CounterData = InitHitDataByAttackLevel(true);
 				CreateCommonParticle(HitCommon.HitVFX, POS_Col, FVector(0, 0, 0),
 				                     FRotator(HitCommon.HitAngle, 0, 0));
@@ -706,6 +708,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					HACT = CounterHit.AirHitAction;
 
 				AttackedPlayer->HandleHitAction(HACT);
+				Hitstop = Data.Hitstop;
 			}
 		}
 	}
@@ -2282,6 +2285,11 @@ int32 ABattleObject::NormalizeAngle(int32 Angle_x1000)
 	Angle_x1000 %= 360000;
 	if (Angle_x1000 < 0) Angle_x1000 += 360000;
 	return Angle_x1000;
+}
+
+int32 ABattleObject::CalculateSpeedAngle() const
+{
+	return UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(SpeedX, SpeedY);
 }
 
 int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
