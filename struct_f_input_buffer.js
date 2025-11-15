@@ -13,9 +13,6 @@ var struct_f_input_buffer =
     [ "FlipInputsInBuffer", "struct_f_input_buffer.html#abe3833b886dd17c7d04092836719b65c", null ],
     [ "Update", "struct_f_input_buffer.html#a701303c42618b403e65f6fdc5973c737", null ],
     [ "WriteInputCondition", "struct_f_input_buffer.html#aa4756533add2897b5f0103f773b5325a", null ],
-    [ "bInputAllowDisable", "struct_f_input_buffer.html#a2b0f6a044cdef896a12860e019a7696a", null ],
-    [ "ImpreciseInputCount", "struct_f_input_buffer.html#a1056d71f90e720feb70f4866b0229c71", null ],
     [ "InputBufferInternal", "struct_f_input_buffer.html#a6369cced274b3c38dcbcf100a437feda", null ],
-    [ "InputDisabled", "struct_f_input_buffer.html#a236570e0ff2119200032167de131cbb3", null ],
-    [ "InputSequence", "struct_f_input_buffer.html#a4e72416642cc09c142b55cd34c6bde42", null ]
+    [ "InputDisabled", "struct_f_input_buffer.html#a236570e0ff2119200032167de131cbb3", null ]
 ];

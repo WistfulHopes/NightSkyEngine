@@ -30,21 +30,21 @@ var NAVTREE =
       [ "What are some key features of Night Sky Engine?", "about.html#autotoc_md1", null ],
       [ "Should I download now, or wait for later?", "about.html#autotoc_md2", null ]
     ] ],
-    [ "Getting Your Bearings", "bearings.html", [
-      [ "Night Sky Game State", "bearings.html#autotoc_md3", null ],
-      [ "Battle and Player Objects", "bearings.html#autotoc_md4", null ],
-      [ "The State Machine", "bearings.html#autotoc_md5", null ],
-      [ "States", "bearings.html#autotoc_md6", null ],
-      [ "Cels", "bearings.html#autotoc_md7", null ]
-    ] ],
-    [ "Your First State", "create-state.html", null ],
-    [ "Installing Night Sky Engine", "installing.html", [
-      [ "Download", "installing.html#autotoc_md8", null ],
-      [ "Compile the engine", "installing.html#autotoc_md9", null ]
-    ] ],
     [ "Quick Start", "quick-start.html", null ],
+    [ "Installing Night Sky Engine", "installing.html", [
+      [ "Download", "installing.html#autotoc_md3", null ],
+      [ "Compile the engine", "installing.html#autotoc_md4", null ]
+    ] ],
+    [ "Getting Your Bearings", "bearings.html", [
+      [ "Night Sky Game State", "bearings.html#autotoc_md5", null ],
+      [ "Battle and Player Objects", "bearings.html#autotoc_md6", null ],
+      [ "The State Machine", "bearings.html#autotoc_md7", null ],
+      [ "States", "bearings.html#autotoc_md8", null ],
+      [ "Cels", "bearings.html#autotoc_md9", null ]
+    ] ],
     [ "What Is A State? Part 1", "state-p1.html", null ],
     [ "What Is A State? Part 2", "state-p2.html", null ],
+    [ "Your First State", "create-state.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -72,16 +72,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_audio_manager_8cpp.html",
-"_fighter_replay_runner_8cpp.html",
-"_sound_data_8cpp.html#ad8f305abd6b99917d0c57772d0d9cf86",
-"_subroutine_data_8h_source.html",
-"class_a_fighter_multiplayer_runner.html#a47a49f410c529ca4339d534da50b8513",
-"class_a_player_object.html#a1877803ad350cb47c665d54825c07d03",
-"class_a_w_t_character.html#a3746a6437f17ed6e7cf5cf69dd8a6ce2",
-"functions_func_i.html",
-"struct_f_hit_data_common.html#a35c027594d4484cf79c5bc05cf01c4db"
+"_fighter_multiplayer_runner_8h.html",
+"_sound_data_8cpp.html#a0548483d1efb44e7923a090a9c6451d8",
+"_subroutine_data_8h.html",
+"class_a_battle_object.html#aea00be48374f553af44b15d7d25b5f5f",
+"class_a_particle_manager.html#a526f75e92423018f05019702353e39aa",
+"class_a_player_object.html#ae07e4991fbf2dd03dd148008ded17b29",
+"class_u_state.html#ae6e0455704bedfa61eca355be1f31827",
+"struct_f_battle_object_log.html#a41ef55c5f4c81e347f6481285a0c8d7b",
+"struct_f_input_bitmask.html#aecbf448e2487a94980c26a4742605123",
+"struct_f_sequence_struct.html#a8fe7ecb3d312e33a13ff6f227a9e091e"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

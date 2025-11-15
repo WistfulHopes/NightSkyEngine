@@ -7,6 +7,7 @@ var searchData=
   ['defaultmaxwidth_4',['DefaultMaxWidth',['../struct_f_screen_data.html#a290bd7f827a42931213a34fd274c0569',1,'FScreenData']]],
   ['defaultscreenytargetoffset_5',['DefaultScreenYTargetOffset',['../struct_f_screen_data.html#a2e75315456bb420503b82c8b14cd2711',1,'FScreenData']]],
   ['defaultwidth_6',['DefaultWidth',['../struct_f_screen_data.html#a2aebe283ed5c99ca69995011f574d128',1,'FScreenData']]],
-  ['direction_7',['Direction',['../class_a_battle_object.html#a081e3ee66bde55b806ff6200e72c9c99',1,'ABattleObject']]],
-  ['drawpriority_8',['DrawPriority',['../class_a_battle_object.html#a1b4e833fd922beb3e218def2204ab37a',1,'ABattleObject']]]
+  ['direction_7',['Direction',['../struct_f_battle_object_log.html#a25a76409bdd8c643b13f2bc76f77f8e9',1,'FBattleObjectLog::Direction'],['../class_a_battle_object.html#a081e3ee66bde55b806ff6200e72c9c99',1,'ABattleObject::Direction']]],
+  ['disallowedinputs_8',['DisallowedInputs',['../struct_f_input_condition.html#a7f422a4bdd486d02b1f109725dcd774d',1,'FInputCondition']]],
+  ['drawpriority_9',['DrawPriority',['../struct_f_battle_object_log.html#acd205a99c6cefbca1b13e4c84b86c9e6',1,'FBattleObjectLog::DrawPriority'],['../class_a_battle_object.html#a1b4e833fd922beb3e218def2204ab37a',1,'ABattleObject::DrawPriority']]]
 ];

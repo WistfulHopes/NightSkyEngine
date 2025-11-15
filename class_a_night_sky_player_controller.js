@@ -35,6 +35,8 @@ var class_a_night_sky_player_controller =
     [ "SetupInputComponent", "class_a_night_sky_player_controller.html#aa7048663c4f6b41e3b8c22271a795918", null ],
     [ "Tick", "class_a_night_sky_player_controller.html#aea64af8418947730f0a7b377f6c715f9", null ],
     [ "bRematch", "class_a_night_sky_player_controller.html#a8551262652e4498a1380d96841832d2d", null ],
+    [ "bRematchAccepted", "class_a_night_sky_player_controller.html#a1b2592af49a4feb1d9f9e9c97a2e9404", null ],
+    [ "bSentCharaData", "class_a_night_sky_player_controller.html#a20c0c66ddb1e5dcc168666e370a30d34", null ],
     [ "Frame", "class_a_night_sky_player_controller.html#abed7e8246d8019abaa2396f41f04eb40", null ],
     [ "InputActions", "class_a_night_sky_player_controller.html#a17b75fe0f61fc24a4c2e40e83473a17d", null ],
     [ "InputMapping", "class_a_night_sky_player_controller.html#a373e5cf3d167f970f68bff5f20c84e24", null ],

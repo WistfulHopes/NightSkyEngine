@@ -1,6 +1,7 @@
 var _player_object_8h =
 [
     [ "FExtraGauge", "struct_f_extra_gauge.html", "struct_f_extra_gauge" ],
+    [ "FPlayerObjectLog", "struct_f_player_object_log.html", "struct_f_player_object_log" ],
     [ "APlayerObject", "class_a_player_object.html", "class_a_player_object" ],
     [ "EActionStance", "_player_object_8h.html#a12c1fea13a3fe22da70f28df0e7a6007", [
       [ "ACT_Standing", "_player_object_8h.html#a12c1fea13a3fe22da70f28df0e7a6007af3e6972e5074a3fc6933ce395d926e32", null ],

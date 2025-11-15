@@ -22,5 +22,6 @@ var searchData=
   ['atk_5fignoreotg_19',['ATK_IgnoreOTG',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a28115b6853823cb80709b79113c14b12',1,'Bitflags.h']]],
   ['atk_5fignorepushbackscaling_20',['ATK_IgnorePushbackScaling',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a747e7564dd4bc8cc4a52c40b718dccc8',1,'Bitflags.h']]],
   ['atk_5fisattacking_21',['ATK_IsAttacking',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7aaab5e5b5f5083dec9dda3d800870aa14',1,'Bitflags.h']]],
-  ['atk_5fprorateonce_22',['ATK_ProrateOnce',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7aa7d3ac7b1f347d7cdad5482e2f39e8e3',1,'Bitflags.h']]]
+  ['atk_5fprorateonce_22',['ATK_ProrateOnce',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7aa7d3ac7b1f347d7cdad5482e2f39e8e3',1,'Bitflags.h']]],
+  ['atk_5fsetplayerhit_23',['ATK_SetPlayerHit',['../_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74',1,'Bitflags.h']]]
 ];

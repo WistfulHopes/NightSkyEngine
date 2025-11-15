@@ -1,26 +1,9 @@
 var searchData=
 [
-  ['obj_5fchild0_0',['OBJ_Child0',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea9ecf86b9687682f9d9cf2c18dee57b47',1,'BattleObject.h']]],
-  ['obj_5fchild1_1',['OBJ_Child1',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea3a32b3c7a3013e65d06ee10053dd0a07',1,'BattleObject.h']]],
-  ['obj_5fchild10_2',['OBJ_Child10',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ead974995e2518ac37d1c1d3e183015de0',1,'BattleObject.h']]],
-  ['obj_5fchild11_3',['OBJ_Child11',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ead5c29a46aa6549d29b8525a328904fd8',1,'BattleObject.h']]],
-  ['obj_5fchild12_4',['OBJ_Child12',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea9b345415b9b6fae207be847d96b40636',1,'BattleObject.h']]],
-  ['obj_5fchild13_5',['OBJ_Child13',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0eaf6adc8b6ed51f0a559ca3db3fdaf1947',1,'BattleObject.h']]],
-  ['obj_5fchild14_6',['OBJ_Child14',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0eabbe2c42363e331b19bf1f14ec5859510',1,'BattleObject.h']]],
-  ['obj_5fchild15_7',['OBJ_Child15',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea810c50c60c75b436bdf3a3dd8d871e3f',1,'BattleObject.h']]],
-  ['obj_5fchild2_8',['OBJ_Child2',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea937bd62415234463c7dca2249995bc16',1,'BattleObject.h']]],
-  ['obj_5fchild3_9',['OBJ_Child3',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea158f1d25eab78730ec74732182552d3e',1,'BattleObject.h']]],
-  ['obj_5fchild4_10',['OBJ_Child4',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea748026463ba4a531674f50d29afaa6f8',1,'BattleObject.h']]],
-  ['obj_5fchild5_11',['OBJ_Child5',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea05b095b05668e23d4e68db21d2402d91',1,'BattleObject.h']]],
-  ['obj_5fchild6_12',['OBJ_Child6',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0eacb60a058305761aa2433f2d0fa5e6a8c',1,'BattleObject.h']]],
-  ['obj_5fchild7_13',['OBJ_Child7',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea9823a5c6740b5c9af73b88599168af54',1,'BattleObject.h']]],
-  ['obj_5fchild8_14',['OBJ_Child8',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea30f2266eeafd72454a6e9118e6ded3f6',1,'BattleObject.h']]],
-  ['obj_5fchild9_15',['OBJ_Child9',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0eacc69b3d0aff6aa8f3600424136d7c42d',1,'BattleObject.h']]],
-  ['obj_5fenemy_16',['OBJ_Enemy',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea181eacd8f18abea5203041d57bd84cc0',1,'BattleObject.h']]],
-  ['obj_5fnull_17',['OBJ_Null',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0eaadd973b0958d470da1605c05342a4689',1,'BattleObject.h']]],
-  ['obj_5fparent_18',['OBJ_Parent',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea01df3b923301f004d5c17d54b1528d91',1,'BattleObject.h']]],
-  ['obj_5fself_19',['OBJ_Self',['../_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea4a10c349f78c2af5890af3731c3a76fb',1,'BattleObject.h']]],
-  ['once_20',['Once',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ae1a9dc9f23534e63de9df0d540ac1611',1,'State.h']]],
-  ['oncestrict_21',['OnceStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071ad0fc5dc9a8e98bbed040f00e4c7c2436',1,'State.h']]],
-  ['outro_22',['Outro',['../_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a21e6facb2210089479e2aa9c41762ca0',1,'NightSkyGameState.h']]]
+  ['negative_0',['Negative',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071affb9356ff2b7da85c75c92fa7ea03b8b',1,'State.h']]],
+  ['negativestrict_1',['NegativeStrict',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a31346c89b4604b066c7a03ae7e70e4ab',1,'State.h']]],
+  ['neutraljump_2',['NeutralJump',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a9871fc6acabfd4e7f427ee8cebdb6c53',1,'State.h']]],
+  ['none_3',['None',['../_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453a6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;State.h'],['../_state_8h.html#af1917f42ed524567f2f378796c3f37cba6adf97f83acf6453d4a6a4b1070f3754',1,'None:&#160;State.h']]],
+  ['normal_4',['Normal',['../_state_8h.html#aa4cc53b337184ecfb8c0e483fc355071a960b44c579bc2f6818d2daaf9e4c16f0',1,'State.h']]],
+  ['normalattack_5',['NormalAttack',['../_state_8h.html#ab4cb6e6f9af8950816157c9825ee4921a94543b451500ddba9908d0cf64b49ebd',1,'State.h']]]
 ];

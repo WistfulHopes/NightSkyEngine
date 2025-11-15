@@ -1,7 +1,0 @@
-<map id="USubroutine" name="USubroutine">
-<area shape="rect" id="Node000001" title="A subroutine callable from any player or object state." alt="" coords="18,152,111,177"/>
-<area shape="rect" id="Node000002" href="$class_u_serializable_obj.html" title=" " alt="" coords="5,79,124,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,119,67,151,62,151,62,119"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="30,5,99,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="67,45,67,78,62,78,62,45"/>
-</map>

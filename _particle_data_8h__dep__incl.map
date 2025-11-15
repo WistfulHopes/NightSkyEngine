@@ -1,9 +1,0 @@
-<map id="C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" name="C:/Users/theso/Unreal Projects/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="236,5,431,75"/>
-<area shape="rect" id="Node000002" href="$_battle_object_8cpp.html" title=" " alt="" coords="5,123,208,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,84,175,124,173,120,252,79"/>
-<area shape="rect" id="Node000003" href="$_player_object_8cpp.html" title=" " alt="" coords="232,123,435,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="336,90,336,122,331,122,331,90"/>
-<area shape="rect" id="Node000004" href="$_particle_data_8cpp.html" title=" " alt="" coords="459,123,653,192"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="413,79,491,120,489,124,410,84"/>
-</map>

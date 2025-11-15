@@ -10,7 +10,7 @@ var searchData=
   ['wallbouncexspeed_7',['WallBounceXSpeed',['../struct_f_wall_bounce_data.html#a267e75560d395474c6c9d45a20e77af9',1,'FWallBounceData']]],
   ['wallbounceyrate_8',['WallBounceYRate',['../struct_f_wall_bounce_data.html#abf21bd82d5bd91975ab0735a70336b19',1,'FWallBounceData']]],
   ['wallbounceyspeed_9',['WallBounceYSpeed',['../struct_f_wall_bounce_data.html#a9da474ef4cc69b3066591a064072ca37',1,'FWallBounceData']]],
-  ['walltouchtimer_10',['WallTouchTimer',['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject']]],
+  ['walltouchtimer_10',['WallTouchTimer',['../struct_f_player_object_log.html#acf5cb56e9d7010a8f94c9ddb4f122675',1,'FPlayerObjectLog::WallTouchTimer'],['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject::WallTouchTimer']]],
   ['whiffcanceloptions_11',['WhiffCancelOptions',['../class_a_player_object.html#af8b0c889f4caaaf612810aff518e5c70',1,'APlayerObject']]],
   ['widgetanimationdata_12',['WidgetAnimationData',['../struct_f_rollback_data.html#af19028f51de7b013bd6a9a72969ef4ab',1,'FRollbackData']]],
   ['widgetanimationrollback_13',['WidgetAnimationRollback',['../class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e',1,'UNightSkyBattleWidget']]],

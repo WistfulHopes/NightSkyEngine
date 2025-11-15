@@ -7,11 +7,16 @@ var _night_sky_game_state_8h =
     [ "FRollbackData", "struct_f_rollback_data.html", "struct_f_rollback_data" ],
     [ "FNetworkStats", "struct_f_network_stats.html", "struct_f_network_stats" ],
     [ "ANightSkyGameState", "class_a_night_sky_game_state.html", "class_a_night_sky_game_state" ],
+    [ "EBattleFormat", "_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa", [
+      [ "Rounds", "_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa28d89eee8752bd81e3e355c469a6e67a", null ],
+      [ "Tag", "_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaac101058e7ea21bbbf2a5ac893088e90b", null ],
+      [ "KOF", "_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa17ef485c0f51fbd603af91c91f7f5ec0", null ]
+    ] ],
     [ "EBattlePhase", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044", [
       [ "Intro", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a1cad35d4b3b9f624f82dbf237daaf188", null ],
       [ "Battle", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a747d99f92ee9c080ba26108ac5d26488", null ],
       [ "RoundEnd", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a85f2151e51ce5218e9eccdf9e421a824", null ],
-      [ "MatchEnd", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a468db5e0aec8ea9bd965b4fd038ef05a", null ],
+      [ "Fade", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a04e0385c10aefee8e4681617d2f3ef40", null ],
       [ "Outro", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a21e6facb2210089479e2aa9c41762ca0", null ],
       [ "EndScreen", "_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a83918c373f328eda5d8b9204336f2478", null ]
     ] ],
@@ -19,17 +24,6 @@ var _night_sky_game_state_8h =
       [ "INT_P1", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137dfa67c58981b0bab4cdc88ec1878aaf4dec", null ],
       [ "INT_P2", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137dfa1b315596386efc289e633473733f1293", null ],
       [ "INT_None", "_night_sky_game_state_8h.html#aa5c2b93ae722d9697ed99dbaf26137dfa40f3792bcc12924ebaf85fff6601bd86", null ]
-    ] ],
-    [ "ERoundFormat", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7", [
-      [ "FirstToOne", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a1b470da80d56445613f73af1df6417ca", null ],
-      [ "FirstToTwo", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7ad63d5ee39038038652e75008d4a7994b", null ],
-      [ "FirstToThree", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a9f157959c176dc9c204651d645072298", null ],
-      [ "FirstToFour", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a1a228d6547d0fd3ec0355dcc2e561fb6", null ],
-      [ "FirstToFive", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a543d158d569efc15f12d255afd1ffab3", null ],
-      [ "TwoVsTwo", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7ad05ad06afb19ad9cd62adf2531ccee58", null ],
-      [ "ThreeVsThree", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7ad661581a50297a7dabd05e227d6871cf", null ],
-      [ "TwoVsTwoKOF", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a4050dc5243ae3af1d60362d5c81fd367", null ],
-      [ "ThreeVsThreeKOF", "_night_sky_game_state_8h.html#a6d56cd21ce6165857706c64c64849ff7a5f865856271f9178874e475093b42a89", null ]
     ] ],
     [ "EScreenFlag", "_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88", [
       [ "SCR_None", "_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88ae1f4b177cde82c1b9333a65363d13c3f", null ],

@@ -11,7 +11,7 @@ var searchData=
   ['wallbouncexspeed_8',['WallBounceXSpeed',['../struct_f_wall_bounce_data.html#a267e75560d395474c6c9d45a20e77af9',1,'FWallBounceData']]],
   ['wallbounceyrate_9',['WallBounceYRate',['../struct_f_wall_bounce_data.html#abf21bd82d5bd91975ab0735a70336b19',1,'FWallBounceData']]],
   ['wallbounceyspeed_10',['WallBounceYSpeed',['../struct_f_wall_bounce_data.html#a9da474ef4cc69b3066591a064072ca37',1,'FWallBounceData']]],
-  ['walltouchtimer_11',['WallTouchTimer',['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject']]],
+  ['walltouchtimer_11',['WallTouchTimer',['../struct_f_player_object_log.html#acf5cb56e9d7010a8f94c9ddb4f122675',1,'FPlayerObjectLog::WallTouchTimer'],['../class_a_player_object.html#a0ea7c0d84b4763ac34b1a3c8157aa8f3',1,'APlayerObject::WallTouchTimer']]],
   ['what_20are_20some_20key_20features_20of_20night_20sky_20engine_12',['What are some key features of Night Sky Engine?',['../about.html#autotoc_md1',1,'']]],
   ['what_20is_20a_20state_20part_201_13',['What Is A State? Part 1',['../state-p1.html',1,'']]],
   ['what_20is_20a_20state_20part_202_14',['What Is A State? Part 2',['../state-p2.html',1,'']]],

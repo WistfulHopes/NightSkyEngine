@@ -8,7 +8,6 @@ var class_a_network_pawn =
     [ "GetLifetimeReplicatedProps", "class_a_network_pawn.html#a13bc8c7675b9581b2c6236f86b67ae1c", null ],
     [ "SendGgpoToClient", "class_a_network_pawn.html#a70898f211c91cef5e972d5ef25641989", null ],
     [ "SendGgpoToServer", "class_a_network_pawn.html#ac8d93b92e649499cf5ba8afe32acccc8", null ],
-    [ "SendRematchToClient", "class_a_network_pawn.html#af2638d2a19225e20fc75c1cbee16271e", null ],
     [ "SendRematchToServer", "class_a_network_pawn.html#a21c90221d1634341a33079ab8a808d53", null ],
     [ "ServerChecksumCheck", "class_a_network_pawn.html#a331a7cb8814dce0d650028ce3bc9acf7", null ],
     [ "ServerGetBattleData", "class_a_network_pawn.html#a103a90764a6e55e332fad94dab077932", null ],

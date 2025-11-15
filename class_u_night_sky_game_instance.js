@@ -12,6 +12,7 @@ var class_u_night_sky_game_instance =
     [ "TravelToBattleMap", "class_u_night_sky_game_instance.html#a972b008dae0145795d37ca1d76a596f7", null ],
     [ "TravelToVSInfo", "class_u_night_sky_game_instance.html#af3211c7bec8ed5e194dff69c91e88ac1", null ],
     [ "UpdateReplay", "class_u_night_sky_game_instance.html#a7b750ecfaa7205b4ff11189fd5f7da88", null ],
+    [ "AnnouncerData", "class_u_night_sky_game_instance.html#a08d29a3f1a254b7eebef2decbe73323e", null ],
     [ "BattleData", "class_u_night_sky_game_instance.html#a25e8b55db7e6ad7a683742327569fa6e", null ],
     [ "BattleVersion", "class_u_night_sky_game_instance.html#a0a640fe33be78d89357ec198100ccf46", null ],
     [ "FighterRunner", "class_u_night_sky_game_instance.html#a2c01e162b80cebfc7021a18e76cab833", null ],

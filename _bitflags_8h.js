@@ -9,7 +9,8 @@ var _bitflags_8h =
       [ "ATK_ProrateOnce", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7aa7d3ac7b1f347d7cdad5482e2f39e8e3", null ],
       [ "ATK_IgnoreOTG", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a28115b6853823cb80709b79113c14b12", null ],
       [ "ATK_IgnorePushbackScaling", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a747e7564dd4bc8cc4a52c40b718dccc8", null ],
-      [ "ATK_IgnoreHitstunScaling", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7abb4dc1b011d2ff69c987dc248fbf5119", null ]
+      [ "ATK_IgnoreHitstunScaling", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7abb4dc1b011d2ff69c987dc248fbf5119", null ],
+      [ "ATK_SetPlayerHit", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74", null ]
     ] ],
     [ "ECancelFlags", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bc", [
       [ "CNC_ChainCancelEnabled", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bca91befe426e3a336b860a2c3158706a17", null ],

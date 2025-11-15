@@ -10,12 +10,13 @@ var _battle_object_8h =
     [ "FHomingParams", "struct_f_homing_params.html", "struct_f_homing_params" ],
     [ "FLinkedActorContainer", "struct_f_linked_actor_container.html", "struct_f_linked_actor_container" ],
     [ "FSuperArmorData", "struct_f_super_armor_data.html", "struct_f_super_armor_data" ],
+    [ "FBattleObjectLog", "struct_f_battle_object_log.html", "struct_f_battle_object_log" ],
     [ "ABattleObject", "class_a_battle_object.html", "class_a_battle_object" ],
     [ "EBlockType", "_battle_object_8h.html#a1c94ee5203465c50283dfb3090fbfd2f", [
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EDistanceType", "_battle_object_8h.html#abd13d51eb89a564855252691bebca9bf", [
       [ "DIST_Distance", "_battle_object_8h.html#abd13d51eb89a564855252691bebca9bfa6eda288fb268ba66aaf22a43f2614d47", null ],
@@ -24,55 +25,55 @@ var _battle_object_8h =
       [ "DIST_FrontDistanceX", "_battle_object_8h.html#abd13d51eb89a564855252691bebca9bfae68cf5f7687d975d6a1ada4009181957", null ]
     ] ],
     [ "EEventType", "_battle_object_8h.html#abfcf510bafec7c6429906a6ecaac656d", [
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EFloatingCrumpleType", "_battle_object_8h.html#a5f59481b0f059e36caa2c890992959aa", [
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EHitAction", "_battle_object_8h.html#abbeaaf67664ff0b954b314c0d36f1198", [
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EHitPositionType", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2a", [
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "HPT_Rel", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa430974b3a2860264579d08f19606aefc", null ],
       [ "HPT_Abs", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aab8ae0432418a0fc9fa6fa1f06bd95383", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "HPT_RelNextFrame", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aaf233bda2567b487c4ff0dd4b56d6e087", null ],
       [ "HPT_AbsNextFrame", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa2a26cfe65bd47de8cbf048ec5d5b1440", null ],
-      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa5fd3d6f02c1dc582f80e2af875af4561", null ]
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EHitSFXType", "_battle_object_8h.html#a7a5a49802cba049d631810d6f21f0a87", [
       [ "UMETA", "_battle_object_8h.html#a7a5a49802cba049d631810d6f21f0a87aa3f80d8f0f1b4ffa8c475f5d60ea5635", null ],
@@ -120,13 +121,12 @@ var _battle_object_8h =
       [ "POS_Self", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a4bb8f74a285f475e87cc158d929e9153", null ],
       [ "POS_Center", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10aa8a6239d252959b47a503b31c3ba295f", null ],
       [ "POS_Enemy", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a1d82c05254822809efa2bc2442a05a85", null ],
-      [ "POS_Hit", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10afe4b366ac66ef17e8b5d240dbdb13854", null ]
+      [ "POS_Col", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a368e824d0e6a070fef3ec7bcba9e2004", null ]
     ] ],
     [ "ESuperArmorType", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5d", [
       [ "ARM_None", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5da31fcfa469f38ef5379386420c12265ae", null ],
       [ "ARM_Guard", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5dae70c3e7a58daefe7136b050093f31fa3", null ],
       [ "ARM_Dodge", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5da40a29ba8bf1db9e2ae6e96a88e99d6a5", null ]
     ] ],
-    [ "CollisionArraySize", "_battle_object_8h.html#a5377ea9fa1272824fb6f6244d32a0128", null ],
     [ "SizeOfBattleObject", "_battle_object_8h.html#ae4384a2a5d7de09bcb8bae1f3826a27e", null ]
 ];

@@ -41,10 +41,16 @@ var hierarchy =
     [ "ConnectionManager", null, [
       [ "RpcConnectionManager", "class_rpc_connection_manager.html", null ]
     ] ],
+    [ "FAnimRotator", "struct_f_anim_rotator.html", null ],
     [ "FAnimStruct", "struct_f_anim_struct.html", null ],
+    [ "FAnimTransform", "struct_f_anim_transform.html", null ],
+    [ "FAnimVector", "struct_f_anim_vector.html", null ],
     [ "FAudioChannel", "struct_f_audio_channel.html", null ],
     [ "FBattleData", "struct_f_battle_data.html", null ],
     [ "FBattleInputActions", "struct_f_battle_input_actions.html", null ],
+    [ "FBattleObjectLog", "struct_f_battle_object_log.html", [
+      [ "FPlayerObjectLog", "struct_f_player_object_log.html", null ]
+    ] ],
     [ "FBattleParticle", "struct_f_battle_particle.html", null ],
     [ "FBattleState", "struct_f_battle_state.html", null ],
     [ "FCameraShakeStruct", "struct_f_camera_shake_struct.html", null ],
@@ -91,6 +97,12 @@ var hierarchy =
     ] ],
     [ "UAnimInstance", null, [
       [ "UNightSkyAnimInstance", "class_u_night_sky_anim_instance.html", null ]
+    ] ],
+    [ "UAnimMetaData", null, [
+      [ "UNightSkyAnimMetaData", "class_u_night_sky_anim_meta_data.html", null ]
+    ] ],
+    [ "UAssetUserData", null, [
+      [ "UNightSkyAnimSequenceUserData", "class_u_night_sky_anim_sequence_user_data.html", null ]
     ] ],
     [ "UBlueprintFunctionLibrary", null, [
       [ "UNightSkyBlueprintFunctionLibrary", "class_u_night_sky_blueprint_function_library.html", null ]
