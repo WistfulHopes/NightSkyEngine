@@ -658,13 +658,13 @@ void APlayerObject::Update()
 			&& GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceUpWakeUp && !(PlayerFlags &
 				PLF_IsKnockedDown))
 		{
-			if (Stance == ACT_Standing)
-			{
-				JumpToStatePrimary(State_Universal_Stand);
-			}
-			else if (Stance == ACT_Crouching)
+			if (Stance == ACT_Crouching)
 			{
 				JumpToStatePrimary(State_Universal_Crouch);
+			}
+			else
+			{
+				JumpToStatePrimary(State_Universal_Stand);
 			}
 		}
 		else
