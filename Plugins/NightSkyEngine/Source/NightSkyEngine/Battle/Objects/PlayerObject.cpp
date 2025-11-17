@@ -654,9 +654,9 @@ void APlayerObject::Update()
 				JumpToStatePrimary(State_Universal_AirBlockEnd);
 			}
 		}
-		else if (PosY == GroundHeight && GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceDownWakeUp
-			&& GetCurrentStateName(StateMachine_Primary) != State_Universal_FaceUpWakeUp && !(PlayerFlags &
-				PLF_IsKnockedDown))
+		else if (PosY == GroundHeight && PrevPosY == GroundHeight && GetCurrentStateName(StateMachine_Primary)
+			!= State_Universal_FaceDownWakeUp && GetCurrentStateName(StateMachine_Primary) !=
+			State_Universal_FaceUpWakeUp && !(PlayerFlags & PLF_IsKnockedDown))
 		{
 			if (Stance == ACT_Crouching)
 			{
