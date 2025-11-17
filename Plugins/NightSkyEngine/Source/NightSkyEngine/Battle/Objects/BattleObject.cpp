@@ -70,6 +70,8 @@ void ABattleObject::Move()
 	// Root motion
 	if (const auto BodyAnimUserData = GetAnimSequenceUserData("Body"))
 	{
+		if (!MaxCelTime) return;
+		
 		const auto Frame60 = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const auto FrameAnim = Frame60 * BodyAnimUserData->GetFrameRate() / 60;
 		const auto RootMotion = BodyAnimUserData->GetRootTranslationAtTime(FrameAnim);
