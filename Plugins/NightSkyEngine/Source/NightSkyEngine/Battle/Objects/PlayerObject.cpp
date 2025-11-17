@@ -539,6 +539,12 @@ void APlayerObject::Update()
 
 	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
 	{
+		HandleBufferedState(PrimaryStateMachine);
+		for (auto& StateMachine : SubStateMachines)
+		{
+			HandleBufferedState(StateMachine);
+		}
+
 		PlayerFlags |= PLF_IsDead;
 		RecoverableHealth = 0;
 		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride) && IsMainPlayer())
