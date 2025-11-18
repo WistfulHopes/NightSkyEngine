@@ -743,8 +743,6 @@ void ANightSkyGameState::UpdateScreen()
 	ScreenData->FinalScreenY = ScreenData->ScreenWorldCenterY;
 	ScreenData->FinalScreenWidth = ScreenData->ScreenWorldWidth;
 
-	ScreenData->FinalScreenWidth <= 0 ? 1 : ScreenData->FinalScreenWidth;
-
 	if (ScreenData->FinalScreenY >= ScreenData->StageBoundsTop - 106)
 		ScreenData->FinalScreenY = ScreenData->
 			StageBoundsTop - 106;

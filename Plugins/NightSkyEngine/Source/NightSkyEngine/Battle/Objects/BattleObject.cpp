@@ -1956,6 +1956,9 @@ void ABattleObject::ResetObject()
 	PrevRootMotionX = 0;
 	PrevRootMotionY = 0;
 	PrevRootMotionZ = 0;
+	AnglePitch_x1000 = 0;
+	AngleYaw_x1000 = 0;
+	AngleRoll_x1000 = 0;
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
@@ -2018,6 +2021,11 @@ void ABattleObject::ResetObject()
 	Timer1 = 0;
 	DrawPriority = GameState->MaxBattleObjects;
 	HomingParams = FHomingParams();
+	SuperArmorData = FSuperArmorData();
+	UpdateTime = 0;
+	ObjectOffset = FVector::ZeroVector;
+	ObjectRotation = FRotator::ZeroRotator;
+	ObjectScale = FVector::OneVector;
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
 	AnimFrame = 0;
@@ -2044,7 +2052,6 @@ void ABattleObject::ResetObject()
 	SocketName = NAME_None;
 	SocketObj = OBJ_Self;
 	SocketOffset = FVector::ZeroVector;
-	ObjectScale = FVector::OneVector;
 	AddColor = FLinearColor(0, 0, 0, 1);
 	MulColor = FLinearColor(1, 1, 1, 1);
 	AddFadeColor = FLinearColor(0, 0, 0, 1);

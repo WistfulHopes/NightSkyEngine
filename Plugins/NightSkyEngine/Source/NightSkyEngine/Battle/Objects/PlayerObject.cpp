@@ -2673,6 +2673,11 @@ void APlayerObject::OnStateChange()
 	PrevRootMotionY = 0;
 	PrevRootMotionZ = 0;
 
+	// Reset angle
+	AnglePitch_x1000 = 0;
+	AngleYaw_x1000 = 0;
+	AngleRoll_x1000 = 0;
+	
 	PosZ = 0;
 
 	// Reset speed modifiers
@@ -2722,6 +2727,11 @@ void APlayerObject::OnStateChange()
 	BlendCelName = FGameplayTag();
 	LastStateName = GetCurrentStateName(StateMachine_Primary);
 	HomingParams = FHomingParams();
+	SuperArmorData = FSuperArmorData();
+	UpdateTime = 0;
+	ObjectOffset = FVector::ZeroVector;
+	ObjectRotation = FRotator::ZeroRotator;
+	ObjectScale = FVector::OneVector;
 }
 
 void APlayerObject::PostStateChange()
@@ -2831,6 +2841,11 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	Timer0 = 0;
 	Timer1 = 0;
 	HomingParams = FHomingParams();
+	SuperArmorData = FSuperArmorData();
+	UpdateTime = 0;
+	ObjectOffset = FVector::ZeroVector;
+	ObjectRotation = FRotator::ZeroRotator;
+	ObjectScale = FVector::OneVector;
 	CelName = FGameplayTag();
 	BlendCelName = FGameplayTag();
 	AnimFrame = 0;
