@@ -55,6 +55,9 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level3);
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_IsCorrectBlock);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_HitCollision);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnHit);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnCounterHit);
 
 USTRUCT(BlueprintType)
 struct FPlayerObjectLog : public FBattleObjectLog
@@ -808,12 +811,6 @@ public:
 	//sets meter gain cooldown timer
 	UFUNCTION(BlueprintCallable)
 	void SetMeterCooldownTimer(int Timer);
-	UFUNCTION(BlueprintPure)
-	int32 GetGauge(int32 Index) const;
-	UFUNCTION(BlueprintCallable)
-	void SetGauge(int32 Index, int Value);
-	UFUNCTION(BlueprintCallable)
-	void UseGauge(int32 Index, int Use);
 	//set stance
 	UFUNCTION(BlueprintCallable)
 	void SetStance(EActionStance InStance);

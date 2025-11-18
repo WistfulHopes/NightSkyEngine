@@ -1254,7 +1254,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, SaveGame)
 	float OrthoBlendActive = 0;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
 	UPROPERTY()
 	TObjectPtr<ANightSkyCharaSelectGameState> CharaSelectGameState = nullptr;
@@ -1516,7 +1516,13 @@ public:
 		const EBoxType OtherType, const FGameplayTag OtherCustomType);
 	UFUNCTION(BlueprintPure)
 	void GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX, int& OutPosY) const;
-	
+	UFUNCTION(BlueprintPure)
+	int32 GetGauge(int32 GaugeIndex) const;
+	UFUNCTION(BlueprintCallable)
+	void SetGauge(int32 GaugeIndex, int32 Value);
+	UFUNCTION(BlueprintCallable)
+	void UseGauge(int32 GaugeIndex, int32 Value);
+
 	// Handles custom collision. Activates before clash or hit collision.
 	UFUNCTION(BlueprintImplementableEvent)
 	void HandleCustomCollision_PreHit(ABattleObject* OtherObj);

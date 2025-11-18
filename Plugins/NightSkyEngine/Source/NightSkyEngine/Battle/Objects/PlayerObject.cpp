@@ -24,6 +24,9 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level3, "State.Label.Block.Leve
 
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_IsCorrectBlock, "Subroutine.IsCorrectBlock", "Is Correct Block");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_HitCollision, "Subroutine.HitCollision", "Hit Collision");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnBlock, "Subroutine.OnBlock", "On Block");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnHit, "Subroutine.OnHit", "On Hit");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnCounterHit, "Subroutine.OnCounterHit", "On Counter Hit");
 
 void FPlayerObjectLog::LogForSyncTestFile(std::ofstream& file)
 {
@@ -2414,24 +2417,6 @@ void APlayerObject::AddMeter(int Meter)
 void APlayerObject::SetMeterCooldownTimer(int Timer)
 {
 	MeterCooldownTimer = Timer;
-}
-
-int32 APlayerObject::GetGauge(int32 Index) const
-{
-	if (!GameState) return 0;
-	return GameState->GetGauge(PlayerIndex == 0, Index);
-}
-
-void APlayerObject::SetGauge(int32 Index, int Value)
-{
-	if (!GameState) return;
-	GameState->SetGauge(PlayerIndex == 0, Index, Value);
-}
-
-void APlayerObject::UseGauge(int32 Index, int Use)
-{
-	if (!GameState) return;
-	GameState->UseGauge(PlayerIndex == 0, Index, Use);
 }
 
 void APlayerObject::SetStance(EActionStance InStance)

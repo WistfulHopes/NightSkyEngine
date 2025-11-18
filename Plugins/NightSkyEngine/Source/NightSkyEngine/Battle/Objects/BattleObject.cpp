@@ -519,6 +519,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 
 			if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 			{
+				CallSubroutine(Subroutine_OnBlock);
+				
 				CreateCommonParticle(Particle_Guard, POS_Enemy,
 				                     FVector(0, 100, 0),
 				                     FRotator(HitCommon.HitAngle, 0, 0));
@@ -636,6 +638,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
 			{
+				CallSubroutine(Subroutine_OnHit);
+				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
 				if (AttackedPlayer->IsMainPlayer())
 				{
@@ -671,6 +675,9 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else
 			{
+				CallSubroutine(Subroutine_OnHit);
+				CallSubroutine(Subroutine_OnCounterHit);
+				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
 				TriggerEvent(EVT_CounterHit, StateMachine_Primary);
 				if (AttackedPlayer->IsMainPlayer())
@@ -2780,8 +2787,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 				}
 			}
 			
-			ColPosX = BoxPosX + (int64)Smallest[0] * Overlap / COORD_SCALE;
-			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / COORD_SCALE;
+			ColPosX = BoxPosX + (int64)Smallest[0] * Overlap / (COORD_SCALE * 2);
+			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / (COORD_SCALE * 2);
 
 			return true;
 
@@ -2816,6 +2823,24 @@ void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag Cu
 			return;
 		}
 	}
+}
+
+int32 ABattleObject::GetGauge(int32 GaugeIndex) const
+{
+	if (!GameState) return 0;
+	return GameState->GetGauge(Player->PlayerIndex == 0, GaugeIndex);
+}
+
+void ABattleObject::SetGauge(int32 GaugeIndex, int32 Value)
+{
+	if (!GameState) return;
+	GameState->SetGauge(Player->PlayerIndex == 0, GaugeIndex, Value);
+}
+
+void ABattleObject::UseGauge(int32 GaugeIndex, int32 Value)
+{
+	if (!GameState) return;
+	GameState->UseGauge(Player->PlayerIndex == 0, GaugeIndex, Value);
 }
 
 void ABattleObject::EnableFlip(bool Enabled)

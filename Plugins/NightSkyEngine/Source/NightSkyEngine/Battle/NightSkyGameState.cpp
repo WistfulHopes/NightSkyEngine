@@ -551,9 +551,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			BattleState.GaugeP1[i] = BattleState.MaxGauge[i];
 		if (BattleState.GaugeP1[i] < 0)
 			BattleState.GaugeP1[i] = 0;
-	}
-	for (int i = 0; i < BattleState.MaxGauge.Num(); i++)
-	{
 		if (BattleState.GaugeP2[i] > BattleState.MaxGauge[i])
 			BattleState.GaugeP2[i] = BattleState.MaxGauge[i];
 		if (BattleState.GaugeP2[i] < 0)
@@ -755,8 +752,7 @@ void ANightSkyGameState::UpdateGameState()
 {
 	RemoteFrame++;
 	UpdateLocalInput();
-	UpdateGameState(LocalInputs[0], LocalInputs[1],
-	                false);
+	UpdateGameState(LocalInputs[0], LocalInputs[1], false);
 }
 
 void ANightSkyGameState::SortObjects()
@@ -1432,6 +1428,7 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 	{
 		for (int i = 0; i < Players.Num(); i++)
 		{
+			if (SortedObjects[i] == InObject) continue;
 			if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 				SortedObjects[i]->DrawPriority++;
 		}
@@ -1440,6 +1437,7 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 	}
 	for (int i = Players.Num(); i < BattleState.ActiveObjectCount; i++)
 	{
+		if (SortedObjects[i] == InObject) continue;
 		if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 			SortedObjects[i]->DrawPriority++;
 		InObject->DrawPriority = Players.Num();
