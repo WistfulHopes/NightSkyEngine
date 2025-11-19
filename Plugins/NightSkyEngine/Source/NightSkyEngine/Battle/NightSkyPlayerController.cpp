@@ -270,7 +270,7 @@ void ANightSkyPlayerController::PauseGame()
 	const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState());
 	if (!GameState->bPauseGame)
 	{
-		GameState->bPauseGame = true;
+		GameState->SetPaused(true);
 		OpenPauseMenu();
 	}
 }

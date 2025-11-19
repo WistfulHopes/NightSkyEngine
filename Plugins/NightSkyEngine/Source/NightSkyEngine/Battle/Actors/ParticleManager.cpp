@@ -17,7 +17,6 @@ AParticleManager::AParticleManager()
 void AParticleManager::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -52,6 +51,10 @@ void AParticleManager::UpdateParticles()
 	{
 		BattleParticles.RemoveAt(Index);
 	}
+	BattleParticles.RemoveAll([=](const FBattleParticle& Particle)
+	{
+		return !IsValid(Particle.NiagaraComponent);
+	});
 }
 
 void AParticleManager::PauseParticles()
@@ -77,4 +80,3 @@ void AParticleManager::RollbackParticles(int RollbackFrames)
 		NiagaraComponent->AdvanceSimulation(RollbackTime, OneFrame);
 	}
 }
-

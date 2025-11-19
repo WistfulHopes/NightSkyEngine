@@ -22,11 +22,11 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level1, "State.Label.Block.Leve
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level2, "State.Label.Block.Level2", "Block Label Level 2");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Label_Block_Level3, "State.Label.Block.Level3", "Block Label Level 3");
 
-UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_IsCorrectBlock, "Subroutine.IsCorrectBlock", "Is Correct Block");
-UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_HitCollision, "Subroutine.HitCollision", "Hit Collision");
-UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnBlock, "Subroutine.OnBlock", "On Block");
-UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnHit, "Subroutine.OnHit", "On Hit");
-UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnCounterHit, "Subroutine.OnCounterHit", "On Counter Hit");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_IsCorrectBlock, "Subroutine.Cmn.IsCorrectBlock", "Common Is Correct Block");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_HitCollision, "Subroutine.Cmn.HitCollision", "Common Hit Collision");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnBlock, "Subroutine.Cmn.OnBlock", "Common On Block");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnHit, "Subroutine.Cmn.OnHit", "Common On Hit");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnCounterHit, "Subroutine.Cmn.OnCounterHit", "Common On Counter Hit");
 
 void FPlayerObjectLog::LogForSyncTestFile(std::ofstream& file)
 {
@@ -1332,6 +1332,23 @@ void APlayerObject::SetHitValues()
 	}
 }
 
+void APlayerObject::SetGuardValues()
+{
+	if (StunTime <= 0) return;
+	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
+	if (PlayerFlags & PLF_TouchingWall)
+	{
+		AttackOwner->Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
+		Pushback = 0;
+	}
+	if (Stance == ACT_Jumping)
+	{
+		SpeedX = -ReceivedHitCommon.AirGuardPushbackX;
+		SpeedY = ReceivedHitCommon.AirGuardPushbackY;
+		Gravity = ReceivedHitCommon.GuardGravity;
+	}
+}
+
 void APlayerObject::ForceEnableFarNormal(bool Enable)
 {
 	if (Enable)
@@ -1625,7 +1642,7 @@ EBlockType APlayerObject::GetAttackBlockType() const
 
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 {
-	CallSubroutine(Subroutine_IsCorrectBlock);
+	CallSubroutine(Subroutine_Cmn_IsCorrectBlock);
 	if (SubroutineReturnVal2) return SubroutineReturnVal1;
 
 	if (BlockType != BLK_None && GetEnableFlags(StateMachine_Primary) & ENB_Block)
@@ -1695,8 +1712,6 @@ void APlayerObject::HandleBlockAction()
 	StunTime = ReceivedHitCommon.Blockstun;
 	StunTimeMax = ReceivedHitCommon.Blockstun;
 
-	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
-
 	FInputCondition Input1;
 	FInputBitmask BitmaskDownLeft;
 	BitmaskDownLeft.InputFlag = INP_DownLeft;
@@ -1738,12 +1753,6 @@ void APlayerObject::HandleBlockAction()
 	{
 		PosY = 0;
 		BufferedStateName = State_Universal_StandBlock;
-	}
-	if (Stance == ACT_Jumping)
-	{
-		SpeedX = -ReceivedHitCommon.AirGuardPushbackX;
-		SpeedY = ReceivedHitCommon.AirGuardPushbackY;
-		Gravity = ReceivedHitCommon.GuardGravity;
 	}
 }
 
@@ -1848,7 +1857,7 @@ void APlayerObject::HandleBufferedState(FStateMachine& StateMachine)
 		}
 		else
 		{
-			if (PrimaryStateMachine.SetState(BufferedStateName))
+			if (PrimaryStateMachine.ForceSetState(BufferedStateName))
 			{
 				GotoLabelActive = false;
 				switch (PrimaryStateMachine.CurrentState->EntryStance)

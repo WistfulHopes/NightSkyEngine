@@ -1619,6 +1619,20 @@ int32 ANightSkyGameState::GetTeamCount(const bool bIsP1) const
 	return BattleState.TeamData[bIsP1 == false].TeamCount;
 }
 
+bool ANightSkyGameState::GetPaused() const
+{
+	return bPauseGame;
+}
+
+void ANightSkyGameState::SetPaused(bool bPause)
+{
+	bPauseGame = bPause;
+	if (GameInstance->FighterRunner == LocalPlay)
+	{
+		UGameplayStatics::SetGamePaused(this, bPause);
+	}
+}
+
 void ANightSkyGameState::ScreenPosToWorldPos(const int32 X, const int32 Y, int32* OutX, int32* OutY) const
 {
 	*OutX = BattleState.ScreenData.FinalScreenX * X / 100;

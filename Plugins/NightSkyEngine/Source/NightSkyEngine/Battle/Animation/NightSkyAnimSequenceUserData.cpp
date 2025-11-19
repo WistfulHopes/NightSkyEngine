@@ -17,7 +17,7 @@ void UNightSkyAnimSequenceUserData::Serialize(FArchive& Ar)
 void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeOwner(PropertyChangedEvent);
-
+	
 	// We can't call blueprint implemented functions while routing post load
 	if (FUObjectThreadContext::Get().IsRoutingPostLoad)
 	{
@@ -44,7 +44,11 @@ void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEv
 		if (IsValid(MetaData)) break;
 	}
 
-	if (!IsValid(AnimMetaData)) return;
+	if (!IsValid(AnimMetaData))
+	{
+		ConditionalBeginDestroy();
+		return;
+	}
 
 	FrameCount = AnimSequence->GetPlayLength() * AnimSequence->GetSamplingFrameRate().AsDecimal();
 	FrameRate = AnimSequence->GetSamplingFrameRate().AsDecimal();

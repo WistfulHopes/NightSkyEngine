@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "PlayerObject.h"
+#include "NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h"
 #include "NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h"
 #include "NightSkyEngine/Battle/Misc/Bitflags.h"
 #include "NightSkyEngine/Battle/Misc/Globals.h"
@@ -514,12 +515,12 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				TriggerEvent(EVT_HitOrBlockMainPlayer, StateMachine_Primary);
 			}
 
-			AttackedPlayer->CallSubroutine(Subroutine_HitCollision);
+			AttackedPlayer->CallSubroutine(Subroutine_Cmn_HitCollision);
 			if (AttackedPlayer->SubroutineReturnVal1) return;
 
 			if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
 			{
-				CallSubroutine(Subroutine_OnBlock);
+				CallSubroutine(Subroutine_Cmn_OnBlock);
 				
 				CreateCommonParticle(Particle_Guard, POS_Enemy,
 				                     FVector(0, 100, 0),
@@ -638,7 +639,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
 			{
-				CallSubroutine(Subroutine_OnHit);
+				CallSubroutine(Subroutine_Cmn_OnHit);
 				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
 				if (AttackedPlayer->IsMainPlayer())
@@ -675,8 +676,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else
 			{
-				CallSubroutine(Subroutine_OnHit);
-				CallSubroutine(Subroutine_OnCounterHit);
+				CallSubroutine(Subroutine_Cmn_OnHit);
+				CallSubroutine(Subroutine_Cmn_OnCounterHit);
 				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
 				TriggerEvent(EVT_CounterHit, StateMachine_Primary);
@@ -1751,8 +1752,9 @@ UNightSkyAnimSequenceUserData* ABattleObject::GetAnimSequenceUserData(const FNam
 		if (Component->GetName() != PartName) continue;
 		
 		const auto AnimSequence = GetAnimSequenceForPart(*Component->GetName());
-		if (!AnimSequence) continue;
+		if (!AnimSequence) return nullptr;
 
+		if (!AnimSequence->FindMetaDataByClass(UNightSkyAnimMetaData::StaticClass())) return nullptr;
 		return AnimSequence->GetAssetUserData<UNightSkyAnimSequenceUserData>();
 	}
 

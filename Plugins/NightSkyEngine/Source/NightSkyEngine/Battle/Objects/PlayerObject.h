@@ -53,11 +53,11 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level1);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level2);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Block_Level3);
 
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_IsCorrectBlock);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_HitCollision);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnBlock);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnHit);
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnCounterHit);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_IsCorrectBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_HitCollision);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnBlock);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnHit);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnCounterHit);
 
 USTRUCT(BlueprintType)
 struct FPlayerObjectLog : public FBattleObjectLog
@@ -955,6 +955,9 @@ public:
 	//based on received hit data, set values
 	UFUNCTION(BlueprintCallable)
 	void SetHitValues();
+	//based on received guard data, set values
+	UFUNCTION(BlueprintCallable)
+	void SetGuardValues();
 	//force enables far proximity normals
 	UFUNCTION(BlueprintCallable)
 	void ForceEnableFarNormal(bool Enable);

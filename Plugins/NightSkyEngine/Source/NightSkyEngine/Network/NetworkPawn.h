@@ -58,9 +58,9 @@ public:
 	UPROPERTY()
 	class AFighterMultiplayerRunner* FighterMultiplayerRunner = nullptr;
 	
-	UFUNCTION( Server, Unreliable )
+	UFUNCTION( Server, Reliable )
 	void SendGgpoToServer(const TArray<int8> &GgpoMessage);
-	UFUNCTION( Client, Unreliable )
+	UFUNCTION( Client, Reliable )
 	void SendGgpoToClient(const TArray<int8> &GgpoMessage);
 	
 	UFUNCTION( Server, Reliable )

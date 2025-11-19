@@ -333,7 +333,7 @@ public:
 	APlayerObject* SequenceTarget = nullptr;
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* SequenceEnemy = nullptr;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintGetter=GetPaused, BlueprintSetter=SetPaused)
 	bool bPauseGame = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Debug)
 	bool bViewCollision = false;
@@ -444,6 +444,11 @@ public:
 	bool IsTagBattle() const;
 	UFUNCTION(BlueprintPure)
 	int32 GetTeamCount(bool bIsP1) const;
+	
+	UFUNCTION(BlueprintPure)
+	bool GetPaused() const;
+	UFUNCTION(BlueprintCallable)
+	void SetPaused(bool bPause);
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	void EndMatch_BP();
