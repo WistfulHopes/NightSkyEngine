@@ -14,4 +14,6 @@ The following additional plugins are used:
 
 - GGPOUE4, originally by @BwdYeti, then forked by @erebuswolf, and finally modified for use in Night Sky Engine.
 
+Collision editor co-developed by [@MostExcellent](https://github.com/MostExcellent).
+
 All sound effects are from [this site](http://osabisi.sakura.ne.jp/m2/).
