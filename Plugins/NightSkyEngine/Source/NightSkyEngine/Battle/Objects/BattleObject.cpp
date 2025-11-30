@@ -1820,7 +1820,6 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
-				BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
 				Boxes = Player->CollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
