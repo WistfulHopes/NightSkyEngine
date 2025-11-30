@@ -1795,7 +1795,6 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CommonCollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CommonCollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
-				BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
 				Boxes = Player->CommonCollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
@@ -2182,6 +2181,7 @@ void ABattleObject::SetCelName(FGameplayTag InName)
 {
 	CelName = InName;
 	SetBlendCelName(FGameplayTag::EmptyTag);
+	BlendAnimFrame = 0;
 
 	GetBoxes();
 	
