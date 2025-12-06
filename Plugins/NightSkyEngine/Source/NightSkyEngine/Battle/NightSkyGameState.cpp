@@ -62,8 +62,6 @@ void ANightSkyGameState::BeginPlay()
 	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
 	((UCineCameraComponent*)SequenceCameraActor->GetCameraComponent())->FocusSettings.FocusMethod =
 		ECameraFocusMethod::Disable;
-	((UCineCameraComponent*)SequenceCameraActor->GetCameraComponent())->Filmback.SensorWidth = 36;
-	((UCineCameraComponent*)SequenceCameraActor->GetCameraComponent())->Filmback.SensorHeight = 20.25;
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 
 	UpdateCamera();
