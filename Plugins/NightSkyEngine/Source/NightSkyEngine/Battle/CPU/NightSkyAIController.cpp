@@ -236,7 +236,7 @@ int32 ANightSkyAIController::CheckBasicWeight(const UState* State) const
 		}
 		break;
 	case EStateType::BackwardDash:
-		Weight += GameState->BattleState.RandomManager.RandRange(20, 40);
+		Weight += GameState->BattleState.RandomManager.RandRange(5, 30);
 		if (Player->Enemy->CheckIsAttacking() && GetEnemyDistanceX() < 540000)
 		{
 			Weight += GameState->BattleState.RandomManager.RandRange(10, 20);

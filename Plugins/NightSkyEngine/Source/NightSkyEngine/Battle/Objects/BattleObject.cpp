@@ -3318,6 +3318,7 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, in
 		int32 FinalPosX, FinalPosY;
 
 		PosTypeToPosition(PosType, FinalPosX, FinalPosY);
+		if (Direction == DIR_Left) PosXOffset *= -1;
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
@@ -3336,6 +3337,7 @@ ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 Po
 		int32 FinalPosX, FinalPosY;
 
 		PosTypeToPosition(PosType, FinalPosX, FinalPosY);
+		if (Direction == DIR_Left) PosXOffset *= -1;
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->ObjectStates[StateIndex],

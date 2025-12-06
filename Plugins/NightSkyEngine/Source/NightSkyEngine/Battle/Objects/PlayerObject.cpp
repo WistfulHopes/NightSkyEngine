@@ -400,8 +400,7 @@ void APlayerObject::Update()
 	if (Inputs >> 5 != StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] >> 5)
 	{
 		IntroEndFlag = true;
-		if (RoundWinTimer <= 0 || bIsCpu
-			&& Enemy->Inputs >> 5 != Enemy->StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] >> 5)
+		if (RoundWinTimer <= 0 || (bIsCpu && Enemy->IntroEndFlag))
 		{
 			RoundEndFlag = true;
 		}
@@ -557,14 +556,14 @@ void APlayerObject::Update()
 			{
 				AddCommonBattleObject(State_BattleObject_KO_L);
 			}
-			Hitstop = 0;
-			AttackOwner->Hitstop = 0;
+			Hitstop = 1;
+			AttackOwner->Hitstop = 1;
 		}
 		if (Enemy->CurrentHealth == 0 && (Enemy->PlayerFlags & PLF_IsDead) == 0)
 		{
 			AddCommonBattleObject(State_BattleObject_KO_Draw);
-			Hitstop = 0;
-			AttackOwner->Hitstop = 0;
+			Hitstop = 1;
+			AttackOwner->Hitstop = 1;
 		}
 		else if (!IsMainPlayer())
 		{
@@ -1696,11 +1695,11 @@ bool APlayerObject::CheckEnemyInRange(int32 XBegin, int32 XEnd, int32 YBegin, in
 
 	if (Direction == DIR_Right)
 	{
-		return XBegin + R <= Enemy->L && XEnd + R >= Enemy->L && YBegin + GetPosYCenter() <= Enemy->GetPosYCenter()
-			&& YEnd + GetPosYCenter() >= Enemy->GetPosYCenter();
+		return XBegin + PosX <= Enemy->PosX && XEnd + PosX >= Enemy->PosX && YBegin + PosY <= Enemy->PosY
+			&& YEnd + PosY >= Enemy->PosY;
 	}
-	return XEnd + L <= Enemy->R && XBegin + L >= Enemy->R && YBegin + GetPosYCenter() <= Enemy->GetPosYCenter()
-		&& YEnd + GetPosYCenter() >= Enemy->GetPosYCenter();
+	return XEnd + PosX <= Enemy->PosX && XBegin + PosX >= Enemy->PosX && YBegin + PosY <= Enemy->PosY
+		&& YEnd + PosY >= Enemy->PosY;
 }
 
 bool APlayerObject::IsEnemyAttackState() const
