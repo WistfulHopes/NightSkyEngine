@@ -1415,6 +1415,7 @@ void APlayerObject::SetGuardValues()
 {
 	if (StunTime <= 0) return;
 	Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
+	SpeedX = 0;
 	if (PlayerFlags & PLF_TouchingWall)
 	{
 		AttackOwner->Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
