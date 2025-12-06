@@ -21,7 +21,7 @@
 ABattleObject::ABattleObject()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 	RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
 
 	bReplicates = false;
@@ -168,7 +168,7 @@ void ABattleObject::CalculateHoming()
 			int32 TargetPosX = 0;
 			int32 TargetPosY = 0;
 
-			Target->PosTypeToPosition(HomingParams.Pos, &TargetPosX, &TargetPosY);
+			Target->PosTypeToPosition(HomingParams.Pos, TargetPosX, TargetPosY);
 
 			const bool TargetFacingRight = Target->Direction == DIR_Right;
 			int32 HomingOffsetX = -HomingParams.OffsetX;
@@ -418,6 +418,12 @@ void ABattleObject::CalculatePushbox()
 
 void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 {
+	CalculatePushbox();
+	OtherObj->CalculatePushbox();
+	
+	if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller) return;
+	if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller) return;
+
 	if (MiscFlags & MISC_PushCollisionActive && OtherObj->MiscFlags & MISC_PushCollisionActive)
 	{
 		if (Hitstop <= 0 && ((!OtherObj->IsPlayer || OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0 || (!IsPlayer
@@ -493,7 +499,7 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 {
 	if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && AttackedObj->ObjectsToIgnoreHitsFrom.Find(this)
-		== INDEX_NONE && !AttackedObj->Player->IsInvulnerable())
+		== INDEX_NONE && !AttackedObj->Player->IsInvulnerable(this))
 	{
 		auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
 		if (!AttackedPlayer) return;
@@ -501,7 +507,6 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 		{
 			AttackedPlayer->AttackOwner = this;
 			AttackedPlayer->ObjectsToIgnoreHitsFrom.AddUnique(this);
-			AttackedPlayer->StunTime = 2147483647;
 			AttackedPlayer->FaceOpponent();
 			AttackedPlayer->HaltMomentum();
 			AttackedPlayer->PlayerFlags |= PLF_IsStunned;
@@ -651,6 +656,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				{
 					AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
 					AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
+					AttackedPlayer->StunTime = 0x7FFFFFFF;
 					AttackedPlayer->AttackOwner = Player;
 					Player->ThrowExe();
 					return;
@@ -740,7 +746,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 9;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 20000;
+			HitCommon.GroundGuardPushbackX = 15000;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -756,11 +762,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 300;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 25000;
+			NormalHit.GroundPushbackX = 20000;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30000;
+			NormalHit.AirPushbackY = 21000;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -794,7 +800,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 11;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 22500;
+			HitCommon.GroundGuardPushbackX = 17500;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -810,11 +816,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 400;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 27500;
+			NormalHit.GroundPushbackX = 22500;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30050;
+			NormalHit.AirPushbackY = 21500;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -848,7 +854,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 13;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 27000;
+			HitCommon.GroundGuardPushbackX = 20000;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -864,11 +870,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 600;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 30000;
+			NormalHit.GroundPushbackX = 25000;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30100;
+			NormalHit.AirPushbackY = 22000;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -902,7 +908,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 16;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 30000;
+			HitCommon.GroundGuardPushbackX = 22500;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -918,11 +924,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 800;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 35000;
+			NormalHit.GroundPushbackX = 27500;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30150;
+			NormalHit.AirPushbackY = 22500;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -956,7 +962,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 18;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 35000;
+			HitCommon.GroundGuardPushbackX = 25000;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -972,11 +978,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 1000;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 40000;
+			NormalHit.GroundPushbackX = 30000;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30200;
+			NormalHit.AirPushbackY = 23000;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -1010,7 +1016,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (HitCommon.Blockstun == INT_MAX)
 			HitCommon.Blockstun = 20;
 		if (HitCommon.GroundGuardPushbackX == INT_MAX)
-			HitCommon.GroundGuardPushbackX = 45000;
+			HitCommon.GroundGuardPushbackX = 30000;
 		if (HitCommon.AirGuardPushbackX == INT_MAX)
 			HitCommon.AirGuardPushbackX = 7500;
 		if (HitCommon.AirGuardPushbackY == INT_MAX)
@@ -1026,11 +1032,11 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		if (NormalHit.Damage == INT_MAX)
 			NormalHit.Damage = 1250;
 		if (NormalHit.GroundPushbackX == INT_MAX)
-			NormalHit.GroundPushbackX = 50000;
+			NormalHit.GroundPushbackX = 40000;
 		if (NormalHit.AirPushbackX == INT_MAX)
-			NormalHit.AirPushbackX = 15000;
+			NormalHit.AirPushbackX = 10500;
 		if (NormalHit.AirPushbackY == INT_MAX)
-			NormalHit.AirPushbackY = 30200;
+			NormalHit.AirPushbackY = 23500;
 		if (NormalHit.Gravity == INT_MAX)
 			NormalHit.Gravity = 1900;
 		if (CounterHit.Hitstop == INT_MAX)
@@ -1128,6 +1134,8 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 		CounterHit.GroundHitAction = NormalHit.GroundHitAction;
 	if (CounterHit.AirHitAction == HACT_AirNormal)
 		CounterHit.AirHitAction = NormalHit.AirHitAction;
+	if (CounterHit.CustomHitAction == FGameplayTag::EmptyTag)
+		CounterHit.CustomHitAction = NormalHit.CustomHitAction;
 
 	if (NormalHit.KnockdownTime == INT_MAX)
 		NormalHit.KnockdownTime = 12;
@@ -1174,7 +1182,7 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
 	if (NormalHit.GroundBounce.GroundBounceXRate == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceXRate = 100;
 	if (NormalHit.GroundBounce.GroundBounceYSpeed == INT_MAX)
-		NormalHit.GroundBounce.GroundBounceYSpeed = NormalHit.AirPushbackY;
+		NormalHit.GroundBounce.GroundBounceYSpeed = FMath::Abs(NormalHit.AirPushbackY);
 	if (NormalHit.GroundBounce.GroundBounceYRate == INT_MAX)
 		NormalHit.GroundBounce.GroundBounceYRate = 100;
 	if (NormalHit.GroundBounce.GroundBounceGravity == INT_MAX)
@@ -1218,8 +1226,6 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				OtherObj->Hitstop = 16;
 				AttackFlags &= ~ATK_HitActive;
 				OtherObj->AttackFlags &= ~ATK_HitActive;
-				OtherObj->ColPosX = ColPosX;
-				OtherObj->ColPosY = ColPosY;
 				Player->EnableAttacks();
 				Player->EnableCancelIntoSelf(true);
 				Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
@@ -1237,8 +1243,6 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 				Hitstop = 16;
 				AttackFlags &= ~ATK_HitActive;
 				OtherObj->AttackFlags &= ~ATK_HitActive;
-				OtherObj->ColPosX = ColPosX;
-				OtherObj->ColPosY = ColPosY;
 				TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 				CreateCommonParticle(Particle_Hit_Clash, POS_Col, FVector(0, 0, 0));
@@ -1250,53 +1254,30 @@ void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
 
 void ABattleObject::HandleFlip()
 {
-	const EObjDir CurrentDir = Direction;
 	if (!Player->Enemy) return;
 
 	GameState->SetScreenBounds();
 
-	if (R < Player->Enemy->R)
-	{
-		SetFacing(DIR_Right);
-	}
-	else if (L > Player->Enemy->L)
-	{
-		SetFacing(DIR_Left);
-	}
-	if (CurrentDir != Direction)
-	{
-		SpeedX = -SpeedX;
-		Inertia = -Inertia;
-		if (IsPlayer)
-		{
-			Player->StoredInputBuffer.FlipInputsInBuffer();
-			if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
-				Player->JumpToStatePrimary(State_Universal_StandFlip);
-			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Crouching)
-				Player->JumpToStatePrimary(State_Universal_CrouchFlip);
-			else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
-				Player->JumpToStatePrimary(State_Universal_JumpFlip);
-		}
-	}
+	FaceOpponent();
 }
 
-void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const
+void ABattleObject::PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const
 {
 	switch (Type)
 	{
 	case POS_Self:
-		*OutPosX = PosX;
-		*OutPosY = PosY;
+		OutPosX = PosX;
+		OutPosY = PosY;
 		break;
 	case POS_Player:
-		*OutPosX = Player->PosX;
-		*OutPosY = Player->PosY;
+		OutPosX = Player->PosX;
+		OutPosY = Player->PosY;
 		break;
 	case POS_Center:
-		*OutPosX = PosX;
+		OutPosX = PosX;
 		if (!IsPlayer)
 		{
-			*OutPosY = PosY;
+			OutPosY = PosY;
 			break;
 		}
 		{
@@ -1312,20 +1293,31 @@ void ABattleObject::PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutP
 				CenterPosY += 90000;
 				break;
 			}
-			*OutPosY = CenterPosY;
+			OutPosY = CenterPosY;
 		}
 		break;
+	case POS_Ground:
+		OutPosX = PosX;
+		OutPosY = GroundHeight;
+		break;
 	case POS_Enemy:
-		*OutPosX = Player->Enemy->PosX;
-		*OutPosY = Player->Enemy->PosY;
+		OutPosX = Player->Enemy->PosX;
+		OutPosY = Player->Enemy->PosY;
 		break;
 	case POS_Col:
-		*OutPosX = ColPosX;
-		*OutPosY = ColPosY;
+		OutPosX = ColPosX;
+		OutPosY = ColPosY;
 		break;
 	default:
 		break;
 	}
+}
+
+void ABattleObject::ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const
+{
+	if (!GameState) return;
+	
+	GameState->ScreenPosToWorldPos(X, Y, OutX, OutY);
 }
 
 void ABattleObject::TriggerEvent(EEventType EventType, FGameplayTag StateMachineName)
@@ -1550,7 +1542,7 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName);
 		if (StateIndex != INDEX_NONE)
 		{
-			ObjectState = DuplicateObject(Player->ObjectStates[StateIndex], this);
+			ObjectState = Player->ObjectStates[StateIndex];
 			ObjectState->Parent = this;
 		}
 	}
@@ -1591,6 +1583,45 @@ void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
 
 void ABattleObject::UpdateVisuals()
 {
+	if (IsValid(GameState))
+	{
+		if (GameState->BattleState.CurrentSequenceTime >= 0)
+		{
+			ScreenSpaceDepthOffset = 0;
+			if (DrawPriorityLinkObj)
+				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+		}
+		else
+		{
+			if (DrawPriorityLinkObj)
+				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
+			else
+				ScreenSpaceDepthOffset = (GameState->Players.Num() - DrawPriority) * 50;
+			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+		}
+	}
+	else
+	{
+		ScreenSpaceDepthOffset = 0;
+		OrthoBlendActive = 1;
+	}
+
+	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
+	MulColor = FMath::Lerp(MulColor, MulFadeColor, MulFadeSpeed);
+	Transparency = FMath::Lerp(Transparency, FadeTransparency, TransparencySpeed);
+}
+
+void ABattleObject::UpdateVisualsNoRollback()
+{
+	UpdateVisuals_BP();
+
+	if (!bRender)
+	{
+		SetActorHiddenInGame(true);
+		return;
+	}
+	
 	if (IsPlayer)
 	{
 		if ((Player->PlayerFlags & PLF_IsOnScreen) == 0)
@@ -1598,7 +1629,6 @@ void ABattleObject::UpdateVisuals()
 			SetActorHiddenInGame(true);
 			return;
 		}
-		SetActorHiddenInGame(false);
 	}
 	else
 	{
@@ -1607,8 +1637,8 @@ void ABattleObject::UpdateVisuals()
 			SetActorHiddenInGame(true);
 			return;
 		}
-		SetActorHiddenInGame(false);
 	}
+	SetActorHiddenInGame(false);
 	if (LinkedParticle)
 	{
 		if (Direction == DIR_Left)
@@ -1620,6 +1650,21 @@ void ABattleObject::UpdateVisuals()
 			LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 1000);
 		}
 	}
+	if (LinkedActor)
+	{
+		TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+		GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
+
+		for (auto SkeletalMeshComponent : SkeletalMeshComponents)
+		{
+			if (!SkeletalMeshComponent->IsVisible()) continue;
+			if (!SkeletalMeshComponent->IsVisible() || !IsValid(SkeletalMeshComponent->GetAnimInstance())) continue;
+			SkeletalMeshComponent->GetAnimInstance()->UpdateAnimation(OneFrame, false); 
+			SkeletalMeshComponent->TickAnimation(OneFrame, false); 
+			SkeletalMeshComponent->TickPose(OneFrame, true);  
+		}
+	}
+	
 	FRotator FlipRotation = FRotator::ZeroRotator;
 	if (Direction == DIR_Left)
 	{
@@ -1636,7 +1681,8 @@ void ABattleObject::UpdateVisuals()
 	{
 		SetActorScale3D(FVector(1, 1, 1) * ObjectScale);
 	}
-	if (IsValid(GameState))
+
+	if (GameState)
 	{
 		if (SocketName == NAME_None) //only set visual location if not attached to socket
 		{
@@ -1647,7 +1693,7 @@ void ABattleObject::UpdateVisuals()
 				GameState->BattleSceneTransform.GetRotation() * (Rotation.Quaternion() * FlipRotation.
 					Quaternion() * ObjectRotation.Quaternion()));
 			FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
-			                           static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
+									   static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
 			Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->
 				BattleSceneTransform.GetLocation();
 			SetActorLocation(Location);
@@ -1658,9 +1704,9 @@ void ABattleObject::UpdateVisuals()
 			if (Direction != DIR_Right)
 				FinalSocketOffset.Y = -SocketOffset.Y;
 			const auto Obj = GetBattleObject(SocketObj);
-			TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
-			Obj->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
-			for (const auto Component : SkeletalMeshComponents)
+			TArray<USkeletalMeshComponent*> SocketSkeletalMeshComponents;
+			Obj->GetComponents(USkeletalMeshComponent::StaticClass(), SocketSkeletalMeshComponents);
+			for (const auto Component : SocketSkeletalMeshComponents)
 			{
 				if (!Component->DoesSocketExist(SocketName)) continue;
 				FVector SocketLocation;
@@ -1670,36 +1716,20 @@ void ABattleObject::UpdateVisuals()
 				SetActorRotation(SocketRotation);
 			}
 		}
-		if (GameState->BattleState.CurrentSequenceTime >= 0)
-		{
-			ScreenSpaceDepthOffset = 0;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
-		}
-		else
-		{
-			if (IsPlayer)
-				ScreenSpaceDepthOffset = (GameState->Players.Num() - DrawPriority) * 25;
-			else
-				ScreenSpaceDepthOffset = (GameState->MaxBattleObjects - DrawPriority) * 15;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
-		}
 	}
-	else
-	{
-		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
-	}
-
+	
 	if (LinkedActor)
 	{
 		LinkedActor->SetActorScale3D(GetActorScale3D());
 		LinkedActor->SetActorRotation(GetActorRotation());
 		LinkedActor->SetActorLocation(GetActorLocation());
 	}
-
-	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
-	MulColor = FMath::Lerp(MulColor, MulFadeColor, MulFadeSpeed);
-
+	if (LinkedParticle)
+	{
+		LinkedParticle->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+		LinkedParticle->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
+	}
+	
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
 	GetComponents(Components);
 	for (const auto Component : Components)
@@ -1708,6 +1738,7 @@ void ABattleObject::UpdateVisuals()
 		{
 			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
 			{
+				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
@@ -1718,6 +1749,7 @@ void ABattleObject::UpdateVisuals()
 		{
 			if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Mesh->OverlayMaterial); IsValid(MIDynamic))
 			{
+				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
@@ -1725,6 +1757,7 @@ void ABattleObject::UpdateVisuals()
 			}
 		}
 	}
+
 	FrameBlendPosition = static_cast<float>(MaxCelTime - TimeUntilNextCel) / static_cast<float>(MaxCelTime);
 	MarkComponentsRenderStateDirty();
 }
@@ -1795,6 +1828,7 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CommonCollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CommonCollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+				if (BlendCelName == FGameplayTag::EmptyTag) BlendAnimFrame = AnimFrame;
 				Boxes = Player->CommonCollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
@@ -1820,6 +1854,7 @@ void ABattleObject::GetBoxes()
 				AnimBlendIn = Player->CollisionData->CollisionFrames[i].AnimBlendIn;
 				AnimBlendOut = Player->CollisionData->CollisionFrames[i].AnimBlendOut;
 				AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+				if (BlendCelName == FGameplayTag::EmptyTag) BlendAnimFrame = AnimFrame;
 				Boxes = Player->CollisionData->CollisionFrames[i].Boxes;
 			}
 			if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
@@ -1902,8 +1937,6 @@ void ABattleObject::Update()
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
 
-	Move();
-
 	GameState->SetScreenBounds();
 
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
@@ -1922,10 +1955,14 @@ void ABattleObject::Update()
 
 		ObjectState->CallExec();
 		TriggerEvent(EVT_Update, StateMachine_Primary);
-		TimeUntilNextCel--;
+		
+		if (TimeUntilNextCel > 0)
+			TimeUntilNextCel--;
 		if (TimeUntilNextCel == 0)
 			CelIndex++;
-
+		
+		Move();
+		
 		GameState->SetScreenBounds();
 		ActionTime++;
 
@@ -1945,10 +1982,12 @@ void ABattleObject::ResetObject()
 
 	if (IsValid(LinkedParticle))
 	{
-		LinkedParticle->ToggleVisibility();
+		LinkedParticle->SetVisibility(false);
 		LinkedParticle->Deactivate();
 	}
 	RemoveLinkActor();
+	OrthoBlendActive = 1;
+	
 	IsActive = false;
 	PosX = 0;
 	PosY = 0;
@@ -2065,6 +2104,10 @@ void ABattleObject::ResetObject()
 	MulFadeColor = FLinearColor(1, 1, 1, 1);
 	AddFadeSpeed = 0;
 	MulFadeSpeed = 0;
+	Transparency = 1;
+	FadeTransparency = 1;
+	TransparencySpeed = 0;
+	bRender = true;
 	ObjectsToIgnoreHitsFrom.Empty();
 	for (const auto Object : GameState->SortedObjects)
 	{
@@ -2109,12 +2152,13 @@ bool ABattleObject::IsTimerPaused() const
 
 void ABattleObject::CallSubroutine(FGameplayTag Name)
 {
+	SubroutineReturnVal1 = 0;
+	SubroutineReturnVal2 = 0;
+	SubroutineReturnVal3 = 0;
+	SubroutineReturnVal4 = 0;
+
 	if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
 	{
-		SubroutineReturnVal1 = 0;
-		SubroutineReturnVal2 = 0;
-		SubroutineReturnVal3 = 0;
-		SubroutineReturnVal4 = 0;
 		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Parent = this;
 		Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Exec();
 		return;
@@ -2122,10 +2166,6 @@ void ABattleObject::CallSubroutine(FGameplayTag Name)
 
 	if (Player->SubroutineNames.Find(Name) != INDEX_NONE)
 	{
-		SubroutineReturnVal1 = 0;
-		SubroutineReturnVal2 = 0;
-		SubroutineReturnVal3 = 0;
-		SubroutineReturnVal4 = 0;
 		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Parent = this;
 		Player->Subroutines[Player->SubroutineNames.Find(Name)]->Exec();
 	}
@@ -2185,6 +2225,7 @@ void ABattleObject::SetCelName(FGameplayTag InName)
 	GetBoxes();
 	
 	// Get position offset from boxes
+	if (!GameState) return;
 	for (auto Box : Boxes)
 	{
 		if (Box.Type == BOX_Offset)
@@ -2321,8 +2362,8 @@ int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType
 		int32 PosY1 = 0;
 		int32 PosY2 = 0;
 
-		Actor1->PosTypeToPosition(Pos1, &PosX1, &PosY1);
-		Actor2->PosTypeToPosition(Pos2, &PosX2, &PosY2);
+		Actor1->PosTypeToPosition(Pos1, PosX1, PosY1);
+		Actor2->PosTypeToPosition(Pos2, PosX2, PosY2);
 
 		int32 ObjDist;
 
@@ -2368,8 +2409,8 @@ int32 ABattleObject::CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, E
 		int32 PosY1 = 0;
 		int32 PosY2 = 0;
 
-		Actor1->PosTypeToPosition(Pos1, &PosX1, &PosY1);
-		Actor2->PosTypeToPosition(Pos2, &PosX2, &PosY2);
+		Actor1->PosTypeToPosition(Pos1, PosX1, PosY1);
+		Actor2->PosTypeToPosition(Pos2, PosX2, PosY2);
 
 		const auto X = abs(PosX2 - PosX1);
 		const auto Y = PosY2 - PosY1;
@@ -2399,11 +2440,11 @@ void ABattleObject::FaceOpponent()
 
 	if (GameState) GameState->SetScreenBounds();
 
-	if (PosX < Player->Enemy->PosX)
+	if (PosX + 30000 < Player->Enemy->PosX - 30000)
 	{
 		SetFacing(DIR_Right);
 	}
-	else if (PosX > Player->Enemy->PosX)
+	else if (PosX - 30000 > Player->Enemy->PosX + 30000)
 	{
 		SetFacing(DIR_Left);
 	}
@@ -2411,6 +2452,16 @@ void ABattleObject::FaceOpponent()
 	{
 		SpeedX = -SpeedX;
 		Inertia = -Inertia;
+		if (IsPlayer)
+		{
+			Player->StoredInputBuffer.FlipInputsInBuffer();
+			if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
+				Player->JumpToStatePrimary(State_Universal_StandFlip);
+			else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Crouching)
+				Player->JumpToStatePrimary(State_Universal_CrouchFlip);
+			else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
+				Player->JumpToStatePrimary(State_Universal_JumpFlip);
+		}
 	}
 }
 
@@ -2498,6 +2549,15 @@ void ABattleObject::SetIgnoreOTG(bool Ignore)
 		AttackFlags &= ~ATK_IgnoreOTG;
 }
 
+void ABattleObject::SetHitOTG(bool Enable)
+{
+	if (Enable)
+		AttackFlags |= ATK_HitOTG;
+	else
+		AttackFlags &= ~ATK_HitOTG;
+
+}
+
 void ABattleObject::SetIgnorePushbackScaling(bool Ignore)
 {
 	if (Ignore)
@@ -2568,8 +2628,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			auto Length = isqrt((int64)Normal[0] * Normal[0] + (int64)Normal[1] * Normal[1]);
 			if (Length == 0)
 				Length = 1;
-			Normal[0] = Normal[0] * COORD_SCALE / Length;
-			Normal[1] = Normal[1] * COORD_SCALE / Length;
+			Normal[0] = (int64)Normal[0] * COORD_SCALE / Length;
+			Normal[1] = (int64)Normal[1] * COORD_SCALE / Length;
 			// Assign to passed in array
 			Normals[i][0] = Normal[0];
 			Normals[i][1] = Normal[1];
@@ -2666,7 +2726,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 		};
 		int32 Normals[4][2];
 		GetNormalAxes(Vertices, Normals, Direction == DIR_Right);
-
+		
 		// Repeat for other object
 		for (auto& OtherBox : OtherObj->Boxes)
 		{
@@ -2727,12 +2787,9 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			};
 			int32 OtherNormals[4][2];
 			GetNormalAxes(OtherVertices, OtherNormals, Direction == DIR_Right);
-
+			
 			int32 Overlap = INT_MAX;
 			int32 Smallest[2];
-
-			auto BoxPosX = Direction == DIR_Right ? Box.PosX + PosX : -Box.PosX + PosX;
-			auto BoxPosY = Box.PosY + PosY;
 
 			// Loop over the first set of normals
 			for (int i = 0; i < std::size(Normals); i++)
@@ -2788,8 +2845,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 				}
 			}
 			
-			ColPosX = BoxPosX + (int64)Smallest[0] * Overlap / (COORD_SCALE * 2);
-			ColPosY = BoxPosY + (int64)-Smallest[1] * Overlap / (COORD_SCALE * 2);
+			ColPosX = (FMath::Max(P1[0], OtherP1[0]) + FMath::Min(P3[0], OtherP3[0])) / 2;
+			ColPosY = (FMath::Max(P2[1], OtherP2[1]) + FMath::Min(P4[1], OtherP4[1])) / 2;
 
 			return true;
 
@@ -2903,7 +2960,7 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 	{
 		for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
 		{
-			if (ParticleStruct.Name == Name)
+			if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
 			{
 				if (Direction == DIR_Left)
 				{
@@ -2913,7 +2970,7 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 				Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
 				int32 TmpPosX;
 				int32 TmpPosY;
-				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
+				PosTypeToPosition(PosType, TmpPosX, TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
 				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
 					BattleSceneTransform.GetLocation();
@@ -2928,6 +2985,8 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
+				NiagaraComponent->SetCustomDepthStencilValue(2);
+				NiagaraComponent->SetBoundsScale(40000);
 				break;
 			}
 		}
@@ -2941,14 +3000,17 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 	{
 		for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
 		{
-			if (ParticleStruct.Name == Name)
+			if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
 			{
 				if (Direction == DIR_Left)
+				{
+					Rotation.Pitch = -Rotation.Pitch;
 					Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+				}
 				Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
 				int32 TmpPosX;
 				int32 TmpPosY;
-				PosTypeToPosition(PosType, &TmpPosX, &TmpPosY);
+				PosTypeToPosition(PosType, TmpPosX, TmpPosY);
 				FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
 				FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
 					BattleSceneTransform.GetLocation();
@@ -2963,6 +3025,8 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
+				NiagaraComponent->SetCustomDepthStencilValue(2);
+				NiagaraComponent->SetBoundsScale(40000);
 				break;
 			}
 		}
@@ -2978,7 +3042,7 @@ void ABattleObject::LinkCommonParticle(FGameplayTag Name)
 	{
 		for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
 		{
-			if (ParticleStruct.Name == Name)
+			if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
 			{
 				if (IsValid(LinkedParticle))
 					LinkedParticle->Deactivate();
@@ -2990,6 +3054,8 @@ void ABattleObject::LinkCommonParticle(FGameplayTag Name)
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+				LinkedParticle->SetBoundsScale(40000);
+				LinkedParticle->SetCustomDepthStencilValue(2);
 				break;
 			}
 		}
@@ -3005,7 +3071,7 @@ void ABattleObject::LinkCharaParticle(FGameplayTag Name)
 	{
 		for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
 		{
-			if (ParticleStruct.Name == Name)
+			if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
 			{
 				if (IsValid(LinkedParticle))
 					LinkedParticle->Deactivate();
@@ -3013,9 +3079,12 @@ void ABattleObject::LinkCharaParticle(FGameplayTag Name)
 					ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
 					EAttachLocation::SnapToTargetIncludingScale, true);
 				LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+				LinkedParticle->SetDesiredAge(0);
 				GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
 				if (Direction == DIR_Left)
 					LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+				LinkedParticle->SetBoundsScale(40000);
+				LinkedParticle->SetCustomDepthStencilValue(2);
 				break;
 			}
 		}
@@ -3035,6 +3104,7 @@ AActor* ABattleObject::LinkActor(FGameplayTag Name)
 		{
 			Container.bIsActive = true;
 			LinkedActor = Container.StoredActor;
+
 			return LinkedActor;
 		}
 	}
@@ -3147,6 +3217,8 @@ ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
 	{
 	case OBJ_Self:
 		return this;
+	case OBJ_MainPlayer:
+		return GameState->GetMainPlayer(Player->PlayerIndex == 0);
 	case OBJ_Enemy:
 		return Player->Enemy;
 	case OBJ_Parent:
@@ -3244,10 +3316,8 @@ ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, in
 	if (StateIndex != INDEX_NONE)
 	{
 		int32 FinalPosX, FinalPosY;
-		if (Direction == DIR_Left)
-			PosXOffset = -PosXOffset;
 
-		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		PosTypeToPosition(PosType, FinalPosX, FinalPosY);
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
@@ -3264,10 +3334,8 @@ ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 Po
 	if (StateIndex != INDEX_NONE)
 	{
 		int32 FinalPosX, FinalPosY;
-		if (Direction == DIR_Left)
-			PosXOffset = -PosXOffset;
 
-		PosTypeToPosition(PosType, &FinalPosX, &FinalPosY);
+		PosTypeToPosition(PosType, FinalPosX, FinalPosY);
 		FinalPosX += PosXOffset;
 		FinalPosY += PosYOffset;
 		return GameState->AddBattleObject(Player->ObjectStates[StateIndex],

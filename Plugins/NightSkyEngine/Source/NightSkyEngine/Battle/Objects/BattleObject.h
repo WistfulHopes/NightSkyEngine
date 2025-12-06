@@ -193,6 +193,7 @@ enum EHitAction
 	HACT_GuardBreakCrouch UMETA(DisplayName="Guard Break Crouch"),
 	HACT_GuardBreakAir UMETA(DisplayName="Guard Break Air"),
 	HACT_FloatingCrumple UMETA(DisplayName="Floating Crumple"),
+	HACT_Custom UMETA(DisplayName="Custom"),
 };
 
 // Used with the Floating Crumple hit action.
@@ -441,6 +442,9 @@ struct FHitData
 	// Air hit action.
 	UPROPERTY(BlueprintReadWrite)
 	TEnumAsByte<EHitAction> AirHitAction = HACT_AirNormal;
+	// Custom hit action.
+	UPROPERTY(BlueprintReadWrite)
+	FGameplayTag CustomHitAction;
 	// Blowback animation level. Used with the Blowback hit action.
 	UPROPERTY(BlueprintReadWrite)
 	int32 BlowbackLevel = INT_MAX;
@@ -499,6 +503,7 @@ enum EPosType
 	POS_Player,
 	POS_Self,
 	POS_Center,
+	POS_Ground,
 	POS_Enemy,
 	POS_Col,
 };
@@ -508,6 +513,7 @@ UENUM(BlueprintType)
 enum EObjType
 {
 	OBJ_Self,
+	OBJ_MainPlayer,
 	OBJ_Enemy,
 	OBJ_Parent,
 	OBJ_Child0,
@@ -787,8 +793,6 @@ public:
 	 */
 	FGameplayTag LabelName = {};
 
-	UPROPERTY()
-	TArray<FAnimStruct> AnimStructs;
 	UPROPERTY(BlueprintReadOnly)
 	float AnimBlendIn{};
 	UPROPERTY(BlueprintReadOnly)
@@ -832,7 +836,7 @@ public:
 	/*
 	 * Push collision
 	 */
-	
+
 	int32 L = 0;
 	int32 R = 0;
 	int32 T = 0;
@@ -858,6 +862,12 @@ public:
 	float MulFadeSpeed = 0;
 	UPROPERTY(BlueprintReadWrite)
 	float AddFadeSpeed = 0;
+	UPROPERTY(BlueprintReadWrite)
+	float Transparency = 1;
+	UPROPERTY(BlueprintReadWrite)
+	float FadeTransparency = 1;
+	UPROPERTY(BlueprintReadWrite)
+	float TransparencySpeed = 0;
 
 	/*
 	 * Miscellaneous data
@@ -870,6 +880,9 @@ public:
 	bool IsPlayer = false;
 	bool IsActive = false;
 	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bRender = true;
 
 	UPROPERTY(BlueprintReadWrite)
 	FHomingParams HomingParams = FHomingParams();
@@ -903,6 +916,8 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* PositionLinkObj = nullptr;
 	UPROPERTY(BlueprintReadWrite)
+	ABattleObject* DrawPriorityLinkObj = nullptr;
+	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* StopLinkObj = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* MaterialLinkObj = nullptr;
@@ -912,7 +927,7 @@ public:
 
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
 	unsigned char ObjSyncEnd = 0;
-	
+
 	virtual void LogForSyncTestFile(std::ofstream& file);
 };
 
@@ -986,7 +1001,7 @@ public:
 	// The minimum Y position before considered grounded.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	int32 GroundHeight = 0;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TEnumAsByte<EObjDir> Direction = DIR_Right;
 	// Ground hit pushback.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -1106,8 +1121,6 @@ public:
 	 */
 	FGameplayTag LabelName = {};
 
-	UPROPERTY()
-	TArray<FAnimStruct> AnimStructs;
 	UPROPERTY(BlueprintReadOnly)
 	float AnimBlendIn{};
 	UPROPERTY(BlueprintReadOnly)
@@ -1151,7 +1164,7 @@ public:
 	/*
 	 * Push collision
 	 */
-	
+
 	int32 L = 0;
 	int32 R = 0;
 	int32 T = 0;
@@ -1177,6 +1190,12 @@ public:
 	float MulFadeSpeed = 0;
 	UPROPERTY(BlueprintReadWrite)
 	float AddFadeSpeed = 0;
+	UPROPERTY(BlueprintReadWrite)
+	float Transparency = 1;
+	UPROPERTY(BlueprintReadWrite)
+	float FadeTransparency = 1;
+	UPROPERTY(BlueprintReadWrite)
+	float TransparencySpeed = 0;
 
 	/*
 	 * Miscellaneous data
@@ -1189,6 +1208,9 @@ public:
 	bool IsPlayer = false;
 	bool IsActive = false;
 	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
+
+	UPROPERTY(BlueprintReadWrite)
+	bool bRender = true;
 
 	UPROPERTY(BlueprintReadWrite)
 	FHomingParams HomingParams = FHomingParams();
@@ -1222,6 +1244,8 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* PositionLinkObj = nullptr;
 	UPROPERTY(BlueprintReadWrite)
+	ABattleObject* DrawPriorityLinkObj = nullptr;
+	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* StopLinkObj = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	ABattleObject* MaterialLinkObj = nullptr;
@@ -1234,10 +1258,10 @@ public:
 
 	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
-	
+
 	UPROPERTY(BlueprintReadOnly, SaveGame)
 	TArray<FCollisionBox> Boxes;
-	
+
 	/*
 	 * Link data (for object), not serialized
 	 */
@@ -1249,11 +1273,14 @@ public:
 
 	uint32 ObjNumber = 0;
 
-	UPROPERTY(BlueprintReadOnly, SaveGame)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	float ScreenSpaceDepthOffset = 0;
-	UPROPERTY(BlueprintReadOnly, SaveGame)
+	UPROPERTY(BlueprintReadWrite, SaveGame)
 	float OrthoBlendActive = 0;
 
+	UPROPERTY(SaveGame)
+	TArray<FAnimStruct> AnimStructs;
+	
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<ANightSkyGameState> GameState = nullptr;
 	UPROPERTY()
@@ -1285,8 +1312,6 @@ public:
 	void HandleClashCollision(ABattleObject* OtherObj);
 	//handles flip
 	void HandleFlip();
-	//gets position from pos type
-	void PosTypeToPosition(EPosType Type, int32* OutPosX, int32* OutPosY) const;
 	void TriggerEvent(EEventType EventType, FGameplayTag StateMachineName);
 
 	UFUNCTION(BlueprintCallable)
@@ -1307,6 +1332,9 @@ public:
 	virtual void Update();
 	// update visuals
 	virtual void UpdateVisuals();
+	virtual void UpdateVisualsNoRollback();
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateVisuals_BP();
 
 	void GetBoxes();
 
@@ -1383,8 +1411,8 @@ public:
 	UFUNCTION(BlueprintPure)
 	static int32 NormalizeAngle(int32 Angle_x1000);
 	//calculates angle between points
-    UFUNCTION(BlueprintPure)
-    int32 CalculateSpeedAngle() const;
+	UFUNCTION(BlueprintPure)
+	int32 CalculateSpeedAngle() const;
 	//calculates distance between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
@@ -1392,6 +1420,11 @@ public:
 	//calculates angle between points
 	UFUNCTION(BlueprintPure)
 	int32 CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
+	//gets position from pos type
+	UFUNCTION(BlueprintPure)
+	void PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const;
+	UFUNCTION(BlueprintPure)
+	void ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
 	//sets direction
 	UFUNCTION(BlueprintCallable)
 	void SetFacing(EObjDir NewDir);
@@ -1418,6 +1451,8 @@ public:
 	void SetProrateOnce(bool Once);
 	UFUNCTION(BlueprintCallable)
 	void SetIgnoreOTG(bool Ignore);
+	UFUNCTION(BlueprintCallable)
+	void SetHitOTG(bool Enable);
 	UFUNCTION(BlueprintCallable)
 	void SetIgnorePushbackScaling(bool Ignore);
 	UFUNCTION(BlueprintCallable)
@@ -1513,7 +1548,7 @@ public:
 	void DeactivateObject();
 	UFUNCTION(BlueprintPure)
 	bool CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
-		const EBoxType OtherType, const FGameplayTag OtherCustomType);
+	                     const EBoxType OtherType, const FGameplayTag OtherCustomType);
 	UFUNCTION(BlueprintPure)
 	void GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX, int& OutPosY) const;
 	UFUNCTION(BlueprintPure)
@@ -1534,5 +1569,6 @@ public:
 constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);
 
 #if WITH_EDITOR
-static_assert(offsetof(FBattleObjectLog, ObjSyncEnd) - offsetof(FBattleObjectLog, ObjSync) == SizeOfBattleObject, "FBattleObjectLog must contain all members from ABattleObject between ObjSync and ObjSyncEnd");
+static_assert(offsetof(FBattleObjectLog, ObjSyncEnd) - offsetof(FBattleObjectLog, ObjSync) == SizeOfBattleObject,
+              "FBattleObjectLog must contain all members from ABattleObject between ObjSync and ObjSyncEnd");
 #endif

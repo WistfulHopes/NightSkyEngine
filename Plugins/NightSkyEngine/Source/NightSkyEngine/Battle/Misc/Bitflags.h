@@ -26,6 +26,7 @@ enum EInputFlags
 	INP_F = 0x400 UMETA(DisplayName = "F"),
 	INP_G = 0x800 UMETA(DisplayName = "G"),
 	INP_H = 0x1000 UMETA(DisplayName = "H"),
+	INP_Rematch = 0x80000000 UMETA(Hidden),
 };
 
 ENUM_CLASS_FLAGS(EInputFlags);
@@ -153,7 +154,11 @@ enum EAttackFlags
 	/**
 	 * Flag sets if object will set ATK_HasHit in owning player on hit. Does nothing if already is a player object.
 	 */
-	ATK_SetPlayerHit = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling"),
+	ATK_SetPlayerHit = 0x200 UMETA(DisplayName = "Ignore Hitstun Scaling"),
+	/**
+	 * Flag sets if object can hit opponents during knockdown.
+	 */
+	ATK_HitOTG = 0x400 UMETA(DisplayName = "Hit OTG"),
 };
 
 /**
@@ -262,6 +267,10 @@ enum ECancelFlags
 	 * Flag sets if cancelling into the player's current state is enabled.
 	 */
 	CNC_CancelIntoSelf = 0x100 UMETA(DisplayName = "Is Cancel Into Self Enabled"),
+	/**
+	 * Flag sets if reverse beat is enabled. Only takes effect if the character can reverse beat.
+	 */
+	CNC_EnableReverseBeat = 0x200 UMETA(DisplayName = "Is Reverse Beat Enabled"),
 };
 
 /**

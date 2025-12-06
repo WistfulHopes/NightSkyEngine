@@ -63,9 +63,11 @@ void ANightSkyPlayerController::Tick(float DeltaTime)
 		}
 		if (NetworkPawn->bRematchAccepted && bRematch)
 		{
-			NetworkPawn->bRematchAccepted = false;
-			bRematch = false;
-			Cast<ANightSkyGameState>(GetWorld()->GetGameState())->MatchInit();
+			Inputs |= INP_Rematch;
+		}
+		else
+		{
+			Inputs = Inputs & ~INP_Rematch;			
 		}
 	}
 }
@@ -366,4 +368,10 @@ void ANightSkyPlayerController::Rematch()
 			else NetworkPawns[1]->bRematchAccepted = true;
 		}
 	}
+}
+
+void ANightSkyPlayerController::PostRematch()
+{
+	NetworkPawn->bRematchAccepted = false;
+	bRematch = false;
 }

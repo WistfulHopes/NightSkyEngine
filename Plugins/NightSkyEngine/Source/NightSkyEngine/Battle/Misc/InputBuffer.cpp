@@ -248,7 +248,11 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 	{
 		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
 			return false;
-
+		
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
+			return false;
+		FramesSinceLastMatch++;
+		
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
 			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
@@ -256,10 +260,6 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 			continue;
 		}
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
-
-		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
-			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -302,6 +302,10 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 	{
 		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
 			return false;
+		
+		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
+			return false;
+		FramesSinceLastMatch++;
 
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
@@ -310,10 +314,6 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 			continue;
 		}
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
-
-		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
-			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{

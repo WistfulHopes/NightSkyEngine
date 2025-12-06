@@ -43,6 +43,81 @@ UNSESessionSubsystem::UNSESessionSubsystem() : CreateSessionCompleteDelegate(
 	SessionUserInviteAcceptedDelegateHandle = SessionInterface->AddOnSessionUserInviteAcceptedDelegate_Handle(SessionUserInviteAcceptedDelegate);
 }
 
+void UNSESessionSubsystem::Login()
+{
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface(); // This is the generic OSS interface that will access the EOS OSS.
+ 
+	// If you're logged in, don't try to login again.
+	// This can happen if your player travels to a dedicated server or different maps as BeginPlay() will be called each time.
+    
+	FUniqueNetIdPtr NetId = Identity->GetUniquePlayerId(0);
+ 
+	if (NetId != nullptr && Identity->GetLoginStatus(0) == ELoginStatus::LoggedIn)
+	{
+		return; 
+	}
+	
+	LoginDelegateHandle = Identity->AddOnLoginCompleteDelegate_Handle(
+		0,
+		FOnLoginCompleteDelegate::CreateUObject(
+			this,
+			&ThisClass::OnLoginCompleted));
+	
+	FString AuthType; 
+	FParse::Value(FCommandLine::Get(), TEXT("AUTH_TYPE="), AuthType);
+ 
+	if (!AuthType.IsEmpty()) //If parameter is NOT empty we can autologin.
+	{
+		/* 
+		In most situations you will want to automatically log a player in using the parameters passed via CLI.
+		For example, using the exchange code for the Epic Games Store.
+		*/
+		UE_LOG(LogTemp, Log, TEXT("Logging into EOS...")); // Log to the UE logs that we are trying to log in. 
+      
+		if (!Identity->AutoLogin(0))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Failed to login... ")); // Log to the UE logs that we are trying to log in.
+			// Clear our handle and reset the delegate.
+			Identity->ClearOnLoginCompleteDelegate_Handle(0, LoginDelegateHandle);
+			LoginDelegateHandle.Reset();			
+		}
+	}
+	else
+	{
+		/* 
+		Fallback if the CLI parameters are empty.Useful for PIE.
+		The type here could be developer if using the DevAuthTool, ExchangeCode if the game is launched via the Epic Games Launcher, etc...
+		*/
+		FOnlineAccountCredentials Credentials("accountportal","", "SteamAppTicket");
+ 
+		UE_LOG(LogTemp, Log, TEXT("Logging into EOS...")); // Log to the UE logs that we are trying to log in. 
+        
+		if (!Identity->Login(0, Credentials))
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Failed to login... ")); // Log to the UE logs that we are trying to log in.
+			// Clear our handle and reset the delegate. 
+			Identity->ClearOnLoginCompleteDelegate_Handle(0, LoginDelegateHandle);
+			LoginDelegateHandle.Reset();
+		}        
+	}
+}
+
+bool UNSESessionSubsystem::IsLoggedIn() const
+{
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface(); // This is the generic OSS interface that will access the EOS OSS.
+	
+	FUniqueNetIdPtr NetId = Identity->GetUniquePlayerId(0);
+ 
+	if (NetId != nullptr && Identity->GetLoginStatus(0) == ELoginStatus::LoggedIn)
+	{
+		return true; 
+	}
+	
+	return false;
+}
+
 void UNSESessionSubsystem::CreateSession(int32 NumPublicConnections, bool bIsLANMatch)
 {
 	const IOnlineSessionPtr SessionInterface = Online::GetSessionInterface(GetWorld());
@@ -198,6 +273,25 @@ void UNSESessionSubsystem::JoinGameSession(const FOnlineSessionSearchResult& Ses
 
 		OnJoinGameSessionCompleteEvent.Broadcast(EOnJoinSessionCompleteResult::UnknownError);
 	}
+}
+
+void UNSESessionSubsystem::OnLoginCompleted(int32 LocalUserNum, bool bWasSuccessful, const FUniqueNetId& UserId,
+	const FString& Error)
+{
+	IOnlineSubsystem* Subsystem = Online::GetSubsystem(GetWorld());
+	IOnlineIdentityPtr Identity = Subsystem->GetIdentityInterface();
+	if (bWasSuccessful)
+	{
+		UE_LOG(LogTemp, Log, TEXT("Login callback completed!"));; 
+	}
+	else //Login failed
+	{
+		// TODO: set login failed message
+		UE_LOGFMT(LogTemp, Error, "EOS login failed. Error: {0}", Error); //Print sign in failure in logs as an error
+	}
+ 
+	Identity->ClearOnLoginCompleteDelegate_Handle(LocalUserNum, LoginDelegateHandle);
+	LoginDelegateHandle.Reset();
 }
 
 void UNSESessionSubsystem::OnCreateSessionComplete(FName SessionName, bool bSuccess)

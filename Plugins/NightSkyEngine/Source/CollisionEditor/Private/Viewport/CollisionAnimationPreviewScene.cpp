@@ -39,8 +39,14 @@ APlayerObject* FCollisionAnimationPreviewScene::SetPlayerObject(const UClass* Cl
 
     TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
     PreviewPlayerObject->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
-    for (const auto Component : SkeletalMeshComponents)
+    for (auto* Component : SkeletalMeshComponents)
     {
+        // TODO: Uncomment if it crashes again
+        // if (Component->GetSkeletalMeshAsset() && Component->GetNumBones() > 0)
+        // {
+        //     Component->InitAnim(true);
+        //     Component->SetUpdateAnimationInEditor(true);
+        // }
         Component->InitAnim(true);
         Component->SetUpdateAnimationInEditor(true);
     }
@@ -60,9 +66,12 @@ void FCollisionAnimationPreviewScene::UpdateMeshAndAnimation(float DeltaTime)
 
     TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
     PreviewPlayerObject->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
-    for (const auto Component : SkeletalMeshComponents)
+    for (auto* Component : SkeletalMeshComponents)
     {
-        Component->TickComponent(DeltaTime, ELevelTick::LEVELTICK_ViewportsOnly, nullptr);
+        if (Component->GetSkeletalMeshAsset() && Component->GetNumBones() > 0)
+        {
+            Component->TickComponent(DeltaTime, ELevelTick::LEVELTICK_ViewportsOnly, nullptr);
+        }
     }
 }
 

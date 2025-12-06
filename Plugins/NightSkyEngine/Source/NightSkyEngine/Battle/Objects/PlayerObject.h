@@ -37,10 +37,14 @@ struct FExtraGauge
 {
 	GENERATED_BODY()
 
-	uint32 Value;
-	uint32 InitialValue;
-	uint32 MaxValue;
-	uint32 Sections;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	int32 Value;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	int32 InitialValue;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	int32 MaxValue;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame)
+	int32 Sections;
 };
 
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Label_Blowback_1);
@@ -266,7 +270,7 @@ struct FPlayerObjectLog : public FBattleObjectLog
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	bool bCrumpled;
-	int32 RoundWinTimer = 300;
+	int32 RoundWinTimer = 120;
 	int32 WallTouchTimer;
 
 	/*
@@ -527,7 +531,7 @@ public:
 	uint32 AirDashTimer = 0;
 	int32 OTGCount;
 	bool bCrumpled;
-	int32 RoundWinTimer = 300;
+	int32 RoundWinTimer = 120;
 	int32 WallTouchTimer;
 
 	/*
@@ -590,7 +594,7 @@ public:
 	TArray<FLinkedActorContainer> StoredLinkActors;
 
 	// Extra gauges.
-	UPROPERTY(SaveGame)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, SaveGame, Category=Defaults)
 	TArray<FExtraGauge> ExtraGauges;
 
 	//options to whiff cancel into
@@ -687,9 +691,6 @@ public:
 	UPROPERTY(EditAnywhere, Category=Assets)
 	USoundData* VoiceData;
 
-	UPROPERTY()
-	TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
-
 private:
 	virtual void BeginPlay() override;
 
@@ -708,7 +709,7 @@ private:
 	//handles throwing objects
 	void HandleThrowCollision();
 	//checks kara cancel
-	bool CheckKaraCancel(EStateType InStateType, FStateMachine& StateMachine);
+	bool CheckKaraCancel(EStateType InStateType, const FStateMachine& StateMachine);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
 	bool CheckObjectPreventingState(int InObjectID);
 	//handles wall bounce
@@ -716,7 +717,7 @@ private:
 	//handles ground bounce
 	void HandleGroundBounce();
 	void SetComponentVisibility() const;
-	virtual void UpdateVisuals() override;
+	virtual void UpdateVisualsNoRollback() override;
 
 public:
 	//initialize player for match/round start
@@ -759,20 +760,21 @@ public:
 	void RoundInit(bool ResetHealth);
 	//disables last input
 	void DisableLastInput();
-
+	void HandleFlipInput();
+	void HandleEndCombo();
+	
 	static uint32 FlipInput(uint32 Input);
-
+	
+	
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
 	TArray<uint8> SaveForRollbackBP();
 	void LoadForRollbackPlayer(const unsigned char* Buffer);
 	void LoadForRollbackBP(TArray<uint8> InBytes);
+	void EmptyStateMachine();
 
 	// Only call when initializing the match.
 	UFUNCTION(BlueprintImplementableEvent)
 	void InitBP();
-	// Only call at the beginning of InitBP.
-	UFUNCTION(BlueprintCallable)
-	void EmptyStateMachine();
 	// Only call when resetting player object for round.
 	UFUNCTION(BlueprintImplementableEvent)
 	void RoundInit_BP();
@@ -911,6 +913,9 @@ public:
 	//sets whiff cancel options enabled. off by default
 	UFUNCTION(BlueprintCallable)
 	void EnableWhiffCancel(bool Enable);
+	//enables reverse beat
+	UFUNCTION(BlueprintCallable)
+	void EnableReverseBeat(bool Enable);
 	//enables jump cnacel
 	UFUNCTION(BlueprintCallable)
 	void EnableJumpCancel(bool Enable);
@@ -926,9 +931,12 @@ public:
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
+	// check if touching wall
+	UFUNCTION(BlueprintCallable)
+	bool IsTouchingWall() const;
 	//checks if invulnerable
 	UFUNCTION(BlueprintPure)
-	bool IsInvulnerable() const;
+	bool IsInvulnerable(ABattleObject* Attacker) const;
 	//sets strike invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetStrikeInvulnerable(bool Invulnerable);
@@ -954,7 +962,7 @@ public:
 	void SetStunTime(int32 NewTime);
 	//based on received hit data, set values
 	UFUNCTION(BlueprintCallable)
-	void SetHitValues();
+	void SetHitValues(bool bCustomAir = false);
 	//based on received guard data, set values
 	UFUNCTION(BlueprintCallable)
 	void SetGuardValues();
@@ -1012,6 +1020,8 @@ public:
 	APlayerObject* CallAssist(int AssistIndex, FGameplayTag AssistName);
 	UFUNCTION(BlueprintCallable)
 	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
+	UFUNCTION(BlueprintCallable)
+	void SetTeamCooldown(int NewTeamIndex, int Cooldown);
 	UFUNCTION(BlueprintPure)
 	bool IsMainPlayer() const;
 	UFUNCTION(BlueprintPure)

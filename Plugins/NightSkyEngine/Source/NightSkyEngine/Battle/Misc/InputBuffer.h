@@ -34,7 +34,7 @@ private:
 	 * Otherwise, the input sequence will be read as normal.
 	 * Updated by the input being checked.
 	 */
-	bool bInputAllowDisable = true;
+	bool bInputAllowDisable = false;
 	/**
 	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
 	 */

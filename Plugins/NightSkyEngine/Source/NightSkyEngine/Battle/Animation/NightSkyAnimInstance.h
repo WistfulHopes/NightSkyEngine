@@ -24,6 +24,6 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	float CurrentAnimTime;
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, meta = (BlueprintThreadSafe))
 	void CreateRootMontage(UAnimSequenceBase* Asset, const FAlphaBlendArgs& BlendIn, const FAlphaBlendArgs& BlendOut);
 };

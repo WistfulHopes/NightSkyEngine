@@ -8,6 +8,15 @@
 
 DECLARE_DYNAMIC_DELEGATE_OneParam(FInputActionExecutedDelegate, FName, ActionName);
 
+UENUM(BlueprintType)
+enum class ENightSkyWidgetInputMode : uint8
+{
+	Default,
+	GameAndMenu,
+	Game,
+	Menu
+};
+
 USTRUCT(BlueprintType)
 struct FInputActionBindingHandle
 {
@@ -20,10 +29,21 @@ public:
 /**
  * Extends UCommonActivatableWidget with Blueprint-visible functions for registering additional input action bindings.
  */
-UCLASS(meta = (DisableNativeTick))
+UCLASS(Abstract, Blueprintable, meta = (DisableNativeTick))
 class UExtendedCommonActivatableWidget : public UCommonActivatableWidget
 {
 	GENERATED_BODY()
+
+public:
+	UExtendedCommonActivatableWidget(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	
+	//~UCommonActivatableWidget interface
+	virtual TOptional<FUIInputConfig> GetDesiredInputConfig() const override;
+	//~End of UCommonActivatableWidget interface
+	
+#if WITH_EDITOR
+	virtual void ValidateCompiledWidgetTree(const UWidgetTree& BlueprintWidgetTree, IWidgetCompilerLog& CompileLog) const override;
+#endif
 
 protected:
 	virtual void NativeDestruct() override;
@@ -36,6 +56,14 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = ExtendedActivatableWidget)
 	void UnregisterAllBindings();
+	
+	/** The desired input mode to use while this UI is activated, for example do you want key presses to still reach the game/player controller? */
+	UPROPERTY(EditDefaultsOnly, Category = Input)
+	ENightSkyWidgetInputMode DefaultInputConfig = ENightSkyWidgetInputMode::Default;
+	
+	/** The desired mouse behavior when the game gets input. */
+	UPROPERTY(EditDefaultsOnly, Category = Input)
+	EMouseCaptureMode GameMouseCaptureMode = EMouseCaptureMode::CapturePermanently;
 
 private:
 	TArray<FUIActionBindingHandle> BindingHandles;

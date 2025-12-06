@@ -17,6 +17,7 @@ TArray<uint8> USerializableObj::SaveForRollback()
 
 void USerializableObj::LoadForRollback(const TArray<uint8>& InBytes)
 {
+	if (InBytes.Num() <= 1) return;
 	FObjectReader Reader(InBytes);
 	Reader.ArIsSaveGame = true;
 	GetClass()->SerializeBin(Reader, this);

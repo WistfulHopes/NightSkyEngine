@@ -18,7 +18,6 @@ USTRUCT(BlueprintType)
 struct NIGHTSKYENGINE_API FStateMachine
 {
 	GENERATED_BODY()
-
 	
 	UPROPERTY(SaveGame)
 	bool bPrimary;

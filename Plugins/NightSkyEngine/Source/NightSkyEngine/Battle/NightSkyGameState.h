@@ -78,7 +78,7 @@ struct FTeamData
 	TArray<int32> CooldownTimer;
 };
 
-UENUM()
+UENUM(Meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
 enum EScreenFlag 
 {
 	SCR_None,
@@ -89,12 +89,17 @@ enum EScreenFlag
 	SCR_DisableScreenSides = 1 << 4,
 };
 
+ENUM_CLASS_FLAGS(EScreenFlag);
+
 USTRUCT(BlueprintType)
 struct FScreenData 
 {
 	GENERATED_BODY()
 
-	EScreenFlag Flags;
+	TEnumAsByte<EScreenFlag> Flags;
+	bool bStopScreenUpdate;
+	bool bStopZoomCamera;
+	bool bTouchingWorldSide;
 	
 	UPROPERTY(EditAnywhere)
 	int DefaultMaxWidth = 1689;
@@ -105,8 +110,10 @@ struct FScreenData
 
 	int MaxZoomOutWidth = 1689;
 	int ZoomOutBeginX = 1280;
+	int ZoomOutBeginY = 180;
+	int ZoomOutBeginH = 360;
 	
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> TargetObjects{};
 	
 	int ObjTop = 0;
@@ -116,6 +123,7 @@ struct FScreenData
 	int ObjRight = 0;
 	int ObjLength = 0;
 	int ObjHeight = 0;
+	int ObjDistanceY = 0;
 
 	int ScreenWorldCenterX = 0;
 	int ScreenWorldCenterY = 0;
@@ -153,10 +161,6 @@ struct FScreenData
 	int StageBoundsRight = 3200;
 	UPROPERTY(EditAnywhere)
 	int StageBoundsTop = 5400;
-
-	bool bStopScreenUpdate;
-	bool bStopZoomCamera;
-	bool bTouchingWorldSide;
 };
 
 USTRUCT(BlueprintType)
@@ -177,7 +181,7 @@ struct FBattleState
 	UPROPERTY(EditAnywhere)
 	int32 RoundStartPos = 297500;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, SaveGame)
 	FScreenData ScreenData;
 	
 	FVector CameraPosition = FVector();
@@ -299,7 +303,7 @@ public:
 	TArray<ABattleObject*> Objects {};
 	UPROPERTY()
 	TArray<APlayerObject*> Players {};
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame, Category=Defaults)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame, Category=Battle)
 	FBattleState BattleState {};
 	
 	UPROPERTY()
@@ -367,7 +371,7 @@ protected:
 	void SortObjects();
 	void HandlePushCollision() const; //for each active object, handle push collision
 	void HandleHitCollision() const;
-	void UpdateVisuals() const;
+	void UpdateVisuals(bool bShouldResimulate) const;
 	void HandleRoundWin();
 	void NextRoundTransition(bool bIsP1);
 	bool HandleMatchWin();
@@ -383,6 +387,8 @@ public:
 	void MatchInit();
 	void RoundInit();
 	
+	void AssignEnemy();
+	
 	void UpdateGameState();
 	void UpdateGameState(int32 Input1, int32 Input2, bool bShouldResimulate);
 
@@ -390,11 +396,12 @@ public:
 	void UpdateScreen();
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int32 Duration, int32 SelfDuration, ABattleObject* CallingObject);
-	void ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) const;
+	void ScreenPosToWorldPos(int32 X, int32 Y, int32& OutX, int32& OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
-	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex);
+	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex, bool bForce = false);
 	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FGameplayTag AssistName);
+	void SetTeamCooldown(const bool IsP1, const int TeamIndex, const int Cooldown);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
 	void SaveGameState(FRollbackData& RollbackData, int32* InChecksum); //saves game state
@@ -440,6 +447,10 @@ public:
 	void SetGauge(bool IsP1, int32 GaugeIndex, int32 Value);
 	UFUNCTION(BlueprintCallable)
 	void UseGauge(bool IsP1, int32 GaugeIndex, int32 Value);
+	UFUNCTION(BlueprintPure)
+	EScreenFlag GetScreenFlags() const;
+	UFUNCTION(BlueprintCallable)
+	void SetScreenFlags(UPARAM(meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EScreenFlag")) int32 InFlags);
 	UFUNCTION(BlueprintPure)
 	bool IsTagBattle() const;
 	UFUNCTION(BlueprintPure)

@@ -48,6 +48,13 @@ public:
 	UNSESessionSubsystem();
 
 	UFUNCTION(BlueprintCallable)
+	void Login();
+	FDelegateHandle LoginDelegateHandle;
+	
+	UFUNCTION(BlueprintPure)
+	bool IsLoggedIn() const;
+
+	UFUNCTION(BlueprintCallable)
 	void CreateSession(int32 NumPublicConnections, bool bIsLANMatch);
 	FNSEOnCreateSessionComplete OnCreateSessionCompleteDelegate;
 	
@@ -75,6 +82,7 @@ public:
 	FNSEOnJoinSessionComplete OnJoinGameSessionCompleteEvent;
 
 protected:
+	void OnLoginCompleted(int32 LocalUserNum, bool bWasSuccessful, const FUniqueNetId& UserId, const FString& Error);
 	void OnCreateSessionComplete(FName SessionName, bool bSuccess);
 	void OnUpdateSessionComplete(FName SessionName, bool bSuccess);
 	void OnStartSessionComplete(FName SessionName, bool bSuccess);

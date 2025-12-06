@@ -30,17 +30,6 @@ void UNightSkyGameInstance::Init()
 	GetWorld()->Exec(GetWorld(), *GlobalIlluminationCommand);
 }
 
-void UNightSkyGameInstance::Login()
-{
-	auto Subsystem = Online::GetSubsystem(GetWorld());
-	if (!Subsystem) return;
-
-	if (auto Identity = Subsystem->GetIdentityInterface())
-	{
-		Identity->AutoLogin(0);
-	}
-}
-
 void UNightSkyGameInstance::TravelToVSInfo() const
 {
 	this->GetWorld()->ServerTravel("VSInfo_PL", true);

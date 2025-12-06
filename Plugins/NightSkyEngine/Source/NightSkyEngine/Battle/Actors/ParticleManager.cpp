@@ -27,17 +27,19 @@ void AParticleManager::Tick(float DeltaTime)
 
 void AParticleManager::UpdateParticles()
 {
-	TArray<int> IndicesToDelete;
-	int i = 0;
+	BattleParticles.RemoveAll([=](const FBattleParticle& Particle)
+	{
+		return !IsValid(Particle.NiagaraComponent);
+	});
 	for (const auto [NiagaraComponent, ParticleOwner] : BattleParticles)
 	{
-		if (!IsValid(NiagaraComponent))
-		{
-			IndicesToDelete.Add(i);
-			continue;
-		}
 		if (IsValid(ParticleOwner) && ParticleOwner->IsStopped())
 		{
+			NiagaraComponent->SetPaused(false);
+			NiagaraComponent->AdvanceSimulation(1, OneFrame / 100);
+			NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge());
+			if (NiagaraComponent->IsComplete())
+				NiagaraComponent->Deactivate();
 			continue;
 		}
 		NiagaraComponent->SetPaused(false);
@@ -45,20 +47,15 @@ void AParticleManager::UpdateParticles()
 		NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge() + OneFrame);
 		if (NiagaraComponent->IsComplete())
 			NiagaraComponent->Deactivate();
-		i++;
 	}
-	for (const int Index : IndicesToDelete)
-	{
-		BattleParticles.RemoveAt(Index);
-	}
-	BattleParticles.RemoveAll([=](const FBattleParticle& Particle)
-	{
-		return !IsValid(Particle.NiagaraComponent);
-	});
 }
 
 void AParticleManager::PauseParticles()
 {
+	BattleParticles.RemoveAll([=](const FBattleParticle& Particle)
+	{
+		return !IsValid(Particle.NiagaraComponent);
+	});
 	for (const auto BattleParticle : BattleParticles)
 	{
 		BattleParticle.NiagaraComponent->SetPaused(true);

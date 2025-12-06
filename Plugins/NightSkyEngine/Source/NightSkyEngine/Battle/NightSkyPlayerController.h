@@ -130,6 +130,8 @@ public:
 	void SendBattleData();
 	UFUNCTION(BlueprintCallable)
 	void Rematch();
+	
+	void PostRematch();
 
 	UPROPERTY(BlueprintReadOnly)
 	ANetworkPawn* NetworkPawn;

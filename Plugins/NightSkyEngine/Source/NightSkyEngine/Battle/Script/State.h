@@ -193,13 +193,13 @@ struct FInputBitmask
 	 * How much buffer time there is for the input.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Lenience = 5;
+	int32 Lenience = 3;
 	
 	/**
 	 * How much time is allowed between inputs.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 TimeBetweenInputs = 5;
+	int32 TimeBetweenInputs = 0;
 	
 	/**
 	 * How long the input must be held for. Unless you're creating a charge/hold input, leave as zero.
@@ -242,7 +242,7 @@ struct FInputCondition
 	 * @see APlayerObject::DisableLastInput
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bInputAllowDisable = true;
+	bool bInputAllowDisable = false;
 	/**
 	 * The input method used for this condition. 
 	 */
@@ -414,6 +414,12 @@ public:
 	 */
 	UPROPERTY(EditAnywhere)
 	int32 MaxChain = -1;
+	/**
+	 * The maximum number of times this state can be used in a reverse beat chain.
+	 * For use with normal attacks that you don't want to use in reverse beat. 
+	 */
+	UPROPERTY(EditAnywhere)
+	bool bEnableReverseBeat = true;
 	/**
 	 * Determines how many of this state will be spawned.
 	 * Only used on object states. Player states will ignore this value and always spawn one instance.

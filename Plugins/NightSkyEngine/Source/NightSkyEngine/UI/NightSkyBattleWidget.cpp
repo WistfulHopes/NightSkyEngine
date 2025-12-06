@@ -50,6 +50,7 @@ TArray<uint8> UNightSkyBattleWidget::SaveForRollback()
 
 void UNightSkyBattleWidget::LoadForRollback(const TArray<uint8>& InBytes)
 {
+	if (InBytes.Num() <= 1) return;
 	FObjectReader Reader(InBytes);
 	Reader.ArIsSaveGame = true;
 	GetClass()->SerializeBin(Reader, this);
