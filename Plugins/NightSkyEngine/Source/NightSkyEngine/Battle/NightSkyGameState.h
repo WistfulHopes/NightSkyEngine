@@ -333,6 +333,8 @@ public:
 	ACameraActor* CameraActor = nullptr;
 	UPROPERTY(BlueprintReadWrite)
 	ACameraActor* SequenceCameraActor = nullptr;
+	UPROPERTY(EditDefaultsOnly, Category=Defaults)
+	TSubclassOf<ACameraActor> SequenceCameraActorClass;
 	UPROPERTY(BlueprintReadOnly)
 	APlayerObject* SequenceTarget = nullptr;
 	UPROPERTY(BlueprintReadOnly)

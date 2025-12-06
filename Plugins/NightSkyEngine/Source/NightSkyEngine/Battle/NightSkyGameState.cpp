@@ -46,6 +46,7 @@ ANightSkyGameState::ANightSkyGameState()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	SequenceCameraActorClass = ACineCameraActor::StaticClass();
 }
 
 // Called when the game starts or when spawned
@@ -59,9 +60,7 @@ void ANightSkyGameState::BeginPlay()
 	GameInstance = Cast<UNightSkyGameInstance>(GetGameInstance());
 	CameraActor = GetWorld()->SpawnActor<ACameraActor>(ACameraActor::StaticClass());
 	CameraActor->GetCameraComponent()->SetFieldOfView(54);
-	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(ACineCameraActor::StaticClass());
-	((UCineCameraComponent*)SequenceCameraActor->GetCameraComponent())->FocusSettings.FocusMethod =
-		ECameraFocusMethod::Disable;
+	SequenceCameraActor = GetWorld()->SpawnActor<ACineCameraActor>(SequenceCameraActorClass);
 	SequenceActor = GetWorld()->SpawnActor<ALevelSequenceActor>(ALevelSequenceActor::StaticClass());
 
 	UpdateCamera();
