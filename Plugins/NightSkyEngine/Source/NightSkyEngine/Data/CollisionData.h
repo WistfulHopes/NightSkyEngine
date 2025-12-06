@@ -34,9 +34,9 @@ struct FCollisionStruct
 	UPROPERTY(EditAnywhere)
 	int32 AnimFrame = 0;
 	UPROPERTY(EditAnywhere)
-	float AnimBlendIn = 0.1;
+	float AnimBlendIn = 0.25;
 	UPROPERTY(EditAnywhere)
-	float AnimBlendOut = 0.1;
+	float AnimBlendOut = 0.25;
 	UPROPERTY(EditAnywhere)
 	TArray<FCollisionBox> Boxes;
 };
