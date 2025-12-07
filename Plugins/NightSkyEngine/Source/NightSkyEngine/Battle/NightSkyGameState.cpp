@@ -8,7 +8,6 @@
 #include "Actors/ParticleManager.h"
 #include "Camera/CameraActor.h"
 #include "CineCameraActor.h"
-#include "CineCameraComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/AudioComponent.h"
 #include "Components/SlateWrapperTypes.h"
