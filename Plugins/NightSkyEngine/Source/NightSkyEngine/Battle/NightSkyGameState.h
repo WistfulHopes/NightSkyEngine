@@ -105,8 +105,6 @@ struct FScreenData
 	int DefaultMaxWidth = 1689;
 	UPROPERTY(EditAnywhere)
 	int DefaultWidth = 1280;
-	UPROPERTY(EditAnywhere)
-	int DefaultScreenYTargetOffset = -100;
 
 	int MaxZoomOutWidth = 1689;
 	int ZoomOutBeginX = 1280;
