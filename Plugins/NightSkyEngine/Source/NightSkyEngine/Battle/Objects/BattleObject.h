@@ -36,14 +36,18 @@ enum EEventType
 	EVT_Block UMETA(DisplayName="Block"),
 	EVT_HitOrBlock UMETA(DisplayName="Hit or Block"),
 	EVT_CounterHit UMETA(DisplayName="Counter Hit"),
+	EVT_Kill UMETA(DisplayName="Kill"),
+	EVT_ReceiveHit UMETA(DisplayName="Receive Hit"),
 	EVT_SuperFreeze UMETA(DisplayName="Super Freeze"),
 	EVT_SuperFreezeEnd UMETA(DisplayName="Super Freeze End"),
 	EVT_Timer0 UMETA(DisplayName="Timer #0"),
 	EVT_Timer1 UMETA(DisplayName="Timer #1"),
-	EVT_HitMainPlayer UMETA(DisplayName="Hit Main Player"),
-	EVT_BlockMainPlayer UMETA(DisplayName="Block Main Player"),
-	EVT_HitOrBlockMainPlayer UMETA(DisplayName="Hit or Block Main Player"),
-	EVT_CounterHitMainPlayer UMETA(DisplayName="Counter Hit Main Player"),
+	EVT_HitMainPlayer UMETA(DisplayName="Hit (Main Player)"),
+	EVT_BlockMainPlayer UMETA(DisplayName="Block (Main Player)"),
+	EVT_HitOrBlockMainPlayer UMETA(DisplayName="Hit or Block (Main Player)"),
+	EVT_CounterHitMainPlayer UMETA(DisplayName="Counter Hit (Main Player)"),
+	EVT_KillMainPlayer UMETA(DisplayName="Kill (Main Player)"),
+	EVT_ReceiveHitMainPlayer UMETA(DisplayName="Receive Hit (Main Player)"),
 	EVT_NUM UMETA(Hidden)
 };
 

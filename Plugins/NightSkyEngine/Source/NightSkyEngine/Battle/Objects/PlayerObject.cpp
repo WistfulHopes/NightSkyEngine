@@ -542,22 +542,28 @@ void APlayerObject::Update()
 
 		PlayerFlags |= PLF_IsDead;
 		RecoverableHealth = 0;
-		if (Enemy->CurrentHealth > 0 && !(PlayerFlags & PLF_DeathCamOverride) && IsMainPlayer())
+		if (Enemy->CurrentHealth > 0)
 		{
-			if (ReceivedHitCommon.AttackLevel < 2)
+			if (IsMainPlayer())
 			{
-				AddCommonBattleObject(State_BattleObject_KO_S);
+				if (!(PlayerFlags & PLF_DeathCamOverride))
+				{
+					if (ReceivedHitCommon.AttackLevel < 2)
+					{
+						AddCommonBattleObject(State_BattleObject_KO_S);
+					}
+					else if (ReceivedHitCommon.AttackLevel < 4)
+					{
+						AddCommonBattleObject(State_BattleObject_KO_M);
+					}
+					else
+					{
+						AddCommonBattleObject(State_BattleObject_KO_L);
+					}
+					Hitstop = 1;
+					AttackOwner->Hitstop = 1;
+				}
 			}
-			else if (ReceivedHitCommon.AttackLevel < 4)
-			{
-				AddCommonBattleObject(State_BattleObject_KO_M);
-			}
-			else
-			{
-				AddCommonBattleObject(State_BattleObject_KO_L);
-			}
-			Hitstop = 1;
-			AttackOwner->Hitstop = 1;
 		}
 		if (Enemy->CurrentHealth == 0 && (Enemy->PlayerFlags & PLF_IsDead) == 0)
 		{
@@ -899,7 +905,7 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		FinalDamage = FinalDamage * OtgProration / 100;
 
 	CurrentHealth -= FinalDamage;
-	if (!(PlayerFlags & PLF_IsDead))
+	if (CurrentHealth > 0)
 	{
 		if (IsMainPlayer())
 		{
@@ -908,6 +914,17 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 		else
 		{
 			RecoverableHealth += FinalDamage;
+		}
+	}
+	else
+	{
+		if (!(PlayerFlags & PLF_IsDead))
+		{
+			Enemy->TriggerEvent(EVT_Kill, StateMachine_Primary);
+			if (IsMainPlayer())
+			{
+				Enemy->TriggerEvent(EVT_KillMainPlayer, StateMachine_Primary);
+			}
 		}
 	}
 
@@ -1552,6 +1569,12 @@ void APlayerObject::PlayLevelSequence(FGameplayTag Name)
 			}
 		}
 	}
+}
+
+void APlayerObject::StopLevelSequence()
+{
+	if (!GameState) return;
+	GameState->StopLevelSequence();
 }
 
 void APlayerObject::BattleHudVisibility(bool Visible)

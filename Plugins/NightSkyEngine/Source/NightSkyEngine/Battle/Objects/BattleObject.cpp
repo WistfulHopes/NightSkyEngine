@@ -647,9 +647,11 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				CallSubroutine(Subroutine_Cmn_OnHit);
 				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
+				AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
 				if (AttackedPlayer->IsMainPlayer())
 				{
 					TriggerEvent(EVT_HitMainPlayer, StateMachine_Primary);
+					AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
 				}
 
 				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
@@ -687,10 +689,12 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
 				TriggerEvent(EVT_CounterHit, StateMachine_Primary);
+				AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
 				if (AttackedPlayer->IsMainPlayer())
 				{
 					TriggerEvent(EVT_HitMainPlayer, StateMachine_Primary);
 					TriggerEvent(EVT_CounterHitMainPlayer, StateMachine_Primary);
+					AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
 				}
 
 				AttackedPlayer->AddColor = FLinearColor(5, 0.2, 0.2, 1);
@@ -2868,15 +2872,8 @@ void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag Cu
 		{
 			if (Box.Type == BOX_Custom && Box.CustomType != CustomType) continue;
 
-			if (Direction == DIR_Right)
-			{
-				OutPosX = Box.PosX + PosX;
-			}
-			else
-			{
-				OutPosX = -Box.PosX + PosX;
-			}
-			OutPosY = Box.PosY + PosY;
+			OutPosX = Box.PosX;
+			OutPosY = Box.PosY;
 
 			return;
 		}

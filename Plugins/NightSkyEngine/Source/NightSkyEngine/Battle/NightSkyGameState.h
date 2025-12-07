@@ -415,6 +415,7 @@ public:
 
 	void UpdateCamera();
 	void PlayLevelSequence(APlayerObject* Target, APlayerObject* Enemy, ULevelSequence* Sequence);
+	void StopLevelSequence();
 	void CameraShake(const TSubclassOf<UCameraShakeBase>& Pattern, float Scale) const;
 
 	void HUDInit() const;

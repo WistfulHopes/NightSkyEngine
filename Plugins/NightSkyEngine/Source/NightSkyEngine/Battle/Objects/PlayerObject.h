@@ -1001,6 +1001,9 @@ public:
 	//plays character level sequence
 	UFUNCTION(BlueprintCallable)
 	void PlayLevelSequence(FGameplayTag Name);
+	//stop level sequence
+	UFUNCTION(BlueprintCallable)
+	void StopLevelSequence();
 	//toggles hud visibility
 	UFUNCTION(BlueprintCallable)
 	void BattleHudVisibility(bool Visible);

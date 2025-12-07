@@ -1254,9 +1254,7 @@ void ANightSkyGameState::UpdateCamera()
 		{
 			if (BattleState.CurrentSequenceTime >= SequenceActor->GetSequencePlayer()->GetEndTime().Time)
 			{
-				SequenceActor->GetSequencePlayer()->Stop();
-				BattleState.CurrentSequenceTime = -1;
-				BattleState.IsPlayingSequence = false;
+				StopLevelSequence();
 				return;
 			}
 			const FMovieSceneSequencePlaybackParams Params = FMovieSceneSequencePlaybackParams(
@@ -1358,6 +1356,13 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject*
 		BattleState.CurrentSequenceTime = 0;
 		BattleState.IsPlayingSequence = true;
 	}
+}
+
+void ANightSkyGameState::StopLevelSequence()
+{
+	SequenceActor->GetSequencePlayer()->Stop();
+	BattleState.CurrentSequenceTime = -1;
+	BattleState.IsPlayingSequence = false;
 }
 
 void ANightSkyGameState::CameraShake(const TSubclassOf<UCameraShakeBase>& Pattern, float Scale) const
@@ -1556,6 +1561,8 @@ void ANightSkyGameState::SetTeamCooldown(const bool IsP1, const int TeamIndex, c
 
 bool ANightSkyGameState::CanTag(const APlayerObject* InPlayer, int TeamIndex) const
 {
+	if (InPlayer->PlayerFlags & PLF_RoundWinInputLock) return false;
+	
 	if (TeamIndex == 0) return false;
 	const bool IsP1 = InPlayer->PlayerIndex == 0;
 	if (BattleState.BattleFormat != EBattleFormat::Tag && TeamIndex >= BattleState.TeamData[IsP1 == false].TeamCount)
