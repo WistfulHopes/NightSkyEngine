@@ -925,6 +925,17 @@ void APlayerObject::HandleHitAction(EHitAction HACT)
 			{
 				Enemy->TriggerEvent(EVT_KillMainPlayer, StateMachine_Primary);
 			}
+			else
+			{
+				if (PlayerIndex == 0)
+				{
+					GameState->BattleState.P2RoundsWon++;
+				}
+				else
+				{
+					GameState->BattleState.P1RoundsWon++;
+				}
+			}
 		}
 	}
 
