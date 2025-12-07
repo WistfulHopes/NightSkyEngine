@@ -97,8 +97,6 @@ struct FScreenData
 	GENERATED_BODY()
 
 	TEnumAsByte<EScreenFlag> Flags;
-	bool bStopScreenUpdate;
-	bool bStopZoomCamera;
 	bool bTouchingWorldSide;
 	
 	UPROPERTY(EditAnywhere)
