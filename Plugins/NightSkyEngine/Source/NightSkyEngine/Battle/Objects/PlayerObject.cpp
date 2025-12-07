@@ -1958,55 +1958,28 @@ void APlayerObject::HandleBufferedState()
 
 void APlayerObject::HandleBufferedState(FStateMachine& StateMachine)
 {
-	if (BufferedStateName != FGameplayTag())
+	if (BufferedStateName != FGameplayTag::EmptyTag)
 	{
-		if (FindChainCancelOption(BufferedStateName, StateMachine)
-			|| FindAutoComboCancelOption(BufferedStateName, StateMachine)
-			|| FindWhiffCancelOption(BufferedStateName, StateMachine)
-			|| CancelFlags & CNC_CancelIntoSelf) //if cancel option, allow resetting state
+		if (StateMachine.ForceSetState(BufferedStateName))
 		{
-			if (PrimaryStateMachine.ForceSetState(BufferedStateName))
+			GotoLabelActive = false;
+			switch (StateMachine.CurrentState->EntryStance)
 			{
-				GotoLabelActive = false;
-				switch (PrimaryStateMachine.CurrentState->EntryStance)
-				{
-				case EEntryStance::Standing:
-					Stance = ACT_Standing;
-					break;
-				case EEntryStance::Crouching:
-					Stance = ACT_Crouching;
-					break;
-				case EEntryStance::Jumping:
-					Stance = ACT_Jumping;
-					break;
-				default:
-					break;
-				}
+			case EEntryStance::Standing:
+				Stance = ACT_Standing;
+				break;
+			case EEntryStance::Crouching:
+				Stance = ACT_Crouching;
+				break;
+			case EEntryStance::Jumping:
+				Stance = ACT_Jumping;
+				break;
+			default:
+				break;
 			}
-		}
-		else
-		{
-			if (PrimaryStateMachine.ForceSetState(BufferedStateName))
-			{
-				GotoLabelActive = false;
-				switch (PrimaryStateMachine.CurrentState->EntryStance)
-				{
-				case EEntryStance::Standing:
-					Stance = ACT_Standing;
-					break;
-				case EEntryStance::Crouching:
-					Stance = ACT_Crouching;
-					break;
-				case EEntryStance::Jumping:
-					Stance = ACT_Jumping;
-					break;
-				default:
-					break;
-				}
-			}
+			BufferedStateName = FGameplayTag::EmptyTag;
 		}
 	}
-	BufferedStateName = FGameplayTag();
 }
 
 bool APlayerObject::HandleStateCondition(EStateCondition StateCondition)
