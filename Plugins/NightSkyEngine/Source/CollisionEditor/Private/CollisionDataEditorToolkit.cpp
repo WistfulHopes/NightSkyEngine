@@ -1,5 +1,6 @@
 #include "CollisionDataEditorToolkit.h"
 #include "Logging.h"
+#include "SCelAssetTree.h"
 #include "Battle/Objects/PlayerObject.h"
 #include "Data/CollisionData.h"
 #include "Editor/PropertyEditor/Public/PropertyEditorModule.h"
@@ -46,49 +47,45 @@ void FCollisionDataEditorToolkit::Initialize(UCollisionData* InCollisionData, co
 
 	// Setup PlayerObject BP picker
 	InitializePlayerObjectBPPicker();
-	// Setup state name combo box
-	InitializeCelNameComboBox();
+	// Setup cel asset tree
+	InitializeCelAssetTree();
+
+#if WITH_EDITORONLY_DATA
+	// Subscribe to collision frames changes to refresh tree
+	CollisionData->OnCollisionFramesChanged.AddSP(this, &FCollisionDataEditorToolkit::OnCollisionFramesChanged);
+#endif
 
 	// Set up viewport
 	InitializePreviewScene();
 
 	// Define the layout
 	const TSharedRef<FTabManager::FLayout> StandaloneLayout = FTabManager::NewLayout(
-			"Standalone_CollisionDataEditor_Layout")
+		"Standalone_CollisionDataEditor_Layout")
 		->AddArea
 		(
 			FTabManager::NewPrimaryArea()
 			->SetOrientation(Orient_Horizontal)
 			->Split
 			(
-				// Left side - Viewport and timeline stacked vertically
-				FTabManager::NewSplitter()
-				->SetOrientation(Orient_Vertical)
-				->Split
-				(
-					FTabManager::NewStack()
-					->AddTab("ViewportTab", ETabState::OpenedTab)
-					->SetHideTabWell(true)
-					->SetSizeCoefficient(0.8f)
-				)
+				// Left side
+				FTabManager::NewStack()
+				->AddTab("PlayerObjectSelectorTab", ETabState::OpenedTab)
+				->SetSizeCoefficient(0.15f)
 			)
 			->Split
 			(
-				// Right side - Details and Selector stacked vertically
-				FTabManager::NewSplitter()
-				->SetOrientation(Orient_Vertical)
-				->Split
-				(
-					FTabManager::NewStack()
-					->AddTab("CollisionDataDetailsTab", ETabState::OpenedTab)
-					->SetSizeCoefficient(0.8f) // Adjust to manage how much space this takes up
-				)
-				->Split
-				(
-					FTabManager::NewStack()
-					->AddTab("PlayerObjectSelectorTab", ETabState::OpenedTab)
-					->SetSizeCoefficient(0.2f) // Adjust similarly
-				)
+				// Middle
+				FTabManager::NewStack()
+				->AddTab("ViewportTab", ETabState::OpenedTab)
+				->SetHideTabWell(true)
+				->SetSizeCoefficient(0.55f)
+			)
+			->Split
+			(
+				// Right side
+				FTabManager::NewStack()
+				->AddTab("CollisionDataDetailsTab", ETabState::OpenedTab)
+				->SetSizeCoefficient(0.3f)
 			)
 		);
 
@@ -129,47 +126,50 @@ FGameplayTag FCollisionDataEditorToolkit::GetCurrentCelName() const
 
 void FCollisionDataEditorToolkit::OnClose()
 {
+#if WITH_EDITORONLY_DATA
+	if (CollisionData)
+	{
+		CollisionData->OnCollisionFramesChanged.RemoveAll(this);
+	}
+#endif
 	FAssetEditorToolkit::OnClose();
 }
 
-void FCollisionDataEditorToolkit::InitializeCelNameComboBox()
+void FCollisionDataEditorToolkit::InitializeCelAssetTree()
 {
-	for (auto Frame : CollisionData->CollisionFrames)
-	{
-		CelNames.Add(MakeShared<FGameplayTag>(Frame.CelName));
-	}
-	
-	SAssignNew(CelNameComboBox, SComboBox<TSharedPtr<FGameplayTag>>)
-	.OptionsSource(&CelNames)
-	.OnSelectionChanged(this, &FCollisionDataEditorToolkit::OnCelNameSelected)
-	.OnGenerateWidget(this, &FCollisionDataEditorToolkit::MakeAnimationNameWidget)
-	[
-		SNew(STextBlock)
-		.Text(this, &FCollisionDataEditorToolkit::GetSelectedState)
-	];
+	SAssignNew(CelAssetTree, SCelAssetTree, CollisionData)
+		.OnCelSelected(this, &FCollisionDataEditorToolkit::OnCelSelected);
 }
 
-void FCollisionDataEditorToolkit::OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem,
-                                                    ESelectInfo::Type SelectInfo)
+void FCollisionDataEditorToolkit::OnCelSelected(const FGameplayTag& CelName)
 {
-	CelNames.Empty();
-	
-	for (auto Frame : CollisionData->CollisionFrames)
+	if (CelName.IsValid())
 	{
-		CelNames.Add(MakeShared<FGameplayTag>(Frame.CelName));
-	}
-	
-	if (SelectedItem.IsValid() && SelectedItem->IsValid())
-	{
-		SelectedCel = *SelectedItem.Get();
-		if (PlayerObject) PlayerObject->SetCelName(SelectedCel);
+		SelectedCel = CelName;
+		if (PlayerObject)
+		{
+			PlayerObject->SetCelName(SelectedCel);
+		}
+
+#if WITH_EDITORONLY_DATA
+		if (CollisionData)
+		{
+			CollisionData->EditorSelectedIndex = CollisionData->GetIndexByCelName(CelName);
+			if (DetailsView.IsValid())
+			{
+				DetailsView->ForceRefresh();
+			}
+		}
+#endif
 	}
 }
 
-TSharedRef<SWidget> FCollisionDataEditorToolkit::MakeAnimationNameWidget(TSharedPtr<FGameplayTag> InItem)
+void FCollisionDataEditorToolkit::OnCollisionFramesChanged()
 {
-	return SNew(STextBlock)
-		.Text(FText::FromString(*InItem.Get()->ToString()));
+	if (CelAssetTree.IsValid())
+	{
+		CelAssetTree->RefreshTree();
+	}
 }
 
 void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
@@ -177,6 +177,7 @@ void FCollisionDataEditorToolkit::OnPlayerObjectBPSelected(const UClass* Class)
 	if (!Class) return;
 	PlayerObjectClass = const_cast<UClass*>(Class);
 	PlayerObject = PreviewScene->SetPlayerObject(Class);
+	// CollisionData->SelectedPlayerObjectClass = Class;
 	PlayerObject->SetCelName(SelectedCel);
 	UE_LOG(LogCollisionEditor, Log, TEXT("Selected PlayerObject: %s"), *PlayerObject->GetName());
 }
@@ -198,7 +199,7 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_CollisionDataDetails(
 TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_PlayerObjectSelector(const FSpawnTabArgs& Args)
 {
 	return SNew(SDockTab)
-		.Label(LOCTEXT("PlayerObjectSelectorTabLabel", "Player Object Selector"))
+		.Label(LOCTEXT("PlayerObjectSelectorTabLabel", "Cel Browser"))
 		.TabRole(ETabRole::NomadTab)
 		[
 			SNew(SVerticalBox)
@@ -212,12 +213,12 @@ TSharedRef<SDockTab> FCollisionDataEditorToolkit::SpawnTab_PlayerObjectSelector(
 				]
 			]
 			+ SVerticalBox::Slot()
-			.AutoHeight()
+			.FillHeight(1.f)
 			[
 				SNew(SBorder)
 				.Padding(4)
 				[
-					CelNameComboBox.ToSharedRef()
+					CelAssetTree.ToSharedRef()
 				]
 			]
 		];
@@ -308,7 +309,7 @@ void FCollisionDataEditorToolkit::RegisterTabSpawners(const TSharedRef<FTabManag
 	InTabManager->RegisterTabSpawner("PlayerObjectSelectorTab",
 	                                 FOnSpawnTab::CreateSP(
 		                                 this, &FCollisionDataEditorToolkit::SpawnTab_PlayerObjectSelector))
-	            .SetDisplayName(LOCTEXT("PlayerObjectSelectorTab", "Player Object Selector"))
+	            .SetDisplayName(LOCTEXT("PlayerObjectSelectorTab", "Cel Browser"))
 	            .SetGroup(WorkspaceMenuCategory.ToSharedRef());
 
 	InTabManager->RegisterTabSpawner("ViewportTab",

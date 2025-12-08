@@ -234,7 +234,6 @@ struct FPlayerObjectLog : public FBattleObjectLog
 	 */
 	uint32 Inputs;
 
-	UPROPERTY()
 	FInputBuffer StoredInputBuffer;
 
 	/*
@@ -495,7 +494,6 @@ public:
 	 */
 	uint32 Inputs;
 
-	UPROPERTY()
 	FInputBuffer StoredInputBuffer;
 
 	/*

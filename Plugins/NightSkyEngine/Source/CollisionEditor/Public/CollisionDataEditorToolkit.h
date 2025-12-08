@@ -12,6 +12,7 @@
 class APlayerObject;
 class FCollisionAnimationPreviewScene;
 class SCollisionAnimationViewport;
+class SCelAssetTree;
 
 
 //These aren't used yet
@@ -38,7 +39,7 @@ enum EBoxEditMode
 /**
  * Toolkit for editing collision data assets for Night Sky.
  */
-class COLLISIONEDITOR_API FCollisionDataEditorToolkit : public FAssetEditorToolkit
+class FCollisionDataEditorToolkit : public FAssetEditorToolkit
 {
 public:
 	FCollisionDataEditorToolkit();
@@ -73,30 +74,21 @@ public:
 	FText GetSelectedState() const;
 
 private:
-	TSharedPtr<IDetailsView> DetailsView; // The details view widget for collision data
-	TSharedPtr<SClassPropertyEntryBox> PlayerObjectBPPicker; // Picker for animation data assets
+	TSharedPtr<IDetailsView> DetailsView;
+	TSharedPtr<SClassPropertyEntryBox> PlayerObjectBPPicker;
 
-	// Scene and viewport for previewing animations
 	TSharedPtr<FCollisionAnimationPreviewScene> PreviewScene;
 	TSharedPtr<SCollisionAnimationViewport> PreviewViewportWidget;
 
-	// As of now CollisionData and AnimationData are not strictly tied
-	// We need a way to get cel names from animations, or display states in the viewport somehow
-	// And connect them to the collision data
-	// I think animname_framenumber is a good cel naming scheme that we could make automatic
 	UCollisionData* CollisionData{};
-	TArray<TSharedPtr<FGameplayTag>> CelNames;
-	TSharedPtr<SComboBox<TSharedPtr<FGameplayTag>>> CelNameComboBox; // Combo box for selecting an animation data struct
-	FGameplayTag SelectedCel; // The name of the selected animation data asset, based on key in the AnimDatas map
-	UClass* PlayerObjectClass = nullptr; // The selected player object class
-	APlayerObject* PlayerObject{}; // The current player object
+	TSharedPtr<SCelAssetTree> CelAssetTree;
+	FGameplayTag SelectedCel;
+	UClass* PlayerObjectClass = nullptr;
+	APlayerObject* PlayerObject{};
 
-	// A cool feature that is a long way off would be a button to automatically place initial hitboxes
-	// This would be based on bone positions in the designated cel frame, if that is possible
-
-	void InitializeCelNameComboBox();
-	void OnCelNameSelected(TSharedPtr<FGameplayTag> SelectedItem, ESelectInfo::Type SelectInfo);
-	TSharedRef<SWidget> MakeAnimationNameWidget(TSharedPtr<FGameplayTag> InItem);
+	void InitializeCelAssetTree();
+	void OnCelSelected(const FGameplayTag& CelName);
+	void OnCollisionFramesChanged();
 
 	void OnPlayerObjectBPSelected(const UClass* Class);
 	void InitializePlayerObjectBPPicker();

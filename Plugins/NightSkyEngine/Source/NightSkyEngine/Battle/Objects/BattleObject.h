@@ -170,6 +170,16 @@ struct FHitDataCommon
 	FGameplayTag HitSFX;
 	// Hit visual effect name.
 	FGameplayTag HitVFX;
+	
+	// Hit color data.
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor AddColor = FLinearColor(0.0, 0.0, 0.0);
+	UPROPERTY(BlueprintReadWrite)
+	float AddFadeSpeed = 0.1;
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor MulColor = FLinearColor(1.0, 1.0, 1.0);
+	UPROPERTY(BlueprintReadWrite)
+	float MulFadeSpeed = 0.1;
 };
 
 /*

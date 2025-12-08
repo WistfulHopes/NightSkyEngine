@@ -226,7 +226,7 @@ void ANightSkyGameState::RoundInit()
 		GetMainPlayer(IsP1)->SetOnScreen(false);
 		const auto NewPosX = GetMainPlayer(IsP1)->PosX;
 		const auto NewDirection = GetMainPlayer(IsP1)->Direction;
-		SwitchMainPlayer(GetMainPlayer(IsP1), 1, true);
+		if (!SwitchMainPlayer(GetMainPlayer(IsP1), 1, true)) return;
 		GetMainPlayer(IsP1)->PosX = NewPosX;
 		GetMainPlayer(IsP1)->Direction = NewDirection;
 		GetMainPlayer(IsP1)->PosY = 0;
@@ -509,7 +509,7 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 					SortedObjects[i]->Player->HandleBufferedState();
 				SortedObjects[i]->GetBoxes();
 				SortedObjects[i]->Player->HandleFlipInput();
-				SortedObjects[i]->Player->StoredInputBuffer.Update(SortedObjects[i]->Player->Inputs);
+				SortedObjects[i]->Player->StoredInputBuffer.Update(SortedObjects[i]->Player->Inputs, true);
 
 				// Handle state transitions
 				SortedObjects[i]->Player->HandleStateMachine(

@@ -9,6 +9,10 @@
 #include "NightSkyEngine/Battle/Misc/CollisionBox.h"
 #include "CollisionData.generated.h"
 
+class APlayerObject;
+
+DECLARE_MULTICAST_DELEGATE(FOnCollisionFramesChanged);
+
 USTRUCT()
 struct FAnimStruct
 {
@@ -61,8 +65,37 @@ public:
 		return FCollisionStruct();
 	}
 
+	int32 GetIndexByCelName(const FGameplayTag& CelName) const
+	{
+		for (int32 i = 0; i < CollisionFrames.Num(); ++i)
+		{
+			if (CollisionFrames[i].CelName == CelName) return i;
+		}
+		return INDEX_NONE;
+	}
+
 #if WITH_EDITORONLY_DATA
-	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& PropertyChangedEvent) override
+	// Transient selection state for editor - not saved with asset
+	UPROPERTY(Transient)
+	int32 EditorSelectedIndex = INDEX_NONE;
+	
+	/** TODO: Filter tags that can be selected based on character name */
+	// UPROPERTY()
+	// FGameplayTag SelectedCharacterTag = FGameplayTag::EmptyTag;
+	
+	/** TODO: Stored to automatically create the preview player object when opened */
+	// UPROPERTY()
+	// TSubclassOf<APlayerObject> SelectedPlayerObjectClass = nullptr;
+
+	// Delegate broadcast when CollisionFrames array is modified
+	FOnCollisionFramesChanged OnCollisionFramesChanged;
+
+	void NotifyCollisionFramesChanged()
+	{
+		OnCollisionFramesChanged.Broadcast();
+	}
+
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override
 	{
 		Super::PostEditChangeProperty(PropertyChangedEvent);
 		for (auto& Collision : CollisionFrames)
@@ -73,5 +106,9 @@ public:
 			}
 		}
 	}
+#endif
+	
+#if WITH_EDITOR
+	virtual EDataValidationResult IsDataValid(FDataValidationContext& Context) const override;
 #endif
 };

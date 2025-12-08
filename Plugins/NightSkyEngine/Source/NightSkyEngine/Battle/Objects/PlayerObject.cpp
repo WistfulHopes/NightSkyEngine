@@ -305,8 +305,7 @@ bool APlayerObject::HandleStateInputs(int32 StateIndex, bool Buffer, FStateMachi
 		for (int v = 0; v < List.InputConditions.Num(); v++) //iterate over input conditions
 		{
 			//check input condition against input buffer, if not met break.
-			if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v],
-			                                           (CancelFlags & CNC_EnableKaraCancel) == 0))
+			if (!StoredInputBuffer.CheckInputCondition(List.InputConditions[v]))
 			{
 				break;
 			}
@@ -445,7 +444,7 @@ void APlayerObject::Update()
 
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
-		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs, IsStopped());
 
 		HandleStateMachine(true, PrimaryStateMachine); //handle state transitions
 		PrimaryStateMachine.Update();
@@ -589,7 +588,7 @@ void APlayerObject::Update()
 			}
 		}
 		GetBoxes();
-		if (!bIsCpu) StoredInputBuffer.Update(Inputs);
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs, IsStopped());
 		HandleStateMachine(true, PrimaryStateMachine); //handle state transitions
 		for (auto& StateMachine : SubStateMachines)
 		{
@@ -624,9 +623,9 @@ void APlayerObject::Update()
 		if (IsMainPlayer() && ((PlayerFlags & PLF_RoundWinInputLock) == 0
 			|| GameState->BattleState.BattleFormat == EBattleFormat::Tag))
 		{
-			StoredInputBuffer.Update(Inputs);
+			StoredInputBuffer.Update(Inputs, IsStopped());
 		}
-		else StoredInputBuffer.Update(INP_Neutral);
+		else StoredInputBuffer.Update(INP_Neutral, IsStopped());
 	}
 
 	if (AirDashTimer > 0)
@@ -1187,6 +1186,12 @@ void APlayerObject::SetHitValues(bool bCustomAir)
 	if (!Enemy->CheckIsStunned())
 		GameState->SetDrawPriorityFront(Enemy);
 
+	AddColor = ReceivedHitCommon.AddColor;
+	AddFadeSpeed = ReceivedHitCommon.AddFadeSpeed;
+
+	MulColor = ReceivedHitCommon.MulColor;
+	MulFadeSpeed = ReceivedHitCommon.MulFadeSpeed;
+	
 	int32 FinalHitPushbackX;
 	int32 FinalAirHitPushbackX;
 	int32 FinalAirHitPushbackY;
@@ -1772,7 +1777,6 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		BitmaskLeft.InputFlag = INP_Left;
 		BitmaskLeft.Lenience = 10;
 		Left.Sequence.Add(BitmaskLeft);
-		Left.bInputAllowDisable = false;
 		FInputCondition Right;
 		FInputBitmask BitmaskRight;
 		BitmaskRight.InputFlag = INP_Right;
@@ -1797,7 +1801,6 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		BitmaskDownLeft.Lenience = 12;
 		Input1.Sequence.Add(BitmaskDownLeft);
 		Input1.Method = EInputMethod::Strict;
-		Input1.bInputAllowDisable = false;
 		if ((CheckInput(Input1) || GetCurrentStateName(StateMachine_Primary) == State_Universal_CrouchBlock) &&
 			BlockType != BLK_High && !
 			CheckInput(Right))
@@ -1815,7 +1818,6 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		FInputCondition Input4;
 		Input4.Sequence.Add(BitmaskLeft);
 		Input4.Method = EInputMethod::Strict;
-		Input4.bInputAllowDisable = false;
 		if ((CheckInput(Input4) || GetCurrentStateName(StateMachine_Primary) == State_Universal_StandBlock) && BlockType
 			!= BLK_Low && !
 			CheckInput(Right))
@@ -1846,7 +1848,6 @@ void APlayerObject::HandleBlockAction()
 	BitmaskDownLeft.InputFlag = INP_DownLeft;
 	Input1.Sequence.Add(BitmaskDownLeft);
 	Input1.Method = EInputMethod::Strict;
-	Input1.bInputAllowDisable = false;
 	switch (ReceivedHitCommon.AttackLevel)
 	{
 	case 0:
@@ -1918,7 +1919,6 @@ void APlayerObject::HandleProximityBlock()
 	BitmaskDownLeft.InputFlag = INP_DownLeft;
 	Input1.Sequence.Add(BitmaskDownLeft);
 	Input1.Method = EInputMethod::Strict;
-	Input1.bInputAllowDisable = false;
 	GotoLabel(State_Label_Block_PreGuard);
 	if (PosY > GroundHeight)
 	{
@@ -2252,7 +2252,6 @@ void APlayerObject::HandleThrowCollision()
 		BitmaskLeft.Lenience = 1;
 		Left.Sequence.Add(BitmaskLeft);
 		Left.Method = EInputMethod::Strict;
-		Left.bInputAllowDisable = false;
 
 		if (CanProximityThrow)
 		{
@@ -2264,7 +2263,6 @@ void APlayerObject::HandleThrowCollision()
 				BitmaskRight.Lenience = 1;
 				Right.Sequence.Add(BitmaskRight);
 				Right.Method = EInputMethod::Strict;
-				Right.bInputAllowDisable = false;
 
 				if (CheckInput(ProximityThrowInput) && (CheckInput(Left) || CheckInput(Right)))
 				{
@@ -2786,6 +2784,10 @@ void APlayerObject::OnStateChange()
 	PlayerFlags &= ~PLF_LockOpponentBurst;
 	PlayerFlags &= ~PLF_ForceEnableFarNormal;
 	PlayerFlags |= PLF_DefaultLandingAction;
+	if (!CheckIsStunned())
+	{
+		PlayerFlags &= ~PLF_ReceivedCounterHit;
+	}
 	AttackFlags = 0;
 	MiscFlags = 0;
 	MiscFlags |= MISC_PushCollisionActive;
@@ -2866,12 +2868,29 @@ void APlayerObject::OnStateChange()
 	ObjectRotation = FRotator::ZeroRotator;
 	ObjectScale = FVector::OneVector;
 	bRender = true;
+	AddColor = FLinearColor(0, 0, 0, 1);
+	MulColor = FLinearColor(1, 1, 1, 1);
+	AddFadeColor = FLinearColor(0, 0, 0, 1);
+	MulFadeColor = FLinearColor(1, 1, 1, 1);
+	AddFadeSpeed = 0;
+	MulFadeSpeed = 0;
+	Transparency = 1;
+	FadeTransparency = 1;
+	TransparencySpeed = 0;
 }
 
 void APlayerObject::PostStateChange()
 {
 	CallSubroutine(Subroutine_Cmn_PostStateChange);
 	CallSubroutine(Subroutine_PostStateChange);
+	
+	if (PlayerFlags & PLF_ReceivedCounterHit)
+	{
+		AddColor = FLinearColor(5, 0.2, 0.2, 1);
+		MulColor = FLinearColor(1, 0.1, 0.1, 1);
+		AddFadeSpeed = 0.1;
+		MulFadeSpeed = 0.1;
+	}
 
 	MovesUsedInCombo.Add(PrimaryStateMachine.GetStateIndex(GetCurrentStateName(StateMachine_Primary)));
 	if (PrimaryStateMachine.CurrentState->StateType >= EStateType::NormalAttack
@@ -2895,6 +2914,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
 
 	CallSubroutine(Subroutine_Cmn_RoundInit);
 	CallSubroutine(Subroutine_RoundInit);
+	StoredInputBuffer = FInputBuffer();
 	if (PlayerIndex == 0)
 	{
 		PosX = -GameState->BattleState.RoundStartPos;

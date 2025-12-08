@@ -53,15 +53,28 @@ void FInputBuffer::WriteInputCondition(const FInputCondition& InputCondition)
 	}
 }
 
-void FInputBuffer::Update(int32 Input)
+void FInputBuffer::Update(int32 Input, bool bStopped)
 {
+	if (!bStopped)
+	{
+		for (auto& Window : InputTime)
+		{
+			Window++;
+		}
+	}
+
+	if (Input == InputBufferInternal[InputBufferSize - 1]) 
+		return;
+	
 	for (int32 i = 0; i < InputBufferSize - 1; i++)
 	{
 		InputBufferInternal[i] = InputBufferInternal[i + 1];
 		InputDisabled[i] = InputDisabled[i + 1];
+		InputTime[i] = InputTime[i + 1];
 	}
 	InputBufferInternal[InputBufferSize - 1] = Input;
 	InputDisabled[InputBufferSize - 1] = 0;
+	InputTime[InputBufferSize - 1] = 0;
 }
 
 void FInputBuffer::Emplace(int32 Input, uint32 Index)
@@ -72,9 +85,9 @@ void FInputBuffer::Emplace(int32 Input, uint32 Index)
 	InputDisabled[Index] = 0;
 }
 
-bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition, bool bIsKara)
+bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
 {
-	for (int i = 0; i < 0x20; i++)
+	for (int i = 0; i < InputSequenceSize; i++)
 	{
 		if (i >= InputCondition.Sequence.Num())
 		{
@@ -85,7 +98,6 @@ bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition, bo
 	}
 	DisallowedInputs = InputCondition.DisallowedInputs;
 	ImpreciseInputCount = InputCondition.ImpreciseInputCount;
-	bInputAllowDisable = bIsKara ? false : InputCondition.bInputAllowDisable;
 	switch (InputCondition.Method)
 	{
 	case EInputMethod::Normal:
@@ -122,20 +134,15 @@ bool FInputBuffer::CheckInputSequence() const
 	}
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	int32 HoldDuration = 0;
-	bool NoMatches = true;
 
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
 		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
 		
-		if (NoMatches && InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
-		
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -144,7 +151,6 @@ bool FInputBuffer::CheckInputSequence() const
 		
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
-			NoMatches = false;
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				HoldDuration++;
@@ -153,9 +159,13 @@ bool FInputBuffer::CheckInputSequence() const
 			}
 			HoldDuration = 0;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;
@@ -175,20 +185,15 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	int32 HoldDuration = 0;
 	int32 ImpreciseMatches = 0;
-	bool NoMatches = true;
-	
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
 		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
-
-		if (NoMatches && InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
 		
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -197,7 +202,6 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 
 		if ((InputBufferInternal[i] ^ NeededInput) << 27 == 0) //if input matches...
 		{
-			NoMatches = false;
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				HoldDuration++;
@@ -205,15 +209,18 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 				continue;
 			}
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 			i--;
 			continue;
 		}
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input doesn't match precisely...
 		{
-			NoMatches = false;
 			if (ImpreciseMatches >= ImpreciseInputCount)
+			{
+				FramesSinceLastMatch += InputTime[i];
+				i--;
 				continue;
+			}
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				HoldDuration++;
@@ -222,9 +229,13 @@ bool FInputBuffer::CheckInputSequenceStrict() const
 			}
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;
@@ -244,22 +255,20 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	int32 HoldDuration = 0;
 
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
+		if (InputIndex < 0) //check if input sequence has been fully read
+		{
+			FramesSinceLastMatch += InputTime[i + 1];
+			if (FramesSinceLastMatch > InputSequence[0].Lenience) return false;
+			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
+				return true;
+			i--;
+			continue;
+		}
 		
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		
-		if (InputIndex < 0) //check if input sequence has been fully read
-		{
-			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
-				return true;
-			FramesSinceLastMatch++;
-			continue;
-		}
-		FramesSinceLastMatch++;
 		
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
@@ -277,9 +286,13 @@ bool FInputBuffer::CheckInputSequenceOnce() const
 				continue;
 			}
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;
@@ -300,22 +313,20 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 	int32 HoldDuration = 0;
 	int32 ImpreciseMatches = 0;
 
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
+		if (InputIndex < 0) //check if input sequence has been fully read
+		{
+			FramesSinceLastMatch += InputTime[i + 1];
+			if (FramesSinceLastMatch > InputSequence[0].Lenience) return false;
+			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
+				return true;
+			i--;
+			continue;
+		}
 		
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		
-		if (InputIndex < 0) //check if input sequence has been fully read
-		{
-			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
-				return true;
-			FramesSinceLastMatch++;
-			continue;
-		}
-		FramesSinceLastMatch++;
 		
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
@@ -333,14 +344,18 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 				continue;
 			}
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 			i--;
 			continue;
 		}
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if (ImpreciseMatches >= ImpreciseInputCount)
+			{
+				FramesSinceLastMatch += InputTime[i];
+				i--;
 				continue;
+			}
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				HoldDuration++;
@@ -349,9 +364,13 @@ bool FInputBuffer::CheckInputSequenceOnceStrict() const
 			}
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;
@@ -373,11 +392,8 @@ bool FInputBuffer::CheckInputSequencePressAndRelease() const
 	int32 FirstMatch = -1;
 	const int32 LastInputIndex = InputIndex;
 
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
-
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
 			if (!(InputBufferInternal[i] & InputSequence[0].InputFlag))
@@ -388,7 +404,6 @@ bool FInputBuffer::CheckInputSequencePressAndRelease() const
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -405,9 +420,13 @@ bool FInputBuffer::CheckInputSequencePressAndRelease() const
 			}
 			if (FirstMatch == -1) FirstMatch = i;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	if (FirstMatch == -1) return false;
@@ -436,11 +455,8 @@ bool FInputBuffer::CheckInputSequencePressAndReleaseStrict() const
 	int32 FirstMatch = -1;
 	const int32 LastInputIndex = InputIndex;
 
-	for (int32 i = InputBufferSize - 1; i >= 0; i--)
+	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputDisabled[i] == InputBufferInternal[i] && bInputAllowDisable)
-			return false;
-
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
 			if ((InputBufferInternal[i] ^ InputSequence[0].InputFlag) << 27 != 0)
@@ -451,7 +467,6 @@ bool FInputBuffer::CheckInputSequencePressAndReleaseStrict() const
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -468,14 +483,18 @@ bool FInputBuffer::CheckInputSequencePressAndReleaseStrict() const
 			}
 			if (FirstMatch == -1) FirstMatch = i;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 			i--;
 			continue;
 		}
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if (ImpreciseMatches >= ImpreciseInputCount)
+			{
+				FramesSinceLastMatch += InputTime[i];
+				i--;
 				continue;
+			}
 			if (HoldDuration < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				HoldDuration++;
@@ -485,9 +504,13 @@ bool FInputBuffer::CheckInputSequencePressAndReleaseStrict() const
 			if (FirstMatch == -1) FirstMatch = i;
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	if (FirstMatch == -1) return false;
@@ -512,7 +535,7 @@ bool FInputBuffer::CheckInputSequenceNegative() const
 	}
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	
-	for (int32 i = InputBufferSize - 2; i >= 0; i--)
+	for (int32 i = InputBufferSize - 2; i >= 0;)
 	{
 		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
@@ -521,7 +544,6 @@ bool FInputBuffer::CheckInputSequenceNegative() const
 
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -532,9 +554,13 @@ bool FInputBuffer::CheckInputSequenceNegative() const
 		{
 			if ((InputBufferInternal[i + 1] & NeededInput) == NeededInput) continue;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;
@@ -554,7 +580,7 @@ bool FInputBuffer::CheckInputSequenceNegativeStrict() const
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	int32 ImpreciseMatches = 0;
 
-	for (int32 i = InputBufferSize - 2; i >= 0; i--)
+	for (int32 i = InputBufferSize - 2; i >= 0;)
 	{
 		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
@@ -563,7 +589,6 @@ bool FInputBuffer::CheckInputSequenceNegativeStrict() const
 
 		if (FramesSinceLastMatch > InputSequence[InputIndex].Lenience)
 			return false;
-		FramesSinceLastMatch++;
 
 		for (auto DisallowedInput : DisallowedInputs)
 		{
@@ -574,20 +599,28 @@ bool FInputBuffer::CheckInputSequenceNegativeStrict() const
 		{
 			if ((InputBufferInternal[i + 1] & NeededInput) == NeededInput) continue;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 			i--;
 			continue;
 		}
 		if ((InputBufferInternal[i] & NeededInput) == NeededInput) //if input matches...
 		{
 			if (ImpreciseMatches >= ImpreciseInputCount)
+			{
+				FramesSinceLastMatch += InputTime[i];
+				i--;
 				continue;
+			}
 			if ((InputBufferInternal[i + 1] & NeededInput) == NeededInput) continue;
 			ImpreciseMatches++;
 			InputIndex--; //advance sequence
-			FramesSinceLastMatch = -InputSequence[InputIndex].TimeBetweenInputs; //reset last match
-			i--;
+			FramesSinceLastMatch = InputTime[i] - InputSequence[InputIndex].Lenience; //reset last match
 		}
+		else
+		{
+			FramesSinceLastMatch += InputTime[i];
+		}
+		i--;
 	}
 
 	return false;

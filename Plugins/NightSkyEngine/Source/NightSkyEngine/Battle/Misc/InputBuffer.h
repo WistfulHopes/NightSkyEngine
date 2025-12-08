@@ -6,8 +6,8 @@
 #include "NightSkyEngine/Battle/Script/State.h"
 #include "InputBuffer.generated.h"
 
-constexpr int32 InputSequenceSize = 0x20;
-constexpr int32 InputBufferSize = 0x50;
+constexpr int32 InputSequenceSize = 0x10;
+constexpr int32 InputBufferSize = 0x20;
 
 /**
  * @brief The input buffer for a player object.
@@ -29,16 +29,9 @@ private:
 	 */
 	int32 ImpreciseInputCount = 0;
 	/**
-	 * This value determines if the input buffer will consider disabled inputs.
-	 * If true, and an input matches a disabled input on the same frame, the buffer will reject the sequence.
-	 * Otherwise, the input sequence will be read as normal.
-	 * Updated by the input being checked.
-	 */
-	bool bInputAllowDisable = false;
-	/**
 	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
 	 */
-	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
+	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs{};
 
 	
 public:
@@ -48,12 +41,17 @@ public:
 	 */
 	int32 InputBufferInternal[InputBufferSize] = { 16 };
 	/**
+	 * All input times.
+	 * Input times are looped over and incremented every actionable frame.
+	 */
+	int32 InputTime[InputBufferSize] = {};
+	/**
 	 * All disabled inputs.
 	 * Upon a successful state transition, the last input will be disabled.
 	 * If an input being checked matches a disabled input on the same frame,
 	 * the input check will fail.
 	 */
-	int32 InputDisabled[InputBufferSize] = { 0 };
+	int32 InputDisabled[InputBufferSize] = {};
 
 	/**
 	 * Writes an input condition to the buffer. For use with CPU.
@@ -65,8 +63,9 @@ public:
 	 * @brief Stores the input for this frame.
 	 * 
 	 * @param Input The input bitmask to store.
+	 * @param bStopped If the owning object is in hitstop/super freeze.
 	 */
-	void Update(int32 Input);
+	void Update(int32 Input, bool bStopped = false);
 	/**
 	 * @brief Stores the input at an arbitrary buffer position. Intended for CPU usage.
 	 * 
@@ -80,7 +79,7 @@ public:
 	 * @param InputCondition The input condition to check.
 	 * @return If the input condition matches the buffer, return true. Otherwise return false.
 	 */
-	bool CheckInputCondition(const FInputCondition& InputCondition, bool bIsKara = false);
+	bool CheckInputCondition(const FInputCondition& InputCondition);
 
 	/**
 	 * Checks the input sequence against the buffer with the Normal method.

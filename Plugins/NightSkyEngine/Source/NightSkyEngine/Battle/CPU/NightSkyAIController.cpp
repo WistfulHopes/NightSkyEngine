@@ -27,7 +27,10 @@ void ANightSkyAIController::Update()
 	if (!Player) Player = GetPawn<APlayerObject>();
 	
 	if (GameState->BattleState.TimeUntilRoundStart || Player->PlayerFlags & PLF_RoundWinInputLock || !Player->IsOnScreen())
+	{
+		Player->StoredInputBuffer.Update(INP_Neutral, Player->IsStopped());
 		return;
+	}
 
 	if (Player->CurrentHealth <= 0) return;
 

@@ -644,6 +644,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
 			{
+				AttackedPlayer->PlayerFlags &= ~PLF_ReceivedCounterHit;
+
 				CallSubroutine(Subroutine_Cmn_OnHit);
 				
 				TriggerEvent(EVT_Hit, StateMachine_Primary);
@@ -684,6 +686,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			}
 			else
 			{
+				AttackedPlayer->PlayerFlags |= PLF_ReceivedCounterHit;
+				
 				CallSubroutine(Subroutine_Cmn_OnHit);
 				CallSubroutine(Subroutine_Cmn_OnCounterHit);
 				
@@ -696,12 +700,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					TriggerEvent(EVT_CounterHitMainPlayer, StateMachine_Primary);
 					AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
 				}
-
-				AttackedPlayer->AddColor = FLinearColor(5, 0.2, 0.2, 1);
-				AttackedPlayer->MulColor = FLinearColor(1, 0.1, 0.1, 1);
-				AttackedPlayer->AddFadeSpeed = 0.1;
-				AttackedPlayer->MulFadeSpeed = 0.1;
-
+				
 				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 				{
 					AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);

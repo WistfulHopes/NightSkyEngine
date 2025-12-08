@@ -223,6 +223,10 @@ enum EPlayerFlags
 	 * Flag sets if player's next hit is a hitgrab.
 	 */
 	PLF_HitgrabActive = 0x2000 UMETA(DisplayName = "Hitgrab Active"),
+	/**
+	 * Flag sets if player received counter hit.
+	 */
+	PLF_ReceivedCounterHit = 0x2000 UMETA(DisplayName = "Received Counter Hit"),
 };
 
 /**

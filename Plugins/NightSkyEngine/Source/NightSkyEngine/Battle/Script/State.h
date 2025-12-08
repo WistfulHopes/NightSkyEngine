@@ -196,12 +196,6 @@ struct FInputBitmask
 	int32 Lenience = 3;
 	
 	/**
-	 * How much time is allowed between inputs.
-	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 TimeBetweenInputs = 0;
-	
-	/**
 	 * How long the input must be held for. Unless you're creating a charge/hold input, leave as zero.
 	 * Does not work with the Negative or Negative Strict input methods.
 	 */
@@ -235,14 +229,6 @@ struct FInputCondition
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int ImpreciseInputCount = 0;
-	/**
-	 * This value determines if the input buffer will consider disabled inputs.
-	 * If true, and an input matches a disabled input on the same frame, the buffer will reject the sequence.
-	 * Otherwise, the input sequence will be read as normal.
-	 * @see APlayerObject::DisableLastInput
-	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bInputAllowDisable = false;
 	/**
 	 * The input method used for this condition. 
 	 */

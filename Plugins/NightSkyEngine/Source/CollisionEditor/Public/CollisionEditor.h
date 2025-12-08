@@ -1,5 +1,3 @@
-// Copyright Screaming Goose Games. All Rights Reserved.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -16,13 +14,9 @@ public:
 	void ShutdownModule() override;
 
 private:
-	//TSharedRef<IAssetTypeActions> CollisionDataAssetTypeActions;
-	// Do we need to store a reference to the specific asset type actions?
-	// Or do we create a new instance when we unregister?
-
 	EAssetTypeCategories::Type CollisionAssetCategoryBit;
 
 	void RegisterAssetTools();
-
-	// Do we need a ptr to a specific factory for creating new hitbox assets?
+	void RegisterPropertyCustomizations();
+	void UnregisterPropertyCustomizations();
 };
