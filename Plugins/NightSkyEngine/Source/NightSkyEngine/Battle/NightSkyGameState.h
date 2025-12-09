@@ -397,6 +397,7 @@ public:
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32& OutX, int32& OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
+	void SetDrawPriorityBack(ABattleObject* InObject) const;
 	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex, bool bForce = false);
 	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FGameplayTag AssistName);
 	void SetTeamCooldown(const bool IsP1, const int TeamIndex, const int Cooldown);

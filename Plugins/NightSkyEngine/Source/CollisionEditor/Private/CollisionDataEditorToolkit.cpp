@@ -11,7 +11,7 @@
 #include "Widgets/Text/STextBlock.h"
 
 
-#define LOCTEXT_NAMESPACE "CollisionDataEditor"
+#define LOCTEXT_NAMESPACE "NightSkyCollisionEditor"
 
 FCollisionDataEditorToolkit::FCollisionDataEditorToolkit()
 {
@@ -141,27 +141,28 @@ void FCollisionDataEditorToolkit::InitializeCelAssetTree()
 		.OnCelSelected(this, &FCollisionDataEditorToolkit::OnCelSelected);
 }
 
-void FCollisionDataEditorToolkit::OnCelSelected(const FGameplayTag& CelName)
+void FCollisionDataEditorToolkit::OnCelSelected(int32 CelIndex)
 {
-	if (CelName.IsValid())
+	if (!CollisionData || !CollisionData->CollisionFrames.IsValidIndex(CelIndex))
 	{
-		SelectedCel = CelName;
-		if (PlayerObject)
-		{
-			PlayerObject->SetCelName(SelectedCel);
-		}
+		return;
+	}
+
+	const FGameplayTag& CelName = CollisionData->CollisionFrames[CelIndex].CelName;
+	SelectedCel = CelName;
+
+	if (PlayerObject && CelName.IsValid())
+	{
+		PlayerObject->SetCelName(CelName);
+	}
 
 #if WITH_EDITORONLY_DATA
-		if (CollisionData)
-		{
-			CollisionData->EditorSelectedIndex = CollisionData->GetIndexByCelName(CelName);
-			if (DetailsView.IsValid())
-			{
-				DetailsView->ForceRefresh();
-			}
-		}
-#endif
+	CollisionData->EditorSelectedIndex = CelIndex;
+	if (DetailsView.IsValid())
+	{
+		DetailsView->ForceRefresh();
 	}
+#endif
 }
 
 void FCollisionDataEditorToolkit::OnCollisionFramesChanged()

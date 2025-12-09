@@ -29,6 +29,7 @@ public:
 
 	FString GetDisplayName() const { return DisplayName; }
 	int32 GetCelIndex() const { return CelIndex; }
+	void SetCelIndex(int32 InCelIndex) { CelIndex = InCelIndex; }
 
 	TSharedPtr<FCelAssetTreeNode> FindOrCreateChild(const FString& ChildName, int32 ChildCelIndex = INDEX_NONE);
 

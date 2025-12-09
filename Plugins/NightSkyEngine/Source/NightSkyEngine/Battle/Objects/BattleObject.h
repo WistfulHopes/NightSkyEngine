@@ -19,6 +19,8 @@ class ANightSkyGameState;
 class UState;
 class APlayerObject;
 
+constexpr int32 MaxDrawPriority = 4;
+
 // Event handler data.
 
 /*
@@ -173,13 +175,9 @@ struct FHitDataCommon
 	
 	// Hit color data.
 	UPROPERTY(BlueprintReadWrite)
-	FLinearColor AddColor = FLinearColor(0.0, 0.0, 0.0);
+	FLinearColor DamageColor = FLinearColor(1.0, 1.0, 1.0);
 	UPROPERTY(BlueprintReadWrite)
-	float AddFadeSpeed = 0.1;
-	UPROPERTY(BlueprintReadWrite)
-	FLinearColor MulColor = FLinearColor(1.0, 1.0, 1.0);
-	UPROPERTY(BlueprintReadWrite)
-	float MulFadeSpeed = 0.1;
+	FLinearColor DamageColor2 = FLinearColor(1.0, 1.0, 1.0);
 };
 
 /*
@@ -882,6 +880,10 @@ public:
 	float FadeTransparency = 1;
 	UPROPERTY(BlueprintReadWrite)
 	float TransparencySpeed = 0;
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor DamageColor = FLinearColor(1, 1, 1, 1);
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor DamageColor2 = FLinearColor(1, 1, 1, 1);
 
 	/*
 	 * Miscellaneous data
@@ -1210,6 +1212,10 @@ public:
 	float FadeTransparency = 1;
 	UPROPERTY(BlueprintReadWrite)
 	float TransparencySpeed = 0;
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor DamageColor = FLinearColor(1, 1, 1, 1);
+	UPROPERTY(BlueprintReadWrite)
+	FLinearColor DamageColor2 = FLinearColor(1, 1, 1, 1);
 
 	/*
 	 * Miscellaneous data

@@ -226,7 +226,7 @@ enum EPlayerFlags
 	/**
 	 * Flag sets if player received counter hit.
 	 */
-	PLF_ReceivedCounterHit = 0x2000 UMETA(DisplayName = "Received Counter Hit"),
+	PLF_ReceivedCounterHit = 0x4000 UMETA(DisplayName = "Received Counter Hit"),
 };
 
 /**

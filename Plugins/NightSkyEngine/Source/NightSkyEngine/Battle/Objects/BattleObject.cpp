@@ -701,6 +701,11 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
 				}
 				
+				AttackedPlayer->AddColor = FLinearColor(1, 0, 0.0, 1);
+				AttackedPlayer->MulColor = FLinearColor(2.5, 0.1, 0.1, 1);
+				AttackedPlayer->AddFadeSpeed = 0.1;
+				AttackedPlayer->MulFadeSpeed = 0.1;
+
 				if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
 				{
 					AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
@@ -716,7 +721,6 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 				                     FRotator(HitCommon.HitAngle, 0, 0));
 				PlayCommonSound(HitCommon.HitSFX);
 				AttackedPlayer->ReceivedHitCommon = HitCommon;
-				AttackedPlayer->ReceivedHit = CounterData;
 				AttackedPlayer->ReceivedHit = CounterData;
 				EHitAction HACT;
 
@@ -1600,7 +1604,7 @@ void ABattleObject::UpdateVisuals()
 			if (DrawPriorityLinkObj)
 				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
 			else
-				ScreenSpaceDepthOffset = (GameState->Players.Num() - DrawPriority) * 50;
+				ScreenSpaceDepthOffset = (MaxDrawPriority - DrawPriority) * 50;
 			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 		}
 	}
@@ -1746,6 +1750,8 @@ void ABattleObject::UpdateVisualsNoRollback()
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
 		}
 		if (const auto Mesh = Cast<USkeletalMeshComponent>(Component); IsValid(Mesh))
@@ -1755,8 +1761,8 @@ void ABattleObject::UpdateVisualsNoRollback()
 				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
-				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
-				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
+				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
 		}
 	}
@@ -2068,7 +2074,7 @@ void ABattleObject::ResetObject()
 	SubroutineReturnVal4 = 0;
 	Timer0 = 0;
 	Timer1 = 0;
-	DrawPriority = GameState->MaxBattleObjects;
+	DrawPriority = 0;
 	HomingParams = FHomingParams();
 	SuperArmorData = FSuperArmorData();
 	UpdateTime = 0;
@@ -2110,6 +2116,8 @@ void ABattleObject::ResetObject()
 	Transparency = 1;
 	FadeTransparency = 1;
 	TransparencySpeed = 0;
+	DamageColor = FLinearColor(1, 1, 1, 1);
+	DamageColor2 = FLinearColor(1, 1, 1, 1);
 	bRender = true;
 	ObjectsToIgnoreHitsFrom.Empty();
 	for (const auto Object : GameState->SortedObjects)

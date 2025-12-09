@@ -4,7 +4,7 @@
 #include "Math/Color.h"
 #include "Internationalization/Internationalization.h" // included to use LOCTEXT
 
-#define LOCTEXT_NAMESPACE "AssetTypeActions_CollisionData"
+#define LOCTEXT_NAMESPACE "NightSkyCollisionEditor"
 
 FColor FAssetTypeActions_CollisionData::GetTypeColor() const
 {

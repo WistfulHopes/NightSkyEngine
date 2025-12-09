@@ -1494,6 +1494,7 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 			if (SortedObjects[i] == InObject) continue;
 			if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 				SortedObjects[i]->DrawPriority++;
+			SortedObjects[i]->DrawPriority = FMath::Min(SortedObjects[i]->DrawPriority, MaxDrawPriority);
 		}
 		InObject->DrawPriority = 0;
 		return;
@@ -1503,6 +1504,29 @@ void ANightSkyGameState::SetDrawPriorityFront(ABattleObject* InObject) const
 		if (SortedObjects[i] == InObject) continue;
 		if (SortedObjects[i]->DrawPriority <= InObject->DrawPriority)
 			SortedObjects[i]->DrawPriority++;
+		SortedObjects[i]->DrawPriority = FMath::Min(SortedObjects[i]->DrawPriority, MaxDrawPriority);
+	}
+	InObject->DrawPriority = 0;
+}
+
+void ANightSkyGameState::SetDrawPriorityBack(ABattleObject* InObject) const
+{
+	if (InObject->IsPlayer)
+	{
+		for (int i = 0; i < Players.Num(); i++)
+		{
+			if (SortedObjects[i] == InObject) continue;
+			if (SortedObjects[i]->DrawPriority > InObject->DrawPriority)
+				SortedObjects[i]->DrawPriority--;
+		}
+		InObject->DrawPriority = Players.Num();
+		return;
+	}
+	for (int i = Players.Num(); i < BattleState.ActiveObjectCount; i++)
+	{
+		if (SortedObjects[i] == InObject) continue;
+		if (SortedObjects[i]->DrawPriority > InObject->DrawPriority)
+			SortedObjects[i]->DrawPriority--;
 		InObject->DrawPriority = Players.Num();
 	}
 }
@@ -1533,6 +1557,7 @@ APlayerObject* ANightSkyGameState::SwitchMainPlayer(APlayerObject* InPlayer, con
 		EnemyPlayer->Enemy = NewPlayer;
 	}
 	BattleState.MainPlayer[!IsP1] = NewPlayer;
+	SetDrawPriorityFront(NewPlayer);
 	return NewPlayer;
 }
 
@@ -1550,6 +1575,7 @@ APlayerObject* ANightSkyGameState::CallAssist(const bool IsP1, const int AssistI
 	NewPlayer->SetOnScreen(true);
 	NewPlayer->Direction = GetMainPlayer(IsP1)->Direction;
 	NewPlayer->JumpToStatePrimary(AssistName);
+	SetDrawPriorityBack(NewPlayer);
 	return NewPlayer;
 }
 

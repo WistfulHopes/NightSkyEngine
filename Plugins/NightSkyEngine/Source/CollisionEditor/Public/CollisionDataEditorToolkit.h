@@ -87,7 +87,7 @@ private:
 	APlayerObject* PlayerObject{};
 
 	void InitializeCelAssetTree();
-	void OnCelSelected(const FGameplayTag& CelName);
+	void OnCelSelected(int32 CelIndex);
 	void OnCollisionFramesChanged();
 
 	void OnPlayerObjectBPSelected(const UClass* Class);

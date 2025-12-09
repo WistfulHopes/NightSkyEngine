@@ -5,7 +5,7 @@
 #include "Modules/ModuleManager.h"
 #include "PropertyEditorModule.h"
 
-#define LOCTEXT_NAMESPACE "CollisionAnimationViewport"
+#define LOCTEXT_NAMESPACE "NightSkyCollisionEditor"
 
 SCollisionAnimationViewport::~SCollisionAnimationViewport()
 {

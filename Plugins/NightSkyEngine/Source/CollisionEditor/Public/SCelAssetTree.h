@@ -8,7 +8,7 @@
 
 class UCollisionData;
 
-DECLARE_DELEGATE_OneParam(FOnCelSelected, const FGameplayTag& /*SelectedCelName*/);
+DECLARE_DELEGATE_OneParam(FOnCelSelected, int32 /*SelectedCelIndex*/);
 
 /**
  * Tree view widget for browsing cels grouped by GameplayTag hierarchy.

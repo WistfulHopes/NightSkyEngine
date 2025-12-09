@@ -37,7 +37,8 @@ public class CollisionEditor : ModuleRules
 				"EditorWidgets",
 				"PropertyEditor",
 				"AdvancedPreviewScene",
-				"GameplayTags"
+				"GameplayTags",
+				"GameplayTagsEditor"
             });
 		
 		DynamicallyLoadedModuleNames.AddRange(

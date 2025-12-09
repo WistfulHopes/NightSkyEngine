@@ -26,9 +26,11 @@ private:
 
 	FReply OnAddNewCel();
 	FReply OnDeleteSelectedCel();
+	FReply OnTemplateSelectedCel();
 	FReply OnRefreshTree();
-	
+
 	bool CanDeleteSelectedCel() const;
+	bool CanTemplateSelectedCel() const;
 
 	TWeakObjectPtr<UCollisionData> CollisionDataPtr;
 	TSharedPtr<IPropertyHandle> CollisionFramesHandle;

@@ -15,9 +15,10 @@ TSharedPtr<FCelAssetTreeNode> FCelAssetTreeNode::FindOrCreateChild(const FString
 		if (Child->GetDisplayName() == ChildName)
 		{
 			// If we're trying to set a cel index on an existing category node, update it
+			// This happens when e.g. "Attack" exists as both a parent for "Attack.0" and as a cel itself
 			if (ChildCelIndex != INDEX_NONE && Child->IsCategory())
 			{
-				// This shouldn't happen in normal use, but handle gracefully
+				Child->SetCelIndex(ChildCelIndex);
 			}
 			return Child;
 		}
@@ -170,6 +171,12 @@ void SCelAssetTree::BuildTreeFromCollisionData()
 				TSharedPtr<FCelAssetTreeNode>* ExistingRoot = CategoryMap.Find(CurrentPath);
 				if (ExistingRoot && ExistingRoot->IsValid())
 				{
+					// If this is a leaf and the existing node is a category, update its CelIndex
+					if (bIsLeaf && (*ExistingRoot)->IsCategory())
+					{
+						(*ExistingRoot)->SetCelIndex(CelIdx);
+						CelIndexToNodeMap.Add(CelIdx, *ExistingRoot);
+					}
 					CurrentParent = *ExistingRoot;
 				}
 				else
@@ -195,6 +202,12 @@ void SCelAssetTree::BuildTreeFromCollisionData()
 				TSharedPtr<FCelAssetTreeNode>* ExistingNode = CategoryMap.Find(CurrentPath);
 				if (ExistingNode && ExistingNode->IsValid())
 				{
+					// If this is a leaf and the existing node is a category, update its CelIndex
+					if (bIsLeaf && (*ExistingNode)->IsCategory())
+					{
+						(*ExistingNode)->SetCelIndex(CelIdx);
+						CelIndexToNodeMap.Add(CelIdx, *ExistingNode);
+					}
 					CurrentParent = *ExistingNode;
 				}
 				else
@@ -332,7 +345,7 @@ void SCelAssetTree::OnSelectionChanged(
 	int32 CelIdx = SelectedNode->GetCelIndex();
 	if (Data->CollisionFrames.IsValidIndex(CelIdx))
 	{
-		OnCelSelectedDelegate.ExecuteIfBound(Data->CollisionFrames[CelIdx].CelName);
+		OnCelSelectedDelegate.ExecuteIfBound(CelIdx);
 	}
 }
 

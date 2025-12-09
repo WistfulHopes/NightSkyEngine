@@ -1183,14 +1183,11 @@ void APlayerObject::SetHitValuesOverTime()
 void APlayerObject::SetHitValues(bool bCustomAir)
 {
 	if (!GameState) return;
-	if (!Enemy->CheckIsStunned())
+	if (!Enemy->CheckIsStunned() && Enemy == AttackOwner)
 		GameState->SetDrawPriorityFront(Enemy);
 
-	AddColor = ReceivedHitCommon.AddColor;
-	AddFadeSpeed = ReceivedHitCommon.AddFadeSpeed;
-
-	MulColor = ReceivedHitCommon.MulColor;
-	MulFadeSpeed = ReceivedHitCommon.MulFadeSpeed;
+	DamageColor = ReceivedHitCommon.DamageColor;
+	DamageColor2 = ReceivedHitCommon.DamageColor2;
 	
 	int32 FinalHitPushbackX;
 	int32 FinalAirHitPushbackX;
@@ -2784,10 +2781,6 @@ void APlayerObject::OnStateChange()
 	PlayerFlags &= ~PLF_LockOpponentBurst;
 	PlayerFlags &= ~PLF_ForceEnableFarNormal;
 	PlayerFlags |= PLF_DefaultLandingAction;
-	if (!CheckIsStunned())
-	{
-		PlayerFlags &= ~PLF_ReceivedCounterHit;
-	}
 	AttackFlags = 0;
 	MiscFlags = 0;
 	MiscFlags |= MISC_PushCollisionActive;
@@ -2868,28 +2861,21 @@ void APlayerObject::OnStateChange()
 	ObjectRotation = FRotator::ZeroRotator;
 	ObjectScale = FVector::OneVector;
 	bRender = true;
-	AddColor = FLinearColor(0, 0, 0, 1);
-	MulColor = FLinearColor(1, 1, 1, 1);
-	AddFadeColor = FLinearColor(0, 0, 0, 1);
-	MulFadeColor = FLinearColor(1, 1, 1, 1);
-	AddFadeSpeed = 0;
-	MulFadeSpeed = 0;
 	Transparency = 1;
 	FadeTransparency = 1;
 	TransparencySpeed = 0;
+	DamageColor = FLinearColor(1, 1, 1, 1);
+	DamageColor2 = FLinearColor(1, 1, 1, 1);
 }
 
 void APlayerObject::PostStateChange()
 {
 	CallSubroutine(Subroutine_Cmn_PostStateChange);
 	CallSubroutine(Subroutine_PostStateChange);
-	
-	if (PlayerFlags & PLF_ReceivedCounterHit)
+
+	if (!CheckIsStunned())
 	{
-		AddColor = FLinearColor(5, 0.2, 0.2, 1);
-		MulColor = FLinearColor(1, 0.1, 0.1, 1);
-		AddFadeSpeed = 0.1;
-		MulFadeSpeed = 0.1;
+		PlayerFlags &= ~PLF_ReceivedCounterHit;
 	}
 
 	MovesUsedInCombo.Add(PrimaryStateMachine.GetStateIndex(GetCurrentStateName(StateMachine_Primary)));
@@ -3027,6 +3013,8 @@ void APlayerObject::RoundInit(bool ResetHealth)
 	Transparency = 1;
 	FadeTransparency = 1;
 	TransparencySpeed = 0;
+	DamageColor = FLinearColor(1, 1, 1, 1);
+	DamageColor2 = FLinearColor(1, 1, 1, 1);
 	bRender = true;
 	ObjectsToIgnoreHitsFrom.Empty();
 	for (auto& Box : Boxes)

@@ -8,7 +8,7 @@
 #include "Data/CollisionData.h"
 #include "Modules/ModuleManager.h"
 
-#define LOCTEXT_NAMESPACE "FCollisionEditor"
+#define LOCTEXT_NAMESPACE "NightSkyCollisionEditor"
 
 void FCollisionEditor::StartupModule()
 {
