@@ -13,6 +13,8 @@
 
 #include "Serialization/BufferArchive.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(FighterMultiplayerRunner)
+
 // Sets default values
 AFighterMultiplayerRunner::AFighterMultiplayerRunner()
 {

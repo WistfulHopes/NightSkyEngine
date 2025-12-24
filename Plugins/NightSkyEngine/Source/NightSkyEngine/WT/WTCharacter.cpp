@@ -6,6 +6,7 @@
 #include "NightSkyWTGameState.h"
 #include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(WTCharacter)
 
 // Sets default values
 AWTCharacter::AWTCharacter()

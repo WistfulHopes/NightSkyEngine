@@ -8,6 +8,8 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "Online/OnlineSessionNames.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NSESessionSubsystem)
+
 FNSESessionInfo::FNSESessionInfo(const FOnlineSessionSearchResult& Result, const FString& Name, int32 OpenPrivate, int32 OpenPublic)
 	: SessionSearchResult(Result), OwningUserName(Name), NumOpenPrivateConnections(OpenPrivate),
 	  NumOpenPublicConnections(OpenPublic)

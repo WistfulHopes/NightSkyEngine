@@ -35,7 +35,7 @@ private:
 	UPROPERTY()
 	UState* TargetState{};
 	int WaitCount = 0;
-	int WaitLimit = 1;
+	int WaitLimit = 7;
 	int InputCount = 0;
 	bool bBlock = false;
 	

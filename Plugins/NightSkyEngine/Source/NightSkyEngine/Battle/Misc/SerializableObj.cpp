@@ -6,6 +6,8 @@
 #include "Serialization/ObjectReader.h"
 #include "Serialization/ObjectWriter.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(SerializableObj)
+
 TArray<uint8> USerializableObj::SaveForRollback()
 {
 	TArray<uint8> SaveData;

@@ -2,6 +2,8 @@
 
 #include "Misc/DataValidation.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(CollisionData)
+
 #define LOCTEXT_NAMESPACE "NightSkyEngine"
 
 #if WITH_EDITOR

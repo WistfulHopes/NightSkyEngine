@@ -10,6 +10,8 @@
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Data/PrimaryStageData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyVSInfoGameState)
+
 ANightSkyVSInfoGameState::ANightSkyVSInfoGameState()
 {
 	PrimaryActorTick.bCanEverTick = true;

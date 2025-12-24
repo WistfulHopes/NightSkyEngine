@@ -17,6 +17,8 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/Network/RpcConnectionManager.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyPlayerController)
+
 // Sets default values
 ANightSkyPlayerController::ANightSkyPlayerController()
 {
@@ -144,6 +146,8 @@ void ANightSkyPlayerController::SetupInputComponent()
 		Input->BindAction(InputActions.ReleaseH.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ReleaseH);
 	if (IsValid(InputActions.PauseGame))
 		Input->BindAction(InputActions.PauseGame.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::PauseGame);
+	if (IsValid(InputActions.ResetTraining))
+		Input->BindAction(InputActions.ResetTraining.Get(), ETriggerEvent::Triggered, this, &ANightSkyPlayerController::ResetTraining);
 }
 
 void ANightSkyPlayerController::PressUp()
@@ -270,11 +274,18 @@ void ANightSkyPlayerController::ReleaseH()
 void ANightSkyPlayerController::PauseGame()
 {
 	const auto GameState = Cast<ANightSkyGameState>(GetWorld()->GetGameState());
+	if (!GameState) return;
+	
 	if (!GameState->bPauseGame)
 	{
 		GameState->SetPaused(true);
 		OpenPauseMenu();
 	}
+}
+
+void ANightSkyPlayerController::ResetTraining()
+{
+	Inputs |= INP_ResetTraining;
 }
 
 void ANightSkyPlayerController::SendGgpo(ANetworkPawn* InNetworkPawn, bool Client) const

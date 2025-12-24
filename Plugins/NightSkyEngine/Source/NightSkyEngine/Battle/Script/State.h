@@ -201,6 +201,12 @@ struct FInputBitmask
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 Hold = 0;
+	
+	/**
+	 * Disallowed inputs. If any inputs in this array are detected, this input is invalidated.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
 };
 
 /**

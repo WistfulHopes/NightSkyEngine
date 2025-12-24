@@ -5,6 +5,8 @@
 
 #include "NightSkyAnimSequenceUserData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyAnimMetaData)
+
 UNightSkyAnimMetaData::UNightSkyAnimMetaData()
 {
 	const auto AnimSequence = Cast<UAnimSequence>(GetOuter());

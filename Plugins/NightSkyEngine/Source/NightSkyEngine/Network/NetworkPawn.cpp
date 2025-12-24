@@ -12,6 +12,8 @@
 #include "NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NetworkPawn)
+
 // Sets default values
 ANetworkPawn::ANetworkPawn()
 {

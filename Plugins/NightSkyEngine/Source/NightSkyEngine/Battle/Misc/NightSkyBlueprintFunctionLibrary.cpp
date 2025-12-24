@@ -5,6 +5,8 @@
 
 #include "Globals.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyBlueprintFunctionLibrary)
+
 int32 UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(int32 x, int32 y)
 {
 	int32 Angle = static_cast<int>(atan2(y, x) * 57295.77791868204) % 360000;

@@ -11,6 +11,7 @@
 #include "NightSkyEngine/Data/CollisionData.h"
 #include "BattleObject.generated.h"
 
+class ALinkActor;
 class UNightSkyAnimSequenceUserData;
 class ANightSkyCharaSelectGameState;
 class UPaperFlipbookComponent;
@@ -574,7 +575,7 @@ struct FLinkedActorContainer
 	GENERATED_BODY()
 
 	UPROPERTY()
-	TObjectPtr<AActor> StoredActor;
+	TObjectPtr<ALinkActor> StoredActor;
 	FGameplayTag Name;
 	int32 Index;
 	UPROPERTY(SaveGame)
@@ -895,6 +896,7 @@ public:
 	int32 Timer1 = 0;
 	bool IsPlayer = false;
 	bool IsActive = false;
+	UPROPERTY(BlueprintReadWrite)
 	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
 
 	UPROPERTY(BlueprintReadWrite)
@@ -1050,10 +1052,7 @@ public:
 	/*
 	 * Registers
 	*/
-
-	//This value stores the return value for functions.
-	bool ReturnReg = false;
-
+	
 	//The following values are per-action registers. Shared between the player and its child objects.
 	UPROPERTY(BlueprintReadWrite)
 	int32 ActionReg1 = 0;
@@ -1227,6 +1226,7 @@ public:
 	int32 Timer1 = 0;
 	bool IsPlayer = false;
 	bool IsActive = false;
+	UPROPERTY(BlueprintReadWrite)
 	int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
 
 	UPROPERTY(BlueprintReadWrite)
@@ -1286,8 +1286,8 @@ public:
 	 * Link data (for object), not serialized
 	 */
 
-	UPROPERTY()
-	TObjectPtr<AActor> LinkedActor;
+	UPROPERTY(SaveGame)
+	TObjectPtr<ALinkActor> LinkedActor;
 	UPROPERTY()
 	TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
 
@@ -1320,6 +1320,7 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	void PositionLinkUpdate();
 	//calculate pushbox
 	void CalculatePushbox();
 	//handles pushing objects
@@ -1492,6 +1493,9 @@ public:
 	//should wall collision be used?
 	UFUNCTION(BlueprintCallable)
 	void SetWallCollisionActive(bool Active);
+	//should floor collision be used?
+	UFUNCTION(BlueprintCallable)
+	void SetFloorCollisionActive(bool Active);
 	//should push collision be used?
 	UFUNCTION(BlueprintCallable)
 	void SetPushCollisionActive(bool Active);
@@ -1514,7 +1518,7 @@ public:
 	void LinkCharaParticle(FGameplayTag Name);
 	//gets link actor and attaches it to the object. can only be used with non-player objects.
 	UFUNCTION(BlueprintCallable)
-	AActor* LinkActor(FGameplayTag Name);
+	ALinkActor* LinkActor(FGameplayTag Name);
 	UFUNCTION(BlueprintCallable)
 	void RemoveLinkActor();
 	//plays common sound
@@ -1534,10 +1538,10 @@ public:
 	//generate random number
 	UFUNCTION(BlueprintPure)
 	int32 GenerateRandomNumber(int32 Min, int32 Max) const;
-	//starts super freeze
+	// starts super freeze
 	UFUNCTION(BlueprintCallable)
 	void StartSuperFreeze(int Duration, int SelfDuration = 0);
-	//generate random number
+	// ignore super freeze
 	UFUNCTION(BlueprintCallable)
 	void IgnoreSuperFreeze(bool Ignore);
 	//sets object id

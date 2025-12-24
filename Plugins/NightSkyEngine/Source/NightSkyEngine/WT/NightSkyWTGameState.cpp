@@ -12,6 +12,8 @@
 #include "LevelSequenceActor.h"
 #include "NightSkyEngine/Data/BattleExtensionData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyWTGameState)
+
 // Sets default values
 ANightSkyWTGameState::ANightSkyWTGameState()
 {

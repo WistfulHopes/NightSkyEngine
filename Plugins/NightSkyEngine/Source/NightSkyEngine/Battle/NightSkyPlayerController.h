@@ -65,6 +65,8 @@ struct FBattleInputActions
 	TObjectPtr<const UInputAction> ReleaseH;
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<const UInputAction> PauseGame;
+	UPROPERTY(EditAnywhere)
+	TObjectPtr<const UInputAction> ResetTraining;
 };
 
 UCLASS()
@@ -123,6 +125,7 @@ public:
 	void ReleaseH();
 
 	void PauseGame();
+	void ResetTraining();
 	
 	void SendGgpo(ANetworkPawn* InNetworkPawn, bool Client) const;
 	

@@ -1,26 +1,25 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "NightSkyWTPlayerController.h"
+#include "LinkActor.h"
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyWTPlayerController)
 
 // Sets default values
-ANightSkyWTPlayerController::ANightSkyWTPlayerController()
+ALinkActor::ALinkActor()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
-void ANightSkyWTPlayerController::BeginPlay()
+void ALinkActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void ANightSkyWTPlayerController::Tick(float DeltaTime)
+void ALinkActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }

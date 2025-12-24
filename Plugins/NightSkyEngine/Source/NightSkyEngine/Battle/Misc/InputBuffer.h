@@ -45,13 +45,6 @@ public:
 	 * Input times are looped over and incremented every actionable frame.
 	 */
 	int32 InputTime[InputBufferSize] = {};
-	/**
-	 * All disabled inputs.
-	 * Upon a successful state transition, the last input will be disabled.
-	 * If an input being checked matches a disabled input on the same frame,
-	 * the input check will fail.
-	 */
-	int32 InputDisabled[InputBufferSize] = {};
 
 	/**
 	 * Writes an input condition to the buffer. For use with CPU.

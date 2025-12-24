@@ -4,11 +4,11 @@
 #include "NightSkyGameInstance.h"
 
 #include "NightSkySettingsInfo.h"
-#include "OnlineSubsystem.h"
-#include "OnlineSubsystemUtils.h"
 #include "ReplayInfo.h"
 #include "Kismet/GameplayStatics.h"
 #include "NightSkyEngine/Data/PrimaryStageData.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyGameInstance)
 
 void UNightSkyGameInstance::Init()
 {
@@ -61,10 +61,12 @@ void UNightSkyGameInstance::RecordReplay()
 	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::CreateSaveGameObject(UReplaySaveInfo::StaticClass()));
 	CurrentReplay->BattleData = BattleData;
 	CurrentReplay->Version = BattleVersion;
+	CurrentReplay->bIsTraining = IsTraining;
 }
 
 void UNightSkyGameInstance::UpdateReplay(int32 InputsP1, int32 InputsP2) const
 {
+	if (!CurrentReplay) return;
 	CurrentReplay->LengthInFrames++;
 	CurrentReplay->InputsP1.Add(InputsP1);
 	CurrentReplay->InputsP2.Add(InputsP2);
@@ -82,7 +84,7 @@ void UNightSkyGameInstance::RollbackReplay(int32 FramesToRollback) const
 
 void UNightSkyGameInstance::EndRecordReplay() const
 {
-	if (IsReplay || IsTraining) return;
+	if (IsReplay) return;
 	FString ReplayName = "REPLAY";
 	for (int i = 0; i < MaxReplays; i++)
 	{
@@ -99,9 +101,9 @@ void UNightSkyGameInstance::EndRecordReplay() const
 void UNightSkyGameInstance::PlayReplayFromBP(FString ReplayName)
 {
 	FighterRunner = Multiplayer;
-	IsTraining = false;
 	IsReplay = true;
 	CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0));
+	IsTraining = CurrentReplay->bIsTraining;
 	LoadReplay();
 }
 

@@ -3,6 +3,8 @@
 
 #include "State.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(State)
+
 void UState::Exec_Implementation()
 {
 }

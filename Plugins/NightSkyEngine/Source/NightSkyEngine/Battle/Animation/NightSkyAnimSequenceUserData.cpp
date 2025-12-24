@@ -6,6 +6,8 @@
 #include "NightSkyAnimMetaData.h"
 #include "NightSkyEngine/Battle/Misc/Globals.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyAnimSequenceUserData)
+
 void UNightSkyAnimSequenceUserData::Serialize(FArchive& Ar)
 {
 	Super::Serialize(Ar);

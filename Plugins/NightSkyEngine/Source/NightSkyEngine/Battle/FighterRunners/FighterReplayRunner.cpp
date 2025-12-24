@@ -6,6 +6,7 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(FighterReplayRunner)
 
 // Sets default values
 AFighterReplayRunner::AFighterReplayRunner()

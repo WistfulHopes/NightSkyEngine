@@ -6,6 +6,7 @@
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyCharaSelectGameState)
 
 // Sets default values
 ANightSkyCharaSelectGameState::ANightSkyCharaSelectGameState()

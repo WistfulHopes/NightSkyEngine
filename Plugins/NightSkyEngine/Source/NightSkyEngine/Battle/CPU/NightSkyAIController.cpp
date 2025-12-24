@@ -6,6 +6,7 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyAIController)
 
 // Sets default values
 ANightSkyAIController::ANightSkyAIController()
@@ -128,7 +129,7 @@ void ANightSkyAIController::ResetParams()
 {
 	WaitCount = 0;
 	InputCount = 0;
-	WaitLimit = 3;
+	WaitLimit = 7;
 	if (Player->CheckIsAttacking()) WaitLimit = 0;
 	TargetState = nullptr;
 }
@@ -266,7 +267,7 @@ int32 ANightSkyAIController::CheckAttackWeight(const UState* State) const
 {
 	if (!IsValid(Player)) return 0;
 
-	int32 Weight = GameState->BattleState.RandomManager.RandRange(60, 100);
+	int32 Weight = GameState->BattleState.RandomManager.RandRange(25, 125);
 
 	if (!Player->CheckEnemyInRange(State->CPUData.AttackXBeginRange, State->CPUData.AttackXEndRange,
 								   State->CPUData.AttackYBeginRange, State->CPUData.AttackYEndRange))

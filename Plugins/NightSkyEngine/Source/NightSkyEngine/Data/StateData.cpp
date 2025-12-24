@@ -1,5 +1,7 @@
 ﻿#include "StateData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(StateData)
+
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Stand, "State.Universal.Stand", "Stand State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crouch, "State.Universal.Crouch", "Crouch State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Jump_V, "State.Universal.Jump.V", "Vertical Jump State");
@@ -37,6 +39,8 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crumple, "State.Universal.Crumple
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleBody, "State.Universal.FloatingCrumple.Body", "Floating Crumple (Body) State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleHead, "State.Universal.FloatingCrumple.Head", "Floating Crumple (Head) State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_WallBounce, "State.Universal.WallBounce", "Wall Bounce State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownBounce, "State.Universal.FaceDown.Bounce", "Face Down Bounce State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpBounce, "State.Universal.FaceUp.Bounce", "Face Up Bounce State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownLoop, "State.Universal.FaceDown.Loop", "Face Down Loop State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpLoop, "State.Universal.FaceUp.Loop", "Face Up Loop State");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownWakeUp, "State.Universal.FaceDown.WakeUp", "Face Down Wake Up State");

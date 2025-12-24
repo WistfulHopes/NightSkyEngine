@@ -1,9 +1,8 @@
-#include "SCelAssetTree.h"
+#include "CelAssetTree.h"
 
 #include "Logging.h"
 #include "Data/CollisionData.h"
 #include "Styling/AppStyle.h"
-#include "Widgets/Input/SSearchBox.h"
 #include "Widgets/Layout/SBorder.h"
 #include "Widgets/Text/STextBlock.h"
 
@@ -15,7 +14,7 @@ TSharedPtr<FCelAssetTreeNode> FCelAssetTreeNode::FindOrCreateChild(const FString
 		if (Child->GetDisplayName() == ChildName)
 		{
 			// If we're trying to set a cel index on an existing category node, update it
-			// This happens when e.g. "Attack" exists as both a parent for "Attack.0" and as a cel itself
+			// This happens when e.g. "Attack" exists as both a parent for "Attack.00" and as a cel itself
 			if (ChildCelIndex != INDEX_NONE && Child->IsCategory())
 			{
 				Child->SetCelIndex(ChildCelIndex);

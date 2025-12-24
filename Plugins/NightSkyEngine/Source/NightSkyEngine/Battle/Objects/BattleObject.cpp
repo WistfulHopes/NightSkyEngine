@@ -8,6 +8,7 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Actors/ParticleManager.h"
 #include "PlayerObject.h"
+#include "NightSkyEngine/Battle/Actors/LinkActor.h"
 #include "NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h"
 #include "NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h"
 #include "NightSkyEngine/Battle/Misc/Bitflags.h"
@@ -16,6 +17,8 @@
 #include "NightSkyEngine/Data/CameraShakeData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Battle/Misc/RandomManager.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(BattleObject)
 
 // Sets default values
 ABattleObject::ABattleObject()
@@ -45,13 +48,9 @@ void ABattleObject::Move()
 			return;
 		Player->SetHitValuesOverTime();
 	}
-	else if (PositionLinkObj)
+	else
 	{
-		PrevPosX = PositionLinkObj->PrevPosX;
-		PrevPosY = PositionLinkObj->PrevPosY;
-		PosX = PositionLinkObj->PosX;
-		PosY = PositionLinkObj->PosY;
-		return;
+		PositionLinkUpdate();
 	}
 
 	// Set previous pos values
@@ -155,6 +154,17 @@ void ABattleObject::Move()
 	}
 
 	PosZ += SpeedZ;
+}
+
+void ABattleObject::PositionLinkUpdate()
+{
+	if (PositionLinkObj)
+	{
+		PrevPosX = PositionLinkObj->PrevPosX;
+		PrevPosY = PositionLinkObj->PrevPosY;
+		PosX = PositionLinkObj->PosX;
+		PosY = PositionLinkObj->PosY;
+	}
 }
 
 void ABattleObject::CalculateHoming()
@@ -436,9 +446,9 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 
 				GameState->SetScreenBounds();
 
-				if (PrevPosX == OtherObj->PrevPosX)
+				if (PosX == OtherObj->PosX)
 				{
-					if (PosX == OtherObj->PosX)
+					if (PrevPosX == OtherObj->PrevPosX)
 					{
 						if (IsPlayer == OtherObj->IsPlayer)
 						{
@@ -462,12 +472,12 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					}
 					else
 					{
-						IsPushLeft = PosX < OtherObj->PosX;
+						IsPushLeft = PrevPosX < OtherObj->PrevPosX;
 					}
 				}
 				else
 				{
-					IsPushLeft = PrevPosX < OtherObj->PrevPosX;
+					IsPushLeft = PosX < OtherObj->PosX;
 				}
 				if (IsPushLeft)
 				{
@@ -478,9 +488,10 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 
-				if (OtherObj->L <= GameState->BattleState.ScreenData.ScreenBoundsLeft * 1000
-					|| OtherObj->R >= GameState->BattleState.ScreenData.ScreenBoundsRight * 1000)
+				if (IsPlayer && Player->PlayerFlags & PLF_TouchingWall 
+					|| OtherObj->IsPlayer && OtherObj->Player->PlayerFlags & PLF_TouchingWall)
 				{
+					OtherObj->PosX -= CollisionDepth;
 					PosX += CollisionDepth;
 				}
 				else
@@ -1911,9 +1922,12 @@ void ABattleObject::Update()
 {
 	CalculatePushbox();
 
-	if (!IsPlayer && StopLinkObj)
+	if (!IsPlayer)
 	{
-		Hitstop = StopLinkObj->Hitstop;
+		PositionLinkUpdate();
+		
+		if (StopLinkObj)
+			Hitstop = StopLinkObj->Hitstop;
 	}
 
 	if (Hitstop > 0) //break if hitstop active.
@@ -1946,13 +1960,13 @@ void ABattleObject::Update()
 	if (MiscFlags & MISC_FlipEnable)
 		HandleFlip();
 
-	GameState->SetScreenBounds();
-
 	if (PosY == GroundHeight && PrevPosY != GroundHeight)
 	{
 		if (!IsPlayer)
+		{
 			TriggerEvent(EVT_Landing, StateMachine_Primary);
-		SpeedX = 0;
+			SpeedX = 0;
+		}
 	}
 
 	if (!IsPlayer)
@@ -1964,6 +1978,9 @@ void ABattleObject::Update()
 
 		ObjectState->CallExec();
 		TriggerEvent(EVT_Update, StateMachine_Primary);
+		
+		if (LinkedActor)
+			LinkedActor->Update();
 		
 		if (TimeUntilNextCel > 0)
 			TimeUntilNextCel--;
@@ -2047,7 +2064,6 @@ void ABattleObject::ResetObject()
 	SpeedZRate = 100;
 	SpeedZRatePerFrame = 100;
 	GroundHeight = 0;
-	ReturnReg = false;
 	ActionReg1 = 0;
 	ActionReg2 = 0;
 	ActionReg3 = 0;
@@ -2150,8 +2166,8 @@ bool ABattleObject::IsStopped() const
 {
 	if (!GameState) return false;
 	if (!IsPlayer && IsValid(StopLinkObj) && StopLinkObj->IsStopped()) return true;
-	if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller) return true;
-	if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller) return true;
+	if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller && !(MiscFlags & MISC_IgnoreSuperFreeze)) return true;
+	if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller && !(MiscFlags & MISC_IgnoreSuperFreeze)) return true;
 	return Hitstop > 0 || (IsPlayer && Player->PlayerFlags & PLF_IsThrowLock);
 }
 
@@ -2499,7 +2515,6 @@ void ABattleObject::EnableHit(bool Enabled)
 	{
 		AttackFlags &= ~ATK_HitActive;
 	}
-	AttackFlags &= ~ATK_HasHit;
 
 	if (!IsPlayer)
 	{
@@ -2857,7 +2872,7 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 			}
 			
 			ColPosX = (FMath::Max(P1[0], OtherP1[0]) + FMath::Min(P3[0], OtherP3[0])) / 2;
-			ColPosY = (FMath::Max(P2[1], OtherP2[1]) + FMath::Min(P4[1], OtherP4[1])) / 2;
+			ColPosY = (FMath::Max(P1[1], OtherP1[1]) + FMath::Min(P2[1], OtherP2[1])) / 2;
 
 			return true;
 
@@ -2944,6 +2959,14 @@ void ABattleObject::SetWallCollisionActive(bool Active)
 		MiscFlags &= ~MISC_WallCollisionActive;
 }
 
+void ABattleObject::SetFloorCollisionActive(bool Active)
+{
+	if (Active)
+		MiscFlags |= MISC_FloorCollisionActive;
+	else
+		MiscFlags &= ~MISC_FloorCollisionActive;
+}
+
 void ABattleObject::SetPushCollisionActive(bool Active)
 {
 	if (Active)
@@ -2989,6 +3012,8 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
+				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;
@@ -3029,6 +3054,8 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 					NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
+				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;
@@ -3095,7 +3122,7 @@ void ABattleObject::LinkCharaParticle(FGameplayTag Name)
 	}
 }
 
-AActor* ABattleObject::LinkActor(FGameplayTag Name)
+ALinkActor* ABattleObject::LinkActor(FGameplayTag Name)
 {
 	if (!GameState) return nullptr;
 	if (IsPlayer)
@@ -3108,6 +3135,8 @@ AActor* ABattleObject::LinkActor(FGameplayTag Name)
 		{
 			Container.bIsActive = true;
 			LinkedActor = Container.StoredActor;
+			LinkedActor->SetActorHiddenInGame(false);
+			LinkedActor->Init();
 
 			return LinkedActor;
 		}
@@ -3124,6 +3153,8 @@ void ABattleObject::RemoveLinkActor()
 		if (Container.StoredActor == LinkedActor)
 		{
 			Container.bIsActive = false;
+			LinkedActor->Exit();
+			LinkedActor->SetActorHiddenInGame(true);
 			LinkedActor = nullptr;
 		}
 	}

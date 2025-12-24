@@ -26,6 +26,7 @@ enum EInputFlags
 	INP_F = 0x400 UMETA(DisplayName = "F"),
 	INP_G = 0x800 UMETA(DisplayName = "G"),
 	INP_H = 0x1000 UMETA(DisplayName = "H"),
+	INP_ResetTraining = 0x40000000 UMETA(Hidden),
 	INP_Rematch = 0x80000000 UMETA(Hidden),
 };
 
@@ -227,6 +228,10 @@ enum EPlayerFlags
 	 * Flag sets if player received counter hit.
 	 */
 	PLF_ReceivedCounterHit = 0x4000 UMETA(DisplayName = "Received Counter Hit"),
+	/**
+	 * Flag sets if player kara canceled into the current state.
+	 */
+	PLF_DidKaraCancel = 0x8000 UMETA(DisplayName = "Did Kara Cancel"),
 };
 
 /**

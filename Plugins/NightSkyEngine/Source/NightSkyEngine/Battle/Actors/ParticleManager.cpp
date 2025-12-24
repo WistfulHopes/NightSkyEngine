@@ -5,6 +5,7 @@
 #include "NiagaraComponent.h"
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(ParticleManager)
 
 // Sets default values
 AParticleManager::AParticleManager()
@@ -36,7 +37,7 @@ void AParticleManager::UpdateParticles()
 		if (IsValid(ParticleOwner) && ParticleOwner->IsStopped())
 		{
 			NiagaraComponent->SetPaused(false);
-			NiagaraComponent->AdvanceSimulation(1, OneFrame / 100);
+			NiagaraComponent->AdvanceSimulation(1, OneFrame / 1000);
 			NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge());
 			if (NiagaraComponent->IsComplete())
 				NiagaraComponent->Deactivate();

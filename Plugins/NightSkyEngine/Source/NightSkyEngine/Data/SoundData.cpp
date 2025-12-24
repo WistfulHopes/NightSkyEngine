@@ -1,5 +1,7 @@
 ﻿#include "SoundData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(SoundData)
+
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_S, "Sound.Hit.Punch.S", "Punch Hit (Small) Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_M, "Sound.Hit.Punch.M", "Punch Hit (Medium) Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_L, "Sound.Hit.Punch.L", "Punch Hit (Large) Sound");
@@ -14,3 +16,4 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_L, "Sound.Hit.Slash.L", "Slash Hi
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_SP, "Sound.Hit.Slash.SP", "Slash Hit (Special) Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Clash, "Sound.Hit.Clash", "Hit Clash Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Land, "Sound.Land", "Landing Sound");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Landing_Crash, "Sound.Landing.Crash", "Landing Sound (Crash)");

@@ -222,6 +222,9 @@ struct FBattleState
 	FAudioChannel CharaVoiceChannels[CharaVoiceChannelCount];
 	FAudioChannel AnnouncerVoiceChannel;
 	FAudioChannel MusicChannel;
+	
+	UPROPERTY(BlueprintReadOnly)
+	float OrthoBlendActive;
 
 	char BattleStateSyncEnd;
 
@@ -363,6 +366,7 @@ private:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	void Init();
 	void PlayIntros();
 	void UpdateLocalInput(); //updates local input
@@ -376,6 +380,7 @@ protected:
 	void CollisionView() const;
 	int32 CreateChecksum();
 	FGGPONetworkStats GetNetworkStats() const;
+	void ResetTraining();
 	
 public:
 	// Called every frame
@@ -398,7 +403,7 @@ public:
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	void SetDrawPriorityBack(ABattleObject* InObject) const;
-	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex, bool bForce = false);
+	APlayerObject* SwitchMainPlayer(APlayerObject* InPlayer, int TeamIndex, bool bForce = false, bool bEvenOnScreen = false);
 	APlayerObject* CallAssist(const bool IsP1, int AssistIndex, const FGameplayTag AssistName);
 	void SetTeamCooldown(const bool IsP1, const int TeamIndex, const int Cooldown);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;

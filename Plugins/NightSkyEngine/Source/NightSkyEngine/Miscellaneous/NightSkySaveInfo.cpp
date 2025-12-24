@@ -4,6 +4,8 @@
 #include "Serialization/MemoryWriter.h"
 #include "Engine/World.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkySaveInfo)
+
 void UNightSkySaveInfo::ActorArraySaver(TArray<AActor*>& SaveActors)
 {
 	for (AActor* SaveActor : SaveActors)

@@ -39,4 +39,6 @@ public:
 	TArray<int32> InputsP1;
 	UPROPERTY()
 	TArray<int32> InputsP2;
+	UPROPERTY()
+	bool bIsTraining;
 };

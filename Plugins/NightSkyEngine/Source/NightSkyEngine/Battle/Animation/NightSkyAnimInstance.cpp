@@ -3,6 +3,8 @@
 
 #include "NightSkyAnimInstance.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyAnimInstance)
+
 void UNightSkyAnimInstance::Montage_Advance(float DeltaSeconds)
 {
 	if (!RootMontage)

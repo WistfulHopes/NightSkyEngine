@@ -15,6 +15,7 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_Hit_Clash);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_Guard);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_ThrowTech);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_JumpSmoke_Land);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_WallBounce);
 
 USTRUCT(BlueprintType)
 struct FParticleStruct

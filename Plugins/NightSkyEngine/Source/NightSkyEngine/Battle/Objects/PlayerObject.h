@@ -256,10 +256,14 @@ struct FPlayerObjectLog : public FBattleObjectLog
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 CurrentHealth;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 RecoverableHealth;
-	int32 TotalProration = 10000;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 ComboCounter;
+	
+	int32 TotalProration = 10000;
 	int32 ComboTimer;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
@@ -516,10 +520,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EActionStance> Stance;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 CurrentHealth;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 RecoverableHealth;
-	int32 TotalProration = 10000;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int32 ComboCounter;
+	
+	int32 TotalProration = 10000;
 	int32 ComboTimer;
 	uint32 InvulnFlags = 0;
 	uint32 PlayerFlags = 0;
@@ -613,7 +621,7 @@ public:
 	 */
 
 	UPROPERTY(EditAnywhere, Category=Defaults)
-	TArray<FGameplayTag> DamageReactionCels;
+	TMap<FGameplayTag, FGameplayTag> DamageReactionCels;
 	UPROPERTY(EditAnywhere, Category=Defaults)
 	bool bMirrorWhenFlip;
 
@@ -692,8 +700,9 @@ public:
 private:
 	virtual void BeginPlay() override;
 
+	void HandleLanding();
 	//check state conditions
-	bool HandleStateCondition(EStateCondition StateCondition);
+	bool HandleStateCondition(EStateCondition StateCondition) const;
 	//check if chain cancel option exists
 	bool FindChainCancelOption(const FGameplayTag Name, FStateMachine& StateMachine);
 	//check if chain cancel option exists
@@ -709,7 +718,7 @@ private:
 	//checks kara cancel
 	bool CheckKaraCancel(EStateType InStateType, const FStateMachine& StateMachine);
 	//checks if a child object with a corresponding object id exists. if so, do not enter state 
-	bool CheckObjectPreventingState(int InObjectID);
+	bool CheckObjectPreventingState(int InObjectID) const;
 	//handles wall bounce
 	void HandleWallBounce();
 	//handles ground bounce
@@ -756,8 +765,6 @@ public:
 	void PostStateChange();
 	//resets object for next round
 	void RoundInit(bool ResetHealth);
-	//disables last input
-	void DisableLastInput();
 	void HandleFlipInput();
 	void HandleEndCombo();
 	
@@ -874,14 +881,23 @@ public:
 	//is attacking
 	UFUNCTION(BlueprintPure)
 	bool CheckIsAttacking() const;
+	//has hit
+	UFUNCTION(BlueprintPure)
+	bool CheckHasHit() const;
 	UFUNCTION(BlueprintPure)
 	bool CheckIsStunned() const;
 	//temporarily adds air jump
 	UFUNCTION(BlueprintCallable)
 	void AddAirJump(int32 NewAirJump);
+	//reset air jump
+	UFUNCTION(BlueprintCallable)
+	void ResetAirJump();
 	//temporarily adds air dash
 	UFUNCTION(BlueprintCallable)
 	void AddAirDash(int32 NewAirDash);
+	//reset air jump
+	UFUNCTION(BlueprintCallable)
+	void ResetAirDash();
 	//set air dash timer (set is forward for forward airdashes)
 	UFUNCTION(BlueprintCallable)
 	void SetAirDashTimer(bool IsForward);
@@ -929,12 +945,14 @@ public:
 	//toggles default landing action. if true, landing will go to JumpLanding state. if false, define your own landing.
 	UFUNCTION(BlueprintCallable)
 	void SetDefaultLandingAction(bool Enable);
+	UFUNCTION(BlueprintCallable)
+	void SetKnockdownState();
 	// check if touching wall
 	UFUNCTION(BlueprintCallable)
 	bool IsTouchingWall() const;
 	//checks if invulnerable
 	UFUNCTION(BlueprintPure)
-	bool IsInvulnerable(ABattleObject* Attacker) const;
+	bool IsInvulnerable(const ABattleObject* Attacker) const;
 	//sets strike invulnerable enabled
 	UFUNCTION(BlueprintCallable)
 	void SetStrikeInvulnerable(bool Invulnerable);
@@ -986,7 +1004,7 @@ public:
 	void SetThrowPosition(int32 ThrowPosX, int32 ThrowPosY);
 	//sets grip position for throw
 	UFUNCTION(BlueprintCallable)
-	void SetDamageReactionCel(int32 Index);
+	void SetDamageReactionCel(FGameplayTag Type);
 	// initiate hitgrab
 	UFUNCTION(BlueprintCallable)
 	void SetHitgrabActive(bool Active);
@@ -1020,7 +1038,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	APlayerObject* CallAssist(int AssistIndex, FGameplayTag AssistName);
 	UFUNCTION(BlueprintCallable)
-	APlayerObject* SwitchMainPlayer(int NewTeamIndex);
+	APlayerObject* SwitchMainPlayer(int NewTeamIndex, bool bForce = false, bool bEvenOnScreen = false);
 	UFUNCTION(BlueprintCallable)
 	void SetTeamCooldown(int NewTeamIndex, int Cooldown);
 	UFUNCTION(BlueprintPure)

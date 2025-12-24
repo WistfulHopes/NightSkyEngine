@@ -4,6 +4,8 @@
 #include "SubroutineState.h"
 #include "NightSkyEngine/Battle/Objects/PlayerObject.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(StateMachine)
+
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(StateMachine_Primary, "StateMachine.Primary", "Primary State Machine");
 
 void FStateMachine::AddState(const FGameplayTag& Name, UState* Config)

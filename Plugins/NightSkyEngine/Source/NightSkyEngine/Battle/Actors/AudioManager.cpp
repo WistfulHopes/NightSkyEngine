@@ -5,6 +5,7 @@
 
 #include "Components/AudioComponent.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AudioManager)
 
 // Sets default values
 AAudioManager::AAudioManager()

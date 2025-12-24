@@ -15,7 +15,7 @@ struct FLinkActorStruct
 	UPROPERTY(EditAnywhere)
 	FGameplayTag Name;
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> ActorClass;
+	TSubclassOf<ALinkActor> ActorClass;
 	UPROPERTY(EditAnywhere)
 	int32 MaxInstances = 1;
 };

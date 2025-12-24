@@ -1,5 +1,7 @@
 ﻿#include "SubroutineData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(SubroutineData)
+
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_MatchInit, "Subroutine.Cmn.MatchInit", "Subroutine Common Match Init");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_MatchInit, "Subroutine.MatchInit", "Subroutine Match Init");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_RoundInit, "Subroutine.Cmn.RoundInit", "Subroutine Common Round Init");

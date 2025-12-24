@@ -6,6 +6,8 @@
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "Kismet/GameplayStatics.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(FighterLocalRunner)
+
 // Sets default values
 AFighterLocalRunner::AFighterLocalRunner()
 {
