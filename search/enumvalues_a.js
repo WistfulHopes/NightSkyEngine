@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['localplay_0',['LocalPlay',['../_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50a499d0127fd7382b45c78844724183dfe',1,'FighterRunners.h']]]
+  ['kof_0',['KOF',['../_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa17ef485c0f51fbd603af91c91f7f5ec0',1,'NightSkyGameState.h']]]
 ];

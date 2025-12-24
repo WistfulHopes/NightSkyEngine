@@ -128,6 +128,10 @@ Inheritance diagram for UNSESessionSubsystem:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aed39dffd937d534a66d0c5ec337654a2" id="r_aed39dffd937d534a66d0c5ec337654a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed39dffd937d534a66d0c5ec337654a2">UNSESessionSubsystem</a> ()</td></tr>
 <tr class="separator:aed39dffd937d534a66d0c5ec337654a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe40107709abd06b7ede26988424e525" id="r_abe40107709abd06b7ede26988424e525"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe40107709abd06b7ede26988424e525">Login</a> ()</td></tr>
+<tr class="separator:abe40107709abd06b7ede26988424e525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e20613074e835d35f15097dddb65527" id="r_a7e20613074e835d35f15097dddb65527"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e20613074e835d35f15097dddb65527">IsLoggedIn</a> () const</td></tr>
+<tr class="separator:a7e20613074e835d35f15097dddb65527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa6073408813313c86be01d3581c9786" id="r_afa6073408813313c86be01d3581c9786"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa6073408813313c86be01d3581c9786">CreateSession</a> (int32 NumPublicConnections, bool bIsLANMatch)</td></tr>
 <tr class="separator:afa6073408813313c86be01d3581c9786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c2e36f38dbf04e644bd685b2776bc15" id="r_a8c2e36f38dbf04e644bd685b2776bc15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c2e36f38dbf04e644bd685b2776bc15">UpdateSession</a> ()</td></tr>
@@ -145,6 +149,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a57de0e56f104c307ad350576228f5290" id="r_a57de0e56f104c307ad350576228f5290"><td class="memItemLeft" align="right" valign="top">FDelegateHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57de0e56f104c307ad350576228f5290">LoginDelegateHandle</a></td></tr>
+<tr class="separator:a57de0e56f104c307ad350576228f5290"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add86ed732df6545a8749f7eee009433b" id="r_add86ed732df6545a8749f7eee009433b"><td class="memItemLeft" align="right" valign="top">FNSEOnCreateSessionComplete&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add86ed732df6545a8749f7eee009433b">OnCreateSessionCompleteDelegate</a></td></tr>
 <tr class="separator:add86ed732df6545a8749f7eee009433b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec1d488ad6befb5e3c4b4054142d27a6" id="r_aec1d488ad6befb5e3c4b4054142d27a6"><td class="memItemLeft" align="right" valign="top">FNSEOnUpdateSessionComplete&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1d488ad6befb5e3c4b4054142d27a6">OnUpdateSessionCompleteEvent</a></td></tr>
@@ -160,6 +166,8 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a09feba10636d44caf97cb5d7b38d0357" id="r_a09feba10636d44caf97cb5d7b38d0357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09feba10636d44caf97cb5d7b38d0357">OnLoginCompleted</a> (int32 LocalUserNum, bool bWasSuccessful, const FUniqueNetId &amp;UserId, const FString &amp;Error)</td></tr>
+<tr class="separator:a09feba10636d44caf97cb5d7b38d0357"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b9eb80a1b265f6ac85d3ee342694ff1" id="r_a5b9eb80a1b265f6ac85d3ee342694ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b9eb80a1b265f6ac85d3ee342694ff1">OnCreateSessionComplete</a> (FName SessionName, bool bSuccess)</td></tr>
 <tr class="separator:a5b9eb80a1b265f6ac85d3ee342694ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c10e347bd00a0f6adf9d94fd10f9071" id="r_a9c10e347bd00a0f6adf9d94fd10f9071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c10e347bd00a0f6adf9d94fd10f9071">OnUpdateSessionComplete</a> (FName SessionName, bool bSuccess)</td></tr>
@@ -196,7 +204,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00017">17</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00019">19</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,7 +228,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00046">46</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00123">123</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +247,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00128">128</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00205">205</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +270,26 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00148">148</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00225">225</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7e20613074e835d35f15097dddb65527" name="a7e20613074e835d35f15097dddb65527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e20613074e835d35f15097dddb65527">&#9670;&#160;</a></span>IsLoggedIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UNSESessionSubsystem::IsLoggedIn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00108">108</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +308,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00179">179</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00256">256</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +327,26 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00174">174</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00251">251</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe40107709abd06b7ede26988424e525" name="abe40107709abd06b7ede26988424e525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe40107709abd06b7ede26988424e525">&#9670;&#160;</a></span>Login()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UNSESessionSubsystem::Login </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00048">48</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +377,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00203">203</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00299">299</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -362,7 +408,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00233">233</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00329">329</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,7 +435,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00243">243</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00339">339</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +466,48 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00268">268</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00364">364</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09feba10636d44caf97cb5d7b38d0357" name="a09feba10636d44caf97cb5d7b38d0357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09feba10636d44caf97cb5d7b38d0357">&#9670;&#160;</a></span>OnLoginCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UNSESessionSubsystem::OnLoginCompleted </td>
+          <td>(</td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>LocalUserNum</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bWasSuccessful</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FUniqueNetId &amp;</td>          <td class="paramname"><span class="paramname"><em>UserId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FString &amp;</td>          <td class="paramname"><span class="paramname"><em>Error</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00280">280</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +548,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00280">280</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00376">376</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -492,7 +579,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00223">223</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00319">319</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +610,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00213">213</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00309">309</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +629,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00108">108</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00185">185</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +656,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00295">295</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00391">391</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,11 +675,27 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00081">81</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html#l00158">158</a> of file <a class="el" href="_n_s_e_session_subsystem_8cpp_source.html">NSESessionSubsystem.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a57de0e56f104c307ad350576228f5290" name="a57de0e56f104c307ad350576228f5290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57de0e56f104c307ad350576228f5290">&#9670;&#160;</a></span>LoginDelegateHandle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FDelegateHandle UNSESessionSubsystem::LoginDelegateHandle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00052">52</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+
+</div>
+</div>
 <a id="add86ed732df6545a8749f7eee009433b" name="add86ed732df6545a8749f7eee009433b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add86ed732df6545a8749f7eee009433b">&#9670;&#160;</a></span>OnCreateSessionCompleteDelegate</h2>
 
@@ -605,7 +708,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00052">52</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00059">59</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>
@@ -621,7 +724,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00064">64</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00071">71</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>
@@ -637,7 +740,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00069">69</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00076">76</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>
@@ -653,7 +756,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00075">75</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00082">82</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>
@@ -669,7 +772,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00060">60</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00067">67</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>
@@ -685,7 +788,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00056">56</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_n_s_e_session_subsystem_8h_source.html#l00063">63</a> of file <a class="el" href="_n_s_e_session_subsystem_8h_source.html">NSESessionSubsystem.h</a>.</p>
 
 </div>
 </div>

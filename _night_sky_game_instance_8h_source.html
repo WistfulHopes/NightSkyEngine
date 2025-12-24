@@ -173,74 +173,71 @@ $(function(){initNavTree('_night_sky_game_instance_8h_source.html',''); initResi
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> Login();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    UFUNCTION(BlueprintImplementableEvent, Category = <span class="stringliteral">&quot;Replays&quot;</span>)  </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a25772e4fd499df189eb0695ebbc3400e">   69</a></span>    void BP_OnFindReplaysComplete(const TArray&lt;<a class="code hl_class" href="class_u_replay_save_info.html">UReplaySaveInfo</a>*&gt; &amp;AllReplays);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>public:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a0aecc4d81705fd9ff3cca334d21a27e9">   72</a></span>    <span class="keywordtype">bool</span> FinishedLoadingForNetworkBattle = false;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a16a4c9e2ed29bb80a7d8894b69363c6a">   75</a></span>    FString GameVersion;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a0a640fe33be78d89357ec198100ccf46">   77</a></span>    FString BattleVersion;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#aae0f809e1f5ab1bfa23a75172770dc9d">   80</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_night_sky_settings_info.html">UNightSkySettingsInfo</a>&gt; SettingsInfo;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a08d29a3f1a254b7eebef2decbe73323e">   83</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_sound_data.html">USoundData</a>&gt; AnnouncerData;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#ad5d3d4de4a9742184abc02efecdd5aca">   85</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_sound_data.html">USoundData</a>&gt; MusicData;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    UPROPERTY()</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a8a4ed3fd5bf379650c3a9b1f976b2bf1">   88</a></span>    TArray&lt;<a class="code hl_class" href="class_u_replay_save_info.html">UReplaySaveInfo</a>*&gt; ReplayList;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a6c4ccdf471013b181ed1e9014f0dffda">   90</a></span>    <span class="keywordtype">int</span> PlayerIndex;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    UFUNCTION(BlueprintImplementableEvent, Category = <span class="stringliteral">&quot;Replays&quot;</span>)  </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a25772e4fd499df189eb0695ebbc3400e">   66</a></span>    void BP_OnFindReplaysComplete(const TArray&lt;<a class="code hl_class" href="class_u_replay_save_info.html">UReplaySaveInfo</a>*&gt; &amp;AllReplays);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>public:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a0aecc4d81705fd9ff3cca334d21a27e9">   69</a></span>    <span class="keywordtype">bool</span> FinishedLoadingForNetworkBattle = false;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a16a4c9e2ed29bb80a7d8894b69363c6a">   72</a></span>    FString GameVersion;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a0a640fe33be78d89357ec198100ccf46">   74</a></span>    FString BattleVersion;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#aae0f809e1f5ab1bfa23a75172770dc9d">   77</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_night_sky_settings_info.html">UNightSkySettingsInfo</a>&gt; SettingsInfo;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a08d29a3f1a254b7eebef2decbe73323e">   80</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_sound_data.html">USoundData</a>&gt; AnnouncerData;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#ad5d3d4de4a9742184abc02efecdd5aca">   82</a></span>    TObjectPtr&lt;<a class="code hl_class" href="class_u_sound_data.html">USoundData</a>&gt; MusicData;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    UPROPERTY()</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a8a4ed3fd5bf379650c3a9b1f976b2bf1">   85</a></span>    TArray&lt;<a class="code hl_class" href="class_u_replay_save_info.html">UReplaySaveInfo</a>*&gt; ReplayList;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a6c4ccdf471013b181ed1e9014f0dffda">   87</a></span>    <span class="keywordtype">int</span> PlayerIndex;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a25e8b55db7e6ad7a683742327569fa6e">   89</a></span>    <a class="code hl_struct" href="struct_f_battle_data.html">FBattleData</a> <a class="code hl_variable" href="class_u_replay_save_info.html#abcfb157b2faddfc596f4a1fbaa1347b9">BattleData</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a25e8b55db7e6ad7a683742327569fa6e">   92</a></span>    <a class="code hl_struct" href="struct_f_battle_data.html">FBattleData</a> <a class="code hl_variable" href="class_u_replay_save_info.html#abcfb157b2faddfc596f4a1fbaa1347b9">BattleData</a>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#ac30a420e1f080b7a475cb48cb46164e8">   95</a></span>    <span class="keywordtype">bool</span> IsTraining = false;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a3e837c7fd220a3719b851fac6ed62059">   97</a></span>    <span class="keywordtype">bool</span> IsCPUBattle = false;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a7b066ac5cfe306a766be8515c4f271ee">   99</a></span>    <span class="keywordtype">bool</span> IsReplay = false;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a2c01e162b80cebfc7021a18e76cab833">  102</a></span>    TEnumAsByte&lt;<a class="code hl_enumeration" href="_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50">EFighterRunners</a>&gt; FighterRunner; </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> TravelToVSInfo() const;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> TravelToBattleMap() const;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> LoadReplay();</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> PlayReplayToGameState(int32 FrameNumber, int32&amp; OutP1Input, int32&amp; OutP2Input) const;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> RecordReplay();</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">void</span> UpdateReplay(int32 <a class="code hl_variable" href="class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6">InputsP1</a>, int32 <a class="code hl_variable" href="class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7">InputsP2</a>) const;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordtype">void</span> RollbackReplay(int32 FramesToRollback) const;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordtype">void</span> EndRecordReplay() const;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)   </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> PlayReplayFromBP(FString ReplayName);   </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)  </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">void</span> FindReplays(); </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> DeleteReplay(const FString &amp;ReplayName);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#ac30a420e1f080b7a475cb48cb46164e8">   92</a></span>    <span class="keywordtype">bool</span> IsTraining = false;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a3e837c7fd220a3719b851fac6ed62059">   94</a></span>    <span class="keywordtype">bool</span> IsCPUBattle = false;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a7b066ac5cfe306a766be8515c4f271ee">   96</a></span>    <span class="keywordtype">bool</span> IsReplay = false;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    UPROPERTY(BlueprintReadWrite, EditAnywhere)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_u_night_sky_game_instance.html#a2c01e162b80cebfc7021a18e76cab833">   99</a></span>    TEnumAsByte&lt;<a class="code hl_enumeration" href="_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50">EFighterRunners</a>&gt; FighterRunner; </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> TravelToVSInfo() const;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> TravelToBattleMap() const;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> LoadReplay();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">void</span> PlayReplayToGameState(int32 FrameNumber, int32&amp; OutP1Input, int32&amp; OutP2Input) const;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> RecordReplay();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> UpdateReplay(int32 <a class="code hl_variable" href="class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6">InputsP1</a>, int32 <a class="code hl_variable" href="class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7">InputsP2</a>) const;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordtype">void</span> RollbackReplay(int32 FramesToRollback) const;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> EndRecordReplay() const;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)   </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> PlayReplayFromBP(FString ReplayName);   </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)  </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">void</span> FindReplays(); </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    UFUNCTION(BlueprintCallable, Category = &quot;Replays&quot;)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> DeleteReplay(const FString &amp;ReplayName);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
 </div>
 <div class="ttc" id="a_fighter_runners_8h_html"><div class="ttname"><a href="_fighter_runners_8h.html">FighterRunners.h</a></div></div>
 <div class="ttc" id="a_fighter_runners_8h_html_a7993933dedde6450bc6d16a97cb95c50"><div class="ttname"><a href="_fighter_runners_8h.html#a7993933dedde6450bc6d16a97cb95c50">EFighterRunners</a></div><div class="ttdeci">EFighterRunners</div><div class="ttdef"><b>Definition</b> <a href="_fighter_runners_8h_source.html#l00012">FighterRunners.h:12</a></div></div>
 <div class="ttc" id="a_night_sky_game_instance_8h_html_a774ff40ebe154d7922619694c92f3345"><div class="ttname"><a href="_night_sky_game_instance_8h.html#a774ff40ebe154d7922619694c92f3345">MaxReplays</a></div><div class="ttdeci">constexpr int32 MaxReplays</div><div class="ttdef"><b>Definition</b> <a href="#l00016">NightSkyGameInstance.h:16</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ad3408242a06b2de3e319ee71edf93caa"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a></div><div class="ttdeci">EBattleFormat</div><div class="ttdef"><b>Definition</b> <a href="_night_sky_game_state_8h_source.html#l00023">NightSkyGameState.h:24</a></div></div>
 <div class="ttc" id="a_random_manager_8h_html"><div class="ttname"><a href="_random_manager_8h.html">RandomManager.h</a></div></div>
-<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00318">PlayerObject.h:319</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00328">PlayerObject.h:329</a></div></div>
 <div class="ttc" id="aclass_u_night_sky_game_instance_html"><div class="ttname"><a href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a></div><div class="ttdef"><b>Definition</b> <a href="#l00055">NightSkyGameInstance.h:56</a></div></div>
 <div class="ttc" id="aclass_u_night_sky_settings_info_html"><div class="ttname"><a href="class_u_night_sky_settings_info.html">UNightSkySettingsInfo</a></div><div class="ttdef"><b>Definition</b> <a href="_night_sky_settings_info_8h_source.html#l00015">NightSkySettingsInfo.h:16</a></div></div>
 <div class="ttc" id="aclass_u_primary_chara_data_html"><div class="ttname"><a href="class_u_primary_chara_data.html">UPrimaryCharaData</a></div><div class="ttdef"><b>Definition</b> <a href="_primary_chara_data_8h_source.html#l00015">PrimaryCharaData.h:16</a></div></div>
@@ -249,7 +246,7 @@ $(function(){initNavTree('_night_sky_game_instance_8h_source.html',''); initResi
 <div class="ttc" id="aclass_u_replay_save_info_html_a6bdf660934c711e7c80fd1968fb7a2a7"><div class="ttname"><a href="class_u_replay_save_info.html#a6bdf660934c711e7c80fd1968fb7a2a7">UReplaySaveInfo::InputsP2</a></div><div class="ttdeci">TArray&lt; int32 &gt; InputsP2</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00041">ReplayInfo.h:41</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html_abcfb157b2faddfc596f4a1fbaa1347b9"><div class="ttname"><a href="class_u_replay_save_info.html#abcfb157b2faddfc596f4a1fbaa1347b9">UReplaySaveInfo::BattleData</a></div><div class="ttdeci">FBattleData BattleData</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00031">ReplayInfo.h:31</a></div></div>
 <div class="ttc" id="aclass_u_replay_save_info_html_aeeb2ba8e34942c6994522f99735a74e6"><div class="ttname"><a href="class_u_replay_save_info.html#aeeb2ba8e34942c6994522f99735a74e6">UReplaySaveInfo::InputsP1</a></div><div class="ttdeci">TArray&lt; int32 &gt; InputsP1</div><div class="ttdef"><b>Definition</b> <a href="_replay_info_8h_source.html#l00039">ReplayInfo.h:39</a></div></div>
-<div class="ttc" id="aclass_u_sound_data_html"><div class="ttname"><a href="class_u_sound_data.html">USoundData</a></div><div class="ttdef"><b>Definition</b> <a href="_sound_data_8h_source.html#l00043">SoundData.h:44</a></div></div>
+<div class="ttc" id="aclass_u_sound_data_html"><div class="ttname"><a href="class_u_sound_data.html">USoundData</a></div><div class="ttdef"><b>Definition</b> <a href="_sound_data_8h_source.html#l00045">SoundData.h:46</a></div></div>
 <div class="ttc" id="astruct_f_battle_data_html"><div class="ttname"><a href="struct_f_battle_data.html">FBattleData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00023">NightSkyGameInstance.h:24</a></div></div>
 <div class="ttc" id="astruct_f_random_manager_html"><div class="ttname"><a href="struct_f_random_manager.html">FRandomManager</a></div><div class="ttdef"><b>Definition</b> <a href="_random_manager_8h_source.html#l00006">RandomManager.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -12,5 +12,7 @@ var _sound_data_8cpp =
     [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#a17f225d3ccd279cddb3937188733e4b1", null ],
     [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#af1f622a7374ff315da9bf64d5fb7c8e5", null ],
     [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#afe1bbcd4704de094112921888de775db", null ],
-    [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#a1b867fd1641aea303a4d3af1af10c3f3", null ]
+    [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#a1b867fd1641aea303a4d3af1af10c3f3", null ],
+    [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#a5525d73a4489a6dded6036ce0eb0498a", null ],
+    [ "UE_DEFINE_GAMEPLAY_TAG_COMMENT", "_sound_data_8cpp.html#a0621290b3ed60dabfdf13e34322e0732", null ]
 ];

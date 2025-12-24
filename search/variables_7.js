@@ -7,7 +7,7 @@ var searchData=
   ['hitcommon_4',['HitCommon',['../struct_f_battle_object_log.html#afdc44f337eb7bb2d9896fe588833f0ff',1,'FBattleObjectLog::HitCommon'],['../class_a_battle_object.html#a29961587a8b1ce9dff8566b111804725',1,'ABattleObject::HitCommon']]],
   ['hitsfx_5',['HitSFX',['../struct_f_hit_data_common.html#ab100911261b1bcbdeddb1856e3d7fc0c',1,'FHitDataCommon']]],
   ['hitsfxoverride_6',['HitSFXOverride',['../struct_f_hit_data_common.html#ac236c62e3e50c2192594945efdaaa05d',1,'FHitDataCommon']]],
-  ['hitstop_7',['Hitstop',['../struct_f_hit_data.html#aa0ab6200690833217faea2f6dc506417',1,'FHitData::Hitstop'],['../struct_f_battle_object_log.html#ab33e9b34c820afe9f2b32c3d191ab624',1,'FBattleObjectLog::Hitstop'],['../class_a_battle_object.html#a10361cc7772100aa82adbda6b0b536d5',1,'ABattleObject::Hitstop']]],
+  ['hitstop_7',['Hitstop',['../struct_f_hit_data.html#aa0ab6200690833217faea2f6dc506417',1,'FHitData::Hitstop'],['../struct_f_battle_object_log.html#ab33e9b34c820afe9f2b32c3d191ab624',1,'FBattleObjectLog::Hitstop'],['../class_a_battle_object.html#a3767f9532ddf68ff6cb5645c251b923f',1,'ABattleObject::Hitstop']]],
   ['hitstun_8',['Hitstun',['../struct_f_hit_data.html#a945da7ef006d5f3b7088a59b6b9d0147',1,'FHitData']]],
   ['hitvfx_9',['HitVFX',['../struct_f_hit_data_common.html#ae5aeaad0ba454fe50715a087d3d95c54',1,'FHitDataCommon']]],
   ['hitvfxoverride_10',['HitVFXOverride',['../struct_f_hit_data_common.html#a89c9c2557ea3dfc6732ec049a99b3fa8',1,'FHitDataCommon']]],

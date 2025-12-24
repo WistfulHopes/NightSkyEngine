@@ -8,6 +8,7 @@ var hierarchy =
         ] ],
         [ "AFighterReplayRunner", "class_a_fighter_replay_runner.html", null ]
       ] ],
+      [ "ALinkActor", "class_a_link_actor.html", null ],
       [ "ANightSkyBattleHudActor", "class_a_night_sky_battle_hud_actor.html", null ],
       [ "AParticleManager", "class_a_particle_manager.html", null ]
     ] ],

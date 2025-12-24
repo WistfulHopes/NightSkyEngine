@@ -7,6 +7,8 @@ var struct_f_hit_data_common =
     [ "Blockstun", "struct_f_hit_data_common.html#a7493cd0d8cb0b3162efbb180c83d0857", null ],
     [ "BlockType", "struct_f_hit_data_common.html#a05d7108f0733757e4c5cb08262dd7b3a", null ],
     [ "ChipDamagePercent", "struct_f_hit_data_common.html#a86748b9fb75569e5e2770252c4f40731", null ],
+    [ "DamageColor", "struct_f_hit_data_common.html#aff22741aaaa2398df39538d6a9eec847", null ],
+    [ "DamageColor2", "struct_f_hit_data_common.html#a9196b9615e5453d47f33c900eab7762d", null ],
     [ "DeathCamOverride", "struct_f_hit_data_common.html#a90c36a3fb966059da5b72f28bf494b88", null ],
     [ "EnemyBlockstopModifier", "struct_f_hit_data_common.html#a605ca0be60ecfdce541c5ecbc5ccde16", null ],
     [ "GroundGuardPushbackX", "struct_f_hit_data_common.html#a7b95644e306e7460855d93bcf9ede8fa", null ],

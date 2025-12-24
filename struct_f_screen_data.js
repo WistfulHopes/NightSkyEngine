@@ -1,20 +1,18 @@
 var struct_f_screen_data =
 [
-    [ "bStopScreenUpdate", "struct_f_screen_data.html#a6c74d1bf63fac45d9fa7905a29b48511", null ],
-    [ "bStopZoomCamera", "struct_f_screen_data.html#ab36ce04c102a889099d965dac6c2aa51", null ],
     [ "bTouchingWorldSide", "struct_f_screen_data.html#af1aba17d9d020a57325d0a87b46a462e", null ],
     [ "CenterXVelocity", "struct_f_screen_data.html#a9526c36dc169d3dd560d5f98d2922227", null ],
     [ "CenterYVelocity", "struct_f_screen_data.html#aa725dc8e5f1b19dd4568254ba369faa3", null ],
     [ "DefaultMaxWidth", "struct_f_screen_data.html#a290bd7f827a42931213a34fd274c0569", null ],
-    [ "DefaultScreenYTargetOffset", "struct_f_screen_data.html#a2e75315456bb420503b82c8b14cd2711", null ],
     [ "DefaultWidth", "struct_f_screen_data.html#a2aebe283ed5c99ca69995011f574d128", null ],
     [ "FinalScreenWidth", "struct_f_screen_data.html#a0174e58e3f997f2b18f6e9e404aabab7", null ],
     [ "FinalScreenX", "struct_f_screen_data.html#ac5d64821759d87428423ac59ce7f665d", null ],
     [ "FinalScreenY", "struct_f_screen_data.html#aef826dfea7e264e85a99b6ef22d9a380", null ],
-    [ "Flags", "struct_f_screen_data.html#a2b1a8b9425e2a3a82e1ef69849a0df2a", null ],
+    [ "Flags", "struct_f_screen_data.html#ae4f125494bd18f9fd3b5ede8495067aa", null ],
     [ "HigherObjBottom", "struct_f_screen_data.html#a61f0eb6a233ee1c523a7883dbbd0de7f", null ],
     [ "MaxZoomOutWidth", "struct_f_screen_data.html#a1831290f16ae29c0a4301d4b6eafa1d6", null ],
     [ "ObjBottom", "struct_f_screen_data.html#a2f614f8e8fa7470d1842d4d8beb31842", null ],
+    [ "ObjDistanceY", "struct_f_screen_data.html#ab5cfcbada1807b882f4e49a283209dae", null ],
     [ "ObjHeight", "struct_f_screen_data.html#aeee4ef74d912c154d480ab36510e015a", null ],
     [ "ObjLeft", "struct_f_screen_data.html#a4f178d081006b536c694b19411668aed", null ],
     [ "ObjLength", "struct_f_screen_data.html#ac76721461fcdd9bb90ade9345fc298d2", null ],
@@ -42,5 +40,7 @@ var struct_f_screen_data =
     [ "TargetOffsetY", "struct_f_screen_data.html#a3803c923280f70ba97c3f37652f5e76f", null ],
     [ "TargetWidth", "struct_f_screen_data.html#a238d9fcc0d4186939c82a0af7531aeef", null ],
     [ "WidthVelocity", "struct_f_screen_data.html#aeecb6b26f4f7130bd4e1c1cdce84f214", null ],
-    [ "ZoomOutBeginX", "struct_f_screen_data.html#a76d21442cdc6af737b33680782ff6e45", null ]
+    [ "ZoomOutBeginH", "struct_f_screen_data.html#a6e855428c0c5cadc6b38265cef098eea", null ],
+    [ "ZoomOutBeginX", "struct_f_screen_data.html#a76d21442cdc6af737b33680782ff6e45", null ],
+    [ "ZoomOutBeginY", "struct_f_screen_data.html#a5b67347deeeaa40b0f5e898bbda58ffb", null ]
 ];

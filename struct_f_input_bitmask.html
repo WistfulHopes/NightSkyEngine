@@ -128,12 +128,12 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aecbf448e2487a94980c26a4742605123" id="r_aecbf448e2487a94980c26a4742605123"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecbf448e2487a94980c26a4742605123">InputFlag</a></td></tr>
 <tr class="separator:aecbf448e2487a94980c26a4742605123"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27a5dd8410051f2a6954c5c7dc72ff62" id="r_a27a5dd8410051f2a6954c5c7dc72ff62"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27a5dd8410051f2a6954c5c7dc72ff62">Lenience</a> = 5</td></tr>
+<tr class="memitem:a27a5dd8410051f2a6954c5c7dc72ff62" id="r_a27a5dd8410051f2a6954c5c7dc72ff62"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27a5dd8410051f2a6954c5c7dc72ff62">Lenience</a> = 3</td></tr>
 <tr class="separator:a27a5dd8410051f2a6954c5c7dc72ff62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1136c76b87b2dd2d9d01180753ae6590" id="r_a1136c76b87b2dd2d9d01180753ae6590"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1136c76b87b2dd2d9d01180753ae6590">TimeBetweenInputs</a> = 5</td></tr>
-<tr class="separator:a1136c76b87b2dd2d9d01180753ae6590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06bf34ff3be450452bc4d4f3d0e02a47" id="r_a06bf34ff3be450452bc4d4f3d0e02a47"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bf34ff3be450452bc4d4f3d0e02a47">Hold</a> = 0</td></tr>
 <tr class="separator:a06bf34ff3be450452bc4d4f3d0e02a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0190f45882328e2ca7883fecad4c0767" id="r_a0190f45882328e2ca7883fecad4c0767"><td class="memItemLeft" align="right" valign="top">TArray&lt; TEnumAsByte&lt; <a class="el" href="_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068">EInputFlags</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0190f45882328e2ca7883fecad4c0767">DisallowedInputs</a></td></tr>
+<tr class="separator:a0190f45882328e2ca7883fecad4c0767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A container struct for input bitmasks. </p>
@@ -195,6 +195,23 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0190f45882328e2ca7883fecad4c0767" name="a0190f45882328e2ca7883fecad4c0767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0190f45882328e2ca7883fecad4c0767">&#9670;&#160;</a></span>DisallowedInputs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TArray&lt;TEnumAsByte&lt;<a class="el" href="_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068">EInputFlags</a>&gt; &gt; FInputBitmask::DisallowedInputs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disallowed inputs. If any inputs in this array are detected, this input is invalidated. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00209">209</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+
+</div>
+</div>
 <a id="a06bf34ff3be450452bc4d4f3d0e02a47" name="a06bf34ff3be450452bc4d4f3d0e02a47"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06bf34ff3be450452bc4d4f3d0e02a47">&#9670;&#160;</a></span>Hold</h2>
 
@@ -208,7 +225,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>How long the input must be held for. Unless you're creating a charge/hold input, leave as zero. Does not work with the Negative or Negative Strict input methods. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00209">209</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00203">203</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -237,30 +254,13 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32 FInputBitmask::Lenience = 5</td>
+          <td class="memname">int32 FInputBitmask::Lenience = 3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>How much buffer time there is for the input. </p>
 
 <p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00196">196</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
-
-</div>
-</div>
-<a id="a1136c76b87b2dd2d9d01180753ae6590" name="a1136c76b87b2dd2d9d01180753ae6590"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1136c76b87b2dd2d9d01180753ae6590">&#9670;&#160;</a></span>TimeBetweenInputs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32 FInputBitmask::TimeBetweenInputs = 5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>How much time is allowed between inputs. </p>
-
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00202">202</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>

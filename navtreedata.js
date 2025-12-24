@@ -72,16 +72,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_audio_manager_8cpp.html",
-"_fighter_multiplayer_runner_8h.html",
-"_sound_data_8cpp.html#a0548483d1efb44e7923a090a9c6451d8",
-"_subroutine_data_8h.html",
-"class_a_battle_object.html#aea00be48374f553af44b15d7d25b5f5f",
-"class_a_particle_manager.html#a526f75e92423018f05019702353e39aa",
-"class_a_player_object.html#ae07e4991fbf2dd03dd148008ded17b29",
-"class_u_state.html#ae6e0455704bedfa61eca355be1f31827",
-"struct_f_battle_object_log.html#a41ef55c5f4c81e347f6481285a0c8d7b",
-"struct_f_input_bitmask.html#aecbf448e2487a94980c26a4742605123",
-"struct_f_sequence_struct.html#a8fe7ecb3d312e33a13ff6f227a9e091e"
+"_collision_box_8h_source.html",
+"_player_object_8h.html#a12c1fea13a3fe22da70f28df0e7a6007af3e6972e5074a3fc6933ce395d926e32",
+"_state_data_8h.html#aa55d5e50e7a7ace3ea5c21e015904c80",
+"class_a_battle_object.html#a9eb1084e7e65f229bc6707b6ec18ff6f",
+"class_a_night_sky_game_state.html#abdbf271239b53a4b3fa2c5a8a0f3e965",
+"class_a_player_object.html#a89c4d5f2d63a5e9f6574714e51d2e601",
+"class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e",
+"globals_r.html",
+"struct_f_battle_state.html#ad7664de94c40d2757166618824d0ac68",
+"struct_f_player_object_log.html#a8d2be352a42aa3c106cadb84b31ead03"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

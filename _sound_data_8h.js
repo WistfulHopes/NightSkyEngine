@@ -15,5 +15,7 @@ var _sound_data_8h =
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#a3c7c5122231f24817c7f489ff89f5637", null ],
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#ace2a9c1c0be292c2fb945a829b2da801", null ],
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#a69f96fc497d93e63ebc6939784ce5c23", null ],
-    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#adea34582f30d3a46edd8a68956d8e3a2", null ]
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#adea34582f30d3a46edd8a68956d8e3a2", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#ae14227bcbc1daaed478db743f550a514", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_sound_data_8h.html#ab941a563bf8045bd0caa15e57e9cd3ac", null ]
 ];

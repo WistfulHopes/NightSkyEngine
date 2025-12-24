@@ -142,6 +142,8 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953">INP_G</a> = 0x800 UMETA(DisplayName = "G")
 , <a class="el" href="#a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa">INP_H</a> = 0x1000 UMETA(DisplayName = "H")
+, <a class="el" href="#a5d52c4c5691f3096a403f7e333507068a7734ba6bda3fbf66a8b644607a914ec3">INP_ResetTraining</a> = 0x40000000 UMETA(Hidden)
+, <a class="el" href="#a5d52c4c5691f3096a403f7e333507068ac64304a28dd175d35cb774f74dd8fcfc">INP_Rematch</a> = 0x80000000 UMETA(Hidden)
 <br />
  }</td></tr>
 <tr class="separator:a5d52c4c5691f3096a403f7e333507068"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,7 +202,8 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#a6a1a038b9e800a1520b7087934e294d7a747e7564dd4bc8cc4a52c40b718dccc8">ATK_IgnorePushbackScaling</a> = 0x80 UMETA(DisplayName = "Ignore Pushback Scaling")
 , <br />
 &#160;&#160;<a class="el" href="#a6a1a038b9e800a1520b7087934e294d7abb4dc1b011d2ff69c987dc248fbf5119">ATK_IgnoreHitstunScaling</a> = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling")
-, <a class="el" href="#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74">ATK_SetPlayerHit</a> = 0x100 UMETA(DisplayName = "Ignore Hitstun Scaling")
+, <a class="el" href="#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74">ATK_SetPlayerHit</a> = 0x200 UMETA(DisplayName = "Ignore Hitstun Scaling")
+, <a class="el" href="#a6a1a038b9e800a1520b7087934e294d7a007d3dd71f0a3fcccd8d623553d83850">ATK_HitOTG</a> = 0x400 UMETA(DisplayName = "Hit OTG")
 <br />
  }</td></tr>
 <tr class="separator:a6a1a038b9e800a1520b7087934e294d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,6 +225,8 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#a0ccfd221aafc30ac983062c04b161990ab02b0c5435074004e3c4ab08307e4b6b">PLF_TouchingWall</a> = 0x1000 UMETA(DisplayName = "Is Touching Wall")
 , <a class="el" href="#a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42">PLF_HitgrabActive</a> = 0x2000 UMETA(DisplayName = "Hitgrab Active")
+, <a class="el" href="#a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598">PLF_ReceivedCounterHit</a> = 0x4000 UMETA(DisplayName = "Received Counter Hit")
+, <a class="el" href="#a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80">PLF_DidKaraCancel</a> = 0x8000 UMETA(DisplayName = "Did Kara Cancel")
 <br />
  }</td></tr>
 <tr class="separator:a0ccfd221aafc30ac983062c04b161990"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -237,6 +242,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#ae8de8b3f036722830413b279350505bcad6dd4a1d23c1b3423d7db2509e7cfd4e">CNC_EnableKaraCancel</a> = 0x80 UMETA(DisplayName = "Is Kara Cancel Enabled")
 , <br />
 &#160;&#160;<a class="el" href="#ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4">CNC_CancelIntoSelf</a> = 0x100 UMETA(DisplayName = "Is Cancel Into Self Enabled")
+, <a class="el" href="#ae8de8b3f036722830413b279350505bcac3461f36b7e69edb691094b74030cf8a">CNC_EnableReverseBeat</a> = 0x200 UMETA(DisplayName = "Is Reverse Beat Enabled")
 <br />
  }</td></tr>
 <tr class="separator:ae8de8b3f036722830413b279350505bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,9 +294,11 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74" name="a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74"></a>ATK_SetPlayerHit&#160;</td><td class="fielddoc"><p>Flag sets if object will set ATK_HasHit in owning player on hit. Does nothing if already is a player object. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a6a1a038b9e800a1520b7087934e294d7a007d3dd71f0a3fcccd8d623553d83850" name="a6a1a038b9e800a1520b7087934e294d7a007d3dd71f0a3fcccd8d623553d83850"></a>ATK_HitOTG&#160;</td><td class="fielddoc"><p>Flag sets if object can hit opponents during knockdown. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00115">115</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00117">117</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>
@@ -325,9 +333,11 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4" name="ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4"></a>CNC_CancelIntoSelf&#160;</td><td class="fielddoc"><p>Flag sets if cancelling into the player's current state is enabled. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="ae8de8b3f036722830413b279350505bcac3461f36b7e69edb691094b74030cf8a" name="ae8de8b3f036722830413b279350505bcac3461f36b7e69edb691094b74030cf8a"></a>CNC_EnableReverseBeat&#160;</td><td class="fielddoc"><p>Flag sets if reverse beat is enabled. Only takes effect if the character can reverse beat. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00227">227</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00241">241</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +375,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a23c9c3e3c83280dbab56e6f09ee4364ba5d07a8fe4a1d107d66304fde6f3709c1" name="a23c9c3e3c83280dbab56e6f09ee4364ba5d07a8fe4a1d107d66304fde6f3709c1"></a>ENB_Assist&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00037">37</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00039">39</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>
@@ -400,6 +410,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a5d52c4c5691f3096a403f7e333507068aadfb2b70b22c660486afdc48d885eb85" name="a5d52c4c5691f3096a403f7e333507068aadfb2b70b22c660486afdc48d885eb85"></a>INP_F&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953" name="a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953"></a>INP_G&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa" name="a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa"></a>INP_H&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5d52c4c5691f3096a403f7e333507068a7734ba6bda3fbf66a8b644607a914ec3" name="a5d52c4c5691f3096a403f7e333507068a7734ba6bda3fbf66a8b644607a914ec3"></a>INP_ResetTraining&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5d52c4c5691f3096a403f7e333507068ac64304a28dd175d35cb774f74dd8fcfc" name="a5d52c4c5691f3096a403f7e333507068ac64304a28dd175d35cb774f74dd8fcfc"></a>INP_Rematch&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00009">9</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
@@ -429,7 +441,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00271">271</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00289">289</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>
@@ -468,7 +480,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00066">66</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00068">68</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>
@@ -513,9 +525,13 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42" name="a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42"></a>PLF_HitgrabActive&#160;</td><td class="fielddoc"><p>Flag sets if player's next hit is a hitgrab. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598" name="a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598"></a>PLF_ReceivedCounterHit&#160;</td><td class="fielddoc"><p>Flag sets if player received counter hit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80" name="a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80"></a>PLF_DidKaraCancel&#160;</td><td class="fielddoc"><p>Flag sets if player kara canceled into the current state. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00163">163</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_bitflags_8h_source.html#l00169">169</a> of file <a class="el" href="_bitflags_8h_source.html">Bitflags.h</a>.</p>
 
 </div>
 </div>

@@ -202,7 +202,7 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
 </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>UENUM()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>UENUM(Meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = &quot;true&quot;))</div>
 <div class="foldopen" id="foldopen00082" data-start="{" data-end="};">
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">   82</a></span>enum <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>{</div>
@@ -215,75 +215,75 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
 </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>USTRUCT(BlueprintType)</div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html">   93</a></span>struct <a class="code hl_struct" href="struct_f_screen_data.html">FScreenData</a> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2b1a8b9425e2a3a82e1ef69849a0df2a">   97</a></span>    <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a> Flags;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a290bd7f827a42931213a34fd274c0569">  100</a></span>    <span class="keywordtype">int</span> DefaultMaxWidth = 1689;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2aebe283ed5c99ca69995011f574d128">  102</a></span>    <span class="keywordtype">int</span> DefaultWidth = 1280;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2e75315456bb420503b82c8b14cd2711">  104</a></span>    <span class="keywordtype">int</span> DefaultScreenYTargetOffset = -100;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1831290f16ae29c0a4301d4b6eafa1d6">  106</a></span>    <span class="keywordtype">int</span> MaxZoomOutWidth = 1689;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a76d21442cdc6af737b33680782ff6e45">  107</a></span>    <span class="keywordtype">int</span> ZoomOutBeginX = 1280;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    UPROPERTY()</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a36f3fa2b7619373949fd97cefc5b394d">  110</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; TargetObjects{};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="_night_sky_game_state_8h.html#ad2dfdef42c1b2133167c2e3cdbcf5f10">   92</a></span><a class="code hl_function" href="_night_sky_game_state_8h.html#ad2dfdef42c1b2133167c2e3cdbcf5f10">ENUM_CLASS_FLAGS</a>(<a class="code hl_enumeration" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>USTRUCT(BlueprintType)</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="};">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html">   95</a></span>struct <a class="code hl_struct" href="struct_f_screen_data.html">FScreenData</a> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ae4f125494bd18f9fd3b5ede8495067aa">   99</a></span>    TEnumAsByte&lt;<a class="code hl_enumeration" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a>&gt; Flags;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#af1aba17d9d020a57325d0a87b46a462e">  100</a></span>    <span class="keywordtype">bool</span> bTouchingWorldSide;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a290bd7f827a42931213a34fd274c0569">  103</a></span>    <span class="keywordtype">int</span> DefaultMaxWidth = 1689;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2aebe283ed5c99ca69995011f574d128">  105</a></span>    <span class="keywordtype">int</span> DefaultWidth = 1280;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1831290f16ae29c0a4301d4b6eafa1d6">  107</a></span>    <span class="keywordtype">int</span> MaxZoomOutWidth = 1689;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a76d21442cdc6af737b33680782ff6e45">  108</a></span>    <span class="keywordtype">int</span> ZoomOutBeginX = 1280;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a5b67347deeeaa40b0f5e898bbda58ffb">  109</a></span>    <span class="keywordtype">int</span> ZoomOutBeginY = 180;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a6e855428c0c5cadc6b38265cef098eea">  110</a></span>    <span class="keywordtype">int</span> ZoomOutBeginH = 360;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a593923b598d5bd662246875ad218bdf9">  112</a></span>    <span class="keywordtype">int</span> ObjTop = 0;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2f614f8e8fa7470d1842d4d8beb31842">  113</a></span>    <span class="keywordtype">int</span> ObjBottom = 0;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a61f0eb6a233ee1c523a7883dbbd0de7f">  114</a></span>    <span class="keywordtype">int</span> HigherObjBottom = 0;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a4f178d081006b536c694b19411668aed">  115</a></span>    <span class="keywordtype">int</span> ObjLeft = 0;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#abd7e0a491283223ab633e656a9a24bd1">  116</a></span>    <span class="keywordtype">int</span> ObjRight = 0;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac76721461fcdd9bb90ade9345fc298d2">  117</a></span>    <span class="keywordtype">int</span> ObjLength = 0;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aeee4ef74d912c154d480ab36510e015a">  118</a></span>    <span class="keywordtype">int</span> ObjHeight = 0;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a6bd1706996e83886e93ba4f07afb9899">  120</a></span>    <span class="keywordtype">int</span> ScreenWorldCenterX = 0;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#afca84f5429c1118a6c9a0d18cfab97a8">  121</a></span>    <span class="keywordtype">int</span> ScreenWorldCenterY = 0;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ad1ad085854e519b52d7df33d55a2943b">  122</a></span>    <span class="keywordtype">int</span> ScreenWorldWidth = 1280;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a36f3fa2b7619373949fd97cefc5b394d">  113</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; TargetObjects{};</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a593923b598d5bd662246875ad218bdf9">  115</a></span>    <span class="keywordtype">int</span> ObjTop = 0;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a2f614f8e8fa7470d1842d4d8beb31842">  116</a></span>    <span class="keywordtype">int</span> ObjBottom = 0;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a61f0eb6a233ee1c523a7883dbbd0de7f">  117</a></span>    <span class="keywordtype">int</span> HigherObjBottom = 0;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a4f178d081006b536c694b19411668aed">  118</a></span>    <span class="keywordtype">int</span> ObjLeft = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#abd7e0a491283223ab633e656a9a24bd1">  119</a></span>    <span class="keywordtype">int</span> ObjRight = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac76721461fcdd9bb90ade9345fc298d2">  120</a></span>    <span class="keywordtype">int</span> ObjLength = 0;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aeee4ef74d912c154d480ab36510e015a">  121</a></span>    <span class="keywordtype">int</span> ObjHeight = 0;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ab5cfcbada1807b882f4e49a283209dae">  122</a></span>    <span class="keywordtype">int</span> ObjDistanceY = 0;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a26375cf1291d7ad73bcc59217925cbd5">  124</a></span>    <span class="keywordtype">int</span> TargetCenterX = 0;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a5d88da6f3f26639fee797142814703c2">  125</a></span>    <span class="keywordtype">int</span> TargetCenterY = 0;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a238d9fcc0d4186939c82a0af7531aeef">  126</a></span>    <span class="keywordtype">int</span> TargetWidth = 1280;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a6bd1706996e83886e93ba4f07afb9899">  124</a></span>    <span class="keywordtype">int</span> ScreenWorldCenterX = 0;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#afca84f5429c1118a6c9a0d18cfab97a8">  125</a></span>    <span class="keywordtype">int</span> ScreenWorldCenterY = 0;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ad1ad085854e519b52d7df33d55a2943b">  126</a></span>    <span class="keywordtype">int</span> ScreenWorldWidth = 1280;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a9526c36dc169d3dd560d5f98d2922227">  128</a></span>    <span class="keywordtype">int</span> CenterXVelocity = 0;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aa725dc8e5f1b19dd4568254ba369faa3">  129</a></span>    <span class="keywordtype">int</span> CenterYVelocity = 0;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aeecb6b26f4f7130bd4e1c1cdce84f214">  130</a></span>    <span class="keywordtype">int</span> WidthVelocity = 0;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a26375cf1291d7ad73bcc59217925cbd5">  128</a></span>    <span class="keywordtype">int</span> TargetCenterX = 0;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a5d88da6f3f26639fee797142814703c2">  129</a></span>    <span class="keywordtype">int</span> TargetCenterY = 0;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a238d9fcc0d4186939c82a0af7531aeef">  130</a></span>    <span class="keywordtype">int</span> TargetWidth = 1280;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac5d64821759d87428423ac59ce7f665d">  132</a></span>    <span class="keywordtype">int</span> FinalScreenX = 0;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aef826dfea7e264e85a99b6ef22d9a380">  133</a></span>    <span class="keywordtype">int</span> FinalScreenY = 0;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a0174e58e3f997f2b18f6e9e404aabab7">  134</a></span>    <span class="keywordtype">int</span> FinalScreenWidth = 1280;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a9526c36dc169d3dd560d5f98d2922227">  132</a></span>    <span class="keywordtype">int</span> CenterXVelocity = 0;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aa725dc8e5f1b19dd4568254ba369faa3">  133</a></span>    <span class="keywordtype">int</span> CenterYVelocity = 0;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aeecb6b26f4f7130bd4e1c1cdce84f214">  134</a></span>    <span class="keywordtype">int</span> WidthVelocity = 0;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aaddef35bbac8cef395dfaa2ed8a01837">  136</a></span>    <span class="keywordtype">float</span> ScreenYZoom = 0;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a3803c923280f70ba97c3f37652f5e76f">  138</a></span>    <span class="keywordtype">int</span> TargetOffsetY = 350;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac62bfe1418c07e990d18dd97aa164070">  139</a></span>    <span class="keywordtype">int</span> TargetOffsetLandYMax = 250;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a95509a401c0bccd47a6a4828db639c4c">  140</a></span>    <span class="keywordtype">int</span> TargetOffsetLandYAdd = 6;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a646fefbb5b38f7c76f8e5fa297f73610">  141</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYMax = 180;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aae9f70eda79e943c41912cf5ee82c9e0">  142</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYAdd = 3;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a8bdbe13960ebcf0b11377c4fc250f8a6">  143</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYPos = 400;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a9ee7ae55ea35ad02f04aff58a1b082dd">  144</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYDist = 570;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a837d092346fd4b9cc182d4f3d7baacab">  146</a></span>    <span class="keywordtype">int</span> ScreenBoundsLeft = -640;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a50005b963c1c730a3dc2cb21c70fcb81">  147</a></span>    <span class="keywordtype">int</span> ScreenBoundsRight = 640;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1db5e01844dcd29f95018ed5774b2c5d">  148</a></span>    <span class="keywordtype">int</span> ScreenBoundsTop = 0;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac5d64821759d87428423ac59ce7f665d">  136</a></span>    <span class="keywordtype">int</span> FinalScreenX = 0;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aef826dfea7e264e85a99b6ef22d9a380">  137</a></span>    <span class="keywordtype">int</span> FinalScreenY = 0;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a0174e58e3f997f2b18f6e9e404aabab7">  138</a></span>    <span class="keywordtype">int</span> FinalScreenWidth = 1280;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aaddef35bbac8cef395dfaa2ed8a01837">  140</a></span>    <span class="keywordtype">float</span> ScreenYZoom = 0;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a3803c923280f70ba97c3f37652f5e76f">  142</a></span>    <span class="keywordtype">int</span> TargetOffsetY = 350;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ac62bfe1418c07e990d18dd97aa164070">  143</a></span>    <span class="keywordtype">int</span> TargetOffsetLandYMax = 250;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a95509a401c0bccd47a6a4828db639c4c">  144</a></span>    <span class="keywordtype">int</span> TargetOffsetLandYAdd = 6;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a646fefbb5b38f7c76f8e5fa297f73610">  145</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYMax = 180;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aae9f70eda79e943c41912cf5ee82c9e0">  146</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYAdd = 3;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a8bdbe13960ebcf0b11377c4fc250f8a6">  147</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYPos = 400;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a9ee7ae55ea35ad02f04aff58a1b082dd">  148</a></span>    <span class="keywordtype">int</span> TargetOffsetAirYDist = 570;</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a0672f8439b21ea3246eb33078853a056">  151</a></span>    int StageBoundsLeft = -3200;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1074ee543899f2bdc5722168251c386f">  153</a></span>    <span class="keywordtype">int</span> StageBoundsRight = 3200;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a837d092346fd4b9cc182d4f3d7baacab">  150</a></span>    <span class="keywordtype">int</span> ScreenBoundsLeft = -640;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a50005b963c1c730a3dc2cb21c70fcb81">  151</a></span>    <span class="keywordtype">int</span> ScreenBoundsRight = 640;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1db5e01844dcd29f95018ed5774b2c5d">  152</a></span>    <span class="keywordtype">int</span> ScreenBoundsTop = 0;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aacd90fef7ce40fc094a59bf4895733ed">  155</a></span>    <span class="keywordtype">int</span> StageBoundsTop = 5400;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a6c74d1bf63fac45d9fa7905a29b48511">  157</a></span>    <span class="keywordtype">bool</span> bStopScreenUpdate;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#ab36ce04c102a889099d965dac6c2aa51">  158</a></span>    <span class="keywordtype">bool</span> bStopZoomCamera;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#af1aba17d9d020a57325d0a87b46a462e">  159</a></span>    <span class="keywordtype">bool</span> bTouchingWorldSide;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a0672f8439b21ea3246eb33078853a056">  155</a></span>    int StageBoundsLeft = -3200;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#a1074ee543899f2bdc5722168251c386f">  157</a></span>    <span class="keywordtype">int</span> StageBoundsRight = 3200;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="struct_f_screen_data.html#aacd90fef7ce40fc094a59bf4895733ed">  159</a></span>    <span class="keywordtype">int</span> StageBoundsTop = 5400;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>};</div>
 </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
@@ -306,7 +306,7 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    UPROPERTY(EditAnywhere)</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a815de92efc6ef8ea55e4ac21ede7b9fb">  178</a></span>    int32 RoundStartPos = 297500;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    UPROPERTY(EditAnywhere, SaveGame)</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#afa51596c934073a9aaf525e1cf6efca2">  181</a></span>    <a class="code hl_struct" href="struct_f_screen_data.html">FScreenData</a> ScreenData;</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    </div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a040c88834feb43d8c9eb3b7780b61210">  183</a></span>    FVector CameraPosition = FVector();</div>
@@ -351,248 +351,269 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ad7664de94c40d2757166618824d0ac68">  222</a></span>    <a class="code hl_struct" href="struct_f_audio_channel.html">FAudioChannel</a> CharaVoiceChannels[<a class="code hl_variable" href="_audio_manager_8h.html#a10176784bf375721b23864f1e1ee17cd">CharaVoiceChannelCount</a>];</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a14bad861936194c3ebf9f365a9c56596">  223</a></span>    <a class="code hl_struct" href="struct_f_audio_channel.html">FAudioChannel</a> AnnouncerVoiceChannel;</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#aa2cc6056d00c76798141b0cd5d7b6516">  224</a></span>    <a class="code hl_struct" href="struct_f_audio_channel.html">FAudioChannel</a> MusicChannel;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#afaccb513c21a0aa2940bc48e699f5068">  226</a></span>    <span class="keywordtype">char</span> BattleStateSyncEnd;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ab8b29fbde95fd17892af384900986940">  229</a></span>    <a class="code hl_struct" href="struct_f_team_data.html">FTeamData</a> TeamData[2];</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ac0012341c7e7c895373e612571a284a4">  227</a></span>    <span class="keywordtype">float</span> OrthoBlendActive;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#afaccb513c21a0aa2940bc48e699f5068">  229</a></span>    <span class="keywordtype">char</span> BattleStateSyncEnd;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ac14f8bad3d46261ac8edfe9e7bcb3e96">  232</a></span>    TArray&lt;int32&gt; GaugeP1;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a4fe2849e82d195fb8cddaa129cfc087c">  234</a></span>    TArray&lt;int32&gt; GaugeP2;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    UPROPERTY(EditAnywhere, SaveGame)</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a5c70ba105fc4d4dfbbf33ffd24abc834">  236</a></span>    TArray&lt;int32&gt; MaxGauge;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a5b644bcf0b87191003abefd759db2aab">  239</a></span>    <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a> BattleFormat = <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a>::<a class="code hl_enumvalue" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa28d89eee8752bd81e3e355c469a6e67a">Rounds</a>;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ad6e02e8002fc7fd2e3707c7687e903e3">  241</a></span>    int32 MaxRoundCount;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ad8fe4a86b3eb91d7c81e5427607a5707">  243</a></span>    int32 MaxTimeUntilRoundStart;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    UPROPERTY(EditAnywhere)</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a596057cdfb1edd6354cf9445170fe4f0">  245</a></span>    int32 MaxFadeTimer = 12;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>};</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ab8b29fbde95fd17892af384900986940">  232</a></span>    <a class="code hl_struct" href="struct_f_team_data.html">FTeamData</a> TeamData[2];</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ac14f8bad3d46261ac8edfe9e7bcb3e96">  235</a></span>    TArray&lt;int32&gt; GaugeP1;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a4fe2849e82d195fb8cddaa129cfc087c">  237</a></span>    TArray&lt;int32&gt; GaugeP2;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    UPROPERTY(EditAnywhere, SaveGame)</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a5c70ba105fc4d4dfbbf33ffd24abc834">  239</a></span>    TArray&lt;int32&gt; MaxGauge;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a5b644bcf0b87191003abefd759db2aab">  242</a></span>    <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a> BattleFormat = <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a>::<a class="code hl_enumvalue" href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa28d89eee8752bd81e3e355c469a6e67a">Rounds</a>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ad6e02e8002fc7fd2e3707c7687e903e3">  244</a></span>    int32 MaxRoundCount;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#ad8fe4a86b3eb91d7c81e5427607a5707">  246</a></span>    int32 MaxTimeUntilRoundStart;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    UPROPERTY(EditAnywhere)</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="struct_f_battle_state.html#a596057cdfb1edd6354cf9445170fe4f0">  248</a></span>    int32 MaxFadeTimer = 12;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>};</div>
 </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">  248</a></span>constexpr <span class="keywordtype">size_t</span> <a class="code hl_variable" href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">SizeOfBattleState</a> = offsetof(<a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a>, BattleStateSyncEnd) - offsetof(</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a>, BattleStateSync);</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>USTRUCT()</div>
-<div class="foldopen" id="foldopen00252" data-start="{" data-end="};">
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html">  252</a></span>struct <a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a></div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>{</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    UPROPERTY()</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a41b05f3d75de63689e8030108c9f3f2d">  257</a></span>    TArray&lt;<span class="keywordtype">bool</span>&gt; ObjActive;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a8f1c4561db1418a570e6ecb8b55f4813">  258</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; ObjBuffer;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ab73196ffb77fdc6c8eac39dbd5e73558">  259</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; CharBuffer;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a85ee4836e87f07067bc87ebc826851f2">  260</a></span>    TArray&lt;uint8&gt; BattleStateBuffer;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ab8da1b37f338acff700e769b9b11240c">  261</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; PlayerData;</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a40d04d0fce9e6aa28cbc84b47a598e37">  262</a></span>    TArray&lt;uint8&gt; BattleStateData;</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ad151dd2d60bae0621534f1386e657978">  263</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; StateData;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#aa5c0db73df85c40bac85c72ba2ad15c4">  264</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; ExtensionData;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#af19028f51de7b013bd6a9a72969ef4ab">  265</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; WidgetAnimationData;</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">void</span> Serialize(FArchive&amp; Ar);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>};</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">  251</a></span>constexpr <span class="keywordtype">size_t</span> <a class="code hl_variable" href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">SizeOfBattleState</a> = offsetof(<a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a>, BattleStateSyncEnd) - offsetof(</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a>, BattleStateSync);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>USTRUCT()</div>
+<div class="foldopen" id="foldopen00255" data-start="{" data-end="};">
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html">  255</a></span>struct <a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    UPROPERTY()</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a41b05f3d75de63689e8030108c9f3f2d">  260</a></span>    TArray&lt;<span class="keywordtype">bool</span>&gt; ObjActive;</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a8f1c4561db1418a570e6ecb8b55f4813">  261</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; ObjBuffer;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ab73196ffb77fdc6c8eac39dbd5e73558">  262</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; CharBuffer;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a85ee4836e87f07067bc87ebc826851f2">  263</a></span>    TArray&lt;uint8&gt; BattleStateBuffer;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ab8da1b37f338acff700e769b9b11240c">  264</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; PlayerData;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#a40d04d0fce9e6aa28cbc84b47a598e37">  265</a></span>    TArray&lt;uint8&gt; BattleStateData;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#ad151dd2d60bae0621534f1386e657978">  266</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; StateData;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#aa5c0db73df85c40bac85c72ba2ad15c4">  267</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; ExtensionData;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="struct_f_rollback_data.html#af19028f51de7b013bd6a9a72969ef4ab">  268</a></span>    TArray&lt;TArray&lt;uint8&gt;&gt; WidgetAnimationData;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordtype">void</span> Serialize(FArchive&amp; Ar);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>};</div>
 </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">// Network</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>USTRUCT(BlueprintType)</div>
-<div class="foldopen" id="foldopen00273" data-start="{" data-end="};">
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html">  273</a></span>struct <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>{</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html#a5dbd7a90d5c139b75481da0c205f708f">  278</a></span>    int32 Ping;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html#a4f2e7a760eac482034fbf50506775415">  280</a></span>    int32 RollbackFrames;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>};</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment">// Network</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>USTRUCT(BlueprintType)</div>
+<div class="foldopen" id="foldopen00276" data-start="{" data-end="};">
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html">  276</a></span>struct <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>{</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html#a5dbd7a90d5c139b75481da0c205f708f">  281</a></span>    int32 Ping;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="struct_f_network_stats.html#a4f2e7a760eac482034fbf50506775415">  283</a></span>    int32 RollbackFrames;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>};</div>
 </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">// Main class</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>UCLASS()</div>
-<div class="foldopen" id="foldopen00286" data-start="{" data-end="};">
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html">  286</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_a_night_sky_game_state.html">ANightSkyGameState</a> : public AGameStateBase</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>{</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="comment">// Sets default values for this actor&#39;s properties</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <a class="code hl_class" href="class_a_night_sky_game_state.html">ANightSkyGameState</a>();</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    UPROPERTY(EditAnywhere, Category=Defaults)</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a9f15fbdce293ed5595e4b74f421c795c">  295</a></span>    int MaxBattleObjects = 400;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    UPROPERTY(EditAnywhere, Category=Defaults)</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae95a2b019e404a79bd3e49eeb58f9959">  297</a></span>    TSubclassOf&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>&gt; BattleObjectClass = <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>::StaticClass();</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    UPROPERTY()</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a8e836fac4411aa4ea99afac63236eafa">  299</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; Objects {};</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    UPROPERTY()</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a6da4d717719236c06f4ced0dade80c3a">  301</a></span>    TArray&lt;<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>*&gt; Players {};</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame, Category=Defaults)</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a82f626cda00b6d7dc9812a696925466a">  303</a></span>    <a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a> BattleState {};</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    UPROPERTY()</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a76a1c7a9445f0d2aca43129a41ab9681">  306</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; SortedObjects {};</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment">// Main class</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>UCLASS()</div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="};">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html">  289</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_a_night_sky_game_state.html">ANightSkyGameState</a> : public AGameStateBase</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>{</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="comment">// Sets default values for this actor&#39;s properties</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_class" href="class_a_night_sky_game_state.html">ANightSkyGameState</a>();</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    UPROPERTY(EditAnywhere, Category=Defaults)</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a9f15fbdce293ed5595e4b74f421c795c">  298</a></span>    int MaxBattleObjects = 400;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    UPROPERTY(EditAnywhere, Category=Defaults)</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae95a2b019e404a79bd3e49eeb58f9959">  300</a></span>    TSubclassOf&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>&gt; BattleObjectClass = <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>::StaticClass();</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    UPROPERTY()</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a8e836fac4411aa4ea99afac63236eafa">  302</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; Objects {};</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    UPROPERTY()</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a6da4d717719236c06f4ced0dade80c3a">  304</a></span>    TArray&lt;<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>*&gt; Players {};</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly, SaveGame, Category=<a class="code hl_enumvalue" href="_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a747d99f92ee9c080ba26108ac5d26488">Battle</a>)</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a82f626cda00b6d7dc9812a696925466a">  306</a></span>    <a class="code hl_struct" href="struct_f_battle_state.html">FBattleState</a> BattleState {};</div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a0efd53610c503246d9370fe2f4dc8597">  309</a></span>    FTransform BattleSceneTransform;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    UPROPERTY()</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a76a1c7a9445f0d2aca43129a41ab9681">  309</a></span>    TArray&lt;<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>*&gt; SortedObjects {};</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    UPROPERTY()</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a68f964a63e667331960d458773af8f8d">  312</a></span>    TArray&lt;<a class="code hl_class" href="class_u_battle_extension.html">UBattleExtension</a>*&gt; BattleExtensions = {};</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a093795c68f5ba8cacffa740f139534d7">  313</a></span>    TArray&lt;FGameplayTag&gt; BattleExtensionNames = {};</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1df5aeb17a42c418957875cea2b106e2">  316</a></span>    <a class="code hl_class" href="class_u_battle_extension_data.html">UBattleExtensionData</a>* BattleExtensionData = {};</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a0efd53610c503246d9370fe2f4dc8597">  312</a></span>    FTransform BattleSceneTransform;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    UPROPERTY()</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a68f964a63e667331960d458773af8f8d">  315</a></span>    TArray&lt;<a class="code hl_class" href="class_u_battle_extension.html">UBattleExtension</a>*&gt; BattleExtensions = {};</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a093795c68f5ba8cacffa740f139534d7">  316</a></span>    TArray&lt;FGameplayTag&gt; BattleExtensionNames = {};</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    UPROPERTY()</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ad9e7d7dabfe2465be4c8ad361bc83ecf">  319</a></span>    class <a class="code hl_class" href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a>* GameInstance = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Assets)</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1df5aeb17a42c418957875cea2b106e2">  319</a></span>    <a class="code hl_class" href="class_u_battle_extension_data.html">UBattleExtensionData</a>* BattleExtensionData = {};</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    UPROPERTY()</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4b951c7c6172d94166fcd9d8e047e66d">  322</a></span>    class <a class="code hl_class" href="class_a_particle_manager.html">AParticleManager</a>* ParticleManager = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    UPROPERTY()</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#abdbf271239b53a4b3fa2c5a8a0f3e965">  324</a></span>    <a class="code hl_class" href="class_a_audio_manager.html">AAudioManager</a>* AudioManager = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae0a348ef2adc96a6754f32ac48be1c62">  327</a></span>    class ALevelSequenceActor* SequenceActor = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1e3d04923638eef0e6b3f877e48ed478">  329</a></span>    ACameraActor* CameraActor = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4789ea3d1b4c192e90263711dd119f68">  331</a></span>    ACameraActor* SequenceCameraActor = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#adf1104a680ac0db0515ac4edd758f5d0">  333</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SequenceTarget = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a0ab498d17c8b73cd98479814643342aa">  335</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SequenceEnemy = <span class="keywordtype">nullptr</span>;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ad66d0d0039f0c7c20947d058ddc17d9f">  337</a></span>    <span class="keywordtype">bool</span> bPauseGame = false;</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Debug)</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a80288ec5e5294572daab40c7e4786ea0">  339</a></span>    <span class="keywordtype">bool</span> bViewCollision = false;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    UPROPERTY(BlueprintReadOnly)</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#adfabb2278d28ea80e4aca9625eba7173">  342</a></span>    <span class="keywordtype">bool</span> bIsPlayingSequence = false;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    UPROPERTY()</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a23c398c92de2aee7e4184ba243f9288c">  345</a></span>    class <a class="code hl_class" href="class_a_fighter_local_runner.html">AFighterLocalRunner</a>* FighterRunner = <span class="keywordtype">nullptr</span>;;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    UPROPERTY(BlueprintReadWrite)</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4734cceabdd728a987f5c460058bf515">  347</a></span>    <a class="code hl_class" href="class_a_night_sky_battle_hud_actor.html">ANightSkyBattleHudActor</a>* BattleHudActor = <span class="keywordtype">nullptr</span>;;</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae9a25298800a2cf39df994407402f8e1">  349</a></span>    int32 LocalFrame = 0;</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1872b0356bf03b3bcc7944e5842c903c">  350</a></span>    int32 RemoteFrame = 0;</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>private:</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    int32 LocalInputs[2] = {};</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    int32 Checksum = 0;</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    int32 OtherChecksum = 0;</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    int32 OtherChecksumFrame = 0;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    int32 PrevOtherChecksumFrame = 0;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a> NetworkStats = <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a>();</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <span class="keywordtype">bool</span> bIsResimulating = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> BeginPlay() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <span class="keywordtype">void</span> PlayIntros();</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keywordtype">void</span> UpdateLocalInput(); <span class="comment">//updates local input</span></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="keywordtype">void</span> SortObjects();</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keywordtype">void</span> HandlePushCollision() <span class="keyword">const</span>; <span class="comment">//for each active object, handle push collision</span></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keywordtype">void</span> HandleHitCollision() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">void</span> UpdateVisuals() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keywordtype">void</span> HandleRoundWin();</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">void</span> NextRoundTransition(<span class="keywordtype">bool</span> bIsP1);</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="keywordtype">bool</span> HandleMatchWin();</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordtype">void</span> CollisionView() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    int32 CreateChecksum();</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    FGGPONetworkStats GetNetworkStats() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    </div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="comment">// Called every frame</span></div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keywordtype">void</span> MatchInit();</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    <span class="keywordtype">void</span> RoundInit();</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    </div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordtype">void</span> UpdateGameState();</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    <span class="keywordtype">void</span> UpdateGameState(int32 Input1, int32 Input2, <span class="keywordtype">bool</span> bShouldResimulate);</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ad9e7d7dabfe2465be4c8ad361bc83ecf">  322</a></span>    class <a class="code hl_class" href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a>* GameInstance = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    UPROPERTY()</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4b951c7c6172d94166fcd9d8e047e66d">  325</a></span>    class <a class="code hl_class" href="class_a_particle_manager.html">AParticleManager</a>* ParticleManager = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    UPROPERTY()</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#abdbf271239b53a4b3fa2c5a8a0f3e965">  327</a></span>    <a class="code hl_class" href="class_a_audio_manager.html">AAudioManager</a>* AudioManager = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae0a348ef2adc96a6754f32ac48be1c62">  330</a></span>    class ALevelSequenceActor* SequenceActor = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1e3d04923638eef0e6b3f877e48ed478">  332</a></span>    ACameraActor* CameraActor = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4789ea3d1b4c192e90263711dd119f68">  334</a></span>    ACameraActor* SequenceCameraActor = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    UPROPERTY(EditDefaultsOnly, Category=Defaults)</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a8e82208933b7fe3bee935160821e63a9">  336</a></span>    TSubclassOf&lt;ACameraActor&gt; SequenceCameraActorClass;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#adf1104a680ac0db0515ac4edd758f5d0">  338</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SequenceTarget = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a0ab498d17c8b73cd98479814643342aa">  340</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SequenceEnemy = <span class="keywordtype">nullptr</span>;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    UPROPERTY(BlueprintGetter=GetPaused, BlueprintSetter=SetPaused)</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ad66d0d0039f0c7c20947d058ddc17d9f">  342</a></span>    <span class="keywordtype">bool</span> bPauseGame = false;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Debug)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a80288ec5e5294572daab40c7e4786ea0">  344</a></span>    <span class="keywordtype">bool</span> bViewCollision = false;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    UPROPERTY(BlueprintReadOnly)</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#adfabb2278d28ea80e4aca9625eba7173">  347</a></span>    <span class="keywordtype">bool</span> bIsPlayingSequence = false;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    UPROPERTY()</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a23c398c92de2aee7e4184ba243f9288c">  350</a></span>    class <a class="code hl_class" href="class_a_fighter_local_runner.html">AFighterLocalRunner</a>* FighterRunner = <span class="keywordtype">nullptr</span>;;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    UPROPERTY(BlueprintReadWrite)</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a4734cceabdd728a987f5c460058bf515">  352</a></span>    <a class="code hl_class" href="class_a_night_sky_battle_hud_actor.html">ANightSkyBattleHudActor</a>* BattleHudActor = <span class="keywordtype">nullptr</span>;;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ae9a25298800a2cf39df994407402f8e1">  354</a></span>    int32 LocalFrame = 0;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a1872b0356bf03b3bcc7944e5842c903c">  355</a></span>    int32 RemoteFrame = 0;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>private:</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    int32 LocalInputs[2] = {};</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    int32 Checksum = 0;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    int32 OtherChecksum = 0;</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    int32 OtherChecksumFrame = 0;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    int32 PrevOtherChecksumFrame = 0;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a> NetworkStats = <a class="code hl_struct" href="struct_f_network_stats.html">FNetworkStats</a>();</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keywordtype">bool</span> bIsResimulating = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="comment">// Called when the game starts or when spawned</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> BeginPlay() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> EndPlay(<span class="keyword">const</span> EEndPlayReason::Type EndPlayReason) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">void</span> Init();</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keywordtype">void</span> PlayIntros();</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">void</span> UpdateLocalInput(); <span class="comment">//updates local input</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="keywordtype">void</span> SortObjects();</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordtype">void</span> HandlePushCollision() <span class="keyword">const</span>; <span class="comment">//for each active object, handle push collision</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keywordtype">void</span> HandleHitCollision() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    <span class="keywordtype">void</span> UpdateVisuals(<span class="keywordtype">bool</span> bShouldResimulate) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keywordtype">void</span> HandleRoundWin();</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keywordtype">void</span> NextRoundTransition(<span class="keywordtype">bool</span> bIsP1);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordtype">bool</span> HandleMatchWin();</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keywordtype">void</span> CollisionView() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    int32 CreateChecksum();</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>    FGGPONetworkStats GetNetworkStats() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keywordtype">void</span> ResetTraining();</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    </div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="comment">// Called every frame</span></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> Tick(<span class="keywordtype">float</span> DeltaTime) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <span class="keywordtype">void</span> SetScreenCorners();</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordtype">void</span> UpdateScreen();</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="keywordtype">void</span> SetScreenBounds() <span class="keyword">const</span>; <span class="comment">//forces wall collision</span></div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordtype">void</span> StartSuperFreeze(int32 Duration, int32 SelfDuration, <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* CallingObject);</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordtype">void</span> ScreenPosToWorldPos(int32 X, int32 Y, int32* OutX, int32* OutY) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* AddBattleObject(<span class="keyword">const</span> <a class="code hl_class" href="class_u_state.html">UState</a>* InState, <span class="keywordtype">int</span> PosX, <span class="keywordtype">int</span> PosY, <a class="code hl_enumeration" href="_battle_object_8h.html#ac2024704c4f7ef8fd40b147bf7f93880">EObjDir</a> Dir, int32 ObjectStateIndex, <span class="keywordtype">bool</span> bIsCommonState, <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Parent) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordtype">void</span> SetDrawPriorityFront(<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* InObject) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SwitchMainPlayer(<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* InPlayer, <span class="keywordtype">int</span> TeamIndex);</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* CallAssist(<span class="keyword">const</span> <span class="keywordtype">bool</span> IsP1, <span class="keywordtype">int</span> AssistIndex, <span class="keyword">const</span> FGameplayTag AssistName);</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordtype">bool</span> CanTag(<span class="keyword">const</span> <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* InPlayer, <span class="keywordtype">int</span> TeamIndex) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    <span class="keywordtype">void</span> SaveGameState(<a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a>&amp; RollbackData, int32* InChecksum); <span class="comment">//saves game state</span></div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordtype">void</span> LoadGameState(<a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a>&amp; RollbackData); <span class="comment">//loads game state</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    </div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    TArray&lt;uint8&gt; SaveForRollback();</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordtype">void</span> LoadForRollback(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; InBytes);</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keywordtype">void</span> EndMatch();</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keywordtype">void</span> UpdateCamera();</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keywordtype">void</span> PlayLevelSequence(<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Target, <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Enemy, ULevelSequence* Sequence);</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keywordtype">void</span> CameraShake(<span class="keyword">const</span> TSubclassOf&lt;UCameraShakeBase&gt;&amp; Pattern, <span class="keywordtype">float</span> Scale) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordtype">void</span> HUDInit() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordtype">void</span> UpdateHUD();</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    <span class="keywordtype">void</span> BattleHudVisibility(<span class="keywordtype">bool</span> Visible);</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    </div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keywordtype">void</span> PlayCommonAudio(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    <span class="keywordtype">void</span> PlayCharaAudio(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keywordtype">void</span> PlayVoiceLine(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration, <span class="keywordtype">int</span> Player);</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    <span class="keywordtype">void</span> PlayAnnouncerVoice(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keywordtype">void</span> PlayMusic(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    <span class="keywordtype">void</span> ManageAudio();</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <span class="keywordtype">void</span> RollbackStartAudio(int32 InFrame);</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordtype">void</span> MatchInit();</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="keywordtype">void</span> RoundInit();</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordtype">void</span> AssignEnemy();</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordtype">void</span> UpdateGameState();</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    <span class="keywordtype">void</span> UpdateGameState(int32 Input1, int32 Input2, <span class="keywordtype">bool</span> bShouldResimulate);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordtype">void</span> SetScreenCorners();</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordtype">void</span> UpdateScreen();</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    <span class="keywordtype">void</span> SetScreenBounds() <span class="keyword">const</span>; <span class="comment">//forces wall collision</span></div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordtype">void</span> StartSuperFreeze(int32 Duration, int32 SelfDuration, <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* CallingObject);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keywordtype">void</span> ScreenPosToWorldPos(int32 X, int32 Y, int32&amp; OutX, int32&amp; OutY) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* AddBattleObject(<span class="keyword">const</span> <a class="code hl_class" href="class_u_state.html">UState</a>* InState, <span class="keywordtype">int</span> PosX, <span class="keywordtype">int</span> PosY, <a class="code hl_enumeration" href="_battle_object_8h.html#ac2024704c4f7ef8fd40b147bf7f93880">EObjDir</a> Dir, int32 ObjectStateIndex, <span class="keywordtype">bool</span> bIsCommonState, <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Parent) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    <span class="keywordtype">void</span> SetDrawPriorityFront(<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* InObject) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keywordtype">void</span> SetDrawPriorityBack(<a class="code hl_class" href="class_a_battle_object.html">ABattleObject</a>* InObject) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* SwitchMainPlayer(<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* InPlayer, <span class="keywordtype">int</span> TeamIndex, <span class="keywordtype">bool</span> bForce = <span class="keyword">false</span>, <span class="keywordtype">bool</span> bEvenOnScreen = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* CallAssist(<span class="keyword">const</span> <span class="keywordtype">bool</span> IsP1, <span class="keywordtype">int</span> AssistIndex, <span class="keyword">const</span> FGameplayTag AssistName);</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>    <span class="keywordtype">void</span> SetTeamCooldown(<span class="keyword">const</span> <span class="keywordtype">bool</span> IsP1, <span class="keyword">const</span> <span class="keywordtype">int</span> TeamIndex, <span class="keyword">const</span> <span class="keywordtype">int</span> Cooldown);</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keywordtype">bool</span> CanTag(<span class="keyword">const</span> <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* InPlayer, <span class="keywordtype">int</span> TeamIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordtype">void</span> SaveGameState(<a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a>&amp; RollbackData, int32* InChecksum); <span class="comment">//saves game state</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordtype">void</span> LoadGameState(<a class="code hl_struct" href="struct_f_rollback_data.html">FRollbackData</a>&amp; RollbackData); <span class="comment">//loads game state</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    TArray&lt;uint8&gt; SaveForRollback();</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <span class="keywordtype">void</span> LoadForRollback(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; InBytes);</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    <span class="keywordtype">void</span> EndMatch();</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    <span class="keywordtype">void</span> UpdateCamera();</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    <span class="keywordtype">void</span> PlayLevelSequence(<a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Target, <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Enemy, ULevelSequence* Sequence);</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    <span class="keywordtype">void</span> StopLevelSequence();</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <span class="keywordtype">void</span> CameraShake(<span class="keyword">const</span> TSubclassOf&lt;UCameraShakeBase&gt;&amp; Pattern, <span class="keywordtype">float</span> Scale) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keywordtype">int</span> GetLocalInputs(<span class="keywordtype">int</span> Index) <span class="keyword">const</span>; <span class="comment">//get local inputs from player controller</span></div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    <span class="keywordtype">void</span> SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="keywordtype">void</span> PlayAnnouncerVoice(<span class="keyword">const</span> FGameplayTag Name);</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    <span class="keywordtype">void</span> PlayMusic(<span class="keyword">const</span> FGameplayTag Name);</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    TArray&lt;APlayerObject*&gt; GetTeam(<span class="keywordtype">bool</span> IsP1) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* GetMainPlayer(<span class="keywordtype">bool</span> IsP1) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <span class="keywordtype">void</span> CallBattleExtension(FGameplayTag Name);</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    UFUNCTION(BlueprintPure)</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    int32 GetGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <span class="keywordtype">void</span> SetGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex, int32 Value);</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    UFUNCTION(BlueprintCallable)</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="keywordtype">void</span> UseGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex, int32 Value);</div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    UFUNCTION(BlueprintPure)</div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    <span class="keywordtype">bool</span> IsTagBattle() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    UFUNCTION(BlueprintPure)</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    int32 GetTeamCount(<span class="keywordtype">bool</span> bIsP1) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    </div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    UFUNCTION(BlueprintImplementableEvent)</div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a8236e0446711d7d818f2ec7acf232aec">  449</a></span>    void EndMatch_BP();</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    UFUNCTION(BlueprintImplementableEvent)</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a5e064325b6d435f125534bffe7ea66f5">  451</a></span>    <span class="keywordtype">void</span> UpdateHUD_BP();</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    UFUNCTION(BlueprintImplementableEvent)</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ab8336aa4e5bae1388fa95f31e5d28fdf">  453</a></span>    <span class="keywordtype">void</span> UpdateHUDAnimations_BP();</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>};</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keywordtype">void</span> HUDInit() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    <span class="keywordtype">void</span> UpdateHUD();</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keywordtype">void</span> BattleHudVisibility(<span class="keywordtype">bool</span> Visible);</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="keywordtype">void</span> PlayCommonAudio(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keywordtype">void</span> PlayCharaAudio(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    <span class="keywordtype">void</span> PlayVoiceLine(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration, <span class="keywordtype">int</span> Player);</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    <span class="keywordtype">void</span> PlayAnnouncerVoice(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    <span class="keywordtype">void</span> PlayMusic(USoundBase* InSoundWave, <span class="keywordtype">float</span> MaxDuration);</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="keywordtype">void</span> ManageAudio();</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <span class="keywordtype">void</span> RollbackStartAudio(int32 InFrame);</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    <span class="keywordtype">int</span> GetLocalInputs(<span class="keywordtype">int</span> Index) <span class="keyword">const</span>; <span class="comment">//get local inputs from player controller</span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <span class="keywordtype">void</span> SetOtherChecksum(uint32 RemoteChecksum, int32 InFrame);</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    <span class="keywordtype">void</span> PlayAnnouncerVoice(<span class="keyword">const</span> FGameplayTag Name);</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    <span class="keywordtype">void</span> PlayMusic(<span class="keyword">const</span> FGameplayTag Name);</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    TArray&lt;APlayerObject*&gt; GetTeam(<span class="keywordtype">bool</span> IsP1) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* GetMainPlayer(<span class="keywordtype">bool</span> IsP1) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    <span class="keywordtype">void</span> CallBattleExtension(FGameplayTag Name);</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    UFUNCTION(BlueprintPure)</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    int32 GetGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keywordtype">void</span> SetGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex, int32 Value);</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    <span class="keywordtype">void</span> UseGauge(<span class="keywordtype">bool</span> IsP1, int32 GaugeIndex, int32 Value);</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    UFUNCTION(BlueprintPure)</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    <a class="code hl_enumeration" href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a> GetScreenFlags() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keywordtype">void</span> SetScreenFlags(UPARAM(meta = (Bitmask, BitmaskEnum = <span class="stringliteral">&quot;/Script/NightSkyEngine.EScreenFlag&quot;</span>)) int32 InFlags);</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    UFUNCTION(BlueprintPure)</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>    <span class="keywordtype">bool</span> IsTagBattle() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    UFUNCTION(BlueprintPure)</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    int32 GetTeamCount(<span class="keywordtype">bool</span> bIsP1) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>    </div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>    UFUNCTION(BlueprintPure)</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    <span class="keywordtype">bool</span> GetPaused() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>    UFUNCTION(BlueprintCallable)</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>    <span class="keywordtype">void</span> SetPaused(<span class="keywordtype">bool</span> bPause);</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>    </div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>    UFUNCTION(BlueprintImplementableEvent)</div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a8236e0446711d7d818f2ec7acf232aec">  470</a></span>    void EndMatch_BP();</div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    UFUNCTION(BlueprintImplementableEvent)</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#a5e064325b6d435f125534bffe7ea66f5">  472</a></span>    <span class="keywordtype">void</span> UpdateHUD_BP();</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>    UFUNCTION(BlueprintImplementableEvent)</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno"><a class="line" href="class_a_night_sky_game_state.html#ab8336aa4e5bae1388fa95f31e5d28fdf">  474</a></span>    <span class="keywordtype">void</span> UpdateHUDAnimations_BP();</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>};</div>
 </div>
 <div class="ttc" id="a_audio_manager_8h_html"><div class="ttname"><a href="_audio_manager_8h.html">AudioManager.h</a></div></div>
 <div class="ttc" id="a_audio_manager_8h_html_a029efcc4b42f4504f5af70af9003d48f"><div class="ttname"><a href="_audio_manager_8h.html#a029efcc4b42f4504f5af70af9003d48f">CommonAudioChannelCount</a></div><div class="ttdeci">constexpr int CommonAudioChannelCount</div><div class="ttdef"><b>Definition</b> <a href="_audio_manager_8h_source.html#l00009">AudioManager.h:9</a></div></div>
 <div class="ttc" id="a_audio_manager_8h_html_a10176784bf375721b23864f1e1ee17cd"><div class="ttname"><a href="_audio_manager_8h.html#a10176784bf375721b23864f1e1ee17cd">CharaVoiceChannelCount</a></div><div class="ttdeci">constexpr int CharaVoiceChannelCount</div><div class="ttdef"><b>Definition</b> <a href="_audio_manager_8h_source.html#l00011">AudioManager.h:11</a></div></div>
 <div class="ttc" id="a_audio_manager_8h_html_aae2d47b736780b4fe3dc6aea35d56fd3"><div class="ttname"><a href="_audio_manager_8h.html#aae2d47b736780b4fe3dc6aea35d56fd3">CharaAudioChannelCount</a></div><div class="ttdeci">constexpr int CharaAudioChannelCount</div><div class="ttdef"><b>Definition</b> <a href="_audio_manager_8h_source.html#l00010">AudioManager.h:10</a></div></div>
-<div class="ttc" id="a_battle_object_8h_html_ac2024704c4f7ef8fd40b147bf7f93880"><div class="ttname"><a href="_battle_object_8h.html#ac2024704c4f7ef8fd40b147bf7f93880">EObjDir</a></div><div class="ttdeci">EObjDir</div><div class="ttdef"><b>Definition</b> <a href="_battle_object_8h_source.html#l00469">BattleObject.h:470</a></div></div>
+<div class="ttc" id="a_battle_object_8h_html_ac2024704c4f7ef8fd40b147bf7f93880"><div class="ttname"><a href="_battle_object_8h.html#ac2024704c4f7ef8fd40b147bf7f93880">EObjDir</a></div><div class="ttdeci">EObjDir</div><div class="ttdef"><b>Definition</b> <a href="_battle_object_8h_source.html#l00487">BattleObject.h:488</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_a84395947a6112c12a96cc749ec3d9a88"><div class="ttname"><a href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88">EScreenFlag</a></div><div class="ttdeci">EScreenFlag</div><div class="ttdef"><b>Definition</b> <a href="#l00082">NightSkyGameState.h:83</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_a84395947a6112c12a96cc749ec3d9a88a3ea22ac920ae36aee9dd0d457a445c81"><div class="ttname"><a href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88a3ea22ac920ae36aee9dd0d457a445c81">SCR_LockWidth</a></div><div class="ttdeci">@ SCR_LockWidth</div><div class="ttdef"><b>Definition</b> <a href="#l00088">NightSkyGameState.h:88</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_a84395947a6112c12a96cc749ec3d9a88a3fe256d59010fe6325a005a2c78cd237"><div class="ttname"><a href="_night_sky_game_state_8h.html#a84395947a6112c12a96cc749ec3d9a88a3fe256d59010fe6325a005a2c78cd237">SCR_Lock</a></div><div class="ttdeci">@ SCR_Lock</div><div class="ttdef"><b>Definition</b> <a href="#l00085">NightSkyGameState.h:85</a></div></div>
@@ -610,7 +631,8 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="ttc" id="a_night_sky_game_state_8h_html_ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268"><div class="ttname"><a href="_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268">WIN_None</a></div><div class="ttdeci">@ WIN_None</div><div class="ttdef"><b>Definition</b> <a href="#l00040">NightSkyGameState.h:40</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b"><div class="ttname"><a href="_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b">WIN_P2</a></div><div class="ttdeci">@ WIN_P2</div><div class="ttdef"><b>Definition</b> <a href="#l00042">NightSkyGameState.h:42</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77"><div class="ttname"><a href="_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77">WIN_Draw</a></div><div class="ttdeci">@ WIN_Draw</div><div class="ttdef"><b>Definition</b> <a href="#l00043">NightSkyGameState.h:43</a></div></div>
-<div class="ttc" id="a_night_sky_game_state_8h_html_ac8f8e47a4c480869ff6200cb1c7e2947"><div class="ttname"><a href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">SizeOfBattleState</a></div><div class="ttdeci">constexpr size_t SizeOfBattleState</div><div class="ttdef"><b>Definition</b> <a href="#l00248">NightSkyGameState.h:248</a></div></div>
+<div class="ttc" id="a_night_sky_game_state_8h_html_ac8f8e47a4c480869ff6200cb1c7e2947"><div class="ttname"><a href="_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947">SizeOfBattleState</a></div><div class="ttdeci">constexpr size_t SizeOfBattleState</div><div class="ttdef"><b>Definition</b> <a href="#l00251">NightSkyGameState.h:251</a></div></div>
+<div class="ttc" id="a_night_sky_game_state_8h_html_ad2dfdef42c1b2133167c2e3cdbcf5f10"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad2dfdef42c1b2133167c2e3cdbcf5f10">ENUM_CLASS_FLAGS</a></div><div class="ttdeci">ENUM_CLASS_FLAGS(EScreenFlag)</div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ad3408242a06b2de3e319ee71edf93caa"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caa">EBattleFormat</a></div><div class="ttdeci">EBattleFormat</div><div class="ttdef"><b>Definition</b> <a href="#l00023">NightSkyGameState.h:24</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ad3408242a06b2de3e319ee71edf93caaa17ef485c0f51fbd603af91c91f7f5ec0"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa17ef485c0f51fbd603af91c91f7f5ec0">EBattleFormat::KOF</a></div><div class="ttdeci">@ KOF</div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ad3408242a06b2de3e319ee71edf93caaa28d89eee8752bd81e3e355c469a6e67a"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad3408242a06b2de3e319ee71edf93caaa28d89eee8752bd81e3e355c469a6e67a">EBattleFormat::Rounds</a></div><div class="ttdeci">@ Rounds</div></div>
@@ -626,22 +648,22 @@ $(function(){initNavTree('_night_sky_game_state_8h_source.html',''); initResizab
 <div class="ttc" id="a_player_object_8h_html"><div class="ttname"><a href="_player_object_8h.html">PlayerObject.h</a></div></div>
 <div class="ttc" id="a_random_manager_8h_html"><div class="ttname"><a href="_random_manager_8h.html">RandomManager.h</a></div></div>
 <div class="ttc" id="aclass_a_audio_manager_html"><div class="ttname"><a href="class_a_audio_manager.html">AAudioManager</a></div><div class="ttdef"><b>Definition</b> <a href="_audio_manager_8h_source.html#l00014">AudioManager.h:15</a></div></div>
-<div class="ttc" id="aclass_a_battle_object_html"><div class="ttname"><a href="class_a_battle_object.html">ABattleObject</a></div><div class="ttdef"><b>Definition</b> <a href="_battle_object_8h_source.html#l00920">BattleObject.h:921</a></div></div>
+<div class="ttc" id="aclass_a_battle_object_html"><div class="ttname"><a href="class_a_battle_object.html">ABattleObject</a></div><div class="ttdef"><b>Definition</b> <a href="_battle_object_8h_source.html#l00957">BattleObject.h:958</a></div></div>
 <div class="ttc" id="aclass_a_fighter_local_runner_html"><div class="ttname"><a href="class_a_fighter_local_runner.html">AFighterLocalRunner</a></div><div class="ttdef"><b>Definition</b> <a href="_fighter_local_runner_8h_source.html#l00010">FighterLocalRunner.h:11</a></div></div>
 <div class="ttc" id="aclass_a_night_sky_battle_hud_actor_html"><div class="ttname"><a href="class_a_night_sky_battle_hud_actor.html">ANightSkyBattleHudActor</a></div><div class="ttdef"><b>Definition</b> <a href="_night_sky_battle_hud_actor_8h_source.html#l00012">NightSkyBattleHudActor.h:13</a></div></div>
-<div class="ttc" id="aclass_a_night_sky_game_state_html"><div class="ttname"><a href="class_a_night_sky_game_state.html">ANightSkyGameState</a></div><div class="ttdef"><b>Definition</b> <a href="#l00286">NightSkyGameState.h:287</a></div></div>
+<div class="ttc" id="aclass_a_night_sky_game_state_html"><div class="ttname"><a href="class_a_night_sky_game_state.html">ANightSkyGameState</a></div><div class="ttdef"><b>Definition</b> <a href="#l00289">NightSkyGameState.h:290</a></div></div>
 <div class="ttc" id="aclass_a_particle_manager_html"><div class="ttname"><a href="class_a_particle_manager.html">AParticleManager</a></div><div class="ttdef"><b>Definition</b> <a href="_particle_manager_8h_source.html#l00033">ParticleManager.h:34</a></div></div>
-<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00318">PlayerObject.h:319</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00328">PlayerObject.h:329</a></div></div>
 <div class="ttc" id="aclass_u_battle_extension_data_html"><div class="ttname"><a href="class_u_battle_extension_data.html">UBattleExtensionData</a></div><div class="ttdef"><b>Definition</b> <a href="_battle_extension_data_8h_source.html#l00018">BattleExtensionData.h:19</a></div></div>
 <div class="ttc" id="aclass_u_battle_extension_html"><div class="ttname"><a href="class_u_battle_extension.html">UBattleExtension</a></div><div class="ttdoc">A customizable extension to the battle ruleset.</div><div class="ttdef"><b>Definition</b> <a href="_battle_extension_8h_source.html#l00016">BattleExtension.h:17</a></div></div>
 <div class="ttc" id="aclass_u_night_sky_game_instance_html"><div class="ttname"><a href="class_u_night_sky_game_instance.html">UNightSkyGameInstance</a></div><div class="ttdef"><b>Definition</b> <a href="_night_sky_game_instance_8h_source.html#l00055">NightSkyGameInstance.h:56</a></div></div>
-<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00340">State.h:341</a></div></div>
+<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00332">State.h:333</a></div></div>
 <div class="ttc" id="astruct_f_audio_channel_html"><div class="ttname"><a href="struct_f_audio_channel.html">FAudioChannel</a></div><div class="ttdef"><b>Definition</b> <a href="#l00058">NightSkyGameState.h:59</a></div></div>
 <div class="ttc" id="astruct_f_battle_state_html"><div class="ttname"><a href="struct_f_battle_state.html">FBattleState</a></div><div class="ttdef"><b>Definition</b> <a href="#l00163">NightSkyGameState.h:164</a></div></div>
-<div class="ttc" id="astruct_f_network_stats_html"><div class="ttname"><a href="struct_f_network_stats.html">FNetworkStats</a></div><div class="ttdef"><b>Definition</b> <a href="#l00273">NightSkyGameState.h:274</a></div></div>
+<div class="ttc" id="astruct_f_network_stats_html"><div class="ttname"><a href="struct_f_network_stats.html">FNetworkStats</a></div><div class="ttdef"><b>Definition</b> <a href="#l00276">NightSkyGameState.h:277</a></div></div>
 <div class="ttc" id="astruct_f_random_manager_html"><div class="ttname"><a href="struct_f_random_manager.html">FRandomManager</a></div><div class="ttdef"><b>Definition</b> <a href="_random_manager_8h_source.html#l00006">RandomManager.h:7</a></div></div>
-<div class="ttc" id="astruct_f_rollback_data_html"><div class="ttname"><a href="struct_f_rollback_data.html">FRollbackData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00252">NightSkyGameState.h:253</a></div></div>
-<div class="ttc" id="astruct_f_screen_data_html"><div class="ttname"><a href="struct_f_screen_data.html">FScreenData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00093">NightSkyGameState.h:94</a></div></div>
+<div class="ttc" id="astruct_f_rollback_data_html"><div class="ttname"><a href="struct_f_rollback_data.html">FRollbackData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00255">NightSkyGameState.h:256</a></div></div>
+<div class="ttc" id="astruct_f_screen_data_html"><div class="ttname"><a href="struct_f_screen_data.html">FScreenData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00095">NightSkyGameState.h:96</a></div></div>
 <div class="ttc" id="astruct_f_team_data_html"><div class="ttname"><a href="struct_f_team_data.html">FTeamData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00070">NightSkyGameState.h:71</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

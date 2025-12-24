@@ -1,7 +1,7 @@
 var searchData=
 [
   ['line_5fbox_5fintersection_0',['line_box_intersection',['../_battle_object_8cpp.html#a07e8577aa17b90f28cbac3cb73a3dc5f',1,'BattleObject.cpp']]],
-  ['linkactor_1',['LinkActor',['../class_a_battle_object.html#a411cd4d78b86dde7a2d4ff78b0b74340',1,'ABattleObject']]],
+  ['linkactor_1',['LinkActor',['../class_a_battle_object.html#a9ad08ea8572511e3c28b21f6bdb410de',1,'ABattleObject']]],
   ['linkcharaparticle_2',['LinkCharaParticle',['../class_a_battle_object.html#a3cfe182ffe0794fd20096ef06ccc75c0',1,'ABattleObject']]],
   ['linkcommonparticle_3',['LinkCommonParticle',['../class_a_battle_object.html#a91b8e2c8f7c26469517b45a1e181b5c7',1,'ABattleObject']]],
   ['loaddata_4',['LoadData',['../class_u_night_sky_save_info.html#aa1678379da4afe5923c82f859ca62b03',1,'UNightSkySaveInfo']]],
@@ -12,5 +12,6 @@ var searchData=
   ['loadgamestatecallback_9',['LoadGameStateCallback',['../class_a_fighter_multiplayer_runner.html#a3e808c7a3b14deb5a69c919b317f42f5',1,'AFighterMultiplayerRunner']]],
   ['loadreplay_10',['LoadReplay',['../class_u_night_sky_game_instance.html#a0f4550072b3bc39af4397cfd9690558b',1,'UNightSkyGameInstance']]],
   ['logforsynctestfile_11',['LogForSyncTestFile',['../struct_f_battle_object_log.html#a6d0f429ec5f5fcd2badefa421563626c',1,'FBattleObjectLog::LogForSyncTestFile()'],['../struct_f_player_object_log.html#a2fcf39d6666a3b627a3dba5a958681f9',1,'FPlayerObjectLog::LogForSyncTestFile()']]],
-  ['loggamestate_12',['LogGameState',['../class_a_fighter_multiplayer_runner.html#adf783d8d33366d8d6995753be87e97bc',1,'AFighterMultiplayerRunner']]]
+  ['loggamestate_12',['LogGameState',['../class_a_fighter_multiplayer_runner.html#adf783d8d33366d8d6995753be87e97bc',1,'AFighterMultiplayerRunner']]],
+  ['login_13',['Login',['../class_u_n_s_e_session_subsystem.html#abe40107709abd06b7ede26988424e525',1,'UNSESessionSubsystem']]]
 ];

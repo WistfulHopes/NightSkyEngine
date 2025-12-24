@@ -16,8 +16,11 @@ var _player_object_8h =
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#aa5f73853785ba7a56c5c8d78dec8e46e", null ],
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#abc3d4124b653c7728fdb9c65f90871e4", null ],
     [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a8b7036319c2e01940d1bc0a914c9a352", null ],
-    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#aa58121ed3bb5911d031e4cd04f20c347", null ],
-    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a422d04658982830d629235748fcc4adf", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a09a9cace2ea5f103927e1e2bc36329eb", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#aabd16a866ac1ec5159c2892d443ce529", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a027d3bd51175b44d7f1df9817b73e8c7", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a6b0003f0f6b063c54d988ab2e4cd71d3", null ],
+    [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "_player_object_8h.html#a148ad4e7c664c74789f8e3c2576e788b", null ],
     [ "MaxComponentCount", "_player_object_8h.html#a865674df950d2b3ffc8c2a50f6c523bb", null ],
     [ "SizeOfPlayerObject", "_player_object_8h.html#aca51ec07a6a9c2fdee69a530046e677a", null ]
 ];

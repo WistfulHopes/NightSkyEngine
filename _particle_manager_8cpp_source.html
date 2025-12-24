@@ -117,22 +117,22 @@ $(function(){initNavTree('_particle_manager_8cpp_source.html',''); initResizable
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;NiagaraComponent.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_night_sky_game_state_8h.html">NightSkyEngine/Battle/NightSkyGameState.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// Sets default values</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">   10</a></span><a class="code hl_function" href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">AParticleManager::AParticleManager</a>()</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don&#39;t need it.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    PrimaryActorTick.bCanEverTick = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include UE_INLINE_GENERATED_CPP_BY_NAME(ParticleManager)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// Sets default values</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">   11</a></span><a class="code hl_function" href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">AParticleManager::AParticleManager</a>()</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="comment">// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don&#39;t need it.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    PrimaryActorTick.bCanEverTick = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Called when the game starts or when spawned</span></div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">   17</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">AParticleManager::BeginPlay</a>()</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Super::BeginPlay();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// Called when the game starts or when spawned</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">AParticleManager::BeginPlay</a>()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Super::BeginPlay();</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
@@ -147,71 +147,73 @@ $(function(){initNavTree('_particle_manager_8cpp_source.html',''); initResizable
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#ac2204ac9f94d3ad30a4cc48a9b7950fb">   29</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#ac2204ac9f94d3ad30a4cc48a9b7950fb">AParticleManager::UpdateParticles</a>()</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    TArray&lt;int&gt; IndicesToDelete;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> [NiagaraComponent, ParticleOwner] : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">if</span> (!IsValid(NiagaraComponent))</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            IndicesToDelete.Add(i);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordflow">if</span> (IsValid(ParticleOwner) &amp;&amp; ParticleOwner-&gt;IsStopped())</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        NiagaraComponent-&gt;SetPaused(<span class="keyword">false</span>);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        NiagaraComponent-&gt;AdvanceSimulation(1, <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        NiagaraComponent-&gt;SetDesiredAge(NiagaraComponent-&gt;GetDesiredAge() + <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">if</span> (NiagaraComponent-&gt;IsComplete())</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            NiagaraComponent-&gt;Deactivate();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        i++;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">int</span> Index : IndicesToDelete)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>.RemoveAt(Index);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>.RemoveAll([=](<span class="keyword">const</span> <a class="code hl_struct" href="struct_f_battle_particle.html">FBattleParticle</a>&amp; Particle)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">return</span> !IsValid(Particle.<a class="code hl_variable" href="struct_f_battle_particle.html#a0a229cd797bfe6e8a4587f6862fb5e0e">NiagaraComponent</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    });</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> [NiagaraComponent, ParticleOwner] : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> (IsValid(ParticleOwner) &amp;&amp; ParticleOwner-&gt;IsStopped())</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            NiagaraComponent-&gt;SetPaused(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            NiagaraComponent-&gt;AdvanceSimulation(1, <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a> / 1000);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            NiagaraComponent-&gt;SetDesiredAge(NiagaraComponent-&gt;GetDesiredAge());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">if</span> (NiagaraComponent-&gt;IsComplete())</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                NiagaraComponent-&gt;Deactivate();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        NiagaraComponent-&gt;SetPaused(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        NiagaraComponent-&gt;AdvanceSimulation(1, <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        NiagaraComponent-&gt;SetDesiredAge(NiagaraComponent-&gt;GetDesiredAge() + <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (NiagaraComponent-&gt;IsComplete())</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            NiagaraComponent-&gt;Deactivate();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">AParticleManager::PauseParticles</a>()</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> BattleParticle : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        BattleParticle.NiagaraComponent-&gt;SetPaused(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">AParticleManager::PauseParticles</a>()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>.RemoveAll([=](<span class="keyword">const</span> <a class="code hl_struct" href="struct_f_battle_particle.html">FBattleParticle</a>&amp; Particle)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> !IsValid(Particle.<a class="code hl_variable" href="struct_f_battle_particle.html#a0a229cd797bfe6e8a4587f6862fb5e0e">NiagaraComponent</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    });</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> BattleParticle : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        BattleParticle.NiagaraComponent-&gt;SetPaused(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">AParticleManager::RollbackParticles</a>(<span class="keywordtype">int</span> RollbackFrames)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> BattleParticle : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">const</span> <span class="keyword">auto</span> NiagaraComponent = BattleParticle.NiagaraComponent;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">const</span> int32 RollbackTime = NiagaraComponent-&gt;GetDesiredAge() * (1 / <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>) - RollbackFrames;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">if</span> (RollbackTime &lt; 0)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            NiagaraComponent-&gt;Deactivate();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        NiagaraComponent-&gt;ResetSystem();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        NiagaraComponent-&gt;AdvanceSimulation(RollbackTime, <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">AParticleManager::RollbackParticles</a>(<span class="keywordtype">int</span> RollbackFrames)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> BattleParticle : <a class="code hl_variable" href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">BattleParticles</a>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">const</span> <span class="keyword">auto</span> NiagaraComponent = BattleParticle.NiagaraComponent;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">const</span> int32 RollbackTime = NiagaraComponent-&gt;GetDesiredAge() * (1 / <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>) - RollbackFrames;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">if</span> (RollbackTime &lt; 0)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            NiagaraComponent-&gt;Deactivate();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        NiagaraComponent-&gt;ResetSystem();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        NiagaraComponent-&gt;AdvanceSimulation(RollbackTime, <a class="code hl_variable" href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="ttc" id="a_night_sky_game_state_8h_html"><div class="ttname"><a href="_night_sky_game_state_8h.html">NightSkyGameState.h</a></div></div>
 <div class="ttc" id="a_night_sky_game_state_8h_html_ad4375bf64cc11f276c27b9035ef9b04e"><div class="ttname"><a href="_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e">OneFrame</a></div><div class="ttdeci">constexpr float OneFrame</div><div class="ttdef"><b>Definition</b> <a href="_night_sky_game_state_8h_source.html#l00016">NightSkyGameState.h:16</a></div></div>
 <div class="ttc" id="a_particle_manager_8h_html"><div class="ttname"><a href="_particle_manager_8h.html">ParticleManager.h</a></div></div>
-<div class="ttc" id="aclass_a_particle_manager_html_a526f75e92423018f05019702353e39aa"><div class="ttname"><a href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">AParticleManager::AParticleManager</a></div><div class="ttdeci">AParticleManager()</div><div class="ttdef"><b>Definition</b> <a href="#l00010">ParticleManager.cpp:10</a></div></div>
-<div class="ttc" id="aclass_a_particle_manager_html_a78e742b4f49aa978f9bded1e04d1b4fb"><div class="ttname"><a href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">AParticleManager::RollbackParticles</a></div><div class="ttdeci">void RollbackParticles(int RollbackFrames)</div><div class="ttdef"><b>Definition</b> <a href="#l00065">ParticleManager.cpp:65</a></div></div>
-<div class="ttc" id="aclass_a_particle_manager_html_a7ea3673d859cb1bda295b0b7eed575a1"><div class="ttname"><a href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">AParticleManager::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Definition</b> <a href="#l00017">ParticleManager.cpp:17</a></div></div>
+<div class="ttc" id="aclass_a_particle_manager_html_a526f75e92423018f05019702353e39aa"><div class="ttname"><a href="class_a_particle_manager.html#a526f75e92423018f05019702353e39aa">AParticleManager::AParticleManager</a></div><div class="ttdeci">AParticleManager()</div><div class="ttdef"><b>Definition</b> <a href="#l00011">ParticleManager.cpp:11</a></div></div>
+<div class="ttc" id="aclass_a_particle_manager_html_a78e742b4f49aa978f9bded1e04d1b4fb"><div class="ttname"><a href="class_a_particle_manager.html#a78e742b4f49aa978f9bded1e04d1b4fb">AParticleManager::RollbackParticles</a></div><div class="ttdeci">void RollbackParticles(int RollbackFrames)</div><div class="ttdef"><b>Definition</b> <a href="#l00066">ParticleManager.cpp:66</a></div></div>
+<div class="ttc" id="aclass_a_particle_manager_html_a7ea3673d859cb1bda295b0b7eed575a1"><div class="ttname"><a href="class_a_particle_manager.html#a7ea3673d859cb1bda295b0b7eed575a1">AParticleManager::BeginPlay</a></div><div class="ttdeci">virtual void BeginPlay() override</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ParticleManager.cpp:18</a></div></div>
 <div class="ttc" id="aclass_a_particle_manager_html_a96d4c57b4ab9f989fce38d3fef0242a7"><div class="ttname"><a href="class_a_particle_manager.html#a96d4c57b4ab9f989fce38d3fef0242a7">AParticleManager::BattleParticles</a></div><div class="ttdeci">TArray&lt; FBattleParticle &gt; BattleParticles</div><div class="ttdef"><b>Definition</b> <a href="_particle_manager_8h_source.html#l00039">ParticleManager.h:39</a></div></div>
 <div class="ttc" id="aclass_a_particle_manager_html_ab48f726cf31bf31967ad70e7ebdf4354"><div class="ttname"><a href="class_a_particle_manager.html#ab48f726cf31bf31967ad70e7ebdf4354">AParticleManager::Tick</a></div><div class="ttdeci">virtual void Tick(float DeltaTime) override</div><div class="ttdef"><b>Definition</b> <a href="#l00024">ParticleManager.cpp:24</a></div></div>
-<div class="ttc" id="aclass_a_particle_manager_html_ac0848c210507727d5306c94ad1278d88"><div class="ttname"><a href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">AParticleManager::PauseParticles</a></div><div class="ttdeci">void PauseParticles()</div><div class="ttdef"><b>Definition</b> <a href="#l00057">ParticleManager.cpp:57</a></div></div>
+<div class="ttc" id="aclass_a_particle_manager_html_ac0848c210507727d5306c94ad1278d88"><div class="ttname"><a href="class_a_particle_manager.html#ac0848c210507727d5306c94ad1278d88">AParticleManager::PauseParticles</a></div><div class="ttdeci">void PauseParticles()</div><div class="ttdef"><b>Definition</b> <a href="#l00054">ParticleManager.cpp:54</a></div></div>
 <div class="ttc" id="aclass_a_particle_manager_html_ac2204ac9f94d3ad30a4cc48a9b7950fb"><div class="ttname"><a href="class_a_particle_manager.html#ac2204ac9f94d3ad30a4cc48a9b7950fb">AParticleManager::UpdateParticles</a></div><div class="ttdeci">void UpdateParticles()</div><div class="ttdef"><b>Definition</b> <a href="#l00029">ParticleManager.cpp:29</a></div></div>
+<div class="ttc" id="astruct_f_battle_particle_html"><div class="ttname"><a href="struct_f_battle_particle.html">FBattleParticle</a></div><div class="ttdef"><b>Definition</b> <a href="_particle_manager_8h_source.html#l00013">ParticleManager.h:14</a></div></div>
+<div class="ttc" id="astruct_f_battle_particle_html_a0a229cd797bfe6e8a4587f6862fb5e0e"><div class="ttname"><a href="struct_f_battle_particle.html#a0a229cd797bfe6e8a4587f6862fb5e0e">FBattleParticle::NiagaraComponent</a></div><div class="ttdeci">UNiagaraComponent * NiagaraComponent</div><div class="ttdef"><b>Definition</b> <a href="_particle_manager_8h_source.html#l00027">ParticleManager.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

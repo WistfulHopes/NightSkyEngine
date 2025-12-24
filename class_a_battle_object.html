@@ -135,6 +135,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acfd65bda721a6baf478add0f828aa1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea00be48374f553af44b15d7d25b5f5f" id="r_aea00be48374f553af44b15d7d25b5f5f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea00be48374f553af44b15d7d25b5f5f">Tick</a> (float DeltaTime) override</td></tr>
 <tr class="separator:aea00be48374f553af44b15d7d25b5f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dbff3db04f9b5d3bdda650b7f7704c1" id="r_a0dbff3db04f9b5d3bdda650b7f7704c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dbff3db04f9b5d3bdda650b7f7704c1">PositionLinkUpdate</a> ()</td></tr>
+<tr class="separator:a0dbff3db04f9b5d3bdda650b7f7704c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf435275252acfc85fcdee8e7ab16760" id="r_aaf435275252acfc85fcdee8e7ab16760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf435275252acfc85fcdee8e7ab16760">CalculatePushbox</a> ()</td></tr>
 <tr class="separator:aaf435275252acfc85fcdee8e7ab16760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f801a850a02a61e3175dd8935aa3e6f" id="r_a1f801a850a02a61e3175dd8935aa3e6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f801a850a02a61e3175dd8935aa3e6f">HandlePushCollision</a> (<a class="el" href="class_a_battle_object.html">ABattleObject</a> *OtherObj)</td></tr>
@@ -147,8 +149,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af1f837b45ca273976312dab4c0c0b2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa924749e006f37f9e4f4fabaf9c1b542" id="r_aa924749e006f37f9e4f4fabaf9c1b542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa924749e006f37f9e4f4fabaf9c1b542">HandleFlip</a> ()</td></tr>
 <tr class="separator:aa924749e006f37f9e4f4fabaf9c1b542"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4347cdbe657175ff201faf16f49649c6" id="r_a4347cdbe657175ff201faf16f49649c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4347cdbe657175ff201faf16f49649c6">PosTypeToPosition</a> (<a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Type, int32 *OutPosX, int32 *OutPosY) const</td></tr>
-<tr class="separator:a4347cdbe657175ff201faf16f49649c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00aa13b84bdeb54a21157fcb36abcb8a" id="r_a00aa13b84bdeb54a21157fcb36abcb8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00aa13b84bdeb54a21157fcb36abcb8a">TriggerEvent</a> (<a class="el" href="_battle_object_8h.html#abfcf510bafec7c6429906a6ecaac656d">EEventType</a> EventType, FGameplayTag StateMachineName)</td></tr>
 <tr class="separator:a00aa13b84bdeb54a21157fcb36abcb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a096cf2cf54c5416efcbf074af245847a" id="r_a096cf2cf54c5416efcbf074af245847a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a096cf2cf54c5416efcbf074af245847a">CollisionView</a> ()</td></tr>
@@ -163,6 +163,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4c19b7ba92a9f9c026eb3447bd26e516"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad334cd0ec70605e2ec55907789dacace" id="r_ad334cd0ec70605e2ec55907789dacace"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad334cd0ec70605e2ec55907789dacace">UpdateVisuals</a> ()</td></tr>
 <tr class="separator:ad334cd0ec70605e2ec55907789dacace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b59a2366837feeb12a8cee0b18e217d" id="r_a3b59a2366837feeb12a8cee0b18e217d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b59a2366837feeb12a8cee0b18e217d">UpdateVisualsNoRollback</a> ()</td></tr>
+<tr class="separator:a3b59a2366837feeb12a8cee0b18e217d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4ca19b25b353c97bdbc974cf0cd92c" id="r_abe4ca19b25b353c97bdbc974cf0cd92c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe4ca19b25b353c97bdbc974cf0cd92c">UpdateVisuals_BP</a> ()</td></tr>
+<tr class="separator:abe4ca19b25b353c97bdbc974cf0cd92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e1bc93c29df46c2789c9c04d5fb6384" id="r_a1e1bc93c29df46c2789c9c04d5fb6384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e1bc93c29df46c2789c9c04d5fb6384">GetBoxes</a> ()</td></tr>
 <tr class="separator:a1e1bc93c29df46c2789c9c04d5fb6384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c76cafaf183502a772cac4a2c0fd26" id="r_ae7c76cafaf183502a772cac4a2c0fd26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7c76cafaf183502a772cac4a2c0fd26">ResetObject</a> ()</td></tr>
@@ -211,10 +215,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35ef3402ed2e7af72306cbd786355c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8df56cd72e6e975491042ae6fa54e928" id="r_a8df56cd72e6e975491042ae6fa54e928"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8df56cd72e6e975491042ae6fa54e928">SetRoll</a> (int32 Roll_x1000)</td></tr>
 <tr class="separator:a8df56cd72e6e975491042ae6fa54e928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10f774a4f05a29eb80782ba4345e4004" id="r_a10f774a4f05a29eb80782ba4345e4004"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10f774a4f05a29eb80782ba4345e4004">CalculateSpeedAngle</a> () const</td></tr>
+<tr class="separator:a10f774a4f05a29eb80782ba4345e4004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b07ef4b3b8d61868286a26563d7ff09" id="r_a5b07ef4b3b8d61868286a26563d7ff09"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b07ef4b3b8d61868286a26563d7ff09">CalculateDistanceBetweenPoints</a> (<a class="el" href="_battle_object_8h.html#abd13d51eb89a564855252691bebca9bf">EDistanceType</a> Type, <a class="el" href="_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0e">EObjType</a> Obj1, <a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Pos1, <a class="el" href="_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0e">EObjType</a> Obj2, <a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Pos2)</td></tr>
 <tr class="separator:a5b07ef4b3b8d61868286a26563d7ff09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f8417edeba36fda94d4d2e2be45b06e" id="r_a9f8417edeba36fda94d4d2e2be45b06e"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f8417edeba36fda94d4d2e2be45b06e">CalculateAngleBetweenPoints</a> (<a class="el" href="_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0e">EObjType</a> Obj1, <a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Pos1, <a class="el" href="_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0e">EObjType</a> Obj2, <a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Pos2)</td></tr>
 <tr class="separator:a9f8417edeba36fda94d4d2e2be45b06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5398686d3b31ab3e5b0196a87a4f44b8" id="r_a5398686d3b31ab3e5b0196a87a4f44b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5398686d3b31ab3e5b0196a87a4f44b8">PosTypeToPosition</a> (<a class="el" href="_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10">EPosType</a> Type, int32 &amp;OutPosX, int32 &amp;OutPosY) const</td></tr>
+<tr class="separator:a5398686d3b31ab3e5b0196a87a4f44b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae76f9f5822b456a4da25375812329e" id="r_aaae76f9f5822b456a4da25375812329e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaae76f9f5822b456a4da25375812329e">ScreenPosToWorldPos</a> (const int32 X, const int32 Y, int32 &amp;OutX, int32 &amp;OutY) const</td></tr>
+<tr class="separator:aaae76f9f5822b456a4da25375812329e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e1c7afdd8f284c5ac16be085ca94d3b" id="r_a9e1c7afdd8f284c5ac16be085ca94d3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e1c7afdd8f284c5ac16be085ca94d3b">SetFacing</a> (<a class="el" href="_battle_object_8h.html#ac2024704c4f7ef8fd40b147bf7f93880">EObjDir</a> NewDir)</td></tr>
 <tr class="separator:a9e1c7afdd8f284c5ac16be085ca94d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf93ca308ab4af11720218424dae89be" id="r_aaf93ca308ab4af11720218424dae89be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf93ca308ab4af11720218424dae89be">FlipObject</a> ()</td></tr>
@@ -235,6 +245,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6cd050a6fdf06c58a7e856ec7170de17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab71131501e2b48a647d66906d249fdc8" id="r_ab71131501e2b48a647d66906d249fdc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab71131501e2b48a647d66906d249fdc8">SetIgnoreOTG</a> (bool Ignore)</td></tr>
 <tr class="separator:ab71131501e2b48a647d66906d249fdc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af32768b12c32848257aa6d491d7bf704" id="r_af32768b12c32848257aa6d491d7bf704"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af32768b12c32848257aa6d491d7bf704">SetHitOTG</a> (bool Enable)</td></tr>
+<tr class="separator:af32768b12c32848257aa6d491d7bf704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab094e854aaed559597d441eb1195c1d5" id="r_ab094e854aaed559597d441eb1195c1d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab094e854aaed559597d441eb1195c1d5">SetIgnorePushbackScaling</a> (bool Ignore)</td></tr>
 <tr class="separator:ab094e854aaed559597d441eb1195c1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af325bc157dfeb2223deea4549c7f6371" id="r_af325bc157dfeb2223deea4549c7f6371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af325bc157dfeb2223deea4549c7f6371">SetIgnoreHitstunScaling</a> (bool Ignore)</td></tr>
@@ -249,6 +261,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae282df52a669aee788096c087ff830c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd988e01fb955fd4d31407957b881aeb" id="r_abd988e01fb955fd4d31407957b881aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd988e01fb955fd4d31407957b881aeb">SetWallCollisionActive</a> (bool Active)</td></tr>
 <tr class="separator:abd988e01fb955fd4d31407957b881aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1ff93573facbb011ba27b656de814f8" id="r_ae1ff93573facbb011ba27b656de814f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1ff93573facbb011ba27b656de814f8">SetFloorCollisionActive</a> (bool Active)</td></tr>
+<tr class="separator:ae1ff93573facbb011ba27b656de814f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4359d0d41ca1d9ee9425e73029b5803e" id="r_a4359d0d41ca1d9ee9425e73029b5803e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4359d0d41ca1d9ee9425e73029b5803e">SetPushCollisionActive</a> (bool Active)</td></tr>
 <tr class="separator:a4359d0d41ca1d9ee9425e73029b5803e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a906e81299542d6076d6a5d6ef4b66e49" id="r_a906e81299542d6076d6a5d6ef4b66e49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a906e81299542d6076d6a5d6ef4b66e49">SetPushWidthExtend</a> (int32 Extend)</td></tr>
@@ -261,8 +275,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a91b8e2c8f7c26469517b45a1e181b5c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cfe182ffe0794fd20096ef06ccc75c0" id="r_a3cfe182ffe0794fd20096ef06ccc75c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cfe182ffe0794fd20096ef06ccc75c0">LinkCharaParticle</a> (FGameplayTag Name)</td></tr>
 <tr class="separator:a3cfe182ffe0794fd20096ef06ccc75c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a411cd4d78b86dde7a2d4ff78b0b74340" id="r_a411cd4d78b86dde7a2d4ff78b0b74340"><td class="memItemLeft" align="right" valign="top">AActor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411cd4d78b86dde7a2d4ff78b0b74340">LinkActor</a> (FGameplayTag Name)</td></tr>
-<tr class="separator:a411cd4d78b86dde7a2d4ff78b0b74340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad08ea8572511e3c28b21f6bdb410de" id="r_a9ad08ea8572511e3c28b21f6bdb410de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_link_actor.html">ALinkActor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ad08ea8572511e3c28b21f6bdb410de">LinkActor</a> (FGameplayTag Name)</td></tr>
+<tr class="separator:a9ad08ea8572511e3c28b21f6bdb410de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9358f2aa8c9a0f728fce19b6f160b535" id="r_a9358f2aa8c9a0f728fce19b6f160b535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9358f2aa8c9a0f728fce19b6f160b535">RemoveLinkActor</a> ()</td></tr>
 <tr class="separator:a9358f2aa8c9a0f728fce19b6f160b535"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ecff7fa42223996c52d053c5cf3dfb7" id="r_a4ecff7fa42223996c52d053c5cf3dfb7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ecff7fa42223996c52d053c5cf3dfb7">PlayCommonSound</a> (FGameplayTag Name)</td></tr>
@@ -301,6 +315,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a92a513a6239c40c3963613fcef051e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4d265f8cc9de2d43c36f93e61e114ef" id="r_ad4d265f8cc9de2d43c36f93e61e114ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4d265f8cc9de2d43c36f93e61e114ef">GetBoxPosition</a> (const <a class="el" href="_collision_box_8h.html#a8d2c7fc3415be3e1d1d97a1021cd2c62">EBoxType</a> BoxType, const FGameplayTag CustomType, int &amp;OutPosX, int &amp;OutPosY) const</td></tr>
 <tr class="separator:ad4d265f8cc9de2d43c36f93e61e114ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1112583a90c5688e8c71260cc76d1c8" id="r_aa1112583a90c5688e8c71260cc76d1c8"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1112583a90c5688e8c71260cc76d1c8">GetGauge</a> (int32 GaugeIndex) const</td></tr>
+<tr class="separator:aa1112583a90c5688e8c71260cc76d1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247fa696c6a01c12588957d71af568a5" id="r_a247fa696c6a01c12588957d71af568a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a247fa696c6a01c12588957d71af568a5">SetGauge</a> (int32 GaugeIndex, int32 Value)</td></tr>
+<tr class="separator:a247fa696c6a01c12588957d71af568a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5cff537344f264595739983df38fb8b" id="r_ad5cff537344f264595739983df38fb8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5cff537344f264595739983df38fb8b">UseGauge</a> (int32 GaugeIndex, int32 Value)</td></tr>
+<tr class="separator:ad5cff537344f264595739983df38fb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c26e982f1e787319f56f80e4171349b" id="r_a1c26e982f1e787319f56f80e4171349b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c26e982f1e787319f56f80e4171349b">HandleCustomCollision_PreHit</a> (<a class="el" href="class_a_battle_object.html">ABattleObject</a> *OtherObj)</td></tr>
 <tr class="separator:a1c26e982f1e787319f56f80e4171349b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a786d59f809da88ba1b37a024b5f592dd" id="r_a786d59f809da88ba1b37a024b5f592dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a786d59f809da88ba1b37a024b5f592dd">HandleCustomCollision_PostHit</a> (<a class="el" href="class_a_battle_object.html">ABattleObject</a> *OtherObj)</td></tr>
@@ -327,6 +347,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af7bd9f1034e2d8d9a65ed625749ace3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a943aa1b1bd8eea9bdb5bdb40fad679d0" id="r_a943aa1b1bd8eea9bdb5bdb40fad679d0"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a943aa1b1bd8eea9bdb5bdb40fad679d0">PrevPosZ</a> = 0</td></tr>
 <tr class="separator:a943aa1b1bd8eea9bdb5bdb40fad679d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a049620ca48319f5904b217d69c1fd480" id="r_a049620ca48319f5904b217d69c1fd480"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a049620ca48319f5904b217d69c1fd480">PrevRootMotionX</a> = 0</td></tr>
+<tr class="separator:a049620ca48319f5904b217d69c1fd480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c7652d48f451bf155393115c638cfdd" id="r_a1c7652d48f451bf155393115c638cfdd"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c7652d48f451bf155393115c638cfdd">PrevRootMotionY</a> = 0</td></tr>
+<tr class="separator:a1c7652d48f451bf155393115c638cfdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace513c784df082814a6499a508fae378" id="r_ace513c784df082814a6499a508fae378"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace513c784df082814a6499a508fae378">PrevRootMotionZ</a> = 0</td></tr>
+<tr class="separator:ace513c784df082814a6499a508fae378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eba7d45a8e5389e04044259167ca330" id="r_a0eba7d45a8e5389e04044259167ca330"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0eba7d45a8e5389e04044259167ca330">AnglePitch_x1000</a> = 0</td></tr>
 <tr class="separator:a0eba7d45a8e5389e04044259167ca330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bdef5ab4042a79e5a40fd8d156001de" id="r_a7bdef5ab4042a79e5a40fd8d156001de"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bdef5ab4042a79e5a40fd8d156001de">AngleYaw_x1000</a> = 0</td></tr>
@@ -383,14 +409,12 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3f6b0f385a417b7ab902892ed62a8daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b0d0bae4f1365158a744fbeb866d7e" id="r_ad9b0d0bae4f1365158a744fbeb866d7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_hit_data.html">FHitData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9b0d0bae4f1365158a744fbeb866d7e">ReceivedHit</a> = {}</td></tr>
 <tr class="separator:ad9b0d0bae4f1365158a744fbeb866d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bcedb55918dd2856c0fa1a628a64038" id="r_a2bcedb55918dd2856c0fa1a628a64038"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bcedb55918dd2856c0fa1a628a64038">StunTime</a> = 0</td></tr>
-<tr class="separator:a2bcedb55918dd2856c0fa1a628a64038"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0afdfd4a0cbbb8596806c2b66ead748c" id="r_a0afdfd4a0cbbb8596806c2b66ead748c"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0afdfd4a0cbbb8596806c2b66ead748c">StunTimeMax</a> = 0</td></tr>
-<tr class="separator:a0afdfd4a0cbbb8596806c2b66ead748c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10361cc7772100aa82adbda6b0b536d5" id="r_a10361cc7772100aa82adbda6b0b536d5"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10361cc7772100aa82adbda6b0b536d5">Hitstop</a> = 0</td></tr>
-<tr class="separator:a10361cc7772100aa82adbda6b0b536d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75b4d26f67e30c7bbe12a59d1d5ef51f" id="r_a75b4d26f67e30c7bbe12a59d1d5ef51f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75b4d26f67e30c7bbe12a59d1d5ef51f">ReturnReg</a> = false</td></tr>
-<tr class="separator:a75b4d26f67e30c7bbe12a59d1d5ef51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb823d13e53eb3cd8920186212a0652b" id="r_abb823d13e53eb3cd8920186212a0652b"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb823d13e53eb3cd8920186212a0652b">StunTime</a> = 0</td></tr>
+<tr class="separator:abb823d13e53eb3cd8920186212a0652b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac78b41038150ed29babcca60e9b054" id="r_a8ac78b41038150ed29babcca60e9b054"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ac78b41038150ed29babcca60e9b054">StunTimeMax</a> = 0</td></tr>
+<tr class="separator:a8ac78b41038150ed29babcca60e9b054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3767f9532ddf68ff6cb5645c251b923f" id="r_a3767f9532ddf68ff6cb5645c251b923f"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3767f9532ddf68ff6cb5645c251b923f">Hitstop</a> = 0</td></tr>
+<tr class="separator:a3767f9532ddf68ff6cb5645c251b923f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d726f4dacecf3b1eaad3ae9cf9be3c6" id="r_a3d726f4dacecf3b1eaad3ae9cf9be3c6"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d726f4dacecf3b1eaad3ae9cf9be3c6">ActionReg1</a> = 0</td></tr>
 <tr class="separator:a3d726f4dacecf3b1eaad3ae9cf9be3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25c41d59a52a9b4ceba8e61d3a2a902e" id="r_a25c41d59a52a9b4ceba8e61d3a2a902e"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25c41d59a52a9b4ceba8e61d3a2a902e">ActionReg2</a> = 0</td></tr>
@@ -447,8 +471,6 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a698987bcbc25495b2f5bf6380bd30127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53f24203ad0e9cd84d247929035e2a85" id="r_a53f24203ad0e9cd84d247929035e2a85"><td class="memItemLeft" align="right" valign="top">FGameplayTag&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53f24203ad0e9cd84d247929035e2a85">LabelName</a> = {}</td></tr>
 <tr class="separator:a53f24203ad0e9cd84d247929035e2a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3db79d77d281deab70213c21c54904a" id="r_ad3db79d77d281deab70213c21c54904a"><td class="memItemLeft" align="right" valign="top">TArray&lt; <a class="el" href="struct_f_anim_struct.html">FAnimStruct</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3db79d77d281deab70213c21c54904a">AnimStructs</a></td></tr>
-<tr class="separator:ad3db79d77d281deab70213c21c54904a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dea9536d0cc84f9a612d31d402f130b" id="r_a6dea9536d0cc84f9a612d31d402f130b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dea9536d0cc84f9a612d31d402f130b">AnimBlendIn</a> {}</td></tr>
 <tr class="separator:a6dea9536d0cc84f9a612d31d402f130b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5964bd5567198a102a1fd2c0eff1714" id="r_ab5964bd5567198a102a1fd2c0eff1714"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5964bd5567198a102a1fd2c0eff1714">AnimBlendOut</a> {}</td></tr>
@@ -499,6 +521,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a15c746db3c612d8262dcf06ede078b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae849507b59d4caac0e0ea1be938ed6b2" id="r_ae849507b59d4caac0e0ea1be938ed6b2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae849507b59d4caac0e0ea1be938ed6b2">AddFadeSpeed</a> = 0</td></tr>
 <tr class="separator:ae849507b59d4caac0e0ea1be938ed6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d01c290f20a93aca980b65ac06d09a" id="r_a53d01c290f20a93aca980b65ac06d09a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53d01c290f20a93aca980b65ac06d09a">Transparency</a> = 1</td></tr>
+<tr class="separator:a53d01c290f20a93aca980b65ac06d09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eb1e47d9f190361c5d38746aa1df2d3" id="r_a0eb1e47d9f190361c5d38746aa1df2d3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0eb1e47d9f190361c5d38746aa1df2d3">FadeTransparency</a> = 1</td></tr>
+<tr class="separator:a0eb1e47d9f190361c5d38746aa1df2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f31ffd3845de3239a466776457fe7e0" id="r_a9f31ffd3845de3239a466776457fe7e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f31ffd3845de3239a466776457fe7e0">TransparencySpeed</a> = 0</td></tr>
+<tr class="separator:a9f31ffd3845de3239a466776457fe7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3f95cf30d5968107ecee3593803aab" id="r_a5b3f95cf30d5968107ecee3593803aab"><td class="memItemLeft" align="right" valign="top">FLinearColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b3f95cf30d5968107ecee3593803aab">DamageColor</a> = FLinearColor(1, 1, 1, 1)</td></tr>
+<tr class="separator:a5b3f95cf30d5968107ecee3593803aab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae173b92b209f0d8fac447d5ed9f9d8c1" id="r_ae173b92b209f0d8fac447d5ed9f9d8c1"><td class="memItemLeft" align="right" valign="top">FLinearColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae173b92b209f0d8fac447d5ed9f9d8c1">DamageColor2</a> = FLinearColor(1, 1, 1, 1)</td></tr>
+<tr class="separator:ae173b92b209f0d8fac447d5ed9f9d8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5ae8183f4fdcb69c41af141ae5a31be" id="r_ab5ae8183f4fdcb69c41af141ae5a31be"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5ae8183f4fdcb69c41af141ae5a31be">ColPosX</a> = 0</td></tr>
 <tr class="separator:ab5ae8183f4fdcb69c41af141ae5a31be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb961f7a4c1c2b26b02ccdb77f5a2ed" id="r_aedb961f7a4c1c2b26b02ccdb77f5a2ed"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedb961f7a4c1c2b26b02ccdb77f5a2ed">ColPosY</a> = 0</td></tr>
@@ -515,6 +547,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aedde5cdc155d856b48171e5b6eac33bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b4e833fd922beb3e218def2204ab37a" id="r_a1b4e833fd922beb3e218def2204ab37a"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b4e833fd922beb3e218def2204ab37a">DrawPriority</a> = 0</td></tr>
 <tr class="separator:a1b4e833fd922beb3e218def2204ab37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f2bee2cb810ed429300aa2766a0b865" id="r_a6f2bee2cb810ed429300aa2766a0b865"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f2bee2cb810ed429300aa2766a0b865">bRender</a> = true</td></tr>
+<tr class="separator:a6f2bee2cb810ed429300aa2766a0b865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ecb9fdae2044b76ee16657fb6fc0117" id="r_a2ecb9fdae2044b76ee16657fb6fc0117"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_homing_params.html">FHomingParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ecb9fdae2044b76ee16657fb6fc0117">HomingParams</a> = <a class="el" href="struct_f_homing_params.html">FHomingParams</a>()</td></tr>
 <tr class="separator:a2ecb9fdae2044b76ee16657fb6fc0117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae05f080856811b5816ff62231ce4a7bf" id="r_ae05f080856811b5816ff62231ce4a7bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_super_armor_data.html">FSuperArmorData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae05f080856811b5816ff62231ce4a7bf">SuperArmorData</a> = <a class="el" href="struct_f_super_armor_data.html">FSuperArmorData</a>()</td></tr>
@@ -535,6 +569,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a00bc6feb64f13bafcaea0b4017139f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1416900575b927160aa1e156b6a9506b" id="r_a1416900575b927160aa1e156b6a9506b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_battle_object.html">ABattleObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1416900575b927160aa1e156b6a9506b">PositionLinkObj</a> = nullptr</td></tr>
 <tr class="separator:a1416900575b927160aa1e156b6a9506b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d4319e4cd4a288d63eab29ceee3ad66" id="r_a7d4319e4cd4a288d63eab29ceee3ad66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_battle_object.html">ABattleObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d4319e4cd4a288d63eab29ceee3ad66">DrawPriorityLinkObj</a> = nullptr</td></tr>
+<tr class="separator:a7d4319e4cd4a288d63eab29ceee3ad66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a649b12ff5b8d8c7f2a4ea103f49653f0" id="r_a649b12ff5b8d8c7f2a4ea103f49653f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_battle_object.html">ABattleObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a649b12ff5b8d8c7f2a4ea103f49653f0">StopLinkObj</a> = nullptr</td></tr>
 <tr class="separator:a649b12ff5b8d8c7f2a4ea103f49653f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c7ca75ab3ca1edcf40344f6026973a9" id="r_a0c7ca75ab3ca1edcf40344f6026973a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_battle_object.html">ABattleObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c7ca75ab3ca1edcf40344f6026973a9">MaterialLinkObj</a> = nullptr</td></tr>
@@ -549,8 +585,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac5e89a91d5041ce172ae63a4ee26fdfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae83d5fd2b64a4c1bc8d9a90eedc7579f" id="r_ae83d5fd2b64a4c1bc8d9a90eedc7579f"><td class="memItemLeft" align="right" valign="top">TArray&lt; <a class="el" href="struct_f_collision_box.html">FCollisionBox</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae83d5fd2b64a4c1bc8d9a90eedc7579f">Boxes</a></td></tr>
 <tr class="separator:ae83d5fd2b64a4c1bc8d9a90eedc7579f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab94ca6152c964a21a5f732189b3573e5" id="r_ab94ca6152c964a21a5f732189b3573e5"><td class="memItemLeft" align="right" valign="top">TObjectPtr&lt; AActor &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab94ca6152c964a21a5f732189b3573e5">LinkedActor</a></td></tr>
-<tr class="separator:ab94ca6152c964a21a5f732189b3573e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dbd8f93e383b7347d88888413454dd" id="r_a26dbd8f93e383b7347d88888413454dd"><td class="memItemLeft" align="right" valign="top">TObjectPtr&lt; <a class="el" href="class_a_link_actor.html">ALinkActor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26dbd8f93e383b7347d88888413454dd">LinkedActor</a></td></tr>
+<tr class="separator:a26dbd8f93e383b7347d88888413454dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a296ce49aea7cfae7961a4f6b5f4548fe" id="r_a296ce49aea7cfae7961a4f6b5f4548fe"><td class="memItemLeft" align="right" valign="top">TObjectPtr&lt; UNiagaraComponent &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a296ce49aea7cfae7961a4f6b5f4548fe">LinkedParticle</a> = nullptr</td></tr>
 <tr class="separator:a296ce49aea7cfae7961a4f6b5f4548fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2326d8a53900939f376b53fff9a51133" id="r_a2326d8a53900939f376b53fff9a51133"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2326d8a53900939f376b53fff9a51133">ObjNumber</a> = 0</td></tr>
@@ -559,6 +595,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a48d88bf65abaa99013aadad01fee9614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad3a6f279d70e4ea2915c91ec2553241" id="r_aad3a6f279d70e4ea2915c91ec2553241"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3a6f279d70e4ea2915c91ec2553241">OrthoBlendActive</a> = 0</td></tr>
 <tr class="separator:aad3a6f279d70e4ea2915c91ec2553241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3db79d77d281deab70213c21c54904a" id="r_ad3db79d77d281deab70213c21c54904a"><td class="memItemLeft" align="right" valign="top">TArray&lt; <a class="el" href="struct_f_anim_struct.html">FAnimStruct</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3db79d77d281deab70213c21c54904a">AnimStructs</a></td></tr>
+<tr class="separator:ad3db79d77d281deab70213c21c54904a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fe2da319d1ace6869601aa4528d95a3" id="r_a6fe2da319d1ace6869601aa4528d95a3"><td class="memItemLeft" align="right" valign="top">TObjectPtr&lt; <a class="el" href="class_a_night_sky_game_state.html">ANightSkyGameState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fe2da319d1ace6869601aa4528d95a3">GameState</a> = nullptr</td></tr>
 <tr class="separator:a6fe2da319d1ace6869601aa4528d95a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3303e1d5a001791174aa536e02d88555" id="r_a3303e1d5a001791174aa536e02d88555"><td class="memItemLeft" align="right" valign="top">TObjectPtr&lt; <a class="el" href="class_a_night_sky_chara_select_game_state.html">ANightSkyCharaSelectGameState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3303e1d5a001791174aa536e02d88555">CharaSelectGameState</a> = nullptr</td></tr>
@@ -578,6 +616,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a6e23ad09ac2ce266ac3b0182cc04003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a603bf6cb800b3a9e98c243b59f11186b" id="r_a603bf6cb800b3a9e98c243b59f11186b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a603bf6cb800b3a9e98c243b59f11186b">FuncCall</a> (const FName &amp;FuncName) const</td></tr>
 <tr class="separator:a603bf6cb800b3a9e98c243b59f11186b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade00bd359fbeba385b8c1f89601cf95d" id="r_ade00bd359fbeba385b8c1f89601cf95d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_u_night_sky_anim_sequence_user_data.html">UNightSkyAnimSequenceUserData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade00bd359fbeba385b8c1f89601cf95d">GetAnimSequenceUserData</a> (const FName PartName) const</td></tr>
+<tr class="separator:ade00bd359fbeba385b8c1f89601cf95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f35f239f57b51fe21de0031388da482" id="r_a5f35f239f57b51fe21de0031388da482"><td class="memItemLeft" align="right" valign="top">TArray&lt; <a class="el" href="class_u_night_sky_anim_sequence_user_data.html">UNightSkyAnimSequenceUserData</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f35f239f57b51fe21de0031388da482">GetAnimSequenceUserDatas</a> () const</td></tr>
+<tr class="separator:a5f35f239f57b51fe21de0031388da482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -592,7 +634,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00920">920</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00957">957</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acfd65bda721a6baf478add0f828aa1c2" name="acfd65bda721a6baf478add0f828aa1c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfd65bda721a6baf478add0f828aa1c2">&#9670;&#160;</a></span>ABattleObject()</h2>
@@ -609,7 +651,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00019">19</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00024">24</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -643,7 +685,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03142">3142</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03365">3365</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -676,7 +718,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03122">3122</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03346">3346</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -695,7 +737,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02135">2135</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02297">2297</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -714,7 +756,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02159">2159</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02321">2321</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +784,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02975">2975</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03197">3197</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -769,7 +811,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00029">29</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00034">34</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -802,7 +844,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02261">2261</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02428">2428</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -840,7 +882,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02213">2213</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02380">2380</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -867,7 +909,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00138">138</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00170">170</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -886,7 +928,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00381">381</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00413">413</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a10f774a4f05a29eb80782ba4345e4004" name="a10f774a4f05a29eb80782ba4345e4004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f774a4f05a29eb80782ba4345e4004">&#9670;&#160;</a></span>CalculateSpeedAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 ABattleObject::CalculateSpeedAngle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02375">2375</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -905,7 +966,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02017">2017</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02180">2180</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -943,7 +1004,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02041">2041</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02201">2201</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -966,7 +1027,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02989">2989</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03211">3211</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1065,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02436">2436</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02621">2621</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1084,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02318">2318</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02495">2495</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1042,7 +1103,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01420">1420</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01462">1462</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1075,7 +1136,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02820">2820</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03025">3025</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1169,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02782">2782</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02983">2983</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1127,7 +1188,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02418">2418</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02603">2603</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1146,7 +1207,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02982">2982</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03204">3204</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1165,7 +1226,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02747">2747</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02940">2940</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1184,7 +1245,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03162">3162</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03384">3384</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1203,7 +1264,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03186">3186</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03408">3408</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1222,7 +1283,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03174">3174</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03396">3396</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1241,7 +1302,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02730">2730</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02923">2923</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1260,7 +1321,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02323">2323</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02500">2500</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1279,7 +1340,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02742">2742</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02935">2935</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1359,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02296">2296</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02463">2463</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1317,7 +1378,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02288">2288</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02455">2455</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1344,7 +1405,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01687">1687</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01785">1785</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1428,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03002">3002</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03224">3224</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1386,7 +1447,61 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01982">1982</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02145">2145</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ade00bd359fbeba385b8c1f89601cf95d" name="ade00bd359fbeba385b8c1f89601cf95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade00bd359fbeba385b8c1f89601cf95d">&#9670;&#160;</a></span>GetAnimSequenceUserData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_night_sky_anim_sequence_user_data.html">UNightSkyAnimSequenceUserData</a> * ABattleObject::GetAnimSequenceUserData </td>
+          <td>(</td>
+          <td class="paramtype">const FName</td>          <td class="paramname"><span class="paramname"><em>PartName</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01798">1798</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5f35f239f57b51fe21de0031388da482" name="a5f35f239f57b51fe21de0031388da482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f35f239f57b51fe21de0031388da482">&#9670;&#160;</a></span>GetAnimSequenceUserDatas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TArray&lt; <a class="el" href="class_u_night_sky_anim_sequence_user_data.html">UNightSkyAnimSequenceUserData</a> * &gt; ABattleObject::GetAnimSequenceUserDatas </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01817">1817</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1405,7 +1520,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03027">3027</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03249">3249</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1424,7 +1539,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01700">1700</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01838">1838</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1457,7 +1572,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02706">2706</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02888">2888</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1476,7 +1591,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02076">2076</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02236">2236</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1495,7 +1610,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01992">1992</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02155">2155</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa1112583a90c5688e8c71260cc76d1c8" name="aa1112583a90c5688e8c71260cc76d1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1112583a90c5688e8c71260cc76d1c8">&#9670;&#160;</a></span>GetGauge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 ABattleObject::GetGauge </td>
+          <td>(</td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>GaugeIndex</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02905">2905</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1648,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02081">2081</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02241">2241</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1533,7 +1667,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02171">2171</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02333">2333</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1552,7 +1686,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02115">2115</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02277">2277</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1571,7 +1705,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02752">2752</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02945">2945</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1590,7 +1724,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01175">1175</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01233">1233</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1643,7 +1777,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01219">1219</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01273">1273</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1662,7 +1796,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00471">471</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00510">510</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1681,7 +1815,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00397">397</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00429">429</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1700,7 +1834,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03014">3014</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03236">3236</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1733,7 +1867,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02050">2050</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02210">2210</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1752,7 +1886,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00695">695</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00751">751</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1771,7 +1905,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01757">1757</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01895">1895</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1790,7 +1924,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02002">2002</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02165">2165</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1809,18 +1943,18 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02011">2011</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02174">2174</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a411cd4d78b86dde7a2d4ff78b0b74340" name="a411cd4d78b86dde7a2d4ff78b0b74340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a411cd4d78b86dde7a2d4ff78b0b74340">&#9670;&#160;</a></span>LinkActor()</h2>
+<a id="a9ad08ea8572511e3c28b21f6bdb410de" name="a9ad08ea8572511e3c28b21f6bdb410de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad08ea8572511e3c28b21f6bdb410de">&#9670;&#160;</a></span>LinkActor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">AActor * ABattleObject::LinkActor </td>
+          <td class="memname"><a class="el" href="class_a_link_actor.html">ALinkActor</a> * ABattleObject::LinkActor </td>
           <td>(</td>
           <td class="paramtype">FGameplayTag</td>          <td class="paramname"><span class="paramname"><em>Name</em></span></td><td>)</td>
           <td></td>
@@ -1828,7 +1962,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02908">2908</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03125">3125</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1847,7 +1981,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02882">2882</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03096">3096</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1866,7 +2000,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02855">2855</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03067">3067</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1885,7 +2019,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01513">1513</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01555">1555</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1912,7 +2046,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00038">38</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00043">43</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1939,7 +2073,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02206">2206</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02368">2368</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1958,7 +2092,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02958">2958</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03180">3180</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -1977,12 +2111,31 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02941">2941</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03163">3163</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a4347cdbe657175ff201faf16f49649c6" name="a4347cdbe657175ff201faf16f49649c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4347cdbe657175ff201faf16f49649c6">&#9670;&#160;</a></span>PosTypeToPosition()</h2>
+<a id="a0dbff3db04f9b5d3bdda650b7f7704c1" name="a0dbff3db04f9b5d3bdda650b7f7704c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dbff3db04f9b5d3bdda650b7f7704c1">&#9670;&#160;</a></span>PositionLinkUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::PositionLinkUpdate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00159">159</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5398686d3b31ab3e5b0196a87a4f44b8" name="a5398686d3b31ab3e5b0196a87a4f44b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5398686d3b31ab3e5b0196a87a4f44b8">&#9670;&#160;</a></span>PosTypeToPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1995,17 +2148,17 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32 *</td>          <td class="paramname"><span class="paramname"><em>OutPosX</em></span>, </td>
+          <td class="paramtype">int32 &amp;</td>          <td class="paramname"><span class="paramname"><em>OutPosX</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32 *</td>          <td class="paramname"><span class="paramname"><em>OutPosY</em></span>&#160;) const</td>
+          <td class="paramtype">int32 &amp;</td>          <td class="paramname"><span class="paramname"><em>OutPosY</em></span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01251">1251</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01282">1282</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2024,7 +2177,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02068">2068</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02228">2228</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2043,7 +2196,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02927">2927</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03147">3147</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2062,7 +2215,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01858">1858</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02004">2004</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2081,7 +2234,40 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01508">1508</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01550">1550</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aaae76f9f5822b456a4da25375812329e" name="aaae76f9f5822b456a4da25375812329e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae76f9f5822b456a4da25375812329e">&#9670;&#160;</a></span>ScreenPosToWorldPos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::ScreenPosToWorldPos </td>
+          <td>(</td>
+          <td class="paramtype">const int32</td>          <td class="paramname"><span class="paramname"><em>X</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int32</td>          <td class="paramname"><span class="paramname"><em>Y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32 &amp;</td>          <td class="paramname"><span class="paramname"><em>OutX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32 &amp;</td>          <td class="paramname"><span class="paramname"><em>OutY</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01334">1334</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2100,7 +2286,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02349">2349</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02525">2525</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2119,7 +2305,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02107">2107</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02269">2269</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2138,7 +2324,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02130">2130</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02292">2292</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2157,7 +2343,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02086">2086</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02246">2246</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2176,7 +2362,68 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02283">2283</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02450">2450</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae1ff93573facbb011ba27b656de814f8" name="ae1ff93573facbb011ba27b656de814f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ff93573facbb011ba27b656de814f8">&#9670;&#160;</a></span>SetFloorCollisionActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::SetFloorCollisionActive </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>Active</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02962">2962</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a247fa696c6a01c12588957d71af568a5" name="a247fa696c6a01c12588957d71af568a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247fa696c6a01c12588957d71af568a5">&#9670;&#160;</a></span>SetGauge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::SetGauge </td>
+          <td>(</td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>GaugeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>Value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02911">2911</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af32768b12c32848257aa6d491d7bf704" name="af32768b12c32848257aa6d491d7bf704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32768b12c32848257aa6d491d7bf704">&#9670;&#160;</a></span>SetHitOTG()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::SetHitOTG </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>Enable</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02578">2578</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2195,7 +2442,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02410">2410</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02595">2595</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2214,7 +2461,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02394">2394</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02570">2570</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2233,7 +2480,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02402">2402</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02587">2587</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2252,7 +2499,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03022">3022</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03244">3244</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2271,7 +2518,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02191">2191</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02353">2353</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2290,7 +2537,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02363">2363</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02539">2539</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2309,7 +2556,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02378">2378</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02554">2554</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2328,7 +2575,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02386">2386</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02562">2562</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2347,7 +2594,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02769">2769</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02970">2970</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2366,7 +2613,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02777">2777</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02978">2978</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2385,7 +2632,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02201">2201</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02363">2363</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2404,7 +2651,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02147">2147</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02309">2309</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2423,7 +2670,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02125">2125</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02287">2287</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2442,7 +2689,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02761">2761</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02954">2954</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2461,7 +2708,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02196">2196</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02358">2358</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2484,7 +2731,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03007">3007</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l03229">3229</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2511,7 +2758,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00346">346</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00378">378</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2538,7 +2785,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00371">371</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l00403">403</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2561,7 +2808,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01299">1299</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01341">1341</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2590,7 +2837,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_a_player_object.html#a9b890753dd77960eb0ab219553ba210c">APlayerObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01783">1783</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01921">1921</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2617,7 +2864,74 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01560">1560</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01602">1602</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe4ca19b25b353c97bdbc974cf0cd92c" name="abe4ca19b25b353c97bdbc974cf0cd92c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4ca19b25b353c97bdbc974cf0cd92c">&#9670;&#160;</a></span>UpdateVisuals_BP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::UpdateVisuals_BP </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3b59a2366837feeb12a8cee0b18e217d" name="a3b59a2366837feeb12a8cee0b18e217d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b59a2366837feeb12a8cee0b18e217d">&#9670;&#160;</a></span>UpdateVisualsNoRollback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::UpdateVisualsNoRollback </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l01633">1633</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad5cff537344f264595739983df38fb8b" name="ad5cff537344f264595739983df38fb8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5cff537344f264595739983df38fb8b">&#9670;&#160;</a></span>UseGauge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ABattleObject::UseGauge </td>
+          <td>(</td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>GaugeIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32</td>          <td class="paramname"><span class="paramname"><em>Value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8cpp_source.html#l02917">2917</a> of file <a class="el" href="_battle_object_8cpp_source.html">BattleObject.cpp</a>.</p>
 
 </div>
 </div>
@@ -2634,7 +2948,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01021">1021</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01058">1058</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2650,7 +2964,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01023">1023</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01060">1060</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2666,7 +2980,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01025">1025</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01062">1062</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2682,7 +2996,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01027">1027</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01064">1064</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2698,7 +3012,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01029">1029</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01066">1066</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2714,7 +3028,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01031">1031</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01068">1068</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2730,7 +3044,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01033">1033</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01070">1070</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2746,7 +3060,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01035">1035</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01072">1072</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2762,7 +3076,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01085">1085</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01122">1122</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2778,7 +3092,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01164">1164</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01199">1199</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2794,7 +3108,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01168">1168</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01203">1203</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2810,7 +3124,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01172">1172</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01207">1207</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2826,7 +3140,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00945">945</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00985">985</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2842,7 +3156,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00949">949</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00989">989</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2858,7 +3172,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00947">947</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00987">987</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2874,7 +3188,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01105">1105</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01140">1140</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2890,7 +3204,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01107">1107</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01142">1142</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2906,7 +3220,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01112">1112</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01147">1147</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2922,7 +3236,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01103">1103</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01302">1302</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2938,7 +3252,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00998">998</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01038">1038</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2954,7 +3268,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01212">1212</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01261">1261</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2970,7 +3284,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01214">1214</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01263">1263</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -2986,7 +3300,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01151">1151</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01186">1186</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3002,7 +3316,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01223">1223</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01274">1274</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3018,7 +3332,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01114">1114</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01149">1149</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3034,7 +3348,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01096">1096</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01133">1133</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3050,7 +3364,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00951">951</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00991">991</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3066,7 +3380,23 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01232">1232</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01283">1283</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a6f2bee2cb810ed429300aa2766a0b865" name="a6f2bee2cb810ed429300aa2766a0b865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2bee2cb810ed429300aa2766a0b865">&#9670;&#160;</a></span>bRender</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ABattleObject::bRender = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01233">1233</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3082,7 +3412,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01119">1119</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01154">1154</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3098,7 +3428,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01091">1091</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01128">1128</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3114,7 +3444,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01253">1253</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01307">1307</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3130,7 +3460,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01177">1177</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01222">1222</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3146,7 +3476,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01178">1178</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01223">1223</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3162,7 +3492,39 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00997">997</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01037">1037</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b3f95cf30d5968107ecee3593803aab" name="a5b3f95cf30d5968107ecee3593803aab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3f95cf30d5968107ecee3593803aab">&#9670;&#160;</a></span>DamageColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FLinearColor ABattleObject::DamageColor = FLinearColor(1, 1, 1, 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01215">1215</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="ae173b92b209f0d8fac447d5ed9f9d8c1" name="ae173b92b209f0d8fac447d5ed9f9d8c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae173b92b209f0d8fac447d5ed9f9d8c1">&#9670;&#160;</a></span>DamageColor2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FLinearColor ABattleObject::DamageColor2 = FLinearColor(1, 1, 1, 1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01217">1217</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3178,7 +3540,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00983">983</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01023">1023</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3194,7 +3556,23 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01184">1184</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01230">1230</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a7d4319e4cd4a288d63eab29ceee3ad66" name="a7d4319e4cd4a288d63eab29ceee3ad66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d4319e4cd4a288d63eab29ceee3ad66">&#9670;&#160;</a></span>DrawPriorityLinkObj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_a_battle_object.html">ABattleObject</a>* ABattleObject::DrawPriorityLinkObj = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01267">1267</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3210,7 +3588,23 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01126">1126</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01161">1161</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a0eb1e47d9f190361c5d38746aa1df2d3" name="a0eb1e47d9f190361c5d38746aa1df2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb1e47d9f190361c5d38746aa1df2d3">&#9670;&#160;</a></span>FadeTransparency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ABattleObject::FadeTransparency = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01211">1211</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3226,7 +3620,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01116">1116</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01151">1151</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3242,7 +3636,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01251">1251</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01305">1305</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3258,7 +3652,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01110">1110</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01145">1145</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3274,7 +3668,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00975">975</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01015">1015</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3290,7 +3684,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00981">981</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01021">1021</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3306,23 +3700,23 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00993">993</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01033">1033</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
-<a id="a10361cc7772100aa82adbda6b0b536d5" name="a10361cc7772100aa82adbda6b0b536d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10361cc7772100aa82adbda6b0b536d5">&#9670;&#160;</a></span>Hitstop</h2>
+<a id="a3767f9532ddf68ff6cb5645c251b923f" name="a3767f9532ddf68ff6cb5645c251b923f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3767f9532ddf68ff6cb5645c251b923f">&#9670;&#160;</a></span>Hitstop</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 ABattleObject::Hitstop = 0</td>
+          <td class="memname">int32 ABattleObject::Hitstop = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01010">1010</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01050">1050</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3338,7 +3732,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01187">1187</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01236">1236</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3354,7 +3748,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00978">978</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01018">1018</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3370,7 +3764,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01183">1183</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01228">1228</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3386,7 +3780,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01182">1182</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01227">1227</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3402,7 +3796,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01148">1148</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01183">1183</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3418,23 +3812,23 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01100">1100</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01137">1137</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
-<a id="ab94ca6152c964a21a5f732189b3573e5" name="ab94ca6152c964a21a5f732189b3573e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab94ca6152c964a21a5f732189b3573e5">&#9670;&#160;</a></span>LinkedActor</h2>
+<a id="a26dbd8f93e383b7347d88888413454dd" name="a26dbd8f93e383b7347d88888413454dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26dbd8f93e383b7347d88888413454dd">&#9670;&#160;</a></span>LinkedActor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">TObjectPtr&lt;AActor&gt; ABattleObject::LinkedActor</td>
+          <td class="memname">TObjectPtr&lt;<a class="el" href="class_a_link_actor.html">ALinkActor</a>&gt; ABattleObject::LinkedActor</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01239">1239</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01290">1290</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3450,7 +3844,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01241">1241</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01292">1292</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3466,7 +3860,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01220">1220</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01271">1271</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3482,7 +3876,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01124">1124</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01159">1159</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3498,7 +3892,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01179">1179</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01224">1224</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3514,7 +3908,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01162">1162</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01197">1197</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3530,7 +3924,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01166">1166</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01201">1201</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3546,7 +3940,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01170">1170</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01205">1205</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3562,7 +3956,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00954">954</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00994">994</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3578,7 +3972,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00955">955</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00995">995</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3594,7 +3988,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00995">995</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01035">1035</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3610,7 +4004,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01132">1132</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01167">1167</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3626,7 +4020,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01198">1198</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01247">1247</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3642,7 +4036,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01039">1039</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01076">1076</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3658,7 +4052,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01041">1041</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01078">1078</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3674,7 +4068,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01043">1043</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01080">1080</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3690,7 +4084,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01045">1045</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01082">1082</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3706,7 +4100,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01047">1047</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01084">1084</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3722,7 +4116,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01049">1049</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01086">1086</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3738,7 +4132,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01051">1051</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01088">1088</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3754,7 +4148,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01053">1053</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01090">1090</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3770,7 +4164,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01200">1200</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01249">1249</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3786,7 +4180,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01202">1202</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01251">1251</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3802,7 +4196,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01256">1256</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01310">1310</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3818,7 +4212,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01222">1222</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01273">1273</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3834,7 +4228,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01131">1131</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01166">1166</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3850,7 +4244,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01229">1229</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01280">1280</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3866,7 +4260,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01243">1243</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01294">1294</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3882,7 +4276,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00929">929</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00966">966</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3898,7 +4292,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01226">1226</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01277">1277</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3914,7 +4308,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01248">1248</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01299">1299</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3930,7 +4324,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01210">1210</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01259">1259</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3946,7 +4340,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01216">1216</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01265">1265</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3962,7 +4356,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00936">936</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00973">973</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3978,7 +4372,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00938">938</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00975">975</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -3994,7 +4388,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00940">940</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00977">977</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4010,7 +4404,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00952">952</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00992">992</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4026,7 +4420,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00953">953</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00993">993</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4042,7 +4436,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00941">941</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00978">978</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4058,7 +4452,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00942">942</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00979">979</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4074,7 +4468,55 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00943">943</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00980">980</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a049620ca48319f5904b217d69c1fd480" name="a049620ca48319f5904b217d69c1fd480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049620ca48319f5904b217d69c1fd480">&#9670;&#160;</a></span>PrevRootMotionX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 ABattleObject::PrevRootMotionX = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00981">981</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a1c7652d48f451bf155393115c638cfdd" name="a1c7652d48f451bf155393115c638cfdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c7652d48f451bf155393115c638cfdd">&#9670;&#160;</a></span>PrevRootMotionY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 ABattleObject::PrevRootMotionY = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00982">982</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="ace513c784df082814a6499a508fae378" name="ace513c784df082814a6499a508fae378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace513c784df082814a6499a508fae378">&#9670;&#160;</a></span>PrevRootMotionZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 ABattleObject::PrevRootMotionZ = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00983">983</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4090,7 +4532,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00986">986</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01026">1026</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4114,7 +4556,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01138">1138</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01173">1173</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4138,7 +4580,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01139">1139</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01174">1174</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4162,7 +4604,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01140">1140</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01175">1175</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4186,7 +4628,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01141">1141</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01176">1176</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4202,7 +4644,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01149">1149</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01184">1184</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4218,7 +4660,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01007">1007</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01047">1047</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4234,23 +4676,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01005">1005</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
-
-</div>
-</div>
-<a id="a75b4d26f67e30c7bbe12a59d1d5ef51f" name="a75b4d26f67e30c7bbe12a59d1d5ef51f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75b4d26f67e30c7bbe12a59d1d5ef51f">&#9670;&#160;</a></span>ReturnReg</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ABattleObject::ReturnReg = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01017">1017</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01045">1045</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4266,7 +4692,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01246">1246</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01297">1297</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4282,7 +4708,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01156">1156</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01191">1191</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4298,7 +4724,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01157">1157</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01192">1192</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4314,7 +4740,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01158">1158</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01193">1193</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4330,7 +4756,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00957">957</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00997">997</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4346,7 +4772,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00963">963</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01003">1003</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4362,7 +4788,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00965">965</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01005">1005</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4378,7 +4804,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00959">959</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00999">999</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4394,7 +4820,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00967">967</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01007">1007</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4410,7 +4836,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00969">969</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01009">1009</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4426,7 +4852,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00961">961</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01001">1001</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4442,7 +4868,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00971">971</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01011">1011</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4458,7 +4884,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l00973">973</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01013">1013</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4474,39 +4900,39 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01218">1218</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01269">1269</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
-<a id="a2bcedb55918dd2856c0fa1a628a64038" name="a2bcedb55918dd2856c0fa1a628a64038"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bcedb55918dd2856c0fa1a628a64038">&#9670;&#160;</a></span>StunTime</h2>
+<a id="abb823d13e53eb3cd8920186212a0652b" name="abb823d13e53eb3cd8920186212a0652b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb823d13e53eb3cd8920186212a0652b">&#9670;&#160;</a></span>StunTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 ABattleObject::StunTime = 0</td>
+          <td class="memname">int32 ABattleObject::StunTime = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01008">1008</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01048">1048</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
-<a id="a0afdfd4a0cbbb8596806c2b66ead748c" name="a0afdfd4a0cbbb8596806c2b66ead748c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0afdfd4a0cbbb8596806c2b66ead748c">&#9670;&#160;</a></span>StunTimeMax</h2>
+<a id="a8ac78b41038150ed29babcca60e9b054" name="a8ac78b41038150ed29babcca60e9b054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac78b41038150ed29babcca60e9b054">&#9670;&#160;</a></span>StunTimeMax</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 ABattleObject::StunTimeMax = 0</td>
+          <td class="memname">int32 ABattleObject::StunTimeMax = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01009">1009</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01049">1049</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4522,7 +4948,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01059">1059</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01096">1096</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4538,7 +4964,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01061">1061</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01098">1098</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4554,7 +4980,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01063">1063</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01100">1100</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4570,7 +4996,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01065">1065</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01102">1102</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4586,7 +5012,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01072">1072</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01109">1109</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4602,7 +5028,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01074">1074</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01111">1111</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4618,7 +5044,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01076">1076</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01113">1113</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4634,7 +5060,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01078">1078</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01115">1115</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4650,7 +5076,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01189">1189</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01238">1238</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4666,7 +5092,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01150">1150</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01185">1185</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4682,7 +5108,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01180">1180</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01225">1225</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4698,7 +5124,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01181">1181</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01226">1226</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4714,7 +5140,39 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01122">1122</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01157">1157</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a53d01c290f20a93aca980b65ac06d09a" name="a53d01c290f20a93aca980b65ac06d09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53d01c290f20a93aca980b65ac06d09a">&#9670;&#160;</a></span>Transparency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ABattleObject::Transparency = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01209">1209</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f31ffd3845de3239a466776457fe7e0" name="a9f31ffd3845de3239a466776457fe7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f31ffd3845de3239a466776457fe7e0">&#9670;&#160;</a></span>TransparencySpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ABattleObject::TransparencySpeed = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01213">1213</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>
@@ -4730,7 +5188,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01192">1192</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_battle_object_8h_source.html#l01241">1241</a> of file <a class="el" href="_battle_object_8h_source.html">BattleObject.h</a>.</p>
 
 </div>
 </div>

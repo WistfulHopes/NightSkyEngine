@@ -28,6 +28,7 @@ var struct_f_battle_state =
     [ "MaxTimeUntilRoundStart", "struct_f_battle_state.html#ad8fe4a86b3eb91d7c81e5427607a5707", null ],
     [ "Meter", "struct_f_battle_state.html#a55193dfdaa5caa9763d646174e3f7fc1", null ],
     [ "MusicChannel", "struct_f_battle_state.html#aa2cc6056d00c76798141b0cd5d7b6516", null ],
+    [ "OrthoBlendActive", "struct_f_battle_state.html#ac0012341c7e7c895373e612571a284a4", null ],
     [ "P1RoundsWon", "struct_f_battle_state.html#a5fe05c538093fd67f185d1ad7678aaaa", null ],
     [ "P2RoundsWon", "struct_f_battle_state.html#a5748eb5ec936a872f10cc39bf55d0948", null ],
     [ "PauseParticles", "struct_f_battle_state.html#a51567576c1f1b401fbd56a6a9a727a8d", null ],

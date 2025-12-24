@@ -24,5 +24,6 @@ var struct_f_battle_input_actions =
     [ "ReleaseH", "struct_f_battle_input_actions.html#a4d44a5844a96cfa238ef3baa9eb44c96", null ],
     [ "ReleaseLeft", "struct_f_battle_input_actions.html#abb8870f1a44c4153083b72ec91ba5e49", null ],
     [ "ReleaseRight", "struct_f_battle_input_actions.html#a98eecf629fcbfb0107514a0b1d6cd0d1", null ],
-    [ "ReleaseUp", "struct_f_battle_input_actions.html#ac3edcc5b5c12444177038228cf571833", null ]
+    [ "ReleaseUp", "struct_f_battle_input_actions.html#ac3edcc5b5c12444177038228cf571833", null ],
+    [ "ResetTraining", "struct_f_battle_input_actions.html#ad647ddfd2f1c72b6233511fe5361e586", null ]
 ];

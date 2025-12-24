@@ -10,7 +10,8 @@ var _bitflags_8h =
       [ "ATK_IgnoreOTG", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a28115b6853823cb80709b79113c14b12", null ],
       [ "ATK_IgnorePushbackScaling", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a747e7564dd4bc8cc4a52c40b718dccc8", null ],
       [ "ATK_IgnoreHitstunScaling", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7abb4dc1b011d2ff69c987dc248fbf5119", null ],
-      [ "ATK_SetPlayerHit", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74", null ]
+      [ "ATK_SetPlayerHit", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74", null ],
+      [ "ATK_HitOTG", "_bitflags_8h.html#a6a1a038b9e800a1520b7087934e294d7a007d3dd71f0a3fcccd8d623553d83850", null ]
     ] ],
     [ "ECancelFlags", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bc", [
       [ "CNC_ChainCancelEnabled", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bca91befe426e3a336b860a2c3158706a17", null ],
@@ -21,7 +22,8 @@ var _bitflags_8h =
       [ "CNC_FAirDashCancel", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bcadd8eac37ba6e84bb3563cac39cc5890c", null ],
       [ "CNC_BAirDashCancel", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bcaaf2c13dc1b210fb1dd34ae384d2aa8e7", null ],
       [ "CNC_EnableKaraCancel", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bcad6dd4a1d23c1b3423d7db2509e7cfd4e", null ],
-      [ "CNC_CancelIntoSelf", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4", null ]
+      [ "CNC_CancelIntoSelf", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4", null ],
+      [ "CNC_EnableReverseBeat", "_bitflags_8h.html#ae8de8b3f036722830413b279350505bcac3461f36b7e69edb691094b74030cf8a", null ]
     ] ],
     [ "EEnableFlags", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364b", [
       [ "ENB_None", "_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364ba74eb9a631eda9b6617f23f3980114649", null ],
@@ -62,7 +64,9 @@ var _bitflags_8h =
       [ "INP_E", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aaf011aa9746cd0dbad34373456cd9fee", null ],
       [ "INP_F", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068aadfb2b70b22c660486afdc48d885eb85", null ],
       [ "INP_G", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953", null ],
-      [ "INP_H", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa", null ]
+      [ "INP_H", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa", null ],
+      [ "INP_ResetTraining", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068a7734ba6bda3fbf66a8b644607a914ec3", null ],
+      [ "INP_Rematch", "_bitflags_8h.html#a5d52c4c5691f3096a403f7e333507068ac64304a28dd175d35cb774f74dd8fcfc", null ]
     ] ],
     [ "EInvulnFlags", "_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0d", [
       [ "INV_StrikeInvulnerable", "_bitflags_8h.html#a0578249cb4be7488c128b28d142aab0dabaadcc94bdd3de88db381f770c10245b", null ],
@@ -96,7 +100,9 @@ var _bitflags_8h =
       [ "PLF_DefaultLandingAction", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a6331282fb2a683afad5175ac99508f73", null ],
       [ "PLF_ForceEnableFarNormal", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a4b4da92fa1393767fdba64190b88ba07", null ],
       [ "PLF_TouchingWall", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990ab02b0c5435074004e3c4ab08307e4b6b", null ],
-      [ "PLF_HitgrabActive", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42", null ]
+      [ "PLF_HitgrabActive", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42", null ],
+      [ "PLF_ReceivedCounterHit", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598", null ],
+      [ "PLF_DidKaraCancel", "_bitflags_8h.html#a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80", null ]
     ] ],
     [ "ENUM_CLASS_FLAGS", "_bitflags_8h.html#a4284193dc51793f2fec5963b7b60226b", null ],
     [ "ENUM_CLASS_FLAGS", "_bitflags_8h.html#a901bd02e24f30db8ed556612c02c03d1", null ]

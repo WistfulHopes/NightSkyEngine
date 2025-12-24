@@ -6,6 +6,7 @@ var struct_f_hit_data =
     [ "AirPushbackY", "struct_f_hit_data.html#a3b46e8b4dca69d4faf7463e7dc04372f", null ],
     [ "AirPushbackYOverTime", "struct_f_hit_data.html#a2d8cdcd2514c16ccf6bc155fead9ffb4", null ],
     [ "BlowbackLevel", "struct_f_hit_data.html#af79bf86184e24460754e886905023a57", null ],
+    [ "CustomHitAction", "struct_f_hit_data.html#a8c43fec13ce3acc521246c2c133a6665", null ],
     [ "Damage", "struct_f_hit_data.html#a914a5773d0dbbd2e447ad1ac4613ece8", null ],
     [ "EnemyHitstopModifier", "struct_f_hit_data.html#a389900d03a7ed916f2e13a0203407ae7", null ],
     [ "FloatingCrumpleType", "struct_f_hit_data.html#a9a72a3ed32c4e668a8d007c951e92255", null ],

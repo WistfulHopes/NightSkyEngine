@@ -5,6 +5,7 @@ var class_u_state =
     [ "Exec", "class_u_state.html#a5d455612d21898d7ada7a7b7d7154c66", null ],
     [ "Init", "class_u_state.html#a459d7742ebdabba6a14b2f1c8582f0a2", null ],
     [ "bCPUUsable", "class_u_state.html#a36da4dc58b4e48435b3062a19e51f25d", null ],
+    [ "bEnableReverseBeat", "class_u_state.html#a5fee7f74e7c5c896b845ee0e56ad1fb1", null ],
     [ "bHumanUsable", "class_u_state.html#a9fc159e6ed74529c2668fdce17963369", null ],
     [ "CelIndex", "class_u_state.html#ae39d113431f48f276c9ae8b2d265936b", null ],
     [ "CPUData", "class_u_state.html#a8c70e772a68d407141793de8b7adf6d8", null ],

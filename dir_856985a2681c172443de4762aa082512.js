@@ -3,6 +3,7 @@ var dir_856985a2681c172443de4762aa082512 =
     [ "BattleExtensionData.cpp", "_battle_extension_data_8cpp.html", "_battle_extension_data_8cpp" ],
     [ "BattleExtensionData.h", "_battle_extension_data_8h.html", "_battle_extension_data_8h" ],
     [ "CameraShakeData.h", "_camera_shake_data_8h.html", "_camera_shake_data_8h" ],
+    [ "CollisionData.cpp", "_collision_data_8cpp.html", "_collision_data_8cpp" ],
     [ "CollisionData.h", "_collision_data_8h.html", "_collision_data_8h" ],
     [ "FlipbookData.h", "_flipbook_data_8h.html", "_flipbook_data_8h" ],
     [ "LinkActorData.h", "_link_actor_data_8h.html", "_link_actor_data_8h" ],

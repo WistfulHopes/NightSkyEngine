@@ -40,6 +40,10 @@ var _battle_object_8h =
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EFloatingCrumpleType", "_battle_object_8h.html#a5f59481b0f059e36caa2c890992959aa", [
@@ -48,6 +52,7 @@ var _battle_object_8h =
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ]
     ] ],
     [ "EHitAction", "_battle_object_8h.html#abbeaaf67664ff0b954b314c0d36f1198", [
+      [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
       [ "UMETA", "_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add", null ],
@@ -96,6 +101,7 @@ var _battle_object_8h =
     ] ],
     [ "EObjType", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0e", [
       [ "OBJ_Self", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea4a10c349f78c2af5890af3731c3a76fb", null ],
+      [ "OBJ_MainPlayer", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea4b08649a0632ba0d7c1ce80304347a7e", null ],
       [ "OBJ_Enemy", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea181eacd8f18abea5203041d57bd84cc0", null ],
       [ "OBJ_Parent", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea01df3b923301f004d5c17d54b1528d91", null ],
       [ "OBJ_Child0", "_battle_object_8h.html#afb24f7134d3e9151ca59f7974fea9c0ea9ecf86b9687682f9d9cf2c18dee57b47", null ],
@@ -120,6 +126,7 @@ var _battle_object_8h =
       [ "POS_Player", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10ab47cfa1b8a18e57805e761154351dbdb", null ],
       [ "POS_Self", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a4bb8f74a285f475e87cc158d929e9153", null ],
       [ "POS_Center", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10aa8a6239d252959b47a503b31c3ba295f", null ],
+      [ "POS_Ground", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a3314ce66bfc5204fbf7f3a3f55739821", null ],
       [ "POS_Enemy", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a1d82c05254822809efa2bc2442a05a85", null ],
       [ "POS_Col", "_battle_object_8h.html#a83a5969887674203d30f08e05a5c8d10a368e824d0e6a070fef3ec7bcba9e2004", null ]
     ] ],
@@ -128,5 +135,6 @@ var _battle_object_8h =
       [ "ARM_Guard", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5dae70c3e7a58daefe7136b050093f31fa3", null ],
       [ "ARM_Dodge", "_battle_object_8h.html#a5e226527ee14d934c42607b6af805e5da40a29ba8bf1db9e2ae6e96a88e99d6a5", null ]
     ] ],
+    [ "MaxDrawPriority", "_battle_object_8h.html#aac74520aa7cbaf732f0190e0502fecc1", null ],
     [ "SizeOfBattleObject", "_battle_object_8h.html#ae4384a2a5d7de09bcb8bae1f3826a27e", null ]
 ];

@@ -114,6 +114,7 @@ $(function(){initNavTree('_player_object_8cpp.html',''); initResizable(true); })
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_player_object_8h_source.html">PlayerObject.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_night_sky_game_state_8h_source.html">NightSkyEngine/Battle/NightSkyGameState.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_link_actor_8h_source.html">NightSkyEngine/Battle/Actors/LinkActor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_subroutine_8h_source.html">NightSkyEngine/Battle/Script/Subroutine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_link_actor_data_8h_source.html">NightSkyEngine/Data/LinkActorData.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_particle_data_8h_source.html">NightSkyEngine/Data/ParticleData.h</a>&quot;</code><br />
@@ -142,14 +143,20 @@ Functions</h2></td></tr>
 <tr class="separator:a1df85a056acf830ef18dd58c189953ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7f376526afd1fb727430ea1e8d43bc5" id="r_ad7f376526afd1fb727430ea1e8d43bc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7f376526afd1fb727430ea1e8d43bc5">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (State_Label_Block_Level3, &quot;State.Label.Block.Level3&quot;, &quot;Block Label Level 3&quot;)</td></tr>
 <tr class="separator:ad7f376526afd1fb727430ea1e8d43bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaed98c9867ffe2df11555baf044bc9f7" id="r_aaed98c9867ffe2df11555baf044bc9f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed98c9867ffe2df11555baf044bc9f7">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_IsCorrectBlock, &quot;Subroutine.IsCorrectBlock&quot;, &quot;Is Correct Block&quot;)</td></tr>
-<tr class="separator:aaed98c9867ffe2df11555baf044bc9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc37c37e3c1aff8ed602ba4b48fe155d" id="r_afc37c37e3c1aff8ed602ba4b48fe155d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc37c37e3c1aff8ed602ba4b48fe155d">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_HitCollision, &quot;Subroutine.HitCollision&quot;, &quot;Hit Collision&quot;)</td></tr>
-<tr class="separator:afc37c37e3c1aff8ed602ba4b48fe155d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751ca6cad131424a2f5d0e2848ceb4b5" id="r_a751ca6cad131424a2f5d0e2848ceb4b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a751ca6cad131424a2f5d0e2848ceb4b5">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_Cmn_IsCorrectBlock, &quot;Subroutine.Cmn.IsCorrectBlock&quot;, &quot;Common Is Correct Block&quot;)</td></tr>
+<tr class="separator:a751ca6cad131424a2f5d0e2848ceb4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2220aa2b279b173539bf0af12a83984" id="r_ab2220aa2b279b173539bf0af12a83984"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2220aa2b279b173539bf0af12a83984">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_Cmn_HitCollision, &quot;Subroutine.Cmn.HitCollision&quot;, &quot;Common Hit Collision&quot;)</td></tr>
+<tr class="separator:ab2220aa2b279b173539bf0af12a83984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9163b95ece4893e59c31795ddcee6f92" id="r_a9163b95ece4893e59c31795ddcee6f92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9163b95ece4893e59c31795ddcee6f92">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_Cmn_OnBlock, &quot;Subroutine.Cmn.OnBlock&quot;, &quot;Common On Block&quot;)</td></tr>
+<tr class="separator:a9163b95ece4893e59c31795ddcee6f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68025c20f13ced118996e4642bdadf74" id="r_a68025c20f13ced118996e4642bdadf74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68025c20f13ced118996e4642bdadf74">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_Cmn_OnHit, &quot;Subroutine.Cmn.OnHit&quot;, &quot;Common On Hit&quot;)</td></tr>
+<tr class="separator:a68025c20f13ced118996e4642bdadf74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6205ebfcf306e96dccb08a61bdb945" id="r_a0f6205ebfcf306e96dccb08a61bdb945"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f6205ebfcf306e96dccb08a61bdb945">UE_DEFINE_GAMEPLAY_TAG_COMMENT</a> (Subroutine_Cmn_OnCounterHit, &quot;Subroutine.Cmn.OnCounterHit&quot;, &quot;Common On Counter Hit&quot;)</td></tr>
+<tr class="separator:a0f6205ebfcf306e96dccb08a61bdb945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a44ef47fb83402df24d624edc6829dac6" name="a44ef47fb83402df24d624edc6829dac6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44ef47fb83402df24d624edc6829dac6">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44ef47fb83402df24d624edc6829dac6">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[1/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +182,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a1df85a056acf830ef18dd58c189953ac" name="a1df85a056acf830ef18dd58c189953ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1df85a056acf830ef18dd58c189953ac">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df85a056acf830ef18dd58c189953ac">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[2/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +208,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="ad7f376526afd1fb727430ea1e8d43bc5" name="ad7f376526afd1fb727430ea1e8d43bc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7f376526afd1fb727430ea1e8d43bc5">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7f376526afd1fb727430ea1e8d43bc5">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[3/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,7 +234,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="abf7b841a4c6a0a2a6e1f48c7fea9a69b" name="abf7b841a4c6a0a2a6e1f48c7fea9a69b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf7b841a4c6a0a2a6e1f48c7fea9a69b">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7b841a4c6a0a2a6e1f48c7fea9a69b">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[4/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +260,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a9fd5beaac8c383868ebe3d2a8ebf1bdc" name="a9fd5beaac8c383868ebe3d2a8ebf1bdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fd5beaac8c383868ebe3d2a8ebf1bdc">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd5beaac8c383868ebe3d2a8ebf1bdc">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[5/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +286,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0f1994909ab9a23d80f6d2dc9c3b078b" name="a0f1994909ab9a23d80f6d2dc9c3b078b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f1994909ab9a23d80f6d2dc9c3b078b">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1994909ab9a23d80f6d2dc9c3b078b">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[6/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,7 +312,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a8699faf460b5642e41de9f02069176eb" name="a8699faf460b5642e41de9f02069176eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8699faf460b5642e41de9f02069176eb">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8699faf460b5642e41de9f02069176eb">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[7/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,7 +338,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a5a4a149510438921fde9629c0a03d485" name="a5a4a149510438921fde9629c0a03d485"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a4a149510438921fde9629c0a03d485">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a4a149510438921fde9629c0a03d485">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[8/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,8 +363,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afc37c37e3c1aff8ed602ba4b48fe155d" name="afc37c37e3c1aff8ed602ba4b48fe155d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc37c37e3c1aff8ed602ba4b48fe155d">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[9/10]</span></h2>
+<a id="ab2220aa2b279b173539bf0af12a83984" name="ab2220aa2b279b173539bf0af12a83984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2220aa2b279b173539bf0af12a83984">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[9/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,25 +372,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">UE_DEFINE_GAMEPLAY_TAG_COMMENT </td>
           <td>(</td>
-          <td class="paramtype">Subroutine_HitCollision</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">Subroutine_Cmn_HitCollision</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Subroutine.HitCollision&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">&quot;Subroutine.Cmn.HitCollision&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Hit Collision&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">&quot;Common Hit Collision&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aaed98c9867ffe2df11555baf044bc9f7" name="aaed98c9867ffe2df11555baf044bc9f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaed98c9867ffe2df11555baf044bc9f7">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[10/10]</span></h2>
+<a id="a751ca6cad131424a2f5d0e2848ceb4b5" name="a751ca6cad131424a2f5d0e2848ceb4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a751ca6cad131424a2f5d0e2848ceb4b5">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[10/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,17 +398,95 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">UE_DEFINE_GAMEPLAY_TAG_COMMENT </td>
           <td>(</td>
-          <td class="paramtype">Subroutine_IsCorrectBlock</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">Subroutine_Cmn_IsCorrectBlock</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Subroutine.IsCorrectBlock&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype">&quot;Subroutine.Cmn.IsCorrectBlock&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Is Correct Block&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+          <td class="paramtype">&quot;Common Is Correct Block&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9163b95ece4893e59c31795ddcee6f92" name="a9163b95ece4893e59c31795ddcee6f92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9163b95ece4893e59c31795ddcee6f92">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[11/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_DEFINE_GAMEPLAY_TAG_COMMENT </td>
+          <td>(</td>
+          <td class="paramtype">Subroutine_Cmn_OnBlock</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Subroutine.Cmn.OnBlock&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Common On Block&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f6205ebfcf306e96dccb08a61bdb945" name="a0f6205ebfcf306e96dccb08a61bdb945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6205ebfcf306e96dccb08a61bdb945">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[12/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_DEFINE_GAMEPLAY_TAG_COMMENT </td>
+          <td>(</td>
+          <td class="paramtype">Subroutine_Cmn_OnCounterHit</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Subroutine.Cmn.OnCounterHit&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Common On Counter Hit&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68025c20f13ced118996e4642bdadf74" name="a68025c20f13ced118996e4642bdadf74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68025c20f13ced118996e4642bdadf74">&#9670;&#160;</a></span>UE_DEFINE_GAMEPLAY_TAG_COMMENT() <span class="overload">[13/13]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UE_DEFINE_GAMEPLAY_TAG_COMMENT </td>
+          <td>(</td>
+          <td class="paramtype">Subroutine_Cmn_OnHit</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Subroutine.Cmn.OnHit&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Common On Hit&quot;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

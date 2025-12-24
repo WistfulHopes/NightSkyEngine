@@ -82,6 +82,7 @@ var searchData=
   ['currentsequencetime_79',['CurrentSequenceTime',['../struct_f_battle_state.html#a5c6eecd8e789a3f3a39daf5684b820c5',1,'FBattleState']]],
   ['currentstate_80',['CurrentState',['../struct_f_state_machine.html#ae92d46791f56ad407756e945cfa61057',1,'FStateMachine']]],
   ['currentwinside_81',['CurrentWinSide',['../struct_f_battle_state.html#ac89e77202afa8b2e19bc2ca178b122d0',1,'FBattleState']]],
-  ['customstatetype_82',['CustomStateType',['../class_u_state.html#a7fddd93ae17dad2bd9d1c79b69342538',1,'UState']]],
-  ['customtype_83',['CustomType',['../struct_f_collision_box.html#aaf98da02786e736edcd184152706481d',1,'FCollisionBox']]]
+  ['customhitaction_82',['CustomHitAction',['../struct_f_hit_data.html#a8c43fec13ce3acc521246c2c133a6665',1,'FHitData']]],
+  ['customstatetype_83',['CustomStateType',['../class_u_state.html#a7fddd93ae17dad2bd9d1c79b69342538',1,'UState']]],
+  ['customtype_84',['CustomType',['../struct_f_collision_box.html#aaf98da02786e736edcd184152706481d',1,'FCollisionBox']]]
 ];

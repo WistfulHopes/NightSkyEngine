@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['win_5fdraw_0',['WIN_Draw',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77',1,'NightSkyGameState.h']]],
-  ['win_5fnone_1',['WIN_None',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a3b1dd5b96cf4ea9e42f87a8741306268',1,'NightSkyGameState.h']]],
-  ['win_5fp1_2',['WIN_P1',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a2f04778ef41ba6e50b59974fe13a0f12',1,'NightSkyGameState.h']]],
-  ['win_5fp2_3',['WIN_P2',['../_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b',1,'NightSkyGameState.h']]]
+  ['umeta_0',['UMETA',['../_collision_box_8h.html#a8d2c7fc3415be3e1d1d97a1021cd2c62a5fd3d6f02c1dc582f80e2af875af4561',1,'UMETA:&#160;CollisionBox.h'],['../_battle_object_8h.html#a51a5866f22f4b9223d99fa271fd10e2aa47f78e2e206fb401b240b5215be40add',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a7a5a49802cba049d631810d6f21f0a87aa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a7a5a49802cba049d631810d6f21f0a87aa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a7a5a49802cba049d631810d6f21f0a87aa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a326f27723b49839fd9cd9244e20a963daa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a326f27723b49839fd9cd9244e20a963daa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h'],['../_battle_object_8h.html#a326f27723b49839fd9cd9244e20a963daa3f80d8f0f1b4ffa8c475f5d60ea5635',1,'UMETA:&#160;BattleObject.h']]]
 ];

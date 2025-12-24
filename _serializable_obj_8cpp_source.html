@@ -118,37 +118,40 @@ $(function(){initNavTree('_serializable_obj_8cpp_source.html',''); initResizable
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;Serialization/ObjectReader.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;Serialization/ObjectWriter.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">    9</a></span>TArray&lt;uint8&gt; <a class="code hl_function" href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">USerializableObj::SaveForRollback</a>()</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    TArray&lt;uint8&gt; SaveData;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    FObjectWriter Writer(SaveData);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Writer.ArIsSaveGame = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    GetClass()-&gt;SerializeBin(Writer, <span class="keyword">this</span>);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordflow">return</span> SaveData;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include UE_INLINE_GENERATED_CPP_BY_NAME(SerializableObj)</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">   11</a></span>TArray&lt;uint8&gt; <a class="code hl_function" href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">USerializableObj::SaveForRollback</a>()</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    TArray&lt;uint8&gt; SaveData;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    FObjectWriter Writer(SaveData);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Writer.ArIsSaveGame = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    GetClass()-&gt;SerializeBin(Writer, <span class="keyword">this</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> SaveData;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">USerializableObj::LoadForRollback</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; InBytes)</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    FObjectReader Reader(InBytes);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Reader.ArIsSaveGame = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    GetClass()-&gt;SerializeBin(Reader, <span class="keyword">this</span>);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">USerializableObj::LoadForRollback</a>(<span class="keyword">const</span> TArray&lt;uint8&gt;&amp; InBytes)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">if</span> (InBytes.Num() &lt;= 1) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    FObjectReader Reader(InBytes);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    Reader.ArIsSaveGame = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    GetClass()-&gt;SerializeBin(Reader, <span class="keyword">this</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">   25</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">USerializableObj::ResetToCDO</a>()</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">const</span> <span class="keyword">auto</span> CDO = Cast&lt;USerializableObj&gt;(GetClass()-&gt;GetDefaultObject());</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">LoadForRollback</a>(CDO-&gt;SaveForRollback());</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">USerializableObj::ResetToCDO</a>()</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <span class="keyword">auto</span> CDO = Cast&lt;USerializableObj&gt;(GetClass()-&gt;GetDefaultObject());</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">LoadForRollback</a>(CDO-&gt;SaveForRollback());</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
 </div>
 <div class="ttc" id="a_serializable_obj_8h_html"><div class="ttname"><a href="_serializable_obj_8h.html">SerializableObj.h</a></div></div>
-<div class="ttc" id="aclass_u_serializable_obj_html_a3f268293c2e75f051793048237a2cfd0"><div class="ttname"><a href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">USerializableObj::SaveForRollback</a></div><div class="ttdeci">TArray&lt; uint8 &gt; SaveForRollback()</div><div class="ttdef"><b>Definition</b> <a href="#l00009">SerializableObj.cpp:9</a></div></div>
-<div class="ttc" id="aclass_u_serializable_obj_html_a77748ccb93ac7d070d29ceb6641adef5"><div class="ttname"><a href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">USerializableObj::ResetToCDO</a></div><div class="ttdeci">void ResetToCDO()</div><div class="ttdef"><b>Definition</b> <a href="#l00025">SerializableObj.cpp:25</a></div></div>
-<div class="ttc" id="aclass_u_serializable_obj_html_aec48c81aec9146b9171d1152e8f92dcb"><div class="ttname"><a href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">USerializableObj::LoadForRollback</a></div><div class="ttdeci">void LoadForRollback(const TArray&lt; uint8 &gt; &amp;InBytes)</div><div class="ttdef"><b>Definition</b> <a href="#l00018">SerializableObj.cpp:18</a></div></div>
+<div class="ttc" id="aclass_u_serializable_obj_html_a3f268293c2e75f051793048237a2cfd0"><div class="ttname"><a href="class_u_serializable_obj.html#a3f268293c2e75f051793048237a2cfd0">USerializableObj::SaveForRollback</a></div><div class="ttdeci">TArray&lt; uint8 &gt; SaveForRollback()</div><div class="ttdef"><b>Definition</b> <a href="#l00011">SerializableObj.cpp:11</a></div></div>
+<div class="ttc" id="aclass_u_serializable_obj_html_a77748ccb93ac7d070d29ceb6641adef5"><div class="ttname"><a href="class_u_serializable_obj.html#a77748ccb93ac7d070d29ceb6641adef5">USerializableObj::ResetToCDO</a></div><div class="ttdeci">void ResetToCDO()</div><div class="ttdef"><b>Definition</b> <a href="#l00028">SerializableObj.cpp:28</a></div></div>
+<div class="ttc" id="aclass_u_serializable_obj_html_aec48c81aec9146b9171d1152e8f92dcb"><div class="ttname"><a href="class_u_serializable_obj.html#aec48c81aec9146b9171d1152e8f92dcb">USerializableObj::LoadForRollback</a></div><div class="ttdeci">void LoadForRollback(const TArray&lt; uint8 &gt; &amp;InBytes)</div><div class="ttdef"><b>Definition</b> <a href="#l00020">SerializableObj.cpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

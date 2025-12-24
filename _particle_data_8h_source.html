@@ -127,33 +127,34 @@ $(function(){initNavTree('_particle_data_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_particle_data_8h.html#a549d3afd4482897b07cf13bb7f76afa2">   15</a></span><a class="code hl_function" href="_particle_data_8h.html#ac64486e64a625be3a75934495bb885a9">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a>(Particle_Guard);</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_particle_data_8h.html#ae93605272628a8a0251f46a2b337abab">   16</a></span><a class="code hl_function" href="_particle_data_8h.html#ac64486e64a625be3a75934495bb885a9">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a>(Particle_ThrowTech);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_particle_data_8h.html#a38ca02fd33e80527a5e6d90d5cd7af00">   17</a></span><a class="code hl_function" href="_particle_data_8h.html#ac64486e64a625be3a75934495bb885a9">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a>(Particle_JumpSmoke_Land);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>USTRUCT(BlueprintType)</div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html">   20</a></span>struct <a class="code hl_struct" href="struct_f_particle_struct.html">FParticleStruct</a></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html#a10ec087e0446f742264fbbe321e00398">   24</a></span>    FGameplayTag Name;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html#a71d234b661a0025ab2f97bca7a093073">   26</a></span>    class UNiagaraSystem* ParticleSystem;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_particle_data_8h.html#aac7f84ccdd0e44d876a43b8698d44f8b">   18</a></span><a class="code hl_function" href="_particle_data_8h.html#ac64486e64a625be3a75934495bb885a9">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a>(Particle_WallBounce);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>USTRUCT(BlueprintType)</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html">   21</a></span>struct <a class="code hl_struct" href="struct_f_particle_struct.html">FParticleStruct</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html#a10ec087e0446f742264fbbe321e00398">   25</a></span>    FGameplayTag Name;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_f_particle_struct.html#a71d234b661a0025ab2f97bca7a093073">   27</a></span>    class UNiagaraSystem* ParticleSystem;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>UCLASS()</div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="class_u_particle_data.html">   33</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_u_particle_data.html">UParticleData</a> : public UDataAsset</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_u_particle_data.html#af005132a760d086d46faed622f97f10e">   39</a></span>    TArray&lt;<a class="code hl_struct" href="struct_f_particle_struct.html">FParticleStruct</a>&gt; ParticleStructs;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>UCLASS()</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_u_particle_data.html">   34</a></span>class NIGHTSKYENGINE_API <a class="code hl_class" href="class_u_particle_data.html">UParticleData</a> : public UDataAsset</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    GENERATED_BODY()</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    UPROPERTY(BlueprintReadOnly, EditAnywhere)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_u_particle_data.html#af005132a760d086d46faed622f97f10e">   40</a></span>    TArray&lt;<a class="code hl_struct" href="struct_f_particle_struct.html">FParticleStruct</a>&gt; ParticleStructs;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
 <div class="ttc" id="a_particle_data_8h_html_ac64486e64a625be3a75934495bb885a9"><div class="ttname"><a href="_particle_data_8h.html#ac64486e64a625be3a75934495bb885a9">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a></div><div class="ttdeci">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Particle_Hit_S)</div></div>
-<div class="ttc" id="aclass_u_particle_data_html"><div class="ttname"><a href="class_u_particle_data.html">UParticleData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00033">ParticleData.h:34</a></div></div>
-<div class="ttc" id="astruct_f_particle_struct_html"><div class="ttname"><a href="struct_f_particle_struct.html">FParticleStruct</a></div><div class="ttdef"><b>Definition</b> <a href="#l00020">ParticleData.h:21</a></div></div>
+<div class="ttc" id="aclass_u_particle_data_html"><div class="ttname"><a href="class_u_particle_data.html">UParticleData</a></div><div class="ttdef"><b>Definition</b> <a href="#l00034">ParticleData.h:35</a></div></div>
+<div class="ttc" id="astruct_f_particle_struct_html"><div class="ttname"><a href="struct_f_particle_struct.html">FParticleStruct</a></div><div class="ttdef"><b>Definition</b> <a href="#l00021">ParticleData.h:22</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

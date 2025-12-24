@@ -126,57 +126,56 @@ $(function(){initNavTree('_state_machine_8h_source.html',''); initResizable(true
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html">   18</a></span>struct NIGHTSKYENGINE_API <a class="code hl_struct" href="struct_f_state_machine.html">FStateMachine</a></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    GENERATED_BODY()</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#abaac6caa3971a8c6e91e53b814c4a684">   24</a></span>    bool bPrimary;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    UPROPERTY(EditDefaultsOnly, SaveGame)</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a822fdb36e322c28ebd83b79252bc4524">   29</a></span>    FGameplayTag StateMachineName;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    UPROPERTY(SaveGame, meta=(Bitmask, BitmaskEnum = &quot;/Script/<a class="code hl_class" href="class_night_sky_engine.html">NightSkyEngine</a>.<a class="code hl_enumeration" href="_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364b">EEnableFlags</a>&quot;))</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a00af9211534c045c88d3fd2164737b19">   34</a></span>    int32 EnableFlags = 0;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#adeb47109af876c87237f945a6b8ed47b">   39</a></span>    TArray&lt;FGameplayTag&gt; EnabledCustomStateTypes;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    UPROPERTY(SaveGame)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#ae92d46791f56ad407756e945cfa61057">   44</a></span>    <a class="code hl_class" href="class_u_state.html">UState</a>* CurrentState;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    UPROPERTY()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a907d5c3060606572caf6befb8d19db5f">   49</a></span>    TArray&lt;<a class="code hl_class" href="class_u_state.html">UState</a>*&gt; States;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    UPROPERTY()</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#ad084fc1fd3f272c23f4a079bef645e5c">   55</a></span>    TArray&lt;FGameplayTag&gt; StateNames;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    UPROPERTY()</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a8ada57d183d1187716568f2886afd18c">   60</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Parent;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_player_object.html#ab234e3f033ba4f407a05f987cfd39a23">AddState</a>(const FGameplayTag&amp; Name, <a class="code hl_class" href="class_u_state.html">UState</a>* Config);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#aae0c1443fb4987aaa7e4f46743d4c0e3">   72</a></span>    FORCEINLINE <span class="keywordtype">bool</span> IsCurrentState(const FGameplayTag&amp; Name)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> CurrentState-&gt;<a class="code hl_variable" href="class_u_state.html#a6339bab76a04bcf21fcb5145713edaf2">Name</a> == Name;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#abaac6caa3971a8c6e91e53b814c4a684">   23</a></span>    bool bPrimary;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    UPROPERTY(EditDefaultsOnly, SaveGame)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a822fdb36e322c28ebd83b79252bc4524">   28</a></span>    FGameplayTag StateMachineName;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    UPROPERTY(SaveGame, meta=(Bitmask, BitmaskEnum = &quot;/Script/<a class="code hl_class" href="class_night_sky_engine.html">NightSkyEngine</a>.<a class="code hl_enumeration" href="_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364b">EEnableFlags</a>&quot;))</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a00af9211534c045c88d3fd2164737b19">   33</a></span>    int32 EnableFlags = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#adeb47109af876c87237f945a6b8ed47b">   38</a></span>    TArray&lt;FGameplayTag&gt; EnabledCustomStateTypes;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    UPROPERTY(SaveGame)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#ae92d46791f56ad407756e945cfa61057">   43</a></span>    <a class="code hl_class" href="class_u_state.html">UState</a>* CurrentState;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    UPROPERTY()</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a907d5c3060606572caf6befb8d19db5f">   48</a></span>    TArray&lt;<a class="code hl_class" href="class_u_state.html">UState</a>*&gt; States;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    UPROPERTY()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#ad084fc1fd3f272c23f4a079bef645e5c">   54</a></span>    TArray&lt;FGameplayTag&gt; StateNames;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    UPROPERTY()</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#a8ada57d183d1187716568f2886afd18c">   59</a></span>    <a class="code hl_class" href="class_a_player_object.html">APlayerObject</a>* Parent;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_player_object.html#ab234e3f033ba4f407a05f987cfd39a23">AddState</a>(const FGameplayTag&amp; Name, <a class="code hl_class" href="class_u_state.html">UState</a>* Config);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="struct_f_state_machine.html#aae0c1443fb4987aaa7e4f46743d4c0e3">   71</a></span>    FORCEINLINE <span class="keywordtype">bool</span> IsCurrentState(const FGameplayTag&amp; Name)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">return</span> CurrentState-&gt;<a class="code hl_variable" href="class_u_state.html#a6339bab76a04bcf21fcb5145713edaf2">Name</a> == Name;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
 </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    FGameplayTag GetStateName(<span class="keywordtype">int</span> Index);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">int</span> GetStateIndex(FGameplayTag Name) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> SetState(<span class="keyword">const</span> FGameplayTag Name, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">bool</span> ForceSetState(<span class="keyword">const</span> FGameplayTag Name, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> ForceSetState(TSubclassOf&lt;UState&gt; Class, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">bool</span> ForceRollbackState(<span class="keyword">const</span> FGameplayTag Name);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckStateStanceCondition(<span class="keyword">const</span> <a class="code hl_enumeration" href="_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453">EEntryStance</a> StateStance, <span class="keyword">const</span> <span class="keywordtype">int</span> PlayerStance);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_player_object.html#a9b890753dd77960eb0ab219553ba210c">Update</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    FGameplayTag GetStateName(<span class="keywordtype">int</span> Index);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">int</span> GetStateIndex(FGameplayTag Name) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> SetState(<span class="keyword">const</span> FGameplayTag Name, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">bool</span> ForceSetState(<span class="keyword">const</span> FGameplayTag Name, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">bool</span> ForceSetState(TSubclassOf&lt;UState&gt; Class, <span class="keywordtype">bool</span> bIsAlias = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordtype">bool</span> ForceRollbackState(<span class="keyword">const</span> FGameplayTag Name);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckStateStanceCondition(<span class="keyword">const</span> <a class="code hl_enumeration" href="_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453">EEntryStance</a> StateStance, <span class="keyword">const</span> <span class="keywordtype">int</span> PlayerStance);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_a_player_object.html#a9b890753dd77960eb0ab219553ba210c">Update</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>};</div>
 </div>
-<div class="ttc" id="a_bitflags_8h_html_a23c9c3e3c83280dbab56e6f09ee4364b"><div class="ttname"><a href="_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364b">EEnableFlags</a></div><div class="ttdeci">EEnableFlags</div><div class="ttdef"><b>Definition</b> <a href="_bitflags_8h_source.html#l00037">Bitflags.h:38</a></div></div>
+<div class="ttc" id="a_bitflags_8h_html_a23c9c3e3c83280dbab56e6f09ee4364b"><div class="ttname"><a href="_bitflags_8h.html#a23c9c3e3c83280dbab56e6f09ee4364b">EEnableFlags</a></div><div class="ttdeci">EEnableFlags</div><div class="ttdef"><b>Definition</b> <a href="_bitflags_8h_source.html#l00039">Bitflags.h:40</a></div></div>
 <div class="ttc" id="a_state_8h_html"><div class="ttname"><a href="_state_8h.html">State.h</a></div></div>
 <div class="ttc" id="a_state_8h_html_a4a96e9ddfd1453f1dcfec7cc74bff453"><div class="ttname"><a href="_state_8h.html#a4a96e9ddfd1453f1dcfec7cc74bff453">EEntryStance</a></div><div class="ttdeci">EEntryStance</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00020">State.h:21</a></div></div>
 <div class="ttc" id="a_state_machine_8h_html_acbfb441024b90b6631e9a10166ce4204"><div class="ttname"><a href="_state_machine_8h.html#acbfb441024b90b6631e9a10166ce4204">UE_DECLARE_GAMEPLAY_TAG_EXTERN</a></div><div class="ttdeci">UE_DECLARE_GAMEPLAY_TAG_EXTERN(StateMachine_Primary)</div></div>
-<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00318">PlayerObject.h:319</a></div></div>
-<div class="ttc" id="aclass_a_player_object_html_a9b890753dd77960eb0ab219553ba210c"><div class="ttname"><a href="class_a_player_object.html#a9b890753dd77960eb0ab219553ba210c">APlayerObject::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdef"><b>Definition</b> <a href="_player_object_8cpp_source.html#l00378">PlayerObject.cpp:378</a></div></div>
-<div class="ttc" id="aclass_a_player_object_html_ab234e3f033ba4f407a05f987cfd39a23"><div class="ttname"><a href="class_a_player_object.html#ab234e3f033ba4f407a05f987cfd39a23">APlayerObject::AddState</a></div><div class="ttdeci">void AddState(FGameplayTag Name, UState *State, FGameplayTag StateMachineName)</div><div class="ttdef"><b>Definition</b> <a href="_player_object_8cpp_source.html#l02299">PlayerObject.cpp:2299</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html"><div class="ttname"><a href="class_a_player_object.html">APlayerObject</a></div><div class="ttdef"><b>Definition</b> <a href="_player_object_8h_source.html#l00328">PlayerObject.h:329</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html_a9b890753dd77960eb0ab219553ba210c"><div class="ttname"><a href="class_a_player_object.html#a9b890753dd77960eb0ab219553ba210c">APlayerObject::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdef"><b>Definition</b> <a href="_player_object_8cpp_source.html#l00418">PlayerObject.cpp:418</a></div></div>
+<div class="ttc" id="aclass_a_player_object_html_ab234e3f033ba4f407a05f987cfd39a23"><div class="ttname"><a href="class_a_player_object.html#ab234e3f033ba4f407a05f987cfd39a23">APlayerObject::AddState</a></div><div class="ttdeci">void AddState(FGameplayTag Name, UState *State, FGameplayTag StateMachineName)</div><div class="ttdef"><b>Definition</b> <a href="_player_object_8cpp_source.html#l02489">PlayerObject.cpp:2489</a></div></div>
 <div class="ttc" id="aclass_night_sky_engine_html"><div class="ttname"><a href="class_night_sky_engine.html">NightSkyEngine</a></div><div class="ttdef"><b>Definition</b> <a href="_night_sky_engine_8_build_8cs_source.html#l00005">NightSkyEngine.Build.cs:6</a></div></div>
-<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00340">State.h:341</a></div></div>
-<div class="ttc" id="aclass_u_state_html_a6339bab76a04bcf21fcb5145713edaf2"><div class="ttname"><a href="class_u_state.html#a6339bab76a04bcf21fcb5145713edaf2">UState::Name</a></div><div class="ttdeci">FGameplayTag Name</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00364">State.h:364</a></div></div>
+<div class="ttc" id="aclass_u_state_html"><div class="ttname"><a href="class_u_state.html">UState</a></div><div class="ttdoc">A character state that determines behavior.</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00332">State.h:333</a></div></div>
+<div class="ttc" id="aclass_u_state_html_a6339bab76a04bcf21fcb5145713edaf2"><div class="ttname"><a href="class_u_state.html#a6339bab76a04bcf21fcb5145713edaf2">UState::Name</a></div><div class="ttdeci">FGameplayTag Name</div><div class="ttdef"><b>Definition</b> <a href="_state_8h_source.html#l00356">State.h:356</a></div></div>
 <div class="ttc" id="astruct_f_state_machine_html"><div class="ttname"><a href="struct_f_state_machine.html">FStateMachine</a></div><div class="ttdoc">The player object's state machine.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">StateMachine.h:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

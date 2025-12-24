@@ -175,6 +175,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ada3ef7729b9e519b988d8f9f3656ad3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66e0966dc5b2d0c8072e1083257ccde" id="r_ae66e0966dc5b2d0c8072e1083257ccde"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66e0966dc5b2d0c8072e1083257ccde">MaxChain</a> = -1</td></tr>
 <tr class="separator:ae66e0966dc5b2d0c8072e1083257ccde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fee7f74e7c5c896b845ee0e56ad1fb1" id="r_a5fee7f74e7c5c896b845ee0e56ad1fb1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fee7f74e7c5c896b845ee0e56ad1fb1">bEnableReverseBeat</a> = true</td></tr>
+<tr class="separator:a5fee7f74e7c5c896b845ee0e56ad1fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6e0455704bedfa61eca355be1f31827" id="r_ae6e0455704bedfa61eca355be1f31827"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6e0455704bedfa61eca355be1f31827">MaxInstances</a> = 1</td></tr>
 <tr class="separator:ae6e0455704bedfa61eca355be1f31827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c70e772a68d407141793de8b7adf6d8" id="r_a8c70e772a68d407141793de8b7adf6d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_f_state_c_p_u_data.html">FStateCPUData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c70e772a68d407141793de8b7adf6d8">CPUData</a></td></tr>
@@ -188,7 +190,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>A character state that determines behavior. </p>
 <p>Provides functionality for the current character behavior, such as frame data, animations, and more. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00340">340</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00332">332</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="afa7baad8f264074d2e028ee552518a38" name="afa7baad8f264074d2e028ee552518a38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa7baad8f264074d2e028ee552518a38">&#9670;&#160;</a></span>CallExec()</h2>
@@ -216,7 +218,7 @@ Public Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_u_state_alias.html#a599db85e520cc235aab12c52be99e7a9">UStateAlias</a>, and <a class="el" href="class_u_subroutine_state.html#a50cce3ae4b98962ee8436266df28d03e">USubroutineState</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00010">10</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8cpp_source.html#l00012">12</a> of file <a class="el" href="_state_8cpp_source.html">State.cpp</a>.</p>
 
 </div>
 </div>
@@ -287,7 +289,24 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>If a CPU player should be able to enter the state. Not used with object states. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00437">437</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00435">435</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+
+</div>
+</div>
+<a id="a5fee7f74e7c5c896b845ee0e56ad1fb1" name="a5fee7f74e7c5c896b845ee0e56ad1fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fee7f74e7c5c896b845ee0e56ad1fb1">&#9670;&#160;</a></span>bEnableReverseBeat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UState::bEnableReverseBeat = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The maximum number of times this state can be used in a reverse beat chain. For use with normal attacks that you don't want to use in reverse beat. </p>
+
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00414">414</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +323,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>If a human player should be able to enter the state. Not used with object states. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00432">432</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00430">430</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +340,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The current cel index. Used in Blueprint macros to determine which code to execute. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00357">357</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00349">349</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -338,7 +357,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Data for the CPU to determine when to enter the state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00427">427</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00425">425</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -355,7 +374,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The custom state type. Only used if the base state type is set to Custom. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00391">391</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00383">383</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -372,7 +391,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The required stance to enter this state. Only used on player states. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00375">375</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00367">367</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -389,7 +408,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>An array of input condition lists. Only the success of one input condition list is required to enter the state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00381">381</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00373">373</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -406,7 +425,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A value that determines if this state can be entered directly, or must be canceled into. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00402">402</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00394">394</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +442,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The maximum number of times this state can be used in a chain. For use with moves used in a combo that you wish to prevent cancelling into multiple times in sequence. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00416">416</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00408">408</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -440,7 +459,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Determines how many of this state will be spawned. Only used on object states. Player states will ignore this value and always spawn one instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00422">422</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00420">420</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -457,7 +476,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The name of this state. For player states, this is used to jump to states directly. For object states, this is used to create an object by name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00364">364</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00356">356</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +493,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>A value that's set to match with spawned objects. If an owned object with this ID is active, this state can't be entered. For use with states that you do not wish to enter while the projectile is active. Only used on player states. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00410">410</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00402">402</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -491,7 +510,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The object that owns this state instance. For player states, this will always be the owning player. For object states, this value will change when a new object is activated and takes over this state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00351">351</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00343">343</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +527,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The state name to share a max chain with. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00369">369</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00361">361</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -525,7 +544,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>An array of state conditions. All state conditions must be successful to enter this state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00397">397</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00389">389</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>
@@ -542,7 +561,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The type of this state. </p>
 
-<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00386">386</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_state_8h_source.html#l00378">378</a> of file <a class="el" href="_state_8h_source.html">State.h</a>.</p>
 
 </div>
 </div>

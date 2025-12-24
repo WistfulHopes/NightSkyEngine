@@ -6,6 +6,7 @@ var annotated_dup =
     [ "AFighterMultiplayerRunner", "class_a_fighter_multiplayer_runner.html", "class_a_fighter_multiplayer_runner" ],
     [ "AFighterReplayRunner", "class_a_fighter_replay_runner.html", "class_a_fighter_replay_runner" ],
     [ "AFighterSynctestRunner", "class_a_fighter_synctest_runner.html", "class_a_fighter_synctest_runner" ],
+    [ "ALinkActor", "class_a_link_actor.html", "class_a_link_actor" ],
     [ "ANetworkPawn", "class_a_network_pawn.html", "class_a_network_pawn" ],
     [ "ANightSkyAIController", "class_a_night_sky_a_i_controller.html", "class_a_night_sky_a_i_controller" ],
     [ "ANightSkyBattleHudActor", "class_a_night_sky_battle_hud_actor.html", "class_a_night_sky_battle_hud_actor" ],

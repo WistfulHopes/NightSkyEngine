@@ -39,6 +39,7 @@ var _night_sky_game_state_8h =
       [ "WIN_P2", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a54a690359b8fa513fa28a0a85bd6396b", null ],
       [ "WIN_Draw", "_night_sky_game_state_8h.html#ac7646e9ac25c0e9c890df67ef654a966a90811a3bcbe8b2c55b83bdfd55769c77", null ]
     ] ],
+    [ "ENUM_CLASS_FLAGS", "_night_sky_game_state_8h.html#ad2dfdef42c1b2133167c2e3cdbcf5f10", null ],
     [ "MaxRollbackFrames", "_night_sky_game_state_8h.html#a84e9a865d72b430d5d1a53c8d36dafc2", null ],
     [ "OneFrame", "_night_sky_game_state_8h.html#ad4375bf64cc11f276c27b9035ef9b04e", null ],
     [ "SizeOfBattleState", "_night_sky_game_state_8h.html#ac8f8e47a4c480869ff6200cb1c7e2947", null ]
