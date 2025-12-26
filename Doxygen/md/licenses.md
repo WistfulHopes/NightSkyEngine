@@ -1,20 +1,35 @@
-About Night Sky Engine {#about}
+Licenses {#licenses}
 ===================
 
-## What is Night Sky Engine written in?
-Night Sky Engine uses high-level visual scripting powered by Unreal Engine's Blueprint system, giving those with less programming experience the ability to create their own characters. If this scripting isn't enough for your needs, the native C++ backend can be edited freely to extend functionality.
+## GGPOUE
 
-# What are some key features of Night Sky Engine?
-Using the Blueprint system and exposed native functions, Night Sky Engine allows for very in-depth control of character states. States are quite robust, allowing the creator to control frame data, set animations, create timers, move objects, and more.
+Night Sky Engine uses a fork of GGPOUE, a version of GGPO, for networking.
 
-Night Sky Engine also allows for both 2D sprite-based characters using Paper2D and 3D skeletal characters. As an added bonus, there's support for both traditionally animated 3D characters and the Arc System Works style of animated 3D characters.
+```
+The MIT License
 
-One of the most important features included is rollback netcode using GGPO. Stable netplay across the world is possible thanks to this.
+Copyright (c) 2009-2019 GroundStorm Studios, LLC. (http://ggpo.net)
+Copyright (c) 2020 BwdYeti
 
-# Should I download now, or wait for later?
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-After over 3 years of development, Night Sky Engine is finally ready for use! Feel free to download it right now and start making the fighting game of your dreams.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+```
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [Home](../README.md) | [Quick Start](quick-start.md) |
+| [About](about.md) | [Quick Start](quick-start.md) |

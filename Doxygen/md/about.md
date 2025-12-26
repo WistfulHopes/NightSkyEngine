@@ -17,4 +17,4 @@ After over 3 years of development, Night Sky Engine is finally ready for use! Fe
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [Home](../README.md) | [Quick Start](quick-start.md) |
+| [Home](../README.md) | [Licenses](licenses.md) |

@@ -967,6 +967,7 @@ WARN_LOGFILE           =
 
 INPUT                  = README.md \
                          md/about.md \
+                         md/licenses.md \
                          md/quick-start.md \
                          md/installing.md \
                          md/bearings.md \
