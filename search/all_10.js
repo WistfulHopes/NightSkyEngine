@@ -37,7 +37,7 @@ var searchData=
   ['objectreg7_34',['ObjectReg7',['../struct_f_battle_object_log.html#a397953d8dd389dc1d254efdc75ec50ef',1,'FBattleObjectLog::ObjectReg7'],['../class_a_battle_object.html#a3dcc71e23705b14ff0090d1598fe13f1',1,'ABattleObject::ObjectReg7']]],
   ['objectreg8_35',['ObjectReg8',['../struct_f_battle_object_log.html#a61f23e069c921c4a031349bc2079dba1',1,'FBattleObjectLog::ObjectReg8'],['../class_a_battle_object.html#afeb2e7c2991fc6c0bff83a974509fc32',1,'ABattleObject::ObjectReg8']]],
   ['objectrotation_36',['ObjectRotation',['../struct_f_battle_object_log.html#a7bceba9cfea59bf05fc12918fb46316d',1,'FBattleObjectLog::ObjectRotation'],['../class_a_battle_object.html#a1554f1c24e183cdd6dd455e57a843473',1,'ABattleObject::ObjectRotation']]],
-  ['objects_37',['Objects',['../bearings.html#autotoc_md6',1,'Battle and Player Objects'],['../class_a_night_sky_game_state.html#a8e836fac4411aa4ea99afac63236eafa',1,'ANightSkyGameState::Objects']]],
+  ['objects_37',['Objects',['../bearings.html#autotoc_md7',1,'Battle and Player Objects'],['../class_a_night_sky_game_state.html#a8e836fac4411aa4ea99afac63236eafa',1,'ANightSkyGameState::Objects']]],
   ['objectscale_38',['ObjectScale',['../struct_f_battle_object_log.html#afde8b4920bb56f9b6079c1d92c7acd4b',1,'FBattleObjectLog::ObjectScale'],['../class_a_battle_object.html#a05ae85e13aaf4cb20ee7bd22a98dfae0',1,'ABattleObject::ObjectScale']]],
   ['objectstate_39',['ObjectState',['../class_a_battle_object.html#a3175fc7f6a69e152baa18534526938d1',1,'ABattleObject']]],
   ['objectstatedata_40',['ObjectStateData',['../class_a_player_object.html#ae07e4991fbf2dd03dd148008ded17b29',1,'APlayerObject']]],

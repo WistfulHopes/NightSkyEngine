@@ -20,7 +20,7 @@ var searchData=
   ['barmorthrow_17',['bArmorThrow',['../struct_f_super_armor_data.html#aa9b218bbd696f106cd1ed201db303da2',1,'FSuperArmorData']]],
   ['battack_18',['bAttack',['../struct_f_state_c_p_u_data.html#a2b52ec67d3ddb08329c218087645007c',1,'FStateCPUData']]],
   ['battle_19',['Battle',['../_night_sky_game_state_8h.html#ae913d76a55404e861f1a0d220109c044a747d99f92ee9c080ba26108ac5d26488',1,'NightSkyGameState.h']]],
-  ['battle_20and_20player_20objects_20',['Battle and Player Objects',['../bearings.html#autotoc_md6',1,'']]],
+  ['battle_20and_20player_20objects_20',['Battle and Player Objects',['../bearings.html#autotoc_md7',1,'']]],
   ['battledata_21',['BattleData',['../class_u_night_sky_game_instance.html#a25e8b55db7e6ad7a683742327569fa6e',1,'UNightSkyGameInstance::BattleData'],['../class_u_replay_save_info.html#abcfb157b2faddfc596f4a1fbaa1347b9',1,'UReplaySaveInfo::BattleData']]],
   ['battleextension_2ecpp_22',['BattleExtension.cpp',['../_battle_extension_8cpp.html',1,'']]],
   ['battleextension_2eh_23',['BattleExtension.h',['../_battle_extension_8h.html',1,'']]],

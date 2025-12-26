@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['machine_0',['The State Machine',['../bearings.html#autotoc_md7',1,'']]],
+  ['machine_0',['The State Machine',['../bearings.html#autotoc_md8',1,'']]],
   ['mainplayer_1',['MainPlayer',['../struct_f_battle_state.html#a0c2eb48ac9040fb55d43ef0c128e0c7f',1,'FBattleState']]],
   ['manageaudio_2',['ManageAudio',['../class_a_night_sky_game_state.html#a8de81b84d109ae61792a6de30ae2df73',1,'ANightSkyGameState']]],
   ['matchinit_3',['MatchInit',['../class_a_night_sky_game_state.html#acf3da41307f5a783341a3abd5f50f679',1,'ANightSkyGameState']]],

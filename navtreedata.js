@@ -30,24 +30,24 @@ var NAVTREE =
       [ "What are some key features of Night Sky Engine?", "about.html#autotoc_md1", null ],
       [ "Should I download now, or wait for later?", "about.html#autotoc_md2", null ]
     ] ],
+    [ "Licenses", "licenses.html", [
+      [ "GGPOUE", "licenses.html#autotoc_md3", null ]
+    ] ],
     [ "Quick Start", "quick-start.html", null ],
     [ "Installing Night Sky Engine", "installing.html", [
-      [ "Download", "installing.html#autotoc_md3", null ],
-      [ "Compile the engine", "installing.html#autotoc_md4", null ]
+      [ "Download", "installing.html#autotoc_md4", null ],
+      [ "Compile the engine", "installing.html#autotoc_md5", null ]
     ] ],
     [ "Getting Your Bearings", "bearings.html", [
-      [ "Night Sky Game State", "bearings.html#autotoc_md5", null ],
-      [ "Battle and Player Objects", "bearings.html#autotoc_md6", null ],
-      [ "The State Machine", "bearings.html#autotoc_md7", null ],
-      [ "States", "bearings.html#autotoc_md8", null ],
-      [ "Cels", "bearings.html#autotoc_md9", null ]
+      [ "Night Sky Game State", "bearings.html#autotoc_md6", null ],
+      [ "Battle and Player Objects", "bearings.html#autotoc_md7", null ],
+      [ "The State Machine", "bearings.html#autotoc_md8", null ],
+      [ "States", "bearings.html#autotoc_md9", null ],
+      [ "Cels", "bearings.html#autotoc_md10", null ]
     ] ],
     [ "What Is A State? Part 1", "state-p1.html", null ],
     [ "What Is A State? Part 2", "state-p2.html", null ],
     [ "Your First State", "create-state.html", null ],
-    [ "Licenses", "licenses.html", [
-      [ "GGPOUE", "licenses.html#autotoc_md10", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

@@ -46,7 +46,7 @@ var searchData=
   ['playcommonlevelsequence_43',['PlayCommonLevelSequence',['../class_a_player_object.html#a7fa8213b6dbd6fc5fc6a3da2121bbea7',1,'APlayerObject']]],
   ['playcommonsound_44',['PlayCommonSound',['../class_a_battle_object.html#a4ecff7fa42223996c52d053c5cf3dfb7',1,'ABattleObject']]],
   ['player_45',['Player',['../class_a_night_sky_a_i_controller.html#a23e09a03a19a3ac3803618ed8b2ad6aa',1,'ANightSkyAIController::Player'],['../struct_f_battle_object_log.html#a801919a6e28c1c0eaae9faa3315ac097',1,'FBattleObjectLog::Player'],['../class_a_battle_object.html#a4582dc84234460f83f76ef868663b133',1,'ABattleObject::Player']]],
-  ['player_20objects_46',['Battle and Player Objects',['../bearings.html#autotoc_md6',1,'']]],
+  ['player_20objects_46',['Battle and Player Objects',['../bearings.html#autotoc_md7',1,'']]],
   ['playerclass_47',['PlayerClass',['../class_u_primary_chara_data.html#a59ad01ff6419b20799262a2eb30ea9a7',1,'UPrimaryCharaData']]],
   ['playerdata_48',['PlayerData',['../struct_f_rollback_data.html#ab8da1b37f338acff700e769b9b11240c',1,'FRollbackData']]],
   ['playerflags_49',['PlayerFlags',['../struct_f_player_object_log.html#a0b3f1ec4fee58c8342a95f83f967878f',1,'FPlayerObjectLog::PlayerFlags'],['../class_a_player_object.html#a25a54202a1a7f7d9dd01a8c8f7dddaf9',1,'APlayerObject::PlayerFlags']]],

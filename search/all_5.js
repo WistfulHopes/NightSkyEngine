@@ -32,7 +32,7 @@ var searchData=
   ['dist_5fdistancex_29',['DIST_DistanceX',['../_battle_object_8h.html#abd13d51eb89a564855252691bebca9bfa3ff5d7fe44a06b22073560a3b023b7e7',1,'BattleObject.h']]],
   ['dist_5fdistancey_30',['DIST_DistanceY',['../_battle_object_8h.html#abd13d51eb89a564855252691bebca9bfa0feaf6a311e737cc37ee3abec54b5477',1,'BattleObject.h']]],
   ['dist_5ffrontdistancex_31',['DIST_FrontDistanceX',['../_battle_object_8h.html#abd13d51eb89a564855252691bebca9bfae68cf5f7687d975d6a1ada4009181957',1,'BattleObject.h']]],
-  ['download_32',['Download',['../installing.html#autotoc_md3',1,'']]],
+  ['download_32',['Download',['../installing.html#autotoc_md4',1,'']]],
   ['download_20now_20or_20wait_20for_20later_33',['Should I download now, or wait for later?',['../about.html#autotoc_md2',1,'']]],
   ['drawpriority_34',['DrawPriority',['../struct_f_battle_object_log.html#acd205a99c6cefbca1b13e4c84b86c9e6',1,'FBattleObjectLog::DrawPriority'],['../class_a_battle_object.html#a1b4e833fd922beb3e218def2204ab37a',1,'ABattleObject::DrawPriority']]],
   ['drawprioritylinkobj_35',['DrawPriorityLinkObj',['../struct_f_battle_object_log.html#a36bd576d8ddfceff8aaaa8c3b8cc64fb',1,'FBattleObjectLog::DrawPriorityLinkObj'],['../class_a_battle_object.html#a7d4319e4cd4a288d63eab29ceee3ad66',1,'ABattleObject::DrawPriorityLinkObj']]]
