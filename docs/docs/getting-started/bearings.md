@@ -1,4 +1,4 @@
-Getting Your Bearings {#bearings}
+Getting Your Bearings
 ===================
 
 Night Sky Engine is very powerful, but it may take some getting used to in order to unlock the full power of the framework. This page will explain some basic concepts of the framework. More detailed information will be brought up as the guide continues.
@@ -34,7 +34,7 @@ For the Collision Data part, Cels can be connected to animation frames and colli
 
 Under normal circumstances, there is no need to directly interact with a Cel Gate. Instead, it is recommended to use the Set Cel macro, or the Set Cel and Blend Cel macro for blended animations.
 
-As an example, say we have a Set Cel macro for the first 8 frames of a player's standing state. The Cel Name is set to "manny_stand00". In the Collision Data, "manny_stand00" is connected to the first frame of the standing animation and collision data. Upon entering the standing state, the player will immediately set its Cel name, then wait 8 frames. Upon its duration elapsing, the next Cel hooked up to Skip will activate, and so on.
+As an example, say we have a Set Cel macro for the first 8 frames of a player's standing state. The Cel Name is set to `Manny.Stand.00`. In the Collision Data, `Manny.Stand.00` is connected to the first frame of the standing animation and collision data. Upon entering the standing state, the player will immediately set its Cel name, then wait 8 frames. Upon its duration elapsing, the next Cel hooked up to Skip will activate, and so on.
 
 When scripting in Blueprints, Cels will be the main way you interact with a state.
 

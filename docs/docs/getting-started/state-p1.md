@@ -1,4 +1,4 @@
-What Is A State? Part 1 {#state-p1}
+What Is A State? Part 1
 ===================
 
 In Night Sky Engine, all characters have their logic built using States and Subroutines. For now, we'll focus on States.
@@ -9,7 +9,7 @@ States have two types of main conditions: Input and State Conditions. Input Cond
 
 Every state can be grouped into a "State Type", such as Standing, Jumping, Normal Attack, etc. You can broadly toggle on and off transitioning into other states. For example, by toggling on the Jumping State Type, any Jumping States can be entered when its Input and State Conditions are met. Additionally, custom State Types may be created in Blueprints.
 
-Finally, if you need even more control over entering a state, you can override the "Can Enter State" function of a state to set custom conditions.
+Finally, if you need even more control over entering a state, you can override the `Can Enter State` function of a state to set custom conditions.
 
 If you need a more specific way to transition between different states, there are two ways to handle this: Cancels and Jump to State.
 

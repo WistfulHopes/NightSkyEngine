@@ -1,0 +1,28 @@
+nav:
+  - index.md
+  - getting-started
+  - API:
+    - Night Sky Engine:
+      - Source:
+        - "NightSkyEngine/*_source.md"
+      - Documentation:
+        - glob: "NightSkyEngine/*.md"
+          ignore: "NightSkyEngine/*_source.md"
+    - NightSkyEngineEditor:
+      - Source:
+        - "NightSkyEngineEditor/*_source.md"
+      - Documentation:
+        - glob: "NightSkyEngineEditor/*.md"
+          ignore: "NightSkyEngineEditor/*_source.md"
+    - CollisionEditor:
+      - Source:
+        - "CollisionEditor/*_source.md"
+      - Documentation:
+        - glob: "CollisionEditor/*.md"
+          ignore: "CollisionEditor/*_source.md"
+    - GGPOUE4:
+      - Source:
+        - "GGPOUE4/*_source.md"
+      - Documentation:
+        - glob: "GGPOUE4/*.md"
+          ignore: "GGPOUE4/*_source.md"

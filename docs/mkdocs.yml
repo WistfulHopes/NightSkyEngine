@@ -1,0 +1,56 @@
+site_name: Night Sky Engine
+site_url: https://wistfulhopes.github.io/NightSkyEngine
+theme:
+  name: material
+  font:
+    text: Merriweather Sans
+    code: Red Hat Mono
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: indigo
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+plugins:
+  - search
+  - awesome-nav
+  - mkdoxy:
+      projects:
+        NightSkyEngine: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: ../Plugins/NightSkyEngine/Source/NightSkyEngine # path to source code (support multiple paths separated by space) => INPUT
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
+        NightSkyEngineEditor: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: ../Plugins/NightSkyEngine/Source/NightSkyEngineEditor # path to source code (support multiple paths separated by space) => INPUT
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
+        CollisionEditor: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: ../Plugins/NightSkyEngine/Source/CollisionEditor # path to source code (support multiple paths separated by space) => INPUT
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
+        GGPOUE4: # name of project must be alphanumeric + numbers (without spaces)
+          src-dirs: ../Plugins/NightSkyEngine/Source/GGPOUE4 # path to source code (support multiple paths separated by space) => INPUT
+          full-doc: True # if you want to generate full documentation
+          doxy-cfg: # standard doxygen configuration (key: value)
+            FILE_PATTERNS: "*.cpp *.h*" # specify file patterns to filter out
+            RECURSIVE: True # recursive search in source directories
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences

@@ -1,4 +1,4 @@
-Installing Night Sky Engine {#installing}
+Installing Night Sky Engine
 ===================
 
 ## Download
@@ -11,7 +11,7 @@ To compile the Night Sky Engine, you will need Unreal Engine 5.7 and Visual Stud
 
 After Visual Studio is set up, you will need to generate Visual Studio project files for Night Sky Engine. To do so, right-click on NightSkyEngine.uproject, and click on "Generate Visual Studio project files".
 
-There will be a new file in the folder, "NightSkyEngine.sln". Open it, and once Visual Studio has loaded, press Ctrl+Shift+B to compile the engine.
+There will be a new file in the folder, `NightSkyEngine.sln`. Open it, and once Visual Studio has loaded, press Ctrl+Shift+B to compile the engine.
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|

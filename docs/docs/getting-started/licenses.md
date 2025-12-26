@@ -1,9 +1,13 @@
-Licenses {#licenses}
+Licenses
 ===================
+
+Listed below are the libraries used in Night Sky Engine.
 
 ## GGPOUE
 
 Night Sky Engine uses a fork of GGPOUE, a version of GGPO, for networking.
+
+You can find the original [here](https://github.com/BwdYeti/GGPOUE).
 
 ```
 The MIT License
@@ -29,6 +33,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
+
+## THE MATCH-MAKERS Sound Effects Pack (Osabisi)
+
+A sound effect library made by Osabisi.
+
+You can find the originals [here](https://osabisi.sakura.ne.jp/m2/material3.html).
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|

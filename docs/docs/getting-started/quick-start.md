@@ -1,4 +1,4 @@
-Quick Start {#quick-start}
+Quick Start
 =========
 
 Don't know where to start with Night Sky Engine? Take a look at the below guides:
