@@ -45,6 +45,9 @@ var NAVTREE =
     [ "What Is A State? Part 1", "state-p1.html", null ],
     [ "What Is A State? Part 2", "state-p2.html", null ],
     [ "Your First State", "create-state.html", null ],
+    [ "Licenses", "licenses.html", [
+      [ "GGPOUE", "licenses.html#autotoc_md10", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -80,8 +83,8 @@ var NAVTREEINDEX =
 "class_a_player_object.html#a89c4d5f2d63a5e9f6574714e51d2e601",
 "class_u_night_sky_battle_widget.html#abdcca425f2964312d1a62d8b38f3883e",
 "globals_r.html",
-"struct_f_battle_state.html#ad7664de94c40d2757166618824d0ac68",
-"struct_f_player_object_log.html#a8d2be352a42aa3c106cadb84b31ead03"
+"struct_f_battle_state.html#ad0661f614051de8b9504a4200add9a3d",
+"struct_f_player_object_log.html#a88a1c90aeb35ab217de3c0212c9706f0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

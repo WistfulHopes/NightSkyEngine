@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['your_20bearings_0',['Getting Your Bearings',['../bearings.html',1,'']]],
-  ['your_20first_20state_1',['Your First State',['../create-state.html',1,'']]]
+  ['what_20is_20a_20state_20part_201_0',['What Is A State? Part 1',['../state-p1.html',1,'']]],
+  ['what_20is_20a_20state_20part_202_1',['What Is A State? Part 2',['../state-p2.html',1,'']]]
 ];
