@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_hit_position" kind="struct" language="C++" prot="public">
+    <compoundname>FHitPosition</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_hit_position_1aa624c29f1cb59d7855f515fa417bd081" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EHitPositionType &gt;</type>
+        <definition>TEnumAsByte&lt;EHitPositionType&gt; FHitPosition::Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>FHitPosition::Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="361" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_position_1a032381b56001596b25f761079763b4d2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitPosition::PosX</definition>
+        <argsstring></argsstring>
+        <name>PosX</name>
+        <qualifiedname>FHitPosition::PosX</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="363" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_position_1a3486fc43e85ac97cb7728de8db1e2d33" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitPosition::PosY</definition>
+        <argsstring></argsstring>
+        <name>PosY</name>
+        <qualifiedname>FHitPosition::PosY</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="365" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="365" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="356" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="357" bodyend="366"/>
+    <listofallmembers>
+      <member refid="struct_f_hit_position_1a032381b56001596b25f761079763b4d2" prot="public" virt="non-virtual"><scope>FHitPosition</scope><name>PosX</name></member>
+      <member refid="struct_f_hit_position_1a3486fc43e85ac97cb7728de8db1e2d33" prot="public" virt="non-virtual"><scope>FHitPosition</scope><name>PosY</name></member>
+      <member refid="struct_f_hit_position_1aa624c29f1cb59d7855f515fa417bd081" prot="public" virt="non-virtual"><scope>FHitPosition</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

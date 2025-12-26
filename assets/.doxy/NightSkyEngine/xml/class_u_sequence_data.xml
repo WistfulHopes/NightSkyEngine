@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_sequence_data" kind="class" language="C++" prot="public">
+    <compoundname>USequenceData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_sequence_data_1a9f2ed6b07aad8d49fd2213cbcabac17f" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_sequence_struct" kindref="compound">FSequenceStruct</ref> &gt;</type>
+        <definition>TArray&lt;FSequenceStruct&gt; USequenceData::SequenceStructs</definition>
+        <argsstring></argsstring>
+        <name>SequenceStructs</name>
+        <qualifiedname>USequenceData::SequenceStructs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" line="30" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" line="25" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" bodystart="26" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_u_sequence_data_1a9f2ed6b07aad8d49fd2213cbcabac17f" prot="public" virt="non-virtual"><scope>USequenceData</scope><name>SequenceStructs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

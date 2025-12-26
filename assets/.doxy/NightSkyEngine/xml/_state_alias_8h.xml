@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_state_alias_8h" kind="file" language="C++">
+    <compoundname>StateAlias.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes refid="_state_8h" local="yes">State.h</includes>
+    <includes local="yes">StateAlias.generated.h</includes>
+    <includedby refid="_state_machine_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp</includedby>
+    <incdepgraph>
+      <node id="19">
+        <label>BattleObject.generated.h</label>
+      </node>
+      <node id="4">
+        <label>NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>NightSkyEngine/Battle/Misc/CollisionBox.h</label>
+        <link refid="_collision_box_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Globals.h</label>
+        <link refid="_globals_8h_source"/>
+      </node>
+      <node id="6">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>NightSkyEngine/Battle/Objects/BattleObject.h</label>
+        <link refid="_battle_object_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>State.h</label>
+        <link refid="_state_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateAlias.h</label>
+        <link refid="_state_alias_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>NightSkyEngine/Data/CollisionData.h</label>
+        <link refid="_collision_data_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CollisionBox.generated.h</label>
+      </node>
+      <node id="18">
+        <label>CollisionData.generated.h</label>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="16">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="11">
+        <label>GameFramework/Pawn.h</label>
+      </node>
+      <node id="5">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="17">
+        <label>PaperFlipbook.h</label>
+      </node>
+      <node id="8">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="20">
+        <label>State.generated.h</label>
+      </node>
+      <node id="21">
+        <label>StateAlias.generated.h</label>
+      </node>
+      <node id="7">
+        <label>UObject/Object.h</label>
+      </node>
+      <node id="10">
+        <label>fstream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_u_state_alias" prot="public">UStateAlias</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;State.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;StateAlias.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UCLASS()</highlight></codeline>
+<codeline lineno="13" refid="class_u_state_alias" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_state_alias" kindref="compound">UStateAlias</ref><sp/>:<sp/>public<sp/><ref refid="class_u_state" kindref="compound">UState</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Which<sp/>state<sp/>to<sp/>enter<sp/>from<sp/>the<sp/>alias</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>FGameplayTag<sp/>StateToEnter;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Dummy<sp/>CallExec,<sp/>we<sp/>don&apos;t<sp/>want<sp/>it<sp/>to<sp/>execute<sp/>code</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_u_state_alias_1a599db85e520cc235aab12c52be99e7a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_u_state_alias_1a599db85e520cc235aab12c52be99e7a9" kindref="member">CallExec</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateAlias.h"/>
+  </compounddef>
+</doxygen>

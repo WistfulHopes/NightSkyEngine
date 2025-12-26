@@ -1,0 +1,91 @@
+
+
+# File types.h
+
+[**File List**](files.md) **>** [**GGPOUE4**](dir_61f8f2a9aed5edd4e8edeed0f59c7e8a.md) **>** [**Private**](dir_37a60bd602479ee08f2dd49815e2e03d.md) **>** [**types.h**](types_8h.md)
+
+[Go to the documentation of this file](types_8h.md)
+
+
+```C++
+/* -----------------------------------------------------------------------
+ * GGPO.net (http://ggpo.net)  -  Copyright 2009 GroundStorm Studios, LLC.
+ *
+ * Use of this software is governed by the MIT license that can be found
+ * in the LICENSE file.
+ */
+
+#ifndef _TYPES_H
+#define _TYPES_H
+/*
+ * Keep the compiler happy
+ */
+
+/*
+ * Disable specific compiler warnings
+ *   4018 - '<' : signed/unsigned mismatch
+ *   4100 - 'xxx' : unreferenced formal parameter
+ *   4127 - conditional expression is constant
+ *   4201 - nonstandard extension used : nameless struct/union
+ *   4389 - '!=' : signed/unsigned mismatch
+ *   4800 - 'int' : forcing value to bool 'true' or 'false' (performance warning)
+ */
+#pragma warning(disable: 4018 4100 4127 4201 4389 4800)
+
+/*
+ * Simple types
+ */
+typedef unsigned char byte;
+
+/*
+ * Additional headers
+ */
+#if defined(_WINDOWS)
+#  include "platform_windows.h"
+#elif defined(__APPLE__) or defined(__GNUC__)
+#  include "platform_unix.h"
+#else
+#  error Unsupported platform
+#endif
+
+#include "log.h"
+
+
+
+/*
+ * Macros
+ */
+#define ASSERT(x)                                           \
+   do {                                                     \
+      if (!(x)) {                                           \
+         char assert_buf[1024];                             \
+         snprintf(assert_buf, sizeof(assert_buf) - 1, "Assertion: %s @ %s:%d (pid:%d)", #x, __FILE__, __LINE__, (int)Platform::GetProcessID()); \
+         Log("%s\n", assert_buf);                           \
+         Log("\n");                                         \
+         Log("\n");                                         \
+         Log("\n");                                         \
+         Platform::AssertFailed(assert_buf);                \
+         exit(0);                                           \
+      }                                                     \
+   } while (false)
+
+#ifndef ARRAY_SIZE
+#  define ARRAY_SIZE(a)    (sizeof(a) / sizeof((a)[0]))
+#endif
+
+#ifndef MAX_INT
+#  define MAX_INT          0xEFFFFFF
+#endif
+
+#ifndef MAX
+#  define MAX(x, y)        (((x) > (y)) ? (x) : (y))
+#endif
+
+#ifndef MIN
+#  define MIN(x, y)        (((x) < (y)) ? (x) : (y))
+#endif
+
+#endif // _TYPES_H
+```
+
+

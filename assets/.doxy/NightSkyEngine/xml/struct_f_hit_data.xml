@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_hit_data" kind="struct" language="C++" prot="public">
+    <compoundname>FHitData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_hit_data_1aa0ab6200690833217faea2f6dc506417" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::Hitstop</definition>
+        <argsstring></argsstring>
+        <name>Hitstop</name>
+        <qualifiedname>FHitData::Hitstop</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="381" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a945da7ef006d5f3b7088a59b6b9d0147" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::Hitstun</definition>
+        <argsstring></argsstring>
+        <name>Hitstun</name>
+        <qualifiedname>FHitData::Hitstun</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="384" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a1acc2a33a56d5ca40c1a832b13292824" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::Untech</definition>
+        <argsstring></argsstring>
+        <name>Untech</name>
+        <qualifiedname>FHitData::Untech</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="387" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a389900d03a7ed916f2e13a0203407ae7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::EnemyHitstopModifier</definition>
+        <argsstring></argsstring>
+        <name>EnemyHitstopModifier</name>
+        <qualifiedname>FHitData::EnemyHitstopModifier</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="390" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a914a5773d0dbbd2e447ad1ac4613ece8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::Damage</definition>
+        <argsstring></argsstring>
+        <name>Damage</name>
+        <qualifiedname>FHitData::Damage</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="393" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a8c04752866ee2d0ae4913e8d8e993805" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::RecoverableDamagePercent</definition>
+        <argsstring></argsstring>
+        <name>RecoverableDamagePercent</name>
+        <qualifiedname>FHitData::RecoverableDamagePercent</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="396" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a4923aaf64d9f56451b2283874eb50c94" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::MinimumDamagePercent</definition>
+        <argsstring></argsstring>
+        <name>MinimumDamagePercent</name>
+        <qualifiedname>FHitData::MinimumDamagePercent</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="402" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a4c1f7b952adba43b0ed9cd92ef92f011" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::InitialProration</definition>
+        <argsstring></argsstring>
+        <name>InitialProration</name>
+        <qualifiedname>FHitData::InitialProration</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="408" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1aa14a8ba169021417e4b97fc9f5fcc67a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::ForcedProration</definition>
+        <argsstring></argsstring>
+        <name>ForcedProration</name>
+        <qualifiedname>FHitData::ForcedProration</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="414" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1aa708a2f1a78b0d9a4cecec19602fd0dd" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::GroundPushbackX</definition>
+        <argsstring></argsstring>
+        <name>GroundPushbackX</name>
+        <qualifiedname>FHitData::GroundPushbackX</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="421" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="421" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1aa829ffb18575849f1ee75d55bb10519b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::AirPushbackX</definition>
+        <argsstring></argsstring>
+        <name>AirPushbackX</name>
+        <qualifiedname>FHitData::AirPushbackX</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="424" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a3b46e8b4dca69d4faf7463e7dc04372f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::AirPushbackY</definition>
+        <argsstring></argsstring>
+        <name>AirPushbackY</name>
+        <qualifiedname>FHitData::AirPushbackY</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="427" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a76b2fc5c9dcb663483b034414e6eed80" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::Gravity</definition>
+        <argsstring></argsstring>
+        <name>Gravity</name>
+        <qualifiedname>FHitData::Gravity</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="430" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a1aafdd75f864abd3cbdf70cf236661cd" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_hit_value_over_time" kindref="compound">FHitValueOverTime</ref></type>
+        <definition>FHitValueOverTime FHitData::AirPushbackXOverTime</definition>
+        <argsstring></argsstring>
+        <name>AirPushbackXOverTime</name>
+        <qualifiedname>FHitData::AirPushbackXOverTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="436" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a2d8cdcd2514c16ccf6bc155fead9ffb4" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_hit_value_over_time" kindref="compound">FHitValueOverTime</ref></type>
+        <definition>FHitValueOverTime FHitData::AirPushbackYOverTime</definition>
+        <argsstring></argsstring>
+        <name>AirPushbackYOverTime</name>
+        <qualifiedname>FHitData::AirPushbackYOverTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="442" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="442" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a12b02612dd8ce09c1f6fb3f66305b8c8" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_hit_value_over_time" kindref="compound">FHitValueOverTime</ref></type>
+        <definition>FHitValueOverTime FHitData::GravityOverTime</definition>
+        <argsstring></argsstring>
+        <name>GravityOverTime</name>
+        <qualifiedname>FHitData::GravityOverTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="448" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a4f9a455c83e9ae0a90c6043ef44f697e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_hit_position" kindref="compound">FHitPosition</ref></type>
+        <definition>FHitPosition FHitData::Position</definition>
+        <argsstring></argsstring>
+        <name>Position</name>
+        <qualifiedname>FHitData::Position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="451" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="451" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a43ac529e99d005364e83141e6c17b3a1" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EHitAction &gt;</type>
+        <definition>TEnumAsByte&lt;EHitAction&gt; FHitData::GroundHitAction</definition>
+        <argsstring></argsstring>
+        <name>GroundHitAction</name>
+        <qualifiedname>FHitData::GroundHitAction</qualifiedname>
+        <initializer>= HACT_GroundNormal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="454" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="454" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a087792dd178e69d5b8b10140be8a0a7d" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EHitAction &gt;</type>
+        <definition>TEnumAsByte&lt;EHitAction&gt; FHitData::AirHitAction</definition>
+        <argsstring></argsstring>
+        <name>AirHitAction</name>
+        <qualifiedname>FHitData::AirHitAction</qualifiedname>
+        <initializer>= HACT_AirNormal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="457" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a8c43fec13ce3acc521246c2c133a6665" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitData::CustomHitAction</definition>
+        <argsstring></argsstring>
+        <name>CustomHitAction</name>
+        <qualifiedname>FHitData::CustomHitAction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="460" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="460" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1af79bf86184e24460754e886905023a57" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::BlowbackLevel</definition>
+        <argsstring></argsstring>
+        <name>BlowbackLevel</name>
+        <qualifiedname>FHitData::BlowbackLevel</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="463" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a9a72a3ed32c4e668a8d007c951e92255" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EFloatingCrumpleType &gt;</type>
+        <definition>TEnumAsByte&lt;EFloatingCrumpleType&gt; FHitData::FloatingCrumpleType</definition>
+        <argsstring></argsstring>
+        <name>FloatingCrumpleType</name>
+        <qualifiedname>FHitData::FloatingCrumpleType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="466" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="466" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a05fcbe40c84029aa80617158764bc7e2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::KnockdownTime</definition>
+        <argsstring></argsstring>
+        <name>KnockdownTime</name>
+        <qualifiedname>FHitData::KnockdownTime</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="469" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="469" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1af2f56616f640484bc472e4a1befb0713" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitData::HardKnockdown</definition>
+        <argsstring></argsstring>
+        <name>HardKnockdown</name>
+        <qualifiedname>FHitData::HardKnockdown</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="472" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a2d0bf3ac47662a6a116e3e37c71c4452" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_ground_bounce_data" kindref="compound">FGroundBounceData</ref></type>
+        <definition>FGroundBounceData FHitData::GroundBounce</definition>
+        <argsstring></argsstring>
+        <name>GroundBounce</name>
+        <qualifiedname>FHitData::GroundBounce</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="475" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="475" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_1a26e13cf9ed7916382ad6f32f9d3322a7" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_wall_bounce_data" kindref="compound">FWallBounceData</ref></type>
+        <definition>FWallBounceData FHitData::WallBounce</definition>
+        <argsstring></argsstring>
+        <name>WallBounce</name>
+        <qualifiedname>FHitData::WallBounce</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="478" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="478" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="1">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="2">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="5">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="375" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="376" bodyend="479"/>
+    <listofallmembers>
+      <member refid="struct_f_hit_data_1a087792dd178e69d5b8b10140be8a0a7d" prot="public" virt="non-virtual"><scope>FHitData</scope><name>AirHitAction</name></member>
+      <member refid="struct_f_hit_data_1aa829ffb18575849f1ee75d55bb10519b" prot="public" virt="non-virtual"><scope>FHitData</scope><name>AirPushbackX</name></member>
+      <member refid="struct_f_hit_data_1a1aafdd75f864abd3cbdf70cf236661cd" prot="public" virt="non-virtual"><scope>FHitData</scope><name>AirPushbackXOverTime</name></member>
+      <member refid="struct_f_hit_data_1a3b46e8b4dca69d4faf7463e7dc04372f" prot="public" virt="non-virtual"><scope>FHitData</scope><name>AirPushbackY</name></member>
+      <member refid="struct_f_hit_data_1a2d8cdcd2514c16ccf6bc155fead9ffb4" prot="public" virt="non-virtual"><scope>FHitData</scope><name>AirPushbackYOverTime</name></member>
+      <member refid="struct_f_hit_data_1af79bf86184e24460754e886905023a57" prot="public" virt="non-virtual"><scope>FHitData</scope><name>BlowbackLevel</name></member>
+      <member refid="struct_f_hit_data_1a8c43fec13ce3acc521246c2c133a6665" prot="public" virt="non-virtual"><scope>FHitData</scope><name>CustomHitAction</name></member>
+      <member refid="struct_f_hit_data_1a914a5773d0dbbd2e447ad1ac4613ece8" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Damage</name></member>
+      <member refid="struct_f_hit_data_1a389900d03a7ed916f2e13a0203407ae7" prot="public" virt="non-virtual"><scope>FHitData</scope><name>EnemyHitstopModifier</name></member>
+      <member refid="struct_f_hit_data_1a9a72a3ed32c4e668a8d007c951e92255" prot="public" virt="non-virtual"><scope>FHitData</scope><name>FloatingCrumpleType</name></member>
+      <member refid="struct_f_hit_data_1aa14a8ba169021417e4b97fc9f5fcc67a" prot="public" virt="non-virtual"><scope>FHitData</scope><name>ForcedProration</name></member>
+      <member refid="struct_f_hit_data_1a76b2fc5c9dcb663483b034414e6eed80" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Gravity</name></member>
+      <member refid="struct_f_hit_data_1a12b02612dd8ce09c1f6fb3f66305b8c8" prot="public" virt="non-virtual"><scope>FHitData</scope><name>GravityOverTime</name></member>
+      <member refid="struct_f_hit_data_1a2d0bf3ac47662a6a116e3e37c71c4452" prot="public" virt="non-virtual"><scope>FHitData</scope><name>GroundBounce</name></member>
+      <member refid="struct_f_hit_data_1a43ac529e99d005364e83141e6c17b3a1" prot="public" virt="non-virtual"><scope>FHitData</scope><name>GroundHitAction</name></member>
+      <member refid="struct_f_hit_data_1aa708a2f1a78b0d9a4cecec19602fd0dd" prot="public" virt="non-virtual"><scope>FHitData</scope><name>GroundPushbackX</name></member>
+      <member refid="struct_f_hit_data_1af2f56616f640484bc472e4a1befb0713" prot="public" virt="non-virtual"><scope>FHitData</scope><name>HardKnockdown</name></member>
+      <member refid="struct_f_hit_data_1aa0ab6200690833217faea2f6dc506417" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Hitstop</name></member>
+      <member refid="struct_f_hit_data_1a945da7ef006d5f3b7088a59b6b9d0147" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Hitstun</name></member>
+      <member refid="struct_f_hit_data_1a4c1f7b952adba43b0ed9cd92ef92f011" prot="public" virt="non-virtual"><scope>FHitData</scope><name>InitialProration</name></member>
+      <member refid="struct_f_hit_data_1a05fcbe40c84029aa80617158764bc7e2" prot="public" virt="non-virtual"><scope>FHitData</scope><name>KnockdownTime</name></member>
+      <member refid="struct_f_hit_data_1a4923aaf64d9f56451b2283874eb50c94" prot="public" virt="non-virtual"><scope>FHitData</scope><name>MinimumDamagePercent</name></member>
+      <member refid="struct_f_hit_data_1a4f9a455c83e9ae0a90c6043ef44f697e" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Position</name></member>
+      <member refid="struct_f_hit_data_1a8c04752866ee2d0ae4913e8d8e993805" prot="public" virt="non-virtual"><scope>FHitData</scope><name>RecoverableDamagePercent</name></member>
+      <member refid="struct_f_hit_data_1a1acc2a33a56d5ca40c1a832b13292824" prot="public" virt="non-virtual"><scope>FHitData</scope><name>Untech</name></member>
+      <member refid="struct_f_hit_data_1a26e13cf9ed7916382ad6f32f9d3322a7" prot="public" virt="non-virtual"><scope>FHitData</scope><name>WallBounce</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_night_sky_engine_editor_module" kind="class" language="C++" prot="public">
+    <compoundname>FNightSkyEngineEditorModule</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IModuleInterface</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_night_sky_engine_editor_module_1ae89c47f55d6a4c8bd4d0d66644dc418e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FNightSkyEngineEditorModule::StartupModule</definition>
+        <argsstring>() override</argsstring>
+        <name>StartupModule</name>
+        <qualifiedname>FNightSkyEngineEditorModule::StartupModule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEngineEditor.h" line="9" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Private/NightSkyEngineEditor.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_night_sky_engine_editor_module_1ad6947ccf2928aeecde797e93543ec54f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FNightSkyEngineEditorModule::ShutdownModule</definition>
+        <argsstring>() override</argsstring>
+        <name>ShutdownModule</name>
+        <qualifiedname>FNightSkyEngineEditorModule::ShutdownModule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEngineEditor.h" line="10" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Private/NightSkyEngineEditor.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FNightSkyEngineEditorModule</label>
+        <link refid="class_f_night_sky_engine_editor_module"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IModuleInterface</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FNightSkyEngineEditorModule</label>
+        <link refid="class_f_night_sky_engine_editor_module"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IModuleInterface</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEngineEditor.h" line="6" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEngineEditor.h" bodystart="7" bodyend="11"/>
+    <listofallmembers>
+      <member refid="class_f_night_sky_engine_editor_module_1ad6947ccf2928aeecde797e93543ec54f" prot="public" virt="virtual"><scope>FNightSkyEngineEditorModule</scope><name>ShutdownModule</name></member>
+      <member refid="class_f_night_sky_engine_editor_module_1ae89c47f55d6a4c8bd4d0d66644dc418e" prot="public" virt="virtual"><scope>FNightSkyEngineEditorModule</scope><name>StartupModule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_w_t_player_controller" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyWTPlayerController</compoundname>
+    <basecompoundref refid="class_a_night_sky_player_controller" prot="public" virt="non-virtual">ANightSkyPlayerController</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_w_t_player_controller_1aecd7b9de369630d0561883b1a06dac04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyWTPlayerController::ANightSkyWTPlayerController</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyWTPlayerController</name>
+        <qualifiedname>ANightSkyWTPlayerController::ANightSkyWTPlayerController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.cpp" bodystart="9" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_w_t_player_controller_1a446f066d755916f3fd00877e588e795f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyWTPlayerController::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>ANightSkyWTPlayerController::Tick</qualifiedname>
+        <reimplements refid="class_a_night_sky_player_controller_1aea64af8418947730f0a7b377f6c715f9">Tick</reimplements>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.h" line="24" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_night_sky_w_t_player_controller_1a6a2a47e50e81fec4d0e41639ff1c3272" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyWTPlayerController::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANightSkyWTPlayerController::BeginPlay</qualifiedname>
+        <reimplements refid="class_a_night_sky_player_controller_1a1b627f578570f4a65167b055c4af56b2">BeginPlay</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.h" line="20" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ANightSkyPlayerController</label>
+        <link refid="class_a_night_sky_player_controller"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ANightSkyWTPlayerController</label>
+        <link refid="class_a_night_sky_w_t_player_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>APlayerController</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>AActor</label>
+      </node>
+      <node id="52">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>GameState</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AFighterMultiplayerRunner</label>
+        <link refid="class_a_fighter_multiplayer_runner"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="56" relation="usage">
+          <edgelabel>connectionManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="5">
+        <label>ANetworkPawn</label>
+        <link refid="class_a_network_pawn"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>FighterMultiplayerRunner</edgelabel>
+        </childnode>
+      </node>
+      <node id="53">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>BattleState</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>BattleExtensionData</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>GameInstance</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>ParticleManager</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>AudioManager</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>SequenceEnemy</edgelabel>
+          <edgelabel>SequenceTarget</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>FighterRunner</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>BattleHudActor</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ANightSkyPlayerController</label>
+        <link refid="class_a_night_sky_player_controller"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>InputActions</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>NetworkPawn</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ANightSkyWTPlayerController</label>
+        <link refid="class_a_night_sky_w_t_player_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>APawn</label>
+      </node>
+      <node id="3">
+        <label>APlayerController</label>
+      </node>
+      <node id="25">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="57">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="43">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="48">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="49" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>FBattleInputActions</label>
+        <link refid="struct_f_battle_input_actions"/>
+      </node>
+      <node id="12">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="20">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="17">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="19">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="18">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="23">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="27">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="26">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="14">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="13">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="32">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="28">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="44">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="21">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="56">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>UDataAsset</label>
+      </node>
+      <node id="47">
+        <label>UGameInstance</label>
+      </node>
+      <node id="38">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="55" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="47" relation="public-inheritance">
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>UObject</label>
+      </node>
+      <node id="39">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="49">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="36">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="34" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.h" line="10" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTPlayerController.h" bodystart="11" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_player_controller_1a26f85c3383067f88e46b2809107b4e54" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ANightSkyPlayerController</name></member>
+      <member refid="class_a_night_sky_w_t_player_controller_1aecd7b9de369630d0561883b1a06dac04" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ANightSkyWTPlayerController</name></member>
+      <member refid="class_a_night_sky_w_t_player_controller_1a6a2a47e50e81fec4d0e41639ff1c3272" prot="protected" virt="virtual"><scope>ANightSkyWTPlayerController</scope><name>BeginPlay</name></member>
+      <member refid="class_a_night_sky_player_controller_1a8551262652e4498a1380d96841832d2d" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>bRematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1a1b2592af49a4feb1d9f9e9c97a2e9404" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>bRematchAccepted</name></member>
+      <member refid="class_a_night_sky_player_controller_1a20c0c66ddb1e5dcc168666e370a30d34" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>bSentCharaData</name></member>
+      <member refid="class_a_night_sky_player_controller_1a2e5f11164250f1c5f7b551310351508e" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ClosePauseMenu</name></member>
+      <member refid="class_a_night_sky_player_controller_1abed7e8246d8019abaa2396f41f04eb40" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>Frame</name></member>
+      <member refid="class_a_night_sky_player_controller_1a17b75fe0f61fc24a4c2e40e83473a17d" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>InputActions</name></member>
+      <member refid="class_a_night_sky_player_controller_1a373e5cf3d167f970f68bff5f20c84e24" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>InputMapping</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa941c6d850523b2778bddd764843057e" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>Inputs</name></member>
+      <member refid="class_a_night_sky_player_controller_1aba454772ebc5f60d65e7cfff7c473af3" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>NetworkPawn</name></member>
+      <member refid="class_a_night_sky_player_controller_1aab3c4ff6bbc75fa3997188d4a3142b86" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>OpenPauseMenu</name></member>
+      <member refid="class_a_night_sky_player_controller_1a17027ec1eac26ae67bed9eaa53d02394" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PauseGame</name></member>
+      <member refid="class_a_night_sky_player_controller_1a4ca1b7a0c7f8971a6e3eb303ef536e82" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PostRematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1a2b0311a543e31549cd5311a1dd640f85" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressA</name></member>
+      <member refid="class_a_night_sky_player_controller_1abb65c88ba0c220ec4b1c2d0d90ee8769" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressB</name></member>
+      <member refid="class_a_night_sky_player_controller_1ac4f018cd42684b94c498f50216c108c9" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressC</name></member>
+      <member refid="class_a_night_sky_player_controller_1a94c5e3450d163247bbdaf73730e519d7" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressD</name></member>
+      <member refid="class_a_night_sky_player_controller_1ad06e7fb46a2a75a367591416bff067dc" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressDown</name></member>
+      <member refid="class_a_night_sky_player_controller_1a00ab937e21e92df5b00f927b7ad149d3" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressE</name></member>
+      <member refid="class_a_night_sky_player_controller_1aba45aaaed2eda2eaabaf307695d02724" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressF</name></member>
+      <member refid="class_a_night_sky_player_controller_1a54c928f0c749306c1dabd40dce16fc97" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressG</name></member>
+      <member refid="class_a_night_sky_player_controller_1a4c734462675a966e66304ada9db0542c" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressH</name></member>
+      <member refid="class_a_night_sky_player_controller_1a41c00042a0eef54763e766088807fcb8" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressLeft</name></member>
+      <member refid="class_a_night_sky_player_controller_1aabd2b158b59eb3da3b002ebc08b7dcc1" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressRight</name></member>
+      <member refid="class_a_night_sky_player_controller_1aef4e9bc37f33a876113d8117fe590a08" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>PressUp</name></member>
+      <member refid="class_a_night_sky_player_controller_1a244c320af930b7b00b84b4c383f8e8ea" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseA</name></member>
+      <member refid="class_a_night_sky_player_controller_1ae8f868986898bc0aafc9a31ff15a79b9" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseB</name></member>
+      <member refid="class_a_night_sky_player_controller_1a5bf59c183931961ca38598cc9fa2a920" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseC</name></member>
+      <member refid="class_a_night_sky_player_controller_1ada9ffb9aefb2ce4f0e6dbc8faa0a2b76" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseD</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa7b9600ef26f0bb57ea4de13ff230e03" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseDown</name></member>
+      <member refid="class_a_night_sky_player_controller_1ae3c55f8c65b99d06bbbfcc0ce32b88a8" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseE</name></member>
+      <member refid="class_a_night_sky_player_controller_1a80d124042dd29d480a0e67c2d53000a5" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseF</name></member>
+      <member refid="class_a_night_sky_player_controller_1af333efcefff9d7425ce0720508f113bb" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseG</name></member>
+      <member refid="class_a_night_sky_player_controller_1aae6630c00bc5104a4895dc224b547184" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseH</name></member>
+      <member refid="class_a_night_sky_player_controller_1a6478c5a1a5027ce64e8651f5dc82d010" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseLeft</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa9e7b369f800950b1f54b0482159c149" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseRight</name></member>
+      <member refid="class_a_night_sky_player_controller_1af45362c85c8f05770f1fb512c384a891" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ReleaseUp</name></member>
+      <member refid="class_a_night_sky_player_controller_1a64308c1a69b1f6b184f812d54cf623fe" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>Rematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1ad76f873975567fcdd0e1f2d671a08af2" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>ResetTraining</name></member>
+      <member refid="class_a_night_sky_player_controller_1a3595e359e57aec0ba26299c7d569296c" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>SendBattleData</name></member>
+      <member refid="class_a_night_sky_player_controller_1a9bcfa67a13c16fea37ab8997dec3615a" prot="public" virt="non-virtual"><scope>ANightSkyWTPlayerController</scope><name>SendGgpo</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa7048663c4f6b41e3b8c22271a795918" prot="public" virt="virtual"><scope>ANightSkyWTPlayerController</scope><name>SetupInputComponent</name></member>
+      <member refid="class_a_night_sky_w_t_player_controller_1a446f066d755916f3fd00877e588e795f" prot="public" virt="virtual"><scope>ANightSkyWTPlayerController</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

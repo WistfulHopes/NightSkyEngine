@@ -1,0 +1,1137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_bitflags_8h" kind="file" language="C++">
+    <compoundname>Bitflags.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includedby refid="_night_sky_player_controller_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp</includedby>
+    <includedby refid="_battle_object_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.cpp</includedby>
+    <includedby refid="_state_8h" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h</label>
+        <link refid="_night_sky_a_i_controller_8h_source"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h</label>
+        <link refid="_input_buffer_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h</label>
+        <link refid="_night_sky_game_state_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h</label>
+        <link refid="_player_object_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/BattleExtension.h</label>
+        <link refid="_battle_extension_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h</label>
+        <link refid="_state_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateAlias.h</label>
+        <link refid="_state_alias_8h_source"/>
+      </node>
+      <node id="11">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h</label>
+        <link refid="_state_machine_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/SubroutineState.h</label>
+        <link refid="_subroutine_state_8h_source"/>
+      </node>
+      <node id="8">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h</label>
+        <link refid="_battle_extension_data_8h_source"/>
+      </node>
+      <node id="13">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h</label>
+        <link refid="_state_data_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTGameState.h</label>
+        <link refid="_night_sky_w_t_game_state_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EInputFlags</name>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068ac15dfe8f5b2206c6cfb1f2d2b2ae42c0" prot="public">
+          <name>INP_None</name>
+          <initializer>= 0x0 UMETA(DisplayName = &quot;None&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068acb2aec10a742a80360aa10f0a7c18d60" prot="public">
+          <name>INP_Up</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Up&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a8c03f641ab4904b6519832e414de11e1" prot="public">
+          <name>INP_Down</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Down&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a972e9d6aff0ef198aa494c5e947d914b" prot="public">
+          <name>INP_Left</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Left&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068ae81d166c975c0d07f34d9539ba4f1e38" prot="public">
+          <name>INP_Right</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Right&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068aa4772546cd174d3607e51dd4f5c78ba9" prot="public">
+          <name>INP_UpLeft</name>
+          <initializer>= INP_Up + INP_Left UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a74ddc5bbbd49f3315f0465c94b99f31e" prot="public">
+          <name>INP_UpRight</name>
+          <initializer>= INP_Up + INP_Right UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068aa751a5d0b65a75cfe3650e0423253910" prot="public">
+          <name>INP_DownLeft</name>
+          <initializer>= INP_Down + INP_Left UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068aee16241cba89e570098d458d9004480f" prot="public">
+          <name>INP_DownRight</name>
+          <initializer>= INP_Down + INP_Right UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a46ef9b12f26c1f6b39eb357c9e399ca2" prot="public">
+          <name>INP_Neutral</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Neutral&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a8223e143149265bbc8f21c84d261573a" prot="public">
+          <name>INP_A</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;A&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a32b3b4b6d5e1f3103b3cbea226152fca" prot="public">
+          <name>INP_B</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;B&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a87d873ebc7bc9ee31223e8037eb8b697" prot="public">
+          <name>INP_C</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;C&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a29144ec34ad312ec41e8813a540e6590" prot="public">
+          <name>INP_D</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;D&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068aaf011aa9746cd0dbad34373456cd9fee" prot="public">
+          <name>INP_E</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;E&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068aadfb2b70b22c660486afdc48d885eb85" prot="public">
+          <name>INP_F</name>
+          <initializer>= 0x400 UMETA(DisplayName = &quot;F&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a2d6945fa86567ebda9dffc5e82d1f953" prot="public">
+          <name>INP_G</name>
+          <initializer>= 0x800 UMETA(DisplayName = &quot;G&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a5d700034aa31488dd79da030bd0ffaaa" prot="public">
+          <name>INP_H</name>
+          <initializer>= 0x1000 UMETA(DisplayName = &quot;H&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068a7734ba6bda3fbf66a8b644607a914ec3" prot="public">
+          <name>INP_ResetTraining</name>
+          <initializer>= 0x40000000 UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a5d52c4c5691f3096a403f7e333507068ac64304a28dd175d35cb774f74dd8fcfc" prot="public">
+          <name>INP_Rematch</name>
+          <initializer>= 0x80000000 UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Input bitmasks. A layer of abstraction between the physical controller and the internal battle state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="9" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="10" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EEnableFlags</name>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba74eb9a631eda9b6617f23f3980114649" prot="public">
+          <name>ENB_None</name>
+          <initializer>= 0x0 UMETA(Hidden)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba65922a5bf33eb244ceb872c9033fba3c" prot="public">
+          <name>ENB_Standing</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Standing&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba848cd421999219b6e0b28b2029ece52f" prot="public">
+          <name>ENB_Crouching</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Crouching&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba6814ac51d81f7234f14c5ea49ebaa861" prot="public">
+          <name>ENB_Jumping</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Jumping&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba70d1e1e9e023bae4dd0c595095b626e9" prot="public">
+          <name>ENB_ForwardWalk</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Forward Walk&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364babe844e0e0a3f3c0a81a062d9d0cebe44" prot="public">
+          <name>ENB_BackWalk</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Backward Walk&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba05da4898cab9c5b008257e424755f1f1" prot="public">
+          <name>ENB_ForwardDash</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;Forward Dash&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364baf02cede06eb96a8295203b4fcfeac904" prot="public">
+          <name>ENB_BackDash</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;Backward Dash&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364bae81b7aeb4cbb10d53842db57012bd78e" prot="public">
+          <name>ENB_ForwardAirDash</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;Forward Air Dash&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364bac73e2e7f61493ea73755cd7237e01fa5" prot="public">
+          <name>ENB_BackAirDash</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;Backward Air Dash&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba9dee68b9fff3cbc1db4b7647d4b6c65d" prot="public">
+          <name>ENB_NormalAttack</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;Normal Attack&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364bacbc63339855c5f602142992dca93aa96" prot="public">
+          <name>ENB_SpecialAttack</name>
+          <initializer>= 0x400 UMETA(DisplayName = &quot;Special Attack&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba24017e9b04d536fbfae2349462eda9fa" prot="public">
+          <name>ENB_SuperAttack</name>
+          <initializer>= 0x800 UMETA(DisplayName = &quot;Super Attack&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364babe46dec0c6f12ef050331b16d1974ebf" prot="public">
+          <name>ENB_Block</name>
+          <initializer>= 0x1000 UMETA(DisplayName = &quot;Block&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364bad3dfc8a2591fcc5a3864281478cb0b4d" prot="public">
+          <name>ENB_ProximityBlock</name>
+          <initializer>= 0x2000 UMETA(DisplayName = &quot;Proximity Block&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba280c9149cfaed1d90644b07a3eca8cbd" prot="public">
+          <name>ENB_Tech</name>
+          <initializer>= 0x4000 UMETA(DisplayName = &quot;Tech&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba1b7613fdb7e94a2cdb8b0566619d2e6a" prot="public">
+          <name>ENB_Burst</name>
+          <initializer>= 0x8000 UMETA(DisplayName = &quot;Burst&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba632c23c980fed5dd5d06abcd2da2e539" prot="public">
+          <name>ENB_Tag</name>
+          <initializer>= 0x10000 UMETA(DisplayName = &quot;Tag&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a23c9c3e3c83280dbab56e6f09ee4364ba5d07a8fe4a1d107d66304fde6f3709c1" prot="public">
+          <name>ENB_Assist</name>
+          <initializer>= 0x20000 UMETA(DisplayName = &quot;Assist&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flags used to enable or disable specific states or actions. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="39" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="40" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EMiscFlags</name>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67abac1ec4b83f5884e8472c3f1affafa56" prot="public">
+          <name>MISC_InertiaEnable</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Inertia Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if inertia is enabled. <simplesect kind="see"><para>ABattleObject.Inertia </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a96d1cbdb267d776bad92080fd0fc4363" prot="public">
+          <name>MISC_FlipEnable</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Flip Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object can switch sides. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a8a6af7c2ceea809e6f40aad624993235" prot="public">
+          <name>MISC_WallCollisionActive</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Wall Collision Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is subject to wall collision. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67abbe5344f3d71a3dc4865f45133c6bf6f" prot="public">
+          <name>MISC_FloorCollisionActive</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Floor Collision Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is subject to floor collision. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67ab5470b114501639d078495707e89f4e2" prot="public">
+          <name>MISC_PushCollisionActive</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Push Collision Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is subject to push collision. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a8e138e7119c36cf8268cea904f93c18b" prot="public">
+          <name>MISC_DeactivateOnNextUpdate</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;Deactivate On Next Update&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is to be deactivated next update. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a70d8a01568edb746a872703246742b0e" prot="public">
+          <name>MISC_DeactivateIfBeyondBounds</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;Deactivate If Beyond Bounds&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is to be deactivated upon leaving screen bounds. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a787dde72e77cc75c6a7202453526fd05" prot="public">
+          <name>MISC_DeactivateOnStateChange</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;Deactivate On State Change&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is to be deactivated on the owning player object&apos;s state change. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a3ec22d83e3ab420b7a3c5a484cfdb924" prot="public">
+          <name>MISC_DeactivateOnReceiveHit</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;Deactivate On Receive Hit&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is to be deactivated when the owning player object takes damage. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ab6700084f3f53f7b2a198306278e9f67a8973bbcb047c190100431a6cbcbdf7cc" prot="public">
+          <name>MISC_IgnoreSuperFreeze</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;Ignore Super Freeze&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will ignore super freeze. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Miscellaneous object flags. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="68" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="69" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EAttackFlags</name>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a07953aaf982d32542b4ca3878892c332" prot="public">
+          <name>ATK_HitActive</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Hit Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object can hit. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7aaab5e5b5f5083dec9dda3d800870aa14" prot="public">
+          <name>ATK_IsAttacking</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Is Attacking&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object is attacking. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a2bf928f0ad17d5384e30f7d9e490edf6" prot="public">
+          <name>ATK_AttackHeadAttribute</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Head Attribute&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object has the head attack attribute. Used on air attacks. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a0f553d0d2964157cb131360d93374bc3" prot="public">
+          <name>ATK_AttackProjectileAttribute</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Projectile Attribute&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object has the projectile attack attribute. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7afc5e5cc2b12ae0eaef609fe0f0df7bf2" prot="public">
+          <name>ATK_HasHit</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Has Hit&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object has hit an object with the active hit. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7aa7d3ac7b1f347d7cdad5482e2f39e8e3" prot="public">
+          <name>ATK_ProrateOnce</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;Prorate Once&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will only prorate once this state. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a28115b6853823cb80709b79113c14b12" prot="public">
+          <name>ATK_IgnoreOTG</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;Ignore OTG&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will ignore OTG limits and proration. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a747e7564dd4bc8cc4a52c40b718dccc8" prot="public">
+          <name>ATK_IgnorePushbackScaling</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;Ignore Pushback Scaling&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will ignore pushback scaling. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7abb4dc1b011d2ff69c987dc248fbf5119" prot="public">
+          <name>ATK_IgnoreHitstunScaling</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;Ignore Hitstun Scaling&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will ignore hitstun scaling. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a2dafdc8c0e8d8ba540e0c804691d9c74" prot="public">
+          <name>ATK_SetPlayerHit</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;Ignore Hitstun Scaling&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object will set ATK_HasHit in owning player on hit. Does nothing if already is a player object. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a6a1a038b9e800a1520b7087934e294d7a007d3dd71f0a3fcccd8d623553d83850" prot="public">
+          <name>ATK_HitOTG</name>
+          <initializer>= 0x400 UMETA(DisplayName = &quot;Hit OTG&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if object can hit opponents during knockdown. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Object attack flags. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="117" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="118" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EPlayerFlags</name>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990ab996907f8fa8884053200c64d7f61bc3" prot="public">
+          <name>PLF_IsDead</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Is Dead&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is dead. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a89aff7fcdabd1d7248fa3ca718d45d10" prot="public">
+          <name>PLF_ThrowActive</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Throw Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player can throw opponent. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990aa17e3dc75bbaf9d3ac5f6400617e5d9f" prot="public">
+          <name>PLF_IsStunned</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Is Stunned&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is stunned. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a16189e206358671b028be6e899490d0f" prot="public">
+          <name>PLF_IsThrowLock</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Is In Throw Lock&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is locked by a throw. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a7c9348bef72128f01cd927b307e77a1a" prot="public">
+          <name>PLF_IsOnScreen</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Is On Screen&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is on screen (e.g. not tagged out in a versus game). </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a7e6210d42222cd5663bdda45917a74dc" prot="public">
+          <name>PLF_DeathCamOverride</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;Override Death Camera Animation&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player manually overrides the death camera animation. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990aec272e27f805afc7be03df3b98181a0b" prot="public">
+          <name>PLF_IsKnockedDown</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;Is Knocked Down&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is knocked down. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a299f93f2d2e07341dbeda231e24262c5" prot="public">
+          <name>PLF_IsHardKnockedDown</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;Is Hard Knocked Down&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is hard knocked down. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990ad363619f6ce413590c6c937fad120190" prot="public">
+          <name>PLF_RoundWinInputLock</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;Is Round Win Input Lock&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is unable to input actions because the round is over. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990ac9a7cf30e514960e7bbd36e6457a6f83" prot="public">
+          <name>PLF_LockOpponentBurst</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;Is Opponent Burst Locked&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player&apos;s current attack locks the opponent&apos;s burst on hit. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a6331282fb2a683afad5175ac99508f73" prot="public">
+          <name>PLF_DefaultLandingAction</name>
+          <initializer>= 0x400 UMETA(DisplayName = &quot;Is Default Landing Action&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player jumps to the JumpLanding state upon landing. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a4b4da92fa1393767fdba64190b88ba07" prot="public">
+          <name>PLF_ForceEnableFarNormal</name>
+          <initializer>= 0x800 UMETA(DisplayName = &quot;Force Enable Far Proximity Normal&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player&apos;s far proximity normals are forcibly enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990ab02b0c5435074004e3c4ab08307e4b6b" prot="public">
+          <name>PLF_TouchingWall</name>
+          <initializer>= 0x1000 UMETA(DisplayName = &quot;Is Touching Wall&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is touching wall. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42" prot="public">
+          <name>PLF_HitgrabActive</name>
+          <initializer>= 0x2000 UMETA(DisplayName = &quot;Hitgrab Active&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player&apos;s next hit is a hitgrab. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598" prot="public">
+          <name>PLF_ReceivedCounterHit</name>
+          <initializer>= 0x4000 UMETA(DisplayName = &quot;Received Counter Hit&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player received counter hit. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80" prot="public">
+          <name>PLF_DidKaraCancel</name>
+          <initializer>= 0x8000 UMETA(DisplayName = &quot;Did Kara Cancel&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player kara canceled into the current state. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Miscellaneous player flags. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="169" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="170" bodyend="235"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1ae8de8b3f036722830413b279350505bc" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ECancelFlags</name>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bca91befe426e3a336b860a2c3158706a17" prot="public">
+          <name>CNC_ChainCancelEnabled</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Is Chain Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if chain cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcaf9b1696e7553c989b960fb51e734fffe" prot="public">
+          <name>CNC_WhiffCancelEnabled</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Is Whiff Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if whiff cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcad1000b4d0967020e9974113864e0d680" prot="public">
+          <name>CNC_SpecialCancel</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Is Special Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if special cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bca3ed0ea787a8b174306788304f8c67338" prot="public">
+          <name>CNC_SuperCancel</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Is Super Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if super cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bca522b59baace551d3476b80652819bd69" prot="public">
+          <name>CNC_JumpCancel</name>
+          <initializer>= 0x10 UMETA(DisplayName = &quot;Is Jump Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if jump cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcadd8eac37ba6e84bb3563cac39cc5890c" prot="public">
+          <name>CNC_FAirDashCancel</name>
+          <initializer>= 0x20 UMETA(DisplayName = &quot;Is Forward Air Dash Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if forward air dash cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcaaf2c13dc1b210fb1dd34ae384d2aa8e7" prot="public">
+          <name>CNC_BAirDashCancel</name>
+          <initializer>= 0x40 UMETA(DisplayName = &quot;Is Backward Air Dash Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if backward air dash cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcad6dd4a1d23c1b3423d7db2509e7cfd4e" prot="public">
+          <name>CNC_EnableKaraCancel</name>
+          <initializer>= 0x80 UMETA(DisplayName = &quot;Is Kara Cancel Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if kara cancel is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bca2cc4186e1a096630a80644305da969d4" prot="public">
+          <name>CNC_CancelIntoSelf</name>
+          <initializer>= 0x100 UMETA(DisplayName = &quot;Is Cancel Into Self Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if cancelling into the player&apos;s current state is enabled. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1ae8de8b3f036722830413b279350505bcac3461f36b7e69edb691094b74030cf8a" prot="public">
+          <name>CNC_EnableReverseBeat</name>
+          <initializer>= 0x200 UMETA(DisplayName = &quot;Is Reverse Beat Enabled&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if reverse beat is enabled. Only takes effect if the character can reverse beat. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player cancel flags. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="241" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="242" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="enum" id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EInvulnFlags</name>
+        <enumvalue id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0dabaadcc94bdd3de88db381f770c10245b" prot="public">
+          <name>INV_StrikeInvulnerable</name>
+          <initializer>= 0x1 UMETA(DisplayName = &quot;Is Strike Invulnerable&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is strike invulnerable. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0da11228b7b7de5f954b2aa95c1ce18aed2" prot="public">
+          <name>INV_ThrowInvulnerable</name>
+          <initializer>= 0x2 UMETA(DisplayName = &quot;Is Throw Invulnerable&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is throw invulnerable. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0da5bb1b5d589c8ef50583254264c706b5d" prot="public">
+          <name>INV_ProjectileInvulnerable</name>
+          <initializer>= 0x4 UMETA(DisplayName = &quot;Is Projectile Invulnerable&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is projectile invulnerable. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0da4334457a854360cccd936254a58a2764" prot="public">
+          <name>INV_HeadInvulnerable</name>
+          <initializer>= 0x8 UMETA(DisplayName = &quot;Is Head Invulnerable&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player is invulnerable to head attribute attacks. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player invulnerability flags. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="289" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="290" bodyend="307"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_bitflags_8h_1a901bd02e24f30db8ed556612c02c03d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ENUM_CLASS_FLAGS</definition>
+        <argsstring>(EInputFlags)</argsstring>
+        <name>ENUM_CLASS_FLAGS</name>
+        <param>
+          <type>EInputFlags</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="33" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" declline="33" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_bitflags_8h_1a4284193dc51793f2fec5963b7b60226b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ENUM_CLASS_FLAGS</definition>
+        <argsstring>(EEnableFlags)</argsstring>
+        <name>ENUM_CLASS_FLAGS</name>
+        <param>
+          <type>EEnableFlags</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="62" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" declline="62" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">UENUM(Meta<sp/>=<sp/>(Bitflags,<sp/>UseEnumValuesAsMaskValuesInEditor<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">enum<sp/>EInputFlags</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_None<sp/>=<sp/>0x0<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;None&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Up<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Up&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Down<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Down&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Left<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Left&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Right<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Right&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_UpLeft<sp/>=<sp/>INP_Up<sp/>+<sp/>INP_Left<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_UpRight<sp/>=<sp/>INP_Up<sp/>+<sp/>INP_Right<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_DownLeft<sp/>=<sp/>INP_Down<sp/>+<sp/>INP_Left<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_DownRight<sp/>=<sp/>INP_Down<sp/>+<sp/>INP_Right<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Neutral<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Neutral&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_A<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;A&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_B<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;B&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_C<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_D<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;D&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_E<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;E&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_F<sp/>=<sp/>0x400<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;F&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_G<sp/>=<sp/>0x800<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;G&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_H<sp/>=<sp/>0x1000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;H&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_ResetTraining<sp/>=<sp/>0x40000000<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>INP_Rematch<sp/>=<sp/>0x80000000<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">ENUM_CLASS_FLAGS(EInputFlags);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">UENUM(Meta<sp/>=<sp/>(Bitflags,<sp/>UseEnumValuesAsMaskValuesInEditor<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;true&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">enum<sp/>EEnableFlags</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_None<sp/>=<sp/>0x0<sp/>UMETA(Hidden),</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Standing<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Standing&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Crouching<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Crouching&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Jumping<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Jumping&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_ForwardWalk<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Forward<sp/>Walk&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_BackWalk<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Backward<sp/>Walk&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_ForwardDash<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Forward<sp/>Dash&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_BackDash<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Backward<sp/>Dash&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_ForwardAirDash<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Forward<sp/>Air<sp/>Dash&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_BackAirDash<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Backward<sp/>Air<sp/>Dash&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_NormalAttack<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Normal<sp/>Attack&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_SpecialAttack<sp/>=<sp/>0x400<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Special<sp/>Attack&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_SuperAttack<sp/>=<sp/>0x800<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Super<sp/>Attack&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Block<sp/>=<sp/>0x1000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Block&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_ProximityBlock<sp/>=<sp/>0x2000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Proximity<sp/>Block&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Tech<sp/>=<sp/>0x4000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Tech&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Burst<sp/>=<sp/>0x8000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Burst&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Tag<sp/>=<sp/>0x10000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Tag&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>ENB_Assist<sp/>=<sp/>0x20000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Assist&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">ENUM_CLASS_FLAGS(EEnableFlags);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">enum<sp/>EMiscFlags</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_InertiaEnable<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Inertia<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_FlipEnable<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Flip<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_WallCollisionActive<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Wall<sp/>Collision<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_FloorCollisionActive<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Floor<sp/>Collision<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_PushCollisionActive<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Push<sp/>Collision<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_DeactivateOnNextUpdate<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Deactivate<sp/>On<sp/>Next<sp/>Update&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_DeactivateIfBeyondBounds<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Deactivate<sp/>If<sp/>Beyond<sp/>Bounds&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_DeactivateOnStateChange<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Deactivate<sp/>On<sp/>State<sp/>Change&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_DeactivateOnReceiveHit<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Deactivate<sp/>On<sp/>Receive<sp/>Hit&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>MISC_IgnoreSuperFreeze<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Ignore<sp/>Super<sp/>Freeze&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">enum<sp/>EAttackFlags</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_HitActive<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hit<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_IsAttacking<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Attacking&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_AttackHeadAttribute<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Head<sp/>Attribute&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_AttackProjectileAttribute<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Projectile<sp/>Attribute&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_HasHit<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Has<sp/>Hit&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_ProrateOnce<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Prorate<sp/>Once&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_IgnoreOTG<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Ignore<sp/>OTG&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_IgnorePushbackScaling<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Ignore<sp/>Pushback<sp/>Scaling&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_IgnoreHitstunScaling<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Ignore<sp/>Hitstun<sp/>Scaling&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_SetPlayerHit<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Ignore<sp/>Hitstun<sp/>Scaling&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>ATK_HitOTG<sp/>=<sp/>0x400<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hit<sp/>OTG&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">enum<sp/>EPlayerFlags</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsDead<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Dead&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_ThrowActive<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Throw<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsStunned<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Stunned&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsThrowLock<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>In<sp/>Throw<sp/>Lock&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsOnScreen<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>On<sp/>Screen&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_DeathCamOverride<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Override<sp/>Death<sp/>Camera<sp/>Animation&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsKnockedDown<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Knocked<sp/>Down&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_IsHardKnockedDown<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Hard<sp/>Knocked<sp/>Down&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_RoundWinInputLock<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Round<sp/>Win<sp/>Input<sp/>Lock&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_LockOpponentBurst<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Opponent<sp/>Burst<sp/>Locked&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_DefaultLandingAction<sp/>=<sp/>0x400<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Default<sp/>Landing<sp/>Action&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_ForceEnableFarNormal<sp/>=<sp/>0x800<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Force<sp/>Enable<sp/>Far<sp/>Proximity<sp/>Normal&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_TouchingWall<sp/>=<sp/>0x1000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Touching<sp/>Wall&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_HitgrabActive<sp/>=<sp/>0x2000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hitgrab<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_ReceivedCounterHit<sp/>=<sp/>0x4000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Received<sp/>Counter<sp/>Hit&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_DidKaraCancel<sp/>=<sp/>0x8000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Did<sp/>Kara<sp/>Cancel&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="241"><highlight class="normal">enum<sp/>ECancelFlags</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_ChainCancelEnabled<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Chain<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_WhiffCancelEnabled<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Whiff<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SpecialCancel<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Special<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SuperCancel<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Super<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_JumpCancel<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Jump<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_FAirDashCancel<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Forward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_BAirDashCancel<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Backward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableKaraCancel<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Kara<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_CancelIntoSelf<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Cancel<sp/>Into<sp/>Self<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableReverseBeat<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Reverse<sp/>Beat<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="283"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="289"><highlight class="normal">enum<sp/>EInvulnFlags</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_StrikeInvulnerable<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Strike<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ThrowInvulnerable<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Throw<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ProjectileInvulnerable<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Projectile<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_HeadInvulnerable<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Head<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_super_armor_data" kind="struct" language="C++" prot="public">
+    <compoundname>FSuperArmorData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a7bf3dbf998e6ed9bbe2992699160bd95" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; ESuperArmorType &gt;</type>
+        <definition>TEnumAsByte&lt;ESuperArmorType&gt; FSuperArmorData::Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>FSuperArmorData::Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="599" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="599" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a863461c950d937f8c73b5a2ed11824bf" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorMid</definition>
+        <argsstring></argsstring>
+        <name>bArmorMid</name>
+        <qualifiedname>FSuperArmorData::bArmorMid</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="601" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1aa4b91693a4e80cab94973d56e6ced1ec" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorOverhead</definition>
+        <argsstring></argsstring>
+        <name>bArmorOverhead</name>
+        <qualifiedname>FSuperArmorData::bArmorOverhead</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="603" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1af1fc732285dd9f02e5d961e3c1665414" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorLow</definition>
+        <argsstring></argsstring>
+        <name>bArmorLow</name>
+        <qualifiedname>FSuperArmorData::bArmorLow</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="605" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="605" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a0d96a1363d525ac57de3256d61c212bd" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorStrike</definition>
+        <argsstring></argsstring>
+        <name>bArmorStrike</name>
+        <qualifiedname>FSuperArmorData::bArmorStrike</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="607" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="607" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1aa9b218bbd696f106cd1ed201db303da2" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorThrow</definition>
+        <argsstring></argsstring>
+        <name>bArmorThrow</name>
+        <qualifiedname>FSuperArmorData::bArmorThrow</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="609" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="609" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a7e405cc196f0a437402dbc1a6c0c6d7f" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorHead</definition>
+        <argsstring></argsstring>
+        <name>bArmorHead</name>
+        <qualifiedname>FSuperArmorData::bArmorHead</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="611" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="611" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a0dcd6c761c7f39879e7179c93bfbc1ba" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorProjectile</definition>
+        <argsstring></argsstring>
+        <name>bArmorProjectile</name>
+        <qualifiedname>FSuperArmorData::bArmorProjectile</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="613" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="613" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a6065045ea656ef09ad3f29e9ae468021" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorTakeChipDamage</definition>
+        <argsstring></argsstring>
+        <name>bArmorTakeChipDamage</name>
+        <qualifiedname>FSuperArmorData::bArmorTakeChipDamage</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="615" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="615" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a14ef40dd816a593524a98246b64817af" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FSuperArmorData::ArmorDamagePercent</definition>
+        <argsstring></argsstring>
+        <name>ArmorDamagePercent</name>
+        <qualifiedname>FSuperArmorData::ArmorDamagePercent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="617" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="617" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1adef8fac74aee09f911d6e8f97b167f2d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FSuperArmorData::ArmorHits</definition>
+        <argsstring></argsstring>
+        <name>ArmorHits</name>
+        <qualifiedname>FSuperArmorData::ArmorHits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="619" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="619" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="594" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="595" bodyend="620"/>
+    <listofallmembers>
+      <member refid="struct_f_super_armor_data_1a14ef40dd816a593524a98246b64817af" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>ArmorDamagePercent</name></member>
+      <member refid="struct_f_super_armor_data_1adef8fac74aee09f911d6e8f97b167f2d" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>ArmorHits</name></member>
+      <member refid="struct_f_super_armor_data_1a7e405cc196f0a437402dbc1a6c0c6d7f" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorHead</name></member>
+      <member refid="struct_f_super_armor_data_1af1fc732285dd9f02e5d961e3c1665414" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorLow</name></member>
+      <member refid="struct_f_super_armor_data_1a863461c950d937f8c73b5a2ed11824bf" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorMid</name></member>
+      <member refid="struct_f_super_armor_data_1aa4b91693a4e80cab94973d56e6ced1ec" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorOverhead</name></member>
+      <member refid="struct_f_super_armor_data_1a0dcd6c761c7f39879e7179c93bfbc1ba" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorProjectile</name></member>
+      <member refid="struct_f_super_armor_data_1a0d96a1363d525ac57de3256d61c212bd" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorStrike</name></member>
+      <member refid="struct_f_super_armor_data_1a6065045ea656ef09ad3f29e9ae468021" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorTakeChipDamage</name></member>
+      <member refid="struct_f_super_armor_data_1aa9b218bbd696f106cd1ed201db303da2" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorThrow</name></member>
+      <member refid="struct_f_super_armor_data_1a7bf3dbf998e6ed9bbe2992699160bd95" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

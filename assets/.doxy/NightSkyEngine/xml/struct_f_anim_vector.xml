@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_anim_vector" kind="struct" language="C++" prot="public">
+    <compoundname>FAnimVector</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_anim_vector_1a99194beda7a522930210ad6ea7840a26" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FAnimVector::X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <qualifiedname>FAnimVector::X</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="14" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_vector_1a0fe30ff6913c1bb914c5a00e1c444969" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FAnimVector::Y</definition>
+        <argsstring></argsstring>
+        <name>Y</name>
+        <qualifiedname>FAnimVector::Y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="15" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_vector_1ae72c5fda69b168e43fba64325ec6cf14" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FAnimVector::Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <qualifiedname>FAnimVector::Z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="16" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="10" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="11" bodyend="17"/>
+    <listofallmembers>
+      <member refid="struct_f_anim_vector_1a99194beda7a522930210ad6ea7840a26" prot="public" virt="non-virtual"><scope>FAnimVector</scope><name>X</name></member>
+      <member refid="struct_f_anim_vector_1a0fe30ff6913c1bb914c5a00e1c444969" prot="public" virt="non-virtual"><scope>FAnimVector</scope><name>Y</name></member>
+      <member refid="struct_f_anim_vector_1ae72c5fda69b168e43fba64325ec6cf14" prot="public" virt="non-virtual"><scope>FAnimVector</scope><name>Z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

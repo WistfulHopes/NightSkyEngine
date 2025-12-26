@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_replay_save_info" kind="class" language="C++" prot="public">
+    <compoundname>UReplaySaveInfo</compoundname>
+    <basecompoundref refid="class_u_night_sky_save_info" prot="public" virt="non-virtual">UNightSkySaveInfo</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_replay_save_info_1aeb784e4a3d813553360f5351d7be21fb" prot="public" static="no" mutable="no">
+        <type>FDateTime</type>
+        <definition>FDateTime UReplaySaveInfo::Timestamp</definition>
+        <argsstring></argsstring>
+        <name>Timestamp</name>
+        <qualifiedname>UReplaySaveInfo::Timestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="29" column="11" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1abcfb157b2faddfc596f4a1fbaa1347b9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref></type>
+        <definition>FBattleData UReplaySaveInfo::BattleData</definition>
+        <argsstring></argsstring>
+        <name>BattleData</name>
+        <qualifiedname>UReplaySaveInfo::BattleData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="31" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1a3628c59c2f70518495e814a35d17fb4d" prot="public" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString UReplaySaveInfo::Version</definition>
+        <argsstring></argsstring>
+        <name>Version</name>
+        <qualifiedname>UReplaySaveInfo::Version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="33" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1acd15d57cabaef38debf8870752420d41" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UReplaySaveInfo::ReplayIndex</definition>
+        <argsstring></argsstring>
+        <name>ReplayIndex</name>
+        <qualifiedname>UReplaySaveInfo::ReplayIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="35" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1a6f9946193fc1394d8e63a8c9f4282b7c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UReplaySaveInfo::LengthInFrames</definition>
+        <argsstring></argsstring>
+        <name>LengthInFrames</name>
+        <qualifiedname>UReplaySaveInfo::LengthInFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="37" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1aeeb2ba8e34942c6994522f99735a74e6" prot="public" static="no" mutable="no">
+        <type>TArray&lt; int32 &gt;</type>
+        <definition>TArray&lt;int32&gt; UReplaySaveInfo::InputsP1</definition>
+        <argsstring></argsstring>
+        <name>InputsP1</name>
+        <qualifiedname>UReplaySaveInfo::InputsP1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="39" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1a6bdf660934c711e7c80fd1968fb7a2a7" prot="public" static="no" mutable="no">
+        <type>TArray&lt; int32 &gt;</type>
+        <definition>TArray&lt;int32&gt; UReplaySaveInfo::InputsP2</definition>
+        <argsstring></argsstring>
+        <name>InputsP2</name>
+        <qualifiedname>UReplaySaveInfo::InputsP2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="41" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_replay_save_info_1ae27ffb8eb56bbca29634eab08a53d3b9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UReplaySaveInfo::bIsTraining</definition>
+        <argsstring></argsstring>
+        <name>bIsTraining</name>
+        <qualifiedname>UReplaySaveInfo::bIsTraining</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="43" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_replay_save_info_1a52f6760573d77b0982ceca40c55a5a9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UReplaySaveInfo::UReplaySaveInfo</definition>
+        <argsstring>()</argsstring>
+        <name>UReplaySaveInfo</name>
+        <qualifiedname>UReplaySaveInfo::UReplaySaveInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="19" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UReplaySaveInfo</label>
+        <link refid="class_u_replay_save_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>USaveGame</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="2">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="5">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UReplaySaveInfo</label>
+        <link refid="class_u_replay_save_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>USaveGame</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h" bodystart="15" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_save_info_1a0e7760ccea6ccbe4215065812fdd1df3" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>ActorArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a91c66825168ae36e239530b6e105cabf" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>ActorPreloader</name></member>
+      <member refid="class_u_night_sky_save_info_1a743cc50890de9302378f340af3b65a5a" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>ActorSaver</name></member>
+      <member refid="class_u_replay_save_info_1abcfb157b2faddfc596f4a1fbaa1347b9" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>BattleData</name></member>
+      <member refid="class_u_replay_save_info_1ae27ffb8eb56bbca29634eab08a53d3b9" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>bIsTraining</name></member>
+      <member refid="class_u_night_sky_save_info_1a3c82d71b33ffc2d7f905b42c8f557e17" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>Data</name></member>
+      <member refid="class_u_replay_save_info_1aeeb2ba8e34942c6994522f99735a74e6" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>InputsP1</name></member>
+      <member refid="class_u_replay_save_info_1a6bdf660934c711e7c80fd1968fb7a2a7" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>InputsP2</name></member>
+      <member refid="class_u_replay_save_info_1a6f9946193fc1394d8e63a8c9f4282b7c" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>LengthInFrames</name></member>
+      <member refid="class_u_night_sky_save_info_1aa1678379da4afe5923c82f859ca62b03" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>LoadData</name></member>
+      <member refid="class_u_night_sky_save_info_1a65c117f4e76a7f39e44a9fe1dc1d7ea8" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>ObjectRecords</name></member>
+      <member refid="class_u_night_sky_save_info_1a61ccfa943b5825cd6f7b16e60136f703" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>PersistentOuters</name></member>
+      <member refid="class_u_replay_save_info_1acd15d57cabaef38debf8870752420d41" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>ReplayIndex</name></member>
+      <member refid="class_u_night_sky_save_info_1a7fe6a3f5bb6a9ed18088b4a6aa557591" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>SaveData</name></member>
+      <member refid="class_u_night_sky_save_info_1a42cd8997f255f93a96c4dc7c6643585f" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>TempObjects</name></member>
+      <member refid="class_u_replay_save_info_1aeb784e4a3d813553360f5351d7be21fb" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>Timestamp</name></member>
+      <member refid="class_u_night_sky_save_info_1a7b1d004fbe4da15ffbe0f911ca1eac9b" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>UObjectArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a6edfc1cc2b0c247c582ae23bcedaa8bd" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>UObjectDataLoader</name></member>
+      <member refid="class_u_night_sky_save_info_1a7e93a85c8f61a2c7fb91dc2a2a0eedec" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>UObjectSaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a3b6311977dd850126493b5ba3af15df0" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>UObjectsPreloader</name></member>
+      <member refid="class_u_replay_save_info_1a52f6760573d77b0982ceca40c55a5a9f" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>UReplaySaveInfo</name></member>
+      <member refid="class_u_replay_save_info_1a3628c59c2f70518495e814a35d17fb4d" prot="public" virt="non-virtual"><scope>UReplaySaveInfo</scope><name>Version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_object_record" kind="struct" language="C++" prot="public">
+    <compoundname>FObjectRecord</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_object_record_1add7377a2e1840b6d252da9770df441bd" prot="public" static="no" mutable="no">
+        <type>UClass *</type>
+        <definition>UClass* FObjectRecord::Class</definition>
+        <argsstring></argsstring>
+        <name>Class</name>
+        <qualifiedname>FObjectRecord::Class</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="23" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1a6f21329d1ee6878d33e847ec0c801a29" prot="public" static="no" mutable="no">
+        <type>UObject *</type>
+        <definition>UObject* FObjectRecord::Outer</definition>
+        <argsstring></argsstring>
+        <name>Outer</name>
+        <qualifiedname>FObjectRecord::Outer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="27" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1abab943ff8797483822bff7ed3d2807e7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FObjectRecord::OuterID</definition>
+        <argsstring></argsstring>
+        <name>OuterID</name>
+        <qualifiedname>FObjectRecord::OuterID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="31" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1af9d87c30a747e68aa5f94468405ed5a4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FObjectRecord::bActor</definition>
+        <argsstring></argsstring>
+        <name>bActor</name>
+        <qualifiedname>FObjectRecord::bActor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="35" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1a00ef299cb3ff99c04af29382786e8b66" prot="public" static="no" mutable="no">
+        <type>UObject *</type>
+        <definition>UObject* FObjectRecord::Self</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <qualifiedname>FObjectRecord::Self</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="39" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1ae65d29a298c9c503eac1e87b3bb39149" prot="public" static="no" mutable="no">
+        <type>FName</type>
+        <definition>FName FObjectRecord::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FObjectRecord::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="43" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1a001aa42acd14f41b6966ff8ae05e5db8" prot="public" static="no" mutable="no">
+        <type>TArray&lt; uint8 &gt;</type>
+        <definition>TArray&lt;uint8&gt; FObjectRecord::Data</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <qualifiedname>FObjectRecord::Data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="47" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_object_record_1abcfed9d12337ebe9ed1d001a0bcd0a78" prot="public" static="no" mutable="no">
+        <type>FTransform</type>
+        <definition>FTransform FObjectRecord::Transform</definition>
+        <argsstring></argsstring>
+        <name>Transform</name>
+        <qualifiedname>FObjectRecord::Transform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="51" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_object_record_1a6bcdb908a3693c04dc7f78cf32ec439a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FObjectRecord::FObjectRecord</definition>
+        <argsstring>()</argsstring>
+        <name>FObjectRecord</name>
+        <qualifiedname>FObjectRecord::FObjectRecord</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="53" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="53" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="17" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="18" bodyend="59"/>
+    <listofallmembers>
+      <member refid="struct_f_object_record_1af9d87c30a747e68aa5f94468405ed5a4" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>bActor</name></member>
+      <member refid="struct_f_object_record_1add7377a2e1840b6d252da9770df441bd" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Class</name></member>
+      <member refid="struct_f_object_record_1a001aa42acd14f41b6966ff8ae05e5db8" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Data</name></member>
+      <member refid="struct_f_object_record_1a6bcdb908a3693c04dc7f78cf32ec439a" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>FObjectRecord</name></member>
+      <member refid="struct_f_object_record_1ae65d29a298c9c503eac1e87b3bb39149" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Name</name></member>
+      <member refid="struct_f_object_record_1a6f21329d1ee6878d33e847ec0c801a29" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Outer</name></member>
+      <member refid="struct_f_object_record_1abab943ff8797483822bff7ed3d2807e7" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>OuterID</name></member>
+      <member refid="struct_f_object_record_1a00ef299cb3ff99c04af29382786e8b66" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Self</name></member>
+      <member refid="struct_f_object_record_1abcfed9d12337ebe9ed1d001a0bcd0a78" prot="public" virt="non-virtual"><scope>FObjectRecord</scope><name>Transform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

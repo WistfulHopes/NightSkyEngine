@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_screen_data" kind="struct" language="C++" prot="public">
+    <compoundname>FScreenData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_screen_data_1ae4f125494bd18f9fd3b5ede8495067aa" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EScreenFlag &gt;</type>
+        <definition>TEnumAsByte&lt;EScreenFlag&gt; FScreenData::Flags</definition>
+        <argsstring></argsstring>
+        <name>Flags</name>
+        <qualifiedname>FScreenData::Flags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="99" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1af1aba17d9d020a57325d0a87b46a462e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FScreenData::bTouchingWorldSide</definition>
+        <argsstring></argsstring>
+        <name>bTouchingWorldSide</name>
+        <qualifiedname>FScreenData::bTouchingWorldSide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="100" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a290bd7f827a42931213a34fd274c0569" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::DefaultMaxWidth</definition>
+        <argsstring></argsstring>
+        <name>DefaultMaxWidth</name>
+        <qualifiedname>FScreenData::DefaultMaxWidth</qualifiedname>
+        <initializer>= 1689</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="103" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a2aebe283ed5c99ca69995011f574d128" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::DefaultWidth</definition>
+        <argsstring></argsstring>
+        <name>DefaultWidth</name>
+        <qualifiedname>FScreenData::DefaultWidth</qualifiedname>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="105" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a1831290f16ae29c0a4301d4b6eafa1d6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::MaxZoomOutWidth</definition>
+        <argsstring></argsstring>
+        <name>MaxZoomOutWidth</name>
+        <qualifiedname>FScreenData::MaxZoomOutWidth</qualifiedname>
+        <initializer>= 1689</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="107" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a76d21442cdc6af737b33680782ff6e45" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ZoomOutBeginX</definition>
+        <argsstring></argsstring>
+        <name>ZoomOutBeginX</name>
+        <qualifiedname>FScreenData::ZoomOutBeginX</qualifiedname>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="108" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a5b67347deeeaa40b0f5e898bbda58ffb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ZoomOutBeginY</definition>
+        <argsstring></argsstring>
+        <name>ZoomOutBeginY</name>
+        <qualifiedname>FScreenData::ZoomOutBeginY</qualifiedname>
+        <initializer>= 180</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="109" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a6e855428c0c5cadc6b38265cef098eea" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ZoomOutBeginH</definition>
+        <argsstring></argsstring>
+        <name>ZoomOutBeginH</name>
+        <qualifiedname>FScreenData::ZoomOutBeginH</qualifiedname>
+        <initializer>= 360</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="110" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a36f3fa2b7619373949fd97cefc5b394d" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> * &gt;</type>
+        <definition>TArray&lt;ABattleObject*&gt; FScreenData::TargetObjects</definition>
+        <argsstring></argsstring>
+        <name>TargetObjects</name>
+        <qualifiedname>FScreenData::TargetObjects</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="113" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a593923b598d5bd662246875ad218bdf9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjTop</definition>
+        <argsstring></argsstring>
+        <name>ObjTop</name>
+        <qualifiedname>FScreenData::ObjTop</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="115" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a2f614f8e8fa7470d1842d4d8beb31842" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjBottom</definition>
+        <argsstring></argsstring>
+        <name>ObjBottom</name>
+        <qualifiedname>FScreenData::ObjBottom</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="116" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a61f0eb6a233ee1c523a7883dbbd0de7f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::HigherObjBottom</definition>
+        <argsstring></argsstring>
+        <name>HigherObjBottom</name>
+        <qualifiedname>FScreenData::HigherObjBottom</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="117" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a4f178d081006b536c694b19411668aed" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjLeft</definition>
+        <argsstring></argsstring>
+        <name>ObjLeft</name>
+        <qualifiedname>FScreenData::ObjLeft</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="118" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1abd7e0a491283223ab633e656a9a24bd1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjRight</definition>
+        <argsstring></argsstring>
+        <name>ObjRight</name>
+        <qualifiedname>FScreenData::ObjRight</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="119" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1ac76721461fcdd9bb90ade9345fc298d2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjLength</definition>
+        <argsstring></argsstring>
+        <name>ObjLength</name>
+        <qualifiedname>FScreenData::ObjLength</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="120" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aeee4ef74d912c154d480ab36510e015a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjHeight</definition>
+        <argsstring></argsstring>
+        <name>ObjHeight</name>
+        <qualifiedname>FScreenData::ObjHeight</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="121" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1ab5cfcbada1807b882f4e49a283209dae" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ObjDistanceY</definition>
+        <argsstring></argsstring>
+        <name>ObjDistanceY</name>
+        <qualifiedname>FScreenData::ObjDistanceY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="122" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a6bd1706996e83886e93ba4f07afb9899" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenWorldCenterX</definition>
+        <argsstring></argsstring>
+        <name>ScreenWorldCenterX</name>
+        <qualifiedname>FScreenData::ScreenWorldCenterX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="124" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1afca84f5429c1118a6c9a0d18cfab97a8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenWorldCenterY</definition>
+        <argsstring></argsstring>
+        <name>ScreenWorldCenterY</name>
+        <qualifiedname>FScreenData::ScreenWorldCenterY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="125" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1ad1ad085854e519b52d7df33d55a2943b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenWorldWidth</definition>
+        <argsstring></argsstring>
+        <name>ScreenWorldWidth</name>
+        <qualifiedname>FScreenData::ScreenWorldWidth</qualifiedname>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="126" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a26375cf1291d7ad73bcc59217925cbd5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetCenterX</definition>
+        <argsstring></argsstring>
+        <name>TargetCenterX</name>
+        <qualifiedname>FScreenData::TargetCenterX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="128" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a5d88da6f3f26639fee797142814703c2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetCenterY</definition>
+        <argsstring></argsstring>
+        <name>TargetCenterY</name>
+        <qualifiedname>FScreenData::TargetCenterY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="129" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a238d9fcc0d4186939c82a0af7531aeef" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetWidth</definition>
+        <argsstring></argsstring>
+        <name>TargetWidth</name>
+        <qualifiedname>FScreenData::TargetWidth</qualifiedname>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="130" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a9526c36dc169d3dd560d5f98d2922227" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::CenterXVelocity</definition>
+        <argsstring></argsstring>
+        <name>CenterXVelocity</name>
+        <qualifiedname>FScreenData::CenterXVelocity</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="132" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aa725dc8e5f1b19dd4568254ba369faa3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::CenterYVelocity</definition>
+        <argsstring></argsstring>
+        <name>CenterYVelocity</name>
+        <qualifiedname>FScreenData::CenterYVelocity</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="133" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aeecb6b26f4f7130bd4e1c1cdce84f214" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::WidthVelocity</definition>
+        <argsstring></argsstring>
+        <name>WidthVelocity</name>
+        <qualifiedname>FScreenData::WidthVelocity</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="134" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1ac5d64821759d87428423ac59ce7f665d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::FinalScreenX</definition>
+        <argsstring></argsstring>
+        <name>FinalScreenX</name>
+        <qualifiedname>FScreenData::FinalScreenX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="136" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aef826dfea7e264e85a99b6ef22d9a380" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::FinalScreenY</definition>
+        <argsstring></argsstring>
+        <name>FinalScreenY</name>
+        <qualifiedname>FScreenData::FinalScreenY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="137" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a0174e58e3f997f2b18f6e9e404aabab7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::FinalScreenWidth</definition>
+        <argsstring></argsstring>
+        <name>FinalScreenWidth</name>
+        <qualifiedname>FScreenData::FinalScreenWidth</qualifiedname>
+        <initializer>= 1280</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="138" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aaddef35bbac8cef395dfaa2ed8a01837" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FScreenData::ScreenYZoom</definition>
+        <argsstring></argsstring>
+        <name>ScreenYZoom</name>
+        <qualifiedname>FScreenData::ScreenYZoom</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="140" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a3803c923280f70ba97c3f37652f5e76f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetY</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetY</name>
+        <qualifiedname>FScreenData::TargetOffsetY</qualifiedname>
+        <initializer>= 350</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="142" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1ac62bfe1418c07e990d18dd97aa164070" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetLandYMax</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetLandYMax</name>
+        <qualifiedname>FScreenData::TargetOffsetLandYMax</qualifiedname>
+        <initializer>= 250</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="143" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a95509a401c0bccd47a6a4828db639c4c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetLandYAdd</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetLandYAdd</name>
+        <qualifiedname>FScreenData::TargetOffsetLandYAdd</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="144" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a646fefbb5b38f7c76f8e5fa297f73610" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetAirYMax</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetAirYMax</name>
+        <qualifiedname>FScreenData::TargetOffsetAirYMax</qualifiedname>
+        <initializer>= 180</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="145" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aae9f70eda79e943c41912cf5ee82c9e0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetAirYAdd</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetAirYAdd</name>
+        <qualifiedname>FScreenData::TargetOffsetAirYAdd</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="146" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a8bdbe13960ebcf0b11377c4fc250f8a6" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetAirYPos</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetAirYPos</name>
+        <qualifiedname>FScreenData::TargetOffsetAirYPos</qualifiedname>
+        <initializer>= 400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="147" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a9ee7ae55ea35ad02f04aff58a1b082dd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::TargetOffsetAirYDist</definition>
+        <argsstring></argsstring>
+        <name>TargetOffsetAirYDist</name>
+        <qualifiedname>FScreenData::TargetOffsetAirYDist</qualifiedname>
+        <initializer>= 570</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="148" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a837d092346fd4b9cc182d4f3d7baacab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenBoundsLeft</definition>
+        <argsstring></argsstring>
+        <name>ScreenBoundsLeft</name>
+        <qualifiedname>FScreenData::ScreenBoundsLeft</qualifiedname>
+        <initializer>= -640</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="150" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a50005b963c1c730a3dc2cb21c70fcb81" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenBoundsRight</definition>
+        <argsstring></argsstring>
+        <name>ScreenBoundsRight</name>
+        <qualifiedname>FScreenData::ScreenBoundsRight</qualifiedname>
+        <initializer>= 640</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="151" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a1db5e01844dcd29f95018ed5774b2c5d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::ScreenBoundsTop</definition>
+        <argsstring></argsstring>
+        <name>ScreenBoundsTop</name>
+        <qualifiedname>FScreenData::ScreenBoundsTop</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="152" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a0672f8439b21ea3246eb33078853a056" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::StageBoundsLeft</definition>
+        <argsstring></argsstring>
+        <name>StageBoundsLeft</name>
+        <qualifiedname>FScreenData::StageBoundsLeft</qualifiedname>
+        <initializer>= -3200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="155" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1a1074ee543899f2bdc5722168251c386f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::StageBoundsRight</definition>
+        <argsstring></argsstring>
+        <name>StageBoundsRight</name>
+        <qualifiedname>FScreenData::StageBoundsRight</qualifiedname>
+        <initializer>= 3200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="157" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_screen_data_1aacd90fef7ce40fc094a59bf4895733ed" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FScreenData::StageBoundsTop</definition>
+        <argsstring></argsstring>
+        <name>StageBoundsTop</name>
+        <qualifiedname>FScreenData::StageBoundsTop</qualifiedname>
+        <initializer>= 5400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="159" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="95" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="96" bodyend="160"/>
+    <listofallmembers>
+      <member refid="struct_f_screen_data_1af1aba17d9d020a57325d0a87b46a462e" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>bTouchingWorldSide</name></member>
+      <member refid="struct_f_screen_data_1a9526c36dc169d3dd560d5f98d2922227" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>CenterXVelocity</name></member>
+      <member refid="struct_f_screen_data_1aa725dc8e5f1b19dd4568254ba369faa3" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>CenterYVelocity</name></member>
+      <member refid="struct_f_screen_data_1a290bd7f827a42931213a34fd274c0569" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>DefaultMaxWidth</name></member>
+      <member refid="struct_f_screen_data_1a2aebe283ed5c99ca69995011f574d128" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>DefaultWidth</name></member>
+      <member refid="struct_f_screen_data_1a0174e58e3f997f2b18f6e9e404aabab7" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>FinalScreenWidth</name></member>
+      <member refid="struct_f_screen_data_1ac5d64821759d87428423ac59ce7f665d" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>FinalScreenX</name></member>
+      <member refid="struct_f_screen_data_1aef826dfea7e264e85a99b6ef22d9a380" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>FinalScreenY</name></member>
+      <member refid="struct_f_screen_data_1ae4f125494bd18f9fd3b5ede8495067aa" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>Flags</name></member>
+      <member refid="struct_f_screen_data_1a61f0eb6a233ee1c523a7883dbbd0de7f" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>HigherObjBottom</name></member>
+      <member refid="struct_f_screen_data_1a1831290f16ae29c0a4301d4b6eafa1d6" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>MaxZoomOutWidth</name></member>
+      <member refid="struct_f_screen_data_1a2f614f8e8fa7470d1842d4d8beb31842" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjBottom</name></member>
+      <member refid="struct_f_screen_data_1ab5cfcbada1807b882f4e49a283209dae" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjDistanceY</name></member>
+      <member refid="struct_f_screen_data_1aeee4ef74d912c154d480ab36510e015a" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjHeight</name></member>
+      <member refid="struct_f_screen_data_1a4f178d081006b536c694b19411668aed" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjLeft</name></member>
+      <member refid="struct_f_screen_data_1ac76721461fcdd9bb90ade9345fc298d2" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjLength</name></member>
+      <member refid="struct_f_screen_data_1abd7e0a491283223ab633e656a9a24bd1" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjRight</name></member>
+      <member refid="struct_f_screen_data_1a593923b598d5bd662246875ad218bdf9" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ObjTop</name></member>
+      <member refid="struct_f_screen_data_1a837d092346fd4b9cc182d4f3d7baacab" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenBoundsLeft</name></member>
+      <member refid="struct_f_screen_data_1a50005b963c1c730a3dc2cb21c70fcb81" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenBoundsRight</name></member>
+      <member refid="struct_f_screen_data_1a1db5e01844dcd29f95018ed5774b2c5d" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenBoundsTop</name></member>
+      <member refid="struct_f_screen_data_1a6bd1706996e83886e93ba4f07afb9899" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenWorldCenterX</name></member>
+      <member refid="struct_f_screen_data_1afca84f5429c1118a6c9a0d18cfab97a8" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenWorldCenterY</name></member>
+      <member refid="struct_f_screen_data_1ad1ad085854e519b52d7df33d55a2943b" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenWorldWidth</name></member>
+      <member refid="struct_f_screen_data_1aaddef35bbac8cef395dfaa2ed8a01837" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ScreenYZoom</name></member>
+      <member refid="struct_f_screen_data_1a0672f8439b21ea3246eb33078853a056" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>StageBoundsLeft</name></member>
+      <member refid="struct_f_screen_data_1a1074ee543899f2bdc5722168251c386f" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>StageBoundsRight</name></member>
+      <member refid="struct_f_screen_data_1aacd90fef7ce40fc094a59bf4895733ed" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>StageBoundsTop</name></member>
+      <member refid="struct_f_screen_data_1a26375cf1291d7ad73bcc59217925cbd5" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetCenterX</name></member>
+      <member refid="struct_f_screen_data_1a5d88da6f3f26639fee797142814703c2" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetCenterY</name></member>
+      <member refid="struct_f_screen_data_1a36f3fa2b7619373949fd97cefc5b394d" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetObjects</name></member>
+      <member refid="struct_f_screen_data_1aae9f70eda79e943c41912cf5ee82c9e0" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetAirYAdd</name></member>
+      <member refid="struct_f_screen_data_1a9ee7ae55ea35ad02f04aff58a1b082dd" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetAirYDist</name></member>
+      <member refid="struct_f_screen_data_1a646fefbb5b38f7c76f8e5fa297f73610" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetAirYMax</name></member>
+      <member refid="struct_f_screen_data_1a8bdbe13960ebcf0b11377c4fc250f8a6" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetAirYPos</name></member>
+      <member refid="struct_f_screen_data_1a95509a401c0bccd47a6a4828db639c4c" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetLandYAdd</name></member>
+      <member refid="struct_f_screen_data_1ac62bfe1418c07e990d18dd97aa164070" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetLandYMax</name></member>
+      <member refid="struct_f_screen_data_1a3803c923280f70ba97c3f37652f5e76f" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetOffsetY</name></member>
+      <member refid="struct_f_screen_data_1a238d9fcc0d4186939c82a0af7531aeef" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>TargetWidth</name></member>
+      <member refid="struct_f_screen_data_1aeecb6b26f4f7130bd4e1c1cdce84f214" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>WidthVelocity</name></member>
+      <member refid="struct_f_screen_data_1a6e855428c0c5cadc6b38265cef098eea" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ZoomOutBeginH</name></member>
+      <member refid="struct_f_screen_data_1a76d21442cdc6af737b33680782ff6e45" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ZoomOutBeginX</name></member>
+      <member refid="struct_f_screen_data_1a5b67347deeeaa40b0f5e898bbda58ffb" prot="public" virt="non-virtual"><scope>FScreenData</scope><name>ZoomOutBeginY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

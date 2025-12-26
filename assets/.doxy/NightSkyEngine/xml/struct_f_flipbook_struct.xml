@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_flipbook_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FFlipbookStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_flipbook_struct_1ab4ea54039ab94f3a5af4e62a3252a151" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FFlipbookStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FFlipbookStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" line="17" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_flipbook_struct_1a21b7686c8bf423fb7a817e6ec521a4e3" prot="public" static="no" mutable="no">
+        <type>UPaperFlipbook *</type>
+        <definition>UPaperFlipbook* FFlipbookStruct::Flipbook</definition>
+        <argsstring></argsstring>
+        <name>Flipbook</name>
+        <qualifiedname>FFlipbookStruct::Flipbook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" line="19" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" bodystart="13" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_f_flipbook_struct_1a21b7686c8bf423fb7a817e6ec521a4e3" prot="public" virt="non-virtual"><scope>FFlipbookStruct</scope><name>Flipbook</name></member>
+      <member refid="struct_f_flipbook_struct_1ab4ea54039ab94f3a5af4e62a3252a151" prot="public" virt="non-virtual"><scope>FFlipbookStruct</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

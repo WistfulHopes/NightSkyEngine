@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_extended_common_activatable_widget" kind="class" language="C++" prot="public">
+    <compoundname>UExtendedCommonActivatableWidget</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UCommonActivatableWidget</basecompoundref>
+    <includes refid="_extended_common_activatable_widget_8h" local="no">ExtendedCommonActivatableWidget.h</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_u_extended_common_activatable_widget_1a29d777c03fe4a6ab6a1258033a4db498" prot="protected" static="no" mutable="no">
+        <type>ENightSkyWidgetInputMode</type>
+        <definition>ENightSkyWidgetInputMode UExtendedCommonActivatableWidget::DefaultInputConfig</definition>
+        <argsstring></argsstring>
+        <name>DefaultInputConfig</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::DefaultInputConfig</qualifiedname>
+        <initializer>= ENightSkyWidgetInputMode::Default</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The desired input mode to use while this UI is activated, for example do you want key presses to still reach the game/player controller? </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="62" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_extended_common_activatable_widget_1a2c0803fd0357201a256c4725c6684947" prot="protected" static="no" mutable="no">
+        <type>EMouseCaptureMode</type>
+        <definition>EMouseCaptureMode UExtendedCommonActivatableWidget::GameMouseCaptureMode</definition>
+        <argsstring></argsstring>
+        <name>GameMouseCaptureMode</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::GameMouseCaptureMode</qualifiedname>
+        <initializer>= EMouseCaptureMode::CapturePermanently</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The desired mouse behavior when the game gets input. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="66" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_extended_common_activatable_widget_1a80cf836a7fa06450992ba5aa74d3255b" prot="private" static="no" mutable="no">
+        <type>TArray&lt; FUIActionBindingHandle &gt;</type>
+        <definition>TArray&lt;FUIActionBindingHandle&gt; UExtendedCommonActivatableWidget::BindingHandles</definition>
+        <argsstring></argsstring>
+        <name>BindingHandles</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::BindingHandles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="69" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1a6e30cfaf22b1cadf61b5bb1e04c683fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UExtendedCommonActivatableWidget::UExtendedCommonActivatableWidget</definition>
+        <argsstring>(const FObjectInitializer &amp;ObjectInitializer=FObjectInitializer::Get())</argsstring>
+        <name>UExtendedCommonActivatableWidget</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::UExtendedCommonActivatableWidget</qualifiedname>
+        <param>
+          <type>const FObjectInitializer &amp;</type>
+          <declname>ObjectInitializer</declname>
+          <defval>FObjectInitializer::Get()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="38" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1a87e2c79dd1550d13db289ae477c80ef7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>TOptional&lt; FUIInputConfig &gt;</type>
+        <definition>TOptional&lt; FUIInputConfig &gt; UExtendedCommonActivatableWidget::GetDesiredInputConfig</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetDesiredInputConfig</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::GetDesiredInputConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="41" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="15" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1acd2c5aab4f7b2a43a8a070a2266c2943" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UExtendedCommonActivatableWidget::NativeDestruct</definition>
+        <argsstring>() override</argsstring>
+        <name>NativeDestruct</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::NativeDestruct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="49" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="38" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1a8cc15904f66a25a9a1aca075940e447b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UExtendedCommonActivatableWidget::RegisterBinding</definition>
+        <argsstring>(FDataTableRowHandle InputAction, const FInputActionExecutedDelegate &amp;Callback, FInputActionBindingHandle &amp;BindingHandle)</argsstring>
+        <name>RegisterBinding</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::RegisterBinding</qualifiedname>
+        <param>
+          <type>FDataTableRowHandle</type>
+          <declname>InputAction</declname>
+        </param>
+        <param>
+          <type>const FInputActionExecutedDelegate &amp;</type>
+          <declname>Callback</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_input_action_binding_handle" kindref="compound">FInputActionBindingHandle</ref> &amp;</type>
+          <declname>BindingHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="52" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="52" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1a01fce60ab14899f20dc5c0cf5d227210" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UExtendedCommonActivatableWidget::UnregisterBinding</definition>
+        <argsstring>(FInputActionBindingHandle BindingHandle)</argsstring>
+        <name>UnregisterBinding</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::UnregisterBinding</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_input_action_binding_handle" kindref="compound">FInputActionBindingHandle</ref></type>
+          <declname>BindingHandle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="55" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="64" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_extended_common_activatable_widget_1aac4d6bc5a0157a2212fd9b8d3db03030" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UExtendedCommonActivatableWidget::UnregisterAllBindings</definition>
+        <argsstring>()</argsstring>
+        <name>UnregisterAllBindings</name>
+        <qualifiedname>UExtendedCommonActivatableWidget::UnregisterAllBindings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="58" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.cpp" bodystart="73" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Extends UCommonActivatableWidget with Blueprint-visible functions for registering additional input action bindings. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UCommonActivatableWidget</label>
+      </node>
+      <node id="1">
+        <label>UExtendedCommonActivatableWidget</label>
+        <link refid="class_u_extended_common_activatable_widget"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UCommonActivatableWidget</label>
+      </node>
+      <node id="1">
+        <label>UExtendedCommonActivatableWidget</label>
+        <link refid="class_u_extended_common_activatable_widget"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" line="33" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/ExtendedCommonActivatableWidget.h" bodystart="34" bodyend="70"/>
+    <listofallmembers>
+      <member refid="class_u_extended_common_activatable_widget_1a80cf836a7fa06450992ba5aa74d3255b" prot="private" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>BindingHandles</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a29d777c03fe4a6ab6a1258033a4db498" prot="protected" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>DefaultInputConfig</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a2c0803fd0357201a256c4725c6684947" prot="protected" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>GameMouseCaptureMode</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a87e2c79dd1550d13db289ae477c80ef7" prot="public" virt="virtual"><scope>UExtendedCommonActivatableWidget</scope><name>GetDesiredInputConfig</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1acd2c5aab4f7b2a43a8a070a2266c2943" prot="protected" virt="virtual"><scope>UExtendedCommonActivatableWidget</scope><name>NativeDestruct</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a8cc15904f66a25a9a1aca075940e447b" prot="protected" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>RegisterBinding</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a6e30cfaf22b1cadf61b5bb1e04c683fd" prot="public" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>UExtendedCommonActivatableWidget</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1aac4d6bc5a0157a2212fd9b8d3db03030" prot="protected" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>UnregisterAllBindings</name></member>
+      <member refid="class_u_extended_common_activatable_widget_1a01fce60ab14899f20dc5c0cf5d227210" prot="protected" virt="non-virtual"><scope>UExtendedCommonActivatableWidget</scope><name>UnregisterBinding</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

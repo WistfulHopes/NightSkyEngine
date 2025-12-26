@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_night_sky_anim_sequence_user_data_8h" kind="file" language="C++">
+    <compoundname>NightSkyAnimSequenceUserData.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">Engine/AssetUserData.h</includes>
+    <includes local="yes">NightSkyAnimSequenceUserData.generated.h</includes>
+    <includedby refid="_night_sky_anim_meta_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.cpp</includedby>
+    <includedby refid="_night_sky_anim_sequence_user_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp</includedby>
+    <includedby refid="_battle_object_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h</label>
+        <link refid="_night_sky_anim_sequence_user_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="3">
+        <label>Engine/AssetUserData.h</label>
+      </node>
+      <node id="4">
+        <label>NightSkyAnimSequenceUserData.generated.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_f_anim_vector" prot="public">FAnimVector</innerclass>
+    <innerclass refid="struct_f_anim_rotator" prot="public">FAnimRotator</innerclass>
+    <innerclass refid="struct_f_anim_transform" prot="public">FAnimTransform</innerclass>
+    <innerclass refid="class_u_night_sky_anim_sequence_user_data" prot="public">UNightSkyAnimSequenceUserData</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_night_sky_anim_sequence_user_data_8h_1a0a4dc13fbb47e8459db13635758f9096" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FORCEINLINE FArchive</type>
+        <definition>FORCEINLINE FArchive operator&lt;&lt;</definition>
+        <argsstring>(FArchive &amp;Ar, FAnimVector &amp;InVal)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>FArchive &amp;</type>
+          <declname>Ar</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref> &amp;</type>
+          <declname>InVal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="19" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="19" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="_night_sky_anim_sequence_user_data_8h_1a70f43fc0fe8037b3fbed9ab21c692c19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FORCEINLINE FArchive</type>
+        <definition>FORCEINLINE FArchive operator&lt;&lt;</definition>
+        <argsstring>(FArchive &amp;Ar, FAnimRotator &amp;InVal)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>FArchive &amp;</type>
+          <declname>Ar</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_anim_rotator" kindref="compound">FAnimRotator</ref> &amp;</type>
+          <declname>InVal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="37" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="_night_sky_anim_sequence_user_data_8h_1aedf761f87013e35e32a4a77d49aa00fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FORCEINLINE FArchive</type>
+        <definition>FORCEINLINE FArchive operator&lt;&lt;</definition>
+        <argsstring>(FArchive &amp;Ar, FAnimTransform &amp;InVal)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>FArchive &amp;</type>
+          <declname>Ar</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref> &amp;</type>
+          <declname>InVal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="55" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="55" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Engine/AssetUserData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NightSkyAnimSequenceUserData.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">USTRUCT(BlueprintType)</highlight></codeline>
+<codeline lineno="10" refid="struct_f_anim_vector" refkind="compound"><highlight class="normal">struct<sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>X;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Y;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Z;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">FORCEINLINE<sp/>FArchive<sp/>operator<sp/>&lt;&lt;(FArchive&amp;<sp/>Ar,<sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref>&amp;<sp/>InVal)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.X;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Y;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Z;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ar;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">USTRUCT(BlueprintType)</highlight></codeline>
+<codeline lineno="28" refid="struct_f_anim_rotator" refkind="compound"><highlight class="normal">struct<sp/><ref refid="struct_f_anim_rotator" kindref="compound">FAnimRotator</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Pitch;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Yaw;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Roll;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">FORCEINLINE<sp/>FArchive<sp/>operator<sp/>&lt;&lt;(FArchive&amp;<sp/>Ar,<sp/><ref refid="struct_f_anim_rotator" kindref="compound">FAnimRotator</ref>&amp;<sp/>InVal)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Pitch;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Yaw;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Roll;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ar;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">USTRUCT(BlueprintType)</highlight></codeline>
+<codeline lineno="46" refid="struct_f_anim_transform" refkind="compound"><highlight class="normal">struct<sp/><ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref><sp/>Position;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_rotator" kindref="compound">FAnimRotator</ref><sp/>Rotation;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref><sp/>Scale;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">FORCEINLINE<sp/>FArchive<sp/>operator<sp/>&lt;&lt;(FArchive&amp;<sp/>Ar,<sp/><ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref>&amp;<sp/>InVal)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Position;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Rotation;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>Ar<sp/>&lt;&lt;<sp/>InVal.Scale;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ar;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">UCLASS(EditInlineNew)</highlight></codeline>
+<codeline lineno="67" refid="class_u_night_sky_anim_sequence_user_data" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_night_sky_anim_sequence_user_data" kindref="compound">UNightSkyAnimSequenceUserData</ref><sp/>:<sp/>public<sp/>UAssetUserData</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY()</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>FrameCount;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>FrameRate;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>TMap&lt;FName,<sp/>TMap&lt;int32,<sp/>FAnimTransform&gt;&gt;<sp/>MeshSpaceBoneTransforms;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>TMap&lt;int32,<sp/>FAnimVector&gt;<sp/>RootTranslation;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Serialize(FArchive&amp;<sp/>Ar)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PostEditChangeOwner(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FPropertyChangedEvent&amp;<sp/>PropertyChangedEvent)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>GetFrameCount()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="88"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FrameCount;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>GetFrameRate()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="94"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FrameRate;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref><sp/>GetRootTranslationAtTime(int32<sp/>Time)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref><sp/>GetCachedBoneTransformAtTime(FName<sp/>BoneName,<sp/>int32<sp/>Time,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bRelativeToRoot)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref><sp/>GetCachedBoneLocationAtTime(FName<sp/>BoneName,<sp/>int32<sp/>Time,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bRelativeToRoot)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h"/>
+  </compounddef>
+</doxygen>

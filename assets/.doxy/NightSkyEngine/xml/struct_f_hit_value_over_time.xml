@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_hit_value_over_time" kind="struct" language="C++" prot="public">
+    <compoundname>FHitValueOverTime</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_hit_value_over_time_1a1bf1bdbb9bf8277bf123407620b558cc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitValueOverTime::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <qualifiedname>FHitValueOverTime::Value</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="347" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_value_over_time_1a92686c9a134a00b2286d2c3a983dd293" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitValueOverTime::BeginFrame</definition>
+        <argsstring></argsstring>
+        <name>BeginFrame</name>
+        <qualifiedname>FHitValueOverTime::BeginFrame</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="349" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_value_over_time_1a2eeb2a64465b28ec17fc5ee413e07ab7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitValueOverTime::EndFrame</definition>
+        <argsstring></argsstring>
+        <name>EndFrame</name>
+        <qualifiedname>FHitValueOverTime::EndFrame</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="351" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="342" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="343" bodyend="352"/>
+    <listofallmembers>
+      <member refid="struct_f_hit_value_over_time_1a92686c9a134a00b2286d2c3a983dd293" prot="public" virt="non-virtual"><scope>FHitValueOverTime</scope><name>BeginFrame</name></member>
+      <member refid="struct_f_hit_value_over_time_1a2eeb2a64465b28ec17fc5ee413e07ab7" prot="public" virt="non-virtual"><scope>FHitValueOverTime</scope><name>EndFrame</name></member>
+      <member refid="struct_f_hit_value_over_time_1a1bf1bdbb9bf8277bf123407620b558cc" prot="public" virt="non-virtual"><scope>FHitValueOverTime</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

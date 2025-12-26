@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_engine_game_mode_base" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyEngineGameModeBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AGameModeBase</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AGameModeBase</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyEngineGameModeBase</label>
+        <link refid="class_a_night_sky_engine_game_mode_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AGameModeBase</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyEngineGameModeBase</label>
+        <link refid="class_a_night_sky_engine_game_mode_base"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEngineGameModeBase.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEngineGameModeBase.h" bodystart="14" bodyend="16"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_3028ef8e315fbc532032c32a50fd3ba1" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous</compoundname>
+    <innerfile refid="_night_sky_engine_game_mode_base_8cpp">NightSkyEngineGameModeBase.cpp</innerfile>
+    <innerfile refid="_night_sky_engine_game_mode_base_8h">NightSkyEngineGameModeBase.h</innerfile>
+    <innerfile refid="_night_sky_game_instance_8cpp">NightSkyGameInstance.cpp</innerfile>
+    <innerfile refid="_night_sky_game_instance_8h">NightSkyGameInstance.h</innerfile>
+    <innerfile refid="_night_sky_save_info_8cpp">NightSkySaveInfo.cpp</innerfile>
+    <innerfile refid="_night_sky_save_info_8h">NightSkySaveInfo.h</innerfile>
+    <innerfile refid="_night_sky_settings_info_8h">NightSkySettingsInfo.h</innerfile>
+    <innerfile refid="_replay_info_8cpp">ReplayInfo.cpp</innerfile>
+    <innerfile refid="_replay_info_8h">ReplayInfo.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_particle_manager" kind="class" language="C++" prot="public">
+    <compoundname>AParticleManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AActor</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_particle_manager_1a96d4c57b4ab9f989fce38d3fef0242a7" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_battle_particle" kindref="compound">FBattleParticle</ref> &gt;</type>
+        <definition>TArray&lt;FBattleParticle&gt; AParticleManager::BattleParticles</definition>
+        <argsstring></argsstring>
+        <name>BattleParticles</name>
+        <qualifiedname>AParticleManager::BattleParticles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="39" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_particle_manager_1a526f75e92423018f05019702353e39aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AParticleManager::AParticleManager</definition>
+        <argsstring>()</argsstring>
+        <name>AParticleManager</name>
+        <qualifiedname>AParticleManager::AParticleManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="42" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_particle_manager_1ab48f726cf31bf31967ad70e7ebdf4354" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AParticleManager::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>AParticleManager::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="50" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_particle_manager_1ac2204ac9f94d3ad30a4cc48a9b7950fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AParticleManager::UpdateParticles</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateParticles</name>
+        <qualifiedname>AParticleManager::UpdateParticles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="51" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="29" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_particle_manager_1ac0848c210507727d5306c94ad1278d88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AParticleManager::PauseParticles</definition>
+        <argsstring>()</argsstring>
+        <name>PauseParticles</name>
+        <qualifiedname>AParticleManager::PauseParticles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="52" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="54" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_particle_manager_1a78e742b4f49aa978f9bded1e04d1b4fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AParticleManager::RollbackParticles</definition>
+        <argsstring>(int RollbackFrames)</argsstring>
+        <name>RollbackParticles</name>
+        <qualifiedname>AParticleManager::RollbackParticles</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>RollbackFrames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="53" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="66" bodyend="80"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_particle_manager_1a7ea3673d859cb1bda295b0b7eed575a1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AParticleManager::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>AParticleManager::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="46" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.cpp" bodystart="18" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" line="33" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/ParticleManager.h" bodystart="34" bodyend="54"/>
+    <listofallmembers>
+      <member refid="class_a_particle_manager_1a526f75e92423018f05019702353e39aa" prot="public" virt="non-virtual"><scope>AParticleManager</scope><name>AParticleManager</name></member>
+      <member refid="class_a_particle_manager_1a96d4c57b4ab9f989fce38d3fef0242a7" prot="public" virt="non-virtual"><scope>AParticleManager</scope><name>BattleParticles</name></member>
+      <member refid="class_a_particle_manager_1a7ea3673d859cb1bda295b0b7eed575a1" prot="protected" virt="virtual"><scope>AParticleManager</scope><name>BeginPlay</name></member>
+      <member refid="class_a_particle_manager_1ac0848c210507727d5306c94ad1278d88" prot="public" virt="non-virtual"><scope>AParticleManager</scope><name>PauseParticles</name></member>
+      <member refid="class_a_particle_manager_1a78e742b4f49aa978f9bded1e04d1b4fb" prot="public" virt="non-virtual"><scope>AParticleManager</scope><name>RollbackParticles</name></member>
+      <member refid="class_a_particle_manager_1ab48f726cf31bf31967ad70e7ebdf4354" prot="public" virt="virtual"><scope>AParticleManager</scope><name>Tick</name></member>
+      <member refid="class_a_particle_manager_1ac2204ac9f94d3ad30a4cc48a9b7950fb" prot="public" virt="non-virtual"><scope>AParticleManager</scope><name>UpdateParticles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

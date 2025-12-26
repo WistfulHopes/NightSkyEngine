@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="input__queue_8cpp" kind="file" language="C++">
+    <compoundname>input_queue.cpp</compoundname>
+    <includes refid="input__queue_8h" local="yes">input_queue.h</includes>
+    <includes refid="types_8h" local="yes">types.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>game_input.h</label>
+        <link refid="game__input_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp</label>
+        <link refid="input__queue_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>input_queue.h</label>
+        <link refid="input__queue_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>log.h</label>
+        <link refid="log_8h_source"/>
+      </node>
+      <node id="6">
+        <label>types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>memory.h</label>
+      </node>
+      <node id="4">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="input__queue_8cpp_1a9bd542e3e7122fad6a493d49a02ec020" prot="public" static="no">
+        <name>PREVIOUS_FRAME</name>
+        <param><defname>offset</defname></param>
+        <initializer>(((offset) == 0) ? (INPUT_QUEUE_LENGTH - 1) : ((offset) - 1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" line="11" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>GGPO.net<sp/>(http://ggpo.net)<sp/><sp/>-<sp/><sp/>Copyright<sp/>2009<sp/>GroundStorm<sp/>Studios,<sp/>LLC.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Use<sp/>of<sp/>this<sp/>software<sp/>is<sp/>governed<sp/>by<sp/>the<sp/>MIT<sp/>license<sp/>that<sp/>can<sp/>be<sp/>found</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>LICENSE<sp/>file.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;input_queue.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;types.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PREVIOUS_FRAME(offset)<sp/><sp/><sp/>(((offset)<sp/>==<sp/>0)<sp/>?<sp/>(INPUT_QUEUE_LENGTH<sp/>-<sp/>1)<sp/>:<sp/>((offset)<sp/>-<sp/>1))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">InputQueue::InputQueue(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_size)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/>Init(-1,<sp/>input_size);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">InputQueue::~InputQueue()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">InputQueue::Init(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_size)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>_id<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>_head<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>_tail<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>_length<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>_frame_delay<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/>_first_frame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>_last_user_added_frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>_first_incorrect_frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/>_last_frame_requested<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/>_last_added_frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/>_prediction.init(GameInput::NullFrame,<sp/>NULL,<sp/>input_size);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>This<sp/>is<sp/>safe<sp/>because<sp/>we<sp/>know<sp/>the<sp/>GameInput<sp/>is<sp/>a<sp/>proper<sp/>structure<sp/>(as<sp/>in,</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>no<sp/>virtual<sp/>methods,<sp/>no<sp/>contained<sp/>classes,<sp/>etc.).</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/>memset(_inputs,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal"><sp/>_inputs);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ARRAY_SIZE(_inputs);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_inputs[i].size<sp/>=<sp/>input_size;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">InputQueue::GetLastConfirmedFrame()</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;returning<sp/>last<sp/>confirmed<sp/>frame<sp/>%d.\n&quot;</highlight><highlight class="normal">,<sp/>_last_added_frame);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_last_added_frame;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">InputQueue::GetFirstIncorrectFrame()</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_first_incorrect_frame;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">InputQueue::DiscardConfirmedFrames(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>ASSERT(frame<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_last_frame_requested<sp/>!=<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>frame<sp/>=<sp/>MIN(frame,<sp/>_last_frame_requested);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;discarding<sp/>confirmed<sp/>frames<sp/>up<sp/>to<sp/>%d<sp/>(last_added:%d<sp/>length:%d<sp/>[head:%d<sp/>tail:%d]).\n&quot;</highlight><highlight class="normal">,<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame,<sp/>_last_added_frame,<sp/>_length,<sp/>_head,<sp/>_tail);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(frame<sp/>&gt;=<sp/>_last_added_frame)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tail<sp/>=<sp/>_head;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>frame<sp/>-<sp/>_inputs[_tail].frame<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;difference<sp/>of<sp/>%d<sp/>frames.\n&quot;</highlight><highlight class="normal">,<sp/>offset);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT(offset<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tail<sp/>=<sp/>(_tail<sp/>+<sp/>offset)<sp/>%<sp/>INPUT_QUEUE_LENGTH;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_length<sp/>-=<sp/>offset;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;after<sp/>discarding,<sp/>new<sp/>tail<sp/>is<sp/>%d<sp/>(frame:%d).\n&quot;</highlight><highlight class="normal">,<sp/>_tail,<sp/>_inputs[_tail].frame);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_length<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">InputQueue::ResetPrediction(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_first_incorrect_frame<sp/>==<sp/>GameInput::NullFrame<sp/>||<sp/>frame<sp/>&lt;=<sp/>_first_incorrect_frame);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;resetting<sp/>all<sp/>prediction<sp/>errors<sp/>back<sp/>to<sp/>frame<sp/>%d.\n&quot;</highlight><highlight class="normal">,<sp/>frame);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>There&apos;s<sp/>nothing<sp/>really<sp/>to<sp/>do<sp/>other<sp/>than<sp/>reset<sp/>our<sp/>prediction</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>state<sp/>and<sp/>the<sp/>incorrect<sp/>frame<sp/>counter...</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/>_prediction.frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/>_first_incorrect_frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/>_last_frame_requested<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">InputQueue::GetConfirmedInput(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>requested_frame,<sp/><ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>*input)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_first_incorrect_frame<sp/>==<sp/>GameInput::NullFrame<sp/>||<sp/>requested_frame<sp/>&lt;<sp/>_first_incorrect_frame);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>requested_frame<sp/>%<sp/>INPUT_QUEUE_LENGTH;<sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_inputs[offset].frame<sp/>!=<sp/>requested_frame)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/>*input<sp/>=<sp/>_inputs[offset];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">InputQueue::GetInput(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>requested_frame,<sp/><ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>*input)</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;requesting<sp/>input<sp/>frame<sp/>%d.\n&quot;</highlight><highlight class="normal">,<sp/>requested_frame);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>No<sp/>one<sp/>should<sp/>ever<sp/>try<sp/>to<sp/>grab<sp/>any<sp/>input<sp/>when<sp/>we<sp/>have<sp/>a<sp/>prediction</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>error.<sp/><sp/>Doing<sp/>so<sp/>means<sp/>that<sp/>we&apos;re<sp/>just<sp/>going<sp/>further<sp/>down<sp/>the<sp/>wrong</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>path.<sp/><sp/>ASSERT<sp/>this<sp/>to<sp/>verify<sp/>that<sp/>it&apos;s<sp/>true.</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_first_incorrect_frame<sp/>==<sp/>GameInput::NullFrame);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Remember<sp/>the<sp/>last<sp/>requested<sp/>frame<sp/>number<sp/>for<sp/>later.<sp/><sp/>We&apos;ll<sp/>need</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>this<sp/>in<sp/>AddInput()<sp/>to<sp/>drop<sp/>out<sp/>of<sp/>prediction<sp/>mode.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/>_last_frame_requested<sp/>=<sp/>requested_frame;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/>ASSERT(requested_frame<sp/>&gt;=<sp/>_inputs[_tail].frame);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_prediction.frame<sp/>==<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>If<sp/>the<sp/>frame<sp/>requested<sp/>is<sp/>in<sp/>our<sp/>range,<sp/>fetch<sp/>it<sp/>out<sp/>of<sp/>the<sp/>queue<sp/>and</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>return<sp/>it.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>offset<sp/>=<sp/>requested_frame<sp/>-<sp/>_inputs[_tail].frame;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(offset<sp/>&lt;<sp/>_length)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset<sp/>=<sp/>(offset<sp/>+<sp/>_tail)<sp/>%<sp/>INPUT_QUEUE_LENGTH;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT(_inputs[offset].frame<sp/>==<sp/>requested_frame);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*input<sp/>=<sp/>_inputs[offset];</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;returning<sp/>confirmed<sp/>frame<sp/>number<sp/>%d.\n&quot;</highlight><highlight class="normal">,<sp/>input-&gt;frame);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>The<sp/>requested<sp/>frame<sp/>isn&apos;t<sp/>in<sp/>the<sp/>queue.<sp/><sp/>Bummer.<sp/><sp/>This<sp/>means<sp/>we<sp/>need</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>to<sp/>return<sp/>a<sp/>prediction<sp/>frame.<sp/><sp/>Predict<sp/>that<sp/>the<sp/>user<sp/>will<sp/>do<sp/>the</highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>same<sp/>thing<sp/>they<sp/>did<sp/>last<sp/>time.</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(requested_frame<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;basing<sp/>new<sp/>prediction<sp/>frame<sp/>from<sp/>nothing,<sp/>you&apos;re<sp/>client<sp/>wants<sp/>frame<sp/>0.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_prediction.erase();</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_last_added_frame<sp/>==<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;basing<sp/>new<sp/>prediction<sp/>frame<sp/>from<sp/>nothing,<sp/>since<sp/>we<sp/>have<sp/>no<sp/>frames<sp/>yet.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_prediction.erase();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;basing<sp/>new<sp/>prediction<sp/>frame<sp/>from<sp/>previously<sp/>added<sp/>frame<sp/>(queue<sp/>entry:%d,<sp/>frame:%d).\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PREVIOUS_FRAME(_head),<sp/>_inputs[PREVIOUS_FRAME(_head)].frame);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_prediction<sp/>=<sp/>_inputs[PREVIOUS_FRAME(_head)];</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_prediction.frame++;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_prediction.frame<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>If<sp/>we&apos;ve<sp/>made<sp/>it<sp/>this<sp/>far,<sp/>we<sp/>must<sp/>be<sp/>predicting.<sp/><sp/>Go<sp/>ahead<sp/>and</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>forward<sp/>the<sp/>prediction<sp/>frame<sp/>contents.<sp/><sp/>Be<sp/>sure<sp/>to<sp/>return<sp/>the</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>frame<sp/>number<sp/>requested<sp/>by<sp/>the<sp/>client,<sp/>though.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/>*input<sp/>=<sp/>_prediction;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/>input-&gt;frame<sp/>=<sp/>requested_frame;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;returning<sp/>prediction<sp/>frame<sp/>number<sp/>%d<sp/>(%d).\n&quot;</highlight><highlight class="normal">,<sp/>input-&gt;frame,<sp/>_prediction.frame);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">InputQueue::AddInput(<ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>&amp;input)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>new_frame;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;adding<sp/>input<sp/>frame<sp/>number<sp/>%d<sp/>to<sp/>queue.\n&quot;</highlight><highlight class="normal">,<sp/>input.frame);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>These<sp/>next<sp/>two<sp/>lines<sp/>simply<sp/>verify<sp/>that<sp/>inputs<sp/>are<sp/>passed<sp/>in<sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>sequentially<sp/>by<sp/>the<sp/>user,<sp/>regardless<sp/>of<sp/>frame<sp/>delay.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_last_user_added_frame<sp/>==<sp/>GameInput::NullFrame<sp/>||</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input.frame<sp/>==<sp/>_last_user_added_frame<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/>_last_user_added_frame<sp/>=<sp/>input.frame;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Move<sp/>the<sp/>queue<sp/>head<sp/>to<sp/>the<sp/>correct<sp/>point<sp/>in<sp/>preparation<sp/>to</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>input<sp/>the<sp/>frame<sp/>into<sp/>the<sp/>queue.</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/>new_frame<sp/>=<sp/>AdvanceQueueHead(input.frame);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new_frame<sp/>!=<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>AddDelayedInputToQueue(input,<sp/>new_frame);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Update<sp/>the<sp/>frame<sp/>number<sp/>for<sp/>the<sp/>input.<sp/><sp/>This<sp/>will<sp/>also<sp/>set<sp/>the</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>frame<sp/>to<sp/>GameInput::NullFrame<sp/>for<sp/>frames<sp/>that<sp/>get<sp/>dropped<sp/>(by</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>design).</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/>input.frame<sp/>=<sp/>new_frame;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">InputQueue::AddDelayedInputToQueue(<ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>&amp;input,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame_number)</highlight></codeline>
+<codeline lineno="218"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;adding<sp/>delayed<sp/>input<sp/>frame<sp/>number<sp/>%d<sp/>to<sp/>queue.\n&quot;</highlight><highlight class="normal">,<sp/>frame_number);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/>ASSERT(input.size<sp/>==<sp/>_prediction.size);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_last_added_frame<sp/>==<sp/>GameInput::NullFrame<sp/>||<sp/>frame_number<sp/>==<sp/>_last_added_frame<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/>ASSERT(frame_number<sp/>==<sp/>0<sp/>||<sp/>_inputs[PREVIOUS_FRAME(_head)].frame<sp/>==<sp/>frame_number<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Add<sp/>the<sp/>frame<sp/>to<sp/>the<sp/>back<sp/>of<sp/>the<sp/>queue</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/>_inputs[_head]<sp/>=<sp/>input;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/>_inputs[_head].frame<sp/>=<sp/>frame_number;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/>_head<sp/>=<sp/>(_head<sp/>+<sp/>1)<sp/>%<sp/>INPUT_QUEUE_LENGTH;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/>_length++;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/>_first_frame<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/>_last_added_frame<sp/>=<sp/>frame_number;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_prediction.frame<sp/>!=<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT(frame_number<sp/>==<sp/>_prediction.frame);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>We&apos;ve<sp/>been<sp/>predicting...<sp/><sp/>See<sp/>if<sp/>the<sp/>inputs<sp/>we&apos;ve<sp/>gotten<sp/>match</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>what<sp/>we&apos;ve<sp/>been<sp/>predicting.<sp/><sp/>If<sp/>so,<sp/>don&apos;t<sp/>worry<sp/>about<sp/>it.<sp/><sp/>If<sp/>not,</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>remember<sp/>the<sp/>first<sp/>input<sp/>which<sp/>was<sp/>incorrect<sp/>so<sp/>we<sp/>can<sp/>report<sp/>it</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>in<sp/>GetFirstIncorrectFrame()</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_first_incorrect_frame<sp/>==<sp/>GameInput::NullFrame<sp/>&amp;&amp;<sp/>!_prediction.equal(input,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;frame<sp/>%d<sp/>does<sp/>not<sp/>match<sp/>prediction.<sp/><sp/>marking<sp/>error.\n&quot;</highlight><highlight class="normal">,<sp/>frame_number);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_first_incorrect_frame<sp/>=<sp/>frame_number;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>If<sp/>this<sp/>input<sp/>is<sp/>the<sp/>same<sp/>frame<sp/>as<sp/>the<sp/>last<sp/>one<sp/>requested<sp/>and<sp/>we</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>still<sp/>haven&apos;t<sp/>found<sp/>any<sp/>mis-predicted<sp/>inputs,<sp/>we<sp/>can<sp/>dump<sp/>out</highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>of<sp/>predition<sp/>mode<sp/>entirely!<sp/><sp/>Otherwise,<sp/>advance<sp/>the<sp/>prediction<sp/>frame</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>count<sp/>up.</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_prediction.frame<sp/>==<sp/>_last_frame_requested<sp/>&amp;&amp;<sp/>_first_incorrect_frame<sp/>==<sp/>GameInput::NullFrame)<sp/>{</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;prediction<sp/>is<sp/>correct!<sp/><sp/>dumping<sp/>out<sp/>of<sp/>prediction<sp/>mode.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_prediction.frame<sp/>=<sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_prediction.frame++;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/>ASSERT(_length<sp/>&lt;=<sp/>INPUT_QUEUE_LENGTH);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal">InputQueue::AdvanceQueueHead(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>frame)</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;advancing<sp/>queue<sp/>head<sp/>to<sp/>frame<sp/>%d.\n&quot;</highlight><highlight class="normal">,<sp/>frame);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>expected_frame<sp/>=<sp/>_first_frame<sp/>?<sp/>0<sp/>:<sp/>_inputs[PREVIOUS_FRAME(_head)].frame<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/>frame<sp/>+=<sp/>_frame_delay;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(expected_frame<sp/>&gt;<sp/>frame)<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>This<sp/>can<sp/>occur<sp/>when<sp/>the<sp/>frame<sp/>delay<sp/>has<sp/>dropped<sp/>since<sp/>the<sp/>last</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>time<sp/>we<sp/>shoved<sp/>a<sp/>frame<sp/>into<sp/>the<sp/>system.<sp/><sp/>In<sp/>this<sp/>case,<sp/>there&apos;s</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>no<sp/>room<sp/>on<sp/>the<sp/>queue.<sp/><sp/>Toss<sp/>it.</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;Dropping<sp/>input<sp/>frame<sp/>%d<sp/>(expected<sp/>next<sp/>frame<sp/>to<sp/>be<sp/>%d).\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frame,<sp/>expected_frame);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>GameInput::NullFrame;</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(expected_frame<sp/>&lt;<sp/>frame)<sp/>{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="290"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>This<sp/>can<sp/>occur<sp/>when<sp/>the<sp/>frame<sp/>delay<sp/>has<sp/>been<sp/>increased<sp/>since<sp/>the<sp/>last</highlight></codeline>
+<codeline lineno="291"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>time<sp/>we<sp/>shoved<sp/>a<sp/>frame<sp/>into<sp/>the<sp/>system.<sp/><sp/>We<sp/>need<sp/>to<sp/>replicate<sp/>the</highlight></codeline>
+<codeline lineno="292"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>last<sp/>frame<sp/>in<sp/>the<sp/>queue<sp/>several<sp/>times<sp/>in<sp/>order<sp/>to<sp/>fill<sp/>the<sp/>space</highlight></codeline>
+<codeline lineno="293"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>left.</highlight></codeline>
+<codeline lineno="294"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;Adding<sp/>padding<sp/>frame<sp/>%d<sp/>to<sp/>account<sp/>for<sp/>change<sp/>in<sp/>frame<sp/>delay.\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>expected_frame);</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>&amp;last_frame<sp/>=<sp/>_inputs[PREVIOUS_FRAME(_head)];<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>AddDelayedInputToQueue(last_frame,<sp/>expected_frame);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>expected_frame++;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/>ASSERT(frame<sp/>==<sp/>0<sp/>||<sp/>frame<sp/>==<sp/>_inputs[PREVIOUS_FRAME(_head)].frame<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frame;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal">InputQueue::Log(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*fmt,<sp/>...)</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[1024];</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>offset;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/>va_list<sp/>args;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/>offset<sp/>=<sp/>sprintf(buf,<sp/></highlight><highlight class="stringliteral">&quot;input<sp/>q%d<sp/>|<sp/>&quot;</highlight><highlight class="normal">,<sp/>_id);</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/>va_start(args,<sp/>fmt);</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/>vsnprintf(buf<sp/>+<sp/>offset,<sp/>ARRAY_SIZE(buf)<sp/>-<sp/>offset<sp/>-<sp/>1,<sp/>fmt,<sp/>args);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/>buf[ARRAY_SIZE(buf)-1]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/>::Log(buf);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/>va_end(args);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp"/>
+  </compounddef>
+</doxygen>

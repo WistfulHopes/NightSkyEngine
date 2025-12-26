@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_collision_data_editor_toolkit_8h" kind="file" language="C++">
+    <compoundname>CollisionDataEditorToolkit.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">Toolkits/AssetEditorToolkit.h</includes>
+    <includes local="yes">Toolkits/IToolkitHost.h</includes>
+    <includes local="yes">Widgets/Docking/SDockTab.h</includes>
+    <includes local="yes">Widgets/Layout/SBorder.h</includes>
+    <includes local="yes">Widgets/Text/STextBlock.h</includes>
+    <includes local="yes">PropertyCustomizationHelpers.h</includes>
+    <includes local="yes">Data/CollisionData.h</includes>
+    <includedby refid="_asset_type_actions___collision_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp</includedby>
+    <includedby refid="_collision_data_editor_toolkit_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataEditorToolkit.cpp</includedby>
+    <includedby refid="_collision_animation_preview_scene_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp</includedby>
+    <includedby refid="_collision_animation_viewport_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationViewport.cpp</includedby>
+    <includedby refid="_collision_animation_viewport_8h" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewport.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h</label>
+        <link refid="_collision_data_editor_toolkit_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="9">
+        <label>Data/CollisionData.h</label>
+      </node>
+      <node id="8">
+        <label>PropertyCustomizationHelpers.h</label>
+      </node>
+      <node id="3">
+        <label>Toolkits/AssetEditorToolkit.h</label>
+      </node>
+      <node id="4">
+        <label>Toolkits/IToolkitHost.h</label>
+      </node>
+      <node id="5">
+        <label>Widgets/Docking/SDockTab.h</label>
+      </node>
+      <node id="6">
+        <label>Widgets/Layout/SBorder.h</label>
+      </node>
+      <node id="7">
+        <label>Widgets/Text/STextBlock.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h</label>
+        <link refid="_collision_data_editor_toolkit_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewport.h</label>
+        <link refid="_collision_animation_viewport_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_f_collision_data_editor_toolkit" prot="public">FCollisionDataEditorToolkit</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ESceneInteractionMode</name>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6a79beda8ebf691d39462ed1e9de5617e6" prot="public">
+          <name>Interaction_CameraMove</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6a9c93a5b26fbeba19e30008b205b906b5" prot="public">
+          <name>Interaction_EditCollisionBoxes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The different modes of interaction in the Scene. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h" line="22" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="enum" id="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94" prot="public" static="no" strong="no">
+        <type></type>
+        <name>EBoxEditMode</name>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a46d0f3ea8a5f0e9a4e80e7d23c9d119a" prot="public">
+          <name>EditMode_None</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a6a23ad9c8a3aff9c068e47d4ce996d26" prot="public">
+          <name>EditMode_Add</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94ae9492e585c7226d86bd144e724abfb96" prot="public">
+          <name>EditMode_Move</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a830bac0360a94ff68d79811113ff2f59" prot="public">
+          <name>EditMode_Delete</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The different modes of editing collision boxes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h" line="31" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h" bodystart="32" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Toolkits/AssetEditorToolkit.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Toolkits/IToolkitHost.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Widgets/Docking/SDockTab.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Widgets/Layout/SBorder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Widgets/Text/STextBlock.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;PropertyCustomizationHelpers.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Data/CollisionData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">APlayerObject;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_collision_animation_preview_scene" kindref="compound">FCollisionAnimationPreviewScene</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_s_collision_animation_viewport" kindref="compound">SCollisionAnimationViewport</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_s_cel_asset_tree" kindref="compound">SCelAssetTree</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//These<sp/>aren&apos;t<sp/>used<sp/>yet</highlight></codeline>
+<codeline lineno="22"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>ESceneInteractionMode</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>Interaction_CameraMove,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>Interaction_EditCollisionBoxes</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>EBoxEditMode</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>EditMode_None,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>EditMode_Add,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>EditMode_Move,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>EditMode_Delete</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="class_f_collision_data_editor_toolkit" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_collision_data_editor_toolkit" kindref="compound">FCollisionDataEditorToolkit</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>FAssetEditorToolkit</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_collision_data_editor_toolkit" kindref="compound">FCollisionDataEditorToolkit</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_f_collision_data_editor_toolkit" kindref="compound">~FCollisionDataEditorToolkit</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Move<sp/>some<sp/>of<sp/>these<sp/>to<sp/>private</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializes<sp/>the<sp/>editor<sp/>with<sp/>the<sp/>asset<sp/>to<sp/>be<sp/>edited</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Initialize(UCollisionData*<sp/>InCollisionData,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>EToolkitMode::Type<sp/>Mode,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TSharedPtr&lt;IToolkitHost&gt;&amp;<sp/>InitToolkitHost);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FAssetEditorToolkit<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FName<sp/>GetToolkitFName()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Unique<sp/>name<sp/>for<sp/>this<sp/>toolkit<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FText<sp/>GetBaseToolkitName()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Display<sp/>name<sp/>for<sp/>the<sp/>toolkit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FText<sp/>GetToolkitName()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FString<sp/>GetWorldCentricTabPrefix()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Prefix<sp/>for<sp/>tabs<sp/>in<sp/>world-centric<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>FLinearColor<sp/>GetWorldCentricTabColorScale()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Tab<sp/>management</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RegisterTabSpawners(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TSharedRef&lt;FTabManager&gt;&amp;<sp/>InTabManager)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UnregisterTabSpawners(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TSharedRef&lt;FTabManager&gt;&amp;<sp/>InTabManager)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedRef&lt;SDockTab&gt;<sp/>SpawnTab_CollisionDataDetails(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FSpawnTabArgs&amp;<sp/>Args);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedRef&lt;SDockTab&gt;<sp/>SpawnTab_PlayerObjectSelector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FSpawnTabArgs&amp;<sp/>Args);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedRef&lt;SDockTab&gt;<sp/>SpawnTab_ViewportTab(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FSpawnTabArgs&amp;<sp/>Args);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Do<sp/>I<sp/>need<sp/>to<sp/>initialize<sp/>a<sp/>scene?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitializePreviewScene();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Accessors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>current<sp/>animation<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>FText<sp/>GetSelectedState()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;IDetailsView&gt;<sp/>DetailsView;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;SClassPropertyEntryBox&gt;<sp/>PlayerObjectBPPicker;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;FCollisionAnimationPreviewScene&gt;<sp/>PreviewScene;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;SCollisionAnimationViewport&gt;<sp/>PreviewViewportWidget;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>UCollisionData*<sp/>CollisionData{};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;SCelAssetTree&gt;<sp/>CelAssetTree;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>FGameplayTag<sp/>SelectedCel;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>UClass*<sp/>PlayerObjectClass<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>APlayerObject*<sp/>PlayerObject{};</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitializeCelAssetTree();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCelSelected(int32<sp/>CelIndex);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCollisionFramesChanged();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnPlayerObjectBPSelected(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UClass*<sp/>Class);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitializePlayerObjectBPPicker();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>FGameplayTag<sp/>GetCurrentCelName()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UpdateAnimationPlayback(int32<sp/>frame);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnClose()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataEditorToolkit.h"/>
+  </compounddef>
+</doxygen>

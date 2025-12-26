@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_audio_manager" kind="class" language="C++" prot="public">
+    <compoundname>AAudioManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AActor</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_audio_manager_1a91f3c6af9912654f0240572344dc7ba8" prot="public" static="no" mutable="no">
+        <type>UAudioComponent *</type>
+        <definition>UAudioComponent* AAudioManager::CommonAudioPlayers[CommonAudioChannelCount]</definition>
+        <argsstring>[CommonAudioChannelCount]</argsstring>
+        <name>CommonAudioPlayers</name>
+        <qualifiedname>AAudioManager::CommonAudioPlayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="23" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_audio_manager_1afe41c01cdf14d3a5297a7826e67ffb53" prot="public" static="no" mutable="no">
+        <type>UAudioComponent *</type>
+        <definition>UAudioComponent* AAudioManager::CharaAudioPlayers[CharaAudioChannelCount]</definition>
+        <argsstring>[CharaAudioChannelCount]</argsstring>
+        <name>CharaAudioPlayers</name>
+        <qualifiedname>AAudioManager::CharaAudioPlayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="25" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_audio_manager_1a843dd477b2a69b4ffbe81e2d0a5c1897" prot="public" static="no" mutable="no">
+        <type>UAudioComponent *</type>
+        <definition>UAudioComponent* AAudioManager::CharaVoicePlayers[CharaVoiceChannelCount]</definition>
+        <argsstring>[CharaVoiceChannelCount]</argsstring>
+        <name>CharaVoicePlayers</name>
+        <qualifiedname>AAudioManager::CharaVoicePlayers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="27" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_audio_manager_1a6e5b8f9fcb4630ba7c2b7a9e4ca4d575" prot="public" static="no" mutable="no">
+        <type>UAudioComponent *</type>
+        <definition>UAudioComponent* AAudioManager::AnnouncerVoicePlayer</definition>
+        <argsstring></argsstring>
+        <name>AnnouncerVoicePlayer</name>
+        <qualifiedname>AAudioManager::AnnouncerVoicePlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="29" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_audio_manager_1ab80a9d2a77a07b50722c648ab546fb69" prot="public" static="no" mutable="no">
+        <type>UAudioComponent *</type>
+        <definition>UAudioComponent* AAudioManager::MusicPlayer</definition>
+        <argsstring></argsstring>
+        <name>MusicPlayer</name>
+        <qualifiedname>AAudioManager::MusicPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="31" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_audio_manager_1a53641601fcede0a63edd4de24951c2e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AAudioManager::AAudioManager</definition>
+        <argsstring>()</argsstring>
+        <name>AAudioManager</name>
+        <qualifiedname>AAudioManager::AAudioManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="20" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.cpp" bodystart="11" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_audio_manager_1a017e5613fdb6131a67378570e4c72bf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AAudioManager::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>AAudioManager::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="39" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_audio_manager_1a1c469f4194541c5ed5b1b20c9f9ebb82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AAudioManager::PauseAllAudio</definition>
+        <argsstring>()</argsstring>
+        <name>PauseAllAudio</name>
+        <qualifiedname>AAudioManager::PauseAllAudio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="40" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.cpp" bodystart="59" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_audio_manager_1a39c1a37094d2f54ff2d5335931916db8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AAudioManager::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>AAudioManager::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="35" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.cpp" bodystart="47" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/AudioManager.h" bodystart="15" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_a_audio_manager_1a53641601fcede0a63edd4de24951c2e7" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>AAudioManager</name></member>
+      <member refid="class_a_audio_manager_1a6e5b8f9fcb4630ba7c2b7a9e4ca4d575" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>AnnouncerVoicePlayer</name></member>
+      <member refid="class_a_audio_manager_1a39c1a37094d2f54ff2d5335931916db8" prot="protected" virt="virtual"><scope>AAudioManager</scope><name>BeginPlay</name></member>
+      <member refid="class_a_audio_manager_1afe41c01cdf14d3a5297a7826e67ffb53" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>CharaAudioPlayers</name></member>
+      <member refid="class_a_audio_manager_1a843dd477b2a69b4ffbe81e2d0a5c1897" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>CharaVoicePlayers</name></member>
+      <member refid="class_a_audio_manager_1a91f3c6af9912654f0240572344dc7ba8" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>CommonAudioPlayers</name></member>
+      <member refid="class_a_audio_manager_1ab80a9d2a77a07b50722c648ab546fb69" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>MusicPlayer</name></member>
+      <member refid="class_a_audio_manager_1a1c469f4194541c5ed5b1b20c9f9ebb82" prot="public" virt="non-virtual"><scope>AAudioManager</scope><name>PauseAllAudio</name></member>
+      <member refid="class_a_audio_manager_1a017e5613fdb6131a67378570e4c72bf0" prot="public" virt="virtual"><scope>AAudioManager</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

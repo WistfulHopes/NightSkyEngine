@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_ring_buffer" kind="class" language="C++" prot="public">
+    <compoundname>RingBuffer</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>int</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_ring_buffer_1a1aebddfc26caf86596879238d66638f4" prot="protected" static="no" mutable="no">
+        <type>T</type>
+        <definition>T RingBuffer&lt; T, N &gt;::_elements[N]</definition>
+        <argsstring>[N]</argsstring>
+        <name>_elements</name>
+        <qualifiedname>RingBuffer::_elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="54" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ring_buffer_1a23f32fb3f92b26b48c5f046b07cd2eba" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RingBuffer&lt; T, N &gt;::_head</definition>
+        <argsstring></argsstring>
+        <name>_head</name>
+        <qualifiedname>RingBuffer::_head</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="55" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ring_buffer_1ace705ccea22e9e9138a45d34d0542e8b" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RingBuffer&lt; T, N &gt;::_tail</definition>
+        <argsstring></argsstring>
+        <name>_tail</name>
+        <qualifiedname>RingBuffer::_tail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="56" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ring_buffer_1a22b178963f9fbfac900a817ed2d3dc1c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RingBuffer&lt; T, N &gt;::_size</definition>
+        <argsstring></argsstring>
+        <name>_size</name>
+        <qualifiedname>RingBuffer::_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="57" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ring_buffer_1a3a714890d98de4f9fd0f26295dd483ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RingBuffer&lt; T, N &gt;::RingBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>RingBuffer</name>
+        <qualifiedname>RingBuffer::RingBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="1" column="0" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1a580989755a99114b07a93841c5385597" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; RingBuffer&lt; T, N &gt;::front</definition>
+        <argsstring>()</argsstring>
+        <name>front</name>
+        <qualifiedname>RingBuffer::front</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="22" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1a1c596b94a0053c650121b89833bd4acd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; RingBuffer&lt; T, N &gt;::item</definition>
+        <argsstring>(int i)</argsstring>
+        <name>item</name>
+        <qualifiedname>RingBuffer::item</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="27" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1a02bea387f5c1981b615fe7f694f63279" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RingBuffer&lt; T, N &gt;::pop</definition>
+        <argsstring>()</argsstring>
+        <name>pop</name>
+        <qualifiedname>RingBuffer::pop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="32" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1a4cd8e6a74611e88a34c494e761f7c32c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RingBuffer&lt; T, N &gt;::push</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>push</name>
+        <qualifiedname>RingBuffer::push</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="38" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1a3cf5bb1fdc9df1819dfba3e91b017f57" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int RingBuffer&lt; T, N &gt;::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>RingBuffer::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="45" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ring_buffer_1aeb444add9bfefe5ca744bb06c282a9bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RingBuffer&lt; T, N &gt;::empty</definition>
+        <argsstring>()</argsstring>
+        <name>empty</name>
+        <qualifiedname>RingBuffer::empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="49" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="49" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" line="13" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/ring_buffer.h" bodystart="14" bodyend="58"/>
+    <listofallmembers>
+      <member refid="class_ring_buffer_1a1aebddfc26caf86596879238d66638f4" prot="protected" virt="non-virtual"><scope>RingBuffer</scope><name>_elements</name></member>
+      <member refid="class_ring_buffer_1a23f32fb3f92b26b48c5f046b07cd2eba" prot="protected" virt="non-virtual"><scope>RingBuffer</scope><name>_head</name></member>
+      <member refid="class_ring_buffer_1a22b178963f9fbfac900a817ed2d3dc1c" prot="protected" virt="non-virtual"><scope>RingBuffer</scope><name>_size</name></member>
+      <member refid="class_ring_buffer_1ace705ccea22e9e9138a45d34d0542e8b" prot="protected" virt="non-virtual"><scope>RingBuffer</scope><name>_tail</name></member>
+      <member refid="class_ring_buffer_1aeb444add9bfefe5ca744bb06c282a9bd" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>empty</name></member>
+      <member refid="class_ring_buffer_1a580989755a99114b07a93841c5385597" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>front</name></member>
+      <member refid="class_ring_buffer_1a1c596b94a0053c650121b89833bd4acd" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>item</name></member>
+      <member refid="class_ring_buffer_1a02bea387f5c1981b615fe7f694f63279" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>pop</name></member>
+      <member refid="class_ring_buffer_1a4cd8e6a74611e88a34c494e761f7c32c" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>push</name></member>
+      <member refid="class_ring_buffer_1a3a714890d98de4f9fd0f26295dd483ca" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>RingBuffer</name></member>
+      <member refid="class_ring_buffer_1a3cf5bb1fdc9df1819dfba3e91b017f57" prot="public" virt="non-virtual"><scope>RingBuffer</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

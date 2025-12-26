@@ -1,0 +1,760 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_network_pawn" kind="class" language="C++" prot="public">
+    <compoundname>ANetworkPawn</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">APawn</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_network_pawn_1a2dfe91c1c138723a052f7937e79f090b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANetworkPawn::CharaDataReceived</definition>
+        <argsstring></argsstring>
+        <name>CharaDataReceived</name>
+        <qualifiedname>ANetworkPawn::CharaDataReceived</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="40" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_network_pawn_1a116a72f5ad5db5d1ea1e1f8bbbc3ea6c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANetworkPawn::bRematchAccepted</definition>
+        <argsstring></argsstring>
+        <name>bRematchAccepted</name>
+        <qualifiedname>ANetworkPawn::bRematchAccepted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="42" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_network_pawn_1a3307479d17f29f847104c81db8deb139" prot="public" static="no" mutable="no">
+        <type>class <ref refid="class_a_fighter_multiplayer_runner" kindref="compound">AFighterMultiplayerRunner</ref> *</type>
+        <definition>class AFighterMultiplayerRunner* ANetworkPawn::FighterMultiplayerRunner</definition>
+        <argsstring></argsstring>
+        <name>FighterMultiplayerRunner</name>
+        <qualifiedname>ANetworkPawn::FighterMultiplayerRunner</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="59" column="33" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_network_pawn_1ab0a89cda93c9644133151ff6f51584a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANetworkPawn::ANetworkPawn</definition>
+        <argsstring>()</argsstring>
+        <name>ANetworkPawn</name>
+        <qualifiedname>ANetworkPawn::ANetworkPawn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="30" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.cpp" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a13bc8c7675b9581b2c6236f86b67ae1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::GetLifetimeReplicatedProps</definition>
+        <argsstring>(TArray&lt; FLifetimeProperty &gt; &amp;OutLifetimeProps) const override</argsstring>
+        <name>GetLifetimeReplicatedProps</name>
+        <qualifiedname>ANetworkPawn::GetLifetimeReplicatedProps</qualifiedname>
+        <param>
+          <type>TArray&lt; FLifetimeProperty &gt; &amp;</type>
+          <declname>OutLifetimeProps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="37" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.cpp" bodystart="31" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a331a7cb8814dce0d650028ce3bc9acf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ServerChecksumCheck</definition>
+        <argsstring>(uint32 Checksum, int32 InFrame)</argsstring>
+        <name>ServerChecksumCheck</name>
+        <qualifiedname>ANetworkPawn::ServerChecksumCheck</qualifiedname>
+        <param>
+          <type>uint32</type>
+          <declname>Checksum</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>InFrame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1aaa98a903ec2722178c84853761960f0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ClientChecksumCheck</definition>
+        <argsstring>(uint32 Checksum, int32 InFrame)</argsstring>
+        <name>ClientChecksumCheck</name>
+        <qualifiedname>ANetworkPawn::ClientChecksumCheck</qualifiedname>
+        <param>
+          <type>uint32</type>
+          <declname>Checksum</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>InFrame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a103a90764a6e55e332fad94dab077932" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ServerGetBattleData</definition>
+        <argsstring>(FBattleData InBattleData, FNetworkMirror Mirror)</argsstring>
+        <name>ServerGetBattleData</name>
+        <qualifiedname>ANetworkPawn::ServerGetBattleData</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref></type>
+          <declname>InBattleData</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_network_mirror" kindref="compound">FNetworkMirror</ref></type>
+          <declname>Mirror</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="49" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a68b4dde5668c588558a6cb19e646192b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ClientGetBattleData</definition>
+        <argsstring>(FBattleData InBattleData, FNetworkMirror Mirror)</argsstring>
+        <name>ClientGetBattleData</name>
+        <qualifiedname>ANetworkPawn::ClientGetBattleData</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref></type>
+          <declname>InBattleData</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_network_mirror" kindref="compound">FNetworkMirror</ref></type>
+          <declname>Mirror</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a493a6e82c6b99c513efc0e59e439046a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ServerGetFinishedLoading</definition>
+        <argsstring>(bool Finished)</argsstring>
+        <name>ServerGetFinishedLoading</name>
+        <qualifiedname>ANetworkPawn::ServerGetFinishedLoading</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>Finished</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a48bde0cb0585c5b6bfd831c166b07902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ServerGetCharaData</definition>
+        <argsstring>(TArray&lt; FPrimaryAssetId &gt; Assets)</argsstring>
+        <name>ServerGetCharaData</name>
+        <qualifiedname>ANetworkPawn::ServerGetCharaData</qualifiedname>
+        <param>
+          <type>TArray&lt; FPrimaryAssetId &gt;</type>
+          <declname>Assets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="55" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.cpp" bodystart="39" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a57847a71374e305d439117821062b337" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::ClientGetCharaData</definition>
+        <argsstring>(TArray&lt; FPrimaryAssetId &gt; Assets)</argsstring>
+        <name>ClientGetCharaData</name>
+        <qualifiedname>ANetworkPawn::ClientGetCharaData</qualifiedname>
+        <param>
+          <type>TArray&lt; FPrimaryAssetId &gt;</type>
+          <declname>Assets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="56" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.cpp" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1ac8d93b92e649499cf5ba8afe32acccc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::SendGgpoToServer</definition>
+        <argsstring>(const TArray&lt; int8 &gt; &amp;GgpoMessage)</argsstring>
+        <name>SendGgpoToServer</name>
+        <qualifiedname>ANetworkPawn::SendGgpoToServer</qualifiedname>
+        <param>
+          <type>const TArray&lt; int8 &gt; &amp;</type>
+          <declname>GgpoMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="62" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a70898f211c91cef5e972d5ef25641989" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::SendGgpoToClient</definition>
+        <argsstring>(const TArray&lt; int8 &gt; &amp;GgpoMessage)</argsstring>
+        <name>SendGgpoToClient</name>
+        <qualifiedname>ANetworkPawn::SendGgpoToClient</qualifiedname>
+        <param>
+          <type>const TArray&lt; int8 &gt; &amp;</type>
+          <declname>GgpoMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="64" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_network_pawn_1a21c90221d1634341a33079ab8a808d53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::SendRematchToServer</definition>
+        <argsstring>()</argsstring>
+        <name>SendRematchToServer</name>
+        <qualifiedname>ANetworkPawn::SendRematchToServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="67" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_network_pawn_1a537b57d0cb379d264f35b4b1e9d71327" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANetworkPawn::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANetworkPawn::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="34" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ANetworkPawn</label>
+        <link refid="class_a_network_pawn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>APawn</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>AActor</label>
+      </node>
+      <node id="48">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>GameState</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>AFighterMultiplayerRunner</label>
+        <link refid="class_a_fighter_multiplayer_runner"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>connectionManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="1">
+        <label>ANetworkPawn</label>
+        <link refid="class_a_network_pawn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>FighterMultiplayerRunner</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>BattleState</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>BattleExtensionData</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>GameInstance</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>ParticleManager</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>AudioManager</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>SequenceEnemy</edgelabel>
+          <edgelabel>SequenceTarget</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>FighterRunner</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>BattleHudActor</edgelabel>
+        </childnode>
+      </node>
+      <node id="47">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>APawn</label>
+      </node>
+      <node id="21">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="53">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="39">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="44">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="45" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="16">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="13">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="15">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="14">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="19">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="23">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="22">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="10">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="9">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="28">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="24">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="40">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="17">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="52">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>UDataAsset</label>
+      </node>
+      <node id="43">
+        <label>UGameInstance</label>
+      </node>
+      <node id="34">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="43" relation="public-inheritance">
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>UObject</label>
+      </node>
+      <node id="35">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="45">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="46" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="32">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="24" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="25" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_a_network_pawn_1ab0a89cda93c9644133151ff6f51584a6" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ANetworkPawn</name></member>
+      <member refid="class_a_network_pawn_1a537b57d0cb379d264f35b4b1e9d71327" prot="protected" virt="virtual"><scope>ANetworkPawn</scope><name>BeginPlay</name></member>
+      <member refid="class_a_network_pawn_1a116a72f5ad5db5d1ea1e1f8bbbc3ea6c" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>bRematchAccepted</name></member>
+      <member refid="class_a_network_pawn_1a2dfe91c1c138723a052f7937e79f090b" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>CharaDataReceived</name></member>
+      <member refid="class_a_network_pawn_1aaa98a903ec2722178c84853761960f0d" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ClientChecksumCheck</name></member>
+      <member refid="class_a_network_pawn_1a68b4dde5668c588558a6cb19e646192b" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ClientGetBattleData</name></member>
+      <member refid="class_a_network_pawn_1a57847a71374e305d439117821062b337" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ClientGetCharaData</name></member>
+      <member refid="class_a_network_pawn_1a3307479d17f29f847104c81db8deb139" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>FighterMultiplayerRunner</name></member>
+      <member refid="class_a_network_pawn_1a13bc8c7675b9581b2c6236f86b67ae1c" prot="public" virt="virtual"><scope>ANetworkPawn</scope><name>GetLifetimeReplicatedProps</name></member>
+      <member refid="class_a_network_pawn_1a70898f211c91cef5e972d5ef25641989" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>SendGgpoToClient</name></member>
+      <member refid="class_a_network_pawn_1ac8d93b92e649499cf5ba8afe32acccc8" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>SendGgpoToServer</name></member>
+      <member refid="class_a_network_pawn_1a21c90221d1634341a33079ab8a808d53" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>SendRematchToServer</name></member>
+      <member refid="class_a_network_pawn_1a331a7cb8814dce0d650028ce3bc9acf7" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ServerChecksumCheck</name></member>
+      <member refid="class_a_network_pawn_1a103a90764a6e55e332fad94dab077932" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ServerGetBattleData</name></member>
+      <member refid="class_a_network_pawn_1a48bde0cb0585c5b6bfd831c166b07902" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ServerGetCharaData</name></member>
+      <member refid="class_a_network_pawn_1a493a6e82c6b99c513efc0e59e439046a" prot="public" virt="non-virtual"><scope>ANetworkPawn</scope><name>ServerGetFinishedLoading</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

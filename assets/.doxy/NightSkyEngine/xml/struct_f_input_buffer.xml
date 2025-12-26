@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_input_buffer" kind="struct" language="C++" prot="public">
+    <compoundname>FInputBuffer</compoundname>
+    <includes refid="_input_buffer_8h" local="no">InputBuffer.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_f_input_buffer_1a4e72416642cc09c142b55cd34c6bde42" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_f_input_bitmask" kindref="compound">FInputBitmask</ref></type>
+        <definition>FInputBitmask FInputBuffer::InputSequence[InputSequenceSize]</definition>
+        <argsstring>[InputSequenceSize]</argsstring>
+        <name>InputSequence</name>
+        <qualifiedname>FInputBuffer::InputSequence</qualifiedname>
+        <initializer>= {  }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The input sequence. Updated by the input being checked. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="26" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_buffer_1a1056d71f90e720feb70f4866b0229c71" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FInputBuffer::ImpreciseInputCount</definition>
+        <argsstring></argsstring>
+        <name>ImpreciseInputCount</name>
+        <qualifiedname>FInputBuffer::ImpreciseInputCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How much time is allowed between inputs. Updated by the input being checked. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="30" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_buffer_1a85640033b0644f05e57754175c19111d" prot="private" static="no" mutable="no">
+        <type>TArray&lt; TEnumAsByte&lt; EInputFlags &gt; &gt;</type>
+        <definition>TArray&lt;TEnumAsByte&lt;EInputFlags&gt; &gt; FInputBuffer::DisallowedInputs</definition>
+        <argsstring></argsstring>
+        <name>DisallowedInputs</name>
+        <qualifiedname>FInputBuffer::DisallowedInputs</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="34" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_input_buffer_1a6369cced274b3c38dcbcf100a437feda" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FInputBuffer::InputBufferInternal[InputBufferSize]</definition>
+        <argsstring>[InputBufferSize]</argsstring>
+        <name>InputBufferInternal</name>
+        <qualifiedname>FInputBuffer::InputBufferInternal</qualifiedname>
+        <initializer>= { 16 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="42" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_buffer_1a75ffe79b4c4c7450647b34c030e0f0e6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FInputBuffer::InputTime[InputBufferSize]</definition>
+        <argsstring>[InputBufferSize]</argsstring>
+        <name>InputTime</name>
+        <qualifiedname>FInputBuffer::InputTime</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>All input times. Input times are looped over and incremented every actionable frame. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="47" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_input_buffer_1aa4756533add2897b5f0103f773b5325a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FInputBuffer::WriteInputCondition</definition>
+        <argsstring>(const FInputCondition &amp;InputCondition)</argsstring>
+        <name>WriteInputCondition</name>
+        <qualifiedname>FInputBuffer::WriteInputCondition</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_f_input_condition" kindref="compound">FInputCondition</ref> &amp;</type>
+          <declname>InputCondition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes an input condition to the buffer. For use with CPU. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>InputCondition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input condition to write. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="53" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="8" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a79fe8b63fd15d169d4395aac846b0efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FInputBuffer::Update</definition>
+        <argsstring>(int32 Input, bool bStopped=false)</argsstring>
+        <name>Update</name>
+        <qualifiedname>FInputBuffer::Update</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>Input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bStopped</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Stores the input for this frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input bitmask to store. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bStopped</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the owning object is in hitstop/super freeze. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="61" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="58" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a38dd70c735bf461fb4a5dc4d6cd98d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FInputBuffer::Emplace</definition>
+        <argsstring>(int32 Input, uint32 Index)</argsstring>
+        <name>Emplace</name>
+        <qualifiedname>FInputBuffer::Emplace</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>Input</declname>
+        </param>
+        <param>
+          <type>uint32</type>
+          <declname>Index</declname>
+        </param>
+        <briefdescription>
+<para>Stores the input at an arbitrary buffer position. Intended for CPU usage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input bitmask to store. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the buffer to store at. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="68" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputCondition</definition>
+        <argsstring>(const FInputCondition &amp;InputCondition)</argsstring>
+        <name>CheckInputCondition</name>
+        <qualifiedname>FInputBuffer::CheckInputCondition</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_f_input_condition" kindref="compound">FInputCondition</ref> &amp;</type>
+          <declname>InputCondition</declname>
+        </param>
+        <briefdescription>
+<para>Checks an input condition against the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>InputCondition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The input condition to check. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the input condition matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="75" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="87" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a84695de1bd43d2cf4ec88b6b3c8e8d91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequence</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequence</name>
+        <qualifiedname>FInputBuffer::CheckInputSequence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Normal method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="83" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="123" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a72d144db38b8b2fc9be7740e2aa9a62f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequenceStrict</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequenceStrict</name>
+        <qualifiedname>FInputBuffer::CheckInputSequenceStrict</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Strict method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="90" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="173" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a0333dcb5b370ea3e0f79f9f0c774adff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequenceOnce</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequenceOnce</name>
+        <qualifiedname>FInputBuffer::CheckInputSequenceOnce</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Once method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="97" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="243" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a499890ad60181f63f3db52e5d885ac44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequenceOnceStrict</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequenceOnceStrict</name>
+        <qualifiedname>FInputBuffer::CheckInputSequenceOnceStrict</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Once Strict method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="104" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="301" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1ad81b56cb025947f0538c14da44400f86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequencePressAndRelease</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequencePressAndRelease</name>
+        <qualifiedname>FInputBuffer::CheckInputSequencePressAndRelease</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Once method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="111" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="379" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a1766ec583260c1fdf66ac5d2f0837919" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequencePressAndReleaseStrict</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequencePressAndReleaseStrict</name>
+        <qualifiedname>FInputBuffer::CheckInputSequencePressAndReleaseStrict</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Once Strict method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="118" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="445" bodyend="527"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1aab4a0b86af5b2094f2859ee65e4dda70" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequenceNegative</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequenceNegative</name>
+        <qualifiedname>FInputBuffer::CheckInputSequenceNegative</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Negative method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="125" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="529" bodyend="574"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1a530bee84c2413780c20e4f8f0e4213de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FInputBuffer::CheckInputSequenceNegativeStrict</definition>
+        <argsstring>() const</argsstring>
+        <name>CheckInputSequenceNegativeStrict</name>
+        <qualifiedname>FInputBuffer::CheckInputSequenceNegativeStrict</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks the input sequence against the buffer with the Negative Strict method. <simplesect kind="see"><para>EInputMethod</para>
+</simplesect>
+<simplesect kind="return"><para>If the input sequence matches the buffer, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="132" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="576" bodyend="637"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1abe3833b886dd17c7d04092836719b65c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FInputBuffer::FlipInputsInBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>FlipInputsInBuffer</name>
+        <qualifiedname>FInputBuffer::FlipInputsInBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flips the directional inputs in the buffer. For use after a character switches sides. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="136" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="639" bodyend="651"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The input buffer for a player object. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores inputs every frame, and handles input checking. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="19" bodyend="137"/>
+    <listofallmembers>
+      <member refid="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputCondition</name></member>
+      <member refid="struct_f_input_buffer_1a84695de1bd43d2cf4ec88b6b3c8e8d91" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequence</name></member>
+      <member refid="struct_f_input_buffer_1aab4a0b86af5b2094f2859ee65e4dda70" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequenceNegative</name></member>
+      <member refid="struct_f_input_buffer_1a530bee84c2413780c20e4f8f0e4213de" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequenceNegativeStrict</name></member>
+      <member refid="struct_f_input_buffer_1a0333dcb5b370ea3e0f79f9f0c774adff" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequenceOnce</name></member>
+      <member refid="struct_f_input_buffer_1a499890ad60181f63f3db52e5d885ac44" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequenceOnceStrict</name></member>
+      <member refid="struct_f_input_buffer_1ad81b56cb025947f0538c14da44400f86" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequencePressAndRelease</name></member>
+      <member refid="struct_f_input_buffer_1a1766ec583260c1fdf66ac5d2f0837919" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequencePressAndReleaseStrict</name></member>
+      <member refid="struct_f_input_buffer_1a72d144db38b8b2fc9be7740e2aa9a62f" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequenceStrict</name></member>
+      <member refid="struct_f_input_buffer_1a85640033b0644f05e57754175c19111d" prot="private" virt="non-virtual"><scope>FInputBuffer</scope><name>DisallowedInputs</name></member>
+      <member refid="struct_f_input_buffer_1a38dd70c735bf461fb4a5dc4d6cd98d5f" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>Emplace</name></member>
+      <member refid="struct_f_input_buffer_1abe3833b886dd17c7d04092836719b65c" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>FlipInputsInBuffer</name></member>
+      <member refid="struct_f_input_buffer_1a1056d71f90e720feb70f4866b0229c71" prot="private" virt="non-virtual"><scope>FInputBuffer</scope><name>ImpreciseInputCount</name></member>
+      <member refid="struct_f_input_buffer_1a6369cced274b3c38dcbcf100a437feda" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>InputBufferInternal</name></member>
+      <member refid="struct_f_input_buffer_1a4e72416642cc09c142b55cd34c6bde42" prot="private" virt="non-virtual"><scope>FInputBuffer</scope><name>InputSequence</name></member>
+      <member refid="struct_f_input_buffer_1a75ffe79b4c4c7450647b34c030e0f0e6" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>InputTime</name></member>
+      <member refid="struct_f_input_buffer_1a79fe8b63fd15d169d4395aac846b0efa" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>Update</name></member>
+      <member refid="struct_f_input_buffer_1aa4756533add2897b5f0103f773b5325a" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>WriteInputCondition</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

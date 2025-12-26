@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_audio_channel" kind="struct" language="C++" prot="public">
+    <compoundname>FAudioChannel</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_audio_channel_1aee224c3fddb94f90202b760fe1def8ec" prot="public" static="no" mutable="no">
+        <type>USoundBase *</type>
+        <definition>USoundBase* FAudioChannel::SoundWave</definition>
+        <argsstring></argsstring>
+        <name>SoundWave</name>
+        <qualifiedname>FAudioChannel::SoundWave</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="63" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_audio_channel_1a74918b00d24ef68db0b7025944d67b2e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FAudioChannel::StartingFrame</definition>
+        <argsstring></argsstring>
+        <name>StartingFrame</name>
+        <qualifiedname>FAudioChannel::StartingFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="64" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_audio_channel_1a85219fba45007d799e0fda83c39f74fc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FAudioChannel::MaxDuration</definition>
+        <argsstring></argsstring>
+        <name>MaxDuration</name>
+        <qualifiedname>FAudioChannel::MaxDuration</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="65" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_audio_channel_1a67d8ca479eba1f72e3c2ceed4e4bdf77" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FAudioChannel::Finished</definition>
+        <argsstring></argsstring>
+        <name>Finished</name>
+        <qualifiedname>FAudioChannel::Finished</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="66" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="58" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="59" bodyend="67"/>
+    <listofallmembers>
+      <member refid="struct_f_audio_channel_1a67d8ca479eba1f72e3c2ceed4e4bdf77" prot="public" virt="non-virtual"><scope>FAudioChannel</scope><name>Finished</name></member>
+      <member refid="struct_f_audio_channel_1a85219fba45007d799e0fda83c39f74fc" prot="public" virt="non-virtual"><scope>FAudioChannel</scope><name>MaxDuration</name></member>
+      <member refid="struct_f_audio_channel_1aee224c3fddb94f90202b760fe1def8ec" prot="public" virt="non-virtual"><scope>FAudioChannel</scope><name>SoundWave</name></member>
+      <member refid="struct_f_audio_channel_1a74918b00d24ef68db0b7025944d67b2e" prot="public" virt="non-virtual"><scope>FAudioChannel</scope><name>StartingFrame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

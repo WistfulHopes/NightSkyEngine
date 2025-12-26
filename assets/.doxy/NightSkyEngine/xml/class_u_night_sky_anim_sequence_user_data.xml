@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_anim_sequence_user_data" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyAnimSequenceUserData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UAssetUserData</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_anim_sequence_user_data_1a75e4c0af20d1b38edc006a3bd7691898" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UNightSkyAnimSequenceUserData::FrameCount</definition>
+        <argsstring></argsstring>
+        <name>FrameCount</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::FrameCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="73" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_anim_sequence_user_data_1ac0bfb836d840dc4c374378ba162bc225" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UNightSkyAnimSequenceUserData::FrameRate</definition>
+        <argsstring></argsstring>
+        <name>FrameRate</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::FrameRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="76" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_anim_sequence_user_data_1ade8464e4086430d64ce0f13b81dea013" prot="private" static="no" mutable="no">
+        <type>TMap&lt; FName, TMap&lt; int32, <ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref> &gt; &gt;</type>
+        <definition>TMap&lt;FName, TMap&lt;int32, FAnimTransform&gt; &gt; UNightSkyAnimSequenceUserData::MeshSpaceBoneTransforms</definition>
+        <argsstring></argsstring>
+        <name>MeshSpaceBoneTransforms</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::MeshSpaceBoneTransforms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="78" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_anim_sequence_user_data_1a4ba78a052c874271c17f9fd13179f85e" prot="private" static="no" mutable="no">
+        <type>TMap&lt; int32, <ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref> &gt;</type>
+        <definition>TMap&lt;int32, FAnimVector&gt; UNightSkyAnimSequenceUserData::RootTranslation</definition>
+        <argsstring></argsstring>
+        <name>RootTranslation</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::RootTranslation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="79" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1a5ab77a7eaaac0009eecf3556bc76ca93" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UNightSkyAnimSequenceUserData::Serialize</definition>
+        <argsstring>(FArchive &amp;Ar) override</argsstring>
+        <name>Serialize</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::Serialize</qualifiedname>
+        <param>
+          <type>FArchive &amp;</type>
+          <declname>Ar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="81" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp" bodystart="11" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1ad227ad5346f3634eb724baefc5592abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UNightSkyAnimSequenceUserData::PostEditChangeOwner</definition>
+        <argsstring>(const FPropertyChangedEvent &amp;PropertyChangedEvent) override</argsstring>
+        <name>PostEditChangeOwner</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::PostEditChangeOwner</qualifiedname>
+        <param>
+          <type>const FPropertyChangedEvent &amp;</type>
+          <declname>PropertyChangedEvent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="84" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp" bodystart="19" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1a1f94fcde6deb18e412c1ad76cbbdc424" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 UNightSkyAnimSequenceUserData::GetFrameCount</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFrameCount</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::GetFrameCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="87" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1a486f9a8db1b9d9cfdcfa7bb1d8fd99fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 UNightSkyAnimSequenceUserData::GetFrameRate</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFrameRate</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::GetFrameRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="93" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="93" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1a24aae2628d0f576d5454597f836c26aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref></type>
+        <definition>FAnimVector UNightSkyAnimSequenceUserData::GetRootTranslationAtTime</definition>
+        <argsstring>(int32 Time) const</argsstring>
+        <name>GetRootTranslationAtTime</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::GetRootTranslationAtTime</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>Time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="99" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp" bodystart="113" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1a5cc47272c0ff462fa89f8f142b919d13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_f_anim_transform" kindref="compound">FAnimTransform</ref></type>
+        <definition>FAnimTransform UNightSkyAnimSequenceUserData::GetCachedBoneTransformAtTime</definition>
+        <argsstring>(FName BoneName, int32 Time, bool bRelativeToRoot) const</argsstring>
+        <name>GetCachedBoneTransformAtTime</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::GetCachedBoneTransformAtTime</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>BoneName</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Time</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bRelativeToRoot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="102" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp" bodystart="119" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_anim_sequence_user_data_1ae8008ba9321a8ab112d26b266624589e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref></type>
+        <definition>FAnimVector UNightSkyAnimSequenceUserData::GetCachedBoneLocationAtTime</definition>
+        <argsstring>(FName BoneName, int32 Time, bool bRelativeToRoot) const</argsstring>
+        <name>GetCachedBoneLocationAtTime</name>
+        <qualifiedname>UNightSkyAnimSequenceUserData::GetCachedBoneLocationAtTime</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>BoneName</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Time</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bRelativeToRoot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="105" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.cpp" bodystart="136" bodyend="151"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UAssetUserData</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimSequenceUserData</label>
+        <link refid="class_u_night_sky_anim_sequence_user_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UAssetUserData</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimSequenceUserData</label>
+        <link refid="class_u_night_sky_anim_sequence_user_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="67" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="68" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a75e4c0af20d1b38edc006a3bd7691898" prot="private" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>FrameCount</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1ac0bfb836d840dc4c374378ba162bc225" prot="private" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>FrameRate</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1ae8008ba9321a8ab112d26b266624589e" prot="public" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>GetCachedBoneLocationAtTime</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a5cc47272c0ff462fa89f8f142b919d13" prot="public" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>GetCachedBoneTransformAtTime</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a1f94fcde6deb18e412c1ad76cbbdc424" prot="public" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>GetFrameCount</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a486f9a8db1b9d9cfdcfa7bb1d8fd99fb" prot="public" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>GetFrameRate</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a24aae2628d0f576d5454597f836c26aa" prot="public" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>GetRootTranslationAtTime</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1ade8464e4086430d64ce0f13b81dea013" prot="private" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>MeshSpaceBoneTransforms</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1ad227ad5346f3634eb724baefc5592abe" prot="public" virt="virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>PostEditChangeOwner</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a4ba78a052c874271c17f9fd13179f85e" prot="private" virt="non-virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>RootTranslation</name></member>
+      <member refid="class_u_night_sky_anim_sequence_user_data_1a5ab77a7eaaac0009eecf3556bc76ca93" prot="private" virt="virtual"><scope>UNightSkyAnimSequenceUserData</scope><name>Serialize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

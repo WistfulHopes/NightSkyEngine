@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_4fd921e402b7a240656c31e280e3875c" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc</compoundname>
+    <innerfile refid="_bitflags_8h">Bitflags.h</innerfile>
+    <innerfile refid="_collision_box_8h">CollisionBox.h</innerfile>
+    <innerfile refid="_globals_8cpp">Globals.cpp</innerfile>
+    <innerfile refid="_globals_8h">Globals.h</innerfile>
+    <innerfile refid="_input_buffer_8cpp">InputBuffer.cpp</innerfile>
+    <innerfile refid="_input_buffer_8h">InputBuffer.h</innerfile>
+    <innerfile refid="_night_sky_blueprint_function_library_8cpp">NightSkyBlueprintFunctionLibrary.cpp</innerfile>
+    <innerfile refid="_night_sky_blueprint_function_library_8h">NightSkyBlueprintFunctionLibrary.h</innerfile>
+    <innerfile refid="_random_manager_8cpp">RandomManager.cpp</innerfile>
+    <innerfile refid="_random_manager_8h">RandomManager.h</innerfile>
+    <innerfile refid="_serializable_obj_8cpp">SerializableObj.cpp</innerfile>
+    <innerfile refid="_serializable_obj_8h">SerializableObj.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_collision_data" kind="class" language="C++" prot="public">
+    <compoundname>UCollisionData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_collision_data_1a46c003c0985744375dd0abaf1bd0ef4d" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_collision_struct" kindref="compound">FCollisionStruct</ref> &gt;</type>
+        <definition>TArray&lt;FCollisionStruct&gt; UCollisionData::CollisionFrames</definition>
+        <argsstring></argsstring>
+        <name>CollisionFrames</name>
+        <qualifiedname>UCollisionData::CollisionFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="57" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_collision_data_1a72b9be5e67cd90b86ef7f56105b8e0a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_f_collision_struct" kindref="compound">FCollisionStruct</ref></type>
+        <definition>FCollisionStruct UCollisionData::GetByCelName</definition>
+        <argsstring>(const FGameplayTag &amp;CelName)</argsstring>
+        <name>GetByCelName</name>
+        <qualifiedname>UCollisionData::GetByCelName</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>CelName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="59" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="59" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_collision_data_1a8d04a741849d290363781994217e6617" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 UCollisionData::GetIndexByCelName</definition>
+        <argsstring>(const FGameplayTag &amp;CelName) const</argsstring>
+        <name>GetIndexByCelName</name>
+        <qualifiedname>UCollisionData::GetIndexByCelName</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>CelName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="68" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="68" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="52" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="53" bodyend="114"/>
+    <listofallmembers>
+      <member refid="class_u_collision_data_1a46c003c0985744375dd0abaf1bd0ef4d" prot="public" virt="non-virtual"><scope>UCollisionData</scope><name>CollisionFrames</name></member>
+      <member refid="class_u_collision_data_1a72b9be5e67cd90b86ef7f56105b8e0a3" prot="public" virt="non-virtual"><scope>UCollisionData</scope><name>GetByCelName</name></member>
+      <member refid="class_u_collision_data_1a8d04a741849d290363781994217e6617" prot="public" virt="non-virtual"><scope>UCollisionData</scope><name>GetIndexByCelName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

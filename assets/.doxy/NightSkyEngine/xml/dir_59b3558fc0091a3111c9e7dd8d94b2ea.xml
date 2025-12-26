@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_59b3558fc0091a3111c9e7dd8d94b2ea" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle</compoundname>
+    <innerdir refid="dir_51f67430d2b061bf5371397678dcec7e">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors</innerdir>
+    <innerdir refid="dir_9a82c917abb4553e2c2738125a0d5751">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation</innerdir>
+    <innerdir refid="dir_0ffcc5e5c4d1b043480363e839fe227d">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU</innerdir>
+    <innerdir refid="dir_55fd23ec9dd9ced1aa4a37204be9832d">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners</innerdir>
+    <innerdir refid="dir_4fd921e402b7a240656c31e280e3875c">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc</innerdir>
+    <innerdir refid="dir_e62046f165ace41a1907d5ab434ac45b">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects</innerdir>
+    <innerdir refid="dir_0ca77fec7001245ae32841da8dbaa106">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script</innerdir>
+    <innerfile refid="_night_sky_game_state_8cpp">NightSkyGameState.cpp</innerfile>
+    <innerfile refid="_night_sky_game_state_8h">NightSkyGameState.h</innerfile>
+    <innerfile refid="_night_sky_player_controller_8cpp">NightSkyPlayerController.cpp</innerfile>
+    <innerfile refid="_night_sky_player_controller_8h">NightSkyPlayerController.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/"/>
+  </compounddef>
+</doxygen>

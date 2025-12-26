@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_camera_shake_data" kind="class" language="C++" prot="public">
+    <compoundname>UCameraShakeData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_camera_shake_data_1a731cda9800c030d0e44017ef290364db" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_camera_shake_struct" kindref="compound">FCameraShakeStruct</ref> &gt;</type>
+        <definition>TArray&lt;FCameraShakeStruct&gt; UCameraShakeData::CameraShakeStructs</definition>
+        <argsstring></argsstring>
+        <name>CameraShakeStructs</name>
+        <qualifiedname>UCameraShakeData::CameraShakeStructs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CameraShakeData.h" line="31" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CameraShakeData.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CameraShakeData.h" line="26" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CameraShakeData.h" bodystart="27" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_u_camera_shake_data_1a731cda9800c030d0e44017ef290364db" prot="public" virt="non-virtual"><scope>UCameraShakeData</scope><name>CameraShakeStructs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_n_s_e_session_info" kind="struct" language="C++" prot="public">
+    <compoundname>FNSESessionInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_n_s_e_session_info_1a5b82b445ccd47572831234340a746c47" prot="public" static="no" mutable="no">
+        <type>FOnlineSessionSearchResult</type>
+        <definition>FOnlineSessionSearchResult FNSESessionInfo::SessionSearchResult</definition>
+        <argsstring></argsstring>
+        <name>SessionSearchResult</name>
+        <qualifiedname>FNSESessionInfo::SessionSearchResult</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Session </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="20" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_n_s_e_session_info_1a07958bd813e5b2a922dc8c9647f7262d" prot="public" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString FNSESessionInfo::OwningUserName</definition>
+        <argsstring></argsstring>
+        <name>OwningUserName</name>
+        <qualifiedname>FNSESessionInfo::OwningUserName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Owner name of the session </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="23" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_n_s_e_session_info_1a8d7d856e40cd2780fd9df41c2f9cf7f6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FNSESessionInfo::NumOpenPrivateConnections</definition>
+        <argsstring></argsstring>
+        <name>NumOpenPrivateConnections</name>
+        <qualifiedname>FNSESessionInfo::NumOpenPrivateConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of private connections that are available (read only) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="26" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_n_s_e_session_info_1ae1acafd1af5ee6642304ffffccc514a6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FNSESessionInfo::NumOpenPublicConnections</definition>
+        <argsstring></argsstring>
+        <name>NumOpenPublicConnections</name>
+        <qualifiedname>FNSESessionInfo::NumOpenPublicConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of publicly available connections that are available (read only) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="29" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_n_s_e_session_info_1a2da7b0b28864ebc04c280224c24da28c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FNSESessionInfo::FNSESessionInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>FNSESessionInfo</name>
+        <qualifiedname>FNSESessionInfo::FNSESessionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_n_s_e_session_info_1a07b5ca029e6e7e991ef7de3e69b4afcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FNSESessionInfo::FNSESessionInfo</definition>
+        <argsstring>(const FOnlineSessionSearchResult &amp;Result, const FString &amp;Name, int32 OpenPrivate, int32 OpenPublic)</argsstring>
+        <name>FNSESessionInfo</name>
+        <qualifiedname>FNSESessionInfo::FNSESessionInfo</qualifiedname>
+        <param>
+          <type>const FOnlineSessionSearchResult &amp;</type>
+          <declname>Result</declname>
+        </param>
+        <param>
+          <type>const FString &amp;</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>OpenPrivate</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>OpenPublic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="17" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="13" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="13" bodyend="30"/>
+    <listofallmembers>
+      <member refid="struct_f_n_s_e_session_info_1a2da7b0b28864ebc04c280224c24da28c" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>FNSESessionInfo</name></member>
+      <member refid="struct_f_n_s_e_session_info_1a07b5ca029e6e7e991ef7de3e69b4afcf" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>FNSESessionInfo</name></member>
+      <member refid="struct_f_n_s_e_session_info_1a8d7d856e40cd2780fd9df41c2f9cf7f6" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>NumOpenPrivateConnections</name></member>
+      <member refid="struct_f_n_s_e_session_info_1ae1acafd1af5ee6642304ffffccc514a6" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>NumOpenPublicConnections</name></member>
+      <member refid="struct_f_n_s_e_session_info_1a07958bd813e5b2a922dc8c9647f7262d" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>OwningUserName</name></member>
+      <member refid="struct_f_n_s_e_session_info_1a5b82b445ccd47572831234340a746c47" prot="public" virt="non-virtual"><scope>FNSESessionInfo</scope><name>SessionSearchResult</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

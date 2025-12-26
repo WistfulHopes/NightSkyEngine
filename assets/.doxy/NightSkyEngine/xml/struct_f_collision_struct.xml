@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_collision_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FCollisionStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_collision_struct_1abf26aef18a79b7a2755a6d6d3ab15116" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FCollisionStruct::CelName</definition>
+        <argsstring></argsstring>
+        <name>CelName</name>
+        <qualifiedname>FCollisionStruct::CelName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="35" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_struct_1af7acd3f60e40e28154fda29cdbb7ea86" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_anim_struct" kindref="compound">FAnimStruct</ref> &gt;</type>
+        <definition>TArray&lt;FAnimStruct&gt; FCollisionStruct::Anim</definition>
+        <argsstring></argsstring>
+        <name>Anim</name>
+        <qualifiedname>FCollisionStruct::Anim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="37" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_struct_1a69fa827bc8ebcb7e7cfb1af2da6f618e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FCollisionStruct::AnimFrame</definition>
+        <argsstring></argsstring>
+        <name>AnimFrame</name>
+        <qualifiedname>FCollisionStruct::AnimFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="39" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_struct_1a91e9cd72948dd7d267ab61383907f51b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FCollisionStruct::AnimBlendIn</definition>
+        <argsstring></argsstring>
+        <name>AnimBlendIn</name>
+        <qualifiedname>FCollisionStruct::AnimBlendIn</qualifiedname>
+        <initializer>= 0.25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="41" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_struct_1a533c0a583294e2b0fceeaa314dbffcf2" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FCollisionStruct::AnimBlendOut</definition>
+        <argsstring></argsstring>
+        <name>AnimBlendOut</name>
+        <qualifiedname>FCollisionStruct::AnimBlendOut</qualifiedname>
+        <initializer>= 0.25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="43" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_struct_1a0e605c59e61a6444c6f0334df314832c" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_collision_box" kindref="compound">FCollisionBox</ref> &gt;</type>
+        <definition>TArray&lt;FCollisionBox&gt; FCollisionStruct::Boxes</definition>
+        <argsstring></argsstring>
+        <name>Boxes</name>
+        <qualifiedname>FCollisionStruct::Boxes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="45" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="30" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="31" bodyend="46"/>
+    <listofallmembers>
+      <member refid="struct_f_collision_struct_1af7acd3f60e40e28154fda29cdbb7ea86" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>Anim</name></member>
+      <member refid="struct_f_collision_struct_1a91e9cd72948dd7d267ab61383907f51b" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>AnimBlendIn</name></member>
+      <member refid="struct_f_collision_struct_1a533c0a583294e2b0fceeaa314dbffcf2" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>AnimBlendOut</name></member>
+      <member refid="struct_f_collision_struct_1a69fa827bc8ebcb7e7cfb1af2da6f618e" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>AnimFrame</name></member>
+      <member refid="struct_f_collision_struct_1a0e605c59e61a6444c6f0334df314832c" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>Boxes</name></member>
+      <member refid="struct_f_collision_struct_1abf26aef18a79b7a2755a6d6d3ab15116" prot="public" virt="non-virtual"><scope>FCollisionStruct</scope><name>CelName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_55fd23ec9dd9ced1aa4a37204be9832d" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners</compoundname>
+    <innerfile refid="_fighter_local_runner_8cpp">FighterLocalRunner.cpp</innerfile>
+    <innerfile refid="_fighter_local_runner_8h">FighterLocalRunner.h</innerfile>
+    <innerfile refid="_fighter_multiplayer_runner_8cpp">FighterMultiplayerRunner.cpp</innerfile>
+    <innerfile refid="_fighter_multiplayer_runner_8h">FighterMultiplayerRunner.h</innerfile>
+    <innerfile refid="_fighter_replay_runner_8cpp">FighterReplayRunner.cpp</innerfile>
+    <innerfile refid="_fighter_replay_runner_8h">FighterReplayRunner.h</innerfile>
+    <innerfile refid="_fighter_synctest_runner_8cpp">FighterSynctestRunner.cpp</innerfile>
+    <innerfile refid="_fighter_synctest_runner_8h">FighterSynctestRunner.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_link_actor_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FLinkActorStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_link_actor_struct_1a65050d489b2973dd4afc6d922bdd38ac" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FLinkActorStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FLinkActorStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" line="16" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_link_actor_struct_1a3ae8d85509576754761c443d64b17129" prot="public" static="no" mutable="no">
+        <type>TSubclassOf&lt; <ref refid="class_a_link_actor" kindref="compound">ALinkActor</ref> &gt;</type>
+        <definition>TSubclassOf&lt;ALinkActor&gt; FLinkActorStruct::ActorClass</definition>
+        <argsstring></argsstring>
+        <name>ActorClass</name>
+        <qualifiedname>FLinkActorStruct::ActorClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" line="18" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_link_actor_struct_1abc8055e7a359b2cf5d7afcf76970902d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FLinkActorStruct::MaxInstances</definition>
+        <argsstring></argsstring>
+        <name>MaxInstances</name>
+        <qualifiedname>FLinkActorStruct::MaxInstances</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" line="20" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" line="11" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/LinkActorData.h" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_f_link_actor_struct_1a3ae8d85509576754761c443d64b17129" prot="public" virt="non-virtual"><scope>FLinkActorStruct</scope><name>ActorClass</name></member>
+      <member refid="struct_f_link_actor_struct_1abc8055e7a359b2cf5d7afcf76970902d" prot="public" virt="non-virtual"><scope>FLinkActorStruct</scope><name>MaxInstances</name></member>
+      <member refid="struct_f_link_actor_struct_1a65050d489b2973dd4afc6d922bdd38ac" prot="public" virt="non-virtual"><scope>FLinkActorStruct</scope><name>Name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

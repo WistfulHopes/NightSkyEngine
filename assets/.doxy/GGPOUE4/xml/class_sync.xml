@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_sync" kind="class" language="C++" prot="public">
+    <compoundname>Sync</compoundname>
+    <innerclass refid="struct_sync_1_1_config" prot="public">Sync::Config</innerclass>
+    <innerclass refid="struct_sync_1_1_event" prot="public">Sync::Event</innerclass>
+    <innerclass refid="struct_sync_1_1_saved_frame" prot="protected">Sync::SavedFrame</innerclass>
+    <innerclass refid="struct_sync_1_1_saved_state" prot="protected">Sync::SavedState</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_sync_1a5af2dc107ce2719525b23f97a2f5a424" prot="protected" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend Sync::SyncTestBackend</definition>
+        <argsstring></argsstring>
+        <name>SyncTestBackend</name>
+        <qualifiedname>Sync::SyncTestBackend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="64" column="11" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a0187e3a4f56df05938d08a5015804bbd" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref></type>
+        <definition>GGPOSessionCallbacks Sync::_callbacks</definition>
+        <argsstring></argsstring>
+        <name>_callbacks</name>
+        <qualifiedname>Sync::_callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="88" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a882e90b96918e8daa5ca7918c421d928" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_sync_1_1_saved_state" kindref="compound">SavedState</ref></type>
+        <definition>SavedState Sync::_savedstate</definition>
+        <argsstring></argsstring>
+        <name>_savedstate</name>
+        <qualifiedname>Sync::_savedstate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="89" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a8433275cf6fa058b14eccf64beb2edb4" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_sync_1_1_config" kindref="compound">Config</ref></type>
+        <definition>Config Sync::_config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>Sync::_config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="90" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1ad278a795ecae2776c19504d16c85f83b" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Sync::_rollingback</definition>
+        <argsstring></argsstring>
+        <name>_rollingback</name>
+        <qualifiedname>Sync::_rollingback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="92" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a1338efd7bccf931d2b726ad322209e40" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::_last_confirmed_frame</definition>
+        <argsstring></argsstring>
+        <name>_last_confirmed_frame</name>
+        <qualifiedname>Sync::_last_confirmed_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="93" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a20a5ba80bdf746dad1a6907fac95ca27" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::_framecount</definition>
+        <argsstring></argsstring>
+        <name>_framecount</name>
+        <qualifiedname>Sync::_framecount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="94" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a40dad52df9a569fdd82e7f43b28050ce" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::_max_prediction_frames</definition>
+        <argsstring></argsstring>
+        <name>_max_prediction_frames</name>
+        <qualifiedname>Sync::_max_prediction_frames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="95" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1ad8eb4c10ef7833078cfd239cc05f745b" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_input_queue" kindref="compound">InputQueue</ref> *</type>
+        <definition>InputQueue* Sync::_input_queues</definition>
+        <argsstring></argsstring>
+        <name>_input_queues</name>
+        <qualifiedname>Sync::_input_queues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="97" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a1a72468690a342063346bb2e2ef02d45" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_ring_buffer" kindref="compound">RingBuffer</ref>&lt; <ref refid="struct_sync_1_1_event" kindref="compound">Event</ref>, 32 &gt;</type>
+        <definition>RingBuffer&lt;Event, 32&gt; Sync::_event_queue</definition>
+        <argsstring></argsstring>
+        <name>_event_queue</name>
+        <qualifiedname>Sync::_event_queue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="99" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_1a2d78921713beb69cfd0d0cc45e35105c" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_udp_msg_1_1connect__status" kindref="compound">UdpMsg::connect_status</ref> *</type>
+        <definition>UdpMsg::connect_status* Sync::_local_connect_status</definition>
+        <argsstring></argsstring>
+        <name>_local_connect_status</name>
+        <qualifiedname>Sync::_local_connect_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="100" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sync_1a1b29e385898c7954045ebbba58b06c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Sync::Sync</definition>
+        <argsstring>(UdpMsg::connect_status *connect_status)</argsstring>
+        <name>Sync</name>
+        <qualifiedname>Sync::Sync</qualifiedname>
+        <param>
+          <type><ref refid="struct_udp_msg_1_1connect__status" kindref="compound">UdpMsg::connect_status</ref> *</type>
+          <declname>connect_status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="42" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="10" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a20785d8f916197bd0381d805289bf9f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Sync::~Sync</definition>
+        <argsstring>()</argsstring>
+        <name>~Sync</name>
+        <qualifiedname>Sync::~Sync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="43" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="20" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a939c3cf3ff1b49832fcc60736cdecaf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::Init</definition>
+        <argsstring>(Config &amp;config)</argsstring>
+        <name>Init</name>
+        <qualifiedname>Sync::Init</qualifiedname>
+        <param>
+          <type><ref refid="struct_sync_1_1_config" kindref="compound">Config</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="45" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="34" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1ae6c0d6a891aa93f6f8501c2434a1ea67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::SetLastConfirmedFrame</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>SetLastConfirmedFrame</name>
+        <qualifiedname>Sync::SetLastConfirmedFrame</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="47" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="47" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a0f6d719c4ee41cc599ba27a6a6baa827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::SetFrameDelay</definition>
+        <argsstring>(int queue, int delay)</argsstring>
+        <name>SetFrameDelay</name>
+        <qualifiedname>Sync::SetFrameDelay</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="48" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="278" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1ab92e564172d42d7d64b9f21e46d0c2ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Sync::AddLocalInput</definition>
+        <argsstring>(int queue, GameInput &amp;input)</argsstring>
+        <name>AddLocalInput</name>
+        <qualifiedname>Sync::AddLocalInput</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="49" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="58" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1ae60f245482e000c57386e99b5d541b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::AddRemoteInput</definition>
+        <argsstring>(int queue, GameInput &amp;input)</argsstring>
+        <name>AddRemoteInput</name>
+        <qualifiedname>Sync::AddRemoteInput</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="50" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1af5e00cfc3146570e85f9ae39c0d3a5c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Sync::GetConfirmedInputs</definition>
+        <argsstring>(void *values, int size, int frame)</argsstring>
+        <name>GetConfirmedInputs</name>
+        <qualifiedname>Sync::GetConfirmedInputs</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="51" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="84" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a976cddad3e8c25f4fd6d2904bf85d065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Sync::SynchronizeInputs</definition>
+        <argsstring>(void *values, int size)</argsstring>
+        <name>SynchronizeInputs</name>
+        <qualifiedname>Sync::SynchronizeInputs</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="52" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="106" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a0cadd03b33350450d2a5240191f1a5e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::CheckSimulation</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>CheckSimulation</name>
+        <qualifiedname>Sync::CheckSimulation</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="54" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="128" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1aefc861128703b840c3f92c34713d0622" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::AdjustSimulation</definition>
+        <argsstring>(int seek_to)</argsstring>
+        <name>AdjustSimulation</name>
+        <qualifiedname>Sync::AdjustSimulation</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>seek_to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="55" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="144" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1abb0614a77357e3ea3ef44711a05f776e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::IncrementFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>IncrementFrame</name>
+        <qualifiedname>Sync::IncrementFrame</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="56" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="137" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1aaeec98ea7b67eef9cd7f7bb29daea2c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Sync::GetFrameCount</definition>
+        <argsstring>()</argsstring>
+        <name>GetFrameCount</name>
+        <qualifiedname>Sync::GetFrameCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="58" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1ada77c4da829fc385607226eb7c03792f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Sync::InRollback</definition>
+        <argsstring>()</argsstring>
+        <name>InRollback</name>
+        <qualifiedname>Sync::InRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="59" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a990b87770f4adff5e5fc4652cd1a26e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Sync::GetEvent</definition>
+        <argsstring>(Event &amp;e)</argsstring>
+        <name>GetEvent</name>
+        <qualifiedname>Sync::GetEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_sync_1_1_event" kindref="compound">Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="61" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="294" bodyend="302"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_sync_1a7f73458a1b67e760ead03cec2bb60d50" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::LoadFrame</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>LoadFrame</name>
+        <qualifiedname>Sync::LoadFrame</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="78" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="174" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1acd8e5784b0567104063ad6fbc4a34981" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::SaveCurrentFrame</definition>
+        <argsstring>()</argsstring>
+        <name>SaveCurrentFrame</name>
+        <qualifiedname>Sync::SaveCurrentFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="79" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="199" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a9204100c4c22c432d178660cfae4a23a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Sync::FindSavedFrameIndex</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>FindSavedFrameIndex</name>
+        <qualifiedname>Sync::FindSavedFrameIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="80" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="229" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a1e1b1d8670d4c2fd3c3e208f4a4413b8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_sync_1_1_saved_frame" kindref="compound">SavedFrame</ref> &amp;</type>
+        <definition>Sync::SavedFrame &amp; Sync::GetLastSavedFrame</definition>
+        <argsstring>()</argsstring>
+        <name>GetLastSavedFrame</name>
+        <qualifiedname>Sync::GetLastSavedFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="81" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="218" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a2f2e185fde4c3f7c5f3a8274e0a8166f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Sync::CreateQueues</definition>
+        <argsstring>(Config &amp;config)</argsstring>
+        <name>CreateQueues</name>
+        <qualifiedname>Sync::CreateQueues</qualifiedname>
+        <param>
+          <type><ref refid="struct_sync_1_1_config" kindref="compound">Config</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="83" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="245" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a37cb7db9fa3052012466a7fe1fb9b64c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Sync::CheckSimulationConsistency</definition>
+        <argsstring>(int *seekTo)</argsstring>
+        <name>CheckSimulationConsistency</name>
+        <qualifiedname>Sync::CheckSimulationConsistency</qualifiedname>
+        <param>
+          <type>int *</type>
+          <declname>seekTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="84" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="257" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_1a76976914b593d548e3727c91b0843966" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Sync::ResetPrediction</definition>
+        <argsstring>(int frameNumber)</argsstring>
+        <name>ResetPrediction</name>
+        <qualifiedname>Sync::ResetPrediction</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frameNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="85" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.cpp" bodystart="285" bodyend="290"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GGPOSessionCallbacks</label>
+        <link refid="struct_g_g_p_o_session_callbacks"/>
+      </node>
+      <node id="7">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="6">
+        <label>InputQueue</label>
+        <link refid="class_input_queue"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_inputs</edgelabel>
+          <edgelabel>_prediction</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RingBuffer&lt; Sync::Event, 32 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Sync</label>
+        <link refid="class_sync"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_savedstate</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_config</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_input_queues</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>_event_queue</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Sync::Config</label>
+        <link refid="struct_sync_1_1_config"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Sync::Event</label>
+        <link refid="struct_sync_1_1_event"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Sync::SavedFrame</label>
+        <link refid="struct_sync_1_1_saved_frame"/>
+      </node>
+      <node id="3">
+        <label>Sync::SavedState</label>
+        <link refid="struct_sync_1_1_saved_state"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>frames</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="22" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="22" bodyend="101"/>
+    <listofallmembers>
+      <member refid="class_sync_1a0187e3a4f56df05938d08a5015804bbd" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_callbacks</name></member>
+      <member refid="class_sync_1a8433275cf6fa058b14eccf64beb2edb4" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_config</name></member>
+      <member refid="class_sync_1a1a72468690a342063346bb2e2ef02d45" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_event_queue</name></member>
+      <member refid="class_sync_1a20a5ba80bdf746dad1a6907fac95ca27" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_framecount</name></member>
+      <member refid="class_sync_1ad8eb4c10ef7833078cfd239cc05f745b" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_input_queues</name></member>
+      <member refid="class_sync_1a1338efd7bccf931d2b726ad322209e40" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_last_confirmed_frame</name></member>
+      <member refid="class_sync_1a2d78921713beb69cfd0d0cc45e35105c" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_local_connect_status</name></member>
+      <member refid="class_sync_1a40dad52df9a569fdd82e7f43b28050ce" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_max_prediction_frames</name></member>
+      <member refid="class_sync_1ad278a795ecae2776c19504d16c85f83b" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_rollingback</name></member>
+      <member refid="class_sync_1a882e90b96918e8daa5ca7918c421d928" prot="protected" virt="non-virtual"><scope>Sync</scope><name>_savedstate</name></member>
+      <member refid="class_sync_1ab92e564172d42d7d64b9f21e46d0c2ae" prot="public" virt="non-virtual"><scope>Sync</scope><name>AddLocalInput</name></member>
+      <member refid="class_sync_1ae60f245482e000c57386e99b5d541b27" prot="public" virt="non-virtual"><scope>Sync</scope><name>AddRemoteInput</name></member>
+      <member refid="class_sync_1aefc861128703b840c3f92c34713d0622" prot="public" virt="non-virtual"><scope>Sync</scope><name>AdjustSimulation</name></member>
+      <member refid="class_sync_1a0cadd03b33350450d2a5240191f1a5e8" prot="public" virt="non-virtual"><scope>Sync</scope><name>CheckSimulation</name></member>
+      <member refid="class_sync_1a37cb7db9fa3052012466a7fe1fb9b64c" prot="protected" virt="non-virtual"><scope>Sync</scope><name>CheckSimulationConsistency</name></member>
+      <member refid="class_sync_1a2f2e185fde4c3f7c5f3a8274e0a8166f" prot="protected" virt="non-virtual"><scope>Sync</scope><name>CreateQueues</name></member>
+      <member refid="class_sync_1a9204100c4c22c432d178660cfae4a23a" prot="protected" virt="non-virtual"><scope>Sync</scope><name>FindSavedFrameIndex</name></member>
+      <member refid="class_sync_1af5e00cfc3146570e85f9ae39c0d3a5c4" prot="public" virt="non-virtual"><scope>Sync</scope><name>GetConfirmedInputs</name></member>
+      <member refid="class_sync_1a990b87770f4adff5e5fc4652cd1a26e2" prot="public" virt="non-virtual"><scope>Sync</scope><name>GetEvent</name></member>
+      <member refid="class_sync_1aaeec98ea7b67eef9cd7f7bb29daea2c3" prot="public" virt="non-virtual"><scope>Sync</scope><name>GetFrameCount</name></member>
+      <member refid="class_sync_1a1e1b1d8670d4c2fd3c3e208f4a4413b8" prot="protected" virt="non-virtual"><scope>Sync</scope><name>GetLastSavedFrame</name></member>
+      <member refid="class_sync_1abb0614a77357e3ea3ef44711a05f776e" prot="public" virt="non-virtual"><scope>Sync</scope><name>IncrementFrame</name></member>
+      <member refid="class_sync_1a939c3cf3ff1b49832fcc60736cdecaf5" prot="public" virt="non-virtual"><scope>Sync</scope><name>Init</name></member>
+      <member refid="class_sync_1ada77c4da829fc385607226eb7c03792f" prot="public" virt="non-virtual"><scope>Sync</scope><name>InRollback</name></member>
+      <member refid="class_sync_1a7f73458a1b67e760ead03cec2bb60d50" prot="protected" virt="non-virtual"><scope>Sync</scope><name>LoadFrame</name></member>
+      <member refid="class_sync_1a76976914b593d548e3727c91b0843966" prot="protected" virt="non-virtual"><scope>Sync</scope><name>ResetPrediction</name></member>
+      <member refid="class_sync_1acd8e5784b0567104063ad6fbc4a34981" prot="protected" virt="non-virtual"><scope>Sync</scope><name>SaveCurrentFrame</name></member>
+      <member refid="class_sync_1a0f6d719c4ee41cc599ba27a6a6baa827" prot="public" virt="non-virtual"><scope>Sync</scope><name>SetFrameDelay</name></member>
+      <member refid="class_sync_1ae6c0d6a891aa93f6f8501c2434a1ea67" prot="public" virt="non-virtual"><scope>Sync</scope><name>SetLastConfirmedFrame</name></member>
+      <member refid="class_sync_1a1b29e385898c7954045ebbba58b06c1b" prot="public" virt="non-virtual"><scope>Sync</scope><name>Sync</name></member>
+      <member refid="class_sync_1a976cddad3e8c25f4fd6d2904bf85d065" prot="public" virt="non-virtual"><scope>Sync</scope><name>SynchronizeInputs</name></member>
+      <member refid="class_sync_1a5af2dc107ce2719525b23f97a2f5a424" prot="protected" virt="non-virtual"><scope>Sync</scope><name>SyncTestBackend</name></member>
+      <member refid="class_sync_1a20785d8f916197bd0381d805289bf9f4" prot="public" virt="virtual"><scope>Sync</scope><name>~Sync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

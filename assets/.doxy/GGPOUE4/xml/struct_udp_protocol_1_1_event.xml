@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_protocol_1_1_event" kind="struct" language="C++" prot="public">
+    <compoundname>UdpProtocol::Event</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Type</name>
+        <qualifiedname>UdpProtocol::Event::Type</qualifiedname>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a301defce1abd9ff3781d5473b0c826a8" prot="public">
+          <name>Unknown</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ab7a342936c84c441f52569b3202569fa" prot="public">
+          <name>Connected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965aa2ba25007f734d90dc68fa13ef98779c" prot="public">
+          <name>Synchronizing</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a8d848090631d37a603573963de683d49" prot="public">
+          <name>Synchronzied</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ac32d91d27b8fd656482b7897fa5d3a36" prot="public">
+          <name>Input</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5e03804d743984cb01f5001e284ee5ba" prot="public">
+          <name>Disconnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5127645849c26597c5d046b8258d1bbd" prot="public">
+          <name>NetworkInterrupted</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a2218587a02e4e7acf8e9037235a2e581" prot="public">
+          <name>NetworkResumed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="31" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="31" bodyend="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1a387ee139cb7de92b6759b0455cc50d0d" prot="public" static="no" mutable="no">
+        <type>Type</type>
+        <definition>Type UdpProtocol::Event::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>UdpProtocol::Event::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="42" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1ae6003390479450be5c3f13bc2fc596ac" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput UdpProtocol::Event::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <qualifiedname>UdpProtocol::Event::input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="45" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1a915d6e7e1234ab94ee22c25c29a07e42" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref></type>
+        <definition>struct UdpProtocol::Event UdpProtocol::Event::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <qualifiedname>UdpProtocol::Event::input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="46" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1aec555c2ba5a90b4e3cffc40ec434c97d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Event::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <qualifiedname>UdpProtocol::Event::total</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="48" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1abfdc1378b4fd6ede1453b7d23cb44577" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Event::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>UdpProtocol::Event::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="49" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1ad83f33e7e06e2f4a858342e8ccd2f11f" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref></type>
+        <definition>struct UdpProtocol::Event UdpProtocol::Event::synchronizing</definition>
+        <argsstring></argsstring>
+        <name>synchronizing</name>
+        <qualifiedname>UdpProtocol::Event::synchronizing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="50" column="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1a45b4d43b1dc45518d33e069eec577e77" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Event::disconnect_timeout</definition>
+        <argsstring></argsstring>
+        <name>disconnect_timeout</name>
+        <qualifiedname>UdpProtocol::Event::disconnect_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="52" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1aef7b7c972b155ebdaa9478eead63ff60" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref></type>
+        <definition>struct UdpProtocol::Event UdpProtocol::Event::network_interrupted</definition>
+        <argsstring></argsstring>
+        <name>network_interrupted</name>
+        <qualifiedname>UdpProtocol::Event::network_interrupted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="53" column="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_event_1ab79055ba2ee503cc59cdbd89b14656b1" prot="public" static="no" mutable="no">
+        <type>union <ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref></type>
+        <definition>union UdpProtocol::Event UdpProtocol::Event::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>UdpProtocol::Event::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="54" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_udp_protocol_1_1_event_1a24b66fcd23f803860cc1962d3085e3e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UdpProtocol::Event::Event</definition>
+        <argsstring>(Type t=Unknown)</argsstring>
+        <name>Event</name>
+        <qualifiedname>UdpProtocol::Event::Event</qualifiedname>
+        <param>
+          <type>Type</type>
+          <declname>t</declname>
+          <defval>Unknown</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="56" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="1">
+        <label>UdpProtocol::Event</label>
+        <link refid="struct_udp_protocol_1_1_event"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="30" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="30" bodyend="57"/>
+    <listofallmembers>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ab7a342936c84c441f52569b3202569fa" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Connected</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1abfdc1378b4fd6ede1453b7d23cb44577" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>count</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a45b4d43b1dc45518d33e069eec577e77" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>disconnect_timeout</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5e03804d743984cb01f5001e284ee5ba" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Disconnected</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a24b66fcd23f803860cc1962d3085e3e8" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Event</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ac32d91d27b8fd656482b7897fa5d3a36" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Input</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1ae6003390479450be5c3f13bc2fc596ac" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>input</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a915d6e7e1234ab94ee22c25c29a07e42" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>input</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1aef7b7c972b155ebdaa9478eead63ff60" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>network_interrupted</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5127645849c26597c5d046b8258d1bbd" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>NetworkInterrupted</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a2218587a02e4e7acf8e9037235a2e581" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>NetworkResumed</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965aa2ba25007f734d90dc68fa13ef98779c" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Synchronizing</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1ad83f33e7e06e2f4a858342e8ccd2f11f" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>synchronizing</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a8d848090631d37a603573963de683d49" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Synchronzied</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1aec555c2ba5a90b4e3cffc40ec434c97d" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>total</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Type</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a387ee139cb7de92b6759b0455cc50d0d" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>type</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1ab79055ba2ee503cc59cdbd89b14656b1" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>u</name></member>
+      <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a301defce1abd9ff3781d5473b0c826a8" prot="public" virt="non-virtual"><scope>UdpProtocol::Event</scope><name>Unknown</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

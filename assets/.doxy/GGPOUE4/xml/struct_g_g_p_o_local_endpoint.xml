@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_g_g_p_o_local_endpoint" kind="struct" language="C++" prot="public">
+    <compoundname>GGPOLocalEndpoint</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g_p_o_local_endpoint_1a750a1c8a30b08603d277ac59df8b4699" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOLocalEndpoint::player_num</definition>
+        <argsstring></argsstring>
+        <name>player_num</name>
+        <qualifiedname>GGPOLocalEndpoint::player_num</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="250" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="248" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="249" bodyend="251"/>
+    <listofallmembers>
+      <member refid="struct_g_g_p_o_local_endpoint_1a750a1c8a30b08603d277ac59df8b4699" prot="public" virt="non-virtual"><scope>GGPOLocalEndpoint</scope><name>player_num</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

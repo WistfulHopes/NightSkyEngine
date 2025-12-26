@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_editor_blueprint_library" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyEditorBlueprintLibrary</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UBlueprintFunctionLibrary</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_u_night_sky_editor_blueprint_library_1a5a0019cd8fbdfe2bcf904d66b5ba3165" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag UNightSkyEditorBlueprintLibrary::GetGameplayTagFromName</definition>
+        <argsstring>(FName Name)</argsstring>
+        <name>GetGameplayTagFromName</name>
+        <qualifiedname>UNightSkyEditorBlueprintLibrary::GetGameplayTagFromName</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEditorBlueprintLibrary.h" line="20" column="21" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Private/NightSkyEditorBlueprintLibrary.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UBlueprintFunctionLibrary</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyEditorBlueprintLibrary</label>
+        <link refid="class_u_night_sky_editor_blueprint_library"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UBlueprintFunctionLibrary</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyEditorBlueprintLibrary</label>
+        <link refid="class_u_night_sky_editor_blueprint_library"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEditorBlueprintLibrary.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public/NightSkyEditorBlueprintLibrary.h" bodystart="15" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_editor_blueprint_library_1a5a0019cd8fbdfe2bcf904d66b5ba3165" prot="public" virt="non-virtual"><scope>UNightSkyEditorBlueprintLibrary</scope><name>GetGameplayTagFromName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

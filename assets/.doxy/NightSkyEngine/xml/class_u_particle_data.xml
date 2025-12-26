@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_particle_data" kind="class" language="C++" prot="public">
+    <compoundname>UParticleData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_particle_data_1af005132a760d086d46faed622f97f10e" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_particle_struct" kindref="compound">FParticleStruct</ref> &gt;</type>
+        <definition>TArray&lt;FParticleStruct&gt; UParticleData::ParticleStructs</definition>
+        <argsstring></argsstring>
+        <name>ParticleStructs</name>
+        <qualifiedname>UParticleData::ParticleStructs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" line="40" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" line="34" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" bodystart="35" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_u_particle_data_1af005132a760d086d46faed622f97f10e" prot="public" virt="non-virtual"><scope>UParticleData</scope><name>ParticleStructs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="structneosmart_1_1neosmart__wfmo__info__t__" kind="struct" language="C++" prot="public">
+    <compoundname>neosmart::neosmart_wfmo_info_t_</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__info__t___1a7f11d43e64534d4f103e0f5b2dda9f00" prot="public" static="no" mutable="no">
+        <type><ref refid="structneosmart_1_1neosmart__wfmo__t__" kindref="compound">neosmart_wfmo_t</ref></type>
+        <definition>neosmart_wfmo_t neosmart::neosmart_wfmo_info_t_::Waiter</definition>
+        <argsstring></argsstring>
+        <name>Waiter</name>
+        <qualifiedname>neosmart::neosmart_wfmo_info_t_::Waiter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="46" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__info__t___1a9b0bdbbc65b4875cf38af7c46619106e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int neosmart::neosmart_wfmo_info_t_::WaitIndex</definition>
+        <argsstring></argsstring>
+        <name>WaitIndex</name>
+        <qualifiedname>neosmart::neosmart_wfmo_info_t_::WaitIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="47" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>neosmart::neosmart_wfmo_info_t_</label>
+        <link refid="structneosmart_1_1neosmart__wfmo__info__t__"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Waiter</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>neosmart::neosmart_wfmo_t_</label>
+        <link refid="structneosmart_1_1neosmart__wfmo__t__"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="45" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="45" bodyend="48"/>
+    <listofallmembers>
+      <member refid="structneosmart_1_1neosmart__wfmo__info__t___1a7f11d43e64534d4f103e0f5b2dda9f00" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_info_t_</scope><name>Waiter</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__info__t___1a9b0bdbbc65b4875cf38af7c46619106e" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_info_t_</scope><name>WaitIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

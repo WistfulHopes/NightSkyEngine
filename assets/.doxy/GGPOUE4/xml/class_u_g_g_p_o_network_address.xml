@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_g_g_p_o_network_address" kind="class" language="C++" prot="public">
+    <compoundname>UGGPONetworkAddress</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UObject</basecompoundref>
+    <includes refid="ggponet_8h" local="no">ggponet.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_g_g_p_o_network_address_1ac0579489b58e0642b321877645204827" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UGGPONetworkAddress::bValidAddress</definition>
+        <argsstring></argsstring>
+        <name>bValidAddress</name>
+        <qualifiedname>UGGPONetworkAddress::bValidAddress</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="105" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_g_g_p_o_network_address_1a0fc428a3cab575e51a0871ef4fe4d663" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char UGGPONetworkAddress::IpAddress[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>IpAddress</name>
+        <qualifiedname>UGGPONetworkAddress::IpAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="106" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_g_g_p_o_network_address_1ac62fbf6abbf4412614b7fcc3b6d80936" prot="private" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 UGGPONetworkAddress::Port</definition>
+        <argsstring></argsstring>
+        <name>Port</name>
+        <qualifiedname>UGGPONetworkAddress::Port</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="107" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1aa8de6bebb70a5b1ff58bd7ab6ef255d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UGGPONetworkAddress::UGGPONetworkAddress</definition>
+        <argsstring>()</argsstring>
+        <name>UGGPONetworkAddress</name>
+        <qualifiedname>UGGPONetworkAddress::UGGPONetworkAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="110" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1ac90635a86367d3f4d82bbfbd12e168e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UGGPONetworkAddress::GetIpAddress</definition>
+        <argsstring>(char OutAddress[32]) const</argsstring>
+        <name>GetIpAddress</name>
+        <qualifiedname>UGGPONetworkAddress::GetIpAddress</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>OutAddress</declname>
+          <array>[32]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Outputs the ip address array to the passed pointer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="122" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1a833ad6b61b367117b94c33124aa16957" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UGGPONetworkAddress::IsValidAddress</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValidAddress</name>
+        <qualifiedname>UGGPONetworkAddress::IsValidAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether the address is valid. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="126" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1a311a2658078a7c8e93228273a25e358f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>FString</type>
+        <definition>FString UGGPONetworkAddress::GetIpAddressString</definition>
+        <argsstring>() const</argsstring>
+        <name>GetIpAddressString</name>
+        <qualifiedname>UGGPONetworkAddress::GetIpAddressString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the ip address as a string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="129" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1a4863dccf0987dea98825967a68ba2b9d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 UGGPONetworkAddress::GetPort</definition>
+        <argsstring>() const</argsstring>
+        <name>GetPort</name>
+        <qualifiedname>UGGPONetworkAddress::GetPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="132" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1a9695a0511b494dc57c1ff9eb40281b0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UGGPONetworkAddress::IsSameAddress</definition>
+        <argsstring>(const UGGPONetworkAddress *Other) const</argsstring>
+        <name>IsSameAddress</name>
+        <qualifiedname>UGGPONetworkAddress::IsSameAddress</qualifiedname>
+        <param>
+          <type>const <ref refid="class_u_g_g_p_o_network_address" kindref="compound">UGGPONetworkAddress</ref> *</type>
+          <declname>Other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="136" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="69" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1a8b003d2a131ed439f435c8a3f0c90823" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_u_g_g_p_o_network_address" kindref="compound">UGGPONetworkAddress</ref> *</type>
+        <definition>UGGPONetworkAddress * UGGPONetworkAddress::CreateNetworkAddress</definition>
+        <argsstring>(UObject *Outer, const FName Name, const FString Address)</argsstring>
+        <name>CreateNetworkAddress</name>
+        <qualifiedname>UGGPONetworkAddress::CreateNetworkAddress</qualifiedname>
+        <param>
+          <type>UObject *</type>
+          <declname>Outer</declname>
+        </param>
+        <param>
+          <type>const FName</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>const FString</type>
+          <declname>Address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a GGPO network address. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="116" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="15" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_g_g_p_o_network_address_1ad6c439abe87a8717b2b171cedf658017" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_u_g_g_p_o_network_address" kindref="compound">UGGPONetworkAddress</ref> *</type>
+        <definition>UGGPONetworkAddress * UGGPONetworkAddress::CreateLocalAddress</definition>
+        <argsstring>(UObject *Outer, const FName Name, int32 LocalPort)</argsstring>
+        <name>CreateLocalAddress</name>
+        <qualifiedname>UGGPONetworkAddress::CreateLocalAddress</qualifiedname>
+        <param>
+          <type>UObject *</type>
+          <declname>Outer</declname>
+        </param>
+        <param>
+          <type>const FName</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>LocalPort</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a GGPO local address. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="119" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.cpp" bodystart="39" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A network address object. Composed of an ip address and a port. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UGGPONetworkAddress</label>
+        <link refid="class_u_g_g_p_o_network_address"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UGGPONetworkAddress</label>
+        <link refid="class_u_g_g_p_o_network_address"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="99" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="100" bodyend="137"/>
+    <listofallmembers>
+      <member refid="class_u_g_g_p_o_network_address_1ac0579489b58e0642b321877645204827" prot="private" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>bValidAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1ad6c439abe87a8717b2b171cedf658017" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>CreateLocalAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a8b003d2a131ed439f435c8a3f0c90823" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>CreateNetworkAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1ac90635a86367d3f4d82bbfbd12e168e6" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>GetIpAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a311a2658078a7c8e93228273a25e358f" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>GetIpAddressString</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a4863dccf0987dea98825967a68ba2b9d" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>GetPort</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a0fc428a3cab575e51a0871ef4fe4d663" prot="private" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>IpAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a9695a0511b494dc57c1ff9eb40281b0e" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>IsSameAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1a833ad6b61b367117b94c33124aa16957" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>IsValidAddress</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1ac62fbf6abbf4412614b7fcc3b6d80936" prot="private" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>Port</name></member>
+      <member refid="class_u_g_g_p_o_network_address_1aa8de6bebb70a5b1ff58bd7ab6ef255d4" prot="public" virt="non-virtual"><scope>UGGPONetworkAddress</scope><name>UGGPONetworkAddress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

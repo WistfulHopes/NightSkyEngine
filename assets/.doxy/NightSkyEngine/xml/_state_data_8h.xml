@@ -1,0 +1,1127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_state_data_8h" kind="file" language="C++">
+    <compoundname>StateData.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">NativeGameplayTags.h</includes>
+    <includes local="yes">Engine/DataAsset.h</includes>
+    <includes refid="_state_8h" local="yes">NightSkyEngine/Battle/Script/State.h</includes>
+    <includes local="yes">StateData.generated.h</includes>
+    <includedby refid="_player_object_8h" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h</includedby>
+    <includedby refid="_state_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp</includedby>
+    <incdepgraph>
+      <node id="20">
+        <label>BattleObject.generated.h</label>
+      </node>
+      <node id="6">
+        <label>NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>NightSkyEngine/Battle/Misc/CollisionBox.h</label>
+        <link refid="_collision_box_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Globals.h</label>
+        <link refid="_globals_8h_source"/>
+      </node>
+      <node id="8">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>NightSkyEngine/Battle/Objects/BattleObject.h</label>
+        <link refid="_battle_object_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NightSkyEngine/Battle/Script/State.h</label>
+        <link refid="_state_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>NightSkyEngine/Data/CollisionData.h</label>
+        <link refid="_collision_data_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h</label>
+        <link refid="_state_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>CollisionBox.generated.h</label>
+      </node>
+      <node id="19">
+        <label>CollisionData.generated.h</label>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="4">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="13">
+        <label>GameFramework/Pawn.h</label>
+      </node>
+      <node id="7">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="3">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="18">
+        <label>PaperFlipbook.h</label>
+      </node>
+      <node id="10">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="21">
+        <label>State.generated.h</label>
+      </node>
+      <node id="22">
+        <label>StateData.generated.h</label>
+      </node>
+      <node id="9">
+        <label>UObject/Object.h</label>
+      </node>
+      <node id="12">
+        <label>fstream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h</label>
+        <link refid="_night_sky_game_state_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h</label>
+        <link refid="_player_object_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/BattleExtension.h</label>
+        <link refid="_battle_extension_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h</label>
+        <link refid="_battle_extension_data_8h_source"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h</label>
+        <link refid="_state_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTGameState.h</label>
+        <link refid="_night_sky_w_t_game_state_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_u_state_data" prot="public">UStateData</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_state_data_8h_1aff96ede89959081b11a4cb6080684814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Stand)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Stand</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a783a83063252be92b223873b1e288532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Crouch)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Crouch</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a466cf7eb710ab6cd53b599b383c87430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Jump_V)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Jump_V</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a5ad1a3bbaacc07a6055436072d415558" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_JumpLanding)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_JumpLanding</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a84af32a41df263f765ccc393e7e2a0df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_StandFlip)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_StandFlip</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a086838ed4de17b95343ae740d475820c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchFlip)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchFlip</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aa0ad1837d5d13fb7615ca69bb8c25427" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_JumpFlip)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_JumpFlip</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a07667b47f5178ddb4393cd75c9ae056b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_StandBlock)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_StandBlock</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1adbee5b182efb3bccb6f7ec13e22cee2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchBlock)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchBlock</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aa55d5e50e7a7ace3ea5c21e015904c80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_AirBlock)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_AirBlock</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="20" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="20" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a2dd89bba877460e2a099f1b5626a6cdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_StandBlockEnd)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_StandBlockEnd</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="21" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="21" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a3682afaa460206cfb71f836c042bb01f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchBlockEnd)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchBlockEnd</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="22" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="22" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a6a2813fd98955d9e520017b38cdc2ce2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_AirBlockEnd)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_AirBlockEnd</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="23" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="23" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a0d577b497b6508971cc2399d2ad6f64b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_GuardBreakStand)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_GuardBreakStand</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="24" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="24" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a4c23de6faff34da1e02a49e39afd5f68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_GuardBreakCrouch)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_GuardBreakCrouch</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="25" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="25" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a1c809a6408836c4cdb8219593435a89e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_GuardBreakAir)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_GuardBreakAir</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="26" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="26" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1af5d2b34d32410a102635394424c10842" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_0)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_0</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="27" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="27" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1abcfbd96374224f590f5b802c7eba4ecc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_1)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="28" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="28" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a51a0009fba487d2f76b179607b228937" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_2)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="29" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="29" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a264c617bfa536cd6043e70b990b2bbe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_3)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_3</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="30" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="30" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a1e2faee6c996bd9f88eaac54c6b0a145" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_4)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="31" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="31" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ad4314a786e507ad93c6e5afa9380a170" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Hitstun_5)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Hitstun_5</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="32" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="32" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a87f5280caccf5a49390f45d975c64c59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_0)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_0</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="33" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="33" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aa5244b5f939d44a442131a2ba3caa605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_1)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="34" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="34" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ac4107c691a741e583b83b59134ee7c1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_2)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_2</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="35" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="35" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a96a23950fc5803973907beded099f971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_3)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_3</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="36" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="36" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a42d38103c6b48d980dcad61364f80ba2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_4)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_4</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="37" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="37" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a24170ba2f75e33bfbadd4549d39c3f8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_CrouchHitstun_5)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_5</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="38" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="38" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ab516019e59d8ac4058a768cd1701e572" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Launch_B)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Launch_B</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="39" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="39" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a813dc1f930bc06a363d24a075c3e7184" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Launch_V)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Launch_V</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="40" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="40" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a2e725b5bd3475b2951b11f639bc40e8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Launch_F)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Launch_F</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="41" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="41" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aafce0bc49138b8f8b387a82a8a4c8e11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Blowback)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Blowback</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="42" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="42" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a9b2f3f2a53b51d1ee7ba73fe742db85f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Tailspin)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Tailspin</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="43" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="43" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aed0401580aaf8273c1c9e7b0f92cfc6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Crumple)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Crumple</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="44" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="44" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a41782508d23f954fe21c9c3b4844f54c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FloatingCrumpleBody)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FloatingCrumpleBody</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="45" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="45" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a11d7c26b110140bff11af68f78b87d25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FloatingCrumpleHead)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FloatingCrumpleHead</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="46" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="46" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a99570c3fcd0555401600af24ff923024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_WallBounce)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_WallBounce</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="47" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="47" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a8d8083b93af92c998bba788d132270fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceDownBounce)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceDownBounce</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="48" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="48" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a538e5240d810ac2f3e564a00c0517280" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceUpBounce)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceUpBounce</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="49" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="49" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a0d4bea31a41d74e4022b39e782a252ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceDownLoop)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceDownLoop</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="50" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="50" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ad721be505914138debf94c9da0d55892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceUpLoop)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceUpLoop</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="51" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a3705c55c94c446ffc0819c3b9a1de871" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceDownWakeUp)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceDownWakeUp</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="52" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="52" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aa93181ea2ff360cee5d9a3c92921c866" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_FaceUpWakeUp)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_FaceUpWakeUp</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="53" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="53" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a28ad36e7a94fd270f781f73091cb0e36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_Throw)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_Throw</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="54" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="54" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ad395d76a6382a1754f141aaf68a662a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_ThrowLock)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_ThrowLock</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="55" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="55" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a96aec97458c71748bbf7616898875e25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_TagIn)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_TagIn</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="56" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="56" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a4196a1fd82a21e60491610b8c1441874" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_RoundWin)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_RoundWin</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="57" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="57" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a59cb3a7f59e77be75ddadd8e4b13e458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_RoundLose)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_RoundLose</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="58" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="58" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ab40886af52aa6154573a105dd1b3e057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_Universal_MatchWin)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_Universal_MatchWin</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="59" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="59" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1ace26ecbd324e5ba0aa0f6efca9a2a58b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_BattleObject_KO_S)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_BattleObject_KO_S</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="61" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="61" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1a18ed564e21d6c26da6fe5e1f294583b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_BattleObject_KO_M)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_BattleObject_KO_M</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="62" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="62" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1aaa4b0d90578696667d79e02ddd61fc0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_BattleObject_KO_L)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_BattleObject_KO_L</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="63" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="63" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8h_1abd1aaee2d650cd8e2477c8494574ee77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(State_BattleObject_KO_Draw)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>State_BattleObject_KO_Draw</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="64" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" declline="64" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NativeGameplayTags.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Engine/DataAsset.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NightSkyEngine/Battle/Script/State.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;StateData.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Stand);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Crouch);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Jump_V);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_JumpLanding);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandFlip);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchFlip);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_JumpFlip);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandBlock);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchBlock);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_AirBlock);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_StandBlockEnd);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchBlockEnd);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_AirBlockEnd);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakStand);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakCrouch);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_GuardBreakAir);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_0);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_1);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_2);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_3);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_4);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Hitstun_5);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_1);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_2);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_3);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_4);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_CrouchHitstun_5);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_B);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_V);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Launch_F);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Blowback);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Tailspin);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Crumple);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FloatingCrumpleBody);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FloatingCrumpleHead);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_WallBounce);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceDownBounce);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceUpBounce);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceDownLoop);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceUpLoop);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceDownWakeUp);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_FaceUpWakeUp);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_Throw);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_ThrowLock);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_TagIn);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_RoundWin);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_RoundLose);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_Universal_MatchWin);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_S);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_M);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_L);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(State_BattleObject_KO_Draw);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">UCLASS()</highlight></codeline>
+<codeline lineno="70" refid="class_u_state_data" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_state_data" kindref="compound">UStateData</ref><sp/>:<sp/>public<sp/>UDataAsset</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere,<sp/>BlueprintReadOnly)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;TSubclassOf&lt;UState&gt;&gt;<sp/>StateArray;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_u_state" kindref="compound">UState</ref>*<sp/>GetByStateName(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FGameplayTag&amp;<sp/>StateName)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="79"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>StateClass<sp/>:<sp/>StateArray)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>State<sp/>=<sp/>GetDefault&lt;UState&gt;(StateClass);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(State-&gt;Name<sp/>==<sp/>StateName)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>State;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_material_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FMaterialStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_material_struct_1a40cd4282426c7e9fc0a4cb61cd7a5965" prot="public" static="no" mutable="no">
+        <type>FName</type>
+        <definition>FName FMaterialStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FMaterialStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" line="16" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_material_struct_1ab8ea8f982220444df1ff987fa2b5a626" prot="public" static="no" mutable="no">
+        <type>TArray&lt; UMaterialInterface * &gt;</type>
+        <definition>TArray&lt;UMaterialInterface*&gt; FMaterialStruct::Material</definition>
+        <argsstring></argsstring>
+        <name>Material</name>
+        <qualifiedname>FMaterialStruct::Material</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" line="18" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_material_struct_1a659930f1d18c617cd9cca3c6148d8b13" prot="public" static="no" mutable="no">
+        <type>UMaterialInterface *</type>
+        <definition>UMaterialInterface* FMaterialStruct::OverlayMaterial</definition>
+        <argsstring></argsstring>
+        <name>OverlayMaterial</name>
+        <qualifiedname>FMaterialStruct::OverlayMaterial</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" line="20" column="20" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" line="11" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/MaterialData.h" bodystart="12" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_f_material_struct_1ab8ea8f982220444df1ff987fa2b5a626" prot="public" virt="non-virtual"><scope>FMaterialStruct</scope><name>Material</name></member>
+      <member refid="struct_f_material_struct_1a40cd4282426c7e9fc0a4cb61cd7a5965" prot="public" virt="non-virtual"><scope>FMaterialStruct</scope><name>Name</name></member>
+      <member refid="struct_f_material_struct_1a659930f1d18c617cd9cca3c6148d8b13" prot="public" virt="non-virtual"><scope>FMaterialStruct</scope><name>OverlayMaterial</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

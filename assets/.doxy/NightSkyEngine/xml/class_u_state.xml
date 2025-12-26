@@ -1,0 +1,644 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_state" kind="class" language="C++" prot="public">
+    <compoundname>UState</compoundname>
+    <basecompoundref refid="class_u_serializable_obj" prot="public" virt="non-virtual">USerializableObj</basecompoundref>
+    <derivedcompoundref refid="class_u_state_alias" prot="public" virt="non-virtual">UStateAlias</derivedcompoundref>
+    <derivedcompoundref refid="class_u_subroutine_state" prot="public" virt="non-virtual">USubroutineState</derivedcompoundref>
+    <includes refid="_state_8h" local="no">State.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_state_1a093e5d350579bd4e197dc7c56d5696df" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+        <definition>ABattleObject* UState::Parent</definition>
+        <argsstring></argsstring>
+        <name>Parent</name>
+        <qualifiedname>UState::Parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The object that owns this state instance. For player states, this will always be the owning player. For object states, this value will change when a new object is activated and takes over this state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="343" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1ae39d113431f48f276c9ae8b2d265936b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UState::CelIndex</definition>
+        <argsstring></argsstring>
+        <name>CelIndex</name>
+        <qualifiedname>UState::CelIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current cel index. Used in Blueprint macros to determine which code to execute. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="349" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a6339bab76a04bcf21fcb5145713edaf2" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag UState::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>UState::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of this state. For player states, this is used to jump to states directly. For object states, this is used to create an object by name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="356" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a45b67976ea266c62e11529c4a40f0776" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag UState::ShareChainName</definition>
+        <argsstring></argsstring>
+        <name>ShareChainName</name>
+        <qualifiedname>UState::ShareChainName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The state name to share a max chain with. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="361" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1abb97f94a6017ae48cad92ed0a5af6e77" prot="public" static="no" mutable="no">
+        <type>EEntryStance</type>
+        <definition>EEntryStance UState::EntryStance</definition>
+        <argsstring></argsstring>
+        <name>EntryStance</name>
+        <qualifiedname>UState::EntryStance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The required stance to enter this state. Only used on player states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="367" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1af93597d10a2cd08e693351148b29199f" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_input_condition_list" kindref="compound">FInputConditionList</ref> &gt;</type>
+        <definition>TArray&lt;FInputConditionList&gt; UState::InputConditionLists</definition>
+        <argsstring></argsstring>
+        <name>InputConditionLists</name>
+        <qualifiedname>UState::InputConditionLists</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An array of input condition lists. Only the success of one input condition list is required to enter the state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="373" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="373" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" prot="public" static="no" mutable="no">
+        <type>EStateType</type>
+        <definition>EStateType UState::StateType</definition>
+        <argsstring></argsstring>
+        <name>StateType</name>
+        <qualifiedname>UState::StateType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of this state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="378" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a7fddd93ae17dad2bd9d1c79b69342538" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag UState::CustomStateType</definition>
+        <argsstring></argsstring>
+        <name>CustomStateType</name>
+        <qualifiedname>UState::CustomStateType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The custom state type. Only used if the base state type is set to Custom. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="383" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1ab71433b42b19dca286703c48ee0b4965" prot="public" static="no" mutable="no">
+        <type>TArray&lt; EStateCondition &gt;</type>
+        <definition>TArray&lt;EStateCondition&gt; UState::StateConditions</definition>
+        <argsstring></argsstring>
+        <name>StateConditions</name>
+        <qualifiedname>UState::StateConditions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An array of state conditions. All state conditions must be successful to enter this state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="389" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a9f67ab39d552dd42b7395f601705e08d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UState::IsFollowupState</definition>
+        <argsstring></argsstring>
+        <name>IsFollowupState</name>
+        <qualifiedname>UState::IsFollowupState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A value that determines if this state can be entered directly, or must be canceled into. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="394" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1ada3ef7729b9e519b988d8f9f3656ad3a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UState::ObjectID</definition>
+        <argsstring></argsstring>
+        <name>ObjectID</name>
+        <qualifiedname>UState::ObjectID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A value that&apos;s set to match with spawned objects. If an owned object with this ID is active, this state can&apos;t be entered. For use with states that you do not wish to enter while the projectile is active. Only used on player states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="402" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1ae66e0966dc5b2d0c8072e1083257ccde" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UState::MaxChain</definition>
+        <argsstring></argsstring>
+        <name>MaxChain</name>
+        <qualifiedname>UState::MaxChain</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum number of times this state can be used in a chain. For use with moves used in a combo that you wish to prevent cancelling into multiple times in sequence. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="408" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a5fee7f74e7c5c896b845ee0e56ad1fb1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UState::bEnableReverseBeat</definition>
+        <argsstring></argsstring>
+        <name>bEnableReverseBeat</name>
+        <qualifiedname>UState::bEnableReverseBeat</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum number of times this state can be used in a reverse beat chain. For use with normal attacks that you don&apos;t want to use in reverse beat. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="414" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1ae6e0455704bedfa61eca355be1f31827" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UState::MaxInstances</definition>
+        <argsstring></argsstring>
+        <name>MaxInstances</name>
+        <qualifiedname>UState::MaxInstances</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determines how many of this state will be spawned. Only used on object states. Player states will ignore this value and always spawn one instance. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="420" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a8c70e772a68d407141793de8b7adf6d8" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_state_c_p_u_data" kindref="compound">FStateCPUData</ref></type>
+        <definition>FStateCPUData UState::CPUData</definition>
+        <argsstring></argsstring>
+        <name>CPUData</name>
+        <qualifiedname>UState::CPUData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data for the CPU to determine when to enter the state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="425" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a9fc159e6ed74529c2668fdce17963369" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UState::bHumanUsable</definition>
+        <argsstring></argsstring>
+        <name>bHumanUsable</name>
+        <qualifiedname>UState::bHumanUsable</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If a human player should be able to enter the state. Not used with object states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="430" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_state_1a36da4dc58b4e48435b3062a19e51f25d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UState::bCPUUsable</definition>
+        <argsstring></argsstring>
+        <name>bCPUUsable</name>
+        <qualifiedname>UState::bCPUUsable</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If a CPU player should be able to enter the state. Not used with object states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="435" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_state_1a459d7742ebdabba6a14b2f1c8582f0a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UState::Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <qualifiedname>UState::Init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="438" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_state_1afa7baad8f264074d2e028ee552518a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UState::CallExec</definition>
+        <argsstring>()</argsstring>
+        <name>CallExec</name>
+        <qualifiedname>UState::CallExec</qualifiedname>
+        <reimplementedby refid="class_u_state_alias_1a599db85e520cc235aab12c52be99e7a9">CallExec</reimplementedby>
+        <reimplementedby refid="class_u_subroutine_state_1a50cce3ae4b98962ee8436266df28d03e">CallExec</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrapper for Exec function that sets CelIndex to zero. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="443" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.cpp" bodystart="12" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_state_1a5d455612d21898d7ada7a7b7d7154c66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UState::Exec</definition>
+        <argsstring>()</argsstring>
+        <name>Exec</name>
+        <qualifiedname>UState::Exec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called every frame to update the state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="449" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_state_1a9202b34812c519acecdbb5236d00bde6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UState::CanEnterState</definition>
+        <argsstring>()</argsstring>
+        <name>CanEnterState</name>
+        <qualifiedname>UState::CanEnterState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called to check if the state may be entered. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="455" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A character state that determines behavior. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides functionality for the current character behavior, such as frame data, animations, and more. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>UObject</label>
+      </node>
+      <node id="2">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UStateAlias</label>
+        <link refid="class_u_state_alias"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>USubroutineState</label>
+        <link refid="class_u_subroutine_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>APawn</label>
+      </node>
+      <node id="15">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="10">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="7">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="9">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="8">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="13">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="17">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="16">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="29">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="18">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="11">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="27">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>UDataAsset</label>
+      </node>
+      <node id="24">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UObject</label>
+      </node>
+      <node id="25">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="332" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="333" bodyend="456"/>
+    <listofallmembers>
+      <member refid="class_u_state_1a36da4dc58b4e48435b3062a19e51f25d" prot="public" virt="non-virtual"><scope>UState</scope><name>bCPUUsable</name></member>
+      <member refid="class_u_state_1a5fee7f74e7c5c896b845ee0e56ad1fb1" prot="public" virt="non-virtual"><scope>UState</scope><name>bEnableReverseBeat</name></member>
+      <member refid="class_u_state_1a9fc159e6ed74529c2668fdce17963369" prot="public" virt="non-virtual"><scope>UState</scope><name>bHumanUsable</name></member>
+      <member refid="class_u_state_1afa7baad8f264074d2e028ee552518a38" prot="public" virt="virtual"><scope>UState</scope><name>CallExec</name></member>
+      <member refid="class_u_state_1a9202b34812c519acecdbb5236d00bde6" prot="public" virt="non-virtual"><scope>UState</scope><name>CanEnterState</name></member>
+      <member refid="class_u_state_1ae39d113431f48f276c9ae8b2d265936b" prot="public" virt="non-virtual"><scope>UState</scope><name>CelIndex</name></member>
+      <member refid="class_u_state_1a8c70e772a68d407141793de8b7adf6d8" prot="public" virt="non-virtual"><scope>UState</scope><name>CPUData</name></member>
+      <member refid="class_u_state_1a7fddd93ae17dad2bd9d1c79b69342538" prot="public" virt="non-virtual"><scope>UState</scope><name>CustomStateType</name></member>
+      <member refid="class_u_state_1abb97f94a6017ae48cad92ed0a5af6e77" prot="public" virt="non-virtual"><scope>UState</scope><name>EntryStance</name></member>
+      <member refid="class_u_state_1a5d455612d21898d7ada7a7b7d7154c66" prot="public" virt="non-virtual"><scope>UState</scope><name>Exec</name></member>
+      <member refid="class_u_state_1a459d7742ebdabba6a14b2f1c8582f0a2" prot="public" virt="non-virtual"><scope>UState</scope><name>Init</name></member>
+      <member refid="class_u_state_1af93597d10a2cd08e693351148b29199f" prot="public" virt="non-virtual"><scope>UState</scope><name>InputConditionLists</name></member>
+      <member refid="class_u_state_1a9f67ab39d552dd42b7395f601705e08d" prot="public" virt="non-virtual"><scope>UState</scope><name>IsFollowupState</name></member>
+      <member refid="class_u_serializable_obj_1aec48c81aec9146b9171d1152e8f92dcb" prot="public" virt="non-virtual"><scope>UState</scope><name>LoadForRollback</name></member>
+      <member refid="class_u_state_1ae66e0966dc5b2d0c8072e1083257ccde" prot="public" virt="non-virtual"><scope>UState</scope><name>MaxChain</name></member>
+      <member refid="class_u_state_1ae6e0455704bedfa61eca355be1f31827" prot="public" virt="non-virtual"><scope>UState</scope><name>MaxInstances</name></member>
+      <member refid="class_u_state_1a6339bab76a04bcf21fcb5145713edaf2" prot="public" virt="non-virtual"><scope>UState</scope><name>Name</name></member>
+      <member refid="class_u_state_1ada3ef7729b9e519b988d8f9f3656ad3a" prot="public" virt="non-virtual"><scope>UState</scope><name>ObjectID</name></member>
+      <member refid="class_u_state_1a093e5d350579bd4e197dc7c56d5696df" prot="public" virt="non-virtual"><scope>UState</scope><name>Parent</name></member>
+      <member refid="class_u_serializable_obj_1a77748ccb93ac7d070d29ceb6641adef5" prot="public" virt="non-virtual"><scope>UState</scope><name>ResetToCDO</name></member>
+      <member refid="class_u_serializable_obj_1a3f268293c2e75f051793048237a2cfd0" prot="public" virt="non-virtual"><scope>UState</scope><name>SaveForRollback</name></member>
+      <member refid="class_u_state_1a45b67976ea266c62e11529c4a40f0776" prot="public" virt="non-virtual"><scope>UState</scope><name>ShareChainName</name></member>
+      <member refid="class_u_state_1ab71433b42b19dca286703c48ee0b4965" prot="public" virt="non-virtual"><scope>UState</scope><name>StateConditions</name></member>
+      <member refid="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" prot="public" virt="non-virtual"><scope>UState</scope><name>StateType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

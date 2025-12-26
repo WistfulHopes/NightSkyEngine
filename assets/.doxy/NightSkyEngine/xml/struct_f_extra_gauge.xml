@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_extra_gauge" kind="struct" language="C++" prot="public">
+    <compoundname>FExtraGauge</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_extra_gauge_1afa5d3f97fc174b87bf885d98443ac5a2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FExtraGauge::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <qualifiedname>FExtraGauge::Value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="41" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_extra_gauge_1a6332d114a0aa708619318ee21f9e8105" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FExtraGauge::InitialValue</definition>
+        <argsstring></argsstring>
+        <name>InitialValue</name>
+        <qualifiedname>FExtraGauge::InitialValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="43" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_extra_gauge_1a94d10c40b49f979e2968fcf1471aca82" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FExtraGauge::MaxValue</definition>
+        <argsstring></argsstring>
+        <name>MaxValue</name>
+        <qualifiedname>FExtraGauge::MaxValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="45" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_extra_gauge_1acdc30ebca3dd871bae671da7757018d3" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FExtraGauge::Sections</definition>
+        <argsstring></argsstring>
+        <name>Sections</name>
+        <qualifiedname>FExtraGauge::Sections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="47" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="36" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="37" bodyend="48"/>
+    <listofallmembers>
+      <member refid="struct_f_extra_gauge_1a6332d114a0aa708619318ee21f9e8105" prot="public" virt="non-virtual"><scope>FExtraGauge</scope><name>InitialValue</name></member>
+      <member refid="struct_f_extra_gauge_1a94d10c40b49f979e2968fcf1471aca82" prot="public" virt="non-virtual"><scope>FExtraGauge</scope><name>MaxValue</name></member>
+      <member refid="struct_f_extra_gauge_1acdc30ebca3dd871bae671da7757018d3" prot="public" virt="non-virtual"><scope>FExtraGauge</scope><name>Sections</name></member>
+      <member refid="struct_f_extra_gauge_1afa5d3f97fc174b87bf885d98443ac5a2" prot="public" virt="non-virtual"><scope>FExtraGauge</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

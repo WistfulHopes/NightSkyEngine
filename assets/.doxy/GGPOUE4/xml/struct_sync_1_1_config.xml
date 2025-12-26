@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_sync_1_1_config" kind="struct" language="C++" prot="public">
+    <compoundname>Sync::Config</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sync_1_1_config_1a80883b0dfec8d7246c897db38623468a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref></type>
+        <definition>GGPOSessionCallbacks Sync::Config::callbacks</definition>
+        <argsstring></argsstring>
+        <name>callbacks</name>
+        <qualifiedname>Sync::Config::callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="25" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_config_1ae4af24e1e16bb15c43272da6cb9889cc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::Config::num_prediction_frames</definition>
+        <argsstring></argsstring>
+        <name>num_prediction_frames</name>
+        <qualifiedname>Sync::Config::num_prediction_frames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="26" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_config_1a15ac3c7e25554d1539ff52148cf06b92" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::Config::num_players</definition>
+        <argsstring></argsstring>
+        <name>num_players</name>
+        <qualifiedname>Sync::Config::num_players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="27" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_config_1aaee3934437c661aabed66f2268e44dfe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::Config::input_size</definition>
+        <argsstring></argsstring>
+        <name>input_size</name>
+        <qualifiedname>Sync::Config::input_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="28" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GGPOSessionCallbacks</label>
+        <link refid="struct_g_g_p_o_session_callbacks"/>
+      </node>
+      <node id="1">
+        <label>Sync::Config</label>
+        <link refid="struct_sync_1_1_config"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="24" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="24" bodyend="29"/>
+    <listofallmembers>
+      <member refid="struct_sync_1_1_config_1a80883b0dfec8d7246c897db38623468a" prot="public" virt="non-virtual"><scope>Sync::Config</scope><name>callbacks</name></member>
+      <member refid="struct_sync_1_1_config_1aaee3934437c661aabed66f2268e44dfe" prot="public" virt="non-virtual"><scope>Sync::Config</scope><name>input_size</name></member>
+      <member refid="struct_sync_1_1_config_1a15ac3c7e25554d1539ff52148cf06b92" prot="public" virt="non-virtual"><scope>Sync::Config</scope><name>num_players</name></member>
+      <member refid="struct_sync_1_1_config_1ae4af24e1e16bb15c43272da6cb9889cc" prot="public" virt="non-virtual"><scope>Sync::Config</scope><name>num_prediction_frames</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

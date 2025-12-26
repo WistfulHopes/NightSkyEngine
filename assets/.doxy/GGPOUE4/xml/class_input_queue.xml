@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_input_queue" kind="class" language="C++" prot="public">
+    <compoundname>InputQueue</compoundname>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_input_queue_1a78e10ae9ba598b275091ad5a9937a8f8" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <qualifiedname>InputQueue::_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="40" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1aac3cc879fab0a83b90ed88741c3da597" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_head</definition>
+        <argsstring></argsstring>
+        <name>_head</name>
+        <qualifiedname>InputQueue::_head</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="41" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1ad9b7abd6bb45f4b93796d0bd2e870d68" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_tail</definition>
+        <argsstring></argsstring>
+        <name>_tail</name>
+        <qualifiedname>InputQueue::_tail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="42" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1aeaaf7cb2743aa9cb9fb5623dd2f4c4d1" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_length</definition>
+        <argsstring></argsstring>
+        <name>_length</name>
+        <qualifiedname>InputQueue::_length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="43" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1af407535c197c98f3ce68ed021f115d24" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool InputQueue::_first_frame</definition>
+        <argsstring></argsstring>
+        <name>_first_frame</name>
+        <qualifiedname>InputQueue::_first_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="44" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1aeca81c41d099381e88b5e53187f37da8" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_last_user_added_frame</definition>
+        <argsstring></argsstring>
+        <name>_last_user_added_frame</name>
+        <qualifiedname>InputQueue::_last_user_added_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="46" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1a5a62598a9d656ed5be8c837d1fffccf4" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_last_added_frame</definition>
+        <argsstring></argsstring>
+        <name>_last_added_frame</name>
+        <qualifiedname>InputQueue::_last_added_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="47" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1ace9c6f4a852ec323638addfabed0065c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_first_incorrect_frame</definition>
+        <argsstring></argsstring>
+        <name>_first_incorrect_frame</name>
+        <qualifiedname>InputQueue::_first_incorrect_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="48" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1aec25a89a4de3f49e4aa0230b91316420" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_last_frame_requested</definition>
+        <argsstring></argsstring>
+        <name>_last_frame_requested</name>
+        <qualifiedname>InputQueue::_last_frame_requested</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="49" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1a2bf206243aa5ed595c0e474f8ff2e148" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InputQueue::_frame_delay</definition>
+        <argsstring></argsstring>
+        <name>_frame_delay</name>
+        <qualifiedname>InputQueue::_frame_delay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="51" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1a8206845b7f7c659d140ad1327c2b11aa" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput InputQueue::_inputs[INPUT_QUEUE_LENGTH]</definition>
+        <argsstring>[INPUT_QUEUE_LENGTH]</argsstring>
+        <name>_inputs</name>
+        <qualifiedname>InputQueue::_inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="53" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_queue_1a11cf5a0be06432c18accb5d77972d139" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput InputQueue::_prediction</definition>
+        <argsstring></argsstring>
+        <name>_prediction</name>
+        <qualifiedname>InputQueue::_prediction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="54" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_input_queue_1a8a1266e61889fbb5720532affc6a0ad5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InputQueue::InputQueue</definition>
+        <argsstring>(int input_size=DEFAULT_INPUT_SIZE)</argsstring>
+        <name>InputQueue</name>
+        <qualifiedname>InputQueue::InputQueue</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+          <defval>DEFAULT_INPUT_SIZE</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="18" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a96b7b70ff860828b5efb01ff77da2a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InputQueue::~InputQueue</definition>
+        <argsstring>()</argsstring>
+        <name>~InputQueue</name>
+        <qualifiedname>InputQueue::~InputQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="19" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a325851898a73d1226c35b4cb68a32676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::Init</definition>
+        <argsstring>(int id, int input_size)</argsstring>
+        <name>Init</name>
+        <qualifiedname>InputQueue::Init</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="22" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="23" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1ab1a43e113e5da8dd2fe68d7f1c444329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int InputQueue::GetLastConfirmedFrame</definition>
+        <argsstring>()</argsstring>
+        <name>GetLastConfirmedFrame</name>
+        <qualifiedname>InputQueue::GetLastConfirmedFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="23" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1abc8e179cc7c3b3fa2fdee5b86c4c2d93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int InputQueue::GetFirstIncorrectFrame</definition>
+        <argsstring>()</argsstring>
+        <name>GetFirstIncorrectFrame</name>
+        <qualifiedname>InputQueue::GetFirstIncorrectFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="24" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a841e1bd5979b937ac5081772ed1ea406" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int InputQueue::GetLength</definition>
+        <argsstring>()</argsstring>
+        <name>GetLength</name>
+        <qualifiedname>InputQueue::GetLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="25" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a7b425a95faf46a088a665c96ca075128" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::SetFrameDelay</definition>
+        <argsstring>(int delay)</argsstring>
+        <name>SetFrameDelay</name>
+        <qualifiedname>InputQueue::SetFrameDelay</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="27" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a14e178a095c8500f144096195b4cf9d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::ResetPrediction</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>ResetPrediction</name>
+        <qualifiedname>InputQueue::ResetPrediction</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="28" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="89" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1af4f9579e35165f9d84692856deb4726a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::DiscardConfirmedFrames</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>DiscardConfirmedFrames</name>
+        <qualifiedname>InputQueue::DiscardConfirmedFrames</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="29" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="62" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a682dfe8eb6d93f5da8acd53fda0806ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool InputQueue::GetConfirmedInput</definition>
+        <argsstring>(int frame, GameInput *input)</argsstring>
+        <name>GetConfirmedInput</name>
+        <qualifiedname>InputQueue::GetConfirmedInput</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="30" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1af31f79bbed89d70abcb10d40202551cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool InputQueue::GetInput</definition>
+        <argsstring>(int frame, GameInput *input)</argsstring>
+        <name>GetInput</name>
+        <qualifiedname>InputQueue::GetInput</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="31" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="117" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a9cfffc951c0bf3ee259b90fc3ac1e94c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::AddInput</definition>
+        <argsstring>(GameInput &amp;input)</argsstring>
+        <name>AddInput</name>
+        <qualifiedname>InputQueue::AddInput</qualifiedname>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="32" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="185" bodyend="214"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_input_queue_1ada1d5dd6560d11137e42124051510e6c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int InputQueue::AdvanceQueueHead</definition>
+        <argsstring>(int frame)</argsstring>
+        <name>AdvanceQueueHead</name>
+        <qualifiedname>InputQueue::AdvanceQueueHead</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="35" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="269" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a6c296a4071e39b04d1f9c7ac77afd531" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::AddDelayedInputToQueue</definition>
+        <argsstring>(GameInput &amp;input, int i)</argsstring>
+        <name>AddDelayedInputToQueue</name>
+        <qualifiedname>InputQueue::AddDelayedInputToQueue</qualifiedname>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="36" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="217" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_queue_1a5cd114f3f1258ee7e49f4b7dddc0c875" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputQueue::Log</definition>
+        <argsstring>(const char *fmt,...)</argsstring>
+        <name>Log</name>
+        <qualifiedname>InputQueue::Log</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="37" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.cpp" bodystart="308" bodyend="320"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="1">
+        <label>InputQueue</label>
+        <link refid="class_input_queue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_inputs</edgelabel>
+          <edgelabel>_prediction</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/input_queue.h" bodystart="16" bodyend="55"/>
+    <listofallmembers>
+      <member refid="class_input_queue_1af407535c197c98f3ce68ed021f115d24" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_first_frame</name></member>
+      <member refid="class_input_queue_1ace9c6f4a852ec323638addfabed0065c" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_first_incorrect_frame</name></member>
+      <member refid="class_input_queue_1a2bf206243aa5ed595c0e474f8ff2e148" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_frame_delay</name></member>
+      <member refid="class_input_queue_1aac3cc879fab0a83b90ed88741c3da597" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_head</name></member>
+      <member refid="class_input_queue_1a78e10ae9ba598b275091ad5a9937a8f8" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_id</name></member>
+      <member refid="class_input_queue_1a8206845b7f7c659d140ad1327c2b11aa" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_inputs</name></member>
+      <member refid="class_input_queue_1a5a62598a9d656ed5be8c837d1fffccf4" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_last_added_frame</name></member>
+      <member refid="class_input_queue_1aec25a89a4de3f49e4aa0230b91316420" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_last_frame_requested</name></member>
+      <member refid="class_input_queue_1aeca81c41d099381e88b5e53187f37da8" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_last_user_added_frame</name></member>
+      <member refid="class_input_queue_1aeaaf7cb2743aa9cb9fb5623dd2f4c4d1" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_length</name></member>
+      <member refid="class_input_queue_1a11cf5a0be06432c18accb5d77972d139" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_prediction</name></member>
+      <member refid="class_input_queue_1ad9b7abd6bb45f4b93796d0bd2e870d68" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>_tail</name></member>
+      <member refid="class_input_queue_1a6c296a4071e39b04d1f9c7ac77afd531" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>AddDelayedInputToQueue</name></member>
+      <member refid="class_input_queue_1a9cfffc951c0bf3ee259b90fc3ac1e94c" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>AddInput</name></member>
+      <member refid="class_input_queue_1ada1d5dd6560d11137e42124051510e6c" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>AdvanceQueueHead</name></member>
+      <member refid="class_input_queue_1af4f9579e35165f9d84692856deb4726a" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>DiscardConfirmedFrames</name></member>
+      <member refid="class_input_queue_1a682dfe8eb6d93f5da8acd53fda0806ae" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>GetConfirmedInput</name></member>
+      <member refid="class_input_queue_1abc8e179cc7c3b3fa2fdee5b86c4c2d93" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>GetFirstIncorrectFrame</name></member>
+      <member refid="class_input_queue_1af31f79bbed89d70abcb10d40202551cd" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>GetInput</name></member>
+      <member refid="class_input_queue_1ab1a43e113e5da8dd2fe68d7f1c444329" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>GetLastConfirmedFrame</name></member>
+      <member refid="class_input_queue_1a841e1bd5979b937ac5081772ed1ea406" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>GetLength</name></member>
+      <member refid="class_input_queue_1a325851898a73d1226c35b4cb68a32676" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>Init</name></member>
+      <member refid="class_input_queue_1a8a1266e61889fbb5720532affc6a0ad5" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>InputQueue</name></member>
+      <member refid="class_input_queue_1a5cd114f3f1258ee7e49f4b7dddc0c875" prot="protected" virt="non-virtual"><scope>InputQueue</scope><name>Log</name></member>
+      <member refid="class_input_queue_1a14e178a095c8500f144096195b4cf9d7" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>ResetPrediction</name></member>
+      <member refid="class_input_queue_1a7b425a95faf46a088a665c96ca075128" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>SetFrameDelay</name></member>
+      <member refid="class_input_queue_1a96b7b70ff860828b5efb01ff77da2a90" prot="public" virt="non-virtual"><scope>InputQueue</scope><name>~InputQueue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

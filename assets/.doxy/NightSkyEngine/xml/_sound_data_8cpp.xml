@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_sound_data_8cpp" kind="file" language="C++">
+    <compoundname>SoundData.cpp</compoundname>
+    <includes refid="_sound_data_8h" local="yes">SoundData.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp</label>
+        <link refid="_sound_data_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SoundData.h</label>
+        <link refid="_sound_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="5">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="4">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="6">
+        <label>SoundData.generated.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_sound_data_8cpp_1a6586a5ea070c92b246e41fe95126deeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Punch_S, &quot;Sound.Hit.Punch.S&quot;, &quot;Punch Hit (Small) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Punch_S</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Punch.S&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Punch Hit (Small) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="5" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="5" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1af8bb2f2e5d062a12a5976e984af0a672" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Punch_M, &quot;Sound.Hit.Punch.M&quot;, &quot;Punch Hit (Medium) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Punch_M</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Punch.M&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Punch Hit (Medium) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="6" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="6" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a9e86aae4f67a21c536c02f01fc8e0b26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Punch_L, &quot;Sound.Hit.Punch.L&quot;, &quot;Punch Hit (Large) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Punch_L</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Punch.L&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Punch Hit (Large) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="7" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="7" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a0548483d1efb44e7923a090a9c6451d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Punch_SP, &quot;Sound.Hit.Punch.SP&quot;, &quot;Punch Hit (Special) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Punch_SP</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Punch.SP&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Punch Hit (Special) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="8" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="8" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1ae9eaf4fc445e5efe66d548c55a5f52fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Kick_S, &quot;Sound.Hit.Kick.S&quot;, &quot;Kick Hit (Small) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Kick_S</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Kick.S&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Kick Hit (Small) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="9" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="9" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a962cb2d6b79025518a007cabe5c55555" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Kick_M, &quot;Sound.Hit.Kick.M&quot;, &quot;Kick Hit (Medium) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Kick_M</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Kick.M&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Kick Hit (Medium) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="10" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="10" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1ac34451e6532826531b3a5452b3dc4a1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Kick_L, &quot;Sound.Hit.Kick.L&quot;, &quot;Kick Hit (Large) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Kick_L</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Kick.L&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Kick Hit (Large) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a830f1122542b1ca32b0b7846d614bab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Kick_SP, &quot;Sound.Hit.Kick.SP&quot;, &quot;Kick Hit (Special) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Kick_SP</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Kick.SP&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Kick Hit (Special) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1afe1bbcd4704de094112921888de775db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Slash_S, &quot;Sound.Hit.Slash.S&quot;, &quot;Slash Hit (Small) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Slash_S</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Slash.S&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Slash Hit (Small) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1af1f622a7374ff315da9bf64d5fb7c8e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Slash_M, &quot;Sound.Hit.Slash.M&quot;, &quot;Slash Hit (Medium) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Slash_M</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Slash.M&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Slash Hit (Medium) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a17f225d3ccd279cddb3937188733e4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Slash_L, &quot;Sound.Hit.Slash.L&quot;, &quot;Slash Hit (Large) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Slash_L</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Slash.L&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Slash Hit (Large) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a1b867fd1641aea303a4d3af1af10c3f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Slash_SP, &quot;Sound.Hit.Slash.SP&quot;, &quot;Slash Hit (Special) Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Slash_SP</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Slash.SP&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Slash Hit (Special) Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1ad8f305abd6b99917d0c57772d0d9cf86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Hit_Clash, &quot;Sound.Hit.Clash&quot;, &quot;Hit Clash Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Hit_Clash</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Hit.Clash&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hit Clash Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a5525d73a4489a6dded6036ce0eb0498a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Land, &quot;Sound.Land&quot;, &quot;Landing Sound&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Land</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Land&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Landing Sound&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8cpp_1a0621290b3ed60dabfdf13e34322e0732" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Sound_Landing_Crash, &quot;Sound.Landing.Crash&quot;, &quot;Landing Sound (Crash)&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Sound_Landing_Crash</type>
+        </param>
+        <param>
+          <type>&quot;Sound.Landing.Crash&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Landing Sound (Crash)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp" declline="19" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;SoundData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>UE_INLINE_GENERATED_CPP_BY_NAME(SoundData)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_S,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Punch.S&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Punch<sp/>Hit<sp/>(Small)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_M,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Punch.M&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Punch<sp/>Hit<sp/>(Medium)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_L,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Punch.L&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Punch<sp/>Hit<sp/>(Large)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Punch_SP,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Punch.SP&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Punch<sp/>Hit<sp/>(Special)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Kick_S,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Kick.S&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Kick<sp/>Hit<sp/>(Small)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Kick_M,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Kick.M&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Kick<sp/>Hit<sp/>(Medium)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Kick_L,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Kick.L&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Kick<sp/>Hit<sp/>(Large)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Kick_SP,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Kick.SP&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Kick<sp/>Hit<sp/>(Special)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_S,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Slash.S&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Slash<sp/>Hit<sp/>(Small)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_M,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Slash.M&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Slash<sp/>Hit<sp/>(Medium)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_L,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Slash.L&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Slash<sp/>Hit<sp/>(Large)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_SP,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Slash.SP&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Slash<sp/>Hit<sp/>(Special)<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Clash,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Hit.Clash&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hit<sp/>Clash<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Land,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Land&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Landing<sp/>Sound&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Landing_Crash,<sp/></highlight><highlight class="stringliteral">&quot;Sound.Landing.Crash&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Landing<sp/>Sound<sp/>(Crash)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp"/>
+  </compounddef>
+</doxygen>

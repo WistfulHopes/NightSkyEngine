@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_sound_data_8h" kind="file" language="C++">
+    <compoundname>SoundData.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">NativeGameplayTags.h</includes>
+    <includes local="yes">Engine/DataAsset.h</includes>
+    <includes local="yes">SoundData.generated.h</includes>
+    <includedby refid="_player_object_8h" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h</includedby>
+    <includedby refid="_sound_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h</label>
+        <link refid="_sound_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="4">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="3">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="5">
+        <label>SoundData.generated.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h</label>
+        <link refid="_night_sky_game_state_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h</label>
+        <link refid="_player_object_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/BattleExtension.h</label>
+        <link refid="_battle_extension_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h</label>
+        <link refid="_battle_extension_data_8h_source"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h</label>
+        <link refid="_sound_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/NightSkyWTGameState.h</label>
+        <link refid="_night_sky_w_t_game_state_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_f_sound_struct" prot="public">FSoundStruct</innerclass>
+    <innerclass refid="class_u_sound_data" prot="public">USoundData</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_sound_data_8h_1a4bed0124d1d4f14e1ce10e5178cc19e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Punch_S)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Punch_S</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="10" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="10" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a2f8d8f31e5e2e47d8935d9b39afc32aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Punch_M)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Punch_M</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a7f6d898d21ad56f8a1be3108533ee129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Punch_L)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Punch_L</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a7b1ab2f92fd40767c2895f608c1a3488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Punch_SP)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Punch_SP</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1ae7902cc73c33316833941672c9bf4665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Kick_S)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Kick_S</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a9e305fc23f0b773b1a08a3822170822e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Kick_M)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Kick_M</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a3d8976d261b6c80bdc368417dc9497e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Kick_L)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Kick_L</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a3891dec63a729e61fc156785f885cbd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Kick_SP)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Kick_SP</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a69f96fc497d93e63ebc6939784ce5c23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Slash_S)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Slash_S</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1ace2a9c1c0be292c2fb945a829b2da801" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Slash_M)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Slash_M</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a3c7c5122231f24817c7f489ff89f5637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Slash_L)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Slash_L</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="20" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="20" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1adea34582f30d3a46edd8a68956d8e3a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Slash_SP)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Slash_SP</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="21" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="21" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1a9aacf647699db039d69ada078485c6ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Hit_Clash)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Hit_Clash</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="22" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="22" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1af3a9099369b5e13d6a7d213402133d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Guard)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Guard</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="23" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="23" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1ae14227bcbc1daaed478db743f550a514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Land)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Land</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="24" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="24" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_sound_data_8h_1ab941a563bf8045bd0caa15e57e9cd3ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Sound_Landing_Crash)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Sound_Landing_Crash</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="25" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" declline="25" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NativeGameplayTags.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Engine/DataAsset.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SoundData.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Punch_S);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Punch_M);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Punch_L);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Punch_SP);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Kick_S);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Kick_M);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Kick_L);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Kick_SP);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Slash_S);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Slash_M);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Slash_L);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Slash_SP);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Hit_Clash);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Guard);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Land);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Sound_Landing_Crash);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">USTRUCT()</highlight></codeline>
+<codeline lineno="28" refid="struct_f_sound_struct" refkind="compound"><highlight class="normal">struct<sp/><ref refid="struct_f_sound_struct" kindref="compound">FSoundStruct</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>FGameplayTag<sp/>Name;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>USoundBase*<sp/>SoundWave;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration<sp/>=<sp/>60;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">UCLASS()</highlight></codeline>
+<codeline lineno="45" refid="class_u_sound_data" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_sound_data" kindref="compound">USoundData</ref><sp/>:<sp/>public<sp/>UDataAsset</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;FSoundStruct&gt;<sp/>SoundDatas;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h"/>
+  </compounddef>
+</doxygen>

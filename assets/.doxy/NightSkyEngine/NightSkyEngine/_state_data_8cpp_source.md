@@ -1,0 +1,72 @@
+
+
+# File StateData.cpp
+
+[**File List**](files.md) **>** [**Data**](dir_856985a2681c172443de4762aa082512.md) **>** [**StateData.cpp**](_state_data_8cpp.md)
+
+[Go to the documentation of this file](_state_data_8cpp.md)
+
+
+```C++
+#include "StateData.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(StateData)
+
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Stand, "State.Universal.Stand", "Stand State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crouch, "State.Universal.Crouch", "Crouch State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Jump_V, "State.Universal.Jump.V", "Vertical Jump State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_JumpLanding, "State.Universal.JumpLanding", "Jump Landing State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandFlip, "State.Universal.StandFlip", "Stand Flip State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchFlip, "State.Universal.CrouchFlip", "Crouch Flip State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_JumpFlip, "State.Universal.AirFlip", "Jump Flip State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandBlock, "State.Universal.Block.Stand", "Stand Block State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchBlock, "State.Universal.Block.Crouch", "Crouch Block State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_AirBlock, "State.Universal.Block.Air", "Jump Block State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandBlockEnd, "State.Universal.Block.Stand.End", "Stand Block (End) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchBlockEnd, "State.Universal.Block.Crouch.End", "Crouch Block (End) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_AirBlockEnd, "State.Universal.Block.Air.End", "Jump Block (End) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakStand, "State.Universal.GuardBreak.Stand", "Guard Break (Stand) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakCrouch, "State.Universal.GuardBreak.Crouch", "Guard Break (Crouch) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakAir, "State.Universal.GuardBreak.Air", "Guard Break (Jump) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_0, "State.Universal.Hitstun.0", "Hitstun (Level 0) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_1, "State.Universal.Hitstun.1", "Hitstun (Level 1) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_2, "State.Universal.Hitstun.2", "Hitstun (Level 2) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_3, "State.Universal.Hitstun.3", "Hitstun (Level 3) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_4, "State.Universal.Hitstun.4", "Hitstun (Level 4) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_5, "State.Universal.Hitstun.5", "Hitstun (Level 5) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_0, "State.Universal.Hitstun.Crouch.0", "Crouch Hitstun (Level 0) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_1, "State.Universal.Hitstun.Crouch.1", "Crouch Hitstun (Level 1) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_2, "State.Universal.Hitstun.Crouch.2", "Crouch Hitstun (Level 2) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_3, "State.Universal.Hitstun.Crouch.3", "Crouch Hitstun (Level 3) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_4, "State.Universal.Hitstun.Crouch.4", "Crouch Hitstun (Level 4) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_5, "State.Universal.Hitstun.Crouch.5", "Crouch Hitstun (Level 5) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_B, "State.Universal.Launch.B", "Backward Launch State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_V, "State.Universal.Launch.V", "Vertical Launch State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_F, "State.Universal.Launch.F", "Forward Launch State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Blowback, "State.Universal.Blowback", "Blowback State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Tailspin, "State.Universal.Tailspin", "Tailspin State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crumple, "State.Universal.Crumple", "Crumple State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleBody, "State.Universal.FloatingCrumple.Body", "Floating Crumple (Body) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleHead, "State.Universal.FloatingCrumple.Head", "Floating Crumple (Head) State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_WallBounce, "State.Universal.WallBounce", "Wall Bounce State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownBounce, "State.Universal.FaceDown.Bounce", "Face Down Bounce State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpBounce, "State.Universal.FaceUp.Bounce", "Face Up Bounce State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownLoop, "State.Universal.FaceDown.Loop", "Face Down Loop State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpLoop, "State.Universal.FaceUp.Loop", "Face Up Loop State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownWakeUp, "State.Universal.FaceDown.WakeUp", "Face Down Wake Up State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpWakeUp, "State.Universal.FaceUp.WakeUp", "Face Up Wake Up State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Throw, "State.Universal.Throw", "Throw State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_ThrowLock, "State.Universal.ThrowLock", "Throw Lock State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_TagIn, "State.Universal.TagIn", "Tag In State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundWin, "State.Universal.RoundWin", "Round Win State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundLose, "State.Universal.RoundLose", "Round Lose State");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_MatchWin, "State.Universal.MatchWin", "Match Win State");
+
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_S, "State.BattleObject.KO.S", "KO (Small) Battle Object");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_M, "State.BattleObject.KO.M", "KO (Small) Battle Object");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_L, "State.BattleObject.KO.L", "KO (Small) Battle Object");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_Draw, "State.BattleObject.KO.Draw", "KO (Draw) Battle Object");
+
+```
+
+

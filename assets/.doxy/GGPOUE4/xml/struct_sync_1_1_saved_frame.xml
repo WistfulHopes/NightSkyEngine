@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_sync_1_1_saved_frame" kind="struct" language="C++" prot="protected">
+    <compoundname>Sync::SavedFrame</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sync_1_1_saved_frame_1aec3b83a216c7211f5e88f3d7b9553ef2" prot="public" static="no" mutable="no">
+        <type>byte *</type>
+        <definition>byte* Sync::SavedFrame::buf</definition>
+        <argsstring></argsstring>
+        <name>buf</name>
+        <qualifiedname>Sync::SavedFrame::buf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="67" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_saved_frame_1a854bbfc7b20480686401f925c64f192a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::SavedFrame::cbuf</definition>
+        <argsstring></argsstring>
+        <name>cbuf</name>
+        <qualifiedname>Sync::SavedFrame::cbuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="68" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_saved_frame_1a676883242fd6cedeac17d52517ad6105" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::SavedFrame::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <qualifiedname>Sync::SavedFrame::frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="69" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_saved_frame_1a31230f5845eff46b1a907347a1c447c1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::SavedFrame::checksum</definition>
+        <argsstring></argsstring>
+        <name>checksum</name>
+        <qualifiedname>Sync::SavedFrame::checksum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="70" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_sync_1_1_saved_frame_1acba43a0cba1fee2bdd2641d5773c6b0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Sync::SavedFrame::SavedFrame</definition>
+        <argsstring>()</argsstring>
+        <name>SavedFrame</name>
+        <qualifiedname>Sync::SavedFrame::SavedFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="71" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="66" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="66" bodyend="72"/>
+    <listofallmembers>
+      <member refid="struct_sync_1_1_saved_frame_1aec3b83a216c7211f5e88f3d7b9553ef2" prot="public" virt="non-virtual"><scope>Sync::SavedFrame</scope><name>buf</name></member>
+      <member refid="struct_sync_1_1_saved_frame_1a854bbfc7b20480686401f925c64f192a" prot="public" virt="non-virtual"><scope>Sync::SavedFrame</scope><name>cbuf</name></member>
+      <member refid="struct_sync_1_1_saved_frame_1a31230f5845eff46b1a907347a1c447c1" prot="public" virt="non-virtual"><scope>Sync::SavedFrame</scope><name>checksum</name></member>
+      <member refid="struct_sync_1_1_saved_frame_1a676883242fd6cedeac17d52517ad6105" prot="public" virt="non-virtual"><scope>Sync::SavedFrame</scope><name>frame</name></member>
+      <member refid="struct_sync_1_1_saved_frame_1acba43a0cba1fee2bdd2641d5773c6b0b" prot="public" virt="non-virtual"><scope>Sync::SavedFrame</scope><name>SavedFrame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

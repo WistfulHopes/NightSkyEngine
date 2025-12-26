@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_protocol_1_1_queue_entry" kind="struct" language="C++" prot="protected">
+    <compoundname>UdpProtocol::QueueEntry</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_queue_entry_1a673587a029a91e5906882010b906b279" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::QueueEntry::queue_time</definition>
+        <argsstring></argsstring>
+        <name>queue_time</name>
+        <qualifiedname>UdpProtocol::QueueEntry::queue_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="96" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_queue_entry_1af26a3b25e267de244bf84b5b8bf576ec" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::QueueEntry::connection_id</definition>
+        <argsstring></argsstring>
+        <name>connection_id</name>
+        <qualifiedname>UdpProtocol::QueueEntry::connection_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="97" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_queue_entry_1a0ac1079407b6d04deadd27eed8cce145" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref> *</type>
+        <definition>UdpMsg* UdpProtocol::QueueEntry::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <qualifiedname>UdpProtocol::QueueEntry::msg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="98" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_udp_protocol_1_1_queue_entry_1ac47eec270a697cd73a90fe449c5ee9f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UdpProtocol::QueueEntry::QueueEntry</definition>
+        <argsstring>()</argsstring>
+        <name>QueueEntry</name>
+        <qualifiedname>UdpProtocol::QueueEntry::QueueEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="100" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_udp_protocol_1_1_queue_entry_1a3a95c57e32d48b1f938bbb8a0f943f05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UdpProtocol::QueueEntry::QueueEntry</definition>
+        <argsstring>(int time, int conn_id, UdpMsg *m)</argsstring>
+        <name>QueueEntry</name>
+        <qualifiedname>UdpProtocol::QueueEntry::QueueEntry</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>conn_id</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref> *</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="101" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>UdpMsg</label>
+        <link refid="struct_udp_msg"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>peer_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+      <node id="1">
+        <label>UdpProtocol::QueueEntry</label>
+        <link refid="struct_udp_protocol_1_1_queue_entry"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>msg</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="95" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="95" bodyend="102"/>
+    <listofallmembers>
+      <member refid="struct_udp_protocol_1_1_queue_entry_1af26a3b25e267de244bf84b5b8bf576ec" prot="public" virt="non-virtual"><scope>UdpProtocol::QueueEntry</scope><name>connection_id</name></member>
+      <member refid="struct_udp_protocol_1_1_queue_entry_1a0ac1079407b6d04deadd27eed8cce145" prot="public" virt="non-virtual"><scope>UdpProtocol::QueueEntry</scope><name>msg</name></member>
+      <member refid="struct_udp_protocol_1_1_queue_entry_1a673587a029a91e5906882010b906b279" prot="public" virt="non-virtual"><scope>UdpProtocol::QueueEntry</scope><name>queue_time</name></member>
+      <member refid="struct_udp_protocol_1_1_queue_entry_1ac47eec270a697cd73a90fe449c5ee9f5" prot="public" virt="non-virtual"><scope>UdpProtocol::QueueEntry</scope><name>QueueEntry</name></member>
+      <member refid="struct_udp_protocol_1_1_queue_entry_1a3a95c57e32d48b1f938bbb8a0f943f05" prot="public" virt="non-virtual"><scope>UdpProtocol::QueueEntry</scope><name>QueueEntry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

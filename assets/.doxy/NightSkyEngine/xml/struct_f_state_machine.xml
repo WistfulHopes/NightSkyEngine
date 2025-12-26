@@ -1,0 +1,708 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_state_machine" kind="struct" language="C++" prot="public">
+    <compoundname>FStateMachine</compoundname>
+    <includes refid="_state_machine_8h" local="no">StateMachine.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_state_machine_1abaac6caa3971a8c6e91e53b814c4a684" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateMachine::bPrimary</definition>
+        <argsstring></argsstring>
+        <name>bPrimary</name>
+        <qualifiedname>FStateMachine::bPrimary</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="23" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1a822fdb36e322c28ebd83b79252bc4524" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FStateMachine::StateMachineName</definition>
+        <argsstring></argsstring>
+        <name>StateMachineName</name>
+        <qualifiedname>FStateMachine::StateMachineName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The currently active state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="28" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FStateMachine::EnableFlags</definition>
+        <argsstring></argsstring>
+        <name>EnableFlags</name>
+        <qualifiedname>FStateMachine::EnableFlags</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Flags of currently enabled states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="33" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" prot="public" static="no" mutable="no">
+        <type>TArray&lt; FGameplayTag &gt;</type>
+        <definition>TArray&lt;FGameplayTag&gt; FStateMachine::EnabledCustomStateTypes</definition>
+        <argsstring></argsstring>
+        <name>EnabledCustomStateTypes</name>
+        <qualifiedname>FStateMachine::EnabledCustomStateTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Currently enabled custom state types. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="38" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" prot="public" static="no" mutable="no">
+        <type><ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+        <definition>UState* FStateMachine::CurrentState</definition>
+        <argsstring></argsstring>
+        <name>CurrentState</name>
+        <qualifiedname>FStateMachine::CurrentState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The currently active state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="43" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1a907d5c3060606572caf6befb8d19db5f" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_u_state" kindref="compound">UState</ref> * &gt;</type>
+        <definition>TArray&lt;UState*&gt; FStateMachine::States</definition>
+        <argsstring></argsstring>
+        <name>States</name>
+        <qualifiedname>FStateMachine::States</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An array of all player states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="48" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1ad084fc1fd3f272c23f4a079bef645e5c" prot="public" static="no" mutable="no">
+        <type>TArray&lt; FGameplayTag &gt;</type>
+        <definition>TArray&lt;FGameplayTag&gt; FStateMachine::StateNames</definition>
+        <argsstring></argsstring>
+        <name>StateNames</name>
+        <qualifiedname>FStateMachine::StateNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>An array of all player state names. Used to lookup states. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="54" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_machine_1a8ada57d183d1187716568f2886afd18c" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject* FStateMachine::Parent</definition>
+        <argsstring></argsstring>
+        <name>Parent</name>
+        <qualifiedname>FStateMachine::Parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The parent of this state machine. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="59" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_state_machine_1aba95b77b76314a49715a04e24db68cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FStateMachine::AddState</definition>
+        <argsstring>(const FGameplayTag &amp;Name, UState *Config)</argsstring>
+        <name>AddState</name>
+        <qualifiedname>FStateMachine::AddState</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type><ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+          <declname>Config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a state to the state machine. If no current state is set, the input state will be used as the current state. Only call at the beginning of a match! </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="66" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="11" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1aae0c1443fb4987aaa7e4f46743d4c0e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>FORCEINLINE bool</type>
+        <definition>FORCEINLINE bool FStateMachine::IsCurrentState</definition>
+        <argsstring>(const FGameplayTag &amp;Name) const</argsstring>
+        <name>IsCurrentState</name>
+        <qualifiedname>FStateMachine::IsCurrentState</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks a name against the current state name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="71" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1aa4d29b29a654ba188156c2289305bbb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FStateMachine::GetStateName</definition>
+        <argsstring>(int Index)</argsstring>
+        <name>GetStateName</name>
+        <qualifiedname>FStateMachine::GetStateName</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>Index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the current state name. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="79" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int FStateMachine::GetStateIndex</definition>
+        <argsstring>(FGameplayTag Name) const</argsstring>
+        <name>GetStateIndex</name>
+        <qualifiedname>FStateMachine::GetStateIndex</qualifiedname>
+        <param>
+          <type>FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the current state index. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="83" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1a3d47ae52d4e43a2f063b4ae0dc698703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FStateMachine::SetState</definition>
+        <argsstring>(const FGameplayTag Name, bool bIsAlias=false)</argsstring>
+        <name>SetState</name>
+        <qualifiedname>FStateMachine::SetState</qualifiedname>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsAlias</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current state. If attempting to set the state to the same as the current state, nothing will happen.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to set as current. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bIsAlias</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the state is being set via an alias. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the state was successfully set, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="93" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="38" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1aeea5d925a04850b9122971a8edc0e8e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FStateMachine::ForceSetState</definition>
+        <argsstring>(const FGameplayTag Name, bool bIsAlias=false)</argsstring>
+        <name>ForceSetState</name>
+        <qualifiedname>FStateMachine::ForceSetState</qualifiedname>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsAlias</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current state. If the state to set is the same as the current state, the state will be reset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to set as current. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bIsAlias</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the state is being set via an alias. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the state was successfully set, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="102" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="77" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1ad21c6cbc3680765803eb8e4dbea7106b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FStateMachine::ForceSetState</definition>
+        <argsstring>(TSubclassOf&lt; UState &gt; Class, bool bIsAlias=false)</argsstring>
+        <name>ForceSetState</name>
+        <qualifiedname>FStateMachine::ForceSetState</qualifiedname>
+        <param>
+          <type>TSubclassOf&lt; <ref refid="class_u_state" kindref="compound">UState</ref> &gt;</type>
+          <declname>Class</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsAlias</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current state. If the state to set is the same as the current state, the state will be reset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Class</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to set as current. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bIsAlias</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the state is being set via an alias. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the state was successfully set, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="111" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="110" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1a06cd5bb9cd6d98a44c47c05652fc0d68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FStateMachine::ForceRollbackState</definition>
+        <argsstring>(const FGameplayTag Name)</argsstring>
+        <name>ForceRollbackState</name>
+        <qualifiedname>FStateMachine::ForceRollbackState</qualifiedname>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the current state for rollback. Code called when entering a state normally will not be called.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to set as current. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the state was successfully set, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="119" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="144" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_state_machine_1a99bb778eaf9d22bde2bb785ffecfa789" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FStateMachine::Update</definition>
+        <argsstring>() const</argsstring>
+        <name>Update</name>
+        <qualifiedname>FStateMachine::Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls the current state&apos;s exec function. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="133" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="170" bodyend="176"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_f_state_machine_1ac5b5e29affdd1d74090f498fc7d22e40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FStateMachine::CheckStateStanceCondition</definition>
+        <argsstring>(const EEntryStance StateStance, const int PlayerStance)</argsstring>
+        <name>CheckStateStanceCondition</name>
+        <qualifiedname>FStateMachine::CheckStateStanceCondition</qualifiedname>
+        <param>
+          <type>const EEntryStance</type>
+          <declname>StateStance</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>PlayerStance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the state allows the player&apos;s current stance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>StateStance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state&apos;s required stance. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>PlayerStance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current player&apos;s stance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the state stance allows the player&apos;s stance, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="128" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.cpp" bodystart="156" bodyend="168"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The player object&apos;s state machine. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains all player states and state names, as well as the currently active state. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>APawn</label>
+      </node>
+      <node id="16">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="11">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="8">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="10">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="9">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="14">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="18">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="17">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="29">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="1">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="12">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="27">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>UDataAsset</label>
+      </node>
+      <node id="24">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UObject</label>
+      </node>
+      <node id="25">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/StateMachine.h" bodystart="19" bodyend="134"/>
+    <listofallmembers>
+      <member refid="struct_f_state_machine_1aba95b77b76314a49715a04e24db68cfe" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>AddState</name></member>
+      <member refid="struct_f_state_machine_1abaac6caa3971a8c6e91e53b814c4a684" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>bPrimary</name></member>
+      <member refid="struct_f_state_machine_1ac5b5e29affdd1d74090f498fc7d22e40" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>CheckStateStanceCondition</name></member>
+      <member refid="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>CurrentState</name></member>
+      <member refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>EnabledCustomStateTypes</name></member>
+      <member refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>EnableFlags</name></member>
+      <member refid="struct_f_state_machine_1a06cd5bb9cd6d98a44c47c05652fc0d68" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>ForceRollbackState</name></member>
+      <member refid="struct_f_state_machine_1aeea5d925a04850b9122971a8edc0e8e6" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>ForceSetState</name></member>
+      <member refid="struct_f_state_machine_1ad21c6cbc3680765803eb8e4dbea7106b" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>ForceSetState</name></member>
+      <member refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>GetStateIndex</name></member>
+      <member refid="struct_f_state_machine_1aa4d29b29a654ba188156c2289305bbb7" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>GetStateName</name></member>
+      <member refid="struct_f_state_machine_1aae0c1443fb4987aaa7e4f46743d4c0e3" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>IsCurrentState</name></member>
+      <member refid="struct_f_state_machine_1a8ada57d183d1187716568f2886afd18c" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>Parent</name></member>
+      <member refid="struct_f_state_machine_1a3d47ae52d4e43a2f063b4ae0dc698703" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>SetState</name></member>
+      <member refid="struct_f_state_machine_1a822fdb36e322c28ebd83b79252bc4524" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>StateMachineName</name></member>
+      <member refid="struct_f_state_machine_1ad084fc1fd3f272c23f4a079bef645e5c" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>StateNames</name></member>
+      <member refid="struct_f_state_machine_1a907d5c3060606572caf6befb8d19db5f" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>States</name></member>
+      <member refid="struct_f_state_machine_1a99bb778eaf9d22bde2bb785ffecfa789" prot="public" virt="non-virtual"><scope>FStateMachine</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

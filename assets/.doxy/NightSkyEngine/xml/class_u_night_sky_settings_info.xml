@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_settings_info" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkySettingsInfo</compoundname>
+    <basecompoundref refid="class_u_night_sky_save_info" prot="public" virt="non-virtual">UNightSkySaveInfo</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_settings_info_1abe034faff69890df2bd7607b9e4d06d6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UNightSkySettingsInfo::AntiAliasingMethod</definition>
+        <argsstring></argsstring>
+        <name>AntiAliasingMethod</name>
+        <qualifiedname>UNightSkySettingsInfo::AntiAliasingMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" line="21" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_settings_info_1ada3a3c9722ae4a71115cdd7abfcd01d5" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 UNightSkySettingsInfo::GlobalIlluminationMethod</definition>
+        <argsstring></argsstring>
+        <name>GlobalIlluminationMethod</name>
+        <qualifiedname>UNightSkySettingsInfo::GlobalIlluminationMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" line="23" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UNightSkySettingsInfo</label>
+        <link refid="class_u_night_sky_settings_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>USaveGame</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UNightSkySettingsInfo</label>
+        <link refid="class_u_night_sky_settings_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>USaveGame</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" line="15" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySettingsInfo.h" bodystart="16" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_save_info_1a0e7760ccea6ccbe4215065812fdd1df3" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>ActorArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a91c66825168ae36e239530b6e105cabf" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>ActorPreloader</name></member>
+      <member refid="class_u_night_sky_save_info_1a743cc50890de9302378f340af3b65a5a" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>ActorSaver</name></member>
+      <member refid="class_u_night_sky_settings_info_1abe034faff69890df2bd7607b9e4d06d6" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>AntiAliasingMethod</name></member>
+      <member refid="class_u_night_sky_save_info_1a3c82d71b33ffc2d7f905b42c8f557e17" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>Data</name></member>
+      <member refid="class_u_night_sky_settings_info_1ada3a3c9722ae4a71115cdd7abfcd01d5" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>GlobalIlluminationMethod</name></member>
+      <member refid="class_u_night_sky_save_info_1aa1678379da4afe5923c82f859ca62b03" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>LoadData</name></member>
+      <member refid="class_u_night_sky_save_info_1a65c117f4e76a7f39e44a9fe1dc1d7ea8" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>ObjectRecords</name></member>
+      <member refid="class_u_night_sky_save_info_1a61ccfa943b5825cd6f7b16e60136f703" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>PersistentOuters</name></member>
+      <member refid="class_u_night_sky_save_info_1a7fe6a3f5bb6a9ed18088b4a6aa557591" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>SaveData</name></member>
+      <member refid="class_u_night_sky_save_info_1a42cd8997f255f93a96c4dc7c6643585f" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>TempObjects</name></member>
+      <member refid="class_u_night_sky_save_info_1a7b1d004fbe4da15ffbe0f911ca1eac9b" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>UObjectArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a6edfc1cc2b0c247c582ae23bcedaa8bd" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>UObjectDataLoader</name></member>
+      <member refid="class_u_night_sky_save_info_1a7e93a85c8f61a2c7fb91dc2a2a0eedec" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>UObjectSaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a3b6311977dd850126493b5ba3af15df0" prot="public" virt="non-virtual"><scope>UNightSkySettingsInfo</scope><name>UObjectsPreloader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

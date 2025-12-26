@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_state_data" kind="class" language="C++" prot="public">
+    <compoundname>UStateData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_state_data_1a73ac920d1078b2840c1981606cd57d24" prot="public" static="no" mutable="no">
+        <type>TArray&lt; TSubclassOf&lt; <ref refid="class_u_state" kindref="compound">UState</ref> &gt; &gt;</type>
+        <definition>TArray&lt;TSubclassOf&lt;UState&gt; &gt; UStateData::StateArray</definition>
+        <argsstring></argsstring>
+        <name>StateArray</name>
+        <qualifiedname>UStateData::StateArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="75" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_state_data_1ac05481827b6367fe254ce943f0c11956" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+        <definition>const UState * UStateData::GetByStateName</definition>
+        <argsstring>(const FGameplayTag &amp;StateName) const</argsstring>
+        <name>GetByStateName</name>
+        <qualifiedname>UStateData::GetByStateName</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>StateName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="78" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" bodystart="78" bodyend="86"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" line="70" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.h" bodystart="71" bodyend="87"/>
+    <listofallmembers>
+      <member refid="class_u_state_data_1ac05481827b6367fe254ce943f0c11956" prot="public" virt="non-virtual"><scope>UStateData</scope><name>GetByStateName</name></member>
+      <member refid="class_u_state_data_1a73ac920d1078b2840c1981606cd57d24" prot="public" virt="non-virtual"><scope>UStateData</scope><name>StateArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

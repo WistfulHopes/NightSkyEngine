@@ -1,0 +1,990 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_battle_state" kind="struct" language="C++" prot="public">
+    <compoundname>FBattleState</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_battle_state_1a401558d006bb010fcbd0f608b3e5c85d" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char FBattleState::BattleStateSync</definition>
+        <argsstring></argsstring>
+        <name>BattleStateSync</name>
+        <qualifiedname>FBattleState::BattleStateSync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="167" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a8c5584b830159f113aabc4e615814c11" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::FrameNumber</definition>
+        <argsstring></argsstring>
+        <name>FrameNumber</name>
+        <qualifiedname>FBattleState::FrameNumber</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="169" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1af9ad2241c17fd4ed4a6974312dd7bd91" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::TimeUntilRoundStart</definition>
+        <argsstring></argsstring>
+        <name>TimeUntilRoundStart</name>
+        <qualifiedname>FBattleState::TimeUntilRoundStart</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="170" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1af04a6fa073351df584b16149ce14cd7a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::TagCooldown</definition>
+        <argsstring></argsstring>
+        <name>TagCooldown</name>
+        <qualifiedname>FBattleState::TagCooldown</qualifiedname>
+        <initializer>= 300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="173" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a38f9eedb8e8afd62364f11d7c06b214d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::AssistCooldown</definition>
+        <argsstring></argsstring>
+        <name>AssistCooldown</name>
+        <qualifiedname>FBattleState::AssistCooldown</qualifiedname>
+        <initializer>= 180</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="175" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a815de92efc6ef8ea55e4ac21ede7b9fb" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::RoundStartPos</definition>
+        <argsstring></argsstring>
+        <name>RoundStartPos</name>
+        <qualifiedname>FBattleState::RoundStartPos</qualifiedname>
+        <initializer>= 297500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="178" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1afa51596c934073a9aaf525e1cf6efca2" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_screen_data" kindref="compound">FScreenData</ref></type>
+        <definition>FScreenData FBattleState::ScreenData</definition>
+        <argsstring></argsstring>
+        <name>ScreenData</name>
+        <qualifiedname>FBattleState::ScreenData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="181" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a040c88834feb43d8c9eb3b7780b61210" prot="public" static="no" mutable="no">
+        <type>FVector</type>
+        <definition>FVector FBattleState::CameraPosition</definition>
+        <argsstring></argsstring>
+        <name>CameraPosition</name>
+        <qualifiedname>FBattleState::CameraPosition</qualifiedname>
+        <initializer>= FVector()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="183" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ad0661f614051de8b9504a4200add9a3d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FBattleState::bHUDVisible</definition>
+        <argsstring></argsstring>
+        <name>bHUDVisible</name>
+        <qualifiedname>FBattleState::bHUDVisible</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="184" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a6564152690a6b83907283227f4b7a7c8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::RoundTimer</definition>
+        <argsstring></argsstring>
+        <name>RoundTimer</name>
+        <qualifiedname>FBattleState::RoundTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="187" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a9e92d205665b3fe1ac17c487409521a1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FBattleState::PauseTimer</definition>
+        <argsstring></argsstring>
+        <name>PauseTimer</name>
+        <qualifiedname>FBattleState::PauseTimer</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="189" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a51567576c1f1b401fbd56a6a9a727a8d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FBattleState::PauseParticles</definition>
+        <argsstring></argsstring>
+        <name>PauseParticles</name>
+        <qualifiedname>FBattleState::PauseParticles</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="190" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a71ce603ba6d030ec455c4ed54a0e5f40" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FBattleState::IsPlayingSequence</definition>
+        <argsstring></argsstring>
+        <name>IsPlayingSequence</name>
+        <qualifiedname>FBattleState::IsPlayingSequence</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="191" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a2f79af11bf9c307c905b950938b93904" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_random_manager" kindref="compound">FRandomManager</ref></type>
+        <definition>FRandomManager FBattleState::RandomManager</definition>
+        <argsstring></argsstring>
+        <name>RandomManager</name>
+        <qualifiedname>FBattleState::RandomManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="193" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a55193dfdaa5caa9763d646174e3f7fc1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::Meter[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>Meter</name>
+        <qualifiedname>FBattleState::Meter</qualifiedname>
+        <initializer>{0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="195" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1abe93b3c446a6ea8b292f5f3372bd0ec5" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::MaxMeter[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>MaxMeter</name>
+        <qualifiedname>FBattleState::MaxMeter</qualifiedname>
+        <initializer>{10000, 10000}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="196" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a8c951f1834d936961c3da21f04374e02" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::SuperFreezeDuration</definition>
+        <argsstring></argsstring>
+        <name>SuperFreezeDuration</name>
+        <qualifiedname>FBattleState::SuperFreezeDuration</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="198" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a99e59397f9351ab7ea49c39d255c1420" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::SuperFreezeSelfDuration</definition>
+        <argsstring></argsstring>
+        <name>SuperFreezeSelfDuration</name>
+        <qualifiedname>FBattleState::SuperFreezeSelfDuration</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="199" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a7456fb5013f24257ee453d9e5e98c179" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+        <definition>ABattleObject* FBattleState::SuperFreezeCaller</definition>
+        <argsstring></argsstring>
+        <name>SuperFreezeCaller</name>
+        <qualifiedname>FBattleState::SuperFreezeCaller</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="202" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a0c2eb48ac9040fb55d43ef0c128e0c7f" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject* FBattleState::MainPlayer[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>MainPlayer</name>
+        <qualifiedname>FBattleState::MainPlayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="204" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a5fe05c538093fd67f185d1ad7678aaaa" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::P1RoundsWon</definition>
+        <argsstring></argsstring>
+        <name>P1RoundsWon</name>
+        <qualifiedname>FBattleState::P1RoundsWon</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="206" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a5748eb5ec936a872f10cc39bf55d0948" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::P2RoundsWon</definition>
+        <argsstring></argsstring>
+        <name>P2RoundsWon</name>
+        <qualifiedname>FBattleState::P2RoundsWon</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="207" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a2f646b6f7ba4d416b289ae8b1aad0ca9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::RoundCount</definition>
+        <argsstring></argsstring>
+        <name>RoundCount</name>
+        <qualifiedname>FBattleState::RoundCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="209" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ab393a43bf03b0d18b57c29df313c9608" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::FadeTimer</definition>
+        <argsstring></argsstring>
+        <name>FadeTimer</name>
+        <qualifiedname>FBattleState::FadeTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="210" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a71041972e4e3e5c9ffc43c2f47d95337" prot="public" static="no" mutable="no">
+        <type>EIntroSide</type>
+        <definition>EIntroSide FBattleState::CurrentIntroSide</definition>
+        <argsstring></argsstring>
+        <name>CurrentIntroSide</name>
+        <qualifiedname>FBattleState::CurrentIntroSide</qualifiedname>
+        <initializer>= INT_None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="212" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ac89e77202afa8b2e19bc2ca178b122d0" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EWinSide &gt;</type>
+        <definition>TEnumAsByte&lt;EWinSide&gt; FBattleState::CurrentWinSide</definition>
+        <argsstring></argsstring>
+        <name>CurrentWinSide</name>
+        <qualifiedname>FBattleState::CurrentWinSide</qualifiedname>
+        <initializer>= WIN_None</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="214" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1aece8773c3e1d39a536899c0eca02f138" prot="public" static="no" mutable="no">
+        <type>EBattlePhase</type>
+        <definition>EBattlePhase FBattleState::BattlePhase</definition>
+        <argsstring></argsstring>
+        <name>BattlePhase</name>
+        <qualifiedname>FBattleState::BattlePhase</qualifiedname>
+        <initializer>= EBattlePhase::Intro</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="215" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a99357148737973872987160f01abc62d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::ActiveObjectCount</definition>
+        <argsstring></argsstring>
+        <name>ActiveObjectCount</name>
+        <qualifiedname>FBattleState::ActiveObjectCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="217" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a5c6eecd8e789a3f3a39daf5684b820c5" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::CurrentSequenceTime</definition>
+        <argsstring></argsstring>
+        <name>CurrentSequenceTime</name>
+        <qualifiedname>FBattleState::CurrentSequenceTime</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="218" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ab84addcf740472c976a8d21d4cc69463" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_audio_channel" kindref="compound">FAudioChannel</ref></type>
+        <definition>FAudioChannel FBattleState::CommonAudioChannels[CommonAudioChannelCount]</definition>
+        <argsstring>[CommonAudioChannelCount]</argsstring>
+        <name>CommonAudioChannels</name>
+        <qualifiedname>FBattleState::CommonAudioChannels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="220" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a2fd277b1dcb5c1b0b1c0b4d911df9703" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_audio_channel" kindref="compound">FAudioChannel</ref></type>
+        <definition>FAudioChannel FBattleState::CharaAudioChannels[CharaAudioChannelCount]</definition>
+        <argsstring>[CharaAudioChannelCount]</argsstring>
+        <name>CharaAudioChannels</name>
+        <qualifiedname>FBattleState::CharaAudioChannels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="221" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ad7664de94c40d2757166618824d0ac68" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_audio_channel" kindref="compound">FAudioChannel</ref></type>
+        <definition>FAudioChannel FBattleState::CharaVoiceChannels[CharaVoiceChannelCount]</definition>
+        <argsstring>[CharaVoiceChannelCount]</argsstring>
+        <name>CharaVoiceChannels</name>
+        <qualifiedname>FBattleState::CharaVoiceChannels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="222" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a14bad861936194c3ebf9f365a9c56596" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_audio_channel" kindref="compound">FAudioChannel</ref></type>
+        <definition>FAudioChannel FBattleState::AnnouncerVoiceChannel</definition>
+        <argsstring></argsstring>
+        <name>AnnouncerVoiceChannel</name>
+        <qualifiedname>FBattleState::AnnouncerVoiceChannel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="223" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1aa2cc6056d00c76798141b0cd5d7b6516" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_audio_channel" kindref="compound">FAudioChannel</ref></type>
+        <definition>FAudioChannel FBattleState::MusicChannel</definition>
+        <argsstring></argsstring>
+        <name>MusicChannel</name>
+        <qualifiedname>FBattleState::MusicChannel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="224" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ac0012341c7e7c895373e612571a284a4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FBattleState::OrthoBlendActive</definition>
+        <argsstring></argsstring>
+        <name>OrthoBlendActive</name>
+        <qualifiedname>FBattleState::OrthoBlendActive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="227" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1afaccb513c21a0aa2940bc48e699f5068" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char FBattleState::BattleStateSyncEnd</definition>
+        <argsstring></argsstring>
+        <name>BattleStateSyncEnd</name>
+        <qualifiedname>FBattleState::BattleStateSyncEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="229" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ab8b29fbde95fd17892af384900986940" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_team_data" kindref="compound">FTeamData</ref></type>
+        <definition>FTeamData FBattleState::TeamData[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>TeamData</name>
+        <qualifiedname>FBattleState::TeamData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="232" column="11" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ac14f8bad3d46261ac8edfe9e7bcb3e96" prot="public" static="no" mutable="no">
+        <type>TArray&lt; int32 &gt;</type>
+        <definition>TArray&lt;int32&gt; FBattleState::GaugeP1</definition>
+        <argsstring></argsstring>
+        <name>GaugeP1</name>
+        <qualifiedname>FBattleState::GaugeP1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="235" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a4fe2849e82d195fb8cddaa129cfc087c" prot="public" static="no" mutable="no">
+        <type>TArray&lt; int32 &gt;</type>
+        <definition>TArray&lt;int32&gt; FBattleState::GaugeP2</definition>
+        <argsstring></argsstring>
+        <name>GaugeP2</name>
+        <qualifiedname>FBattleState::GaugeP2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="237" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a5c70ba105fc4d4dfbbf33ffd24abc834" prot="public" static="no" mutable="no">
+        <type>TArray&lt; int32 &gt;</type>
+        <definition>TArray&lt;int32&gt; FBattleState::MaxGauge</definition>
+        <argsstring></argsstring>
+        <name>MaxGauge</name>
+        <qualifiedname>FBattleState::MaxGauge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="239" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a5b644bcf0b87191003abefd759db2aab" prot="public" static="no" mutable="no">
+        <type>EBattleFormat</type>
+        <definition>EBattleFormat FBattleState::BattleFormat</definition>
+        <argsstring></argsstring>
+        <name>BattleFormat</name>
+        <qualifiedname>FBattleState::BattleFormat</qualifiedname>
+        <initializer>= EBattleFormat::Rounds</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="242" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ad6e02e8002fc7fd2e3707c7687e903e3" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::MaxRoundCount</definition>
+        <argsstring></argsstring>
+        <name>MaxRoundCount</name>
+        <qualifiedname>FBattleState::MaxRoundCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="244" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1ad8fe4a86b3eb91d7c81e5427607a5707" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::MaxTimeUntilRoundStart</definition>
+        <argsstring></argsstring>
+        <name>MaxTimeUntilRoundStart</name>
+        <qualifiedname>FBattleState::MaxTimeUntilRoundStart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="246" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_state_1a596057cdfb1edd6354cf9445170fe4f0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleState::MaxFadeTimer</definition>
+        <argsstring></argsstring>
+        <name>MaxFadeTimer</name>
+        <qualifiedname>FBattleState::MaxFadeTimer</qualifiedname>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="248" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>APawn</label>
+      </node>
+      <node id="15">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="1">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="10">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="7">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="9">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="8">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="13">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="17">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="16">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="3">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="2">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="22">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="18">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="34">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="11">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="31">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>UDataAsset</label>
+      </node>
+      <node id="28">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>UObject</label>
+      </node>
+      <node id="29">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="163" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="164" bodyend="249"/>
+    <listofallmembers>
+      <member refid="struct_f_battle_state_1a99357148737973872987160f01abc62d" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>ActiveObjectCount</name></member>
+      <member refid="struct_f_battle_state_1a14bad861936194c3ebf9f365a9c56596" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>AnnouncerVoiceChannel</name></member>
+      <member refid="struct_f_battle_state_1a38f9eedb8e8afd62364f11d7c06b214d" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>AssistCooldown</name></member>
+      <member refid="struct_f_battle_state_1a5b644bcf0b87191003abefd759db2aab" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>BattleFormat</name></member>
+      <member refid="struct_f_battle_state_1aece8773c3e1d39a536899c0eca02f138" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>BattlePhase</name></member>
+      <member refid="struct_f_battle_state_1a401558d006bb010fcbd0f608b3e5c85d" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>BattleStateSync</name></member>
+      <member refid="struct_f_battle_state_1afaccb513c21a0aa2940bc48e699f5068" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>BattleStateSyncEnd</name></member>
+      <member refid="struct_f_battle_state_1ad0661f614051de8b9504a4200add9a3d" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>bHUDVisible</name></member>
+      <member refid="struct_f_battle_state_1a040c88834feb43d8c9eb3b7780b61210" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CameraPosition</name></member>
+      <member refid="struct_f_battle_state_1a2fd277b1dcb5c1b0b1c0b4d911df9703" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CharaAudioChannels</name></member>
+      <member refid="struct_f_battle_state_1ad7664de94c40d2757166618824d0ac68" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CharaVoiceChannels</name></member>
+      <member refid="struct_f_battle_state_1ab84addcf740472c976a8d21d4cc69463" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CommonAudioChannels</name></member>
+      <member refid="struct_f_battle_state_1a71041972e4e3e5c9ffc43c2f47d95337" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CurrentIntroSide</name></member>
+      <member refid="struct_f_battle_state_1a5c6eecd8e789a3f3a39daf5684b820c5" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CurrentSequenceTime</name></member>
+      <member refid="struct_f_battle_state_1ac89e77202afa8b2e19bc2ca178b122d0" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>CurrentWinSide</name></member>
+      <member refid="struct_f_battle_state_1ab393a43bf03b0d18b57c29df313c9608" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>FadeTimer</name></member>
+      <member refid="struct_f_battle_state_1a8c5584b830159f113aabc4e615814c11" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>FrameNumber</name></member>
+      <member refid="struct_f_battle_state_1ac14f8bad3d46261ac8edfe9e7bcb3e96" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>GaugeP1</name></member>
+      <member refid="struct_f_battle_state_1a4fe2849e82d195fb8cddaa129cfc087c" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>GaugeP2</name></member>
+      <member refid="struct_f_battle_state_1a71ce603ba6d030ec455c4ed54a0e5f40" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>IsPlayingSequence</name></member>
+      <member refid="struct_f_battle_state_1a0c2eb48ac9040fb55d43ef0c128e0c7f" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MainPlayer</name></member>
+      <member refid="struct_f_battle_state_1a596057cdfb1edd6354cf9445170fe4f0" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MaxFadeTimer</name></member>
+      <member refid="struct_f_battle_state_1a5c70ba105fc4d4dfbbf33ffd24abc834" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MaxGauge</name></member>
+      <member refid="struct_f_battle_state_1abe93b3c446a6ea8b292f5f3372bd0ec5" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MaxMeter</name></member>
+      <member refid="struct_f_battle_state_1ad6e02e8002fc7fd2e3707c7687e903e3" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MaxRoundCount</name></member>
+      <member refid="struct_f_battle_state_1ad8fe4a86b3eb91d7c81e5427607a5707" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MaxTimeUntilRoundStart</name></member>
+      <member refid="struct_f_battle_state_1a55193dfdaa5caa9763d646174e3f7fc1" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>Meter</name></member>
+      <member refid="struct_f_battle_state_1aa2cc6056d00c76798141b0cd5d7b6516" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>MusicChannel</name></member>
+      <member refid="struct_f_battle_state_1ac0012341c7e7c895373e612571a284a4" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>OrthoBlendActive</name></member>
+      <member refid="struct_f_battle_state_1a5fe05c538093fd67f185d1ad7678aaaa" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>P1RoundsWon</name></member>
+      <member refid="struct_f_battle_state_1a5748eb5ec936a872f10cc39bf55d0948" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>P2RoundsWon</name></member>
+      <member refid="struct_f_battle_state_1a51567576c1f1b401fbd56a6a9a727a8d" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>PauseParticles</name></member>
+      <member refid="struct_f_battle_state_1a9e92d205665b3fe1ac17c487409521a1" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>PauseTimer</name></member>
+      <member refid="struct_f_battle_state_1a2f79af11bf9c307c905b950938b93904" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>RandomManager</name></member>
+      <member refid="struct_f_battle_state_1a2f646b6f7ba4d416b289ae8b1aad0ca9" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>RoundCount</name></member>
+      <member refid="struct_f_battle_state_1a815de92efc6ef8ea55e4ac21ede7b9fb" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>RoundStartPos</name></member>
+      <member refid="struct_f_battle_state_1a6564152690a6b83907283227f4b7a7c8" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>RoundTimer</name></member>
+      <member refid="struct_f_battle_state_1afa51596c934073a9aaf525e1cf6efca2" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>ScreenData</name></member>
+      <member refid="struct_f_battle_state_1a7456fb5013f24257ee453d9e5e98c179" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>SuperFreezeCaller</name></member>
+      <member refid="struct_f_battle_state_1a8c951f1834d936961c3da21f04374e02" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>SuperFreezeDuration</name></member>
+      <member refid="struct_f_battle_state_1a99e59397f9351ab7ea49c39d255c1420" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>SuperFreezeSelfDuration</name></member>
+      <member refid="struct_f_battle_state_1af04a6fa073351df584b16149ce14cd7a" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>TagCooldown</name></member>
+      <member refid="struct_f_battle_state_1ab8b29fbde95fd17892af384900986940" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>TeamData</name></member>
+      <member refid="struct_f_battle_state_1af9ad2241c17fd4ed4a6974312dd7bd91" prot="public" virt="non-virtual"><scope>FBattleState</scope><name>TimeUntilRoundStart</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

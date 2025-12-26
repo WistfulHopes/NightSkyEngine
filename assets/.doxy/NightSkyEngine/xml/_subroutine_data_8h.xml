@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_subroutine_data_8h" kind="file" language="C++">
+    <compoundname>SubroutineData.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">NativeGameplayTags.h</includes>
+    <includes local="yes">Engine/DataAsset.h</includes>
+    <includes refid="_subroutine_8h" local="yes">NightSkyEngine/Battle/Script/Subroutine.h</includes>
+    <includes local="yes">SubroutineData.generated.h</includes>
+    <includedby refid="_night_sky_game_state_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp</includedby>
+    <includedby refid="_player_object_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.cpp</includedby>
+    <includedby refid="_subroutine_data_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NightSkyEngine/Battle/Script/Subroutine.h</label>
+        <link refid="_subroutine_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h</label>
+        <link refid="_subroutine_data_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="4">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="6">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="3">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="9">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="10">
+        <label>Subroutine.generated.h</label>
+      </node>
+      <node id="11">
+        <label>SubroutineData.generated.h</label>
+      </node>
+      <node id="8">
+        <label>UObject/Object.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_u_subroutine_data" prot="public">USubroutineData</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_subroutine_data_8h_1a101cc4afc6ad8dbc6ef5d56f94a85af5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_MatchInit)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_MatchInit</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1ae05a073dc460f338482cbbda3693fdd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_MatchInit)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_MatchInit</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a6a51a68174a9b8a8b3cec075d288ef28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_RoundInit)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_RoundInit</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a48d02391c08666abc19251b6c1f57e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_RoundInit)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_RoundInit</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a6b007acf2a6a9b94512a651d6614027a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_OnUpdate)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_OnUpdate</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a56ee74ade8adf028c9f6678358a955ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_OnUpdate)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_OnUpdate</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a7d644ac31cfb878d231b04904a898f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_OnStateChange)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_OnStateChange</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a7222244e05d91161178af3ed099f31f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_OnStateChange)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_OnStateChange</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a6a9ce94e0d695ae451c22618419ef470" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_PostStateChange)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_PostStateChange</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a5dd4c0c1e2b0babd60e7929f9d35fa31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_PostStateChange)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_PostStateChange</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="20" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="20" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1aee12e6d740750c6dd8bf160c2da66d93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_OnComboEnd)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_OnComboEnd</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="21" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="21" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1aee87ec2ad5434785e03d3826dad18b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_OnComboEnd)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_OnComboEnd</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="22" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="22" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1ac789d4ef0f00f904d0f77ee8e74ba390" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_AnyCancel_Air)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_AnyCancel_Air</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="23" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="23" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1ada57b9cc410013ea84de0a317a4377d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_Cmn_OnLanding)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_Cmn_OnLanding</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="24" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="24" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a0961650521d4a5f5f85ae212aac1cc0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_OnLanding)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_OnLanding</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="25" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="25" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1a77e40a79e7fcdc5078d948b7f7077704" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_ThrowParam_Ground)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_ThrowParam_Ground</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="26" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="26" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8h_1ad0d8bc64f95c3eb6183fee67ce2a4d5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DECLARE_GAMEPLAY_TAG_EXTERN</definition>
+        <argsstring>(Subroutine_ThrowParam_Air)</argsstring>
+        <name>UE_DECLARE_GAMEPLAY_TAG_EXTERN</name>
+        <param>
+          <type>Subroutine_ThrowParam_Air</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="27" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" declline="27" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NativeGameplayTags.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Engine/DataAsset.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NightSkyEngine/Battle/Script/Subroutine.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;SubroutineData.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_MatchInit);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_MatchInit);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_RoundInit);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_RoundInit);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnUpdate);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnUpdate);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnStateChange);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnStateChange);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_PostStateChange);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_PostStateChange);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnComboEnd);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnComboEnd);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_AnyCancel_Air);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnLanding);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnLanding);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_ThrowParam_Ground);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_ThrowParam_Air);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">UCLASS()</highlight></codeline>
+<codeline lineno="34" refid="class_u_subroutine_data" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_subroutine_data" kindref="compound">USubroutineData</ref><sp/>:<sp/>public<sp/>UDataAsset</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(EditAnywhere,<sp/>BlueprintReadOnly)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;TSubclassOf&lt;USubroutine&gt;&gt;<sp/>SubroutineArray;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h"/>
+  </compounddef>
+</doxygen>

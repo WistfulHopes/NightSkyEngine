@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_save_info" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkySaveInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">USaveGame</basecompoundref>
+    <derivedcompoundref refid="class_u_night_sky_settings_info" prot="public" virt="non-virtual">UNightSkySettingsInfo</derivedcompoundref>
+    <derivedcompoundref refid="class_u_replay_save_info" prot="public" virt="non-virtual">UReplaySaveInfo</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_save_info_1a3c82d71b33ffc2d7f905b42c8f557e17" prot="public" static="no" mutable="no">
+        <type>TArray&lt; uint8 &gt;</type>
+        <definition>TArray&lt;uint8&gt; UNightSkySaveInfo::Data</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <qualifiedname>UNightSkySaveInfo::Data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="68" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_save_info_1a65c117f4e76a7f39e44a9fe1dc1d7ea8" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_object_record" kindref="compound">FObjectRecord</ref> &gt;</type>
+        <definition>TArray&lt;FObjectRecord&gt; UNightSkySaveInfo::ObjectRecords</definition>
+        <argsstring></argsstring>
+        <name>ObjectRecords</name>
+        <qualifiedname>UNightSkySaveInfo::ObjectRecords</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="70" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_save_info_1a42cd8997f255f93a96c4dc7c6643585f" prot="public" static="no" mutable="no">
+        <type>TArray&lt; UObject * &gt;</type>
+        <definition>TArray&lt;UObject*&gt; UNightSkySaveInfo::TempObjects</definition>
+        <argsstring></argsstring>
+        <name>TempObjects</name>
+        <qualifiedname>UNightSkySaveInfo::TempObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="72" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_save_info_1a61ccfa943b5825cd6f7b16e60136f703" prot="public" static="no" mutable="no">
+        <type>TArray&lt; UObject * &gt;</type>
+        <definition>TArray&lt;UObject*&gt; UNightSkySaveInfo::PersistentOuters</definition>
+        <argsstring></argsstring>
+        <name>PersistentOuters</name>
+        <qualifiedname>UNightSkySaveInfo::PersistentOuters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="74" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a0e7760ccea6ccbe4215065812fdd1df3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::ActorArraySaver</definition>
+        <argsstring>(UPARAM(ref) TArray&lt; AActor * &gt; &amp;SaveActors)</argsstring>
+        <name>ActorArraySaver</name>
+        <qualifiedname>UNightSkySaveInfo::ActorArraySaver</qualifiedname>
+        <param>
+          <type>UPARAM(ref) TArray&lt; AActor * &gt; &amp;</type>
+          <declname>SaveActors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="78" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a743cc50890de9302378f340af3b65a5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::ActorSaver</definition>
+        <argsstring>(AActor *SaveActor)</argsstring>
+        <name>ActorSaver</name>
+        <qualifiedname>UNightSkySaveInfo::ActorSaver</qualifiedname>
+        <param>
+          <type>AActor *</type>
+          <declname>SaveActor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="82" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="17" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a91c66825168ae36e239530b6e105cabf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::ActorPreloader</definition>
+        <argsstring>(AActor *WorldActor, FObjectRecord &amp;ActorRecord)</argsstring>
+        <name>ActorPreloader</name>
+        <qualifiedname>UNightSkySaveInfo::ActorPreloader</qualifiedname>
+        <param>
+          <type>AActor *</type>
+          <declname>WorldActor</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_object_record" kindref="compound">FObjectRecord</ref> &amp;</type>
+          <declname>ActorRecord</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="86" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="33" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a7b1d004fbe4da15ffbe0f911ca1eac9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::UObjectArraySaver</definition>
+        <argsstring>(UPARAM(ref) TArray&lt; UObject * &gt; &amp;SaveObjects)</argsstring>
+        <name>UObjectArraySaver</name>
+        <qualifiedname>UNightSkySaveInfo::UObjectArraySaver</qualifiedname>
+        <param>
+          <type>UPARAM(ref) TArray&lt; UObject * &gt; &amp;</type>
+          <declname>SaveObjects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="90" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a7e93a85c8f61a2c7fb91dc2a2a0eedec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::UObjectSaver</definition>
+        <argsstring>(UObject *SaveObject)</argsstring>
+        <name>UObjectSaver</name>
+        <qualifiedname>UNightSkySaveInfo::UObjectSaver</qualifiedname>
+        <param>
+          <type>UObject *</type>
+          <declname>SaveObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="94" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="62" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a3b6311977dd850126493b5ba3af15df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::UObjectsPreloader</definition>
+        <argsstring>(AActor *WorldActor)</argsstring>
+        <name>UObjectsPreloader</name>
+        <qualifiedname>UNightSkySaveInfo::UObjectsPreloader</qualifiedname>
+        <param>
+          <type>AActor *</type>
+          <declname>WorldActor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="98" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="118" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a6edfc1cc2b0c247c582ae23bcedaa8bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::UObjectDataLoader</definition>
+        <argsstring>()</argsstring>
+        <name>UObjectDataLoader</name>
+        <qualifiedname>UNightSkySaveInfo::UObjectDataLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="102" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="176" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1a7fe6a3f5bb6a9ed18088b4a6aa557591" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::SaveData</definition>
+        <argsstring>(UObject *Object, TArray&lt; uint8 &gt; &amp;InData)</argsstring>
+        <name>SaveData</name>
+        <qualifiedname>UNightSkySaveInfo::SaveData</qualifiedname>
+        <param>
+          <type>UObject *</type>
+          <declname>Object</declname>
+        </param>
+        <param>
+          <type>TArray&lt; uint8 &gt; &amp;</type>
+          <declname>InData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="106" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="185" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_save_info_1aa1678379da4afe5923c82f859ca62b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkySaveInfo::LoadData</definition>
+        <argsstring>(UObject *Object, UPARAM(ref) TArray&lt; uint8 &gt; &amp;InData)</argsstring>
+        <name>LoadData</name>
+        <qualifiedname>UNightSkySaveInfo::LoadData</qualifiedname>
+        <param>
+          <type>UObject *</type>
+          <declname>Object</declname>
+        </param>
+        <param>
+          <type>UPARAM(ref) TArray&lt; uint8 &gt; &amp;</type>
+          <declname>InData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="110" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.cpp" bodystart="195" bodyend="203"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UNightSkySettingsInfo</label>
+        <link refid="class_u_night_sky_settings_info"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UReplaySaveInfo</label>
+        <link refid="class_u_replay_save_info"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>USaveGame</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UNightSkySaveInfo</label>
+        <link refid="class_u_night_sky_save_info"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>USaveGame</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="62" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="63" bodyend="111"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_save_info_1a0e7760ccea6ccbe4215065812fdd1df3" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>ActorArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a91c66825168ae36e239530b6e105cabf" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>ActorPreloader</name></member>
+      <member refid="class_u_night_sky_save_info_1a743cc50890de9302378f340af3b65a5a" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>ActorSaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a3c82d71b33ffc2d7f905b42c8f557e17" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>Data</name></member>
+      <member refid="class_u_night_sky_save_info_1aa1678379da4afe5923c82f859ca62b03" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>LoadData</name></member>
+      <member refid="class_u_night_sky_save_info_1a65c117f4e76a7f39e44a9fe1dc1d7ea8" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>ObjectRecords</name></member>
+      <member refid="class_u_night_sky_save_info_1a61ccfa943b5825cd6f7b16e60136f703" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>PersistentOuters</name></member>
+      <member refid="class_u_night_sky_save_info_1a7fe6a3f5bb6a9ed18088b4a6aa557591" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>SaveData</name></member>
+      <member refid="class_u_night_sky_save_info_1a42cd8997f255f93a96c4dc7c6643585f" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>TempObjects</name></member>
+      <member refid="class_u_night_sky_save_info_1a7b1d004fbe4da15ffbe0f911ca1eac9b" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>UObjectArraySaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a6edfc1cc2b0c247c582ae23bcedaa8bd" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>UObjectDataLoader</name></member>
+      <member refid="class_u_night_sky_save_info_1a7e93a85c8f61a2c7fb91dc2a2a0eedec" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>UObjectSaver</name></member>
+      <member refid="class_u_night_sky_save_info_1a3b6311977dd850126493b5ba3af15df0" prot="public" virt="non-virtual"><scope>UNightSkySaveInfo</scope><name>UObjectsPreloader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

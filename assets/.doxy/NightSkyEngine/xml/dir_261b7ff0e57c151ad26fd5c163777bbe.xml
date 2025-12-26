@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_261b7ff0e57c151ad26fd5c163777bbe" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network</compoundname>
+    <innerfile refid="_fighter_runners_8h">FighterRunners.h</innerfile>
+    <innerfile refid="_network_pawn_8cpp">NetworkPawn.cpp</innerfile>
+    <innerfile refid="_network_pawn_8h">NetworkPawn.h</innerfile>
+    <innerfile refid="_n_s_e_session_subsystem_8cpp">NSESessionSubsystem.cpp</innerfile>
+    <innerfile refid="_n_s_e_session_subsystem_8h">NSESessionSubsystem.h</innerfile>
+    <innerfile refid="_rpc_connection_manager_8cpp">RpcConnectionManager.cpp</innerfile>
+    <innerfile refid="_rpc_connection_manager_8h">RpcConnectionManager.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/"/>
+  </compounddef>
+</doxygen>

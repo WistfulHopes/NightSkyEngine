@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_poll_1_1_poll_sink_cb" kind="struct" language="C++" prot="protected">
+    <compoundname>Poll::PollSinkCb</compoundname>
+    <derivedcompoundref refid="struct_poll_1_1_poll_periodic_sink_cb" prot="public" virt="non-virtual">Poll::PollPeriodicSinkCb</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_poll_1_1_poll_sink_cb_1af149f17638f28c30dd12dd366c100e5b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_i_poll_sink" kindref="compound">IPollSink</ref> *</type>
+        <definition>IPollSink* Poll::PollSinkCb::sink</definition>
+        <argsstring></argsstring>
+        <name>sink</name>
+        <qualifiedname>Poll::PollSinkCb::sink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="40" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_poll_1_1_poll_sink_cb_1a99816ffc772e3c3a099f87e24922423d" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* Poll::PollSinkCb::cookie</definition>
+        <argsstring></argsstring>
+        <name>cookie</name>
+        <qualifiedname>Poll::PollSinkCb::cookie</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="41" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_poll_1_1_poll_sink_cb_1aaee52cdb0c7bb12923df7034d778ab62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Poll::PollSinkCb::PollSinkCb</definition>
+        <argsstring>()</argsstring>
+        <name>PollSinkCb</name>
+        <qualifiedname>Poll::PollSinkCb::PollSinkCb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="42" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_poll_1_1_poll_sink_cb_1ad7ba02622fda04075c5bc832806d1923" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Poll::PollSinkCb::PollSinkCb</definition>
+        <argsstring>(IPollSink *s, void *c)</argsstring>
+        <name>PollSinkCb</name>
+        <qualifiedname>Poll::PollSinkCb::PollSinkCb</qualifiedname>
+        <param>
+          <type><ref refid="class_i_poll_sink" kindref="compound">IPollSink</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="43" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Poll::PollPeriodicSinkCb</label>
+        <link refid="struct_poll_1_1_poll_periodic_sink_cb"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Poll::PollSinkCb</label>
+        <link refid="struct_poll_1_1_poll_sink_cb"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="1">
+        <label>Poll::PollSinkCb</label>
+        <link refid="struct_poll_1_1_poll_sink_cb"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>sink</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="39" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="39" bodyend="44"/>
+    <listofallmembers>
+      <member refid="struct_poll_1_1_poll_sink_cb_1a99816ffc772e3c3a099f87e24922423d" prot="public" virt="non-virtual"><scope>Poll::PollSinkCb</scope><name>cookie</name></member>
+      <member refid="struct_poll_1_1_poll_sink_cb_1aaee52cdb0c7bb12923df7034d778ab62" prot="public" virt="non-virtual"><scope>Poll::PollSinkCb</scope><name>PollSinkCb</name></member>
+      <member refid="struct_poll_1_1_poll_sink_cb_1ad7ba02622fda04075c5bc832806d1923" prot="public" virt="non-virtual"><scope>Poll::PollSinkCb</scope><name>PollSinkCb</name></member>
+      <member refid="struct_poll_1_1_poll_sink_cb_1af149f17638f28c30dd12dd366c100e5b" prot="public" virt="non-virtual"><scope>Poll::PollSinkCb</scope><name>sink</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

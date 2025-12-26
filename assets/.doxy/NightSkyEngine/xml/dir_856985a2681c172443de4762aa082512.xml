@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_856985a2681c172443de4762aa082512" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data</compoundname>
+    <innerfile refid="_battle_extension_data_8cpp">BattleExtensionData.cpp</innerfile>
+    <innerfile refid="_battle_extension_data_8h">BattleExtensionData.h</innerfile>
+    <innerfile refid="_camera_shake_data_8h">CameraShakeData.h</innerfile>
+    <innerfile refid="_collision_data_8cpp">CollisionData.cpp</innerfile>
+    <innerfile refid="_collision_data_8h">CollisionData.h</innerfile>
+    <innerfile refid="_flipbook_data_8h">FlipbookData.h</innerfile>
+    <innerfile refid="_link_actor_data_8h">LinkActorData.h</innerfile>
+    <innerfile refid="_material_data_8h">MaterialData.h</innerfile>
+    <innerfile refid="_particle_data_8cpp">ParticleData.cpp</innerfile>
+    <innerfile refid="_particle_data_8h">ParticleData.h</innerfile>
+    <innerfile refid="_primary_chara_data_8h">PrimaryCharaData.h</innerfile>
+    <innerfile refid="_primary_stage_data_8h">PrimaryStageData.h</innerfile>
+    <innerfile refid="_sequence_data_8h">SequenceData.h</innerfile>
+    <innerfile refid="_sound_data_8cpp">SoundData.cpp</innerfile>
+    <innerfile refid="_sound_data_8h">SoundData.h</innerfile>
+    <innerfile refid="_state_data_8cpp">StateData.cpp</innerfile>
+    <innerfile refid="_state_data_8h">StateData.h</innerfile>
+    <innerfile refid="_subroutine_data_8cpp">SubroutineData.cpp</innerfile>
+    <innerfile refid="_subroutine_data_8h">SubroutineData.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_peer2_peer_backend" kind="class" language="C++" prot="public">
+    <compoundname>Peer2PeerBackend</compoundname>
+    <basecompoundref refid="struct_g_g_p_o_session" prot="public" virt="non-virtual">GGPOSession</basecompoundref>
+    <basecompoundref refid="class_i_poll_sink" prot="private" virt="non-virtual">IPollSink</basecompoundref>
+    <basecompoundref refid="struct_udp_1_1_callbacks" prot="private" virt="non-virtual">Udp::Callbacks</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a0dc9361321dd374054849c06d64305be" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::remoteplayerId</definition>
+        <argsstring></argsstring>
+        <name>remoteplayerId</name>
+        <qualifiedname>Peer2PeerBackend::remoteplayerId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="25" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1adde83ceaf5102d1648b277fc88c96e27" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::remoteplayerQueueu</definition>
+        <argsstring></argsstring>
+        <name>remoteplayerQueueu</name>
+        <qualifiedname>Peer2PeerBackend::remoteplayerQueueu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="26" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a116abbcb9c3162208504a8315e71a1fa" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref></type>
+        <definition>GGPOSessionCallbacks Peer2PeerBackend::_callbacks</definition>
+        <argsstring></argsstring>
+        <name>_callbacks</name>
+        <qualifiedname>Peer2PeerBackend::_callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="60" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a97ea883226ee6c196be22f3eba52caf0" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_poll" kindref="compound">Poll</ref></type>
+        <definition>Poll Peer2PeerBackend::_poll</definition>
+        <argsstring></argsstring>
+        <name>_poll</name>
+        <qualifiedname>Peer2PeerBackend::_poll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="61" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1ae46371640b9de01db60fbc098b94d79a" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_sync" kindref="compound">Sync</ref></type>
+        <definition>Sync Peer2PeerBackend::_sync</definition>
+        <argsstring></argsstring>
+        <name>_sync</name>
+        <qualifiedname>Peer2PeerBackend::_sync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="62" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a58e88d206fa85a9c81aded8dbdd593f5" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_udp" kindref="compound">Udp</ref></type>
+        <definition>Udp Peer2PeerBackend::_udp</definition>
+        <argsstring></argsstring>
+        <name>_udp</name>
+        <qualifiedname>Peer2PeerBackend::_udp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="63" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a2a97f1f1e89de359b6e113c6c7bba29f" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_udp_protocol" kindref="compound">UdpProtocol</ref> *</type>
+        <definition>UdpProtocol* Peer2PeerBackend::_endpoints</definition>
+        <argsstring></argsstring>
+        <name>_endpoints</name>
+        <qualifiedname>Peer2PeerBackend::_endpoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="64" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a3d5885698dd655fc9379cf3756083dd6" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_udp_protocol" kindref="compound">UdpProtocol</ref></type>
+        <definition>UdpProtocol Peer2PeerBackend::_spectators[GGPO_MAX_SPECTATORS]</definition>
+        <argsstring>[GGPO_MAX_SPECTATORS]</argsstring>
+        <name>_spectators</name>
+        <qualifiedname>Peer2PeerBackend::_spectators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="65" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1adc97b9017880dcff2f4c314a200f01d7" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_num_spectators</definition>
+        <argsstring></argsstring>
+        <name>_num_spectators</name>
+        <qualifiedname>Peer2PeerBackend::_num_spectators</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="66" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1aedfbc7e179a3d7144381c952286a9937" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_input_size</definition>
+        <argsstring></argsstring>
+        <name>_input_size</name>
+        <qualifiedname>Peer2PeerBackend::_input_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="67" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1aa42b65f65e5b83f8929bc223cf176a29" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Peer2PeerBackend::_synchronizing</definition>
+        <argsstring></argsstring>
+        <name>_synchronizing</name>
+        <qualifiedname>Peer2PeerBackend::_synchronizing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="69" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a7426d5145f4f705bc49ce63d085f8b99" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_num_players</definition>
+        <argsstring></argsstring>
+        <name>_num_players</name>
+        <qualifiedname>Peer2PeerBackend::_num_players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="70" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a31c52226eaba3c038fe0da139707c81b" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_next_recommended_sleep</definition>
+        <argsstring></argsstring>
+        <name>_next_recommended_sleep</name>
+        <qualifiedname>Peer2PeerBackend::_next_recommended_sleep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="71" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1aaeacdd52d53b9f48f35b7127d80673c9" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_next_spectator_frame</definition>
+        <argsstring></argsstring>
+        <name>_next_spectator_frame</name>
+        <qualifiedname>Peer2PeerBackend::_next_spectator_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="73" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a4a6a2900c246e92b5679db1e1ad45ebe" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_disconnect_timeout</definition>
+        <argsstring></argsstring>
+        <name>_disconnect_timeout</name>
+        <qualifiedname>Peer2PeerBackend::_disconnect_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="74" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a7ca43504959460c18aa550d1466284ec" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::_disconnect_notify_start</definition>
+        <argsstring></argsstring>
+        <name>_disconnect_notify_start</name>
+        <qualifiedname>Peer2PeerBackend::_disconnect_notify_start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="75" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_peer2_peer_backend_1a5741275ad0ae3d77751d312ea4c2cfaf" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_udp_msg_1_1connect__status" kindref="compound">UdpMsg::connect_status</ref></type>
+        <definition>UdpMsg::connect_status Peer2PeerBackend::_local_connect_status[UDP_MSG_MAX_PLAYERS]</definition>
+        <argsstring>[UDP_MSG_MAX_PLAYERS]</argsstring>
+        <name>_local_connect_status</name>
+        <qualifiedname>Peer2PeerBackend::_local_connect_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="77" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_peer2_peer_backend_1a000949c4b8af9e6568f6c7cb73258cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Peer2PeerBackend::Peer2PeerBackend</definition>
+        <argsstring>(GGPOSessionCallbacks *cb, const char *gamename, ConnectionManager *connection_manager, int num_players, int input_size)</argsstring>
+        <name>Peer2PeerBackend</name>
+        <qualifiedname>Peer2PeerBackend::Peer2PeerBackend</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>gamename</declname>
+        </param>
+        <param>
+          <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+          <declname>connection_manager</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="20" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="16" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1aa6d7da48cc55a0a6605332912c2930a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Peer2PeerBackend::~Peer2PeerBackend</definition>
+        <argsstring>()</argsstring>
+        <name>~Peer2PeerBackend</name>
+        <qualifiedname>Peer2PeerBackend::~Peer2PeerBackend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="21" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a89d44cfc270cf0f5ac7bbddd7c72a385" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::DoPoll</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>DoPoll</name>
+        <qualifiedname>Peer2PeerBackend::DoPoll</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26">DoPoll</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="27" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="103" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1adefc9597dfadffc2d8420b33863f0d7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::AddPlayer</definition>
+        <argsstring>(GGPOPlayer *player, GGPOPlayerHandle *handle)</argsstring>
+        <name>AddPlayer</name>
+        <qualifiedname>Peer2PeerBackend::AddPlayer</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763">AddPlayer</reimplements>
+        <param>
+          <type><ref refid="struct_g_g_p_o_player" kindref="compound">GGPOPlayer</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="28" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="245" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1ada462fb9ef656f0118d3fce3952e8ecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::AddLocalInput</definition>
+        <argsstring>(GGPOPlayerHandle player, void *values, int size)</argsstring>
+        <name>AddLocalInput</name>
+        <qualifiedname>Peer2PeerBackend::AddLocalInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100">AddLocalInput</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="29" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="265" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a131cd86c1d0874e3c5a3af24dc25faec" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::SyncInput</definition>
+        <argsstring>(void *values, int size, int *disconnect_flags)</argsstring>
+        <name>SyncInput</name>
+        <qualifiedname>Peer2PeerBackend::SyncInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618">SyncInput</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>disconnect_flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="30" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="313" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1ac0d1108adefac427e49e8008030e7427" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::IncrementFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>IncrementFrame</name>
+        <qualifiedname>Peer2PeerBackend::IncrementFrame</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1">IncrementFrame</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="31" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="331" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1ad05f1d66b90a6fb21f2cd7a95351414d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::DisconnectPlayer</definition>
+        <argsstring>(GGPOPlayerHandle handle)</argsstring>
+        <name>DisconnectPlayer</name>
+        <qualifiedname>Peer2PeerBackend::DisconnectPlayer</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515">DisconnectPlayer</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="32" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="460" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1aedede95e79482412a12e89f8f62ea5ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::GetNetworkStats</definition>
+        <argsstring>(FGGPONetworkStats *stats, GGPOPlayerHandle handle) override</argsstring>
+        <name>GetNetworkStats</name>
+        <qualifiedname>Peer2PeerBackend::GetNetworkStats</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15">GetNetworkStats</reimplements>
+        <param>
+          <type><ref refid="struct_f_g_g_p_o_network_stats" kindref="compound">FGGPONetworkStats</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="33" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="520" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a0c4377e972ccb231cc7b1084a274fc32" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::SetFrameDelay</definition>
+        <argsstring>(GGPOPlayerHandle player, int delay)</argsstring>
+        <name>SetFrameDelay</name>
+        <qualifiedname>Peer2PeerBackend::SetFrameDelay</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214">SetFrameDelay</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="34" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="537" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a78b5f9c18b3169e6a46dab56aa3a951a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::SetDisconnectTimeout</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectTimeout</name>
+        <qualifiedname>Peer2PeerBackend::SetDisconnectTimeout</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16">SetDisconnectTimeout</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="35" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="551" bodyend="560"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a849ba8c143087843b591437ba5c61e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::SetDisconnectNotifyStart</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectNotifyStart</name>
+        <qualifiedname>Peer2PeerBackend::SetDisconnectNotifyStart</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c">SetDisconnectNotifyStart</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="36" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="563" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a3dd8591fef0a94703f8231ec67bffb1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::TrySynchronizeLocal</definition>
+        <argsstring>() override</argsstring>
+        <name>TrySynchronizeLocal</name>
+        <qualifiedname>Peer2PeerBackend::TrySynchronizeLocal</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc">TrySynchronizeLocal</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="37" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="575" bodyend="587"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a76a49db5e89b461cdcba14ad03ef5395" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::OnMsg</definition>
+        <argsstring>(int connection_id, UdpMsg *msg, int len) override</argsstring>
+        <name>OnMsg</name>
+        <qualifiedname>Peer2PeerBackend::OnMsg</qualifiedname>
+        <reimplements refid="struct_udp_1_1_callbacks_1a6dbc37b63c464c94dfe263849a573f5f">OnMsg</reimplements>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="40" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="603" bodyend="617"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_peer2_peer_backend_1a4ac5629049e540b5ce65dc4f548c7543" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::PlayerHandleToQueue</definition>
+        <argsstring>(GGPOPlayerHandle player, int *queue)</argsstring>
+        <name>PlayerHandleToQueue</name>
+        <qualifiedname>Peer2PeerBackend::PlayerHandleToQueue</qualifiedname>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="43" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="591" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a2c301c7c2354303fa1f1ec0bd373dd79" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>GGPOPlayerHandle</type>
+        <definition>GGPOPlayerHandle Peer2PeerBackend::QueueToPlayerHandle</definition>
+        <argsstring>(int queue)</argsstring>
+        <name>QueueToPlayerHandle</name>
+        <qualifiedname>Peer2PeerBackend::QueueToPlayerHandle</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="44" column="21" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a1e0d2dbc00cb6fe8c68a10c4e5591ae0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>GGPOPlayerHandle</type>
+        <definition>GGPOPlayerHandle Peer2PeerBackend::QueueToSpectatorHandle</definition>
+        <argsstring>(int queue)</argsstring>
+        <name>QueueToSpectatorHandle</name>
+        <qualifiedname>Peer2PeerBackend::QueueToSpectatorHandle</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="45" column="21" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1aa790931612bbb378baab55b85e318d03" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::DisconnectPlayerQueue</definition>
+        <argsstring>(int queue, int syncto)</argsstring>
+        <name>DisconnectPlayerQueue</name>
+        <qualifiedname>Peer2PeerBackend::DisconnectPlayerQueue</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>syncto</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="46" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="492" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1acd93f433bd457b4821ef2862d173a15a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::PollSyncEvents</definition>
+        <argsstring>(void)</argsstring>
+        <name>PollSyncEvents</name>
+        <qualifiedname>Peer2PeerBackend::PollSyncEvents</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="47" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="343" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a5f3141e7dd7ac3d4b9a141e589ddb7e7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::PollUdpProtocolEvents</definition>
+        <argsstring>(void)</argsstring>
+        <name>PollUdpProtocolEvents</name>
+        <qualifiedname>Peer2PeerBackend::PollUdpProtocolEvents</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="48" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="353" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1abd0829b5121db804c8e1c56e206a8502" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::CheckInitialSync</definition>
+        <argsstring>(void)</argsstring>
+        <name>CheckInitialSync</name>
+        <qualifiedname>Peer2PeerBackend::CheckInitialSync</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="49" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="620" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a92c664b0093583f09db969b42b9e1d62" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::Poll2Players</definition>
+        <argsstring>(int current_frame)</argsstring>
+        <name>Poll2Players</name>
+        <qualifiedname>Peer2PeerBackend::Poll2Players</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>current_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="50" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="172" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a0ffff1f3958d76d493feb8fb65f754d0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Peer2PeerBackend::PollNPlayers</definition>
+        <argsstring>(int current_frame)</argsstring>
+        <name>PollNPlayers</name>
+        <qualifiedname>Peer2PeerBackend::PollNPlayers</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>current_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="51" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="197" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1ab98c271ea0c49913805c816c015cb027" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::AddRemotePlayer</definition>
+        <argsstring>(int connection_id, int queue)</argsstring>
+        <name>AddRemotePlayer</name>
+        <qualifiedname>Peer2PeerBackend::AddRemotePlayer</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="52" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="66" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1acb2b25e80ff3d487fdfe7c79a4ff61b6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode Peer2PeerBackend::AddSpectator</definition>
+        <argsstring>(int connection_id)</argsstring>
+        <name>AddSpectator</name>
+        <qualifiedname>Peer2PeerBackend::AddSpectator</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="53" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="81" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a1ecff1111278ba09f4049029e4961e6d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void Peer2PeerBackend::OnSyncEvent</definition>
+        <argsstring>(Sync::Event &amp;e)</argsstring>
+        <name>OnSyncEvent</name>
+        <qualifiedname>Peer2PeerBackend::OnSyncEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_sync_1_1_event" kindref="compound">Sync::Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="54" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1adb3978f68dc4e8043b27e9c45ed505f1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::OnUdpProtocolEvent</definition>
+        <argsstring>(UdpProtocol::Event &amp;e, GGPOPlayerHandle handle)</argsstring>
+        <name>OnUdpProtocolEvent</name>
+        <qualifiedname>Peer2PeerBackend::OnUdpProtocolEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="55" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="414" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a70f37cbbe2acdd94788b446145c0b927" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::OnUdpProtocolPeerEvent</definition>
+        <argsstring>(UdpProtocol::Event &amp;e, int queue)</argsstring>
+        <name>OnUdpProtocolPeerEvent</name>
+        <qualifiedname>Peer2PeerBackend::OnUdpProtocolPeerEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="56" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="369" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="class_peer2_peer_backend_1a4231e06a8892d42197978823f431f455" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Peer2PeerBackend::OnUdpProtocolSpectatorEvent</definition>
+        <argsstring>(UdpProtocol::Event &amp;e, int queue)</argsstring>
+        <name>OnUdpProtocolSpectatorEvent</name>
+        <qualifiedname>Peer2PeerBackend::OnUdpProtocolSpectatorEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="57" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.cpp" bodystart="394" bodyend="411"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="1">
+        <label>Peer2PeerBackend</label>
+        <link refid="class_peer2_peer_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="21">
+        <label>ConnectionManager</label>
+        <link refid="class_connection_manager"/>
+      </node>
+      <node id="5">
+        <label>GGPOSessionCallbacks</label>
+        <link refid="struct_g_g_p_o_session_callbacks"/>
+      </node>
+      <node id="16">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="3">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="15">
+        <label>InputQueue</label>
+        <link refid="class_input_queue"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>_inputs</edgelabel>
+          <edgelabel>_prediction</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Peer2PeerBackend</label>
+        <link refid="class_peer2_peer_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_poll</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>_sync</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>_udp</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>_endpoints</edgelabel>
+          <edgelabel>_spectators</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Poll</label>
+        <link refid="class_poll"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_handle_sinks</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>_loop_sinks</edgelabel>
+          <edgelabel>_msg_sinks</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_periodic_sinks</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Poll::PollPeriodicSinkCb</label>
+        <link refid="struct_poll_1_1_poll_periodic_sink_cb"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Poll::PollSinkCb</label>
+        <link refid="struct_poll_1_1_poll_sink_cb"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sink</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>RingBuffer&lt; GameInput, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>RingBuffer&lt; Sync::Event, 32 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>RingBuffer&lt; UdpProtocol::Event, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="29" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="24">
+        <label>RingBuffer&lt; UdpProtocol::QueueEntry, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="25" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>StaticBuffer&lt; Poll::PollPeriodicSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>StaticBuffer&lt; Poll::PollSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Sync</label>
+        <link refid="class_sync"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>_savedstate</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>_config</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>_input_queues</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>_event_queue</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Sync::Config</label>
+        <link refid="struct_sync_1_1_config"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Sync::Event</label>
+        <link refid="struct_sync_1_1_event"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Sync::SavedFrame</label>
+        <link refid="struct_sync_1_1_saved_frame"/>
+      </node>
+      <node id="12">
+        <label>Sync::SavedState</label>
+        <link refid="struct_sync_1_1_saved_state"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>frames</edgelabel>
+        </childnode>
+      </node>
+      <node id="27">
+        <label>TimeSync</label>
+        <link refid="class_time_sync"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>_last_inputs</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Udp</label>
+        <link refid="class_udp"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>_connection_manager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_poll</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+      <node id="23">
+        <label>UdpMsg</label>
+        <link refid="struct_udp_msg"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>peer_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+      <node id="22">
+        <label>UdpProtocol</label>
+        <link refid="class_udp_protocol"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>connection_manager</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>_udp</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>msg</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>_send_queue</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+          <edgelabel>_peer_connect_status</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>_pending_output</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>_last_acked_input</edgelabel>
+          <edgelabel>_last_received_input</edgelabel>
+          <edgelabel>_last_sent_input</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>_timesync</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>_event_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="29">
+        <label>UdpProtocol::Event</label>
+        <link refid="struct_udp_protocol_1_1_event"/>
+        <childnode refid="16" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>UdpProtocol::QueueEntry</label>
+        <link refid="struct_udp_protocol_1_1_queue_entry"/>
+        <childnode refid="23" relation="usage">
+          <edgelabel>msg</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/p2p.h" bodystart="18" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_peer2_peer_backend_1a116abbcb9c3162208504a8315e71a1fa" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_callbacks</name></member>
+      <member refid="class_peer2_peer_backend_1a7ca43504959460c18aa550d1466284ec" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_disconnect_notify_start</name></member>
+      <member refid="class_peer2_peer_backend_1a4a6a2900c246e92b5679db1e1ad45ebe" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_disconnect_timeout</name></member>
+      <member refid="class_peer2_peer_backend_1a2a97f1f1e89de359b6e113c6c7bba29f" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_endpoints</name></member>
+      <member refid="class_peer2_peer_backend_1aedfbc7e179a3d7144381c952286a9937" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_input_size</name></member>
+      <member refid="class_peer2_peer_backend_1a5741275ad0ae3d77751d312ea4c2cfaf" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_local_connect_status</name></member>
+      <member refid="class_peer2_peer_backend_1a31c52226eaba3c038fe0da139707c81b" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_next_recommended_sleep</name></member>
+      <member refid="class_peer2_peer_backend_1aaeacdd52d53b9f48f35b7127d80673c9" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_next_spectator_frame</name></member>
+      <member refid="class_peer2_peer_backend_1a7426d5145f4f705bc49ce63d085f8b99" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_num_players</name></member>
+      <member refid="class_peer2_peer_backend_1adc97b9017880dcff2f4c314a200f01d7" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_num_spectators</name></member>
+      <member refid="class_peer2_peer_backend_1a97ea883226ee6c196be22f3eba52caf0" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_poll</name></member>
+      <member refid="class_peer2_peer_backend_1a3d5885698dd655fc9379cf3756083dd6" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_spectators</name></member>
+      <member refid="class_peer2_peer_backend_1ae46371640b9de01db60fbc098b94d79a" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_sync</name></member>
+      <member refid="class_peer2_peer_backend_1aa42b65f65e5b83f8929bc223cf176a29" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_synchronizing</name></member>
+      <member refid="class_peer2_peer_backend_1a58e88d206fa85a9c81aded8dbdd593f5" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>_udp</name></member>
+      <member refid="class_peer2_peer_backend_1ada462fb9ef656f0118d3fce3952e8ecf" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>AddLocalInput</name></member>
+      <member refid="class_peer2_peer_backend_1adefc9597dfadffc2d8420b33863f0d7b" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>AddPlayer</name></member>
+      <member refid="class_peer2_peer_backend_1ab98c271ea0c49913805c816c015cb027" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>AddRemotePlayer</name></member>
+      <member refid="class_peer2_peer_backend_1acb2b25e80ff3d487fdfe7c79a4ff61b6" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>AddSpectator</name></member>
+      <member refid="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>Chat</name></member>
+      <member refid="class_peer2_peer_backend_1abd0829b5121db804c8e1c56e206a8502" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>CheckInitialSync</name></member>
+      <member refid="class_peer2_peer_backend_1ad05f1d66b90a6fb21f2cd7a95351414d" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>DisconnectPlayer</name></member>
+      <member refid="class_peer2_peer_backend_1aa790931612bbb378baab55b85e318d03" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>DisconnectPlayerQueue</name></member>
+      <member refid="class_peer2_peer_backend_1a89d44cfc270cf0f5ac7bbddd7c72a385" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>DoPoll</name></member>
+      <member refid="class_peer2_peer_backend_1aedede95e79482412a12e89f8f62ea5ae" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>GetNetworkStats</name></member>
+      <member refid="class_peer2_peer_backend_1ac0d1108adefac427e49e8008030e7427" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>IncrementFrame</name></member>
+      <member refid="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>Logv</name></member>
+      <member refid="class_peer2_peer_backend_1a76a49db5e89b461cdcba14ad03ef5395" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>OnMsg</name></member>
+      <member refid="class_peer2_peer_backend_1a1ecff1111278ba09f4049029e4961e6d" prot="protected" virt="virtual"><scope>Peer2PeerBackend</scope><name>OnSyncEvent</name></member>
+      <member refid="class_peer2_peer_backend_1adb3978f68dc4e8043b27e9c45ed505f1" prot="protected" virt="virtual"><scope>Peer2PeerBackend</scope><name>OnUdpProtocolEvent</name></member>
+      <member refid="class_peer2_peer_backend_1a70f37cbbe2acdd94788b446145c0b927" prot="protected" virt="virtual"><scope>Peer2PeerBackend</scope><name>OnUdpProtocolPeerEvent</name></member>
+      <member refid="class_peer2_peer_backend_1a4231e06a8892d42197978823f431f455" prot="protected" virt="virtual"><scope>Peer2PeerBackend</scope><name>OnUdpProtocolSpectatorEvent</name></member>
+      <member refid="class_peer2_peer_backend_1a000949c4b8af9e6568f6c7cb73258cff" prot="public" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>Peer2PeerBackend</name></member>
+      <member refid="class_peer2_peer_backend_1a4ac5629049e540b5ce65dc4f548c7543" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>PlayerHandleToQueue</name></member>
+      <member refid="class_peer2_peer_backend_1a92c664b0093583f09db969b42b9e1d62" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>Poll2Players</name></member>
+      <member refid="class_peer2_peer_backend_1a0ffff1f3958d76d493feb8fb65f754d0" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>PollNPlayers</name></member>
+      <member refid="class_peer2_peer_backend_1acd93f433bd457b4821ef2862d173a15a" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>PollSyncEvents</name></member>
+      <member refid="class_peer2_peer_backend_1a5f3141e7dd7ac3d4b9a141e589ddb7e7" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>PollUdpProtocolEvents</name></member>
+      <member refid="class_peer2_peer_backend_1a2c301c7c2354303fa1f1ec0bd373dd79" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>QueueToPlayerHandle</name></member>
+      <member refid="class_peer2_peer_backend_1a1e0d2dbc00cb6fe8c68a10c4e5591ae0" prot="protected" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>QueueToSpectatorHandle</name></member>
+      <member refid="class_peer2_peer_backend_1a0dc9361321dd374054849c06d64305be" prot="public" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>remoteplayerId</name></member>
+      <member refid="class_peer2_peer_backend_1adde83ceaf5102d1648b277fc88c96e27" prot="public" virt="non-virtual"><scope>Peer2PeerBackend</scope><name>remoteplayerQueueu</name></member>
+      <member refid="class_peer2_peer_backend_1a849ba8c143087843b591437ba5c61e03" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>SetDisconnectNotifyStart</name></member>
+      <member refid="class_peer2_peer_backend_1a78b5f9c18b3169e6a46dab56aa3a951a" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>SetDisconnectTimeout</name></member>
+      <member refid="class_peer2_peer_backend_1a0c4377e972ccb231cc7b1084a274fc32" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>SetFrameDelay</name></member>
+      <member refid="class_peer2_peer_backend_1a131cd86c1d0874e3c5a3af24dc25faec" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>SyncInput</name></member>
+      <member refid="class_peer2_peer_backend_1a3dd8591fef0a94703f8231ec67bffb1b" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>TrySynchronizeLocal</name></member>
+      <member refid="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>~GGPOSession</name></member>
+      <member refid="class_peer2_peer_backend_1aa6d7da48cc55a0a6605332912c2930a6" prot="public" virt="virtual"><scope>Peer2PeerBackend</scope><name>~Peer2PeerBackend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

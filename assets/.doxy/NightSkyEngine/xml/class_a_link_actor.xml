@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_link_actor" kind="class" language="C++" prot="public">
+    <compoundname>ALinkActor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AActor</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_link_actor_1a1092a9a3ec71c42e3dc08438aafc7255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ALinkActor::ALinkActor</definition>
+        <argsstring>()</argsstring>
+        <name>ALinkActor</name>
+        <qualifiedname>ALinkActor::ALinkActor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.cpp" bodystart="8" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_link_actor_1a5cea962d7d869d2d42326a22fbe6b47e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ALinkActor::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>ALinkActor::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="24" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_link_actor_1ad3a37897644c3fbd46783337a487f0f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ALinkActor::Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <qualifiedname>ALinkActor::Init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_link_actor_1a8d5a1a717f545b7da7ae07695970768f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ALinkActor::Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>ALinkActor::Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_link_actor_1aaeddc7b3dce97d7dfb0aa6dbb356df7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ALinkActor::Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <qualifiedname>ALinkActor::Exit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="33" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_link_actor_1a9d63ac2f9e68f411714b704e1eae1975" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ALinkActor::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ALinkActor::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="20" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.cpp" bodystart="15" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>ALinkActor</label>
+        <link refid="class_a_link_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>ALinkActor</label>
+        <link refid="class_a_link_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" line="10" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/LinkActor.h" bodystart="11" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_a_link_actor_1a1092a9a3ec71c42e3dc08438aafc7255" prot="public" virt="non-virtual"><scope>ALinkActor</scope><name>ALinkActor</name></member>
+      <member refid="class_a_link_actor_1a9d63ac2f9e68f411714b704e1eae1975" prot="protected" virt="virtual"><scope>ALinkActor</scope><name>BeginPlay</name></member>
+      <member refid="class_a_link_actor_1aaeddc7b3dce97d7dfb0aa6dbb356df7f" prot="public" virt="non-virtual"><scope>ALinkActor</scope><name>Exit</name></member>
+      <member refid="class_a_link_actor_1ad3a37897644c3fbd46783337a487f0f8" prot="public" virt="non-virtual"><scope>ALinkActor</scope><name>Init</name></member>
+      <member refid="class_a_link_actor_1a5cea962d7d869d2d42326a22fbe6b47e" prot="public" virt="virtual"><scope>ALinkActor</scope><name>Tick</name></member>
+      <member refid="class_a_link_actor_1a8d5a1a717f545b7da7ae07695970768f" prot="public" virt="non-virtual"><scope>ALinkActor</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

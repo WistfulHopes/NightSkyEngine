@@ -1,0 +1,407 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_battle_extension_data_8cpp" kind="file" language="C++">
+    <compoundname>BattleExtensionData.cpp</compoundname>
+    <includes refid="_battle_extension_data_8h" local="yes">BattleExtensionData.h</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>AudioManager.generated.h</label>
+      </node>
+      <node id="46">
+        <label>BattleExtension.generated.h</label>
+      </node>
+      <node id="47">
+        <label>BattleExtensionData.generated.h</label>
+      </node>
+      <node id="21">
+        <label>BattleObject.generated.h</label>
+      </node>
+      <node id="7">
+        <label>Actors/AudioManager.h</label>
+        <link refid="_audio_manager_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>NightSkyEngine/Battle/Misc/CollisionBox.h</label>
+        <link refid="_collision_box_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Globals.h</label>
+        <link refid="_globals_8h_source"/>
+      </node>
+      <node id="23">
+        <label>NightSkyEngine/Battle/Misc/InputBuffer.h</label>
+        <link refid="_input_buffer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>Misc/RandomManager.h</label>
+        <link refid="_random_manager_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>NightSkyEngine/Battle/NightSkyGameState.h</label>
+        <link refid="_night_sky_game_state_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>BattleObject.h</label>
+        <link refid="_battle_object_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Objects/PlayerObject.h</label>
+        <link refid="_player_object_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NightSkyEngine/Battle/Script/BattleExtension.h</label>
+        <link refid="_battle_extension_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>NightSkyEngine/Battle/Script/State.h</label>
+        <link refid="_state_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>NightSkyEngine/Battle/Script/StateMachine.h</label>
+        <link refid="_state_machine_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp</label>
+        <link refid="_battle_extension_data_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BattleExtensionData.h</label>
+        <link refid="_battle_extension_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>NightSkyEngine/Data/CollisionData.h</label>
+        <link refid="_collision_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>NightSkyEngine/Data/SequenceData.h</label>
+        <link refid="_sequence_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>NightSkyEngine/Data/SoundData.h</label>
+        <link refid="_sound_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>NightSkyEngine/Data/StateData.h</label>
+        <link refid="_state_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>CollisionBox.generated.h</label>
+      </node>
+      <node id="20">
+        <label>CollisionData.generated.h</label>
+      </node>
+      <node id="3">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="4">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="8">
+        <label>GameFramework/Actor.h</label>
+      </node>
+      <node id="41">
+        <label>GameFramework/GameStateBase.h</label>
+      </node>
+      <node id="14">
+        <label>GameFramework/Pawn.h</label>
+      </node>
+      <node id="13">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="30">
+        <label>InputBuffer.generated.h</label>
+      </node>
+      <node id="34">
+        <label>LevelSequence.h</label>
+      </node>
+      <node id="22">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="45">
+        <label>NightSkyGameState.generated.h</label>
+      </node>
+      <node id="19">
+        <label>PaperFlipbook.h</label>
+      </node>
+      <node id="40">
+        <label>PlayerObject.generated.h</label>
+      </node>
+      <node id="44">
+        <label>RandomManager.generated.h</label>
+      </node>
+      <node id="35">
+        <label>SequenceData.generated.h</label>
+      </node>
+      <node id="28">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="37">
+        <label>SoundData.generated.h</label>
+      </node>
+      <node id="29">
+        <label>State.generated.h</label>
+      </node>
+      <node id="39">
+        <label>StateData.generated.h</label>
+      </node>
+      <node id="32">
+        <label>StateMachine.generated.h</label>
+      </node>
+      <node id="27">
+        <label>UObject/Object.h</label>
+      </node>
+      <node id="12">
+        <label>fstream</label>
+      </node>
+      <node id="42">
+        <label>include/ggponet.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_battle_extension_data_8cpp_1a523db1285fbf37eb289eb18dce150c11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(BattleExtension_MatchInit, &quot;BattleExtension.MatchInit&quot;, &quot;Battle Extension Match Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>BattleExtension_MatchInit</type>
+        </param>
+        <param>
+          <type>&quot;BattleExtension.MatchInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Battle Extension Match Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" line="5" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" declline="5" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_battle_extension_data_8cpp_1a80191df3e5e9d4da949e7fc4c464c031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(BattleExtension_RoundInit, &quot;BattleExtension.RoundInit&quot;, &quot;Battle Extension Round Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>BattleExtension_RoundInit</type>
+        </param>
+        <param>
+          <type>&quot;BattleExtension.RoundInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Battle Extension Round Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" line="6" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" declline="6" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_battle_extension_data_8cpp_1a671a402f50ce83460f9e504f96058f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(BattleExtension_Update, &quot;BattleExtension.Update&quot;, &quot;Battle Extension Update&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>BattleExtension_Update</type>
+        </param>
+        <param>
+          <type>&quot;BattleExtension.Update&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Battle Extension Update&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" line="7" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp" declline="7" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;BattleExtensionData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>UE_INLINE_GENERATED_CPP_BY_NAME(BattleExtensionData)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(BattleExtension_MatchInit,<sp/></highlight><highlight class="stringliteral">&quot;BattleExtension.MatchInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Battle<sp/>Extension<sp/>Match<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(BattleExtension_RoundInit,<sp/></highlight><highlight class="stringliteral">&quot;BattleExtension.RoundInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Battle<sp/>Extension<sp/>Round<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(BattleExtension_Update,<sp/></highlight><highlight class="stringliteral">&quot;BattleExtension.Update&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Battle<sp/>Extension<sp/>Update&quot;</highlight><highlight class="normal">);</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.cpp"/>
+  </compounddef>
+</doxygen>

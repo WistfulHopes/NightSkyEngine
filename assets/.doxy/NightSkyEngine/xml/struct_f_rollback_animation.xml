@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_rollback_animation" kind="struct" language="C++" prot="public">
+    <compoundname>FRollbackAnimation</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_rollback_animation_1a83876129c10fb011dde0d8888353022d" prot="public" static="no" mutable="no">
+        <type>UWidgetAnimation *</type>
+        <definition>UWidgetAnimation* FRollbackAnimation::Anim</definition>
+        <argsstring></argsstring>
+        <name>Anim</name>
+        <qualifiedname>FRollbackAnimation::Anim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="15" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_rollback_animation_1a22a36bbe55d24fc54b30e0eb6119bf70" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FRollbackAnimation::Time</definition>
+        <argsstring></argsstring>
+        <name>Time</name>
+        <qualifiedname>FRollbackAnimation::Time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="18" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_rollback_animation_1ad91dd749d8e243740db5d21b0f158ff3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FRollbackAnimation::bPlaying</definition>
+        <argsstring></argsstring>
+        <name>bPlaying</name>
+        <qualifiedname>FRollbackAnimation::bPlaying</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="21" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="10" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="11" bodyend="22"/>
+    <listofallmembers>
+      <member refid="struct_f_rollback_animation_1a83876129c10fb011dde0d8888353022d" prot="public" virt="non-virtual"><scope>FRollbackAnimation</scope><name>Anim</name></member>
+      <member refid="struct_f_rollback_animation_1ad91dd749d8e243740db5d21b0f158ff3" prot="public" virt="non-virtual"><scope>FRollbackAnimation</scope><name>bPlaying</name></member>
+      <member refid="struct_f_rollback_animation_1a22a36bbe55d24fc54b30e0eb6119bf70" prot="public" virt="non-virtual"><scope>FRollbackAnimation</scope><name>Time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

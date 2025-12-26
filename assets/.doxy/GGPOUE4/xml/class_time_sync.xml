@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_time_sync" kind="class" language="C++" prot="public">
+    <compoundname>TimeSync</compoundname>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_time_sync_1aad591a1fc6919352546a49a558734d59" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TimeSync::_local[FRAME_WINDOW_SIZE]</definition>
+        <argsstring>[FRAME_WINDOW_SIZE]</argsstring>
+        <name>_local</name>
+        <qualifiedname>TimeSync::_local</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="28" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_time_sync_1a5765965be103c4e12abf71e8442e0454" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TimeSync::_remote[FRAME_WINDOW_SIZE]</definition>
+        <argsstring>[FRAME_WINDOW_SIZE]</argsstring>
+        <name>_remote</name>
+        <qualifiedname>TimeSync::_remote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="29" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_time_sync_1a64ebbb77aebd74177844136ace0bf753" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput TimeSync::_last_inputs[MIN_UNIQUE_FRAMES]</definition>
+        <argsstring>[MIN_UNIQUE_FRAMES]</argsstring>
+        <name>_last_inputs</name>
+        <qualifiedname>TimeSync::_last_inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="30" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_time_sync_1a80d12fb101456f4242f9bed3e776eed2" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TimeSync::_next_prediction</definition>
+        <argsstring></argsstring>
+        <name>_next_prediction</name>
+        <qualifiedname>TimeSync::_next_prediction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="31" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_time_sync_1ac5ef72858cd13f42bb25af72c2523863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TimeSync::TimeSync</definition>
+        <argsstring>()</argsstring>
+        <name>TimeSync</name>
+        <qualifiedname>TimeSync::TimeSync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="21" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp" bodystart="10" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_time_sync_1ab8dc55cad76024232f962dbc7f2b541e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>TimeSync::~TimeSync</definition>
+        <argsstring>()</argsstring>
+        <name>~TimeSync</name>
+        <qualifiedname>TimeSync::~TimeSync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="22" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_time_sync_1a9e19666df6ccd25f7b0455d7e284e366" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TimeSync::advance_frame</definition>
+        <argsstring>(GameInput &amp;input, int advantage, int radvantage)</argsstring>
+        <name>advance_frame</name>
+        <qualifiedname>TimeSync::advance_frame</qualifiedname>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>advantage</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>radvantage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="24" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp" bodystart="22" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_time_sync_1a5f173a01b0450643f78a7dcfc9034616" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int TimeSync::recommend_frame_wait_duration</definition>
+        <argsstring>(bool require_idle_input)</argsstring>
+        <name>recommend_frame_wait_duration</name>
+        <qualifiedname>TimeSync::recommend_frame_wait_duration</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>require_idle_input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="25" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp" bodystart="31" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="1">
+        <label>TimeSync</label>
+        <link refid="class_time_sync"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_last_inputs</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.h" bodystart="19" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_time_sync_1a64ebbb77aebd74177844136ace0bf753" prot="protected" virt="non-virtual"><scope>TimeSync</scope><name>_last_inputs</name></member>
+      <member refid="class_time_sync_1aad591a1fc6919352546a49a558734d59" prot="protected" virt="non-virtual"><scope>TimeSync</scope><name>_local</name></member>
+      <member refid="class_time_sync_1a80d12fb101456f4242f9bed3e776eed2" prot="protected" virt="non-virtual"><scope>TimeSync</scope><name>_next_prediction</name></member>
+      <member refid="class_time_sync_1a5765965be103c4e12abf71e8442e0454" prot="protected" virt="non-virtual"><scope>TimeSync</scope><name>_remote</name></member>
+      <member refid="class_time_sync_1a9e19666df6ccd25f7b0455d7e284e366" prot="public" virt="non-virtual"><scope>TimeSync</scope><name>advance_frame</name></member>
+      <member refid="class_time_sync_1a5f173a01b0450643f78a7dcfc9034616" prot="public" virt="non-virtual"><scope>TimeSync</scope><name>recommend_frame_wait_duration</name></member>
+      <member refid="class_time_sync_1ac5ef72858cd13f42bb25af72c2523863" prot="public" virt="non-virtual"><scope>TimeSync</scope><name>TimeSync</name></member>
+      <member refid="class_time_sync_1ab8dc55cad76024232f962dbc7f2b541e" prot="public" virt="virtual"><scope>TimeSync</scope><name>~TimeSync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

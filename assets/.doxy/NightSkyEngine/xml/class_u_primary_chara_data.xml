@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_primary_chara_data" kind="class" language="C++" prot="public">
+    <compoundname>UPrimaryCharaData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UPrimaryDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_primary_chara_data_1aa2a7e64a255dc36dc8c838a96aa9b3ce" prot="public" static="no" mutable="no">
+        <type>FName</type>
+        <definition>FName UPrimaryCharaData::CharaName</definition>
+        <argsstring></argsstring>
+        <name>CharaName</name>
+        <qualifiedname>UPrimaryCharaData::CharaName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="26" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1a50f2b3c0941f3c5f92ac8729b8ba35de" prot="public" static="no" mutable="no">
+        <type>FText</type>
+        <definition>FText UPrimaryCharaData::CharaFriendlyName</definition>
+        <argsstring></argsstring>
+        <name>CharaFriendlyName</name>
+        <qualifiedname>UPrimaryCharaData::CharaFriendlyName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="28" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1a1d4c4ce35a43c3045e434538520b04b7" prot="public" static="no" mutable="no">
+        <type>FText</type>
+        <definition>FText UPrimaryCharaData::CharaDescription</definition>
+        <argsstring></argsstring>
+        <name>CharaDescription</name>
+        <qualifiedname>UPrimaryCharaData::CharaDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="30" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1ad1273ed827fe9ee6a656e928d21750c7" prot="public" static="no" mutable="no">
+        <type>UTexture2D *</type>
+        <definition>UTexture2D* UPrimaryCharaData::CharaHUDIcon</definition>
+        <argsstring></argsstring>
+        <name>CharaHUDIcon</name>
+        <qualifiedname>UPrimaryCharaData::CharaHUDIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="32" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1a01aa24dc479b76cfb6948a4310c7f0bf" prot="public" static="no" mutable="no">
+        <type>UTexture2D *</type>
+        <definition>UTexture2D* UPrimaryCharaData::CharaSelectIcon</definition>
+        <argsstring></argsstring>
+        <name>CharaSelectIcon</name>
+        <qualifiedname>UPrimaryCharaData::CharaSelectIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="34" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1aa32db2b83be84acbe6de4497051f9fe9" prot="public" static="no" mutable="no">
+        <type>UTexture2D *</type>
+        <definition>UTexture2D* UPrimaryCharaData::CharaSplashIcon</definition>
+        <argsstring></argsstring>
+        <name>CharaSplashIcon</name>
+        <qualifiedname>UPrimaryCharaData::CharaSplashIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="36" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_chara_data_1a59ad01ff6419b20799262a2eb30ea9a7" prot="public" static="no" mutable="no">
+        <type>TSubclassOf&lt; <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> &gt;</type>
+        <definition>TSubclassOf&lt;APlayerObject&gt; UPrimaryCharaData::PlayerClass</definition>
+        <argsstring></argsstring>
+        <name>PlayerClass</name>
+        <qualifiedname>UPrimaryCharaData::PlayerClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="38" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_primary_chara_data_1af9b77d0595a68d6ee2f6ae50c738d59b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>FPrimaryAssetId</type>
+        <definition>virtual FPrimaryAssetId UPrimaryCharaData::GetPrimaryAssetId</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetPrimaryAssetId</name>
+        <qualifiedname>UPrimaryCharaData::GetPrimaryAssetId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="20" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UPrimaryCharaData</label>
+        <link refid="class_u_primary_chara_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UPrimaryDataAsset</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UPrimaryCharaData</label>
+        <link refid="class_u_primary_chara_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UPrimaryDataAsset</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" line="15" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryCharaData.h" bodystart="16" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_u_primary_chara_data_1a1d4c4ce35a43c3045e434538520b04b7" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaDescription</name></member>
+      <member refid="class_u_primary_chara_data_1a50f2b3c0941f3c5f92ac8729b8ba35de" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaFriendlyName</name></member>
+      <member refid="class_u_primary_chara_data_1ad1273ed827fe9ee6a656e928d21750c7" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaHUDIcon</name></member>
+      <member refid="class_u_primary_chara_data_1aa2a7e64a255dc36dc8c838a96aa9b3ce" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaName</name></member>
+      <member refid="class_u_primary_chara_data_1a01aa24dc479b76cfb6948a4310c7f0bf" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaSelectIcon</name></member>
+      <member refid="class_u_primary_chara_data_1aa32db2b83be84acbe6de4497051f9fe9" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>CharaSplashIcon</name></member>
+      <member refid="class_u_primary_chara_data_1af9b77d0595a68d6ee2f6ae50c738d59b" prot="public" virt="virtual"><scope>UPrimaryCharaData</scope><name>GetPrimaryAssetId</name></member>
+      <member refid="class_u_primary_chara_data_1a59ad01ff6419b20799262a2eb30ea9a7" prot="public" virt="non-virtual"><scope>UPrimaryCharaData</scope><name>PlayerClass</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

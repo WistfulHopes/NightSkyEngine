@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_a_i_controller" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyAIController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AAIController</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a23e09a03a19a3ac3803618ed8b2ad6aa" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> &gt;</type>
+        <definition>TObjectPtr&lt;APlayerObject&gt; ANightSkyAIController::Player</definition>
+        <argsstring></argsstring>
+        <name>Player</name>
+        <qualifiedname>ANightSkyAIController::Player</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="24" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a119b0a06a1daacf85b04d05a7e1eed92" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_a_night_sky_game_state" kindref="compound">ANightSkyGameState</ref> &gt;</type>
+        <definition>TObjectPtr&lt;ANightSkyGameState&gt; ANightSkyAIController::GameState</definition>
+        <argsstring></argsstring>
+        <name>GameState</name>
+        <qualifiedname>ANightSkyAIController::GameState</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="26" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a57a1c26e509ccf167a7145c0ebb10963" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyAIController::InputCountLimit</definition>
+        <argsstring></argsstring>
+        <name>InputCountLimit</name>
+        <qualifiedname>ANightSkyAIController::InputCountLimit</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="33" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a7a561a7647034c8106446dfdee6f1efb" prot="private" static="no" mutable="no">
+        <type><ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+        <definition>UState* ANightSkyAIController::TargetState</definition>
+        <argsstring></argsstring>
+        <name>TargetState</name>
+        <qualifiedname>ANightSkyAIController::TargetState</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="36" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a89e0ffa343f09c3948612b091bb5c445" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyAIController::WaitCount</definition>
+        <argsstring></argsstring>
+        <name>WaitCount</name>
+        <qualifiedname>ANightSkyAIController::WaitCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="37" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1a31e375273dc95cd96e7b5c718e89cb36" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyAIController::WaitLimit</definition>
+        <argsstring></argsstring>
+        <name>WaitLimit</name>
+        <qualifiedname>ANightSkyAIController::WaitLimit</qualifiedname>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="38" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1ab75d9d1653de8ce1645d1d973269e889" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyAIController::InputCount</definition>
+        <argsstring></argsstring>
+        <name>InputCount</name>
+        <qualifiedname>ANightSkyAIController::InputCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="39" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_a_i_controller_1ac1745d38d34b71ca5157761756e268c4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyAIController::bBlock</definition>
+        <argsstring></argsstring>
+        <name>bBlock</name>
+        <qualifiedname>ANightSkyAIController::bBlock</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="40" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a26beca298568dee9b1680c6b616a946d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyAIController::ANightSkyAIController</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyAIController</name>
+        <qualifiedname>ANightSkyAIController::ANightSkyAIController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="21" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="12" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a799ef0ba23e37eee38aed052a47de629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyAIController::Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>ANightSkyAIController::Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="44" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="26" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1abd6a21e20fa49ba5a905f17bab68d02b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyAIController::ResetParams</definition>
+        <argsstring>()</argsstring>
+        <name>ResetParams</name>
+        <qualifiedname>ANightSkyAIController::ResetParams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="45" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="128" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a26bd39678bf9cad0f9761173b5980e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ANightSkyAIController::SetInputs</definition>
+        <argsstring>()</argsstring>
+        <name>SetInputs</name>
+        <qualifiedname>ANightSkyAIController::SetInputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="46" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="137" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1abac389c1aaf8d285f1123157676ba459" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyAIController::GetEnemyDistanceX</definition>
+        <argsstring>() const</argsstring>
+        <name>GetEnemyDistanceX</name>
+        <qualifiedname>ANightSkyAIController::GetEnemyDistanceX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="49" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="157" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a1138325d9e1e6d415964ca4331bd45c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyAIController::GetEnemyDistanceY</definition>
+        <argsstring>() const</argsstring>
+        <name>GetEnemyDistanceY</name>
+        <qualifiedname>ANightSkyAIController::GetEnemyDistanceY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="51" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="163" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a39d12902664432c245712f317adfd179" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyAIController::CheckBasicWeight</definition>
+        <argsstring>(const UState *State) const</argsstring>
+        <name>CheckBasicWeight</name>
+        <qualifiedname>ANightSkyAIController::CheckBasicWeight</qualifiedname>
+        <param>
+          <type>const <ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+          <declname>State</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="54" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="169" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a4b259889b197f1859124a8d917598b2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyAIController::CheckAttackWeight</definition>
+        <argsstring>(const UState *State) const</argsstring>
+        <name>CheckAttackWeight</name>
+        <qualifiedname>ANightSkyAIController::CheckAttackWeight</qualifiedname>
+        <param>
+          <type>const <ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+          <declname>State</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="56" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="266" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a2616c37dd058cee756c7f55f3a6d9e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyAIController::CheckDefenseWeight</definition>
+        <argsstring>(const UState *State)</argsstring>
+        <name>CheckDefenseWeight</name>
+        <qualifiedname>ANightSkyAIController::CheckDefenseWeight</qualifiedname>
+        <param>
+          <type>const <ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+          <declname>State</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="58" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="349" bodyend="407"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_night_sky_a_i_controller_1a62ae5b46bde9504540cd6f76be9e73a9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyAIController::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANightSkyAIController::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="30" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AAIController</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyAIController</label>
+        <link refid="class_a_night_sky_a_i_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AAIController</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyAIController</label>
+        <link refid="class_a_night_sky_a_i_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" line="15" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/CPU/NightSkyAIController.h" bodystart="16" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_a_i_controller_1a26beca298568dee9b1680c6b616a946d" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>ANightSkyAIController</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1ac1745d38d34b71ca5157761756e268c4" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>bBlock</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a62ae5b46bde9504540cd6f76be9e73a9" prot="protected" virt="virtual"><scope>ANightSkyAIController</scope><name>BeginPlay</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a4b259889b197f1859124a8d917598b2f" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>CheckAttackWeight</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a39d12902664432c245712f317adfd179" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>CheckBasicWeight</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a2616c37dd058cee756c7f55f3a6d9e3e" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>CheckDefenseWeight</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a119b0a06a1daacf85b04d05a7e1eed92" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>GameState</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1abac389c1aaf8d285f1123157676ba459" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>GetEnemyDistanceX</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a1138325d9e1e6d415964ca4331bd45c6" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>GetEnemyDistanceY</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1ab75d9d1653de8ce1645d1d973269e889" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>InputCount</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a57a1c26e509ccf167a7145c0ebb10963" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>InputCountLimit</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a23e09a03a19a3ac3803618ed8b2ad6aa" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>Player</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1abd6a21e20fa49ba5a905f17bab68d02b" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>ResetParams</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a26bd39678bf9cad0f9761173b5980e8b" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>SetInputs</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a7a561a7647034c8106446dfdee6f1efb" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>TargetState</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a799ef0ba23e37eee38aed052a47de629" prot="public" virt="non-virtual"><scope>ANightSkyAIController</scope><name>Update</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a89e0ffa343f09c3948612b091bb5c445" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>WaitCount</name></member>
+      <member refid="class_a_night_sky_a_i_controller_1a31e375273dc95cd96e7b5c718e89cb36" prot="private" virt="non-virtual"><scope>ANightSkyAIController</scope><name>WaitLimit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

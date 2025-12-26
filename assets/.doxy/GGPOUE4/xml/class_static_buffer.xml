@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_static_buffer" kind="class" language="C++" prot="public">
+    <compoundname>StaticBuffer</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>int</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_static_buffer_1a1731f9d31743b9eb28f0f8cf90395170" prot="protected" static="no" mutable="no">
+        <type>T</type>
+        <definition>T StaticBuffer&lt; T, N &gt;::_elements[N]</definition>
+        <argsstring>[N]</argsstring>
+        <name>_elements</name>
+        <qualifiedname>StaticBuffer::_elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="36" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_static_buffer_1ab12188c417259118975fc38f3446d251" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int StaticBuffer&lt; T, N &gt;::_size</definition>
+        <argsstring></argsstring>
+        <name>_size</name>
+        <qualifiedname>StaticBuffer::_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="37" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_static_buffer_1a1cc24ccc0e3a15325e485a85e7618d1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StaticBuffer&lt; T, N &gt;::StaticBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>StaticBuffer</name>
+        <qualifiedname>StaticBuffer::StaticBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="1" column="0" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_static_buffer_1a639245e1149374115f1a70a21a60fc02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; StaticBuffer&lt; T, N &gt;::operator[]</definition>
+        <argsstring>(int i)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>StaticBuffer::operator[]</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="20" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_static_buffer_1ae28e15d0d30721b0f376ddbf208130d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void StaticBuffer&lt; T, N &gt;::push_back</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>push_back</name>
+        <qualifiedname>StaticBuffer::push_back</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="25" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_static_buffer_1a86ced6f66f56d7b1386ec7c1821b72d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int StaticBuffer&lt; T, N &gt;::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>StaticBuffer::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="30" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="30" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" line="13" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/static_buffer.h" bodystart="14" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_static_buffer_1a1731f9d31743b9eb28f0f8cf90395170" prot="protected" virt="non-virtual"><scope>StaticBuffer</scope><name>_elements</name></member>
+      <member refid="class_static_buffer_1ab12188c417259118975fc38f3446d251" prot="protected" virt="non-virtual"><scope>StaticBuffer</scope><name>_size</name></member>
+      <member refid="class_static_buffer_1a639245e1149374115f1a70a21a60fc02" prot="public" virt="non-virtual"><scope>StaticBuffer</scope><name>operator[]</name></member>
+      <member refid="class_static_buffer_1ae28e15d0d30721b0f376ddbf208130d3" prot="public" virt="non-virtual"><scope>StaticBuffer</scope><name>push_back</name></member>
+      <member refid="class_static_buffer_1a86ced6f66f56d7b1386ec7c1821b72d2" prot="public" virt="non-virtual"><scope>StaticBuffer</scope><name>size</name></member>
+      <member refid="class_static_buffer_1a1cc24ccc0e3a15325e485a85e7618d1b" prot="public" virt="non-virtual"><scope>StaticBuffer</scope><name>StaticBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

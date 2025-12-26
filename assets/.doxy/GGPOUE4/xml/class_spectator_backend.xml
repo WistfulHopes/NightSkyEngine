@@ -1,0 +1,745 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_spectator_backend" kind="class" language="C++" prot="public">
+    <compoundname>SpectatorBackend</compoundname>
+    <basecompoundref refid="struct_g_g_p_o_session" prot="public" virt="non-virtual">GGPOSession</basecompoundref>
+    <basecompoundref refid="class_i_poll_sink" prot="private" virt="non-virtual">IPollSink</basecompoundref>
+    <basecompoundref refid="struct_udp_1_1_callbacks" prot="private" virt="non-virtual">Udp::Callbacks</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_spectator_backend_1a9ac33ffca87440b1e3477fbc5f13697a" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref></type>
+        <definition>GGPOSessionCallbacks SpectatorBackend::_callbacks</definition>
+        <argsstring></argsstring>
+        <name>_callbacks</name>
+        <qualifiedname>SpectatorBackend::_callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="48" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1a318a3a0c715c95ebcaed04da7be4762d" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_poll" kindref="compound">Poll</ref></type>
+        <definition>Poll SpectatorBackend::_poll</definition>
+        <argsstring></argsstring>
+        <name>_poll</name>
+        <qualifiedname>SpectatorBackend::_poll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="49" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1aa5934b1fcf5a055253bb83643f089234" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_udp" kindref="compound">Udp</ref></type>
+        <definition>Udp SpectatorBackend::_udp</definition>
+        <argsstring></argsstring>
+        <name>_udp</name>
+        <qualifiedname>SpectatorBackend::_udp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="50" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1a3b5463f5d55699a733fa676a40bea19f" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_udp_protocol" kindref="compound">UdpProtocol</ref></type>
+        <definition>UdpProtocol SpectatorBackend::_host</definition>
+        <argsstring></argsstring>
+        <name>_host</name>
+        <qualifiedname>SpectatorBackend::_host</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="51" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1ac90e654e04f5c9a2e6fcb3b34aa6032d" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SpectatorBackend::_synchronizing</definition>
+        <argsstring></argsstring>
+        <name>_synchronizing</name>
+        <qualifiedname>SpectatorBackend::_synchronizing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="52" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1a914248806fb452ebf3d9a23f8c7086bd" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SpectatorBackend::_input_size</definition>
+        <argsstring></argsstring>
+        <name>_input_size</name>
+        <qualifiedname>SpectatorBackend::_input_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="53" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1a3a49edb6af672e03872f6fac7235a37f" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SpectatorBackend::_num_players</definition>
+        <argsstring></argsstring>
+        <name>_num_players</name>
+        <qualifiedname>SpectatorBackend::_num_players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="54" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1a41505ab0f26d85f34a8eb086a265c715" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SpectatorBackend::_next_input_to_send</definition>
+        <argsstring></argsstring>
+        <name>_next_input_to_send</name>
+        <qualifiedname>SpectatorBackend::_next_input_to_send</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="55" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spectator_backend_1af726e2ed84ec6bbae202ee4b333a64ec" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput SpectatorBackend::_inputs[SPECTATOR_FRAME_BUFFER_SIZE]</definition>
+        <argsstring>[SPECTATOR_FRAME_BUFFER_SIZE]</argsstring>
+        <name>_inputs</name>
+        <qualifiedname>SpectatorBackend::_inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="56" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_spectator_backend_1ab790c81f9e2abf9ed787c0fbdd37aad2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpectatorBackend::SpectatorBackend</definition>
+        <argsstring>(GGPOSessionCallbacks *cb, const char *gamename, ConnectionManager *connection_manager, int num_players, int input_size, int connection_id)</argsstring>
+        <name>SpectatorBackend</name>
+        <qualifiedname>SpectatorBackend::SpectatorBackend</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>gamename</declname>
+        </param>
+        <param>
+          <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+          <declname>connection_manager</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="22" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="10" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a893c0d3fc582a34d1abaa1d083d80750" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>SpectatorBackend::~SpectatorBackend</definition>
+        <argsstring>()</argsstring>
+        <name>~SpectatorBackend</name>
+        <qualifiedname>SpectatorBackend::~SpectatorBackend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="23" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a7be7cb835ef37ba23c8b592f715e8d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SpectatorBackend::DoPoll</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>DoPoll</name>
+        <qualifiedname>SpectatorBackend::DoPoll</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26">DoPoll</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="27" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1aeeb6dd6764923ac97cd68dec399de1e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::AddPlayer</definition>
+        <argsstring>(GGPOPlayer *player, GGPOPlayerHandle *handle)</argsstring>
+        <name>AddPlayer</name>
+        <qualifiedname>SpectatorBackend::AddPlayer</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763">AddPlayer</reimplements>
+        <param>
+          <type><ref refid="struct_g_g_p_o_player" kindref="compound">GGPOPlayer</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="28" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a7caad5ddc6f81a4a2c0e3e33c5a247d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::AddLocalInput</definition>
+        <argsstring>(GGPOPlayerHandle player, void *values, int size)</argsstring>
+        <name>AddLocalInput</name>
+        <qualifiedname>SpectatorBackend::AddLocalInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100">AddLocalInput</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="29" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a31870fa76d5033b34a66cae638821606" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SpectatorBackend::SyncInput</definition>
+        <argsstring>(void *values, int size, int *disconnect_flags)</argsstring>
+        <name>SyncInput</name>
+        <qualifiedname>SpectatorBackend::SyncInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618">SyncInput</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>disconnect_flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="30" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="58" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a233b1329d4b4e4fe590e2f5c9fbe29b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SpectatorBackend::IncrementFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>IncrementFrame</name>
+        <qualifiedname>SpectatorBackend::IncrementFrame</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1">IncrementFrame</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="31" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1addae89b72a69582c7ddf14068f9f4303" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::DisconnectPlayer</definition>
+        <argsstring>(GGPOPlayerHandle handle)</argsstring>
+        <name>DisconnectPlayer</name>
+        <qualifiedname>SpectatorBackend::DisconnectPlayer</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515">DisconnectPlayer</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="32" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a5a6f600fb59e84bbbf1f5a23e872e952" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::GetNetworkStats</definition>
+        <argsstring>(FGGPONetworkStats *stats, GGPOPlayerHandle handle)</argsstring>
+        <name>GetNetworkStats</name>
+        <qualifiedname>SpectatorBackend::GetNetworkStats</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15">GetNetworkStats</reimplements>
+        <param>
+          <type><ref refid="struct_f_g_g_p_o_network_stats" kindref="compound">FGGPONetworkStats</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="33" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1ac705008965f25c800083921976d92a4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::SetFrameDelay</definition>
+        <argsstring>(GGPOPlayerHandle player, int delay)</argsstring>
+        <name>SetFrameDelay</name>
+        <qualifiedname>SpectatorBackend::SetFrameDelay</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214">SetFrameDelay</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="34" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1ade1452a1cdefce35a2f04a1a414fa3e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::SetDisconnectTimeout</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectTimeout</name>
+        <qualifiedname>SpectatorBackend::SetDisconnectTimeout</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16">SetDisconnectTimeout</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="35" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a0beb752b9732f87eeb0a453bc802bb0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode SpectatorBackend::SetDisconnectNotifyStart</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectNotifyStart</name>
+        <qualifiedname>SpectatorBackend::SetDisconnectNotifyStart</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c">SetDisconnectNotifyStart</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="36" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a597a8c30a4c86d5becf050a5be6dff2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SpectatorBackend::OnMsg</definition>
+        <argsstring>(int connection_id, UdpMsg *msg, int len)</argsstring>
+        <name>OnMsg</name>
+        <qualifiedname>SpectatorBackend::OnMsg</qualifiedname>
+        <reimplements refid="struct_udp_1_1_callbacks_1a6dbc37b63c464c94dfe263849a573f5f">OnMsg</reimplements>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="39" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="167" bodyend="172"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_spectator_backend_1a80190fb665bdae3ef85908c26097452c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpectatorBackend::PollUdpProtocolEvents</definition>
+        <argsstring>(void)</argsstring>
+        <name>PollUdpProtocolEvents</name>
+        <qualifiedname>SpectatorBackend::PollUdpProtocolEvents</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="42" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="99" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1a5841dc8cdef0f8543f1181e9696e71bd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpectatorBackend::CheckInitialSync</definition>
+        <argsstring>(void)</argsstring>
+        <name>CheckInitialSync</name>
+        <qualifiedname>SpectatorBackend::CheckInitialSync</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spectator_backend_1afbab90efc2da67fa64624a543f7998f5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpectatorBackend::OnUdpProtocolEvent</definition>
+        <argsstring>(UdpProtocol::Event &amp;e)</argsstring>
+        <name>OnUdpProtocolEvent</name>
+        <qualifiedname>SpectatorBackend::OnUdpProtocolEvent</qualifiedname>
+        <param>
+          <type><ref refid="struct_udp_protocol_1_1_event" kindref="compound">UdpProtocol::Event</ref> &amp;</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="45" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.cpp" bodystart="108" bodyend="164"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="1">
+        <label>SpectatorBackend</label>
+        <link refid="class_spectator_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="12">
+        <label>ConnectionManager</label>
+        <link refid="class_connection_manager"/>
+      </node>
+      <node id="5">
+        <label>GGPOSessionCallbacks</label>
+        <link refid="struct_g_g_p_o_session_callbacks"/>
+      </node>
+      <node id="19">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="3">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="6">
+        <label>Poll</label>
+        <link refid="class_poll"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_handle_sinks</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>_loop_sinks</edgelabel>
+          <edgelabel>_msg_sinks</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_periodic_sinks</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Poll::PollPeriodicSinkCb</label>
+        <link refid="struct_poll_1_1_poll_periodic_sink_cb"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Poll::PollSinkCb</label>
+        <link refid="struct_poll_1_1_poll_sink_cb"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sink</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>RingBuffer&lt; GameInput, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>RingBuffer&lt; UdpProtocol::Event, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>RingBuffer&lt; UdpProtocol::QueueEntry, 64 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SpectatorBackend</label>
+        <link refid="class_spectator_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="private-inheritance">
+        </childnode>
+        <childnode refid="4" relation="private-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_poll</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>_udp</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>_host</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_inputs</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>StaticBuffer&lt; Poll::PollPeriodicSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>StaticBuffer&lt; Poll::PollSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>TimeSync</label>
+        <link refid="class_time_sync"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_last_inputs</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Udp</label>
+        <link refid="class_udp"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>_connection_manager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_poll</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+      <node id="14">
+        <label>UdpMsg</label>
+        <link refid="struct_udp_msg"/>
+        <childnode refid="15" relation="usage">
+          <edgelabel>peer_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+      <node id="13">
+        <label>UdpProtocol</label>
+        <link refid="class_udp_protocol"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>connection_manager</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>_udp</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>msg</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>_send_queue</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+          <edgelabel>_peer_connect_status</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>_pending_output</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>_last_acked_input</edgelabel>
+          <edgelabel>_last_received_input</edgelabel>
+          <edgelabel>_last_sent_input</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>_timesync</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>_event_queue</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UdpProtocol::Event</label>
+        <link refid="struct_udp_protocol_1_1_event"/>
+        <childnode refid="19" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>UdpProtocol::QueueEntry</label>
+        <link refid="struct_udp_protocol_1_1_queue_entry"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>msg</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" line="20" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/spectator.h" bodystart="20" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_spectator_backend_1a9ac33ffca87440b1e3477fbc5f13697a" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_callbacks</name></member>
+      <member refid="class_spectator_backend_1a3b5463f5d55699a733fa676a40bea19f" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_host</name></member>
+      <member refid="class_spectator_backend_1a914248806fb452ebf3d9a23f8c7086bd" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_input_size</name></member>
+      <member refid="class_spectator_backend_1af726e2ed84ec6bbae202ee4b333a64ec" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_inputs</name></member>
+      <member refid="class_spectator_backend_1a41505ab0f26d85f34a8eb086a265c715" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_next_input_to_send</name></member>
+      <member refid="class_spectator_backend_1a3a49edb6af672e03872f6fac7235a37f" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_num_players</name></member>
+      <member refid="class_spectator_backend_1a318a3a0c715c95ebcaed04da7be4762d" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_poll</name></member>
+      <member refid="class_spectator_backend_1ac90e654e04f5c9a2e6fcb3b34aa6032d" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_synchronizing</name></member>
+      <member refid="class_spectator_backend_1aa5934b1fcf5a055253bb83643f089234" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>_udp</name></member>
+      <member refid="class_spectator_backend_1a7caad5ddc6f81a4a2c0e3e33c5a247d1" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>AddLocalInput</name></member>
+      <member refid="class_spectator_backend_1aeeb6dd6764923ac97cd68dec399de1e1" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>AddPlayer</name></member>
+      <member refid="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>Chat</name></member>
+      <member refid="class_spectator_backend_1a5841dc8cdef0f8543f1181e9696e71bd" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>CheckInitialSync</name></member>
+      <member refid="class_spectator_backend_1addae89b72a69582c7ddf14068f9f4303" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>DisconnectPlayer</name></member>
+      <member refid="class_spectator_backend_1a7be7cb835ef37ba23c8b592f715e8d2a" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>DoPoll</name></member>
+      <member refid="class_spectator_backend_1a5a6f600fb59e84bbbf1f5a23e872e952" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>GetNetworkStats</name></member>
+      <member refid="class_spectator_backend_1a233b1329d4b4e4fe590e2f5c9fbe29b4" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>IncrementFrame</name></member>
+      <member refid="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>Logv</name></member>
+      <member refid="class_spectator_backend_1a597a8c30a4c86d5becf050a5be6dff2b" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>OnMsg</name></member>
+      <member refid="class_spectator_backend_1afbab90efc2da67fa64624a543f7998f5" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>OnUdpProtocolEvent</name></member>
+      <member refid="class_spectator_backend_1a80190fb665bdae3ef85908c26097452c" prot="protected" virt="non-virtual"><scope>SpectatorBackend</scope><name>PollUdpProtocolEvents</name></member>
+      <member refid="class_spectator_backend_1a0beb752b9732f87eeb0a453bc802bb0a" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>SetDisconnectNotifyStart</name></member>
+      <member refid="class_spectator_backend_1ade1452a1cdefce35a2f04a1a414fa3e5" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>SetDisconnectTimeout</name></member>
+      <member refid="class_spectator_backend_1ac705008965f25c800083921976d92a4e" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>SetFrameDelay</name></member>
+      <member refid="class_spectator_backend_1ab790c81f9e2abf9ed787c0fbdd37aad2" prot="public" virt="non-virtual"><scope>SpectatorBackend</scope><name>SpectatorBackend</name></member>
+      <member refid="class_spectator_backend_1a31870fa76d5033b34a66cae638821606" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>SyncInput</name></member>
+      <member refid="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>TrySynchronizeLocal</name></member>
+      <member refid="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>~GGPOSession</name></member>
+      <member refid="class_spectator_backend_1a893c0d3fc582a34d1abaa1d083d80750" prot="public" virt="virtual"><scope>SpectatorBackend</scope><name>~SpectatorBackend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

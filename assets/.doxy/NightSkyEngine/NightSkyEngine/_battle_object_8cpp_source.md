@@ -1,0 +1,3431 @@
+
+
+# File BattleObject.cpp
+
+[**File List**](files.md) **>** [**Battle**](dir_59b3558fc0091a3111c9e7dd8d94b2ea.md) **>** [**Objects**](dir_e62046f165ace41a1907d5ab434ac45b.md) **>** [**BattleObject.cpp**](_battle_object_8cpp.md)
+
+[Go to the documentation of this file](_battle_object_8cpp.md)
+
+
+```C++
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "BattleObject.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NightSkyEngine/Battle/Misc/NightSkyBlueprintFunctionLibrary.h"
+#include "NightSkyEngine/Battle/NightSkyGameState.h"
+#include "NightSkyEngine/Battle/Actors/ParticleManager.h"
+#include "PlayerObject.h"
+#include "NightSkyEngine/Battle/Actors/LinkActor.h"
+#include "NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h"
+#include "NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h"
+#include "NightSkyEngine/Battle/Misc/Bitflags.h"
+#include "NightSkyEngine/Battle/Misc/Globals.h"
+#include "NightSkyEngine/Battle/Script/Subroutine.h"
+#include "NightSkyEngine/Data/CameraShakeData.h"
+#include "NightSkyEngine/Data/ParticleData.h"
+#include "NightSkyEngine/Battle/Misc/RandomManager.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(BattleObject)
+
+// Sets default values
+ABattleObject::ABattleObject()
+{
+    // Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+    PrimaryActorTick.bCanEverTick = true;
+    RootComponent = CreateDefaultSubobject<USceneComponent>("RootComponent");
+
+    bReplicates = false;
+}
+
+// Called when the game starts or when spawned
+void ABattleObject::BeginPlay()
+{
+    Super::BeginPlay();
+    if (IsPlayer)
+    {
+        Player = Cast<APlayerObject>(this);
+    }
+}
+
+void ABattleObject::Move()
+{
+    if (IsPlayer)
+    {
+        if (Player->PlayerFlags & PLF_IsThrowLock)
+            return;
+        Player->SetHitValuesOverTime();
+    }
+    else
+    {
+        PositionLinkUpdate();
+    }
+
+    // Set previous pos values
+    PrevPosX = PosX;
+    PrevPosY = PosY;
+    CalculateHoming();
+
+    if (BlendOffset && BlendCelName != FGameplayTag::EmptyTag && MaxCelTime)
+    {
+        const int32 TmpOffsetX = (NextOffsetX - PrevOffsetX) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+        const int32 TmpOffsetY = (NextOffsetY - PrevOffsetY) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+
+        AddPosXWithDir(TmpOffsetX);
+        PosY += TmpOffsetY;
+    }
+
+    // Root motion
+    if (const auto BodyAnimUserData = GetAnimSequenceUserData("Body"))
+    {
+        if (!MaxCelTime) return;
+        
+        const auto Frame60 = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
+        const auto FrameAnim = Frame60 * BodyAnimUserData->GetFrameRate() / 60;
+        const auto RootMotion = BodyAnimUserData->GetRootTranslationAtTime(FrameAnim);
+
+        AddPosXWithDir(RootMotion.X - PrevRootMotionX);
+        PosY += RootMotion.Y - PrevRootMotionY;
+        PosZ += RootMotion.Z - PrevRootMotionZ;
+
+        return;
+    }
+
+    PrevRootMotionX = 0;
+    PrevRootMotionY = 0;
+    PrevRootMotionZ = 0;
+
+    SpeedX = SpeedX * SpeedXRatePerFrame / 100;
+    SpeedY = SpeedY * SpeedYRatePerFrame / 100;
+    SpeedZ = SpeedZ * SpeedZRatePerFrame / 100;
+    SpeedX = SpeedX * SpeedXRate / 100;
+    SpeedY = SpeedY * SpeedYRate / 100;
+    SpeedZ = SpeedZ * SpeedZRate / 100;
+
+    SpeedXRate = SpeedYRate = SpeedZRate = 100;
+
+    if (MiscFlags & MISC_InertiaEnable) //only use inertia if enabled
+    {
+        if (PosY <= GroundHeight && MiscFlags & MISC_FloorCollisionActive) //only decrease inertia if grounded
+        {
+            Inertia = Inertia - Inertia / 10;
+        }
+        if (Inertia > -875 && Inertia < 875) //if inertia small enough, set to zero
+        {
+            Inertia = 0;
+        }
+        AddPosXWithDir(Inertia);
+    }
+
+    if (IsPlayer)
+    {
+        int32 ModifiedPushback;
+        if (PosY > GroundHeight)
+            ModifiedPushback = Player->Pushback * 84;
+        else if (Player->Stance == ACT_Crouching)
+            ModifiedPushback = Player->Pushback * 86;
+        else
+            ModifiedPushback = Player->Pushback * 88;
+
+        Player->Pushback = ModifiedPushback / 100;
+
+        if (PosY <= GroundHeight || !(Player->PlayerFlags & PLF_IsStunned))
+            AddPosXWithDir(Player->Pushback);
+    }
+
+    AddPosXWithDir(SpeedX); //apply speed
+
+    if (IsPlayer && Player != nullptr)
+    {
+        if (Player->AirDashTimer == 0 || (SpeedY > 0 && ActionTime < 5))
+        // only set y speed if not airdashing/airdash startup not done
+        {
+            PosY += SpeedY;
+            if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
+                SpeedY -= Gravity;
+        }
+        else
+        {
+            SpeedY = 0;
+        }
+    }
+    else
+    {
+        PosY += SpeedY;
+        if (PosY > GroundHeight || !(MiscFlags & MISC_FloorCollisionActive))
+            SpeedY -= Gravity;
+    }
+
+    if (PosY < GroundHeight && MiscFlags & MISC_FloorCollisionActive) //if on ground, force y values to zero
+    {
+        PosY = GroundHeight;
+    }
+
+    PosZ += SpeedZ;
+}
+
+void ABattleObject::PositionLinkUpdate()
+{
+    if (PositionLinkObj)
+    {
+        PrevPosX = PositionLinkObj->PrevPosX;
+        PrevPosY = PositionLinkObj->PrevPosY;
+        PosX = PositionLinkObj->PosX;
+        PosY = PositionLinkObj->PosY;
+    }
+}
+
+void ABattleObject::CalculateHoming()
+{
+    if (HomingParams.Target != OBJ_Null)
+    {
+        ABattleObject* Target = GetBattleObject(HomingParams.Target);
+
+        if (Target != nullptr)
+        {
+            int32 TargetPosX = 0;
+            int32 TargetPosY = 0;
+
+            Target->PosTypeToPosition(HomingParams.Pos, TargetPosX, TargetPosY);
+
+            const bool TargetFacingRight = Target->Direction == DIR_Right;
+            int32 HomingOffsetX = -HomingParams.OffsetX;
+            if (!TargetFacingRight)
+                HomingOffsetX = HomingParams.OffsetX;
+
+            if (HomingParams.Type == HOMING_DistanceAccel)
+            {
+                int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
+                int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+                if (Direction == DIR_Left) TmpPosX *= -1;
+                SpeedXRatePerFrame = HomingParams.ParamB;
+                SpeedYRatePerFrame = HomingParams.ParamB;
+                SpeedX += HomingParams.ParamA * TmpPosX / 100;
+                SpeedY += HomingParams.ParamA * TmpPosY / 100;
+            }
+            else if (HomingParams.Type == HOMING_FixAccel)
+            {
+                int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
+                int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+                if (Direction == DIR_Left) TmpPosX *= -1;
+                int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
+                SpeedXRate = HomingParams.ParamB;
+                SpeedYRate = HomingParams.ParamB;
+                int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+                int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
+                SpeedX += CosParamA;
+                SpeedY += SinParamA;
+            }
+            else if (HomingParams.Type == HOMING_ToSpeed)
+            {
+                int32 TmpPosY = TargetPosY + HomingParams.OffsetY - PosY;
+                int32 TmpPosX = TargetPosX + HomingOffsetX - PosX;
+                if (Direction == DIR_Left) TmpPosX *= -1;
+                int32 Angle = UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(TmpPosX, TmpPosY) / 100;
+                int32 CosParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle) / 1000;
+                int32 SinParamA = HomingParams.ParamA * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle) / 1000;
+                int32 TmpParamB = HomingParams.ParamB;
+                int32 TmpSpeedX = SpeedX;
+                if (TmpParamB <= 0)
+                {
+                    if (TmpParamB >= 0)
+                    {
+                        CosParamA = TmpSpeedX;
+                    }
+                    else if (TmpSpeedX < CosParamA && -TmpSpeedX > CosParamA)
+                    {
+                        CosParamA = TmpParamB + TmpSpeedX;
+                    }
+                    while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
+                    {
+                        SpeedX = -CosParamA;
+                        if (HomingParams.ParamB <= 0)
+                        {
+                            if (HomingParams.ParamB >= 0)
+                            {
+                                return;
+                            }
+                            if (SpeedY < SinParamA)
+                            {
+                                SinParamA = SpeedY + HomingParams.ParamB;
+                            }
+                            SpeedY = SinParamA;
+                            return;
+                        }
+                        if (SpeedY < SinParamA)
+                        {
+                            if (SinParamA - SpeedY > HomingParams.ParamB)
+                            {
+                                SinParamA = SpeedY + HomingParams.ParamB;
+                            }
+                        }
+                        if (SpeedY - SinParamA <= HomingParams.ParamB)
+                        {
+                            SpeedY = SinParamA;
+                            return;
+                        }
+                        SinParamA = SpeedY - HomingParams.ParamB;
+                        SpeedY = SinParamA;
+                        return;
+                    }
+                }
+                else
+                {
+                    if (TmpSpeedX < CosParamA)
+                    {
+                        if (CosParamA - TmpSpeedX > TmpParamB)
+                        {
+                            CosParamA = TmpParamB + TmpSpeedX;
+                        }
+                        while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
+                        {
+                            SpeedX = CosParamA;
+                            if (HomingParams.ParamB <= 0)
+                            {
+                                if (HomingParams.ParamB >= 0)
+                                {
+                                    SinParamA = SpeedY;
+                                }
+                                if (SpeedY < SinParamA)
+                                {
+                                    SinParamA = SpeedY + HomingParams.ParamB;
+                                }
+                                SpeedY = SinParamA;
+                                return;
+                            }
+                            if (SpeedY < SinParamA)
+                            {
+                                if (SinParamA - SpeedY > HomingParams.ParamB)
+                                {
+                                    SinParamA = SpeedY + HomingParams.ParamB;
+                                }
+                            }
+                            if (SpeedY - SinParamA <= HomingParams.ParamB)
+                            {
+                                SpeedY = SinParamA;
+                                return;
+                            }
+                            SinParamA = SpeedY - HomingParams.ParamB;
+                            SpeedY = SinParamA;
+                            return;
+                        }
+                    }
+                    if (TmpSpeedX - CosParamA <= TmpParamB)
+                    {
+                        while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
+                        {
+                            SpeedX = CosParamA;
+                            if (HomingParams.ParamB <= 0)
+                            {
+                                if (HomingParams.ParamB >= 0)
+                                {
+                                    SinParamA = SpeedY;
+                                }
+                                if (SpeedY < SinParamA)
+                                {
+                                    SinParamA = SpeedY + HomingParams.ParamB;
+                                }
+                                SpeedY = SinParamA;
+                                return;
+                            }
+                            if (SpeedY < SinParamA)
+                            {
+                                if (SinParamA - SpeedY > HomingParams.ParamB)
+                                {
+                                    SinParamA = SpeedY + HomingParams.ParamB;
+                                }
+                            }
+                            if (SpeedY - SinParamA <= HomingParams.ParamB)
+                            {
+                                SpeedY = SinParamA;
+                                return;
+                            }
+                            SinParamA = SpeedY - HomingParams.ParamB;
+                            SpeedY = SinParamA;
+                            return;
+                        }
+                    }
+                }
+                while (TmpSpeedX - CosParamA <= TmpParamB || -TmpSpeedX + CosParamA >= TmpParamB)
+                {
+                    SpeedX = CosParamA;
+                    if (HomingParams.ParamB <= 0)
+                    {
+                        if (HomingParams.ParamB >= 0)
+                        {
+                            SinParamA = SpeedY;
+                        }
+                        if (SpeedY < SinParamA)
+                        {
+                            SinParamA = SpeedY + HomingParams.ParamB;
+                        }
+                        SpeedY = SinParamA;
+                        return;
+                    }
+                    if (SpeedY < SinParamA)
+                    {
+                        if (SinParamA - SpeedY > HomingParams.ParamB)
+                        {
+                            SinParamA = SpeedY + HomingParams.ParamB;
+                        }
+                    }
+                    if (SpeedY - SinParamA <= HomingParams.ParamB)
+                    {
+                        SpeedY = SinParamA;
+                        return;
+                    }
+                    SinParamA = SpeedY - HomingParams.ParamB;
+                    SpeedY = SinParamA;
+                    return;
+                }
+            }
+        }
+    }
+}
+
+bool ABattleObject::SuperArmorSuccess(const ABattleObject* Attacker) const
+{
+    if (SuperArmorData.Type == ARM_None) return false;
+    if (SuperArmorData.ArmorHits == 0) return false;
+
+    if (SuperArmorData.bArmorMid && Attacker->HitCommon.BlockType == BLK_Mid) return true;
+    if (SuperArmorData.bArmorOverhead && Attacker->HitCommon.BlockType == BLK_High) return true;
+    if (SuperArmorData.bArmorLow && Attacker->HitCommon.BlockType == BLK_Low) return true;
+    if (SuperArmorData.bArmorStrike && Attacker->AttackFlags & ATK_HitActive && !(Attacker->AttackFlags &
+        ATK_AttackProjectileAttribute))
+        return true;
+    if (SuperArmorData.bArmorThrow && Attacker->IsPlayer && Attacker->Player->PlayerFlags & PLF_ThrowActive)
+        return
+            true;
+    if (SuperArmorData.bArmorHead && Attacker->AttackFlags & ATK_HitActive && Attacker->AttackFlags &
+        ATK_AttackHeadAttribute)
+        return true;
+    if (SuperArmorData.bArmorProjectile && Attacker->AttackFlags & ATK_HitActive && Attacker->AttackFlags &
+        ATK_AttackProjectileAttribute)
+        return true;
+
+    return false;
+}
+
+// Called every frame
+void ABattleObject::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    if (!GameState)
+    {
+        ScreenSpaceDepthOffset = 0;
+        OrthoBlendActive = 1;
+    }
+}
+
+void ABattleObject::CalculatePushbox()
+{
+    if (Direction == DIR_Right)
+    {
+        R = PosX + (PushWidth / 2 + PushWidthExtend);
+        L = PosX - PushWidth / 2;
+    }
+    else
+    {
+        R = PosX + PushWidth / 2;
+        L = PosX - (PushWidth / 2 + PushWidthExtend);
+    }
+    T = PosY + PushHeight;
+    B = PosY - PushHeightLow;
+}
+
+void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
+{
+    CalculatePushbox();
+    OtherObj->CalculatePushbox();
+    
+    if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller) return;
+    if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller) return;
+
+    if (MiscFlags & MISC_PushCollisionActive && OtherObj->MiscFlags & MISC_PushCollisionActive)
+    {
+        if (Hitstop <= 0 && ((!OtherObj->IsPlayer || OtherObj->Player->PlayerFlags & PLF_IsThrowLock) == 0 || (!IsPlayer
+            || Player->PlayerFlags & PLF_IsThrowLock) == 0))
+        {
+            if (T >= OtherObj->B && B <= OtherObj->T && R >= OtherObj->L && L <= OtherObj->R)
+            {
+                bool IsPushLeft;
+                int32 CollisionDepth;
+
+                GameState->SetScreenBounds();
+
+                if (PosX == OtherObj->PosX)
+                {
+                    if (PrevPosX == OtherObj->PrevPosX)
+                    {
+                        if (IsPlayer == OtherObj->IsPlayer)
+                        {
+                            if (Player->WallTouchTimer == OtherObj->Player->WallTouchTimer)
+                            {
+                                IsPushLeft = Player->PlayerIndex > 0;
+                            }
+                            else
+                            {
+                                IsPushLeft = Player->WallTouchTimer > OtherObj->Player->WallTouchTimer;
+                                if (PosX > 0)
+                                {
+                                    IsPushLeft = Player->WallTouchTimer <= OtherObj->Player->WallTouchTimer;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            IsPushLeft = IsPlayer > OtherObj->IsPlayer;
+                        }
+                    }
+                    else
+                    {
+                        IsPushLeft = PrevPosX < OtherObj->PrevPosX;
+                    }
+                }
+                else
+                {
+                    IsPushLeft = PosX < OtherObj->PosX;
+                }
+                if (IsPushLeft)
+                {
+                    CollisionDepth = OtherObj->L - R;
+                }
+                else
+                {
+                    CollisionDepth = OtherObj->R - L;
+                }
+
+                if (IsPlayer && Player->PlayerFlags & PLF_TouchingWall 
+                    || OtherObj->IsPlayer && OtherObj->Player->PlayerFlags & PLF_TouchingWall)
+                {
+                    OtherObj->PosX -= CollisionDepth;
+                    PosX += CollisionDepth;
+                }
+                else
+                {
+                    OtherObj->PosX -= CollisionDepth / 2;
+                    PosX += CollisionDepth / 2;
+                }
+
+                CalculatePushbox();
+                OtherObj->CalculatePushbox();
+            }
+        }
+    }
+}
+
+void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
+{
+    if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && AttackedObj->ObjectsToIgnoreHitsFrom.Find(this)
+        == INDEX_NONE && !AttackedObj->Player->IsInvulnerable(this))
+    {
+        auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
+        if (!AttackedPlayer) return;
+        if (CheckBoxOverlap(AttackedObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hurt, FGameplayTag::EmptyTag))
+        {
+            AttackedPlayer->AttackOwner = this;
+            AttackedPlayer->ObjectsToIgnoreHitsFrom.AddUnique(this);
+            AttackedPlayer->FaceOpponent();
+            AttackedPlayer->HaltMomentum();
+            AttackedPlayer->PlayerFlags |= PLF_IsStunned;
+            AttackFlags |= ATK_HasHit;
+            if (AttackFlags & ATK_SetPlayerHit) Player->AttackFlags |= ATK_HasHit;
+            AttackTarget = AttackedPlayer;
+
+            TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+            if (AttackedPlayer->IsMainPlayer())
+            {
+                TriggerEvent(EVT_HitOrBlockMainPlayer, StateMachine_Primary);
+            }
+
+            AttackedPlayer->CallSubroutine(Subroutine_Cmn_HitCollision);
+            if (AttackedPlayer->SubroutineReturnVal1) return;
+
+            if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
+            {
+                CallSubroutine(Subroutine_Cmn_OnBlock);
+                
+                CreateCommonParticle(Particle_Guard, POS_Enemy,
+                                     FVector(0, 100, 0),
+                                     FRotator(HitCommon.HitAngle, 0, 0));
+                TriggerEvent(EVT_Block, StateMachine_Primary);
+                if (AttackedPlayer->IsMainPlayer())
+                {
+                    TriggerEvent(EVT_BlockMainPlayer, StateMachine_Primary);
+                }
+
+                const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent / 100;
+                AttackedPlayer->CurrentHealth -= ChipDamage;
+
+                const FHitData Data = InitHitDataByAttackLevel(false);
+                AttackedPlayer->ReceivedHitCommon = HitCommon;
+                AttackedPlayer->ReceivedHit = Data;
+
+                if (AttackedPlayer->CurrentHealth <= 0)
+                {
+                    EHitAction HACT;
+
+                    if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+                        PlayerFlags & PLF_IsKnockedDown))
+                        HACT = NormalHit.GroundHitAction;
+                    else
+                        HACT = NormalHit.AirHitAction;
+
+                    AttackedPlayer->HandleHitAction(HACT);
+                }
+                else
+                {
+                    AttackedPlayer->HandleBlockAction();
+                    AttackedPlayer->AirDashTimer = 0;
+                    if (AttackedPlayer->PlayerFlags & PLF_TouchingWall)
+                    {
+                        Pushback = AttackedPlayer->Pushback;
+                        AttackedPlayer->Pushback = 0;
+                    }
+                }
+                AttackedPlayer->AddMeter(
+                    NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+                Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
+            }
+            else if (AttackedPlayer->SuperArmorSuccess(this))
+            {
+                TriggerEvent(EVT_Hit, StateMachine_Primary);
+                if (AttackedPlayer->IsMainPlayer())
+                {
+                    TriggerEvent(EVT_HitMainPlayer, StateMachine_Primary);
+                }
+
+                if (AttackedPlayer->SuperArmorData.ArmorHits > 0)
+                    AttackedPlayer->SuperArmorData.
+                                    ArmorHits--;
+                switch (AttackedPlayer->SuperArmorData.Type)
+                {
+                case ARM_Guard:
+                    {
+                        if (AttackedPlayer->SuperArmorData.bArmorTakeChipDamage)
+                        {
+                            const int32 ChipDamage = NormalHit.Damage * HitCommon.ChipDamagePercent /
+                                100;
+                            AttackedPlayer->CurrentHealth -= ChipDamage;
+                            AttackedPlayer->AddMeter(
+                                NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHitGuard / 100);
+                            Player->AddMeter(NormalHit.Damage * Player->MeterPercentOnHitGuard / 100);
+                        }
+                        if (AttackedPlayer->SuperArmorData.ArmorDamagePercent)
+                        {
+                            const int32 ArmorDamage = NormalHit.Damage * AttackedPlayer->SuperArmorData.
+                                ArmorDamagePercent / 100;
+                            AttackedPlayer->CurrentHealth -= ArmorDamage;
+                            AttackedPlayer->AddMeter(
+                                NormalHit.Damage * AttackedPlayer->MeterPercentOnReceiveHit *
+                                AttackedPlayer->
+                                SuperArmorData.ArmorDamagePercent / 10000);
+                            Player->AddMeter(
+                                NormalHit.Damage * Player->MeterPercentOnHit * AttackedPlayer->
+                                                                               SuperArmorData.ArmorDamagePercent /
+                                10000);
+                        }
+                        else
+                        {
+                            CreateCommonParticle(Particle_Guard, POS_Enemy,
+                                                 FVector(0, 100, 0),
+                                                 FRotator(HitCommon.HitAngle, 0, 0));
+                        }
+
+                        const FHitData Data = InitHitDataByAttackLevel(false);
+                        AttackedPlayer->ReceivedHitCommon = HitCommon;
+                        AttackedPlayer->ReceivedHit = Data;
+
+                        if (AttackedPlayer->CurrentHealth <= 0)
+                        {
+                            EHitAction HACT;
+
+                            if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer
+                                ->PlayerFlags & PLF_IsKnockedDown))
+                                HACT = NormalHit.GroundHitAction;
+                            else
+                                HACT = NormalHit.AirHitAction;
+
+                            AttackedPlayer->HandleHitAction(HACT);
+                        }
+                        else
+                        {
+                            Hitstop = Data.Hitstop;
+                            AttackedPlayer->Hitstop = Data.Hitstop;
+                        }
+                    }
+                    break;
+                case ARM_Dodge:
+                default:
+                    break;
+                }
+            }
+            else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
+            {
+                AttackedPlayer->PlayerFlags &= ~PLF_ReceivedCounterHit;
+
+                CallSubroutine(Subroutine_Cmn_OnHit);
+                
+                TriggerEvent(EVT_Hit, StateMachine_Primary);
+                AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
+                if (AttackedPlayer->IsMainPlayer())
+                {
+                    TriggerEvent(EVT_HitMainPlayer, StateMachine_Primary);
+                    AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
+                }
+
+                if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+                {
+                    AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
+                    AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
+                    AttackedPlayer->StunTime = 0x7FFFFFFF;
+                    AttackedPlayer->AttackOwner = Player;
+                    Player->ThrowExe();
+                    return;
+                }
+
+                const FHitData Data = InitHitDataByAttackLevel(false);
+                CreateCommonParticle(HitCommon.HitVFX, POS_Col,
+                                     FVector(0, 0, 0),
+                                     FRotator(HitCommon.HitAngle, 0, 0));
+                PlayCommonSound(HitCommon.HitSFX);
+                AttackedPlayer->ReceivedHitCommon = HitCommon;
+                AttackedPlayer->ReceivedHit = Data;
+                EHitAction HACT;
+
+                if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+                    PlayerFlags & PLF_IsKnockedDown))
+                    HACT = NormalHit.GroundHitAction;
+                else
+                    HACT = NormalHit.AirHitAction;
+
+                AttackedPlayer->HandleHitAction(HACT);
+                Hitstop = Data.Hitstop;
+            }
+            else
+            {
+                AttackedPlayer->PlayerFlags |= PLF_ReceivedCounterHit;
+                
+                CallSubroutine(Subroutine_Cmn_OnHit);
+                CallSubroutine(Subroutine_Cmn_OnCounterHit);
+                
+                TriggerEvent(EVT_Hit, StateMachine_Primary);
+                TriggerEvent(EVT_CounterHit, StateMachine_Primary);
+                AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
+                if (AttackedPlayer->IsMainPlayer())
+                {
+                    TriggerEvent(EVT_HitMainPlayer, StateMachine_Primary);
+                    TriggerEvent(EVT_CounterHitMainPlayer, StateMachine_Primary);
+                    AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
+                }
+                
+                AttackedPlayer->AddColor = FLinearColor(1, 0, 0.0, 1);
+                AttackedPlayer->MulColor = FLinearColor(2.5, 0.1, 0.1, 1);
+                AttackedPlayer->AddFadeSpeed = 0.1;
+                AttackedPlayer->MulFadeSpeed = 0.1;
+
+                if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+                {
+                    AttackedPlayer->JumpToStatePrimary(State_Universal_ThrowLock);
+                    AttackedPlayer->PlayerFlags |= PLF_IsThrowLock;
+                    AttackedPlayer->AttackOwner = Player;
+                    Player->ThrowExe();
+                    return;
+                }
+
+                const FHitData Data = InitHitDataByAttackLevel(false);
+                const FHitData CounterData = InitHitDataByAttackLevel(true);
+                CreateCommonParticle(HitCommon.HitVFX, POS_Col, FVector(0, 0, 0),
+                                     FRotator(HitCommon.HitAngle, 0, 0));
+                PlayCommonSound(HitCommon.HitSFX);
+                AttackedPlayer->ReceivedHitCommon = HitCommon;
+                AttackedPlayer->ReceivedHit = CounterData;
+                EHitAction HACT;
+
+                if (AttackedPlayer->PosY == AttackedPlayer->GroundHeight && !(AttackedPlayer->
+                    PlayerFlags & PLF_IsKnockedDown))
+                    HACT = CounterHit.GroundHitAction;
+                else
+                    HACT = CounterHit.AirHitAction;
+
+                AttackedPlayer->HandleHitAction(HACT);
+                Hitstop = Data.Hitstop;
+            }
+        }
+    }
+}
+
+FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
+{
+    if (HitCommon.AttackLevel < 0)
+        HitCommon.AttackLevel = 0;
+    if (HitCommon.AttackLevel > 5)
+        HitCommon.AttackLevel = 5;
+
+    switch (HitCommon.AttackLevel)
+    {
+    case 0:
+    default:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 9;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 15000;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15000;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 11;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 10;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 10;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 300;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 20000;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 21000;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_S;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_S;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_S;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_S;
+            break;
+        }
+        break;
+    case 1:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 11;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 17500;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15025;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 12;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 12;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 12;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 400;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 22500;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 21500;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop + 2;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_S;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_S;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_S;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_S;
+            break;
+        }
+        break;
+    case 2:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 13;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 20000;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15050;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 13;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 14;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 14;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 600;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 25000;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 22000;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop + 4;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_M;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_M;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_M;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_M;
+            break;
+        }
+        break;
+    case 3:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 16;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 22500;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15075;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 14;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 17;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 16;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 800;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 27500;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 22500;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop + 8;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_M;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_M;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_M;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_M;
+            break;
+        }
+        break;
+    case 4:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 18;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 25000;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15100;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 15;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 19;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 18;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 1000;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 30000;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 23000;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop + 12;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_L;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_L;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_L;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_L;
+            break;
+        }
+        break;
+    case 5:
+        if (HitCommon.BlockstopModifier == INT_MAX)
+            HitCommon.BlockstopModifier = 0;
+        if (HitCommon.Blockstun == INT_MAX)
+            HitCommon.Blockstun = 20;
+        if (HitCommon.GroundGuardPushbackX == INT_MAX)
+            HitCommon.GroundGuardPushbackX = 30000;
+        if (HitCommon.AirGuardPushbackX == INT_MAX)
+            HitCommon.AirGuardPushbackX = 7500;
+        if (HitCommon.AirGuardPushbackY == INT_MAX)
+            HitCommon.AirGuardPushbackY = 15125;
+        if (HitCommon.GuardGravity == INT_MAX)
+            HitCommon.GuardGravity = 1900;
+        if (NormalHit.Hitstop == INT_MAX)
+            NormalHit.Hitstop = 18;
+        if (NormalHit.Hitstun == INT_MAX)
+            NormalHit.Hitstun = 22;
+        if (NormalHit.Untech == INT_MAX)
+            NormalHit.Untech = 21;
+        if (NormalHit.Damage == INT_MAX)
+            NormalHit.Damage = 1250;
+        if (NormalHit.GroundPushbackX == INT_MAX)
+            NormalHit.GroundPushbackX = 40000;
+        if (NormalHit.AirPushbackX == INT_MAX)
+            NormalHit.AirPushbackX = 10500;
+        if (NormalHit.AirPushbackY == INT_MAX)
+            NormalHit.AirPushbackY = 23500;
+        if (NormalHit.Gravity == INT_MAX)
+            NormalHit.Gravity = 1900;
+        if (CounterHit.Hitstop == INT_MAX)
+            CounterHit.Hitstop = NormalHit.Hitstop + 16;
+        switch (HitCommon.VFXType)
+        {
+        case EHitVFXType::VFX_Strike:
+        case EHitVFXType::VFX_Slash:
+            HitCommon.HitVFX = Particle_Hit_L;
+            break;
+        case EHitVFXType::VFX_Special:
+            HitCommon.HitVFX = Particle_Hit_SP;
+            break;
+        }
+        switch (HitCommon.SFXType)
+        {
+        case EHitSFXType::SFX_Punch:
+            HitCommon.HitSFX = Sound_Hit_Punch_L;
+            break;
+        case EHitSFXType::SFX_Kick:
+            HitCommon.HitSFX = Sound_Hit_Kick_L;
+            break;
+        case EHitSFXType::SFX_Slash:
+            HitCommon.HitSFX = Sound_Hit_Slash_L;
+            break;
+        }
+        break;
+    }
+
+    if (NormalHit.EnemyHitstopModifier == INT_MAX)
+        NormalHit.EnemyHitstopModifier = 0;
+    if (NormalHit.RecoverableDamagePercent == INT_MAX)
+        NormalHit.RecoverableDamagePercent = 40;
+    if (NormalHit.MinimumDamagePercent == INT_MAX)
+        NormalHit.MinimumDamagePercent = 0;
+    if (NormalHit.InitialProration == INT_MAX)
+        NormalHit.InitialProration = 100;
+    if (NormalHit.ForcedProration == INT_MAX)
+        NormalHit.ForcedProration = 90;
+
+    if (CounterHit.EnemyHitstopModifier == INT_MAX)
+        CounterHit.EnemyHitstopModifier = NormalHit.EnemyHitstopModifier;
+    if (CounterHit.MinimumDamagePercent == INT_MAX)
+        CounterHit.MinimumDamagePercent = NormalHit.MinimumDamagePercent;
+    if (CounterHit.InitialProration == INT_MAX)
+        CounterHit.InitialProration = NormalHit.InitialProration;
+    if (CounterHit.ForcedProration == INT_MAX)
+        CounterHit.ForcedProration = NormalHit.ForcedProration;
+
+    if (CounterHit.Hitstun == INT_MAX)
+        CounterHit.Hitstun = NormalHit.Hitstun;
+    if (CounterHit.Untech == INT_MAX)
+        CounterHit.Untech = NormalHit.Untech * 2;
+    if (CounterHit.Damage == INT_MAX)
+        CounterHit.Damage = NormalHit.Damage * 110 / 100;
+    if (CounterHit.GroundPushbackX == INT_MAX)
+        CounterHit.GroundPushbackX = NormalHit.GroundPushbackX;
+    if (CounterHit.AirPushbackX == INT_MAX)
+        CounterHit.AirPushbackX = NormalHit.AirPushbackX;
+    if (CounterHit.AirPushbackY == INT_MAX)
+        CounterHit.AirPushbackY = NormalHit.AirPushbackY;
+    if (CounterHit.Gravity == INT_MAX)
+        CounterHit.Gravity = NormalHit.Gravity;
+    if (CounterHit.AirPushbackXOverTime.Value == INT_MAX)
+        CounterHit.AirPushbackXOverTime.Value = NormalHit.AirPushbackXOverTime.Value;
+    if (CounterHit.AirPushbackXOverTime.BeginFrame == INT_MAX)
+        CounterHit.AirPushbackXOverTime.BeginFrame = NormalHit.AirPushbackXOverTime.BeginFrame;
+    if (CounterHit.AirPushbackXOverTime.EndFrame == INT_MAX)
+        CounterHit.AirPushbackXOverTime.EndFrame = NormalHit.AirPushbackXOverTime.EndFrame;
+    if (CounterHit.AirPushbackYOverTime.Value == INT_MAX)
+        CounterHit.AirPushbackYOverTime.Value = NormalHit.AirPushbackYOverTime.Value;
+    if (CounterHit.AirPushbackYOverTime.BeginFrame == INT_MAX)
+        CounterHit.AirPushbackYOverTime.BeginFrame = NormalHit.AirPushbackYOverTime.BeginFrame;
+    if (CounterHit.AirPushbackYOverTime.EndFrame == INT_MAX)
+        CounterHit.AirPushbackYOverTime.EndFrame = NormalHit.AirPushbackYOverTime.EndFrame;
+    if (CounterHit.GravityOverTime.Value == INT_MAX)
+        CounterHit.GravityOverTime.Value = NormalHit.GravityOverTime.Value;
+    if (CounterHit.GravityOverTime.BeginFrame == INT_MAX)
+        CounterHit.GravityOverTime.BeginFrame = NormalHit.GravityOverTime.BeginFrame;
+    if (CounterHit.GravityOverTime.EndFrame == INT_MAX)
+        CounterHit.GravityOverTime.EndFrame = NormalHit.GravityOverTime.EndFrame;
+    if (CounterHit.BlowbackLevel == INT_MAX)
+        CounterHit.BlowbackLevel = NormalHit.BlowbackLevel;
+    if (CounterHit.FloatingCrumpleType == FLT_None)
+        CounterHit.FloatingCrumpleType = NormalHit.FloatingCrumpleType;
+
+    if (CounterHit.Position.Type == HPT_Non)
+        CounterHit.Position.Type = NormalHit.Position.Type;
+    if (CounterHit.Position.PosX == INT_MAX)
+        CounterHit.Position.PosX = NormalHit.Position.PosX;
+    if (CounterHit.Position.PosY == INT_MAX)
+        CounterHit.Position.PosY = NormalHit.Position.PosY;
+
+    if (CounterHit.GroundHitAction == HACT_GroundNormal)
+        CounterHit.GroundHitAction = NormalHit.GroundHitAction;
+    if (CounterHit.AirHitAction == HACT_AirNormal)
+        CounterHit.AirHitAction = NormalHit.AirHitAction;
+    if (CounterHit.CustomHitAction == FGameplayTag::EmptyTag)
+        CounterHit.CustomHitAction = NormalHit.CustomHitAction;
+
+    if (NormalHit.KnockdownTime == INT_MAX)
+        NormalHit.KnockdownTime = 12;
+    if (CounterHit.KnockdownTime == INT_MAX)
+        CounterHit.KnockdownTime = NormalHit.KnockdownTime;
+
+    if (NormalHit.HardKnockdown == INT_MAX)
+        NormalHit.HardKnockdown = 0;
+    if (CounterHit.HardKnockdown == INT_MAX)
+        CounterHit.HardKnockdown = NormalHit.HardKnockdown;
+
+    if (NormalHit.WallBounce.WallBounceStop == INT_MAX)
+        NormalHit.WallBounce.WallBounceStop = 6;
+    if (NormalHit.WallBounce.WallBounceXSpeed == INT_MAX)
+        NormalHit.WallBounce.WallBounceXSpeed = NormalHit.AirPushbackX;
+    if (NormalHit.WallBounce.WallBounceXRate == INT_MAX)
+        NormalHit.WallBounce.WallBounceXRate = 33;
+    if (NormalHit.WallBounce.WallBounceYSpeed == INT_MAX)
+        NormalHit.WallBounce.WallBounceYSpeed = NormalHit.AirPushbackY;
+    if (NormalHit.WallBounce.WallBounceYRate == INT_MAX)
+        NormalHit.WallBounce.WallBounceYRate = 100;
+    if (NormalHit.WallBounce.WallBounceGravity == INT_MAX)
+        NormalHit.WallBounce.WallBounceGravity = NormalHit.Gravity;
+
+    if (CounterHit.WallBounce.WallBounceStop == INT_MAX)
+        CounterHit.WallBounce.WallBounceStop = NormalHit.WallBounce.WallBounceStop;
+    if (CounterHit.WallBounce.WallBounceCount == -1)
+        CounterHit.WallBounce.WallBounceCount = NormalHit.WallBounce.WallBounceCount;
+    if (CounterHit.WallBounce.WallBounceXSpeed == INT_MAX)
+        CounterHit.WallBounce.WallBounceXSpeed = NormalHit.WallBounce.WallBounceXSpeed;
+    if (CounterHit.WallBounce.WallBounceXRate == INT_MAX)
+        CounterHit.WallBounce.WallBounceXRate = NormalHit.WallBounce.WallBounceXRate;
+    if (CounterHit.WallBounce.WallBounceYSpeed == INT_MAX)
+        CounterHit.WallBounce.WallBounceYSpeed = NormalHit.WallBounce.WallBounceYSpeed;
+    if (CounterHit.WallBounce.WallBounceYRate == INT_MAX)
+        CounterHit.WallBounce.WallBounceYRate = NormalHit.WallBounce.WallBounceYRate;
+    if (CounterHit.WallBounce.WallBounceGravity == INT_MAX)
+        CounterHit.WallBounce.WallBounceGravity = NormalHit.WallBounce.WallBounceGravity;
+
+    if (NormalHit.GroundBounce.GroundBounceStop == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceStop = 6;
+    if (NormalHit.GroundBounce.GroundBounceXSpeed == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceXSpeed = NormalHit.AirPushbackX;
+    if (NormalHit.GroundBounce.GroundBounceXRate == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceXRate = 100;
+    if (NormalHit.GroundBounce.GroundBounceYSpeed == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceYSpeed = FMath::Abs(NormalHit.AirPushbackY);
+    if (NormalHit.GroundBounce.GroundBounceYRate == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceYRate = 100;
+    if (NormalHit.GroundBounce.GroundBounceGravity == INT_MAX)
+        NormalHit.GroundBounce.GroundBounceGravity = NormalHit.Gravity;
+
+    if (CounterHit.GroundBounce.GroundBounceStop == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceStop = NormalHit.GroundBounce.GroundBounceStop;
+    if (CounterHit.GroundBounce.GroundBounceCount == -1)
+        CounterHit.GroundBounce.GroundBounceCount = NormalHit.GroundBounce.GroundBounceCount;
+    if (CounterHit.GroundBounce.GroundBounceXSpeed == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceXSpeed = NormalHit.GroundBounce.GroundBounceXSpeed;
+    if (CounterHit.GroundBounce.GroundBounceXRate == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceXRate = NormalHit.GroundBounce.GroundBounceXRate;
+    if (CounterHit.GroundBounce.GroundBounceYSpeed == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceYSpeed = NormalHit.GroundBounce.GroundBounceYSpeed;
+    if (CounterHit.GroundBounce.GroundBounceYRate == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceYRate = NormalHit.GroundBounce.GroundBounceYRate;
+    if (CounterHit.GroundBounce.GroundBounceGravity == INT_MAX)
+        CounterHit.GroundBounce.GroundBounceGravity = NormalHit.GroundBounce.GroundBounceGravity;
+
+    FHitData Data;
+    if (!IsCounter)
+        Data = NormalHit;
+    else
+        Data = CounterHit;
+
+    return Data;
+}
+
+void ABattleObject::HandleClashCollision(ABattleObject* OtherObj)
+{
+    if (AttackFlags & ATK_IsAttacking && AttackFlags & ATK_HitActive && OtherObj->Player->PlayerIndex != Player->
+        PlayerIndex
+        && OtherObj->AttackFlags & ATK_IsAttacking && OtherObj->AttackFlags & ATK_HitActive)
+    {
+        if (CheckBoxOverlap(OtherObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hit, FGameplayTag::EmptyTag))
+        {
+            if (IsPlayer && OtherObj->IsPlayer)
+            {
+                Hitstop = 16;
+                OtherObj->Hitstop = 16;
+                AttackFlags &= ~ATK_HitActive;
+                OtherObj->AttackFlags &= ~ATK_HitActive;
+                Player->EnableAttacks();
+                Player->EnableCancelIntoSelf(true);
+                Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
+                OtherObj->Player->EnableAttacks();
+                OtherObj->Player->EnableCancelIntoSelf(true);
+                OtherObj->Player->EnableState(ENB_ForwardDash, StateMachine_Primary);
+                TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+                OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+                CreateCommonParticle(Particle_Hit_Clash, POS_Col, FVector(0, 0, 0));
+                PlayCommonSound(Sound_Hit_Clash);
+            }
+            else if (!IsPlayer && !OtherObj->IsPlayer)
+            {
+                OtherObj->Hitstop = 16;
+                Hitstop = 16;
+                AttackFlags &= ~ATK_HitActive;
+                OtherObj->AttackFlags &= ~ATK_HitActive;
+                TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+                OtherObj->TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+                CreateCommonParticle(Particle_Hit_Clash, POS_Col, FVector(0, 0, 0));
+                PlayCommonSound(Sound_Hit_Clash);
+            }
+        }
+    }
+}
+
+void ABattleObject::HandleFlip()
+{
+    if (!Player->Enemy) return;
+
+    GameState->SetScreenBounds();
+
+    FaceOpponent();
+}
+
+void ABattleObject::PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const
+{
+    switch (Type)
+    {
+    case POS_Self:
+        OutPosX = PosX;
+        OutPosY = PosY;
+        break;
+    case POS_Player:
+        OutPosX = Player->PosX;
+        OutPosY = Player->PosY;
+        break;
+    case POS_Center:
+        OutPosX = PosX;
+        if (!IsPlayer)
+        {
+            OutPosY = PosY;
+            break;
+        }
+        {
+            int32 CenterPosY = PosY;
+            switch (Player->Stance)
+            {
+            case ACT_Standing:
+            case ACT_Jumping:
+            default:
+                CenterPosY += 200000;
+                break;
+            case ACT_Crouching:
+                CenterPosY += 90000;
+                break;
+            }
+            OutPosY = CenterPosY;
+        }
+        break;
+    case POS_Ground:
+        OutPosX = PosX;
+        OutPosY = GroundHeight;
+        break;
+    case POS_Enemy:
+        OutPosX = Player->Enemy->PosX;
+        OutPosY = Player->Enemy->PosY;
+        break;
+    case POS_Col:
+        OutPosX = ColPosX;
+        OutPosY = ColPosY;
+        break;
+    default:
+        break;
+    }
+}
+
+void ABattleObject::ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const
+{
+    if (!GameState) return;
+    
+    GameState->ScreenPosToWorldPos(X, Y, OutX, OutY);
+}
+
+void ABattleObject::TriggerEvent(EEventType EventType, FGameplayTag StateMachineName)
+{
+    if (EventType == EVT_Update) UpdateTime++;
+    if (const auto SubroutineName = EventHandlers[EventType].SubroutineName; SubroutineName != FGameplayTag::EmptyTag)
+    {
+        USubroutine* Subroutine = nullptr;
+
+        if (const auto CommonIndex = Player->CommonSubroutineNames.Find(SubroutineName); CommonIndex != INDEX_NONE)
+            Subroutine = Player->CommonSubroutines[CommonIndex];
+
+        else if (const auto Index = Player->SubroutineNames.Find(SubroutineName); Index != INDEX_NONE)
+            Subroutine = Player->Subroutines[Index];
+
+        if (!Subroutine) return;
+
+        UFunction* const Func = Subroutine->FindFunction(EventHandlers[EventType].FunctionName);
+        if (IsValid(Func) && Func->ParmsSize == 0)
+        {
+            Subroutine->Parent = this;
+            Subroutine->ProcessEvent(Func, nullptr);
+        }
+        return;
+    }
+
+    UState* State = ObjectState;
+    if (IsPlayer)
+        State = Player->GetStateMachine(StateMachineName).CurrentState;
+    if (!IsValid(State))
+        return;
+    UFunction* const Func = State->FindFunction(EventHandlers[EventType].FunctionName);
+    if (IsValid(Func) && Func->ParmsSize == 0)
+    {
+        State->ProcessEvent(Func, nullptr);
+    }
+}
+
+//for collision viewer
+
+template <typename T>
+constexpr auto min(T a, T b)
+{
+    return a < b ? a : b;
+}
+
+template <typename T>
+constexpr auto max(T a, T b)
+{
+    return a > b ? a : b;
+}
+
+static void clip_line_y(
+    const FVector2D& line_a, const FVector2D& line_b,
+    float min_x, float max_x,
+    float* min_y, float* max_y)
+{
+    const auto delta = line_b - line_a;
+
+    if (abs(delta.X) > FLT_EPSILON)
+    {
+        const auto slope = delta.Y / delta.X;
+        const auto intercept = line_a.Y - slope * line_a.X;
+        *min_y = slope * min_x + intercept;
+        *max_y = slope * max_x + intercept;
+    }
+    else
+    {
+        *min_y = line_a.Y;
+        *max_y = line_b.Y;
+    }
+
+    if (*min_y > *max_y)
+        std::swap(*min_y, *max_y);
+}
+
+bool line_box_intersection(
+    const FVector2D& box_min, const FVector2D& box_max,
+    const FVector2D& line_a, const FVector2D& line_b,
+    float* entry_fraction, float* exit_fraction)
+{
+    // No intersection if line runs along the edge of the box
+    if (line_a.X == line_b.X && (line_a.X == box_min.X || line_a.X == box_max.X))
+        return false;
+
+    if (line_a.Y == line_b.Y && (line_a.Y == box_min.Y || line_a.Y == box_max.Y))
+        return false;
+
+    // Clip X values to segment within box_min.X and box_max.X
+    const auto min_x = max(min(line_a.X, line_b.X), box_min.X);
+    const auto max_x = min(max(line_a.X, line_b.X), box_max.X);
+
+    // Check if the line is in the bounds of the box on the X axis
+    if (min_x > max_x)
+        return false;
+
+    // Clip Y values to segment within min_x and max_x
+    float min_y, max_y;
+    clip_line_y(line_a, line_b, min_x, max_x, &min_y, &max_y);
+
+    // Clip Y values to segment within box_min.Y and box_max.Y
+    min_y = max(min_y, (float)box_min.Y);
+    max_y = min(max_y, (float)box_max.Y);
+
+    // Check if the clipped line is in the bounds of the box on the Y axis
+    if (min_y > max_y)
+        return false;
+
+    const FVector2D entry(
+        line_a.X < line_b.X ? min_x : max_x,
+        line_a.Y < line_b.Y ? min_y : max_y);
+
+    const FVector2D exit(
+        line_a.X > line_b.X ? min_x : max_x,
+        line_a.Y > line_b.Y ? min_y : max_y);
+
+    const auto length = (line_b - line_a).Size();
+    *entry_fraction = (entry - line_a).Size() / length;
+    *exit_fraction = (exit - line_a).Size() / length;
+
+    return true;
+}
+
+void ABattleObject::CollisionView()
+{
+    TArray<TArray<FVector2D>> Corners;
+    TArray<TArray<TArray<FVector2D>>> Lines;
+    for (auto Box : Boxes)
+    {
+        TArray<FVector2D> CurrentCorners;
+        if (Direction == DIR_Right)
+        {
+            CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated((float)AnglePitch_x1000 / 1000));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated((float)AnglePitch_x1000 / 1000));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated((float)AnglePitch_x1000 / 1000));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated((float)AnglePitch_x1000 / 1000));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+        }
+        else
+        {
+            CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE - float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE + float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+            CurrentCorners.Add(FVector2D(float(-Box.PosX) / COORD_SCALE - float(Box.SizeX) / COORD_SCALE / 2,
+                                         float(Box.PosY) / COORD_SCALE + float(Box.SizeY) / COORD_SCALE / 2).
+                GetRotated(180 - (float)AnglePitch_x1000 / 1000 + 180));
+            CurrentCorners.Last() += FVector2D(PosX / COORD_SCALE, PosY / COORD_SCALE);
+        }
+        Corners.Add(CurrentCorners);
+        TArray<TArray<FVector2D>> CurrentLines;
+        for (int j = 0; j < 4; j++)
+        {
+            CurrentLines.Add(TArray{CurrentCorners[j], CurrentCorners[(j + 1) % 4]});
+        }
+        Lines.Add(CurrentLines);
+        FLinearColor color;
+        if (Box.Type == BOX_Hit)
+            color = FLinearColor(1.f, 0.f, 0.f, .25f);
+        else if (AttackFlags & ATK_IsAttacking)
+            color = FLinearColor(0.f, 1.f, 1.f, .25f);
+        else
+            color = FLinearColor(0.f, 1.f, 0.f, .25f);
+        for (const auto& LineSet : Lines.Last())
+        {
+            auto start = LineSet[0];
+            auto end = LineSet[1];
+            DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false),
+                          false, 1 / 60, 255, 2.f);
+        }
+    }
+    TArray<FVector2D> CurrentCorners;
+    CurrentCorners.Add(FVector2D(L / COORD_SCALE, B / COORD_SCALE));
+    CurrentCorners.Add(FVector2D(R / COORD_SCALE, B / COORD_SCALE));
+    CurrentCorners.Add(FVector2D(R / COORD_SCALE, T / COORD_SCALE));
+    CurrentCorners.Add(FVector2D(L / COORD_SCALE, T / COORD_SCALE));
+    TArray<TArray<FVector2D>> CurrentLines;
+    for (int j = 0; j < 4; j++)
+    {
+        CurrentLines.Add(TArray{CurrentCorners[j], CurrentCorners[(j + 1) % 4]});
+    }
+    FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
+
+    for (const auto& LineSet : CurrentLines)
+    {
+        auto start = LineSet[0];
+        auto end = LineSet[1];
+        DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,
+                      1 / 60, 255, 2.f);
+    }
+}
+
+void ABattleObject::SaveForRollback(unsigned char* Buffer) const
+{
+    FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
+}
+
+void ABattleObject::LoadForRollback(const unsigned char* Buffer)
+{
+    FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
+    if (!IsPlayer)
+    {
+        const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName);
+        if (StateIndex != INDEX_NONE)
+        {
+            ObjectState = Player->ObjectStates[StateIndex];
+            ObjectState->Parent = this;
+        }
+    }
+}
+
+void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
+{
+    if (file)
+    {
+        file << "BattleObject:\n";
+        file << "\tPosX: " << PosX << std::endl;
+        file << "\tPosY: " << PosY << std::endl;
+        file << "\tPosZ: " << PosZ << std::endl;
+        file << "\tPrevPosX: " << PrevPosX << std::endl;
+        file << "\tPrevPosY: " << PrevPosY << std::endl;
+        file << "\tPrevPosZ: " << PrevPosZ << std::endl;
+        file << "\tSpeedX: " << SpeedX << std::endl;
+        file << "\tSpeedY: " << SpeedY << std::endl;
+        file << "\tSpeedZ: " << SpeedZ << std::endl;
+        file << "\tGravity: " << Gravity << std::endl;
+        file << "\tInertia: " << Inertia << std::endl;
+        file << "\tActionTime: " << ActionTime << std::endl;
+        file << "\tPushHeight: " << PushHeight << std::endl;
+        file << "\tPushHeightLow: " << PushHeightLow << std::endl;
+        file << "\tPushWidth: " << PushWidth << std::endl;
+        file << "\tStunTime: " << StunTime << std::endl;
+        file << "\tStunTimeMax: " << StunTimeMax << std::endl;
+        file << "\tHitstop: " << Hitstop << std::endl;
+        file << "\tCelName: " << TCHAR_TO_ANSI(*CelName.ToString()) << std::endl;
+        file << "\tAttackFlags: " << AttackFlags << std::endl;
+        file << "\tDirection: " << Direction << std::endl;
+        file << "\tMiscFlags: " << MiscFlags << std::endl;
+        file << "\tCelIndex: " << CelIndex << std::endl;
+        file << "\tTimeUntilNextCel: " << TimeUntilNextCel << std::endl;
+        file << "\tAnimFrame: " << AnimFrame << std::endl;
+    }
+}
+
+void ABattleObject::UpdateVisuals()
+{
+    if (IsValid(GameState))
+    {
+        if (GameState->BattleState.CurrentSequenceTime >= 0)
+        {
+            ScreenSpaceDepthOffset = 0;
+            if (DrawPriorityLinkObj)
+                ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
+            OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
+        }
+        else
+        {
+            if (DrawPriorityLinkObj)
+                ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
+            else
+                ScreenSpaceDepthOffset = (MaxDrawPriority - DrawPriority) * 50;
+            OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
+        }
+    }
+    else
+    {
+        ScreenSpaceDepthOffset = 0;
+        OrthoBlendActive = 1;
+    }
+
+    AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
+    MulColor = FMath::Lerp(MulColor, MulFadeColor, MulFadeSpeed);
+    Transparency = FMath::Lerp(Transparency, FadeTransparency, TransparencySpeed);
+}
+
+void ABattleObject::UpdateVisualsNoRollback()
+{
+    UpdateVisuals_BP();
+
+    if (!bRender)
+    {
+        SetActorHiddenInGame(true);
+        return;
+    }
+    
+    if (IsPlayer)
+    {
+        if ((Player->PlayerFlags & PLF_IsOnScreen) == 0)
+        {
+            SetActorHiddenInGame(true);
+            return;
+        }
+    }
+    else
+    {
+        if (!IsActive)
+        {
+            SetActorHiddenInGame(true);
+            return;
+        }
+    }
+    SetActorHiddenInGame(false);
+    if (LinkedParticle)
+    {
+        if (Direction == DIR_Left)
+        {
+            LinkedParticle->SetVariableFloat(FName("SpriteRotate"), AnglePitch_x1000 / 1000);
+        }
+        else
+        {
+            LinkedParticle->SetVariableFloat(FName("SpriteRotate"), -AnglePitch_x1000 / 1000);
+        }
+    }
+    if (LinkedActor)
+    {
+        TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+        GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
+
+        for (auto SkeletalMeshComponent : SkeletalMeshComponents)
+        {
+            if (!SkeletalMeshComponent->IsVisible()) continue;
+            if (!SkeletalMeshComponent->IsVisible() || !IsValid(SkeletalMeshComponent->GetAnimInstance())) continue;
+            SkeletalMeshComponent->GetAnimInstance()->UpdateAnimation(OneFrame, false); 
+            SkeletalMeshComponent->TickAnimation(OneFrame, false); 
+            SkeletalMeshComponent->TickPose(OneFrame, true);  
+        }
+    }
+    
+    FRotator FlipRotation = FRotator::ZeroRotator;
+    if (Direction == DIR_Left)
+    {
+        if (Player->bMirrorWhenFlip && IsPlayer)
+        {
+            FlipRotation = FRotator(0, 180, 0);
+            SetActorScale3D(FVector(1, 1, 1) * ObjectScale);
+            if (!GameState) SetActorRotation(FlipRotation);
+        }
+        else
+            SetActorScale3D(FVector(-1, 1, 1) * ObjectScale);
+    }
+    else
+    {
+        SetActorScale3D(FVector(1, 1, 1) * ObjectScale);
+    }
+
+    if (GameState)
+    {
+        if (SocketName == NAME_None) //only set visual location if not attached to socket
+        {
+            FRotator Rotation = FRotator(AnglePitch_x1000 / 1000, AngleYaw_x1000 / 1000, AngleRoll_x1000 / 1000);
+            if (Direction == DIR_Left)
+                Rotation.Pitch = 180 - Rotation.Pitch + 180;
+            SetActorRotation(
+                GameState->BattleSceneTransform.GetRotation() * (Rotation.Quaternion() * FlipRotation.
+                    Quaternion() * ObjectRotation.Quaternion()));
+            FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
+                                       static_cast<float>(PosY) / COORD_SCALE) + ObjectOffset;
+            Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->
+                BattleSceneTransform.GetLocation();
+            SetActorLocation(Location);
+        }
+        else
+        {
+            FVector FinalSocketOffset = SocketOffset;
+            if (Direction != DIR_Right)
+                FinalSocketOffset.Y = -SocketOffset.Y;
+            const auto Obj = GetBattleObject(SocketObj);
+            TArray<USkeletalMeshComponent*> SocketSkeletalMeshComponents;
+            Obj->GetComponents(USkeletalMeshComponent::StaticClass(), SocketSkeletalMeshComponents);
+            for (const auto Component : SocketSkeletalMeshComponents)
+            {
+                if (!Component->DoesSocketExist(SocketName)) continue;
+                FVector SocketLocation;
+                FRotator SocketRotation;
+                Component->GetSocketWorldLocationAndRotation(SocketName, SocketLocation, SocketRotation);
+                SetActorLocation(FinalSocketOffset + SocketLocation);
+                SetActorRotation(SocketRotation);
+            }
+        }
+    }
+    
+    if (LinkedActor)
+    {
+        LinkedActor->SetActorScale3D(GetActorScale3D());
+        LinkedActor->SetActorRotation(GetActorRotation());
+        LinkedActor->SetActorLocation(GetActorLocation());
+    }
+    if (LinkedParticle)
+    {
+        LinkedParticle->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+        LinkedParticle->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
+    }
+    
+    TInlineComponentArray<UPrimitiveComponent*> Components(this);
+    GetComponents(Components);
+    for (const auto Component : Components)
+    {
+        for (int64 i = 0; i < Component->GetNumMaterials(); i++)
+        {
+            if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Component->GetMaterial(i)); IsValid(MIDynamic))
+            {
+                MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
+            }
+        }
+        if (const auto Mesh = Cast<USkeletalMeshComponent>(Component); IsValid(Mesh))
+        {
+            if (const auto MIDynamic = Cast<UMaterialInstanceDynamic>(Mesh->OverlayMaterial); IsValid(MIDynamic))
+            {
+                MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
+            }
+        }
+    }
+
+    FrameBlendPosition = static_cast<float>(MaxCelTime - TimeUntilNextCel) / static_cast<float>(MaxCelTime);
+    MarkComponentsRenderStateDirty();
+}
+
+void ABattleObject::FuncCall(const FName& FuncName) const
+{
+    UState* CurrentState = ObjectState;
+    if (IsPlayer)
+        CurrentState = Player->PrimaryStateMachine.CurrentState;
+
+    UFunction* const Func = CurrentState->FindFunction(FuncName);
+    if (IsValid(Func) && Func->ParmsSize == 0)
+    {
+        CurrentState->ProcessEvent(Func, nullptr);
+    }
+}
+
+UNightSkyAnimSequenceUserData* ABattleObject::GetAnimSequenceUserData(const FName PartName) const
+{
+    TInlineComponentArray<UPrimitiveComponent*> Components;
+    GetComponents(Components);
+    for (int i = 0; i < Components.Num(); i++)
+    {
+        const auto Component = Components[i];
+        if (Component->GetName() != PartName) continue;
+        
+        const auto AnimSequence = GetAnimSequenceForPart(*Component->GetName());
+        if (!AnimSequence) return nullptr;
+
+        if (!AnimSequence->FindMetaDataByClass(UNightSkyAnimMetaData::StaticClass())) return nullptr;
+        return AnimSequence->GetAssetUserData<UNightSkyAnimSequenceUserData>();
+    }
+
+    return nullptr;
+}
+
+TArray<UNightSkyAnimSequenceUserData*> ABattleObject::GetAnimSequenceUserDatas() const
+{
+    TArray<UNightSkyAnimSequenceUserData*> UserDatas;
+    
+    TInlineComponentArray<UPrimitiveComponent*> Components;
+    GetComponents(Components);
+    for (int i = 0; i < Components.Num(); i++)
+    {
+        const auto Component = Components[i];
+        const auto AnimSequence = GetAnimSequenceForPart(*Component->GetName());
+        if (!AnimSequence) continue;
+
+        auto UserData = AnimSequence->GetAssetUserData<UNightSkyAnimSequenceUserData>();
+        if (!UserData) continue;
+
+        UserDatas.Add(UserData);
+    }
+
+    return UserDatas;
+}
+
+void ABattleObject::GetBoxes()
+{
+    Boxes.Empty();
+    if (Player->CommonCollisionData != nullptr)
+    {
+        for (int i = 0; i < Player->CommonCollisionData->CollisionFrames.Num(); i++)
+        {
+            if (Player->CommonCollisionData->CollisionFrames[i].CelName == CelName)
+            {
+                AnimStructs = Player->CommonCollisionData->CollisionFrames[i].Anim;
+                AnimBlendIn = Player->CommonCollisionData->CollisionFrames[i].AnimBlendIn;
+                AnimBlendOut = Player->CommonCollisionData->CollisionFrames[i].AnimBlendOut;
+                AnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+                if (BlendCelName == FGameplayTag::EmptyTag) BlendAnimFrame = AnimFrame;
+                Boxes = Player->CommonCollisionData->CollisionFrames[i].Boxes;
+            }
+            if (Player->CommonCollisionData->CollisionFrames[i].CelName == BlendCelName)
+            {
+                BlendAnimFrame = Player->CommonCollisionData->CollisionFrames[i].AnimFrame;
+                for (auto& Box : Player->CommonCollisionData->CollisionFrames[i].Boxes)
+                {
+                    if (Box.Type != BOX_Offset) continue;
+
+                    NextOffsetX = Box.PosX;
+                    NextOffsetY = Box.PosY;
+                }
+            }
+        }
+    }
+    if (Player->CollisionData != nullptr)
+    {
+        for (int i = 0; i < Player->CollisionData->CollisionFrames.Num(); i++)
+        {
+            if (Player->CollisionData->CollisionFrames[i].CelName == CelName)
+            {
+                AnimStructs = Player->CollisionData->CollisionFrames[i].Anim;
+                AnimBlendIn = Player->CollisionData->CollisionFrames[i].AnimBlendIn;
+                AnimBlendOut = Player->CollisionData->CollisionFrames[i].AnimBlendOut;
+                AnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+                if (BlendCelName == FGameplayTag::EmptyTag) BlendAnimFrame = AnimFrame;
+                Boxes = Player->CollisionData->CollisionFrames[i].Boxes;
+            }
+            if (Player->CollisionData->CollisionFrames[i].CelName == BlendCelName)
+            {
+                BlendAnimFrame = Player->CollisionData->CollisionFrames[i].AnimFrame;
+                for (auto& Box : Player->CollisionData->CollisionFrames[i].Boxes)
+                {
+                    if (Box.Type != BOX_Offset) continue;
+
+                    NextOffsetX = Box.PosX;
+                    NextOffsetY = Box.PosY;
+                }
+            }
+        }
+    }
+}
+
+void ABattleObject::InitObject()
+{
+    if (IsPlayer)
+        return;
+    if (IsValid(LinkedParticle))
+    {
+        LinkedParticle->Deactivate();
+    }
+    ObjectState->Parent = this;
+    ObjectState->Init();
+    FVector Location = FVector(static_cast<float>(PosX) / COORD_SCALE, static_cast<float>(PosZ) / COORD_SCALE,
+                               static_cast<float>(PosY) / COORD_SCALE);
+    Location = GameState->BattleSceneTransform.GetRotation().RotateVector(Location) + GameState->BattleSceneTransform.
+        GetLocation();
+    SetActorLocation(Location);
+    SetActorRotation(GameState->BattleSceneTransform.GetRotation());
+    if (Direction == DIR_Left)
+    {
+        SetActorScale3D(FVector(-1, 1, 1));
+    }
+    else
+    {
+        SetActorScale3D(FVector(1, 1, 1));
+    }
+}
+
+void ABattleObject::Update()
+{
+    CalculatePushbox();
+
+    if (!IsPlayer)
+    {
+        PositionLinkUpdate();
+        
+        if (StopLinkObj)
+            Hitstop = StopLinkObj->Hitstop;
+    }
+
+    if (Hitstop > 0) //break if hitstop active.
+    {
+        Hitstop--;
+        return;
+    }
+
+    if (!IsPlayer && MiscFlags & MISC_DeactivateOnNextUpdate)
+    {
+        ResetObject();
+        return;
+    }
+
+    if (IsPlayer)
+        if (Player->PlayerFlags & PLF_IsThrowLock)
+            return;
+
+    if (Timer0 > 0)
+    {
+        --Timer0;
+        if (Timer0 == 0) TriggerEvent(EVT_Timer0, StateMachine_Primary);
+    }
+    if (Timer1 > 0)
+    {
+        --Timer1;
+        if (Timer1 == 0) TriggerEvent(EVT_Timer1, StateMachine_Primary);
+    }
+
+    if (MiscFlags & MISC_FlipEnable)
+        HandleFlip();
+
+    if (PosY == GroundHeight && PrevPosY != GroundHeight)
+    {
+        if (!IsPlayer)
+        {
+            TriggerEvent(EVT_Landing, StateMachine_Primary);
+            SpeedX = 0;
+        }
+    }
+
+    if (!IsPlayer)
+    {
+        if (ActionTime == 0)
+        {
+            ObjectState->Init();
+        }
+
+        ObjectState->CallExec();
+        TriggerEvent(EVT_Update, StateMachine_Primary);
+        
+        if (LinkedActor)
+            LinkedActor->Update();
+        
+        if (TimeUntilNextCel > 0)
+            TimeUntilNextCel--;
+        if (TimeUntilNextCel == 0)
+            CelIndex++;
+        
+        Move();
+        
+        GameState->SetScreenBounds();
+        ActionTime++;
+
+        if (MiscFlags & MISC_DeactivateIfBeyondBounds)
+        {
+            if (PosX > GameState->BattleState.ScreenData.ScreenBoundsRight * 1000 + 105000
+                || PosX < GameState->BattleState.ScreenData.ScreenBoundsLeft * 1000 - 105000)
+                DeactivateObject();
+        }
+    }
+}
+
+void ABattleObject::ResetObject()
+{
+    if (IsPlayer)
+        return;
+
+    if (IsValid(LinkedParticle))
+    {
+        LinkedParticle->SetVisibility(false);
+        LinkedParticle->Deactivate();
+    }
+    RemoveLinkActor();
+    OrthoBlendActive = 1;
+    
+    IsActive = false;
+    PosX = 0;
+    PosY = 0;
+    PosZ = 0;
+    PrevPosX = 0;
+    PrevPosY = 0;
+    PrevPosZ = 0;
+    PrevOffsetX = 0;
+    PrevOffsetY = 0;
+    NextOffsetX = 0;
+    NextOffsetY = 0;
+    PrevRootMotionX = 0;
+    PrevRootMotionY = 0;
+    PrevRootMotionZ = 0;
+    AnglePitch_x1000 = 0;
+    AngleYaw_x1000 = 0;
+    AngleRoll_x1000 = 0;
+    SpeedX = 0;
+    SpeedY = 0;
+    SpeedZ = 0;
+    Gravity = 0;
+    Inertia = 0;
+    ActionTime = 0;
+    PushHeight = 0;
+    PushHeightLow = 0;
+    PushWidth = 0;
+    PushWidthExtend = 0;
+    Hitstop = 0;
+    L = 0;
+    R = 0;
+    T = 0;
+    B = 0;
+    HitCommon = FHitDataCommon();
+    NormalHit = FHitData();
+    CounterHit = FHitData();
+    ReceivedHitCommon = FHitDataCommon();
+    ReceivedHit = FHitData();
+    AttackFlags = ATK_AttackProjectileAttribute;
+    StunTime = 0;
+    StunTimeMax = 0;
+    Hitstop = 0;
+    MiscFlags = 0;
+    Direction = DIR_Right;
+    SpeedXRate = 100;
+    SpeedXRatePerFrame = 100;
+    SpeedYRate = 100;
+    SpeedYRatePerFrame = 100;
+    SpeedZRate = 100;
+    SpeedZRatePerFrame = 100;
+    GroundHeight = 0;
+    ActionReg1 = 0;
+    ActionReg2 = 0;
+    ActionReg3 = 0;
+    ActionReg4 = 0;
+    ActionReg5 = 0;
+    ActionReg6 = 0;
+    ActionReg7 = 0;
+    ActionReg8 = 0;
+    ObjectReg1 = 0;
+    ObjectReg2 = 0;
+    ObjectReg3 = 0;
+    ObjectReg4 = 0;
+    ObjectReg5 = 0;
+    ObjectReg6 = 0;
+    ObjectReg7 = 0;
+    ObjectReg8 = 0;
+    SubroutineReg1 = 0;
+    SubroutineReg2 = 0;
+    SubroutineReg3 = 0;
+    SubroutineReg4 = 0;
+    SubroutineReturnVal1 = 0;
+    SubroutineReturnVal2 = 0;
+    SubroutineReturnVal3 = 0;
+    SubroutineReturnVal4 = 0;
+    Timer0 = 0;
+    Timer1 = 0;
+    DrawPriority = 0;
+    HomingParams = FHomingParams();
+    SuperArmorData = FSuperArmorData();
+    UpdateTime = 0;
+    ObjectOffset = FVector::ZeroVector;
+    ObjectRotation = FRotator::ZeroRotator;
+    ObjectScale = FVector::OneVector;
+    CelName = FGameplayTag();
+    BlendCelName = FGameplayTag();
+    AnimFrame = 0;
+    BlendAnimFrame = 0;
+    FrameBlendPosition = 0;
+    CelIndex = 0;
+    TimeUntilNextCel = 0;
+    MaxCelTime = 0;
+    for (auto& Handler : EventHandlers)
+        Handler = FEventHandler();
+    ColPosX = 0;
+    ColPosY = 0;
+    for (auto& Box : Boxes)
+    {
+        Box = FCollisionBox();
+    }
+    ObjectStateName = FGameplayTag();
+    ObjectID = 0;
+    Player = nullptr;
+    AttackTarget = nullptr;
+    StopLinkObj = nullptr;
+    PositionLinkObj = nullptr;
+    MaterialLinkObj = nullptr;
+    SocketName = NAME_None;
+    SocketObj = OBJ_Self;
+    SocketOffset = FVector::ZeroVector;
+    AddColor = FLinearColor(0, 0, 0, 1);
+    MulColor = FLinearColor(1, 1, 1, 1);
+    AddFadeColor = FLinearColor(0, 0, 0, 1);
+    MulFadeColor = FLinearColor(1, 1, 1, 1);
+    AddFadeSpeed = 0;
+    MulFadeSpeed = 0;
+    Transparency = 1;
+    FadeTransparency = 1;
+    TransparencySpeed = 0;
+    DamageColor = FLinearColor(1, 1, 1, 1);
+    DamageColor2 = FLinearColor(1, 1, 1, 1);
+    bRender = true;
+    ObjectsToIgnoreHitsFrom.Empty();
+    for (const auto Object : GameState->SortedObjects)
+    {
+        Object->ObjectsToIgnoreHitsFrom.Remove(this);
+    }
+}
+
+UAnimSequenceBase* ABattleObject::GetAnimSequenceForPart(const FName Part) const
+{
+    for (auto [PartName, AnimSequence, Flipbook] : AnimStructs)
+    {
+        if (PartName == Part) return AnimSequence;
+    }
+
+    return nullptr;
+}
+
+UPaperFlipbook* ABattleObject::GetFlipbookForPart(const FName Part) const
+{
+    for (auto [PartName, AnimSequence, Flipbook] : AnimStructs)
+    {
+        if (PartName == Part) return Flipbook;
+    }
+
+    return nullptr;
+}
+
+bool ABattleObject::IsStopped() const
+{
+    if (!GameState) return false;
+    if (!IsPlayer && IsValid(StopLinkObj) && StopLinkObj->IsStopped()) return true;
+    if (GameState->BattleState.SuperFreezeDuration && this != GameState->BattleState.SuperFreezeCaller && !(MiscFlags & MISC_IgnoreSuperFreeze)) return true;
+    if (GameState->BattleState.SuperFreezeSelfDuration && this == GameState->BattleState.SuperFreezeCaller && !(MiscFlags & MISC_IgnoreSuperFreeze)) return true;
+    return Hitstop > 0 || (IsPlayer && Player->PlayerFlags & PLF_IsThrowLock);
+}
+
+bool ABattleObject::IsTimerPaused() const
+{
+    if (!GameState) return false;
+    return GameState->BattleState.PauseTimer;
+}
+
+void ABattleObject::CallSubroutine(FGameplayTag Name)
+{
+    SubroutineReturnVal1 = 0;
+    SubroutineReturnVal2 = 0;
+    SubroutineReturnVal3 = 0;
+    SubroutineReturnVal4 = 0;
+
+    if (Player->CommonSubroutineNames.Find(Name) != INDEX_NONE)
+    {
+        Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Parent = this;
+        Player->CommonSubroutines[Player->CommonSubroutineNames.Find(Name)]->Exec();
+        return;
+    }
+
+    if (Player->SubroutineNames.Find(Name) != INDEX_NONE)
+    {
+        Player->Subroutines[Player->SubroutineNames.Find(Name)]->Parent = this;
+        Player->Subroutines[Player->SubroutineNames.Find(Name)]->Exec();
+    }
+}
+
+void ABattleObject::CallSubroutineWithArgs(FGameplayTag Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4)
+{
+    SubroutineReg1 = Arg1;
+    SubroutineReg2 = Arg2;
+    SubroutineReg3 = Arg3;
+    SubroutineReg4 = Arg4;
+    CallSubroutine(Name);
+}
+
+void ABattleObject::InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FGameplayTag SubroutineName)
+{
+    switch (EventType)
+    {
+    case EVT_Timer0:
+        Timer0 = Value;
+        break;
+    case EVT_Timer1:
+        Timer1 = Value;
+        break;
+    case EVT_Update:
+        UpdateTime = 0;
+    default: break;
+    }
+    EventHandlers[EventType].FunctionName = FuncName;
+    EventHandlers[EventType].SubroutineName = SubroutineName;
+}
+
+void ABattleObject::RemoveEventHandler(EEventType EventType)
+{
+    EventHandlers[EventType].FunctionName = NAME_None;
+    EventHandlers[EventType].SubroutineName = FGameplayTag();
+    if (EventType == EVT_Update)
+        UpdateTime = 0;
+}
+
+FGameplayTag ABattleObject::GetCelName() const
+{
+    return CelName;
+}
+
+FGameplayTag ABattleObject::GetLabelName() const
+{
+    return LabelName;
+}
+
+void ABattleObject::SetCelName(FGameplayTag InName)
+{
+    CelName = InName;
+    SetBlendCelName(FGameplayTag::EmptyTag);
+    BlendAnimFrame = 0;
+
+    GetBoxes();
+    
+    // Get position offset from boxes
+    if (!GameState) return;
+    for (auto Box : Boxes)
+    {
+        if (Box.Type == BOX_Offset)
+        {
+            PosY += Box.PosY - PrevOffsetY;
+            AddPosXWithDir(Box.PosX - PrevOffsetX);
+
+            PrevOffsetX = Box.PosX;
+            PrevOffsetY = Box.PosY;
+        }
+    }
+}
+
+void ABattleObject::SetBlendCelName(FGameplayTag InName)
+{
+    BlendCelName = InName;
+    FrameBlendPosition = 0;
+
+    GetBoxes();
+}
+
+void ABattleObject::GotoLabel(FGameplayTag InName)
+{
+    if (!GameState && !CharaSelectGameState) return;
+    LabelName = InName;
+    GotoLabelActive = true;
+
+    if (!Player) ObjectState->CallExec();
+    else Player->PrimaryStateMachine.Update();
+}
+
+void ABattleObject::SetTimeUntilNextCel(int32 InTime)
+{
+    TimeUntilNextCel = InTime;
+}
+
+void ABattleObject::SetCelDuration(int32 InTime)
+{
+    TimeUntilNextCel = MaxCelTime = InTime;
+}
+
+void ABattleObject::AddPosXWithDir(int InPosX)
+{
+    if (Direction == DIR_Right)
+    {
+        PosX += InPosX;
+    }
+    else
+    {
+        PosX -= InPosX;
+    }
+}
+
+void ABattleObject::SetSpeedXRaw(int InSpeedX)
+{
+    if (Direction == DIR_Right)
+    {
+        SpeedX = InSpeedX;
+    }
+    else
+    {
+        SpeedX = -InSpeedX;
+    }
+}
+
+void ABattleObject::AddSpeedXRaw(int InSpeedX)
+{
+    if (Direction == DIR_Right)
+    {
+        SpeedX += InSpeedX;
+    }
+    else
+    {
+        SpeedX -= InSpeedX;
+    }
+}
+
+int32 ABattleObject::GetPosYCenter() const
+{
+    int32 CenterPosY = PosY;
+    if (IsPlayer)
+    {
+        switch (Player->Stance)
+        {
+        case ACT_Standing:
+        case ACT_Jumping:
+        default:
+            CenterPosY += 200000;
+            break;
+        case ACT_Crouching:
+            CenterPosY += 90000;
+            break;
+        }
+    }
+    return CenterPosY;
+}
+
+void ABattleObject::SetPitch(int32 Pitch_x1000)
+{
+    AnglePitch_x1000 = NormalizeAngle(Pitch_x1000);
+}
+
+void ABattleObject::SetYaw(int32 Yaw_x1000)
+{
+    AngleYaw_x1000 = NormalizeAngle(Yaw_x1000);
+}
+
+void ABattleObject::SetRoll(int32 Roll_x1000)
+{
+    AngleRoll_x1000 = NormalizeAngle(Roll_x1000);
+}
+
+int32 ABattleObject::NormalizeAngle(int32 Angle_x1000)
+{
+    Angle_x1000 %= 360000;
+    if (Angle_x1000 < 0) Angle_x1000 += 360000;
+    return Angle_x1000;
+}
+
+int32 ABattleObject::CalculateSpeedAngle() const
+{
+    return UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(SpeedX, SpeedY);
+}
+
+int32 ABattleObject::CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
+                                                    EPosType Pos2)
+{
+    const ABattleObject* Actor1 = GetBattleObject(Obj1);
+    const ABattleObject* Actor2 = GetBattleObject(Obj2);
+    if (IsValid(Actor1) && IsValid(Actor2))
+    {
+        int32 PosX1 = 0;
+        int32 PosX2 = 0;
+        int32 PosY1 = 0;
+        int32 PosY2 = 0;
+
+        Actor1->PosTypeToPosition(Pos1, PosX1, PosY1);
+        Actor2->PosTypeToPosition(Pos2, PosX2, PosY2);
+
+        int32 ObjDist;
+
+        switch (Type)
+        {
+        case DIST_Distance:
+            ObjDist = isqrt(
+                static_cast<int64>(PosX2 - PosX1) * static_cast<int64>(PosX2 - PosX1) + static_cast<int64>(PosY2 -
+                    PosY1) * static_cast<int64>(PosY2 - PosY1));
+            break;
+        case DIST_DistanceX:
+            ObjDist = abs(PosX2 - PosX1);
+            break;
+        case DIST_DistanceY:
+            ObjDist = abs(PosY2 - PosY1);
+            break;
+        case DIST_FrontDistanceX:
+            {
+                int DirFlag = 1;
+                if (Actor1->Direction == DIR_Left)
+                {
+                    DirFlag = -1;
+                }
+                ObjDist = (PosX2 - PosX1) * DirFlag;
+            }
+            break;
+        default:
+            return 0;
+        }
+        return ObjDist;
+    }
+    return 0;
+}
+
+int32 ABattleObject::CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2)
+{
+    const ABattleObject* Actor1 = GetBattleObject(Obj1);
+    const ABattleObject* Actor2 = GetBattleObject(Obj2);
+    if (IsValid(Actor1) && IsValid(Actor2))
+    {
+        int32 PosX1 = 0;
+        int32 PosX2 = 0;
+        int32 PosY1 = 0;
+        int32 PosY2 = 0;
+
+        Actor1->PosTypeToPosition(Pos1, PosX1, PosY1);
+        Actor2->PosTypeToPosition(Pos2, PosX2, PosY2);
+
+        const auto X = abs(PosX2 - PosX1);
+        const auto Y = PosY2 - PosY1;
+
+        return UNightSkyBlueprintFunctionLibrary::Vec2Angle_x1000(X, Y);
+    }
+    return 0;
+}
+
+void ABattleObject::SetFacing(EObjDir NewDir)
+{
+    Direction = NewDir;
+}
+
+void ABattleObject::FlipObject()
+{
+    if (Direction == DIR_Right)
+        Direction = DIR_Left;
+    else
+        Direction = DIR_Right;
+}
+
+void ABattleObject::FaceOpponent()
+{
+    const EObjDir CurrentDir = Direction;
+    if (!Player->Enemy) return;
+
+    if (GameState) GameState->SetScreenBounds();
+
+    if (PosX + 30000 < Player->Enemy->PosX - 30000)
+    {
+        SetFacing(DIR_Right);
+    }
+    else if (PosX - 30000 > Player->Enemy->PosX + 30000)
+    {
+        SetFacing(DIR_Left);
+    }
+    if (CurrentDir != Direction)
+    {
+        SpeedX = -SpeedX;
+        Inertia = -Inertia;
+        if (IsPlayer)
+        {
+            Player->StoredInputBuffer.FlipInputsInBuffer();
+            if (Player->Stance == ACT_Standing && Player->GetEnableFlags(StateMachine_Primary) & ENB_Standing)
+                Player->JumpToStatePrimary(State_Universal_StandFlip);
+            else if (Player->Stance == ACT_Crouching && Player->GetEnableFlags(StateMachine_Primary) & ENB_Crouching)
+                Player->JumpToStatePrimary(State_Universal_CrouchFlip);
+            else if (Player->Stance == ACT_Jumping && Player->GetEnableFlags(StateMachine_Primary) & ENB_Jumping)
+                Player->JumpToStatePrimary(State_Universal_JumpFlip);
+        }
+    }
+}
+
+bool ABattleObject::CheckIsGrounded() const
+{
+    return PosY <= GroundHeight;
+}
+
+void ABattleObject::EnableHit(bool Enabled)
+{
+    if (Enabled)
+    {
+        AttackFlags |= ATK_HitActive;
+
+        if (GameState)
+        {
+            for (const auto Object : GameState->SortedObjects)
+            {
+                Object->ObjectsToIgnoreHitsFrom.Remove(this);
+            }
+        }
+    }
+    else
+    {
+        AttackFlags &= ~ATK_HitActive;
+    }
+
+    if (!IsPlayer)
+    {
+        SetProjectileAttribute(true);
+    }
+}
+
+void ABattleObject::SetAttacking(bool Attacking)
+{
+    if (Attacking)
+    {
+        AttackFlags |= ATK_IsAttacking;
+    }
+    else
+    {
+        AttackFlags &= ~ATK_IsAttacking;
+    }
+    AttackFlags &= ~ATK_HasHit;
+    AttackFlags &= ~ATK_HitActive;
+}
+
+void ABattleObject::SetPlayerHit(bool Enable)
+{
+    if (!IsPlayer)
+    {
+        if (Enable)
+        {
+            AttackFlags |= ATK_SetPlayerHit;
+        }
+        else
+        {
+            AttackFlags &= ~ATK_SetPlayerHit;
+        }
+    }
+}
+
+void ABattleObject::SetProjectileAttribute(bool Attribute)
+{
+    if (Attribute)
+        AttackFlags |= ATK_AttackProjectileAttribute;
+    else
+        AttackFlags &= ~ATK_AttackProjectileAttribute;
+}
+
+void ABattleObject::SetProrateOnce(bool Once)
+{
+    if (Once)
+        AttackFlags |= ATK_ProrateOnce;
+    else
+        AttackFlags &= ~ATK_ProrateOnce;
+}
+
+void ABattleObject::SetIgnoreOTG(bool Ignore)
+{
+    if (Ignore)
+        AttackFlags |= ATK_IgnoreOTG;
+    else
+        AttackFlags &= ~ATK_IgnoreOTG;
+}
+
+void ABattleObject::SetHitOTG(bool Enable)
+{
+    if (Enable)
+        AttackFlags |= ATK_HitOTG;
+    else
+        AttackFlags &= ~ATK_HitOTG;
+
+}
+
+void ABattleObject::SetIgnorePushbackScaling(bool Ignore)
+{
+    if (Ignore)
+        AttackFlags |= ATK_IgnorePushbackScaling;
+    else
+        AttackFlags &= ~ATK_IgnorePushbackScaling;
+}
+
+void ABattleObject::SetIgnoreHitstunScaling(bool Ignore)
+{
+    if (Ignore)
+        AttackFlags |= ATK_IgnoreHitstunScaling;
+    else
+        AttackFlags &= ~ATK_IgnoreHitstunScaling;
+}
+
+void ABattleObject::DeactivateObject()
+{
+    if (IsPlayer) // Don't use on players
+        return;
+    // Remove from player cache
+    for (int i = 0; i < 16; i++)
+    {
+        if (this == Player->StoredBattleObjects[i])
+        {
+            Player->StoredBattleObjects[i] = nullptr;
+            break;
+        }
+    }
+
+    // Wait until the next frame to complete
+    MiscFlags |= MISC_DeactivateOnNextUpdate;
+}
+
+bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
+                                    const EBoxType OtherType, const FGameplayTag OtherCustomType)
+{
+    auto RotatePoint = [](int32 (&Point)[2], int32 Angle)
+    {
+        const int OrigPoint[] = {Point[0], Point[1]};
+        Point[0] = (int64)OrigPoint[0] * UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000 - (int64)
+            OrigPoint[1] *
+            UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000;
+        Point[1] = (int64)OrigPoint[0] * UNightSkyBlueprintFunctionLibrary::Sin_x1000(Angle / 100) / 1000 + (int64)
+            OrigPoint[1] *
+            UNightSkyBlueprintFunctionLibrary::Cos_x1000(Angle / 100) / 1000;
+    };
+
+    // Lambda to automate getting the normal vectors for a box
+    auto GetNormalAxes = [](const int32 (&Vertices)[4][2], int32 (&Normals)[4][2], bool bFacingRight)
+    {
+        // Loop over verts
+        for (int i = 0; i < std::size(Vertices); i++)
+        {
+            // Get vertices
+            const auto P1 = Vertices[i];
+            const auto P2 = Vertices[i + 1 == std::size(Vertices) ? 0 : i + 1];
+            // Get edge vector
+            const int32 Edge[2] = {P1[0] - P2[0], P1[1] - P2[1]};
+            // Get normal vector
+            int32 Normal[2] = {Edge[1], -Edge[0]};
+            if (bFacingRight)
+            {
+                Normal[0] = -Normal[0];
+                Normal[1] = -Normal[1];
+            }
+            // Normalize vector
+            auto Length = isqrt((int64)Normal[0] * Normal[0] + (int64)Normal[1] * Normal[1]);
+            if (Length == 0)
+                Length = 1;
+            Normal[0] = (int64)Normal[0] * COORD_SCALE / Length;
+            Normal[1] = (int64)Normal[1] * COORD_SCALE / Length;
+            // Assign to passed in array
+            Normals[i][0] = Normal[0];
+            Normals[i][1] = Normal[1];
+        }
+    };
+
+    // Lambda to project a box onto an axis.
+    auto ProjectBoxOntoAxis = [](const int32 (&Vertices)[4][2], const int32 (&Normal)[2],
+                                 int32 (&Proj)[2])
+    {
+        // Calculate minimum from dot product
+        int32 Min = (int64)Vertices[0][0] * Normal[0] / COORD_SCALE + (int64)Vertices[0][1] * Normal[1] / COORD_SCALE;
+        int32 Max = Min;
+
+        for (int i = 0; i < std::size(Vertices); i++)
+        {
+            const int32 P = (int64)Vertices[i][0] * Normal[0] / COORD_SCALE + (int64)Vertices[i][1] * Normal[1] /
+                COORD_SCALE;
+            if (P < Min)
+                Min = P;
+            else if (P > Max)
+                Max = P;
+        }
+
+        Proj[0] = Min;
+        Proj[1] = Max;
+    };
+
+    // Lambda to check if projections overlap.
+    auto IsOverlapping = [](const int32 (&Proj1)[2], const int32 (&Proj2)[2]) -> bool
+    {
+        return !(Proj1[1] < Proj2[0] || Proj2[1] < Proj1[0]);
+    };
+
+    // Calculate boxes for self
+    for (auto& Box : Boxes)
+    {
+        if (Box.Type != SelfType)
+            continue;
+        if (Box.Type == BOX_Custom && Box.CustomType != SelfCustomType)
+            continue;
+
+        // Calculate vertices
+        int32 P1[2] = {-Box.SizeX / 2, -Box.SizeY / 2};
+        int32 P2[2] = {-Box.SizeX / 2, Box.SizeY / 2};
+        int32 P3[2] = {Box.SizeX / 2, -Box.SizeY / 2};
+        int32 P4[2] = {Box.SizeX / 2, Box.SizeY / 2};
+
+        // Calculate rotated points
+        auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000 + 180000;
+
+        // Calculate box transform
+        if (Direction == DIR_Right)
+        {
+            P1[0] += Box.PosX;
+            P2[0] += Box.PosX;
+            P3[0] += Box.PosX;
+            P4[0] += Box.PosX;
+        }
+        else
+        {
+            P1[0] += -Box.PosX;
+            P2[0] += -Box.PosX;
+            P3[0] += -Box.PosX;
+            P4[0] += -Box.PosX;
+        }
+
+        P1[1] += Box.PosY;
+        P2[1] += Box.PosY;
+        P3[1] += Box.PosY;
+        P4[1] += Box.PosY;
+
+        RotatePoint(P1, Angle);
+        RotatePoint(P2, Angle);
+        RotatePoint(P3, Angle);
+        RotatePoint(P4, Angle);
+
+        // Calculate scene transform
+        P1[0] += PosX;
+        P2[0] += PosX;
+        P3[0] += PosX;
+        P4[0] += PosX;
+
+        P1[1] += PosY;
+        P2[1] += PosY;
+        P3[1] += PosY;
+        P4[1] += PosY;
+
+        int32 Vertices[4][2] = {
+            {P1[0], P1[1]},
+            {P2[0], P2[1]},
+            {P3[0], P3[1]},
+            {P4[0], P4[1]},
+        };
+        int32 Normals[4][2];
+        GetNormalAxes(Vertices, Normals, Direction == DIR_Right);
+        
+        // Repeat for other object
+        for (auto& OtherBox : OtherObj->Boxes)
+        {
+            if (OtherBox.Type != OtherType)
+                continue;
+            if (OtherBox.Type == BOX_Custom && OtherBox.CustomType != OtherCustomType)
+                continue;
+
+            int32 OtherP1[2] = {-OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
+            int32 OtherP2[2] = {-OtherBox.SizeX / 2, OtherBox.SizeY / 2};
+            int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
+            int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
+
+            auto OtherAngle = OtherObj->Direction == DIR_Right
+                                  ? OtherObj->AnglePitch_x1000
+                                  : 180000 - OtherObj->AnglePitch_x1000 + 180000;
+            
+            if (OtherObj->Direction == DIR_Right)
+            {
+                OtherP1[0] += OtherBox.PosX;
+                OtherP2[0] += OtherBox.PosX;
+                OtherP3[0] += OtherBox.PosX;
+                OtherP4[0] += OtherBox.PosX;
+            }
+            else
+            {
+                OtherP1[0] += -OtherBox.PosX;
+                OtherP2[0] += -OtherBox.PosX;
+                OtherP3[0] += -OtherBox.PosX;
+                OtherP4[0] += -OtherBox.PosX;
+            }
+
+            OtherP1[1] += OtherBox.PosY;
+            OtherP2[1] += OtherBox.PosY;
+            OtherP3[1] += OtherBox.PosY;
+            OtherP4[1] += OtherBox.PosY;
+
+            RotatePoint(OtherP1, OtherAngle);
+            RotatePoint(OtherP2, OtherAngle);
+            RotatePoint(OtherP3, OtherAngle);
+            RotatePoint(OtherP4, OtherAngle);
+
+            OtherP1[0] += OtherObj->PosX;
+            OtherP2[0] += OtherObj->PosX;
+            OtherP3[0] += OtherObj->PosX;
+            OtherP4[0] += OtherObj->PosX;
+
+            OtherP1[1] += OtherObj->PosY;
+            OtherP2[1] += OtherObj->PosY;
+            OtherP3[1] += OtherObj->PosY;
+            OtherP4[1] += OtherObj->PosY;
+
+            int32 OtherVertices[4][2] = {
+                {OtherP1[0], OtherP1[1]},
+                {OtherP2[0], OtherP2[1]},
+                {OtherP3[0], OtherP3[1]},
+                {OtherP4[0], OtherP4[1]},
+            };
+            int32 OtherNormals[4][2];
+            GetNormalAxes(OtherVertices, OtherNormals, Direction == DIR_Right);
+            
+            int32 Overlap = INT_MAX;
+            int32 Smallest[2];
+
+            // Loop over the first set of normals
+            for (int i = 0; i < std::size(Normals); i++)
+            {
+                int32 Axis[2] = {Normals[i][0], Normals[i][1]};
+                // Project both shapes onto the axis
+                int32 Proj1[2];
+                ProjectBoxOntoAxis(Vertices, Axis, Proj1);
+                int32 Proj2[2];
+                ProjectBoxOntoAxis(OtherVertices, Axis, Proj2);
+                // If the projections overlap...
+                if (IsOverlapping(Proj1, Proj2))
+                {
+                    int32 O = FMath::Abs(FMath::Min(Proj1[1], Proj2[1]) - FMath::Min(Proj1[0], Proj2[0]));
+                    if (O < Overlap)
+                    {
+                        Overlap = O;
+                        Smallest[0] = Axis[0];
+                        Smallest[1] = Axis[1];
+                    }
+                }
+                else
+                {
+                    // Otherwise, the shapes don't overlap.
+                    goto END;
+                }
+            }
+
+            // Loop over the second set of normals
+            for (int i = 0; i < std::size(OtherNormals); i++)
+            {
+                int32 Axis[2] = {OtherNormals[i][0], OtherNormals[i][1]};
+                // Project both shapes onto the axis
+                int32 Proj1[2];
+                ProjectBoxOntoAxis(Vertices, Axis, Proj1);
+                int32 Proj2[2];
+                ProjectBoxOntoAxis(OtherVertices, Axis, Proj2);
+                // If the projections overlap...
+                if (IsOverlapping(Proj1, Proj2))
+                {
+                    int32 O = FMath::Abs(FMath::Min(Proj1[1], Proj2[1]) - FMath::Min(Proj1[0], Proj2[0]));
+                    if (O < Overlap)
+                    {
+                        Overlap = O;
+                        Smallest[0] = Axis[0];
+                        Smallest[1] = Axis[1];
+                    }
+                }
+                else
+                {
+                    // Otherwise, the shapes don't overlap.
+                    goto END;
+                }
+            }
+            
+            ColPosX = (FMath::Max(P1[0], OtherP1[0]) + FMath::Min(P3[0], OtherP3[0])) / 2;
+            ColPosY = (FMath::Max(P1[1], OtherP1[1]) + FMath::Min(P2[1], OtherP2[1])) / 2;
+
+            return true;
+
+        END:
+            // Collision not detected, continue to next box.
+            continue;
+        }
+    }
+
+    return false;
+}
+
+void ABattleObject::GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX,
+                                   int& OutPosY) const
+{
+    for (auto& Box : Boxes)
+    {
+        if (Box.Type == BoxType)
+        {
+            if (Box.Type == BOX_Custom && Box.CustomType != CustomType) continue;
+
+            OutPosX = Box.PosX;
+            OutPosY = Box.PosY;
+
+            return;
+        }
+    }
+}
+
+int32 ABattleObject::GetGauge(int32 GaugeIndex) const
+{
+    if (!GameState) return 0;
+    return GameState->GetGauge(Player->PlayerIndex == 0, GaugeIndex);
+}
+
+void ABattleObject::SetGauge(int32 GaugeIndex, int32 Value)
+{
+    if (!GameState) return;
+    GameState->SetGauge(Player->PlayerIndex == 0, GaugeIndex, Value);
+}
+
+void ABattleObject::UseGauge(int32 GaugeIndex, int32 Value)
+{
+    if (!GameState) return;
+    GameState->UseGauge(Player->PlayerIndex == 0, GaugeIndex, Value);
+}
+
+void ABattleObject::EnableFlip(bool Enabled)
+{
+    if (Enabled)
+    {
+        MiscFlags |= MISC_FlipEnable;
+    }
+    else
+    {
+        MiscFlags = MiscFlags & ~MISC_FlipEnable;
+    }
+}
+
+void ABattleObject::EnableInertia()
+{
+    MiscFlags |= MISC_InertiaEnable;
+}
+
+void ABattleObject::DisableInertia()
+{
+    MiscFlags = MiscFlags & ~MISC_InertiaEnable;
+}
+
+void ABattleObject::HaltMomentum()
+{
+    SpeedX = 0;
+    SpeedY = 0;
+    SpeedZ = 0;
+    Gravity = 0;
+    Inertia = 0;
+}
+
+void ABattleObject::SetWallCollisionActive(bool Active)
+{
+    if (Active)
+        MiscFlags |= MISC_WallCollisionActive;
+    else
+        MiscFlags &= ~MISC_WallCollisionActive;
+}
+
+void ABattleObject::SetFloorCollisionActive(bool Active)
+{
+    if (Active)
+        MiscFlags |= MISC_FloorCollisionActive;
+    else
+        MiscFlags &= ~MISC_FloorCollisionActive;
+}
+
+void ABattleObject::SetPushCollisionActive(bool Active)
+{
+    if (Active)
+        MiscFlags |= MISC_PushCollisionActive;
+    else
+        MiscFlags &= ~MISC_PushCollisionActive;
+}
+
+void ABattleObject::SetPushWidthExtend(int32 Extend)
+{
+    PushWidthExtend = Extend;
+}
+
+void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset, FRotator Rotation)
+{
+    if (!GameState) return;
+    if (Player->CommonParticleData != nullptr)
+    {
+        for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
+        {
+            if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
+            {
+                if (Direction == DIR_Left)
+                {
+                    Rotation.Pitch = -Rotation.Pitch;
+                    Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+                }
+                Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
+                int32 TmpPosX;
+                int32 TmpPosY;
+                PosTypeToPosition(PosType, TmpPosX, TmpPosY);
+                FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+                FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
+                    BattleSceneTransform.GetLocation();
+                UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+                    this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+                GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
+                NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+                NiagaraComponent->SetDesiredAge(0);
+                NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
+                if (Direction == DIR_Left)
+                {
+                    NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+                    NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
+                }
+                NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+                NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
+                NiagaraComponent->SetCustomDepthStencilValue(2);
+                NiagaraComponent->SetBoundsScale(40000);
+                break;
+            }
+        }
+    }
+}
+
+void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset, FRotator Rotation)
+{
+    if (!GameState) return;
+    if (Player->CharaParticleData != nullptr)
+    {
+        for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
+        {
+            if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
+            {
+                if (Direction == DIR_Left)
+                {
+                    Rotation.Pitch = -Rotation.Pitch;
+                    Offset = FVector(-Offset.X, Offset.Y, Offset.Z);
+                }
+                Rotation += GameState->BattleSceneTransform.GetRotation().Rotator();
+                int32 TmpPosX;
+                int32 TmpPosY;
+                PosTypeToPosition(PosType, TmpPosX, TmpPosY);
+                FVector FinalLocation = Offset + FVector(TmpPosX / COORD_SCALE, 0, TmpPosY / COORD_SCALE);
+                FinalLocation = GameState->BattleSceneTransform.GetRotation().RotateVector(FinalLocation) + GameState->
+                    BattleSceneTransform.GetLocation();
+                UNiagaraComponent* NiagaraComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+                    this, ParticleStruct.ParticleSystem, FinalLocation, Rotation, GetActorScale());
+                GameState->ParticleManager->BattleParticles.Add(FBattleParticle(NiagaraComponent, nullptr));
+                NiagaraComponent->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+                NiagaraComponent->SetDesiredAge(0);
+                NiagaraComponent->SetVariableFloat(FName("SpriteRotate"), -Rotation.Pitch);
+                if (Direction == DIR_Left)
+                {
+                    NiagaraComponent->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+                    NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
+                }
+                NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
+                NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
+                NiagaraComponent->SetCustomDepthStencilValue(2);
+                NiagaraComponent->SetBoundsScale(40000);
+                break;
+            }
+        }
+    }
+}
+
+void ABattleObject::LinkCommonParticle(FGameplayTag Name)
+{
+    if (!GameState) return;
+    if (IsPlayer)
+        return;
+    if (Player->CommonParticleData != nullptr)
+    {
+        for (FParticleStruct ParticleStruct : Player->CommonParticleData->ParticleStructs)
+        {
+            if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
+            {
+                if (IsValid(LinkedParticle))
+                    LinkedParticle->Deactivate();
+                LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
+                    ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
+                    EAttachLocation::SnapToTargetIncludingScale, true);
+                LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+                LinkedParticle->SetDesiredAge(0);
+                GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
+                if (Direction == DIR_Left)
+                    LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+                LinkedParticle->SetBoundsScale(40000);
+                LinkedParticle->SetCustomDepthStencilValue(2);
+                break;
+            }
+        }
+    }
+}
+
+void ABattleObject::LinkCharaParticle(FGameplayTag Name)
+{
+    if (!GameState) return;
+    if (IsPlayer)
+        return;
+    if (Player->CharaParticleData != nullptr)
+    {
+        for (FParticleStruct ParticleStruct : Player->CharaParticleData->ParticleStructs)
+        {
+            if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
+            {
+                if (IsValid(LinkedParticle))
+                    LinkedParticle->Deactivate();
+                LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
+                    ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
+                    EAttachLocation::SnapToTargetIncludingScale, true);
+                LinkedParticle->SetAgeUpdateMode(ENiagaraAgeUpdateMode::DesiredAge);
+                LinkedParticle->SetDesiredAge(0);
+                GameState->ParticleManager->BattleParticles.Add(FBattleParticle(LinkedParticle, this));
+                if (Direction == DIR_Left)
+                    LinkedParticle->SetVariableVec2(FName("UVScale"), FVector2D(-1, 1));
+                LinkedParticle->SetBoundsScale(40000);
+                LinkedParticle->SetCustomDepthStencilValue(2);
+                break;
+            }
+        }
+    }
+}
+
+ALinkActor* ABattleObject::LinkActor(FGameplayTag Name)
+{
+    if (!GameState) return nullptr;
+    if (IsPlayer)
+        return nullptr;
+
+    RemoveLinkActor();
+    for (auto& Container : Player->StoredLinkActors)
+    {
+        if (Container.Name == Name && !Container.bIsActive)
+        {
+            Container.bIsActive = true;
+            LinkedActor = Container.StoredActor;
+            LinkedActor->SetActorHiddenInGame(false);
+            LinkedActor->Init();
+
+            return LinkedActor;
+        }
+    }
+    return nullptr;
+}
+
+void ABattleObject::RemoveLinkActor()
+{
+    if (!LinkedActor) return;
+
+    for (auto& Container : Player->StoredLinkActors)
+    {
+        if (Container.StoredActor == LinkedActor)
+        {
+            Container.bIsActive = false;
+            LinkedActor->Exit();
+            LinkedActor->SetActorHiddenInGame(true);
+            LinkedActor = nullptr;
+        }
+    }
+}
+
+void ABattleObject::PlayCommonSound(FGameplayTag Name)
+{
+    if (!IsValid(GameState))
+        return;
+    if (Player->CommonSoundData != nullptr)
+    {
+        for (FSoundStruct SoundStruct : Player->CommonSoundData->SoundDatas)
+        {
+            if (SoundStruct.Name == Name)
+            {
+                GameState->PlayCommonAudio(SoundStruct.SoundWave, SoundStruct.MaxDuration);
+                break;
+            }
+        }
+    }
+}
+
+void ABattleObject::PlayCharaSound(FGameplayTag Name)
+{
+    if (!IsValid(GameState))
+        return;
+    if (Player->SoundData != nullptr)
+    {
+        for (FSoundStruct SoundStruct : Player->SoundData->SoundDatas)
+        {
+            if (SoundStruct.Name == Name)
+            {
+                GameState->PlayCharaAudio(SoundStruct.SoundWave, SoundStruct.MaxDuration);
+                break;
+            }
+        }
+    }
+}
+
+void ABattleObject::AttachToSocketOfObject(FName InSocketName, FVector Offset, EObjType ObjType)
+{
+    SocketName = InSocketName;
+    SocketObj = ObjType;
+    SocketOffset = Offset;
+}
+
+void ABattleObject::DetachFromSocket()
+{
+    SocketName = FName();
+    SocketObj = OBJ_Self;
+    SocketOffset = FVector::ZeroVector;
+}
+
+void ABattleObject::CameraShake(FGameplayTag PatternName, int32 Scale)
+{
+    if (!GameState) return;
+    if (IsValid(Player->CameraShakeData))
+    {
+        for (auto [Name, CameraShake] : Player->CameraShakeData->CameraShakeStructs)
+        {
+            if (Name == PatternName)
+                GameState->CameraShake(CameraShake, static_cast<float>(Scale) / 1000);
+        }
+    }
+}
+
+int32 ABattleObject::GenerateRandomNumber(int32 Min, int32 Max) const
+{
+    return GameState->BattleState.RandomManager.RandRange(Min, Max);
+}
+
+void ABattleObject::StartSuperFreeze(int Duration, int SelfDuration)
+{
+    if (!GameState) return;
+    GameState->StartSuperFreeze(Duration, SelfDuration, this);
+    if (Duration > 0) TriggerEvent(EVT_SuperFreeze, StateMachine_Primary);
+}
+
+void ABattleObject::IgnoreSuperFreeze(bool Ignore)
+{
+    if (Ignore)
+        MiscFlags |= MISC_IgnoreSuperFreeze;
+    else
+        MiscFlags &= ~MISC_IgnoreSuperFreeze;
+}
+
+void ABattleObject::SetObjectID(int InObjectID)
+{
+    ObjectID = InObjectID;
+}
+
+ABattleObject* ABattleObject::GetBattleObject(EObjType Type)
+{
+    switch (Type)
+    {
+    case OBJ_Self:
+        return this;
+    case OBJ_MainPlayer:
+        return GameState->GetMainPlayer(Player->PlayerIndex == 0);
+    case OBJ_Enemy:
+        return Player->Enemy;
+    case OBJ_Parent:
+        return Player;
+    case OBJ_Child0:
+        if (IsPlayer && Player->StoredBattleObjects[0])
+            if (Player->StoredBattleObjects[0]->IsActive)
+                return Player->StoredBattleObjects[0];
+        return nullptr;
+    case OBJ_Child1:
+        if (IsPlayer && Player->StoredBattleObjects[1])
+            if (Player->StoredBattleObjects[1]->IsActive)
+                return Player->StoredBattleObjects[1];
+        return nullptr;
+    case OBJ_Child2:
+        if (IsPlayer && Player->StoredBattleObjects[2])
+            if (Player->StoredBattleObjects[2]->IsActive)
+                return Player->StoredBattleObjects[2];
+        return nullptr;
+    case OBJ_Child3:
+        if (IsPlayer && Player->StoredBattleObjects[3])
+            if (Player->StoredBattleObjects[3]->IsActive)
+                return Player->StoredBattleObjects[3];
+        return nullptr;
+    case OBJ_Child4:
+        if (IsPlayer && Player->StoredBattleObjects[4])
+            if (Player->StoredBattleObjects[4]->IsActive)
+                return Player->StoredBattleObjects[4];
+        return nullptr;
+    case OBJ_Child5:
+        if (IsPlayer && Player->StoredBattleObjects[5])
+            if (Player->StoredBattleObjects[5]->IsActive)
+                return Player->StoredBattleObjects[5];
+        return nullptr;
+    case OBJ_Child6:
+        if (IsPlayer && Player->StoredBattleObjects[6])
+            if (Player->StoredBattleObjects[6]->IsActive)
+                return Player->StoredBattleObjects[6];
+        return nullptr;
+    case OBJ_Child7:
+        if (IsPlayer && Player->StoredBattleObjects[7])
+            if (Player->StoredBattleObjects[7]->IsActive)
+                return Player->StoredBattleObjects[7];
+        return nullptr;
+    case OBJ_Child8:
+        if (IsPlayer && Player->StoredBattleObjects[8])
+            if (Player->StoredBattleObjects[8]->IsActive)
+                return Player->StoredBattleObjects[8];
+        return nullptr;
+    case OBJ_Child9:
+        if (IsPlayer && Player->StoredBattleObjects[9])
+            if (Player->StoredBattleObjects[9]->IsActive)
+                return Player->StoredBattleObjects[9];
+        return nullptr;
+    case OBJ_Child10:
+        if (IsPlayer && Player->StoredBattleObjects[10])
+            if (Player->StoredBattleObjects[10]->IsActive)
+                return Player->StoredBattleObjects[10];
+        return nullptr;
+    case OBJ_Child11:
+        if (IsPlayer && Player->StoredBattleObjects[11])
+            if (Player->StoredBattleObjects[11]->IsActive)
+                return Player->StoredBattleObjects[11];
+        return nullptr;
+    case OBJ_Child12:
+        if (IsPlayer && Player->StoredBattleObjects[12])
+            if (Player->StoredBattleObjects[12]->IsActive)
+                return Player->StoredBattleObjects[12];
+        return nullptr;
+    case OBJ_Child13:
+        if (IsPlayer && Player->StoredBattleObjects[13])
+            if (Player->StoredBattleObjects[13]->IsActive)
+                return Player->StoredBattleObjects[13];
+        return nullptr;
+    case OBJ_Child14:
+        if (IsPlayer && Player->StoredBattleObjects[14])
+            if (Player->StoredBattleObjects[14]->IsActive)
+                return Player->StoredBattleObjects[14];
+        return nullptr;
+    case OBJ_Child15:
+        if (IsPlayer && Player->StoredBattleObjects[15])
+            if (Player->StoredBattleObjects[15]->IsActive)
+                return Player->StoredBattleObjects[15];
+        return nullptr;
+    default:
+        return nullptr;
+    }
+}
+
+ABattleObject* ABattleObject::AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset,
+                                                    EPosType PosType)
+{
+    if (!GameState) return nullptr;
+    const int StateIndex = Player->CommonObjectStateNames.Find(InStateName);
+    if (StateIndex != INDEX_NONE)
+    {
+        int32 FinalPosX, FinalPosY;
+
+        PosTypeToPosition(PosType, FinalPosX, FinalPosY);
+        if (Direction == DIR_Left) PosXOffset *= -1;
+        FinalPosX += PosXOffset;
+        FinalPosY += PosYOffset;
+        return GameState->AddBattleObject(Player->CommonObjectStates[StateIndex],
+                                          FinalPosX, FinalPosY, Direction, StateIndex, true, Player);
+    }
+    return nullptr;
+}
+
+ABattleObject* ABattleObject::AddBattleObject(FGameplayTag InStateName, int32 PosXOffset, int32 PosYOffset,
+                                              EPosType PosType)
+{
+    if (!GameState) return nullptr;
+    const int StateIndex = Player->ObjectStateNames.Find(InStateName);
+    if (StateIndex != INDEX_NONE)
+    {
+        int32 FinalPosX, FinalPosY;
+
+        PosTypeToPosition(PosType, FinalPosX, FinalPosY);
+        if (Direction == DIR_Left) PosXOffset *= -1;
+        FinalPosX += PosXOffset;
+        FinalPosY += PosYOffset;
+        return GameState->AddBattleObject(Player->ObjectStates[StateIndex],
+                                          FinalPosX, FinalPosY, Direction, StateIndex, false, Player);
+    }
+    return nullptr;
+}
+
+void ABattleObject::EnableDeactivateIfBeyondBounds(bool Enable)
+{
+    if (Enable)
+    {
+        MiscFlags |= MISC_DeactivateIfBeyondBounds;
+    }
+    else
+    {
+        MiscFlags &= ~MISC_DeactivateIfBeyondBounds;
+    }
+}
+
+void ABattleObject::EnableDeactivateOnStateChange(bool Enable)
+{
+    if (Enable)
+    {
+        MiscFlags |= MISC_DeactivateOnStateChange;
+    }
+    else
+    {
+        MiscFlags &= ~MISC_DeactivateOnStateChange;
+    }
+}
+
+void ABattleObject::EnableDeactivateOnReceiveHit(bool Enable)
+{
+    if (Enable)
+    {
+        MiscFlags |= MISC_DeactivateOnReceiveHit;
+    }
+    else
+    {
+        MiscFlags &= ~MISC_DeactivateOnReceiveHit;
+    }
+}
+```
+
+

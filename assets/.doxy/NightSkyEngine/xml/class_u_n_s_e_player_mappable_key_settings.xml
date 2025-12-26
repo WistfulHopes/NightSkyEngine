@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_n_s_e_player_mappable_key_settings" kind="class" language="C++" prot="public">
+    <compoundname>UNSEPlayerMappableKeySettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UPlayerMappableKeySettings</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UNSEPlayerMappableKeySettings</label>
+        <link refid="class_u_n_s_e_player_mappable_key_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UPlayerMappableKeySettings</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UNSEPlayerMappableKeySettings</label>
+        <link refid="class_u_n_s_e_player_mappable_key_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UPlayerMappableKeySettings</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Input/NSEPlayerMappableKeySettings.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Input/NSEPlayerMappableKeySettings.h" bodystart="14" bodyend="17"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

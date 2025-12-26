@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_anim_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FAnimStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_anim_struct_1a2353d4b9ab3dc659bfb9911d84c9ed14" prot="public" static="no" mutable="no">
+        <type>FName</type>
+        <definition>FName FAnimStruct::PartName</definition>
+        <argsstring></argsstring>
+        <name>PartName</name>
+        <qualifiedname>FAnimStruct::PartName</qualifiedname>
+        <initializer>= &quot;Body&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="22" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_struct_1ad4e19b451a22836a03fdce49b8241615" prot="public" static="no" mutable="no">
+        <type>UAnimSequenceBase *</type>
+        <definition>UAnimSequenceBase* FAnimStruct::AnimSequence</definition>
+        <argsstring></argsstring>
+        <name>AnimSequence</name>
+        <qualifiedname>FAnimStruct::AnimSequence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="24" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_struct_1a7e7a17f180ae3916d06b1b5a6902284c" prot="public" static="no" mutable="no">
+        <type>UPaperFlipbook *</type>
+        <definition>UPaperFlipbook* FAnimStruct::Flipbook</definition>
+        <argsstring></argsstring>
+        <name>Flipbook</name>
+        <qualifiedname>FAnimStruct::Flipbook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="26" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="17" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="18" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_f_anim_struct_1ad4e19b451a22836a03fdce49b8241615" prot="public" virt="non-virtual"><scope>FAnimStruct</scope><name>AnimSequence</name></member>
+      <member refid="struct_f_anim_struct_1a7e7a17f180ae3916d06b1b5a6902284c" prot="public" virt="non-virtual"><scope>FAnimStruct</scope><name>Flipbook</name></member>
+      <member refid="struct_f_anim_struct_1a2353d4b9ab3dc659bfb9911d84c9ed14" prot="public" virt="non-virtual"><scope>FAnimStruct</scope><name>PartName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

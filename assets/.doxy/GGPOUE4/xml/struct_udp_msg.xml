@@ -1,0 +1,544 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_msg" kind="struct" language="C++" prot="public">
+    <compoundname>UdpMsg</compoundname>
+    <innerclass refid="struct_udp_msg_1_1connect__status" prot="public">UdpMsg::connect_status</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MsgType</name>
+        <qualifiedname>UdpMsg::MsgType</qualifiedname>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486acfcf446a32b79e33cbb60242d2b7a050" prot="public">
+          <name>Invalid</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a65b07232ddce129e1fdd4863d6cefa46" prot="public">
+          <name>SyncRequest</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a8b891f6ea92514923f559bd6dd3b6612" prot="public">
+          <name>SyncReply</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a7160d3b40a2e59c374a87831c3bc7230" prot="public">
+          <name>Input</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486ab7c8c47bf5638e696a4085c866e770b4" prot="public">
+          <name>QualityReport</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a5addbc827ea18f849046082295f046ee" prot="public">
+          <name>QualityReply</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a6dd50b47f6a12e67a6fdc6734c604ae9" prot="public">
+          <name>KeepAlive</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a26ef552891ccb5e20de25c356572ce40" prot="public">
+          <name>InputAck</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="18" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="18" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_msg_1a75cf11076be0487433e89eaf131717f6" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 UdpMsg::magic</definition>
+        <argsstring></argsstring>
+        <name>magic</name>
+        <qualifiedname>UdpMsg::magic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="35" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1aa2d0c13cb798728c1d89244f7eb3f265" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 UdpMsg::sequence_number</definition>
+        <argsstring></argsstring>
+        <name>sequence_number</name>
+        <qualifiedname>UdpMsg::sequence_number</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="36" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a814f93dedf44b2af5f95d3ee665b6140" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 UdpMsg::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>UdpMsg::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="37" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ab04df7f285a123128eb323361747d7ec" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::hdr</definition>
+        <argsstring></argsstring>
+        <name>hdr</name>
+        <qualifiedname>UdpMsg::hdr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="38" column="8"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a229c2f084ed2eebbc6d65d96a5400cfc" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 UdpMsg::random_request</definition>
+        <argsstring></argsstring>
+        <name>random_request</name>
+        <qualifiedname>UdpMsg::random_request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="41" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ac46ee1adb5acb675032d1ada99de8043" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 UdpMsg::remote_magic</definition>
+        <argsstring></argsstring>
+        <name>remote_magic</name>
+        <qualifiedname>UdpMsg::remote_magic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="42" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a7dcaa897a75dbabc0a2739821fd019c0" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 UdpMsg::remote_endpoint</definition>
+        <argsstring></argsstring>
+        <name>remote_endpoint</name>
+        <qualifiedname>UdpMsg::remote_endpoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="43" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a40e74f9dc3be1ce5e8cd7de962c42800" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::sync_request</definition>
+        <argsstring></argsstring>
+        <name>sync_request</name>
+        <qualifiedname>UdpMsg::sync_request</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="44" column="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ab2ebbfd5953c722346f881dbe4173394" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 UdpMsg::random_reply</definition>
+        <argsstring></argsstring>
+        <name>random_reply</name>
+        <qualifiedname>UdpMsg::random_reply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="47" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ad4d7e5673f419cbeaed55b685827849d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::sync_reply</definition>
+        <argsstring></argsstring>
+        <name>sync_reply</name>
+        <qualifiedname>UdpMsg::sync_reply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="48" column="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a1f85bfa0bfa5479b767dc5d159bc55f6" prot="public" static="no" mutable="no">
+        <type>int8</type>
+        <definition>int8 UdpMsg::frame_advantage</definition>
+        <argsstring></argsstring>
+        <name>frame_advantage</name>
+        <qualifiedname>UdpMsg::frame_advantage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="51" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ac1c0c6ce8793fe0cdcb061ddbc4551c5" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 UdpMsg::ping</definition>
+        <argsstring></argsstring>
+        <name>ping</name>
+        <qualifiedname>UdpMsg::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="52" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1abf59cee52e4271ce6b24149a9a52d845" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::quality_report</definition>
+        <argsstring></argsstring>
+        <name>quality_report</name>
+        <qualifiedname>UdpMsg::quality_report</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="53" column="22"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a528c242d810eb65688f6a0ff10b29fd4" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 UdpMsg::pong</definition>
+        <argsstring></argsstring>
+        <name>pong</name>
+        <qualifiedname>UdpMsg::pong</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="56" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a0d65f7ffcd95bc407dc78c9a26f2661d" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::quality_reply</definition>
+        <argsstring></argsstring>
+        <name>quality_reply</name>
+        <qualifiedname>UdpMsg::quality_reply</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="57" column="21"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a61bc514f6187513246d3f2de86888e6d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_udp_msg_1_1connect__status" kindref="compound">connect_status</ref></type>
+        <definition>connect_status UdpMsg::peer_connect_status[UDP_MSG_MAX_PLAYERS]</definition>
+        <argsstring>[UDP_MSG_MAX_PLAYERS]</argsstring>
+        <name>peer_connect_status</name>
+        <qualifiedname>UdpMsg::peer_connect_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="60" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1af74fbcfaf7c20180604dc36b13a11bd2" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 UdpMsg::start_frame</definition>
+        <argsstring></argsstring>
+        <name>start_frame</name>
+        <qualifiedname>UdpMsg::start_frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="62" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a7afaed9abbfebec13e36ed7a1fcd0dab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpMsg::disconnect_requested</definition>
+        <argsstring></argsstring>
+        <name>disconnect_requested</name>
+        <qualifiedname>UdpMsg::disconnect_requested</qualifiedname>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="64" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ad80bd38374bfeef388b55566ed049103" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpMsg::ack_frame</definition>
+        <argsstring></argsstring>
+        <name>ack_frame</name>
+        <qualifiedname>UdpMsg::ack_frame</qualifiedname>
+        <bitfield>31</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="65" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a09c63ff10033766a7c0fdcd1a9d99c62" prot="public" static="no" mutable="no">
+        <type>uint16</type>
+        <definition>uint16 UdpMsg::num_bits</definition>
+        <argsstring></argsstring>
+        <name>num_bits</name>
+        <qualifiedname>UdpMsg::num_bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="67" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a9d2b4c1e56ceeb01231a6a47054f7bbf" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 UdpMsg::input_size</definition>
+        <argsstring></argsstring>
+        <name>input_size</name>
+        <qualifiedname>UdpMsg::input_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="68" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1af1f725aaa613cee3ad299c3bbe6f8c53" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 UdpMsg::bits[MAX_COMPRESSED_BITS]</definition>
+        <argsstring>[MAX_COMPRESSED_BITS]</argsstring>
+        <name>bits</name>
+        <qualifiedname>UdpMsg::bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="69" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ad64c04d0d30fc7254f14b3029a52e09b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <qualifiedname>UdpMsg::input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="70" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1a2b3a26c528c0a69ccb9a6145874c4bfa" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>struct UdpMsg UdpMsg::input_ack</definition>
+        <argsstring></argsstring>
+        <name>input_ack</name>
+        <qualifiedname>UdpMsg::input_ack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="74" column="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1ae855dda55e12e43942ae91d595bd1a3f" prot="public" static="no" mutable="no">
+        <type>union <ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref></type>
+        <definition>union UdpMsg UdpMsg::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>UdpMsg::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="76" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_udp_msg_1a0dac27ea5cfd73d6b3e046372b33e654" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int UdpMsg::PacketSize</definition>
+        <argsstring>()</argsstring>
+        <name>PacketSize</name>
+        <qualifiedname>UdpMsg::PacketSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="79" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_udp_msg_1a4fc9c5c6ff72ad42ffd94217b2357e37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int UdpMsg::PayloadSize</definition>
+        <argsstring>()</argsstring>
+        <name>PayloadSize</name>
+        <qualifiedname>UdpMsg::PayloadSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="83" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="83" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_udp_msg_1a5137c7f01b86cca6a5c6f4cf4ea1df19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UdpMsg::UdpMsg</definition>
+        <argsstring>(MsgType t)</argsstring>
+        <name>UdpMsg</name>
+        <qualifiedname>UdpMsg::UdpMsg</qualifiedname>
+        <param>
+          <type>MsgType</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="102" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>UdpMsg</label>
+        <link refid="struct_udp_msg"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>peer_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="17" bodyend="103"/>
+    <listofallmembers>
+      <member refid="struct_udp_msg_1ad80bd38374bfeef388b55566ed049103" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>ack_frame</name></member>
+      <member refid="struct_udp_msg_1af1f725aaa613cee3ad299c3bbe6f8c53" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>bits</name></member>
+      <member refid="struct_udp_msg_1a7afaed9abbfebec13e36ed7a1fcd0dab" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>disconnect_requested</name></member>
+      <member refid="struct_udp_msg_1a1f85bfa0bfa5479b767dc5d159bc55f6" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>frame_advantage</name></member>
+      <member refid="struct_udp_msg_1ab04df7f285a123128eb323361747d7ec" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>hdr</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a7160d3b40a2e59c374a87831c3bc7230" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>Input</name></member>
+      <member refid="struct_udp_msg_1ad64c04d0d30fc7254f14b3029a52e09b" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>input</name></member>
+      <member refid="struct_udp_msg_1a2b3a26c528c0a69ccb9a6145874c4bfa" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>input_ack</name></member>
+      <member refid="struct_udp_msg_1a9d2b4c1e56ceeb01231a6a47054f7bbf" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>input_size</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a26ef552891ccb5e20de25c356572ce40" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>InputAck</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486acfcf446a32b79e33cbb60242d2b7a050" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>Invalid</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a6dd50b47f6a12e67a6fdc6734c604ae9" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>KeepAlive</name></member>
+      <member refid="struct_udp_msg_1a75cf11076be0487433e89eaf131717f6" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>magic</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>MsgType</name></member>
+      <member refid="struct_udp_msg_1a09c63ff10033766a7c0fdcd1a9d99c62" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>num_bits</name></member>
+      <member refid="struct_udp_msg_1a0dac27ea5cfd73d6b3e046372b33e654" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>PacketSize</name></member>
+      <member refid="struct_udp_msg_1a4fc9c5c6ff72ad42ffd94217b2357e37" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>PayloadSize</name></member>
+      <member refid="struct_udp_msg_1a61bc514f6187513246d3f2de86888e6d" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>peer_connect_status</name></member>
+      <member refid="struct_udp_msg_1ac1c0c6ce8793fe0cdcb061ddbc4551c5" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>ping</name></member>
+      <member refid="struct_udp_msg_1a528c242d810eb65688f6a0ff10b29fd4" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>pong</name></member>
+      <member refid="struct_udp_msg_1a0d65f7ffcd95bc407dc78c9a26f2661d" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>quality_reply</name></member>
+      <member refid="struct_udp_msg_1abf59cee52e4271ce6b24149a9a52d845" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>quality_report</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a5addbc827ea18f849046082295f046ee" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>QualityReply</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486ab7c8c47bf5638e696a4085c866e770b4" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>QualityReport</name></member>
+      <member refid="struct_udp_msg_1ab2ebbfd5953c722346f881dbe4173394" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>random_reply</name></member>
+      <member refid="struct_udp_msg_1a229c2f084ed2eebbc6d65d96a5400cfc" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>random_request</name></member>
+      <member refid="struct_udp_msg_1a7dcaa897a75dbabc0a2739821fd019c0" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>remote_endpoint</name></member>
+      <member refid="struct_udp_msg_1ac46ee1adb5acb675032d1ada99de8043" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>remote_magic</name></member>
+      <member refid="struct_udp_msg_1aa2d0c13cb798728c1d89244f7eb3f265" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>sequence_number</name></member>
+      <member refid="struct_udp_msg_1af74fbcfaf7c20180604dc36b13a11bd2" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>start_frame</name></member>
+      <member refid="struct_udp_msg_1ad4d7e5673f419cbeaed55b685827849d" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>sync_reply</name></member>
+      <member refid="struct_udp_msg_1a40e74f9dc3be1ce5e8cd7de962c42800" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>sync_request</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a8b891f6ea92514923f559bd6dd3b6612" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>SyncReply</name></member>
+      <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a65b07232ddce129e1fdd4863d6cefa46" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>SyncRequest</name></member>
+      <member refid="struct_udp_msg_1a814f93dedf44b2af5f95d3ee665b6140" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>type</name></member>
+      <member refid="struct_udp_msg_1ae855dda55e12e43942ae91d595bd1a3f" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>u</name></member>
+      <member refid="struct_udp_msg_1a5137c7f01b86cca6a5c6f4cf4ea1df19" prot="public" virt="non-virtual"><scope>UdpMsg</scope><name>UdpMsg</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

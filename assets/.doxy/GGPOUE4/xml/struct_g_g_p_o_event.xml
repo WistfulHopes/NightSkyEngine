@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_g_g_p_o_event" kind="struct" language="C++" prot="public">
+    <compoundname>GGPOEvent</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1ae17ed1ead54da64a01f373d9c82139e9" prot="public" static="no" mutable="no">
+        <type>GGPOEventCode</type>
+        <definition>GGPOEventCode GGPOEvent::code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <qualifiedname>GGPOEvent::code</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="330" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a5a45f1a9fa267d7908a079fae961486d" prot="public" static="no" mutable="no">
+        <type>GGPOPlayerHandle</type>
+        <definition>GGPOPlayerHandle GGPOEvent::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>GGPOEvent::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="336" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a748b80c3831a598b8024b6cdbcffec43" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <qualifiedname>GGPOEvent::connected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="337" column="11"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a10e40b74e124f8ab3ea9cd6fb7dbf83d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOEvent::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>GGPOEvent::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="342" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a6a2b59ba8265743bbac2e571330555c5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOEvent::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <qualifiedname>GGPOEvent::total</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="343" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a5424b87b9fdbadcb3586fd15efd7530b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::synchronizing</definition>
+        <argsstring></argsstring>
+        <name>synchronizing</name>
+        <qualifiedname>GGPOEvent::synchronizing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="344" column="15"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1ae4bb5835d400cf0dbaa161148f68b4f2" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::synchronized</definition>
+        <argsstring></argsstring>
+        <name>synchronized</name>
+        <qualifiedname>GGPOEvent::synchronized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="349" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1ac1d1e0f7e76bcf3e152f0dd1f52a06c9" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::disconnected</definition>
+        <argsstring></argsstring>
+        <name>disconnected</name>
+        <qualifiedname>GGPOEvent::disconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="354" column="14"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a73ed3a337b584e190e8ad8c521fbd04e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOEvent::frames_ahead</definition>
+        <argsstring></argsstring>
+        <name>frames_ahead</name>
+        <qualifiedname>GGPOEvent::frames_ahead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="358" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1ae62e8719e4813e13b2ee20924f912dfc" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::timesync</definition>
+        <argsstring></argsstring>
+        <name>timesync</name>
+        <qualifiedname>GGPOEvent::timesync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="359" column="10"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a6c87187cc29f7604b70f0abfe12cb1aa" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOEvent::disconnect_timeout</definition>
+        <argsstring></argsstring>
+        <name>disconnect_timeout</name>
+        <qualifiedname>GGPOEvent::disconnect_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="364" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a48e43cfac27a10ce7457cb96f978bef9" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::connection_interrupted</definition>
+        <argsstring></argsstring>
+        <name>connection_interrupted</name>
+        <qualifiedname>GGPOEvent::connection_interrupted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="365" column="24"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1af8e7e085e705bc5ffb366145a84cfb97" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>struct GGPOEvent GGPOEvent::connection_resumed</definition>
+        <argsstring></argsstring>
+        <name>connection_resumed</name>
+        <qualifiedname>GGPOEvent::connection_resumed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="370" column="20"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_event_1a1fd1a6a677102cb0925f31822cfbf3c3" prot="public" static="no" mutable="no">
+        <type>union <ref refid="struct_g_g_p_o_event" kindref="compound">GGPOEvent</ref></type>
+        <definition>union GGPOEvent GGPOEvent::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>GGPOEvent::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="371" column="3"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="328" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="329" bodyend="372"/>
+    <listofallmembers>
+      <member refid="struct_g_g_p_o_event_1ae17ed1ead54da64a01f373d9c82139e9" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>code</name></member>
+      <member refid="struct_g_g_p_o_event_1a748b80c3831a598b8024b6cdbcffec43" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>connected</name></member>
+      <member refid="struct_g_g_p_o_event_1a48e43cfac27a10ce7457cb96f978bef9" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>connection_interrupted</name></member>
+      <member refid="struct_g_g_p_o_event_1af8e7e085e705bc5ffb366145a84cfb97" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>connection_resumed</name></member>
+      <member refid="struct_g_g_p_o_event_1a10e40b74e124f8ab3ea9cd6fb7dbf83d" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>count</name></member>
+      <member refid="struct_g_g_p_o_event_1a6c87187cc29f7604b70f0abfe12cb1aa" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>disconnect_timeout</name></member>
+      <member refid="struct_g_g_p_o_event_1ac1d1e0f7e76bcf3e152f0dd1f52a06c9" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>disconnected</name></member>
+      <member refid="struct_g_g_p_o_event_1a73ed3a337b584e190e8ad8c521fbd04e" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>frames_ahead</name></member>
+      <member refid="struct_g_g_p_o_event_1a5a45f1a9fa267d7908a079fae961486d" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>player</name></member>
+      <member refid="struct_g_g_p_o_event_1ae4bb5835d400cf0dbaa161148f68b4f2" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>synchronized</name></member>
+      <member refid="struct_g_g_p_o_event_1a5424b87b9fdbadcb3586fd15efd7530b" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>synchronizing</name></member>
+      <member refid="struct_g_g_p_o_event_1ae62e8719e4813e13b2ee20924f912dfc" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>timesync</name></member>
+      <member refid="struct_g_g_p_o_event_1a6a2b59ba8265743bbac2e571330555c5" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>total</name></member>
+      <member refid="struct_g_g_p_o_event_1a1fd1a6a677102cb0925f31822cfbf3c3" prot="public" virt="non-virtual"><scope>GGPOEvent</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

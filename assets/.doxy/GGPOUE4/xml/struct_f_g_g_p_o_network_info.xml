@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_g_g_p_o_network_info" kind="struct" language="C++" prot="public">
+    <compoundname>FGGPONetworkInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_info_1aa1968eae649520cfa69cbf5226683e17" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPONetworkInfo::send_queue_len</definition>
+        <argsstring></argsstring>
+        <name>send_queue_len</name>
+        <qualifiedname>FGGPONetworkInfo::send_queue_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="63" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_info_1ac90d181cf32ab89d7c813e92444199bc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPONetworkInfo::recv_queue_len</definition>
+        <argsstring></argsstring>
+        <name>recv_queue_len</name>
+        <qualifiedname>FGGPONetworkInfo::recv_queue_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="65" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_info_1a42ba869f14ba7bb7c6c4bd92b8f845a7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPONetworkInfo::ping</definition>
+        <argsstring></argsstring>
+        <name>ping</name>
+        <qualifiedname>FGGPONetworkInfo::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="67" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_info_1aafda548d44260f81ed6a36b795023761" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPONetworkInfo::kbps_sent</definition>
+        <argsstring></argsstring>
+        <name>kbps_sent</name>
+        <qualifiedname>FGGPONetworkInfo::kbps_sent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="69" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="58" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="59" bodyend="70"/>
+    <listofallmembers>
+      <member refid="struct_f_g_g_p_o_network_info_1aafda548d44260f81ed6a36b795023761" prot="public" virt="non-virtual"><scope>FGGPONetworkInfo</scope><name>kbps_sent</name></member>
+      <member refid="struct_f_g_g_p_o_network_info_1a42ba869f14ba7bb7c6c4bd92b8f845a7" prot="public" virt="non-virtual"><scope>FGGPONetworkInfo</scope><name>ping</name></member>
+      <member refid="struct_f_g_g_p_o_network_info_1ac90d181cf32ab89d7c813e92444199bc" prot="public" virt="non-virtual"><scope>FGGPONetworkInfo</scope><name>recv_queue_len</name></member>
+      <member refid="struct_f_g_g_p_o_network_info_1aa1968eae649520cfa69cbf5226683e17" prot="public" virt="non-virtual"><scope>FGGPONetworkInfo</scope><name>send_queue_len</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

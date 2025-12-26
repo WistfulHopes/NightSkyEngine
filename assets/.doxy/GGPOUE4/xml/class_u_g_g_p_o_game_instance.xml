@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_g_g_p_o_game_instance" kind="class" language="C++" prot="public">
+    <compoundname>UGGPOGameInstance</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UGameInstance</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_g_g_p_o_game_instance_1a57889884ce9c1b956f62f85727c3af18" prot="public" static="no" mutable="no">
+        <type><ref refid="class_u_g_g_p_o_network" kindref="compound">UGGPONetwork</ref> *</type>
+        <definition>UGGPONetwork* UGGPOGameInstance::NetworkAddresses</definition>
+        <argsstring></argsstring>
+        <name>NetworkAddresses</name>
+        <qualifiedname>UGGPOGameInstance::NetworkAddresses</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/GGPOGameInstance.h" line="22" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/GGPOGameInstance.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_g_g_p_o_game_instance_1ad0eec696432cb6f575887bb2bec2547a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UGGPOGameInstance::CreateNetwork</definition>
+        <argsstring>(int32 NumPlayers, int32 PlayerIndex, int32 LocalPort, TArray&lt; FString &gt; RemoteAddresses)</argsstring>
+        <name>CreateNetwork</name>
+        <qualifiedname>UGGPOGameInstance::CreateNetwork</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>NumPlayers</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>PlayerIndex</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>LocalPort</declname>
+        </param>
+        <param>
+          <type>TArray&lt; FString &gt;</type>
+          <declname>RemoteAddresses</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a collection of network addresses. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/GGPOGameInstance.h" line="26" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/GGPOGameInstance.cpp" bodystart="7" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UGGPOGameInstance</label>
+        <link refid="class_u_g_g_p_o_game_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UGameInstance</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UGGPOGameInstance</label>
+        <link refid="class_u_g_g_p_o_game_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>NetworkAddresses</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UGGPONetwork</label>
+        <link refid="class_u_g_g_p_o_network"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UGameInstance</label>
+      </node>
+      <node id="4">
+        <label>UObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/GGPOGameInstance.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/GGPOGameInstance.h" bodystart="17" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_u_g_g_p_o_game_instance_1ad0eec696432cb6f575887bb2bec2547a" prot="public" virt="non-virtual"><scope>UGGPOGameInstance</scope><name>CreateNetwork</name></member>
+      <member refid="class_u_g_g_p_o_game_instance_1a57889884ce9c1b956f62f85727c3af18" prot="public" virt="non-virtual"><scope>UGGPOGameInstance</scope><name>NetworkAddresses</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

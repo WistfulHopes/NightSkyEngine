@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_n_s_e_session_subsystem_8h" kind="file" language="C++">
+    <compoundname>NSESessionSubsystem.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">OnlineSessionSettings.h</includes>
+    <includes local="yes">Subsystems/GameInstanceSubsystem.h</includes>
+    <includes local="yes">Interfaces/OnlineSessionInterface.h</includes>
+    <includes local="yes">NSESessionSubsystem.generated.h</includes>
+    <includedby refid="_n_s_e_session_subsystem_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h</label>
+        <link refid="_n_s_e_session_subsystem_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="5">
+        <label>Interfaces/OnlineSessionInterface.h</label>
+      </node>
+      <node id="6">
+        <label>NSESessionSubsystem.generated.h</label>
+      </node>
+      <node id="3">
+        <label>OnlineSessionSettings.h</label>
+      </node>
+      <node id="4">
+        <label>Subsystems/GameInstanceSubsystem.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct_f_n_s_e_session_info" prot="public">FNSESessionInfo</innerclass>
+    <innerclass refid="class_u_n_s_e_session_subsystem" prot="public">UNSESessionSubsystem</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1af8812cac8d0ad09a60f43c22154d6b76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</definition>
+        <argsstring>(FNSEOnCreateSessionComplete, bool, bSuccess)</argsstring>
+        <name>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</name>
+        <param>
+          <type>FNSEOnCreateSessionComplete</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bSuccess</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="32" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="32" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1a34e205aaa5a0c6a70b69bdeb40f659d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</definition>
+        <argsstring>(FNSEOnUpdateSessionComplete, bool, bSuccess)</argsstring>
+        <name>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</name>
+        <param>
+          <type>FNSEOnUpdateSessionComplete</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bSuccess</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="33" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="33" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1a16ca8f7289baf35e47a7e243c4076125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</definition>
+        <argsstring>(FNSEOnStartSessionComplete, bool, bSuccess)</argsstring>
+        <name>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</name>
+        <param>
+          <type>FNSEOnStartSessionComplete</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bSuccess</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="34" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="34" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1ae79a1df7a059adbabafc77911bcc2bdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</definition>
+        <argsstring>(FNSEOnDestroySessionComplete, bool, bSuccess)</argsstring>
+        <name>DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam</name>
+        <param>
+          <type>FNSEOnDestroySessionComplete</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bSuccess</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="35" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="35" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1af8fa51d8a0bfca2dd5f1d4ce2f579483" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams</definition>
+        <argsstring>(FNSEOnFindSessionsComplete, const TArray&lt; FNSESessionInfo &gt; &amp;, SessionResults, bool, bSuccess)</argsstring>
+        <name>DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams</name>
+        <param>
+          <type>FNSEOnFindSessionsComplete</type>
+        </param>
+        <param>
+          <type>const TArray&lt; <ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref> &gt; &amp;</type>
+        </param>
+        <param>
+          <type>SessionResults</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <param>
+          <type>bSuccess</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="36" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="36" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_n_s_e_session_subsystem_8h_1a37772840501d69c37812bda48b0f8521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DECLARE_MULTICAST_DELEGATE_OneParam</definition>
+        <argsstring>(FNSEOnJoinSessionComplete, EOnJoinSessionCompleteResult::Type Result)</argsstring>
+        <name>DECLARE_MULTICAST_DELEGATE_OneParam</name>
+        <param>
+          <type>FNSEOnJoinSessionComplete</type>
+        </param>
+        <param>
+          <type>EOnJoinSessionCompleteResult::Type</type>
+          <declname>Result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="37" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" declline="37" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;OnlineSessionSettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Subsystems/GameInstanceSubsystem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Interfaces/OnlineSessionInterface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NSESessionSubsystem.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">USTRUCT(BlueprintType)</highlight></codeline>
+<codeline lineno="12" refid="struct_f_n_s_e_session_info" refkind="compound"><highlight class="normal">struct<sp/><ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FOnlineSessionSearchResult&amp;<sp/>Result,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FString&amp;<sp/>Name,<sp/>int32<sp/>OpenPrivate,<sp/>int32<sp/>OpenPublic);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="struct_f_n_s_e_session_info_1a5b82b445ccd47572831234340a746c47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnlineSessionSearchResult<sp/>SessionSearchResult{};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(BlueprintReadOnly)</highlight></codeline>
+<codeline lineno="23" refid="struct_f_n_s_e_session_info_1a07958bd813e5b2a922dc8c9647f7262d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>FString<sp/>OwningUserName;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(BlueprintReadOnly)</highlight></codeline>
+<codeline lineno="26" refid="struct_f_n_s_e_session_info_1a8d7d856e40cd2780fd9df41c2f9cf7f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>NumOpenPrivateConnections;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(BlueprintReadOnly)</highlight></codeline>
+<codeline lineno="29" refid="struct_f_n_s_e_session_info_1ae1acafd1af5ee6642304ffffccc514a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>NumOpenPublicConnections;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNSEOnCreateSessionComplete,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>bSuccess);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNSEOnUpdateSessionComplete,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>bSuccess);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNSEOnStartSessionComplete,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>bSuccess);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNSEOnDestroySessionComplete,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>bSuccess);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FNSEOnFindSessionsComplete,<sp/>const<sp/>TArray&lt;<ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref>&gt;&amp;,<sp/>SessionResults,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">,<sp/>bSuccess);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">DECLARE_MULTICAST_DELEGATE_OneParam(FNSEOnJoinSessionComplete,<sp/>EOnJoinSessionCompleteResult::Type<sp/>Result);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">UCLASS()</highlight></codeline>
+<codeline lineno="43" refid="class_u_n_s_e_session_subsystem" refkind="compound"><highlight class="normal">class<sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_n_s_e_session_subsystem" kindref="compound">UNSESessionSubsystem</ref><sp/>:<sp/>public<sp/>UGameInstanceSubsystem</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_u_n_s_e_session_subsystem" kindref="compound">UNSESessionSubsystem</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Login();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>LoginDelegateHandle;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintPure)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsLoggedIn()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CreateSession(int32<sp/>NumPublicConnections,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bIsLANMatch);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnCreateSessionComplete<sp/>OnCreateSessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UpdateSession();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnUpdateSessionComplete<sp/>OnUpdateSessionCompleteEvent;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>StartSession();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnStartSessionComplete<sp/>OnStartSessionCompleteEvent;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DestroySession();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnDestroySessionComplete<sp/>OnDestroySessionCompleteEvent;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FindSessions(int32<sp/>MaxSearchResults,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsLANQuery);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(BlueprintAssignable)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnFindSessionsComplete<sp/>OnFindSessionsCompleteEvent;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>UFUNCTION(BlueprintCallable)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>JoinGameSession_BP(<ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref><sp/>Info);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>JoinGameSession(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FOnlineSessionSearchResult&amp;<sp/>SessionResult);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>FNSEOnJoinSessionComplete<sp/>OnJoinGameSessionCompleteEvent;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnLoginCompleted(int32<sp/>LocalUserNum,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bWasSuccessful,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FUniqueNetId&amp;<sp/>UserId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FString&amp;<sp/>Error);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCreateSessionComplete(FName<sp/>SessionName,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnUpdateSessionComplete(FName<sp/>SessionName,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnStartSessionComplete(FName<sp/>SessionName,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnDestroySessionComplete(FName<sp/>SessionName,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnFindSessionsComplete(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnJoinSessionComplete(FName<sp/>SessionName,<sp/>EOnJoinSessionCompleteResult::Type<sp/>Result);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnSessionInviteAccepted(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bSuccess,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32<sp/>ControllerId,<sp/>FUniqueNetIdPtr<sp/>UserId,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FOnlineSessionSearchResult&amp;<sp/>InviteResult);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>TryTravelToCurrentSession();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnCreateSessionCompleteDelegate<sp/>CreateSessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>CreateSessionCompleteDelegateHandle;;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnUpdateSessionCompleteDelegate<sp/>UpdateSessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>UpdateSessionCompleteDelegateHandle;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnStartSessionCompleteDelegate<sp/>StartSessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>StartSessionCompleteDelegateHandle;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnDestroySessionCompleteDelegate<sp/>DestroySessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>DestroySessionCompleteDelegateHandle;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnFindSessionsCompleteDelegate<sp/>FindSessionsCompleteDelegate;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>FindSessionsCompleteDelegateHandle;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;FOnlineSessionSearch&gt;<sp/>LastSessionSearch;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnJoinSessionCompleteDelegate<sp/>JoinSessionCompleteDelegate;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>JoinSessionCompleteDelegateHandle;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>FOnSessionUserInviteAcceptedDelegate<sp/>SessionUserInviteAcceptedDelegate;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>FDelegateHandle<sp/>SessionUserInviteAcceptedDelegateHandle;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>TSharedPtr&lt;FOnlineSessionSettings&gt;<sp/>LastSessionSettings;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h"/>
+  </compounddef>
+</doxygen>

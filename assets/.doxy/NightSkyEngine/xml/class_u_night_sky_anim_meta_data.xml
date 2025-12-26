@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_anim_meta_data" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyAnimMetaData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UAnimMetaData</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_anim_meta_data_1a32a28725553faa51c4f9e1c541e55d3a" prot="public" static="no" mutable="no">
+        <type>TSet&lt; FName &gt;</type>
+        <definition>TSet&lt;FName&gt; UNightSkyAnimMetaData::CachedBoneNames</definition>
+        <argsstring></argsstring>
+        <name>CachedBoneNames</name>
+        <qualifiedname>UNightSkyAnimMetaData::CachedBoneNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" line="22" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_anim_meta_data_1ac3955271ea88e5a539db3d5a05636839" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_u_night_sky_anim_sequence_user_data" kindref="compound">UNightSkyAnimSequenceUserData</ref> &gt;</type>
+        <definition>TObjectPtr&lt;UNightSkyAnimSequenceUserData&gt; UNightSkyAnimMetaData::UserData</definition>
+        <argsstring></argsstring>
+        <name>UserData</name>
+        <qualifiedname>UNightSkyAnimMetaData::UserData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" line="25" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_anim_meta_data_1adca778604a6eb5a92c8b1bebd7887b9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UNightSkyAnimMetaData::UNightSkyAnimMetaData</definition>
+        <argsstring>()</argsstring>
+        <name>UNightSkyAnimMetaData</name>
+        <qualifiedname>UNightSkyAnimMetaData::UNightSkyAnimMetaData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.cpp" bodystart="10" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UAnimMetaData</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimMetaData</label>
+        <link refid="class_u_night_sky_anim_meta_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UAnimMetaData</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimMetaData</label>
+        <link refid="class_u_night_sky_anim_meta_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimMetaData.h" bodystart="15" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_anim_meta_data_1a32a28725553faa51c4f9e1c541e55d3a" prot="public" virt="non-virtual"><scope>UNightSkyAnimMetaData</scope><name>CachedBoneNames</name></member>
+      <member refid="class_u_night_sky_anim_meta_data_1adca778604a6eb5a92c8b1bebd7887b9c" prot="public" virt="non-virtual"><scope>UNightSkyAnimMetaData</scope><name>UNightSkyAnimMetaData</name></member>
+      <member refid="class_u_night_sky_anim_meta_data_1ac3955271ea88e5a539db3d5a05636839" prot="public" virt="non-virtual"><scope>UNightSkyAnimMetaData</scope><name>UserData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

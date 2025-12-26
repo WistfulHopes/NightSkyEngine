@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_connection_info" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>ConnectionInfo</compoundname>
+    <includes refid="connection__manager_8h" local="no">connection_manager.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_connection_info_1a0e4ab16145b81c57545dc2ba48ff3f2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ConnectionInfo::ConnectionInfo</definition>
+        <argsstring>()</argsstring>
+        <name>ConnectionInfo</name>
+        <qualifiedname>ConnectionInfo::ConnectionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_connection_info_1ab6799424ac6df43cd13b615afb11f801" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ConnectionInfo::~ConnectionInfo</definition>
+        <argsstring>()</argsstring>
+        <name>~ConnectionInfo</name>
+        <qualifiedname>ConnectionInfo::~ConnectionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" line="20" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" bodystart="20" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_connection_info_1a661b99bd0408093e7f8433ae892f92dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string ConnectionInfo::ToString</definition>
+        <argsstring>()=0</argsstring>
+        <name>ToString</name>
+        <qualifiedname>ConnectionInfo::ToString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" line="22" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_connection_info" kindref="compound">ConnectionInfo</ref> is an abstract base class for defining connections.</para>
+<para>Derived classes from this class must provide a ToString function that provides a useful string for logging purposes about the details of the given connection. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" line="17" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/connection_manager.h" bodystart="17" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_connection_info_1a0e4ab16145b81c57545dc2ba48ff3f2f" prot="public" virt="non-virtual"><scope>ConnectionInfo</scope><name>ConnectionInfo</name></member>
+      <member refid="class_connection_info_1a661b99bd0408093e7f8433ae892f92dc" prot="public" virt="pure-virtual"><scope>ConnectionInfo</scope><name>ToString</name></member>
+      <member refid="class_connection_info_1ab6799424ac6df43cd13b615afb11f801" prot="public" virt="virtual"><scope>ConnectionInfo</scope><name>~ConnectionInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="timesync_8cpp" kind="file" language="C++">
+    <compoundname>timesync.cpp</compoundname>
+    <includes refid="timesync_8h" local="yes">timesync.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>game_input.h</label>
+        <link refid="game__input_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>log.h</label>
+        <link refid="log_8h_source"/>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp</label>
+        <link refid="timesync_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>timesync.h</label>
+        <link refid="timesync_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>types.h</label>
+        <link refid="types_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>memory.h</label>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-----------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>GGPO.net<sp/>(http://ggpo.net)<sp/><sp/>-<sp/><sp/>Copyright<sp/>2009<sp/>GroundStorm<sp/>Studios,<sp/>LLC.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Use<sp/>of<sp/>this<sp/>software<sp/>is<sp/>governed<sp/>by<sp/>the<sp/>MIT<sp/>license<sp/>that<sp/>can<sp/>be<sp/>found</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>LICENSE<sp/>file.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;timesync.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">TimeSync::TimeSync()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/>memset(_local,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(_local));</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/>memset(_remote,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(_remote));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/>_next_prediction<sp/>=<sp/>FRAME_WINDOW_SIZE<sp/>*<sp/>3;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">TimeSync::~TimeSync()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">TimeSync::advance_frame(<ref refid="struct_game_input" kindref="compound">GameInput</ref><sp/>&amp;input,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>advantage,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>radvantage)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remember<sp/>the<sp/>last<sp/>frame<sp/>and<sp/>frame<sp/>advantage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>_last_inputs[input.frame<sp/>%<sp/>ARRAY_SIZE(_last_inputs)]<sp/>=<sp/>input;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>_local[input.frame<sp/>%<sp/>ARRAY_SIZE(_local)]<sp/>=<sp/>advantage;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>_remote[input.frame<sp/>%<sp/>ARRAY_SIZE(_remote)]<sp/>=<sp/>radvantage;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">TimeSync::recommend_frame_wait_duration(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>require_idle_input)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Average<sp/>our<sp/>local<sp/>and<sp/>remote<sp/>frame<sp/>advantages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>sum<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>advantage,<sp/>radvantage;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ARRAY_SIZE(_local);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>+=<sp/>_local[i];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/>advantage<sp/>=<sp/>sum<sp/>/<sp/>(float)ARRAY_SIZE(_local);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>sum<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ARRAY_SIZE(_remote);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sum<sp/>+=<sp/>_remote[i];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>radvantage<sp/>=<sp/>sum<sp/>/<sp/>(float)ARRAY_SIZE(_remote);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>if<sp/>someone<sp/>should<sp/>take<sp/>action.<sp/><sp/>The<sp/>person<sp/>furthest<sp/>ahead</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>needs<sp/>to<sp/>slow<sp/>down<sp/>so<sp/>the<sp/>other<sp/>user<sp/>can<sp/>catch<sp/>up.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>do<sp/>this<sp/>if<sp/>both<sp/>clients<sp/>agree<sp/>on<sp/>who&apos;s<sp/>ahead!!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(advantage<sp/>&gt;=<sp/>radvantage)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Both<sp/>clients<sp/>agree<sp/>that<sp/>we&apos;re<sp/>the<sp/>one<sp/>ahead.<sp/><sp/>Split</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>difference<sp/>between<sp/>the<sp/>two<sp/>to<sp/>figure<sp/>out<sp/>how<sp/>long<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sleep<sp/>for.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sleep_frames<sp/>=<sp/>(int)(((radvantage<sp/>-<sp/>advantage)<sp/>/<sp/>2)<sp/>+<sp/>0.5);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;iteration<sp/>%d:<sp/><sp/>sleep<sp/>frames<sp/>is<sp/>%d\n&quot;</highlight><highlight class="normal">,<sp/>count,<sp/>sleep_frames);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Some<sp/>things<sp/>just<sp/>aren&apos;t<sp/>worth<sp/>correcting<sp/>for.<sp/><sp/>Make<sp/>sure</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>difference<sp/>is<sp/>relevant<sp/>before<sp/>proceeding.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sleep_frames<sp/>&lt;<sp/>MIN_FRAME_ADVANTAGE)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Make<sp/>sure<sp/>our<sp/>input<sp/>had<sp/>been<sp/>&quot;idle<sp/>enough&quot;<sp/>before<sp/>recommending</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>sleep.<sp/><sp/>This<sp/>tries<sp/>to<sp/>make<sp/>the<sp/>emulator<sp/>sleep<sp/>while<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>user&apos;s<sp/>input<sp/>isn&apos;t<sp/>sweeping<sp/>in<sp/>arcs<sp/>(e.g.<sp/>fireball<sp/>motions<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Street<sp/>Fighter),<sp/>which<sp/>could<sp/>cause<sp/>the<sp/>player<sp/>to<sp/>miss<sp/>moves.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(require_idle_input)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/>ARRAY_SIZE(_last_inputs);<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_last_inputs[i].equal(_last_inputs[0],<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log(</highlight><highlight class="stringliteral">&quot;iteration<sp/>%d:<sp/><sp/>rejecting<sp/>due<sp/>to<sp/>input<sp/>stuff<sp/>at<sp/>position<sp/>%d...!!!\n&quot;</highlight><highlight class="normal">,<sp/>count,<sp/>i);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Success!!!<sp/>Recommend<sp/>the<sp/>number<sp/>of<sp/>frames<sp/>to<sp/>sleep<sp/>and<sp/>adjust</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>MIN(sleep_frames,<sp/>MAX_FRAME_ADVANTAGE);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/timesync.cpp"/>
+  </compounddef>
+</doxygen>

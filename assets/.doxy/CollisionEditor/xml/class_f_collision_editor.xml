@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_collision_editor" kind="class" language="C++" prot="public">
+    <compoundname>FCollisionEditor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IModuleInterface</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_f_collision_editor_1a7056f3c6fc8b72ac765aacdb5fc5f2dd" prot="private" static="no" mutable="no">
+        <type>EAssetTypeCategories::Type</type>
+        <definition>EAssetTypeCategories::Type FCollisionEditor::CollisionAssetCategoryBit</definition>
+        <argsstring></argsstring>
+        <name>CollisionAssetCategoryBit</name>
+        <qualifiedname>FCollisionEditor::CollisionAssetCategoryBit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="17" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_collision_editor_1a4b2b81be33816eb5a7a0c729342ca105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionEditor::StartupModule</definition>
+        <argsstring>() override</argsstring>
+        <name>StartupModule</name>
+        <qualifiedname>FCollisionEditor::StartupModule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IModuleInterface implementation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="13" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionEditor.cpp" bodystart="13" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_editor_1a4d6fb7571a2f9263bb83c4c62e3a942b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionEditor::ShutdownModule</definition>
+        <argsstring>() override</argsstring>
+        <name>ShutdownModule</name>
+        <qualifiedname>FCollisionEditor::ShutdownModule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="14" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionEditor.cpp" bodystart="20" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_f_collision_editor_1aaef14d2b29be42387cb5bf0437cde325" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionEditor::RegisterAssetTools</definition>
+        <argsstring>()</argsstring>
+        <name>RegisterAssetTools</name>
+        <qualifiedname>FCollisionEditor::RegisterAssetTools</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="19" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionEditor.cpp" bodystart="31" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_editor_1a42fd00cb0294df633b07616e036f53d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionEditor::RegisterPropertyCustomizations</definition>
+        <argsstring>()</argsstring>
+        <name>RegisterPropertyCustomizations</name>
+        <qualifiedname>FCollisionEditor::RegisterPropertyCustomizations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="20" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionEditor.cpp" bodystart="40" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_editor_1ae00044547f92ad4eb750c65c9c7d0bdd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionEditor::UnregisterPropertyCustomizations</definition>
+        <argsstring>()</argsstring>
+        <name>UnregisterPropertyCustomizations</name>
+        <qualifiedname>FCollisionEditor::UnregisterPropertyCustomizations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="21" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionEditor.cpp" bodystart="52" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FCollisionEditor</label>
+        <link refid="class_f_collision_editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IModuleInterface</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FCollisionEditor</label>
+        <link refid="class_f_collision_editor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IModuleInterface</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" line="8" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionEditor.h" bodystart="9" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_f_collision_editor_1a7056f3c6fc8b72ac765aacdb5fc5f2dd" prot="private" virt="non-virtual"><scope>FCollisionEditor</scope><name>CollisionAssetCategoryBit</name></member>
+      <member refid="class_f_collision_editor_1aaef14d2b29be42387cb5bf0437cde325" prot="private" virt="non-virtual"><scope>FCollisionEditor</scope><name>RegisterAssetTools</name></member>
+      <member refid="class_f_collision_editor_1a42fd00cb0294df633b07616e036f53d8" prot="private" virt="non-virtual"><scope>FCollisionEditor</scope><name>RegisterPropertyCustomizations</name></member>
+      <member refid="class_f_collision_editor_1a4d6fb7571a2f9263bb83c4c62e3a942b" prot="public" virt="non-virtual"><scope>FCollisionEditor</scope><name>ShutdownModule</name></member>
+      <member refid="class_f_collision_editor_1a4b2b81be33816eb5a7a0c729342ca105" prot="public" virt="non-virtual"><scope>FCollisionEditor</scope><name>StartupModule</name></member>
+      <member refid="class_f_collision_editor_1ae00044547f92ad4eb750c65c9c7d0bdd" prot="private" virt="non-virtual"><scope>FCollisionEditor</scope><name>UnregisterPropertyCustomizations</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_protocol_1_1_stats" kind="struct" language="C++" prot="public">
+    <compoundname>UdpProtocol::Stats</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_stats_1aa0cc8549e10575e77dc85c5cb3989e68" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Stats::ping</definition>
+        <argsstring></argsstring>
+        <name>ping</name>
+        <qualifiedname>UdpProtocol::Stats::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="23" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_stats_1a061a6995807f632407eecc7866e29bce" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Stats::remote_frame_advantage</definition>
+        <argsstring></argsstring>
+        <name>remote_frame_advantage</name>
+        <qualifiedname>UdpProtocol::Stats::remote_frame_advantage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="24" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_stats_1a8f2b9eedc321b6f5893e0c497747fcb3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Stats::local_frame_advantage</definition>
+        <argsstring></argsstring>
+        <name>local_frame_advantage</name>
+        <qualifiedname>UdpProtocol::Stats::local_frame_advantage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="25" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_stats_1ab70f2222f38a03ea6bb939d0aabc100d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpProtocol::Stats::send_queue_len</definition>
+        <argsstring></argsstring>
+        <name>send_queue_len</name>
+        <qualifiedname>UdpProtocol::Stats::send_queue_len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="26" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_protocol_1_1_stats_1ad72b6fe5d7f757b3f4deadd37103a53e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_udp_1_1_stats" kindref="compound">Udp::Stats</ref></type>
+        <definition>Udp::Stats UdpProtocol::Stats::udp</definition>
+        <argsstring></argsstring>
+        <name>udp</name>
+        <qualifiedname>UdpProtocol::Stats::udp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="27" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Udp::Stats</label>
+        <link refid="struct_udp_1_1_stats"/>
+      </node>
+      <node id="1">
+        <label>UdpProtocol::Stats</label>
+        <link refid="struct_udp_protocol_1_1_stats"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>udp</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" line="22" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_proto.h" bodystart="22" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_udp_protocol_1_1_stats_1a8f2b9eedc321b6f5893e0c497747fcb3" prot="public" virt="non-virtual"><scope>UdpProtocol::Stats</scope><name>local_frame_advantage</name></member>
+      <member refid="struct_udp_protocol_1_1_stats_1aa0cc8549e10575e77dc85c5cb3989e68" prot="public" virt="non-virtual"><scope>UdpProtocol::Stats</scope><name>ping</name></member>
+      <member refid="struct_udp_protocol_1_1_stats_1a061a6995807f632407eecc7866e29bce" prot="public" virt="non-virtual"><scope>UdpProtocol::Stats</scope><name>remote_frame_advantage</name></member>
+      <member refid="struct_udp_protocol_1_1_stats_1ab70f2222f38a03ea6bb939d0aabc100d" prot="public" virt="non-virtual"><scope>UdpProtocol::Stats</scope><name>send_queue_len</name></member>
+      <member refid="struct_udp_protocol_1_1_stats_1ad72b6fe5d7f757b3f4deadd37103a53e" prot="public" virt="non-virtual"><scope>UdpProtocol::Stats</scope><name>udp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

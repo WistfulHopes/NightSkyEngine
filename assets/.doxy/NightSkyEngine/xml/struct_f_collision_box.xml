@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_collision_box" kind="struct" language="C++" prot="public">
+    <compoundname>FCollisionBox</compoundname>
+    <includes refid="_collision_box_8h" local="no">CollisionBox.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_collision_box_1a204da6367c8d0df935ce37ede87df39b" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EBoxType &gt;</type>
+        <definition>TEnumAsByte&lt;EBoxType&gt; FCollisionBox::Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>FCollisionBox::Type</qualifiedname>
+        <initializer>= BOX_Hurt</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The type of box. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="48" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_box_1aaf98da02786e736edcd184152706481d" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FCollisionBox::CustomType</definition>
+        <argsstring></argsstring>
+        <name>CustomType</name>
+        <qualifiedname>FCollisionBox::CustomType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The custom box type. Used with BOX_Custom to define custom box behaviors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="53" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_box_1a87a46661518b01ff5bb9e9309454edd9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FCollisionBox::PosX</definition>
+        <argsstring></argsstring>
+        <name>PosX</name>
+        <qualifiedname>FCollisionBox::PosX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>X position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="58" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_box_1ac1bde530ee5746e96d795f6775a4f5e1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FCollisionBox::PosY</definition>
+        <argsstring></argsstring>
+        <name>PosY</name>
+        <qualifiedname>FCollisionBox::PosY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Y position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="63" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_box_1a159286de5d7d69d72498a42b74597996" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FCollisionBox::SizeX</definition>
+        <argsstring></argsstring>
+        <name>SizeX</name>
+        <qualifiedname>FCollisionBox::SizeX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>X size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="68" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_collision_box_1ae86c861a821611daef54cf704be31894" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FCollisionBox::SizeY</definition>
+        <argsstring></argsstring>
+        <name>SizeY</name>
+        <qualifiedname>FCollisionBox::SizeY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Y size. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="73" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_collision_box_1a5643695174343a729319d9e1c8712dc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FCollisionBox::operator!=</definition>
+        <argsstring>(const FCollisionBox &amp;OtherBox) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>FCollisionBox::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_f_collision_box" kindref="compound">FCollisionBox</ref> &amp;</type>
+          <declname>OtherBox</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares against another collision box for inequality.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>OtherBox</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The box to compare against. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If any of the fields of the other box are different, return true. Otherwise return false. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="158" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="158" bodyend="162"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A collision box. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Primarily used for push and hit collision, but some box types are used for specific operations. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" line="40" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/CollisionBox.h" bodystart="41" bodyend="163"/>
+    <listofallmembers>
+      <member refid="struct_f_collision_box_1aaf98da02786e736edcd184152706481d" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>CustomType</name></member>
+      <member refid="struct_f_collision_box_1a5643695174343a729319d9e1c8712dc8" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>operator!=</name></member>
+      <member refid="struct_f_collision_box_1a87a46661518b01ff5bb9e9309454edd9" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>PosX</name></member>
+      <member refid="struct_f_collision_box_1ac1bde530ee5746e96d795f6775a4f5e1" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>PosY</name></member>
+      <member refid="struct_f_collision_box_1a159286de5d7d69d72498a42b74597996" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>SizeX</name></member>
+      <member refid="struct_f_collision_box_1ae86c861a821611daef54cf704be31894" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>SizeY</name></member>
+      <member refid="struct_f_collision_box_1a204da6367c8d0df935ce37ede87df39b" prot="public" virt="non-virtual"><scope>FCollisionBox</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,598 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_sync_test_backend" kind="class" language="C++" prot="public">
+    <compoundname>SyncTestBackend</compoundname>
+    <basecompoundref refid="struct_g_g_p_o_session" prot="public" virt="non-virtual">GGPOSession</basecompoundref>
+    <innerclass refid="struct_sync_test_backend_1_1_saved_info" prot="protected">SyncTestBackend::SavedInfo</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_sync_test_backend_1a4a1eb3a4a3eec24c2a89437e7dea2445" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref></type>
+        <definition>GGPOSessionCallbacks SyncTestBackend::_callbacks</definition>
+        <argsstring></argsstring>
+        <name>_callbacks</name>
+        <qualifiedname>SyncTestBackend::_callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="43" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1aef8b4fb9eedb4c759050d9601a51c097" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_sync" kindref="compound">Sync</ref></type>
+        <definition>Sync SyncTestBackend::_sync</definition>
+        <argsstring></argsstring>
+        <name>_sync</name>
+        <qualifiedname>SyncTestBackend::_sync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="44" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a2187bdd6b48a81cea82c4faf5666be80" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::_num_players</definition>
+        <argsstring></argsstring>
+        <name>_num_players</name>
+        <qualifiedname>SyncTestBackend::_num_players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="45" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1aabd420f290c1f3db90565e1084f46ffe" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::_check_distance</definition>
+        <argsstring></argsstring>
+        <name>_check_distance</name>
+        <qualifiedname>SyncTestBackend::_check_distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="46" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1acf37cb7f195663f7331afeaeec8298c4" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::_last_verified</definition>
+        <argsstring></argsstring>
+        <name>_last_verified</name>
+        <qualifiedname>SyncTestBackend::_last_verified</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="47" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a7c20a7faf65a631805473c2e8279f29b" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SyncTestBackend::_rollingback</definition>
+        <argsstring></argsstring>
+        <name>_rollingback</name>
+        <qualifiedname>SyncTestBackend::_rollingback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="48" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a750d0a54dbd0356e022a9844c0b3f965" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool SyncTestBackend::_running</definition>
+        <argsstring></argsstring>
+        <name>_running</name>
+        <qualifiedname>SyncTestBackend::_running</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="49" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1aeb7614383ddc83e35d947895473b8d7a" prot="protected" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* SyncTestBackend::_logfp</definition>
+        <argsstring></argsstring>
+        <name>_logfp</name>
+        <qualifiedname>SyncTestBackend::_logfp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="50" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a8fa3e3f74633c5940279efb4f32c4b1d" prot="protected" static="no" mutable="no">
+        <type>char</type>
+        <definition>char SyncTestBackend::_game[128]</definition>
+        <argsstring>[128]</argsstring>
+        <name>_game</name>
+        <qualifiedname>SyncTestBackend::_game</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="51" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a48eeb6ab95be7edadbb5a311f65858eb" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput SyncTestBackend::_current_input</definition>
+        <argsstring></argsstring>
+        <name>_current_input</name>
+        <qualifiedname>SyncTestBackend::_current_input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="53" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1ac23ee6dad64709cf1d440268f208ef59" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput SyncTestBackend::_last_input</definition>
+        <argsstring></argsstring>
+        <name>_last_input</name>
+        <qualifiedname>SyncTestBackend::_last_input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="54" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sync_test_backend_1a14475876d76d98ac1f391b929e41a429" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_ring_buffer" kindref="compound">RingBuffer</ref>&lt; <ref refid="struct_sync_test_backend_1_1_saved_info" kindref="compound">SavedInfo</ref>, 32 &gt;</type>
+        <definition>RingBuffer&lt;SavedInfo, 32&gt; SyncTestBackend::_saved_frames</definition>
+        <argsstring></argsstring>
+        <name>_saved_frames</name>
+        <qualifiedname>SyncTestBackend::_saved_frames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="55" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sync_test_backend_1a0ae7af45d3eda3688b9f6d5316640a5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SyncTestBackend::SyncTestBackend</definition>
+        <argsstring>(GGPOSessionCallbacks *cb, const char *gamename, int frames, int num_players)</argsstring>
+        <name>SyncTestBackend</name>
+        <qualifiedname>SyncTestBackend::SyncTestBackend</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>gamename</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frames</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="18" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="12" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1a1b347e4f8e6414592bc6015499dff405" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>SyncTestBackend::~SyncTestBackend</definition>
+        <argsstring>()</argsstring>
+        <name>~SyncTestBackend</name>
+        <qualifiedname>SyncTestBackend::~SyncTestBackend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="19" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1a2e5afecb6a6f92329122a69eaf2f4f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::DoPoll</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>DoPoll</name>
+        <qualifiedname>SyncTestBackend::DoPoll</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26">DoPoll</reimplements>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="21" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="47" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1aaf69ea8aa089a316db5da2f040308769" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::AddPlayer</definition>
+        <argsstring>(GGPOPlayer *player, GGPOPlayerHandle *handle)</argsstring>
+        <name>AddPlayer</name>
+        <qualifiedname>SyncTestBackend::AddPlayer</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763">AddPlayer</reimplements>
+        <param>
+          <type><ref refid="struct_g_g_p_o_player" kindref="compound">GGPOPlayer</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="22" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="60" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1a3049d0c6d5e29c74a4a2ef66f6babc4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::AddLocalInput</definition>
+        <argsstring>(GGPOPlayerHandle player, void *values, int size)</argsstring>
+        <name>AddLocalInput</name>
+        <qualifiedname>SyncTestBackend::AddLocalInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100">AddLocalInput</reimplements>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="23" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="70" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1ae583bde3e3aaf06d36eeebcbf1360511" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::SyncInput</definition>
+        <argsstring>(void *values, int size, int *disconnect_flags)</argsstring>
+        <name>SyncInput</name>
+        <qualifiedname>SyncTestBackend::SyncInput</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618">SyncInput</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>disconnect_flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="24" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="84" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1acebdff9f41ba8a0b7a356dcbafc997cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::IncrementFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>IncrementFrame</name>
+        <qualifiedname>SyncTestBackend::IncrementFrame</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1">IncrementFrame</reimplements>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="25" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="105" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1aa7439669cee308d3a4f8261d2e6441e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>GGPOErrorCode SyncTestBackend::Logv</definition>
+        <argsstring>(const char *fmt, va_list list) override</argsstring>
+        <name>Logv</name>
+        <qualifiedname>SyncTestBackend::Logv</qualifiedname>
+        <reimplements refid="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53">Logv</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>va_list</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="26" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="177" bodyend="183"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_sync_test_backend_1a9c6b3a4c2ec79a6d3cc1eb4ecf3ae448" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SyncTestBackend::RaiseSyncError</definition>
+        <argsstring>(const char *fmt,...)</argsstring>
+        <name>RaiseSyncError</name>
+        <qualifiedname>SyncTestBackend::RaiseSyncError</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="37" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="163" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1aed6d2158e0fc709b4fef23296973df80" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SyncTestBackend::BeginLog</definition>
+        <argsstring>(int saving)</argsstring>
+        <name>BeginLog</name>
+        <qualifiedname>SyncTestBackend::BeginLog</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>saving</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="38" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="186" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1ab3e96ddd985926e20baf1dd56dee1eac" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SyncTestBackend::EndLog</definition>
+        <argsstring>()</argsstring>
+        <name>EndLog</name>
+        <qualifiedname>SyncTestBackend::EndLog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="39" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="201" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sync_test_backend_1a68300fe0d78ad9f6a2c279cc150de3bd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SyncTestBackend::LogSaveStates</definition>
+        <argsstring>(SavedInfo &amp;info)</argsstring>
+        <name>LogSaveStates</name>
+        <qualifiedname>SyncTestBackend::LogSaveStates</qualifiedname>
+        <param>
+          <type><ref refid="struct_sync_test_backend_1_1_saved_info" kindref="compound">SavedInfo</ref> &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="40" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.cpp" bodystart="210" bodyend="218"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="1">
+        <label>SyncTestBackend</label>
+        <link refid="class_sync_test_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>GGPOSessionCallbacks</label>
+        <link refid="struct_g_g_p_o_session_callbacks"/>
+      </node>
+      <node id="9">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="2">
+        <label>IQuarkBackend</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="8">
+        <label>InputQueue</label>
+        <link refid="class_input_queue"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_inputs</edgelabel>
+          <edgelabel>_prediction</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>RingBuffer&lt; Sync::Event, 32 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>RingBuffer&lt; SyncTestBackend::SavedInfo, 32 &gt;</label>
+        <link refid="class_ring_buffer"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Sync</label>
+        <link refid="class_sync"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_savedstate</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_config</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>_input_queues</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>_event_queue</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>_local_connect_status</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Sync::Config</label>
+        <link refid="struct_sync_1_1_config"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>callbacks</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Sync::Event</label>
+        <link refid="struct_sync_1_1_event"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Sync::SavedFrame</label>
+        <link refid="struct_sync_1_1_saved_frame"/>
+      </node>
+      <node id="5">
+        <label>Sync::SavedState</label>
+        <link refid="struct_sync_1_1_saved_state"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>frames</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>SyncTestBackend</label>
+        <link refid="class_sync_test_backend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>_sync</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_current_input</edgelabel>
+          <edgelabel>_last_input</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>_saved_frames</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>SyncTestBackend::SavedInfo</label>
+        <link refid="struct_sync_test_backend_1_1_saved_info"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>UdpMsg::connect_status</label>
+        <link refid="struct_udp_msg_1_1connect__status"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="16" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_sync_test_backend_1a4a1eb3a4a3eec24c2a89437e7dea2445" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_callbacks</name></member>
+      <member refid="class_sync_test_backend_1aabd420f290c1f3db90565e1084f46ffe" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_check_distance</name></member>
+      <member refid="class_sync_test_backend_1a48eeb6ab95be7edadbb5a311f65858eb" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_current_input</name></member>
+      <member refid="class_sync_test_backend_1a8fa3e3f74633c5940279efb4f32c4b1d" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_game</name></member>
+      <member refid="class_sync_test_backend_1ac23ee6dad64709cf1d440268f208ef59" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_last_input</name></member>
+      <member refid="class_sync_test_backend_1acf37cb7f195663f7331afeaeec8298c4" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_last_verified</name></member>
+      <member refid="class_sync_test_backend_1aeb7614383ddc83e35d947895473b8d7a" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_logfp</name></member>
+      <member refid="class_sync_test_backend_1a2187bdd6b48a81cea82c4faf5666be80" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_num_players</name></member>
+      <member refid="class_sync_test_backend_1a7c20a7faf65a631805473c2e8279f29b" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_rollingback</name></member>
+      <member refid="class_sync_test_backend_1a750d0a54dbd0356e022a9844c0b3f965" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_running</name></member>
+      <member refid="class_sync_test_backend_1a14475876d76d98ac1f391b929e41a429" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_saved_frames</name></member>
+      <member refid="class_sync_test_backend_1aef8b4fb9eedb4c759050d9601a51c097" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>_sync</name></member>
+      <member refid="class_sync_test_backend_1a3049d0c6d5e29c74a4a2ef66f6babc4a" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>AddLocalInput</name></member>
+      <member refid="class_sync_test_backend_1aaf69ea8aa089a316db5da2f040308769" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>AddPlayer</name></member>
+      <member refid="class_sync_test_backend_1aed6d2158e0fc709b4fef23296973df80" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>BeginLog</name></member>
+      <member refid="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>Chat</name></member>
+      <member refid="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>DisconnectPlayer</name></member>
+      <member refid="class_sync_test_backend_1a2e5afecb6a6f92329122a69eaf2f4f93" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>DoPoll</name></member>
+      <member refid="class_sync_test_backend_1ab3e96ddd985926e20baf1dd56dee1eac" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>EndLog</name></member>
+      <member refid="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>GetNetworkStats</name></member>
+      <member refid="class_sync_test_backend_1acebdff9f41ba8a0b7a356dcbafc997cd" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>IncrementFrame</name></member>
+      <member refid="class_sync_test_backend_1a68300fe0d78ad9f6a2c279cc150de3bd" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>LogSaveStates</name></member>
+      <member refid="class_sync_test_backend_1aa7439669cee308d3a4f8261d2e6441e4" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>Logv</name></member>
+      <member refid="class_sync_test_backend_1a9c6b3a4c2ec79a6d3cc1eb4ecf3ae448" prot="protected" virt="non-virtual"><scope>SyncTestBackend</scope><name>RaiseSyncError</name></member>
+      <member refid="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>SetDisconnectNotifyStart</name></member>
+      <member refid="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>SetDisconnectTimeout</name></member>
+      <member refid="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>SetFrameDelay</name></member>
+      <member refid="class_sync_test_backend_1ae583bde3e3aaf06d36eeebcbf1360511" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>SyncInput</name></member>
+      <member refid="class_sync_test_backend_1a0ae7af45d3eda3688b9f6d5316640a5a" prot="public" virt="non-virtual"><scope>SyncTestBackend</scope><name>SyncTestBackend</name></member>
+      <member refid="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>TrySynchronizeLocal</name></member>
+      <member refid="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>~GGPOSession</name></member>
+      <member refid="class_sync_test_backend_1a1b347e4f8e6414592bc6015499dff405" prot="public" virt="virtual"><scope>SyncTestBackend</scope><name>~SyncTestBackend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

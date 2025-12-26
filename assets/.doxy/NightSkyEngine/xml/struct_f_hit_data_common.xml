@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_hit_data_common" kind="struct" language="C++" prot="public">
+    <compoundname>FHitDataCommon</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a34e0285a3302eeda3b8b1977eaae5435" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::AttackLevel</definition>
+        <argsstring></argsstring>
+        <name>AttackLevel</name>
+        <qualifiedname>FHitDataCommon::AttackLevel</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="112" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a05d7108f0733757e4c5cb08262dd7b3a" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EBlockType &gt;</type>
+        <definition>TEnumAsByte&lt;EBlockType&gt; FHitDataCommon::BlockType</definition>
+        <argsstring></argsstring>
+        <name>BlockType</name>
+        <qualifiedname>FHitDataCommon::BlockType</qualifiedname>
+        <initializer>= BLK_Mid</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="115" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a9a26605fbf36d1435be90ed8cc2d0362" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::BlockstopModifier</definition>
+        <argsstring></argsstring>
+        <name>BlockstopModifier</name>
+        <qualifiedname>FHitDataCommon::BlockstopModifier</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="118" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a605ca0be60ecfdce541c5ecbc5ccde16" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::EnemyBlockstopModifier</definition>
+        <argsstring></argsstring>
+        <name>EnemyBlockstopModifier</name>
+        <qualifiedname>FHitDataCommon::EnemyBlockstopModifier</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="121" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a7493cd0d8cb0b3162efbb180c83d0857" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::Blockstun</definition>
+        <argsstring></argsstring>
+        <name>Blockstun</name>
+        <qualifiedname>FHitDataCommon::Blockstun</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="124" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a86748b9fb75569e5e2770252c4f40731" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::ChipDamagePercent</definition>
+        <argsstring></argsstring>
+        <name>ChipDamagePercent</name>
+        <qualifiedname>FHitDataCommon::ChipDamagePercent</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="127" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a7b95644e306e7460855d93bcf9ede8fa" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::GroundGuardPushbackX</definition>
+        <argsstring></argsstring>
+        <name>GroundGuardPushbackX</name>
+        <qualifiedname>FHitDataCommon::GroundGuardPushbackX</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="134" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a9daff59e671f7009bc17b51292cf0c43" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::AirGuardPushbackX</definition>
+        <argsstring></argsstring>
+        <name>AirGuardPushbackX</name>
+        <qualifiedname>FHitDataCommon::AirGuardPushbackX</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="137" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1adfcf8040dfb634084a3223ed2c3744a5" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::AirGuardPushbackY</definition>
+        <argsstring></argsstring>
+        <name>AirGuardPushbackY</name>
+        <qualifiedname>FHitDataCommon::AirGuardPushbackY</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="140" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a692824894165061792238949e01dbd0b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::GuardGravity</definition>
+        <argsstring></argsstring>
+        <name>GuardGravity</name>
+        <qualifiedname>FHitDataCommon::GuardGravity</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="143" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a40fbad92a349fef19b52c9822d668413" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::ProximityBlockDistanceX</definition>
+        <argsstring></argsstring>
+        <name>ProximityBlockDistanceX</name>
+        <qualifiedname>FHitDataCommon::ProximityBlockDistanceX</qualifiedname>
+        <initializer>= 240000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="145" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a1f32cde358c7385662fd2807a9fbf0ce" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::ProximityBlockDistanceY</definition>
+        <argsstring></argsstring>
+        <name>ProximityBlockDistanceY</name>
+        <qualifiedname>FHitDataCommon::ProximityBlockDistanceY</qualifiedname>
+        <initializer>= 160000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="147" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a22f44e5ea3624d02014fcbeb8b40ec4a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHitDataCommon::HitAngle</definition>
+        <argsstring></argsstring>
+        <name>HitAngle</name>
+        <qualifiedname>FHitDataCommon::HitAngle</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="150" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1af4f457c78375ca84d3af3c366ca0a2a5" prot="public" static="no" mutable="no">
+        <type>EHitSFXType</type>
+        <definition>EHitSFXType FHitDataCommon::SFXType</definition>
+        <argsstring></argsstring>
+        <name>SFXType</name>
+        <qualifiedname>FHitDataCommon::SFXType</qualifiedname>
+        <initializer>= EHitSFXType::SFX_Punch</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="153" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a56a8a234291f0f97618f573f329665d7" prot="public" static="no" mutable="no">
+        <type>EHitVFXType</type>
+        <definition>EHitVFXType FHitDataCommon::VFXType</definition>
+        <argsstring></argsstring>
+        <name>VFXType</name>
+        <qualifiedname>FHitDataCommon::VFXType</qualifiedname>
+        <initializer>= EHitVFXType::VFX_Strike</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="156" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1af94d5d73a7af9cbcf650c5a483a0c6d6" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::GuardSFXOverride</definition>
+        <argsstring></argsstring>
+        <name>GuardSFXOverride</name>
+        <qualifiedname>FHitDataCommon::GuardSFXOverride</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="158" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1aa296bd96bcf30712291bf324a22791c9" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::GuardVFXOverride</definition>
+        <argsstring></argsstring>
+        <name>GuardVFXOverride</name>
+        <qualifiedname>FHitDataCommon::GuardVFXOverride</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="160" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1ac236c62e3e50c2192594945efdaaa05d" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::HitSFXOverride</definition>
+        <argsstring></argsstring>
+        <name>HitSFXOverride</name>
+        <qualifiedname>FHitDataCommon::HitSFXOverride</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="162" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a89c9c2557ea3dfc6732ec049a99b3fa8" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::HitVFXOverride</definition>
+        <argsstring></argsstring>
+        <name>HitVFXOverride</name>
+        <qualifiedname>FHitDataCommon::HitVFXOverride</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="164" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a90c36a3fb966059da5b72f28bf494b88" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FHitDataCommon::DeathCamOverride</definition>
+        <argsstring></argsstring>
+        <name>DeathCamOverride</name>
+        <qualifiedname>FHitDataCommon::DeathCamOverride</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="166" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1aa00ddea1ab6ebe4467553f84daa40124" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::GuardSFX</definition>
+        <argsstring></argsstring>
+        <name>GuardSFX</name>
+        <qualifiedname>FHitDataCommon::GuardSFX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="169" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a35c027594d4484cf79c5bc05cf01c4db" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::GuardVFX</definition>
+        <argsstring></argsstring>
+        <name>GuardVFX</name>
+        <qualifiedname>FHitDataCommon::GuardVFX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="171" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1ab100911261b1bcbdeddb1856e3d7fc0c" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::HitSFX</definition>
+        <argsstring></argsstring>
+        <name>HitSFX</name>
+        <qualifiedname>FHitDataCommon::HitSFX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="173" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1ae5aeaad0ba454fe50715a087d3d95c54" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FHitDataCommon::HitVFX</definition>
+        <argsstring></argsstring>
+        <name>HitVFX</name>
+        <qualifiedname>FHitDataCommon::HitVFX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="175" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1aff22741aaaa2398df39538d6a9eec847" prot="public" static="no" mutable="no">
+        <type>FLinearColor</type>
+        <definition>FLinearColor FHitDataCommon::DamageColor</definition>
+        <argsstring></argsstring>
+        <name>DamageColor</name>
+        <qualifiedname>FHitDataCommon::DamageColor</qualifiedname>
+        <initializer>= FLinearColor(1.0, 1.0, 1.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="179" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_hit_data_common_1a9196b9615e5453d47f33c900eab7762d" prot="public" static="no" mutable="no">
+        <type>FLinearColor</type>
+        <definition>FLinearColor FHitDataCommon::DamageColor2</definition>
+        <argsstring></argsstring>
+        <name>DamageColor2</name>
+        <qualifiedname>FHitDataCommon::DamageColor2</qualifiedname>
+        <initializer>= FLinearColor(1.0, 1.0, 1.0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="181" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="103" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="104" bodyend="182"/>
+    <listofallmembers>
+      <member refid="struct_f_hit_data_common_1a9daff59e671f7009bc17b51292cf0c43" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>AirGuardPushbackX</name></member>
+      <member refid="struct_f_hit_data_common_1adfcf8040dfb634084a3223ed2c3744a5" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>AirGuardPushbackY</name></member>
+      <member refid="struct_f_hit_data_common_1a34e0285a3302eeda3b8b1977eaae5435" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>AttackLevel</name></member>
+      <member refid="struct_f_hit_data_common_1a9a26605fbf36d1435be90ed8cc2d0362" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>BlockstopModifier</name></member>
+      <member refid="struct_f_hit_data_common_1a7493cd0d8cb0b3162efbb180c83d0857" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>Blockstun</name></member>
+      <member refid="struct_f_hit_data_common_1a05d7108f0733757e4c5cb08262dd7b3a" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>BlockType</name></member>
+      <member refid="struct_f_hit_data_common_1a86748b9fb75569e5e2770252c4f40731" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>ChipDamagePercent</name></member>
+      <member refid="struct_f_hit_data_common_1aff22741aaaa2398df39538d6a9eec847" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>DamageColor</name></member>
+      <member refid="struct_f_hit_data_common_1a9196b9615e5453d47f33c900eab7762d" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>DamageColor2</name></member>
+      <member refid="struct_f_hit_data_common_1a90c36a3fb966059da5b72f28bf494b88" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>DeathCamOverride</name></member>
+      <member refid="struct_f_hit_data_common_1a605ca0be60ecfdce541c5ecbc5ccde16" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>EnemyBlockstopModifier</name></member>
+      <member refid="struct_f_hit_data_common_1a7b95644e306e7460855d93bcf9ede8fa" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GroundGuardPushbackX</name></member>
+      <member refid="struct_f_hit_data_common_1a692824894165061792238949e01dbd0b" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GuardGravity</name></member>
+      <member refid="struct_f_hit_data_common_1aa00ddea1ab6ebe4467553f84daa40124" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GuardSFX</name></member>
+      <member refid="struct_f_hit_data_common_1af94d5d73a7af9cbcf650c5a483a0c6d6" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GuardSFXOverride</name></member>
+      <member refid="struct_f_hit_data_common_1a35c027594d4484cf79c5bc05cf01c4db" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GuardVFX</name></member>
+      <member refid="struct_f_hit_data_common_1aa296bd96bcf30712291bf324a22791c9" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>GuardVFXOverride</name></member>
+      <member refid="struct_f_hit_data_common_1a22f44e5ea3624d02014fcbeb8b40ec4a" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>HitAngle</name></member>
+      <member refid="struct_f_hit_data_common_1ab100911261b1bcbdeddb1856e3d7fc0c" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>HitSFX</name></member>
+      <member refid="struct_f_hit_data_common_1ac236c62e3e50c2192594945efdaaa05d" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>HitSFXOverride</name></member>
+      <member refid="struct_f_hit_data_common_1ae5aeaad0ba454fe50715a087d3d95c54" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>HitVFX</name></member>
+      <member refid="struct_f_hit_data_common_1a89c9c2557ea3dfc6732ec049a99b3fa8" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>HitVFXOverride</name></member>
+      <member refid="struct_f_hit_data_common_1a40fbad92a349fef19b52c9822d668413" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>ProximityBlockDistanceX</name></member>
+      <member refid="struct_f_hit_data_common_1a1f32cde358c7385662fd2807a9fbf0ce" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>ProximityBlockDistanceY</name></member>
+      <member refid="struct_f_hit_data_common_1af4f457c78375ca84d3af3c366ca0a2a5" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>SFXType</name></member>
+      <member refid="struct_f_hit_data_common_1a56a8a234291f0f97618f573f329665d7" prot="public" virt="non-virtual"><scope>FHitDataCommon</scope><name>VFXType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

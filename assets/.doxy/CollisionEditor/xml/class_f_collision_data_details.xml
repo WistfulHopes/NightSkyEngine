@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_collision_data_details" kind="class" language="C++" prot="public">
+    <compoundname>FCollisionDataDetails</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDetailCustomization</basecompoundref>
+    <includes refid="_collision_data_details_8h" local="no">CollisionDataDetails.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_f_collision_data_details_1a88e5c2873da949350c850a23886d8cbe" prot="private" static="no" mutable="no">
+        <type>TWeakObjectPtr&lt; UCollisionData &gt;</type>
+        <definition>TWeakObjectPtr&lt;UCollisionData&gt; FCollisionDataDetails::CollisionDataPtr</definition>
+        <argsstring></argsstring>
+        <name>CollisionDataPtr</name>
+        <qualifiedname>FCollisionDataDetails::CollisionDataPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="35" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_collision_data_details_1a93fa6e598b004b7623d2357ec2f44da7" prot="private" static="no" mutable="no">
+        <type>TSharedPtr&lt; IPropertyHandle &gt;</type>
+        <definition>TSharedPtr&lt;IPropertyHandle&gt; FCollisionDataDetails::CollisionFramesHandle</definition>
+        <argsstring></argsstring>
+        <name>CollisionFramesHandle</name>
+        <qualifiedname>FCollisionDataDetails::CollisionFramesHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="36" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_collision_data_details_1abcd34093c124d16e3208d40daaff4fa1" prot="private" static="no" mutable="no">
+        <type>IDetailLayoutBuilder *</type>
+        <definition>IDetailLayoutBuilder* FCollisionDataDetails::CachedDetailBuilder</definition>
+        <argsstring></argsstring>
+        <name>CachedDetailBuilder</name>
+        <qualifiedname>FCollisionDataDetails::CachedDetailBuilder</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="37" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_collision_data_details_1af8fc4b40d7a4d509df39221be31009f9" prot="private" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FCollisionDataDetails::SelectedCelName</definition>
+        <argsstring></argsstring>
+        <name>SelectedCelName</name>
+        <qualifiedname>FCollisionDataDetails::SelectedCelName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="38" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_f_collision_data_details_1a2ccf12f824a2bdbc6e487f7f33212027" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TSharedRef&lt; IDetailCustomization &gt;</type>
+        <definition>TSharedRef&lt; IDetailCustomization &gt; FCollisionDataDetails::MakeInstance</definition>
+        <argsstring>()</argsstring>
+        <name>MakeInstance</name>
+        <qualifiedname>FCollisionDataDetails::MakeInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="19" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="17" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_collision_data_details_1afb7e44294cbd7d9456d72882025cd8fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FCollisionDataDetails::CustomizeDetails</definition>
+        <argsstring>(IDetailLayoutBuilder &amp;DetailBuilder) override</argsstring>
+        <name>CustomizeDetails</name>
+        <qualifiedname>FCollisionDataDetails::CustomizeDetails</qualifiedname>
+        <param>
+          <type>IDetailLayoutBuilder &amp;</type>
+          <declname>DetailBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="21" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="22" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_f_collision_data_details_1a10dbaaca54898fe6082ad4bfa6eb07c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionDataDetails::BuildSelectedCelView</definition>
+        <argsstring>(IDetailLayoutBuilder &amp;DetailBuilder, IDetailCategoryBuilder &amp;Category)</argsstring>
+        <name>BuildSelectedCelView</name>
+        <qualifiedname>FCollisionDataDetails::BuildSelectedCelView</qualifiedname>
+        <param>
+          <type>IDetailLayoutBuilder &amp;</type>
+          <declname>DetailBuilder</declname>
+        </param>
+        <param>
+          <type>IDetailCategoryBuilder &amp;</type>
+          <declname>Category</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="24" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="57" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1a172c8ee34208b5a0089012d6b81c578c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionDataDetails::OnCelSelected</definition>
+        <argsstring>(const FGameplayTag &amp;CelName)</argsstring>
+        <name>OnCelSelected</name>
+        <qualifiedname>FCollisionDataDetails::OnCelSelected</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>CelName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="25" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="468" bodyend="475"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1adf85a0ae7aaf73e57c1d6ded8ef3d8ba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FReply</type>
+        <definition>FReply FCollisionDataDetails::OnAddNewCel</definition>
+        <argsstring>()</argsstring>
+        <name>OnAddNewCel</name>
+        <qualifiedname>FCollisionDataDetails::OnAddNewCel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="27" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="177" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1ada4d9954ded086ce1005417ad2a9df15" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FReply</type>
+        <definition>FReply FCollisionDataDetails::OnDeleteSelectedCel</definition>
+        <argsstring>()</argsstring>
+        <name>OnDeleteSelectedCel</name>
+        <qualifiedname>FCollisionDataDetails::OnDeleteSelectedCel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="28" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="205" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1a1d04fc6ef45c1ac5143805af312e1e8d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FReply</type>
+        <definition>FReply FCollisionDataDetails::OnTemplateSelectedCel</definition>
+        <argsstring>()</argsstring>
+        <name>OnTemplateSelectedCel</name>
+        <qualifiedname>FCollisionDataDetails::OnTemplateSelectedCel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="29" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="246" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1afb1be37fab69fc62518ffae4c9f9a8f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FReply</type>
+        <definition>FReply FCollisionDataDetails::OnRefreshTree</definition>
+        <argsstring>()</argsstring>
+        <name>OnRefreshTree</name>
+        <qualifiedname>FCollisionDataDetails::OnRefreshTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="30" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="448" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1a32e189a921c0b31794245c3af72bf566" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FCollisionDataDetails::CanDeleteSelectedCel</definition>
+        <argsstring>() const</argsstring>
+        <name>CanDeleteSelectedCel</name>
+        <qualifiedname>FCollisionDataDetails::CanDeleteSelectedCel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="32" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="435" bodyend="446"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_data_details_1acb07292f92311065c741a43dcea62046" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool FCollisionDataDetails::CanTemplateSelectedCel</definition>
+        <argsstring>() const</argsstring>
+        <name>CanTemplateSelectedCel</name>
+        <qualifiedname>FCollisionDataDetails::CanTemplateSelectedCel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="33" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CollisionDataDetails.cpp" bodystart="422" bodyend="433"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Detail customization for UCollisionData that displays CollisionFrames in a hierarchical tree organized by GameplayTag. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FCollisionDataDetails</label>
+        <link refid="class_f_collision_data_details"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IDetailCustomization</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FCollisionDataDetails</label>
+        <link refid="class_f_collision_data_details"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IDetailCustomization</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CollisionDataDetails.h" bodystart="17" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_f_collision_data_details_1a10dbaaca54898fe6082ad4bfa6eb07c1" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>BuildSelectedCelView</name></member>
+      <member refid="class_f_collision_data_details_1abcd34093c124d16e3208d40daaff4fa1" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>CachedDetailBuilder</name></member>
+      <member refid="class_f_collision_data_details_1a32e189a921c0b31794245c3af72bf566" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>CanDeleteSelectedCel</name></member>
+      <member refid="class_f_collision_data_details_1acb07292f92311065c741a43dcea62046" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>CanTemplateSelectedCel</name></member>
+      <member refid="class_f_collision_data_details_1a88e5c2873da949350c850a23886d8cbe" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>CollisionDataPtr</name></member>
+      <member refid="class_f_collision_data_details_1a93fa6e598b004b7623d2357ec2f44da7" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>CollisionFramesHandle</name></member>
+      <member refid="class_f_collision_data_details_1afb7e44294cbd7d9456d72882025cd8fc" prot="public" virt="virtual"><scope>FCollisionDataDetails</scope><name>CustomizeDetails</name></member>
+      <member refid="class_f_collision_data_details_1a2ccf12f824a2bdbc6e487f7f33212027" prot="public" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>MakeInstance</name></member>
+      <member refid="class_f_collision_data_details_1adf85a0ae7aaf73e57c1d6ded8ef3d8ba" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>OnAddNewCel</name></member>
+      <member refid="class_f_collision_data_details_1a172c8ee34208b5a0089012d6b81c578c" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>OnCelSelected</name></member>
+      <member refid="class_f_collision_data_details_1ada4d9954ded086ce1005417ad2a9df15" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>OnDeleteSelectedCel</name></member>
+      <member refid="class_f_collision_data_details_1afb1be37fab69fc62518ffae4c9f9a8f5" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>OnRefreshTree</name></member>
+      <member refid="class_f_collision_data_details_1a1d04fc6ef45c1ac5143805af312e1e8d" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>OnTemplateSelectedCel</name></member>
+      <member refid="class_f_collision_data_details_1af8fc4b40d7a4d509df39221be31009f9" prot="private" virt="non-virtual"><scope>FCollisionDataDetails</scope><name>SelectedCelName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_sync_test_backend_1_1_saved_info" kind="struct" language="C++" prot="protected">
+    <compoundname>SyncTestBackend::SavedInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sync_test_backend_1_1_saved_info_1a519dd0abde2daee26deca954b7e665bc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::SavedInfo::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <qualifiedname>SyncTestBackend::SavedInfo::frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="30" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_test_backend_1_1_saved_info_1a7ac10e97ba06c459cdbd1a1b776fde4d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::SavedInfo::checksum</definition>
+        <argsstring></argsstring>
+        <name>checksum</name>
+        <qualifiedname>SyncTestBackend::SavedInfo::checksum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="31" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_test_backend_1_1_saved_info_1a255d74cbb5dfbfbe98548081739984ee" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* SyncTestBackend::SavedInfo::buf</definition>
+        <argsstring></argsstring>
+        <name>buf</name>
+        <qualifiedname>SyncTestBackend::SavedInfo::buf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="32" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_test_backend_1_1_saved_info_1a0b4b0bf286c457aa62349a8aa41c7489" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SyncTestBackend::SavedInfo::cbuf</definition>
+        <argsstring></argsstring>
+        <name>cbuf</name>
+        <qualifiedname>SyncTestBackend::SavedInfo::cbuf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="33" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_test_backend_1_1_saved_info_1a6d8a4b38eb693f1e247e160222b113b0" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput SyncTestBackend::SavedInfo::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <qualifiedname>SyncTestBackend::SavedInfo::input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="34" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="1">
+        <label>SyncTestBackend::SavedInfo</label>
+        <link refid="struct_sync_test_backend_1_1_saved_info"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" line="29" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/synctest.h" bodystart="29" bodyend="35"/>
+    <listofallmembers>
+      <member refid="struct_sync_test_backend_1_1_saved_info_1a255d74cbb5dfbfbe98548081739984ee" prot="public" virt="non-virtual"><scope>SyncTestBackend::SavedInfo</scope><name>buf</name></member>
+      <member refid="struct_sync_test_backend_1_1_saved_info_1a0b4b0bf286c457aa62349a8aa41c7489" prot="public" virt="non-virtual"><scope>SyncTestBackend::SavedInfo</scope><name>cbuf</name></member>
+      <member refid="struct_sync_test_backend_1_1_saved_info_1a7ac10e97ba06c459cdbd1a1b776fde4d" prot="public" virt="non-virtual"><scope>SyncTestBackend::SavedInfo</scope><name>checksum</name></member>
+      <member refid="struct_sync_test_backend_1_1_saved_info_1a519dd0abde2daee26deca954b7e665bc" prot="public" virt="non-virtual"><scope>SyncTestBackend::SavedInfo</scope><name>frame</name></member>
+      <member refid="struct_sync_test_backend_1_1_saved_info_1a6d8a4b38eb693f1e247e160222b113b0" prot="public" virt="non-virtual"><scope>SyncTestBackend::SavedInfo</scope><name>input</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

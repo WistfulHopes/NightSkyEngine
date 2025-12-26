@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
+  <compound refid="class_f_night_sky_engine_editor_module" kind="class"><name>FNightSkyEngineEditorModule</name>
+    <member refid="class_f_night_sky_engine_editor_module_1ae89c47f55d6a4c8bd4d0d66644dc418e" kind="function"><name>StartupModule</name></member>
+    <member refid="class_f_night_sky_engine_editor_module_1ad6947ccf2928aeecde797e93543ec54f" kind="function"><name>ShutdownModule</name></member>
+  </compound>
+  <compound refid="class_u_night_sky_editor_blueprint_library" kind="class"><name>UNightSkyEditorBlueprintLibrary</name>
+    <member refid="class_u_night_sky_editor_blueprint_library_1a5a0019cd8fbdfe2bcf904d66b5ba3165" kind="function"><name>GetGameplayTagFromName</name></member>
+  </compound>
+  <compound refid="_night_sky_editor_blueprint_library_8cpp" kind="file"><name>NightSkyEditorBlueprintLibrary.cpp</name>
+  </compound>
+  <compound refid="_night_sky_engine_editor_8cpp" kind="file"><name>NightSkyEngineEditor.cpp</name>
+    <member refid="_night_sky_engine_editor_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+  </compound>
+  <compound refid="_night_sky_editor_blueprint_library_8h" kind="file"><name>NightSkyEditorBlueprintLibrary.h</name>
+  </compound>
+  <compound refid="_night_sky_engine_editor_8h" kind="file"><name>NightSkyEngineEditor.h</name>
+  </compound>
+  <compound refid="dir_01309b4faf1ec48651014f612e2b32bb" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine</name>
+  </compound>
+  <compound refid="dir_e38b96015bf9e01b06e1db3a9ecb109f" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor</name>
+  </compound>
+  <compound refid="dir_0b4eaef40a1fe20bedafe9e8e719ce66" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins</name>
+  </compound>
+  <compound refid="dir_bb140671b05e9cd1d3ff0c1fb32f057e" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Private</name>
+  </compound>
+  <compound refid="dir_b1f934c454122ee63eeb5ca8173b113f" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngineEditor/Public</name>
+  </compound>
+  <compound refid="dir_d32ee28216ed342fa25c01ae9dcd9cc4" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source</name>
+  </compound>
+</doxygenindex>

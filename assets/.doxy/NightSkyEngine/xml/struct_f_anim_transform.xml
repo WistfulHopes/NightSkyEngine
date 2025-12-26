@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_anim_transform" kind="struct" language="C++" prot="public">
+    <compoundname>FAnimTransform</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_anim_transform_1a610567a02a021aaacf4a3625e63ebcfe" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref></type>
+        <definition>FAnimVector FAnimTransform::Position</definition>
+        <argsstring></argsstring>
+        <name>Position</name>
+        <qualifiedname>FAnimTransform::Position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="50" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_transform_1a23ec6501490224b23c0437b3f1e94dc6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_anim_rotator" kindref="compound">FAnimRotator</ref></type>
+        <definition>FAnimRotator FAnimTransform::Rotation</definition>
+        <argsstring></argsstring>
+        <name>Rotation</name>
+        <qualifiedname>FAnimTransform::Rotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="51" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_anim_transform_1afc5a89df3576ed0eb1121aed778c3e58" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_anim_vector" kindref="compound">FAnimVector</ref></type>
+        <definition>FAnimVector FAnimTransform::Scale</definition>
+        <argsstring></argsstring>
+        <name>Scale</name>
+        <qualifiedname>FAnimTransform::Scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="52" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>FAnimRotator</label>
+        <link refid="struct_f_anim_rotator"/>
+      </node>
+      <node id="1">
+        <label>FAnimTransform</label>
+        <link refid="struct_f_anim_transform"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Position</edgelabel>
+          <edgelabel>Scale</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FAnimVector</label>
+        <link refid="struct_f_anim_vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" line="46" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimSequenceUserData.h" bodystart="47" bodyend="53"/>
+    <listofallmembers>
+      <member refid="struct_f_anim_transform_1a610567a02a021aaacf4a3625e63ebcfe" prot="public" virt="non-virtual"><scope>FAnimTransform</scope><name>Position</name></member>
+      <member refid="struct_f_anim_transform_1a23ec6501490224b23c0437b3f1e94dc6" prot="public" virt="non-virtual"><scope>FAnimTransform</scope><name>Rotation</name></member>
+      <member refid="struct_f_anim_transform_1afc5a89df3576ed0eb1121aed778c3e58" prot="public" virt="non-virtual"><scope>FAnimTransform</scope><name>Scale</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

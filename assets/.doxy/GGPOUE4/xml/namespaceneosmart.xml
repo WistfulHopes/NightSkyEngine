@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="namespaceneosmart" kind="namespace" language="C++">
+    <compoundname>neosmart</compoundname>
+    <innerclass refid="structneosmart_1_1neosmart__event__t__" prot="public">neosmart::neosmart_event_t_</innerclass>
+    <innerclass refid="structneosmart_1_1neosmart__wfmo__info__t__" prot="public">neosmart::neosmart_wfmo_info_t_</innerclass>
+    <innerclass refid="structneosmart_1_1neosmart__wfmo__t__" prot="public">neosmart::neosmart_wfmo_t_</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="pevents_8cpp_1ad806f50de88f99b014ac9fbee078e974" prot="public" static="no">
+        <type><ref refid="structneosmart_1_1neosmart__wfmo__t__" kindref="compound">neosmart_wfmo_t_</ref> *</type>
+        <definition>typedef neosmart_wfmo_t_* neosmart::neosmart_wfmo_t</definition>
+        <argsstring></argsstring>
+        <name>neosmart_wfmo_t</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="41" column="30" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="pevents_8cpp_1ac312b114637a683b4a2ff0736e42944c" prot="public" static="no">
+        <type><ref refid="structneosmart_1_1neosmart__wfmo__info__t__" kindref="compound">neosmart_wfmo_info_t_</ref> *</type>
+        <definition>typedef neosmart_wfmo_info_t_* neosmart::neosmart_wfmo_info_t</definition>
+        <argsstring></argsstring>
+        <name>neosmart_wfmo_info_t</name>
+        <qualifiedname>neosmart::neosmart_wfmo_info_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="49" column="35" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="pevents_8h_1a82728bb6cf80a2647158c033dc355748" prot="public" static="no">
+        <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t_</ref> *</type>
+        <definition>typedef neosmart_event_t_* neosmart::neosmart_event_t</definition>
+        <argsstring></argsstring>
+        <name>neosmart_event_t</name>
+        <qualifiedname>neosmart::neosmart_event_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" line="25" column="31" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="pevents_8cpp_1a98b50c5c04b1e731e62ed49df6a7e31a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool neosmart::RemoveExpiredWaitHelper</definition>
+        <argsstring>(neosmart_wfmo_info_t_ wait)</argsstring>
+        <name>RemoveExpiredWaitHelper</name>
+        <qualifiedname>neosmart::RemoveExpiredWaitHelper</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__wfmo__info__t__" kindref="compound">neosmart_wfmo_info_t_</ref></type>
+          <declname>wait</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="64" column="10" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="64" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1a4fa01783f0e93a360d03aba6b40ad81e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+        <definition>neosmart_event_t neosmart::CreateEvent</definition>
+        <argsstring>(bool manualReset, bool initialState)</argsstring>
+        <name>CreateEvent</name>
+        <qualifiedname>neosmart::CreateEvent</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>manualReset</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>initialState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="94" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="94" bodyend="112" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="28" declcolumn="22"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1aac09b4a346f6557f251c3d8704922122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::UnlockedWaitForEvent</definition>
+        <argsstring>(neosmart_event_t event, uint64_t milliseconds)</argsstring>
+        <name>UnlockedWaitForEvent</name>
+        <qualifiedname>neosmart::UnlockedWaitForEvent</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="114" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="114" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1ab1955ef1f279aabb00bd5e3cb82d5329" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::WaitForEvent</definition>
+        <argsstring>(neosmart_event_t event, uint64_t milliseconds)</argsstring>
+        <name>WaitForEvent</name>
+        <qualifiedname>neosmart::WaitForEvent</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="160" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="160" bodyend="179" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="30" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1a53424be407eb5773a906a8613c6684fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::WaitForMultipleEvents</definition>
+        <argsstring>(neosmart_event_t *events, int count, bool waitAll, uint64_t milliseconds)</argsstring>
+        <name>WaitForMultipleEvents</name>
+        <qualifiedname>neosmart::WaitForMultipleEvents</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref> *</type>
+          <declname>events</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>waitAll</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="182" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="182" bodyend="186" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="34" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1a80e25f003bfc0d72748437a9e6481691" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::WaitForMultipleEvents</definition>
+        <argsstring>(neosmart_event_t *events, int count, bool waitAll, uint64_t milliseconds, int &amp;waitIndex)</argsstring>
+        <name>WaitForMultipleEvents</name>
+        <qualifiedname>neosmart::WaitForMultipleEvents</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref> *</type>
+          <declname>events</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>waitAll</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>milliseconds</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>waitIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="188" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="188" bodyend="315" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="36" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1aa1e8ab0ed4fb21f074829b8b3e2400d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::DestroyEvent</definition>
+        <argsstring>(neosmart_event_t event)</argsstring>
+        <name>DestroyEvent</name>
+        <qualifiedname>neosmart::DestroyEvent</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="318" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="318" bodyend="341" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="29" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1ab3400cd2c1da03caf78027ca3356a928" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::SetEvent</definition>
+        <argsstring>(neosmart_event_t event)</argsstring>
+        <name>SetEvent</name>
+        <qualifiedname>neosmart::SetEvent</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="343" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="343" bodyend="460" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="31" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="pevents_8cpp_1ad24b9db7c55cf29b6c7f7509feee154e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int neosmart::ResetEvent</definition>
+        <argsstring>(neosmart_event_t event)</argsstring>
+        <name>ResetEvent</name>
+        <qualifiedname>neosmart::ResetEvent</qualifiedname>
+        <param>
+          <type><ref refid="structneosmart_1_1neosmart__event__t__" kindref="compound">neosmart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="462" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="462" bodyend="472" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.h" declline="32" declcolumn="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="20" column="1"/>
+  </compounddef>
+</doxygen>

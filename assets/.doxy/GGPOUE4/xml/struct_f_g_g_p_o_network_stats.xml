@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_g_g_p_o_network_stats" kind="struct" language="C++" prot="public">
+    <compoundname>FGGPONetworkStats</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_stats_1a67b92541f01cc198aedb9f14b45b081c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_g_g_p_o_network_info" kindref="compound">FGGPONetworkInfo</ref></type>
+        <definition>FGGPONetworkInfo FGGPONetworkStats::network</definition>
+        <argsstring></argsstring>
+        <name>network</name>
+        <qualifiedname>FGGPONetworkStats::network</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="89" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_g_g_p_o_network_stats_1aa5c8dfe09f7b031febb8544df61aabd4" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_g_g_p_o_sync_info" kindref="compound">FGGPOSyncInfo</ref></type>
+        <definition>FGGPOSyncInfo FGGPONetworkStats::timesync</definition>
+        <argsstring></argsstring>
+        <name>timesync</name>
+        <qualifiedname>FGGPONetworkStats::timesync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="91" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FGGPONetworkInfo</label>
+        <link refid="struct_f_g_g_p_o_network_info"/>
+      </node>
+      <node id="1">
+        <label>FGGPONetworkStats</label>
+        <link refid="struct_f_g_g_p_o_network_stats"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>network</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>timesync</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FGGPOSyncInfo</label>
+        <link refid="struct_f_g_g_p_o_sync_info"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="84" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="85" bodyend="92"/>
+    <listofallmembers>
+      <member refid="struct_f_g_g_p_o_network_stats_1a67b92541f01cc198aedb9f14b45b081c" prot="public" virt="non-virtual"><scope>FGGPONetworkStats</scope><name>network</name></member>
+      <member refid="struct_f_g_g_p_o_network_stats_1aa5c8dfe09f7b031febb8544df61aabd4" prot="public" virt="non-virtual"><scope>FGGPONetworkStats</scope><name>timesync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

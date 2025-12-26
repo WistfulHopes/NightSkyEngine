@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_msg_1_1connect__status" kind="struct" language="C++" prot="public">
+    <compoundname>UdpMsg::connect_status</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_msg_1_1connect__status_1a3614b375fa0634b1cc8ecface1732be6" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int UdpMsg::connect_status::disconnected</definition>
+        <argsstring></argsstring>
+        <name>disconnected</name>
+        <qualifiedname>UdpMsg::connect_status::disconnected</qualifiedname>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="30" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_msg_1_1connect__status_1ae1ae21115092beb16fff452cd44e04d7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UdpMsg::connect_status::last_frame</definition>
+        <argsstring></argsstring>
+        <name>last_frame</name>
+        <qualifiedname>UdpMsg::connect_status::last_frame</qualifiedname>
+        <bitfield>31</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="31" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" line="29" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp_msg.h" bodystart="29" bodyend="32"/>
+    <listofallmembers>
+      <member refid="struct_udp_msg_1_1connect__status_1a3614b375fa0634b1cc8ecface1732be6" prot="public" virt="non-virtual"><scope>UdpMsg::connect_status</scope><name>disconnected</name></member>
+      <member refid="struct_udp_msg_1_1connect__status_1ae1ae21115092beb16fff452cd44e04d7" prot="public" virt="non-virtual"><scope>UdpMsg::connect_status</scope><name>last_frame</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

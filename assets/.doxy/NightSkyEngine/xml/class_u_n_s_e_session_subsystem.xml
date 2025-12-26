@@ -1,0 +1,774 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_n_s_e_session_subsystem" kind="class" language="C++" prot="public">
+    <compoundname>UNSESessionSubsystem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UGameInstanceSubsystem</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a57de0e56f104c307ad350576228f5290" prot="public" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::LoginDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>LoginDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::LoginDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="52" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1add86ed732df6545a8749f7eee009433b" prot="public" static="no" mutable="no">
+        <type>FNSEOnCreateSessionComplete</type>
+        <definition>FNSEOnCreateSessionComplete UNSESessionSubsystem::OnCreateSessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>OnCreateSessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::OnCreateSessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="59" column="29" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aec1d488ad6befb5e3c4b4054142d27a6" prot="public" static="no" mutable="no">
+        <type>FNSEOnUpdateSessionComplete</type>
+        <definition>FNSEOnUpdateSessionComplete UNSESessionSubsystem::OnUpdateSessionCompleteEvent</definition>
+        <argsstring></argsstring>
+        <name>OnUpdateSessionCompleteEvent</name>
+        <qualifiedname>UNSESessionSubsystem::OnUpdateSessionCompleteEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="63" column="29" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1ab10ccb9e62d3128fbd2a4a116541e18f" prot="public" static="no" mutable="no">
+        <type>FNSEOnStartSessionComplete</type>
+        <definition>FNSEOnStartSessionComplete UNSESessionSubsystem::OnStartSessionCompleteEvent</definition>
+        <argsstring></argsstring>
+        <name>OnStartSessionCompleteEvent</name>
+        <qualifiedname>UNSESessionSubsystem::OnStartSessionCompleteEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="67" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a703a084e9737dbf95478bf990c4da16e" prot="public" static="no" mutable="no">
+        <type>FNSEOnDestroySessionComplete</type>
+        <definition>FNSEOnDestroySessionComplete UNSESessionSubsystem::OnDestroySessionCompleteEvent</definition>
+        <argsstring></argsstring>
+        <name>OnDestroySessionCompleteEvent</name>
+        <qualifiedname>UNSESessionSubsystem::OnDestroySessionCompleteEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="71" column="30" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1af7a3723e797c2798b805a7b50a7a177c" prot="public" static="no" mutable="no">
+        <type>FNSEOnFindSessionsComplete</type>
+        <definition>FNSEOnFindSessionsComplete UNSESessionSubsystem::OnFindSessionsCompleteEvent</definition>
+        <argsstring></argsstring>
+        <name>OnFindSessionsCompleteEvent</name>
+        <qualifiedname>UNSESessionSubsystem::OnFindSessionsCompleteEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="76" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aeca245b69042cb586b095ca7642ff2f2" prot="public" static="no" mutable="no">
+        <type>FNSEOnJoinSessionComplete</type>
+        <definition>FNSEOnJoinSessionComplete UNSESessionSubsystem::OnJoinGameSessionCompleteEvent</definition>
+        <argsstring></argsstring>
+        <name>OnJoinGameSessionCompleteEvent</name>
+        <qualifiedname>UNSESessionSubsystem::OnJoinGameSessionCompleteEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="82" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aee91aed14772514c98dd70ac74ae49be" prot="private" static="no" mutable="no">
+        <type>FOnCreateSessionCompleteDelegate</type>
+        <definition>FOnCreateSessionCompleteDelegate UNSESessionSubsystem::CreateSessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>CreateSessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::CreateSessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="96" column="34" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1ae72c4d43889b5f0db0ad40d346a4bef5" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::CreateSessionCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>CreateSessionCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::CreateSessionCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="97" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1af7dcb8bef499e48c62c847806d148c60" prot="private" static="no" mutable="no">
+        <type>FOnUpdateSessionCompleteDelegate</type>
+        <definition>FOnUpdateSessionCompleteDelegate UNSESessionSubsystem::UpdateSessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>UpdateSessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::UpdateSessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="99" column="34" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a157e50fd1f80f4a74fa89c4fd7e034d0" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::UpdateSessionCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>UpdateSessionCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::UpdateSessionCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="100" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a9307c5e7447ef177a4b44e9c3c6bc2f0" prot="private" static="no" mutable="no">
+        <type>FOnStartSessionCompleteDelegate</type>
+        <definition>FOnStartSessionCompleteDelegate UNSESessionSubsystem::StartSessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>StartSessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::StartSessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="102" column="33" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1af6dbc7b005b699556849223447d637da" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::StartSessionCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>StartSessionCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::StartSessionCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="103" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aec9bb09778dae5c66d714809e1e6029d" prot="private" static="no" mutable="no">
+        <type>FOnDestroySessionCompleteDelegate</type>
+        <definition>FOnDestroySessionCompleteDelegate UNSESessionSubsystem::DestroySessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>DestroySessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::DestroySessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="105" column="35" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a0287ac5fc3677d19740d463567ae1c54" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::DestroySessionCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>DestroySessionCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::DestroySessionCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="106" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aae36d4d8feee84aca3901ef67a93c971" prot="private" static="no" mutable="no">
+        <type>FOnFindSessionsCompleteDelegate</type>
+        <definition>FOnFindSessionsCompleteDelegate UNSESessionSubsystem::FindSessionsCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>FindSessionsCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::FindSessionsCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="108" column="33" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a8a282362ba1ff75f260e929acf947168" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::FindSessionsCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>FindSessionsCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::FindSessionsCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="109" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a4d01be229074318daeb197ee98155a21" prot="private" static="no" mutable="no">
+        <type>TSharedPtr&lt; FOnlineSessionSearch &gt;</type>
+        <definition>TSharedPtr&lt;FOnlineSessionSearch&gt; UNSESessionSubsystem::LastSessionSearch</definition>
+        <argsstring></argsstring>
+        <name>LastSessionSearch</name>
+        <qualifiedname>UNSESessionSubsystem::LastSessionSearch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="110" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a36a2c49ef4c1d862e9ba037bba6673bf" prot="private" static="no" mutable="no">
+        <type>FOnJoinSessionCompleteDelegate</type>
+        <definition>FOnJoinSessionCompleteDelegate UNSESessionSubsystem::JoinSessionCompleteDelegate</definition>
+        <argsstring></argsstring>
+        <name>JoinSessionCompleteDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::JoinSessionCompleteDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="112" column="32" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1ae5a88b2cc3c8a8300c3d349ee3b6b760" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::JoinSessionCompleteDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>JoinSessionCompleteDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::JoinSessionCompleteDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="113" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1aa5afd76fd30f764189b13bd747897954" prot="private" static="no" mutable="no">
+        <type>FOnSessionUserInviteAcceptedDelegate</type>
+        <definition>FOnSessionUserInviteAcceptedDelegate UNSESessionSubsystem::SessionUserInviteAcceptedDelegate</definition>
+        <argsstring></argsstring>
+        <name>SessionUserInviteAcceptedDelegate</name>
+        <qualifiedname>UNSESessionSubsystem::SessionUserInviteAcceptedDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="115" column="38" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1adcd006577216e9140db8a11dca2cd429" prot="private" static="no" mutable="no">
+        <type>FDelegateHandle</type>
+        <definition>FDelegateHandle UNSESessionSubsystem::SessionUserInviteAcceptedDelegateHandle</definition>
+        <argsstring></argsstring>
+        <name>SessionUserInviteAcceptedDelegateHandle</name>
+        <qualifiedname>UNSESessionSubsystem::SessionUserInviteAcceptedDelegateHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="116" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_n_s_e_session_subsystem_1a34b8e9543e8bcfe54847714e524bafb9" prot="private" static="no" mutable="no">
+        <type>TSharedPtr&lt; FOnlineSessionSettings &gt;</type>
+        <definition>TSharedPtr&lt;FOnlineSessionSettings&gt; UNSESessionSubsystem::LastSessionSettings</definition>
+        <argsstring></argsstring>
+        <name>LastSessionSettings</name>
+        <qualifiedname>UNSESessionSubsystem::LastSessionSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="118" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1aed39dffd937d534a66d0c5ec337654a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UNSESessionSubsystem::UNSESessionSubsystem</definition>
+        <argsstring>()</argsstring>
+        <name>UNSESessionSubsystem</name>
+        <qualifiedname>UNSESessionSubsystem::UNSESessionSubsystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="48" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="19" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1abe40107709abd06b7ede26988424e525" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::Login</definition>
+        <argsstring>()</argsstring>
+        <name>Login</name>
+        <qualifiedname>UNSESessionSubsystem::Login</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="51" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="48" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a7e20613074e835d35f15097dddb65527" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UNSESessionSubsystem::IsLoggedIn</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLoggedIn</name>
+        <qualifiedname>UNSESessionSubsystem::IsLoggedIn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="55" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="108" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1afa6073408813313c86be01d3581c9786" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::CreateSession</definition>
+        <argsstring>(int32 NumPublicConnections, bool bIsLANMatch)</argsstring>
+        <name>CreateSession</name>
+        <qualifiedname>UNSESessionSubsystem::CreateSession</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>NumPublicConnections</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsLANMatch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="58" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="123" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a8c2e36f38dbf04e644bd685b2776bc15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::UpdateSession</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateSession</name>
+        <qualifiedname>UNSESessionSubsystem::UpdateSession</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="62" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="158" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1afc05599a55a34cf1eff0e2953289c7dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::StartSession</definition>
+        <argsstring>()</argsstring>
+        <name>StartSession</name>
+        <qualifiedname>UNSESessionSubsystem::StartSession</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="66" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="185" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a82be23c4e17ea0938262fea7f3c3bb2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::DestroySession</definition>
+        <argsstring>()</argsstring>
+        <name>DestroySession</name>
+        <qualifiedname>UNSESessionSubsystem::DestroySession</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="70" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="205" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a3775c22d93392d0e6b04750e051fc1f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::FindSessions</definition>
+        <argsstring>(int32 MaxSearchResults, bool IsLANQuery)</argsstring>
+        <name>FindSessions</name>
+        <qualifiedname>UNSESessionSubsystem::FindSessions</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>MaxSearchResults</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>IsLANQuery</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="74" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="225" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1afac187101199464ba25bd28bd155a86c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::JoinGameSession_BP</definition>
+        <argsstring>(FNSESessionInfo Info)</argsstring>
+        <name>JoinGameSession_BP</name>
+        <qualifiedname>UNSESessionSubsystem::JoinGameSession_BP</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_n_s_e_session_info" kindref="compound">FNSESessionInfo</ref></type>
+          <declname>Info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="79" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="251" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1acbf25b57c8cf4306b6c6188afc1a6bce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::JoinGameSession</definition>
+        <argsstring>(const FOnlineSessionSearchResult &amp;SessionResult)</argsstring>
+        <name>JoinGameSession</name>
+        <qualifiedname>UNSESessionSubsystem::JoinGameSession</qualifiedname>
+        <param>
+          <type>const FOnlineSessionSearchResult &amp;</type>
+          <declname>SessionResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="81" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="256" bodyend="278"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a09feba10636d44caf97cb5d7b38d0357" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnLoginCompleted</definition>
+        <argsstring>(int32 LocalUserNum, bool bWasSuccessful, const FUniqueNetId &amp;UserId, const FString &amp;Error)</argsstring>
+        <name>OnLoginCompleted</name>
+        <qualifiedname>UNSESessionSubsystem::OnLoginCompleted</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>LocalUserNum</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bWasSuccessful</declname>
+        </param>
+        <param>
+          <type>const FUniqueNetId &amp;</type>
+          <declname>UserId</declname>
+        </param>
+        <param>
+          <type>const FString &amp;</type>
+          <declname>Error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="85" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="280" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a5b9eb80a1b265f6ac85d3ee342694ff1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnCreateSessionComplete</definition>
+        <argsstring>(FName SessionName, bool bSuccess)</argsstring>
+        <name>OnCreateSessionComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnCreateSessionComplete</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>SessionName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="86" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="299" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a9c10e347bd00a0f6adf9d94fd10f9071" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnUpdateSessionComplete</definition>
+        <argsstring>(FName SessionName, bool bSuccess)</argsstring>
+        <name>OnUpdateSessionComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnUpdateSessionComplete</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>SessionName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="87" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="309" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a1790cb025886fd72a7220c05f796e0ec" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnStartSessionComplete</definition>
+        <argsstring>(FName SessionName, bool bSuccess)</argsstring>
+        <name>OnStartSessionComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnStartSessionComplete</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>SessionName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="88" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="319" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1ab50bf09aec6c2eeed13d88d414d81e3a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnDestroySessionComplete</definition>
+        <argsstring>(FName SessionName, bool bSuccess)</argsstring>
+        <name>OnDestroySessionComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnDestroySessionComplete</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>SessionName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="89" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="329" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a7749a2f432f752f13e86b9f38a338fae" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnFindSessionsComplete</definition>
+        <argsstring>(bool bSuccess)</argsstring>
+        <name>OnFindSessionsComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnFindSessionsComplete</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="90" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="339" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a40b4e614bcdb0aeb18bd1524499e0d92" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnJoinSessionComplete</definition>
+        <argsstring>(FName SessionName, EOnJoinSessionCompleteResult::Type Result)</argsstring>
+        <name>OnJoinSessionComplete</name>
+        <qualifiedname>UNSESessionSubsystem::OnJoinSessionComplete</qualifiedname>
+        <param>
+          <type>FName</type>
+          <declname>SessionName</declname>
+        </param>
+        <param>
+          <type>EOnJoinSessionCompleteResult::Type</type>
+          <declname>Result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="91" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="364" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1afbe8878f8900f6fdd860ba4bf387b394" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNSESessionSubsystem::OnSessionInviteAccepted</definition>
+        <argsstring>(const bool bSuccess, const int32 ControllerId, FUniqueNetIdPtr UserId, const FOnlineSessionSearchResult &amp;InviteResult)</argsstring>
+        <name>OnSessionInviteAccepted</name>
+        <qualifiedname>UNSESessionSubsystem::OnSessionInviteAccepted</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>bSuccess</declname>
+        </param>
+        <param>
+          <type>const int32</type>
+          <declname>ControllerId</declname>
+        </param>
+        <param>
+          <type>FUniqueNetIdPtr</type>
+          <declname>UserId</declname>
+        </param>
+        <param>
+          <type>const FOnlineSessionSearchResult &amp;</type>
+          <declname>InviteResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="92" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="376" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_n_s_e_session_subsystem_1a17202a14cdaedcbfbaefa721e17abb3b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UNSESessionSubsystem::TryTravelToCurrentSession</definition>
+        <argsstring>()</argsstring>
+        <name>TryTravelToCurrentSession</name>
+        <qualifiedname>UNSESessionSubsystem::TryTravelToCurrentSession</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="93" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.cpp" bodystart="391" bodyend="408"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UGameInstanceSubsystem</label>
+      </node>
+      <node id="1">
+        <label>UNSESessionSubsystem</label>
+        <link refid="class_u_n_s_e_session_subsystem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UGameInstanceSubsystem</label>
+      </node>
+      <node id="1">
+        <label>UNSESessionSubsystem</label>
+        <link refid="class_u_n_s_e_session_subsystem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" line="43" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NSESessionSubsystem.h" bodystart="44" bodyend="119"/>
+    <listofallmembers>
+      <member refid="class_u_n_s_e_session_subsystem_1afa6073408813313c86be01d3581c9786" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>CreateSession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aee91aed14772514c98dd70ac74ae49be" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>CreateSessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1ae72c4d43889b5f0db0ad40d346a4bef5" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>CreateSessionCompleteDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a82be23c4e17ea0938262fea7f3c3bb2c" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>DestroySession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aec9bb09778dae5c66d714809e1e6029d" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>DestroySessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a0287ac5fc3677d19740d463567ae1c54" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>DestroySessionCompleteDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a3775c22d93392d0e6b04750e051fc1f9" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>FindSessions</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aae36d4d8feee84aca3901ef67a93c971" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>FindSessionsCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a8a282362ba1ff75f260e929acf947168" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>FindSessionsCompleteDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a7e20613074e835d35f15097dddb65527" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>IsLoggedIn</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1acbf25b57c8cf4306b6c6188afc1a6bce" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>JoinGameSession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1afac187101199464ba25bd28bd155a86c" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>JoinGameSession_BP</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a36a2c49ef4c1d862e9ba037bba6673bf" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>JoinSessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1ae5a88b2cc3c8a8300c3d349ee3b6b760" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>JoinSessionCompleteDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a4d01be229074318daeb197ee98155a21" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>LastSessionSearch</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a34b8e9543e8bcfe54847714e524bafb9" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>LastSessionSettings</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1abe40107709abd06b7ede26988424e525" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>Login</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a57de0e56f104c307ad350576228f5290" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>LoginDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a5b9eb80a1b265f6ac85d3ee342694ff1" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnCreateSessionComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1add86ed732df6545a8749f7eee009433b" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnCreateSessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1ab50bf09aec6c2eeed13d88d414d81e3a" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnDestroySessionComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a703a084e9737dbf95478bf990c4da16e" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnDestroySessionCompleteEvent</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a7749a2f432f752f13e86b9f38a338fae" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnFindSessionsComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1af7a3723e797c2798b805a7b50a7a177c" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnFindSessionsCompleteEvent</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aeca245b69042cb586b095ca7642ff2f2" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnJoinGameSessionCompleteEvent</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a40b4e614bcdb0aeb18bd1524499e0d92" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnJoinSessionComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a09feba10636d44caf97cb5d7b38d0357" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnLoginCompleted</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1afbe8878f8900f6fdd860ba4bf387b394" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnSessionInviteAccepted</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a1790cb025886fd72a7220c05f796e0ec" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnStartSessionComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1ab10ccb9e62d3128fbd2a4a116541e18f" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnStartSessionCompleteEvent</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a9c10e347bd00a0f6adf9d94fd10f9071" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnUpdateSessionComplete</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aec1d488ad6befb5e3c4b4054142d27a6" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>OnUpdateSessionCompleteEvent</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aa5afd76fd30f764189b13bd747897954" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>SessionUserInviteAcceptedDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1adcd006577216e9140db8a11dca2cd429" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>SessionUserInviteAcceptedDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1afc05599a55a34cf1eff0e2953289c7dc" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>StartSession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a9307c5e7447ef177a4b44e9c3c6bc2f0" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>StartSessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1af6dbc7b005b699556849223447d637da" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>StartSessionCompleteDelegateHandle</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a17202a14cdaedcbfbaefa721e17abb3b" prot="protected" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>TryTravelToCurrentSession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1aed39dffd937d534a66d0c5ec337654a2" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>UNSESessionSubsystem</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a8c2e36f38dbf04e644bd685b2776bc15" prot="public" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>UpdateSession</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1af7dcb8bef499e48c62c847806d148c60" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>UpdateSessionCompleteDelegate</name></member>
+      <member refid="class_u_n_s_e_session_subsystem_1a157e50fd1f80f4a74fa89c4fd7e034d0" prot="private" virt="non-virtual"><scope>UNSESessionSubsystem</scope><name>UpdateSessionCompleteDelegateHandle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

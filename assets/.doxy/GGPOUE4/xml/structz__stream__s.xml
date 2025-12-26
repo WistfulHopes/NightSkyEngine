@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="structz__stream__s" kind="struct" language="C++" prot="public">
+    <compoundname>z_stream_s</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structz__stream__s_1a21d2c026f0f2fcd67f33011231f8ed00" prot="public" static="no" mutable="no">
+        <type>Bytef *</type>
+        <definition>Bytef* z_stream_s::next_in</definition>
+        <argsstring></argsstring>
+        <name>next_in</name>
+        <qualifiedname>z_stream_s::next_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="69" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a0cf177f50dbb49692f27480cbcfde794" prot="public" static="no" mutable="no">
+        <type>uInt</type>
+        <definition>uInt z_stream_s::avail_in</definition>
+        <argsstring></argsstring>
+        <name>avail_in</name>
+        <qualifiedname>z_stream_s::avail_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="70" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1aa8f408b9632737dc21519fa1ed34b08d" prot="public" static="no" mutable="no">
+        <type>uLong</type>
+        <definition>uLong z_stream_s::total_in</definition>
+        <argsstring></argsstring>
+        <name>total_in</name>
+        <qualifiedname>z_stream_s::total_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="71" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1aed4a02cfe93e975314fed50b04427bf3" prot="public" static="no" mutable="no">
+        <type>Bytef *</type>
+        <definition>Bytef* z_stream_s::next_out</definition>
+        <argsstring></argsstring>
+        <name>next_out</name>
+        <qualifiedname>z_stream_s::next_out</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="73" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a45ad2364307af9d944fd39d4eca3ca3c" prot="public" static="no" mutable="no">
+        <type>uInt</type>
+        <definition>uInt z_stream_s::avail_out</definition>
+        <argsstring></argsstring>
+        <name>avail_out</name>
+        <qualifiedname>z_stream_s::avail_out</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="74" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1abae26f1f236cf920250b9d37fdf009c1" prot="public" static="no" mutable="no">
+        <type>uLong</type>
+        <definition>uLong z_stream_s::total_out</definition>
+        <argsstring></argsstring>
+        <name>total_out</name>
+        <qualifiedname>z_stream_s::total_out</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="75" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a9b2f745fc780e3b33e2935f8c650a326" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* z_stream_s::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <qualifiedname>z_stream_s::msg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="77" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1ac4a114217a1868dc6fbe7d1f5bda126b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structinternal__state" kindref="compound">internal_state</ref> FAR *</type>
+        <definition>struct internal_state FAR* z_stream_s::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>z_stream_s::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="78" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a23a2299c384f808e76e9908f21216b0f" prot="public" static="no" mutable="no">
+        <type>alloc_func</type>
+        <definition>alloc_func z_stream_s::zalloc</definition>
+        <argsstring></argsstring>
+        <name>zalloc</name>
+        <qualifiedname>z_stream_s::zalloc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="80" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a89eb750ade7f4f0b56bfdadf13344982" prot="public" static="no" mutable="no">
+        <type>free_func</type>
+        <definition>free_func z_stream_s::zfree</definition>
+        <argsstring></argsstring>
+        <name>zfree</name>
+        <qualifiedname>z_stream_s::zfree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="81" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1ab72467f908d2ce65d5b42ee6556ef8bb" prot="public" static="no" mutable="no">
+        <type>voidpf</type>
+        <definition>voidpf z_stream_s::opaque</definition>
+        <argsstring></argsstring>
+        <name>opaque</name>
+        <qualifiedname>z_stream_s::opaque</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="82" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1a9d8f63877d7639a8bca60f9fc3704fc4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int z_stream_s::data_type</definition>
+        <argsstring></argsstring>
+        <name>data_type</name>
+        <qualifiedname>z_stream_s::data_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="84" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1ade2217fe31e671be1257731883201223" prot="public" static="no" mutable="no">
+        <type>uLong</type>
+        <definition>uLong z_stream_s::adler</definition>
+        <argsstring></argsstring>
+        <name>adler</name>
+        <qualifiedname>z_stream_s::adler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="85" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structz__stream__s_1add73791dd19b49c9c68f3f3d328c37db" prot="public" static="no" mutable="no">
+        <type>uLong</type>
+        <definition>uLong z_stream_s::reserved</definition>
+        <argsstring></argsstring>
+        <name>reserved</name>
+        <qualifiedname>z_stream_s::reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="86" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>internal_state</label>
+        <link refid="structinternal__state"/>
+      </node>
+      <node id="1">
+        <label>z_stream_s</label>
+        <link refid="structz__stream__s"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>state</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="68" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="68" bodyend="87"/>
+    <listofallmembers>
+      <member refid="structz__stream__s_1ade2217fe31e671be1257731883201223" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>adler</name></member>
+      <member refid="structz__stream__s_1a0cf177f50dbb49692f27480cbcfde794" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>avail_in</name></member>
+      <member refid="structz__stream__s_1a45ad2364307af9d944fd39d4eca3ca3c" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>avail_out</name></member>
+      <member refid="structz__stream__s_1a9d8f63877d7639a8bca60f9fc3704fc4" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>data_type</name></member>
+      <member refid="structz__stream__s_1a9b2f745fc780e3b33e2935f8c650a326" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>msg</name></member>
+      <member refid="structz__stream__s_1a21d2c026f0f2fcd67f33011231f8ed00" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>next_in</name></member>
+      <member refid="structz__stream__s_1aed4a02cfe93e975314fed50b04427bf3" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>next_out</name></member>
+      <member refid="structz__stream__s_1ab72467f908d2ce65d5b42ee6556ef8bb" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>opaque</name></member>
+      <member refid="structz__stream__s_1add73791dd19b49c9c68f3f3d328c37db" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>reserved</name></member>
+      <member refid="structz__stream__s_1ac4a114217a1868dc6fbe7d1f5bda126b" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>state</name></member>
+      <member refid="structz__stream__s_1aa8f408b9632737dc21519fa1ed34b08d" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>total_in</name></member>
+      <member refid="structz__stream__s_1abae26f1f236cf920250b9d37fdf009c1" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>total_out</name></member>
+      <member refid="structz__stream__s_1a23a2299c384f808e76e9908f21216b0f" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>zalloc</name></member>
+      <member refid="structz__stream__s_1a89eb750ade7f4f0b56bfdadf13344982" prot="public" virt="non-virtual"><scope>z_stream_s</scope><name>zfree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

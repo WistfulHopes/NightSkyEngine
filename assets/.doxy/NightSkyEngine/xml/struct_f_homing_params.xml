@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_homing_params" kind="struct" language="C++" prot="public">
+    <compoundname>FHomingParams</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_homing_params_1a1b8af1f58262eb71c0dfc6f6fc60b7de" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EHomingType &gt;</type>
+        <definition>TEnumAsByte&lt;EHomingType&gt; FHomingParams::Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>FHomingParams::Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="557" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="557" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1ac1f6b228bd3fa97b267a5b131fd29d76" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EObjType &gt;</type>
+        <definition>TEnumAsByte&lt;EObjType&gt; FHomingParams::Target</definition>
+        <argsstring></argsstring>
+        <name>Target</name>
+        <qualifiedname>FHomingParams::Target</qualifiedname>
+        <initializer>= OBJ_Null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="559" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="559" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1a017c2dab8ef600dae6d6bca5cac34ee1" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EPosType &gt;</type>
+        <definition>TEnumAsByte&lt;EPosType&gt; FHomingParams::Pos</definition>
+        <argsstring></argsstring>
+        <name>Pos</name>
+        <qualifiedname>FHomingParams::Pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="561" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="561" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1a1655960098e78c308a72a7077088f7f2" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHomingParams::OffsetX</definition>
+        <argsstring></argsstring>
+        <name>OffsetX</name>
+        <qualifiedname>FHomingParams::OffsetX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="563" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="563" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1a59af4ce5473c377cf17be2e03e07ad1b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHomingParams::OffsetY</definition>
+        <argsstring></argsstring>
+        <name>OffsetY</name>
+        <qualifiedname>FHomingParams::OffsetY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="565" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="565" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1ab64dc69c308d0505518f168d0e78bf51" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHomingParams::ParamA</definition>
+        <argsstring></argsstring>
+        <name>ParamA</name>
+        <qualifiedname>FHomingParams::ParamA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="567" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="567" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_homing_params_1ae3659144a2e8e3adb95490256a1f625a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FHomingParams::ParamB</definition>
+        <argsstring></argsstring>
+        <name>ParamB</name>
+        <qualifiedname>FHomingParams::ParamB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="569" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="569" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="552" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="553" bodyend="570"/>
+    <listofallmembers>
+      <member refid="struct_f_homing_params_1a1655960098e78c308a72a7077088f7f2" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>OffsetX</name></member>
+      <member refid="struct_f_homing_params_1a59af4ce5473c377cf17be2e03e07ad1b" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>OffsetY</name></member>
+      <member refid="struct_f_homing_params_1ab64dc69c308d0505518f168d0e78bf51" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>ParamA</name></member>
+      <member refid="struct_f_homing_params_1ae3659144a2e8e3adb95490256a1f625a" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>ParamB</name></member>
+      <member refid="struct_f_homing_params_1a017c2dab8ef600dae6d6bca5cac34ee1" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>Pos</name></member>
+      <member refid="struct_f_homing_params_1ac1f6b228bd3fa97b267a5b131fd29d76" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>Target</name></member>
+      <member refid="struct_f_homing_params_1a1b8af1f58262eb71c0dfc6f6fc60b7de" prot="public" virt="non-virtual"><scope>FHomingParams</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

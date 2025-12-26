@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_subroutine_data_8cpp" kind="file" language="C++">
+    <compoundname>SubroutineData.cpp</compoundname>
+    <includes refid="_subroutine_data_8h" local="yes">SubroutineData.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>NightSkyEngine/Battle/Script/Subroutine.h</label>
+        <link refid="_subroutine_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp</label>
+        <link refid="_subroutine_data_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SubroutineData.h</label>
+        <link refid="_subroutine_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="5">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="7">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="4">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="10">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="11">
+        <label>Subroutine.generated.h</label>
+      </node>
+      <node id="12">
+        <label>SubroutineData.generated.h</label>
+      </node>
+      <node id="9">
+        <label>UObject/Object.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_subroutine_data_8cpp_1afba01f458b07be49a089863142141922" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_MatchInit, &quot;Subroutine.Cmn.MatchInit&quot;, &quot;Subroutine Common Match Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_MatchInit</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.MatchInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common Match Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="5" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="5" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1ad81c855a42de43033eb957dff87b339c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_MatchInit, &quot;Subroutine.MatchInit&quot;, &quot;Subroutine Match Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_MatchInit</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.MatchInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Match Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="6" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="6" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a905413fc5689e372200db51b6a7ccdf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_RoundInit, &quot;Subroutine.Cmn.RoundInit&quot;, &quot;Subroutine Common Round Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_RoundInit</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.RoundInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common Round Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="7" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="7" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a6302ecdc022543726f47020df21e4dfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_RoundInit, &quot;Subroutine.RoundInit&quot;, &quot;Subroutine Round Init&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_RoundInit</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.RoundInit&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Round Init&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="8" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="8" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1ac444a80b1690096dad17024c23cea500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_OnUpdate, &quot;Subroutine.Cmn.OnUpdate&quot;, &quot;Subroutine Common On Update&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_OnUpdate</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.OnUpdate&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common On Update&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="9" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="9" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a374b1282de309e4d3f17c8c1e0a3d72c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_OnUpdate, &quot;Subroutine.OnUpdate&quot;, &quot;Subroutine On Update&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_OnUpdate</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.OnUpdate&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine On Update&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="10" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="10" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1ab4cf10330b89b981bec360d823e04efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_OnStateChange, &quot;Subroutine.Cmn.OnStateChange&quot;, &quot;Subroutine Common On State Change&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_OnStateChange</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.OnStateChange&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common On State Change&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1aa50e2fe2c4159a497cdcf9ebe95f00c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_OnStateChange, &quot;Subroutine.OnStateChange&quot;, &quot;Subroutine On State Change&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_OnStateChange</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.OnStateChange&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine On State Change&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a70603cf198d5408dfd419a13c7013863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_PostStateChange, &quot;Subroutine.Cmn.PostStateChange&quot;, &quot;Subroutine Common Post State Change&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_PostStateChange</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.PostStateChange&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common Post State Change&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a9015ae8e60e4144ca97e66f702153679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_PostStateChange, &quot;Subroutine.PostStateChange&quot;, &quot;Subroutine Post State Change&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_PostStateChange</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.PostStateChange&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Post State Change&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a611b6e495047f6a9167216c3e829879f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_OnComboEnd, &quot;Subroutine.Cmn.OnComboEnd&quot;, &quot;Subroutine Common On Combo End&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_OnComboEnd</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.OnComboEnd&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common On Combo End&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a004e040b807073707dda66616da87eaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_OnComboEnd, &quot;Subroutine.OnComboEnd&quot;, &quot;Subroutine On Combo End&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_OnComboEnd</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.OnComboEnd&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine On Combo End&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1aaf9587e0d252149b626404eb2e267985" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_AnyCancel_Air, &quot;Subroutine.Cmn.AnyCancel.Air&quot;, &quot;Subroutine Common Any Cancel (Air)&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_AnyCancel_Air</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.AnyCancel.Air&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common Any Cancel (Air)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1adf00fcfa6df948e50123a6b72babb5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_Cmn_OnLanding, &quot;Subroutine.Cmn.OnLanding&quot;, &quot;Subroutine Common On Landing&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_Cmn_OnLanding</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.Cmn.OnLanding&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Common On Landing&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1ad84fe9c9a020c9592d1e8819d3adb73e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_OnLanding, &quot;Subroutine.OnLanding&quot;, &quot;Subroutine On Landing&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_OnLanding</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.OnLanding&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine On Landing&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a269aae835945bc6af6a28b746b62c191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_ThrowParam_Ground, &quot;Subroutine.ThrowParam.Ground&quot;, &quot;Subroutine Throw Param (Ground)&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_ThrowParam_Ground</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.ThrowParam.Ground&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Throw Param (Ground)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="20" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="20" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_subroutine_data_8cpp_1a61e6d18c6e14f781a3075df795a2395f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(Subroutine_ThrowParam_Air, &quot;Subroutine.ThrowParam.Air&quot;, &quot;Subroutine Throw Param (Air)&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>Subroutine_ThrowParam_Air</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine.ThrowParam.Air&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Subroutine Throw Param (Air)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" line="21" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp" declline="21" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;SubroutineData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>UE_INLINE_GENERATED_CPP_BY_NAME(SubroutineData)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_MatchInit,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.MatchInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>Match<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_MatchInit,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.MatchInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Match<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_RoundInit,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.RoundInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>Round<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_RoundInit,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.RoundInit&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Round<sp/>Init&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnUpdate,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.OnUpdate&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>On<sp/>Update&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnUpdate,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.OnUpdate&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>On<sp/>Update&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnStateChange,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.OnStateChange&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>On<sp/>State<sp/>Change&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnStateChange,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.OnStateChange&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>On<sp/>State<sp/>Change&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_PostStateChange,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.PostStateChange&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>Post<sp/>State<sp/>Change&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_PostStateChange,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.PostStateChange&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Post<sp/>State<sp/>Change&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnComboEnd,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.OnComboEnd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>On<sp/>Combo<sp/>End&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnComboEnd,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.OnComboEnd&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>On<sp/>Combo<sp/>End&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_AnyCancel_Air,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.AnyCancel.Air&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>Any<sp/>Cancel<sp/>(Air)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnLanding,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.Cmn.OnLanding&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Common<sp/>On<sp/>Landing&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnLanding,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.OnLanding&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>On<sp/>Landing&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_ThrowParam_Ground,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.ThrowParam.Ground&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Throw<sp/>Param<sp/>(Ground)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_ThrowParam_Air,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine.ThrowParam.Air&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Subroutine<sp/>Throw<sp/>Param<sp/>(Air)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.cpp"/>
+  </compounddef>
+</doxygen>

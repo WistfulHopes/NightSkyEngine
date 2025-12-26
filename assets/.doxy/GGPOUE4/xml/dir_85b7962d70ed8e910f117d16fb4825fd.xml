@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_85b7962d70ed8e910f117d16fb4825fd" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public</compoundname>
+    <innerdir refid="dir_a7503a859c0cbfef62dfa39920604457">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include</innerdir>
+    <innerfile refid="_g_g_p_o_game_instance_8h">GGPOGameInstance.h</innerfile>
+    <innerfile refid="_g_g_p_o_u_e4_8h">GGPOUE4.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/"/>
+  </compounddef>
+</doxygen>

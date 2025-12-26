@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_g_g_p_o_sync_info" kind="struct" language="C++" prot="public">
+    <compoundname>FGGPOSyncInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_g_g_p_o_sync_info_1ad7587afe00df009ed50a440ef55819dc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPOSyncInfo::local_frames_behind</definition>
+        <argsstring></argsstring>
+        <name>local_frames_behind</name>
+        <qualifiedname>FGGPOSyncInfo::local_frames_behind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="78" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_g_g_p_o_sync_info_1ab51d5e8bf3a64a738c3cffbc9d395773" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGGPOSyncInfo::remote_frames_behind</definition>
+        <argsstring></argsstring>
+        <name>remote_frames_behind</name>
+        <qualifiedname>FGGPOSyncInfo::remote_frames_behind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="80" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="73" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="74" bodyend="81"/>
+    <listofallmembers>
+      <member refid="struct_f_g_g_p_o_sync_info_1ad7587afe00df009ed50a440ef55819dc" prot="public" virt="non-virtual"><scope>FGGPOSyncInfo</scope><name>local_frames_behind</name></member>
+      <member refid="struct_f_g_g_p_o_sync_info_1ab51d5e8bf3a64a738c3cffbc9d395773" prot="public" virt="non-virtual"><scope>FGGPOSyncInfo</scope><name>remote_frames_behind</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

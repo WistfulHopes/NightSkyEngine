@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="structneosmart_1_1neosmart__event__t__" kind="struct" language="C++" prot="public">
+    <compoundname>neosmart::neosmart_event_t_</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__event__t___1a6f6faf9d30fda8b3c50c464aab9cf13e" prot="public" static="no" mutable="no">
+        <type>pthread_cond_t</type>
+        <definition>pthread_cond_t neosmart::neosmart_event_t_::CVariable</definition>
+        <argsstring></argsstring>
+        <name>CVariable</name>
+        <qualifiedname>neosmart::neosmart_event_t_::CVariable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="54" column="24" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__event__t___1a896c85d4171b6c01871787e0aa01e470" prot="public" static="no" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t neosmart::neosmart_event_t_::Mutex</definition>
+        <argsstring></argsstring>
+        <name>Mutex</name>
+        <qualifiedname>neosmart::neosmart_event_t_::Mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="55" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__event__t___1a6ba38a51cb70ee3621a3672df454e9b5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool neosmart::neosmart_event_t_::AutoReset</definition>
+        <argsstring></argsstring>
+        <name>AutoReset</name>
+        <qualifiedname>neosmart::neosmart_event_t_::AutoReset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="56" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__event__t___1aa12848eb92b875733ad3315fce730cb0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool neosmart::neosmart_event_t_::State</definition>
+        <argsstring></argsstring>
+        <name>State</name>
+        <qualifiedname>neosmart::neosmart_event_t_::State</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="57" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__event__t___1a1819863d5f028e8eeb0b1da38591ae40" prot="public" static="no" mutable="no">
+        <type>std::deque&lt; <ref refid="structneosmart_1_1neosmart__wfmo__info__t__" kindref="compound">neosmart_wfmo_info_t_</ref> &gt;</type>
+        <definition>std::deque&lt;neosmart_wfmo_info_t_&gt; neosmart::neosmart_event_t_::RegisteredWaits</definition>
+        <argsstring></argsstring>
+        <name>RegisteredWaits</name>
+        <qualifiedname>neosmart::neosmart_event_t_::RegisteredWaits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="59" column="20" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="53" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="53" bodyend="61"/>
+    <listofallmembers>
+      <member refid="structneosmart_1_1neosmart__event__t___1a6ba38a51cb70ee3621a3672df454e9b5" prot="public" virt="non-virtual"><scope>neosmart::neosmart_event_t_</scope><name>AutoReset</name></member>
+      <member refid="structneosmart_1_1neosmart__event__t___1a6f6faf9d30fda8b3c50c464aab9cf13e" prot="public" virt="non-virtual"><scope>neosmart::neosmart_event_t_</scope><name>CVariable</name></member>
+      <member refid="structneosmart_1_1neosmart__event__t___1a896c85d4171b6c01871787e0aa01e470" prot="public" virt="non-virtual"><scope>neosmart::neosmart_event_t_</scope><name>Mutex</name></member>
+      <member refid="structneosmart_1_1neosmart__event__t___1a1819863d5f028e8eeb0b1da38591ae40" prot="public" virt="non-virtual"><scope>neosmart::neosmart_event_t_</scope><name>RegisteredWaits</name></member>
+      <member refid="structneosmart_1_1neosmart__event__t___1aa12848eb92b875733ad3315fce730cb0" prot="public" virt="non-virtual"><scope>neosmart::neosmart_event_t_</scope><name>State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

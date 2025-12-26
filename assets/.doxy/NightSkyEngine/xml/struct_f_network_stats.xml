@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_network_stats" kind="struct" language="C++" prot="public">
+    <compoundname>FNetworkStats</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_network_stats_1a5dbd7a90d5c139b75481da0c205f708f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FNetworkStats::Ping</definition>
+        <argsstring></argsstring>
+        <name>Ping</name>
+        <qualifiedname>FNetworkStats::Ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="281" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_network_stats_1a4f2e7a760eac482034fbf50506775415" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FNetworkStats::RollbackFrames</definition>
+        <argsstring></argsstring>
+        <name>RollbackFrames</name>
+        <qualifiedname>FNetworkStats::RollbackFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="283" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="276" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="277" bodyend="284"/>
+    <listofallmembers>
+      <member refid="struct_f_network_stats_1a5dbd7a90d5c139b75481da0c205f708f" prot="public" virt="non-virtual"><scope>FNetworkStats</scope><name>Ping</name></member>
+      <member refid="struct_f_network_stats_1a4f2e7a760eac482034fbf50506775415" prot="public" virt="non-virtual"><scope>FNetworkStats</scope><name>RollbackFrames</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1608 @@
+
+
+# File BattleObject.h
+
+[**File List**](files.md) **>** [**Battle**](dir_59b3558fc0091a3111c9e7dd8d94b2ea.md) **>** [**Objects**](dir_e62046f165ace41a1907d5ab434ac45b.md) **>** [**BattleObject.h**](_battle_object_8h.md)
+
+[Go to the documentation of this file](_battle_object_8h.md)
+
+
+```C++
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include <fstream>
+
+#include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
+#include "GameFramework/Pawn.h"
+#include "NightSkyEngine/Battle/Misc/CollisionBox.h"
+#include "NightSkyEngine/Data/CollisionData.h"
+#include "BattleObject.generated.h"
+
+class ALinkActor;
+class UNightSkyAnimSequenceUserData;
+class ANightSkyCharaSelectGameState;
+class UPaperFlipbookComponent;
+class UNiagaraComponent;
+class ANightSkyGameState;
+class UState;
+class APlayerObject;
+
+constexpr int32 MaxDrawPriority = 4;
+
+// Event handler data.
+
+/*
+ * Event type. When a function is registered with an event handler, 
+ * it will trigger at the event type specified.
+ */
+
+UENUM(BlueprintType)
+enum EEventType
+{
+    EVT_Update UMETA(DisplayName="Update"),
+    EVT_Exit UMETA(DisplayName="Exit"),
+    EVT_Landing UMETA(DisplayName="Landing"),
+    EVT_Hit UMETA(DisplayName="Hit"),
+    EVT_Block UMETA(DisplayName="Block"),
+    EVT_HitOrBlock UMETA(DisplayName="Hit or Block"),
+    EVT_CounterHit UMETA(DisplayName="Counter Hit"),
+    EVT_Kill UMETA(DisplayName="Kill"),
+    EVT_ReceiveHit UMETA(DisplayName="Receive Hit"),
+    EVT_SuperFreeze UMETA(DisplayName="Super Freeze"),
+    EVT_SuperFreezeEnd UMETA(DisplayName="Super Freeze End"),
+    EVT_Timer0 UMETA(DisplayName="Timer #0"),
+    EVT_Timer1 UMETA(DisplayName="Timer #1"),
+    EVT_HitMainPlayer UMETA(DisplayName="Hit (Main Player)"),
+    EVT_BlockMainPlayer UMETA(DisplayName="Block (Main Player)"),
+    EVT_HitOrBlockMainPlayer UMETA(DisplayName="Hit or Block (Main Player)"),
+    EVT_CounterHitMainPlayer UMETA(DisplayName="Counter Hit (Main Player)"),
+    EVT_KillMainPlayer UMETA(DisplayName="Kill (Main Player)"),
+    EVT_ReceiveHitMainPlayer UMETA(DisplayName="Receive Hit (Main Player)"),
+    EVT_NUM UMETA(Hidden)
+};
+
+USTRUCT()
+struct FEventHandler
+{
+    GENERATED_BODY()
+
+    FName FunctionName;
+    FGameplayTag SubroutineName;
+};
+
+// Hit related data.
+
+// How the opponent must block the attack.
+UENUM()
+enum EBlockType
+{
+    BLK_Mid UMETA(DisplayName="Mid"),
+    BLK_High UMETA(DisplayName="High"),
+    BLK_Low UMETA(DisplayName="Low"),
+    BLK_None UMETA(DisplayName="Unblockable"),
+};
+
+// Hit sound effect type.
+UENUM()
+enum class EHitSFXType : uint8
+{
+    SFX_Punch UMETA(DisplayName="Punch"),
+    SFX_Kick UMETA(DisplayName="Kick"),
+    SFX_Slash UMETA(DisplayName="Slash"),
+};
+
+// Hit visual effect type.
+UENUM()
+enum class EHitVFXType : uint8
+{
+    VFX_Strike UMETA(DisplayName="Strike"),
+    VFX_Slash UMETA(DisplayName="Slash"),
+    VFX_Special UMETA(DisplayName="Special"),
+};
+
+/*
+ * Common data for attacks.
+ * These values will be used for blocking, normal hit, and counter hit.
+ * Values that are set to INT_MAX will be replaced by a default value depending on attack level.
+ */
+
+USTRUCT(BlueprintType)
+struct FHitDataCommon
+{
+    GENERATED_BODY()
+
+    /*
+     * This controls default values for hit data.
+     * The minimum attack level is 0, and the maximum is 5.
+     */
+    UPROPERTY(BlueprintReadWrite, meta=(ClampMin=0, ClampMax=5))
+    int32 AttackLevel = 0;
+    // How the opponent must block the attack.
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EBlockType> BlockType = BLK_Mid;
+    // Hitstop modifier for self on block, relative to normal hit's hitstop.
+    UPROPERTY(BlueprintReadWrite)
+    int32 BlockstopModifier = INT_MAX;
+    // Hitstop modifier for opponent on block, relative to normal hit's hitstop.
+    UPROPERTY(BlueprintReadWrite)
+    int32 EnemyBlockstopModifier = 0;
+    // How long the opponent will be stunned while blocking.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Blockstun = INT_MAX;
+    // The percent of normal hit damage the opponent will take when blocking this attack.
+    UPROPERTY(BlueprintReadWrite)
+    int32 ChipDamagePercent = 0;
+    /*
+     * Ground pushback for blocking.
+     * If the opponent is in the corner, this will instead apply to self,
+     * even if you are airborne.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundGuardPushbackX = INT_MAX;
+    // Air x pushback for blocking.
+    UPROPERTY(BlueprintReadWrite)
+    int32 AirGuardPushbackX = INT_MAX;
+    // Air y pushback for blocking.
+    UPROPERTY(BlueprintReadWrite)
+    int32 AirGuardPushbackY = INT_MAX;
+    // Gravity for blocking.
+    UPROPERTY(BlueprintReadWrite)
+    int32 GuardGravity = INT_MAX;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ProximityBlockDistanceX = 240000;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ProximityBlockDistanceY = 160000;
+    // The angle at which hit effects will spawn.
+    UPROPERTY(BlueprintReadWrite)
+    int32 HitAngle = 0;
+    // Sound effect type.
+    UPROPERTY(BlueprintReadWrite)
+    EHitSFXType SFXType = EHitSFXType::SFX_Punch;
+    // Visual effect type.
+    UPROPERTY(BlueprintReadWrite)
+    EHitVFXType VFXType = EHitVFXType::VFX_Strike;
+    UPROPERTY(BlueprintReadWrite)
+    FGameplayTag GuardSFXOverride;
+    UPROPERTY(BlueprintReadWrite)
+    FGameplayTag GuardVFXOverride;
+    UPROPERTY(BlueprintReadWrite)
+    FGameplayTag HitSFXOverride;
+    UPROPERTY(BlueprintReadWrite)
+    FGameplayTag HitVFXOverride;
+    UPROPERTY(BlueprintReadWrite)
+    bool DeathCamOverride = false;
+
+    // Guard sound effect name.
+    FGameplayTag GuardSFX;
+    // Guard visual effect name.
+    FGameplayTag GuardVFX;
+    // Hit sound effect name.
+    FGameplayTag HitSFX;
+    // Hit visual effect name.
+    FGameplayTag HitVFX;
+    
+    // Hit color data.
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor = FLinearColor(1.0, 1.0, 1.0);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor2 = FLinearColor(1.0, 1.0, 1.0);
+};
+
+/*
+ * List of hit actions.
+ * Depending on the hit action, animations and behavior will change.
+ */
+
+UENUM()
+enum EHitAction
+{
+    HACT_None UMETA(DisplayName="None"),
+    HACT_GroundNormal UMETA(DisplayName="Ground Normal"),
+    HACT_AirNormal UMETA(DisplayName="Air Normal"),
+    HACT_Stagger UMETA(DisplayName="Stagger"),
+    HACT_Crumple UMETA(DisplayName="Crumple"),
+    HACT_ForceCrouch UMETA(DisplayName="Force Crouch"),
+    HACT_ForceStand UMETA(DisplayName="Force Stand"),
+    HACT_AirFaceUp UMETA(DisplayName="Air Face Up"),
+    HACT_AirVertical UMETA(DisplayName="Air Vertical"),
+    HACT_AirFaceDown UMETA(DisplayName="Air Face Down"),
+    HACT_Blowback UMETA(DisplayName="Blowback"),
+    HACT_Tailspin UMETA(DisplayName="Tailspin"),
+    HACT_GuardBreak UMETA(DisplayName="Guard Break"),
+    HACT_GuardBreakStand UMETA(DisplayName="Guard Break Stand"),
+    HACT_GuardBreakCrouch UMETA(DisplayName="Guard Break Crouch"),
+    HACT_GuardBreakAir UMETA(DisplayName="Guard Break Air"),
+    HACT_FloatingCrumple UMETA(DisplayName="Floating Crumple"),
+    HACT_Custom UMETA(DisplayName="Custom"),
+};
+
+// Used with the Floating Crumple hit action.
+UENUM(BlueprintType)
+enum EFloatingCrumpleType
+{
+    FLT_None UMETA(DisplayName="None"),
+    FLT_Body UMETA(DisplayName="Body"),
+    FLT_Head UMETA(DisplayName="Head"),
+};
+
+// Determines how the opponent's position immediately after hit will be calculated.
+UENUM(BlueprintType)
+enum EHitPositionType
+{
+    HPT_Non UMETA(DisplayName="None"),
+    HPT_Rel,
+    HPT_Abs,
+    HPT_Add UMETA(DisplayName="Add"),
+    HPT_RelNextFrame,
+    HPT_AbsNextFrame,
+    HPT_AddNextFrame UMETA(DisplayName="Add Next Frame"),
+};
+
+/*
+ * Data for wall bounce.
+ * Values that are set to INT_MAX will be replaced by a default value.
+ */
+USTRUCT(BlueprintType)
+struct FWallBounceData
+{
+    GENERATED_BODY()
+
+    // How many times the opponent will wall bounce.
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceCount = -1;
+    // If this value is not INT_MAX, it will override the current untech duration.
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceUntech = INT_MAX;
+    // The hitstop upon wall bounce.
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceStop = INT_MAX;
+    /*
+     * Wall bounce x speed.
+     * If this value is INT_MAX, it will be set to the current x speed.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceXSpeed = INT_MAX;
+    /*
+     * The percent of wall bounce x speed.
+     * If this value is INT_MAX, it will be set to 33%.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceXRate = INT_MAX;
+    /*
+     * Wall bounce y speed.
+     * If this value is INT_MAX, it will be set to the received y pushback.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceYSpeed = INT_MAX;
+    /*
+     * The percent of wall bounce y speed.
+     * If this value is INT_MAX, it will be set to 100%.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceYRate = INT_MAX;
+    /*
+     * Wall bounce gravity.
+     * If this value is INT_MAX, it will be set to the received hit gravity.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 WallBounceGravity = INT_MAX;
+    // Determines if wall bounce can happen anywhere, or only in stage corner.
+    UPROPERTY(BlueprintReadWrite)
+    bool WallBounceInCornerOnly = false;
+};
+
+/*
+ * Data for ground bounce.
+ * Values that are set to INT_MAX will be replaced by a default value.
+ */
+USTRUCT(BlueprintType)
+struct FGroundBounceData
+{
+    GENERATED_BODY()
+
+    // How many times the opponent will ground bounce.
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceCount = -1;
+    // If this value is not INT_MAX, it will override the current untech duration.
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceUntech = INT_MAX;
+    // The hitstop upon ground bounce.
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceStop = INT_MAX;
+    /*
+     * Ground bounce x speed.
+     * If this value is INT_MAX, it will be set to the received x pushback.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceXSpeed = INT_MAX;
+    /*
+     * The percent of ground bounce x speed.
+     * If this value is INT_MAX, it will be set to 100%.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceXRate = INT_MAX;
+    /*
+     * Ground bounce y speed.
+     * If this value is INT_MAX, it will be set to the current y speed.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceYSpeed = INT_MAX;
+    /*
+     * The percent of ground bounce y speed.
+     * If this value is INT_MAX, it will be set to 100%.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceYRate = INT_MAX;
+    /*
+     * Ground bounce gravity.
+     * If this value is INT_MAX, it will be set to the received hit gravity.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundBounceGravity = INT_MAX;
+};
+
+/*
+ * Value is added to the specified hit value every frame,
+ * from BeginFrame to EndFrame.
+ */
+USTRUCT(BlueprintType)
+struct FHitValueOverTime
+{
+    GENERATED_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    int32 Value = INT_MAX;
+    UPROPERTY(BlueprintReadWrite)
+    int32 BeginFrame = INT_MAX;
+    UPROPERTY(BlueprintReadWrite)
+    int32 EndFrame = INT_MAX;
+};
+
+// Determines the opponent's position after being hit.
+USTRUCT(BlueprintType)
+struct FHitPosition
+{
+    GENERATED_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EHitPositionType> Type;
+    UPROPERTY(BlueprintReadWrite)
+    int32 PosX = INT_MAX;
+    UPROPERTY(BlueprintReadWrite)
+    int32 PosY = INT_MAX;
+};
+
+/*
+ * Hit data.
+ * There is one for normal hit, and one for counter hit.
+ * For normal hit, values that are set to INT_MAX will be replaced by a default value depending on attack level.
+ * For counter hit, values that are set to INT_MAX will be replaced by the normal hit's value.
+ */
+USTRUCT(BlueprintType)
+struct FHitData
+{
+    GENERATED_BODY()
+
+    // Hitstop duration for attacker and defender.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Hitstop = INT_MAX;
+    // How long the opponent will be stunned if hit grounded.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Hitstun = INT_MAX;
+    // How long the opponent will be stunned if hit airborne.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Untech = INT_MAX;
+    // Hitstop modifier for the opponent on hit.
+    UPROPERTY(BlueprintReadWrite)
+    int32 EnemyHitstopModifier = INT_MAX;
+    // How much damage the opponent will take.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Damage = INT_MAX;
+    // The percent of damage that can be recovered.
+    UPROPERTY(BlueprintReadWrite)
+    int32 RecoverableDamagePercent = INT_MAX;
+    /*
+     * The minimum damage percent.
+     * Damage scaling cannot bring damage lower than this.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 MinimumDamagePercent = INT_MAX;
+    /*
+     * Initial proration for hit.
+     * This is scaling that is applied only as the first hit of a combo.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 InitialProration = INT_MAX;
+    /*
+     * Initial proration for hit.
+     * This is scaling that is applied every hit.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 ForcedProration = INT_MAX;
+    /*
+     * Ground pushback for hit.
+     * If the opponent is in the corner, this will instead apply to self,
+     * even if you are airborne.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    int32 GroundPushbackX = INT_MAX;
+    // Air x pushback for hit.
+    UPROPERTY(BlueprintReadWrite)
+    int32 AirPushbackX = INT_MAX;
+    // Air y pushback for hit.
+    UPROPERTY(BlueprintReadWrite)
+    int32 AirPushbackY = INT_MAX;
+    // Gravity for hit.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Gravity = INT_MAX;
+    /*
+     * The hit value over time for air pushback x.
+     * The value is a percentage.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    FHitValueOverTime AirPushbackXOverTime;
+    /*
+     * The hit value over time for air pushback y.
+     * The value is a percentage.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    FHitValueOverTime AirPushbackYOverTime;
+    /*
+     * The hit value over time for gravity.
+     * The value is added to current gravity.
+     */
+    UPROPERTY(BlueprintReadWrite)
+    FHitValueOverTime GravityOverTime;
+    // Opponent position after hit.
+    UPROPERTY(BlueprintReadWrite)
+    FHitPosition Position;
+    // Ground hit action.
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EHitAction> GroundHitAction = HACT_GroundNormal;
+    // Air hit action.
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EHitAction> AirHitAction = HACT_AirNormal;
+    // Custom hit action.
+    UPROPERTY(BlueprintReadWrite)
+    FGameplayTag CustomHitAction;
+    // Blowback animation level. Used with the Blowback hit action.
+    UPROPERTY(BlueprintReadWrite)
+    int32 BlowbackLevel = INT_MAX;
+    // Floating crumple type. Used with the Floating Crumple hit action.
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EFloatingCrumpleType> FloatingCrumpleType;
+    // How long the opponent will be knocked down for before recovery. Defaults to 12 frames.
+    UPROPERTY(BlueprintReadWrite)
+    int32 KnockdownTime = INT_MAX;
+    // Determines if the opponent can tech after being knocked down. Default is soft knockdown.
+    UPROPERTY(BlueprintReadWrite)
+    int32 HardKnockdown = INT_MAX;
+    // Ground bounce data.
+    UPROPERTY(BlueprintReadWrite)
+    FGroundBounceData GroundBounce;
+    // Wall bounce data.
+    UPROPERTY(BlueprintReadWrite)
+    FWallBounceData WallBounce;
+};
+
+/*
+ * Miscellaneous data.
+ */
+
+// The character's facing direction.
+UENUM()
+enum EObjDir
+{
+    DIR_Right,
+    DIR_Left,
+};
+
+// Used for distance calculations.
+UENUM()
+enum EDistanceType
+{
+    DIST_Distance,
+    DIST_DistanceX,
+    DIST_DistanceY,
+    DIST_FrontDistanceX,
+};
+
+// Used for homing calculations.
+UENUM(BlueprintType)
+enum EHomingType
+{
+    HOMING_DistanceAccel,
+    HOMING_FixAccel,
+    HOMING_ToSpeed,
+};
+
+// Determines the position type to check.
+UENUM(BlueprintType)
+enum EPosType
+{
+    POS_Player,
+    POS_Self,
+    POS_Center,
+    POS_Ground,
+    POS_Enemy,
+    POS_Col,
+};
+
+// Determines object type.
+UENUM(BlueprintType)
+enum EObjType
+{
+    OBJ_Self,
+    OBJ_MainPlayer,
+    OBJ_Enemy,
+    OBJ_Parent,
+    OBJ_Child0,
+    OBJ_Child1,
+    OBJ_Child2,
+    OBJ_Child3,
+    OBJ_Child4,
+    OBJ_Child5,
+    OBJ_Child6,
+    OBJ_Child7,
+    OBJ_Child8,
+    OBJ_Child9,
+    OBJ_Child10,
+    OBJ_Child11,
+    OBJ_Child12,
+    OBJ_Child13,
+    OBJ_Child14,
+    OBJ_Child15,
+    OBJ_Null,
+};
+
+USTRUCT(BlueprintType)
+struct FHomingParams
+{
+    GENERATED_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EHomingType> Type;
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EObjType> Target = OBJ_Null;
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<EPosType> Pos;
+    UPROPERTY(BlueprintReadWrite)
+    int32 OffsetX;
+    UPROPERTY(BlueprintReadWrite)
+    int32 OffsetY;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ParamA;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ParamB;
+};
+
+USTRUCT()
+struct FLinkedActorContainer
+{
+    GENERATED_BODY()
+
+    UPROPERTY()
+    TObjectPtr<ALinkActor> StoredActor;
+    FGameplayTag Name;
+    int32 Index;
+    UPROPERTY(SaveGame)
+    bool bIsActive;
+};
+
+UENUM(BlueprintType)
+enum ESuperArmorType
+{
+    ARM_None,
+    ARM_Guard,
+    ARM_Dodge,
+};
+
+USTRUCT(BlueprintType)
+struct FSuperArmorData
+{
+    GENERATED_BODY()
+
+    UPROPERTY(BlueprintReadWrite)
+    TEnumAsByte<ESuperArmorType> Type;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorMid : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorOverhead : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorLow : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorStrike : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorThrow : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorHead : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorProjectile : 1;
+    UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorTakeChipDamage : 1;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ArmorDamagePercent;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ArmorHits;
+};
+
+USTRUCT(BlueprintType)
+struct FBattleObjectLog
+{
+    GENERATED_BODY()
+
+public:
+    virtual ~FBattleObjectLog() = default;
+
+    //Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
+    unsigned char ObjSync = 0;
+
+    /*
+     * Movement and position values
+     */
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 PosX = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 PosY = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 PosZ = 0;
+    int32 PrevPosX = 0;
+    int32 PrevPosY = 0;
+    int32 PrevPosZ = 0;
+    int32 PrevRootMotionX = 0;
+    int32 PrevRootMotionY = 0;
+    int32 PrevRootMotionZ = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    int32 AnglePitch_x10 = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    int32 AngleYaw_x10 = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    int32 AngleRoll_x10 = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
+    bool BlendOffset = false;
+    int32 PrevOffsetX = 0;
+    int32 PrevOffsetY = 0;
+    int32 NextOffsetX = 0;
+    int32 NextOffsetY = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 SpeedX = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 SpeedY = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZ = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedXRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedXRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedYRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedYRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 Gravity = 1900;
+    // Inertia adds to the position every frame, but also decays every frame until it reaches zero.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Inertia = 0;
+    // The minimum Y position before considered grounded.
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 GroundHeight = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    TEnumAsByte<EObjDir> Direction = DIR_Right;
+    // Ground hit pushback.
+    int32 Pushback = 0;
+
+    /*
+     * Attack data
+     */
+
+    UPROPERTY(BlueprintReadWrite)
+    FHitDataCommon HitCommon = {};
+    UPROPERTY(BlueprintReadWrite)
+    FHitData NormalHit = {};
+    UPROPERTY(BlueprintReadWrite)
+    FHitData CounterHit = {};
+    uint32 AttackFlags = 0;
+
+    /*
+     * Received attack data
+     */
+
+    UPROPERTY(BlueprintReadOnly)
+    FHitDataCommon ReceivedHitCommon = {};
+    UPROPERTY(BlueprintReadOnly)
+    FHitData ReceivedHit = {};
+    uint32 StunTime = 0;
+    uint32 StunTimeMax = 0;
+    uint32 Hitstop = 0;
+
+    /*
+     * Registers
+    */
+
+    //This value stores the return value for functions.
+    bool ReturnReg = false;
+
+    //The following values are per-action registers. Shared between the player and its child objects.
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg4 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg5 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg6 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg7 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg8 = 0;
+
+    //The following values are per-object registers.
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg4 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg5 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg6 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg7 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg8 = 0;
+
+    /*
+     * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
+     */
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg1 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg2 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg3 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg4 = 0;
+
+    /*
+     * Subroutine return values. Subroutines can optionally return values.
+     * These are reset upon the next called subroutine.
+    */
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal4 = 0;
+
+    /*
+     * Action data
+     */
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 ActionTime = 0;
+    /*
+     * The current cel name.
+     * Cels map to collision data.
+     * The collision frame also stores animation data.
+     */
+    FGameplayTag CelName = {};
+    /*
+     * The blend cel name.
+     * This is used to make traditional 3D animations.
+     */
+    FGameplayTag BlendCelName = {};
+    /*
+     * The name of the label that is currently being jumped to.
+     */
+    FGameplayTag LabelName = {};
+
+    UPROPERTY(BlueprintReadOnly)
+    float AnimBlendIn{};
+    UPROPERTY(BlueprintReadOnly)
+    float AnimBlendOut{};
+    // Are we jumping to a label right now?
+    UPROPERTY(BlueprintReadWrite)
+    bool GotoLabelActive = false;
+    UPROPERTY(BlueprintReadWrite)
+    int32 AnimFrame = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 BlendAnimFrame = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float FrameBlendPosition = 0;
+    // The index of the current cel in blueprint.
+    UPROPERTY(BlueprintReadWrite)
+    int32 CelIndex = 0;
+    // How long until the next cel activates.
+    UPROPERTY(BlueprintReadOnly)
+    int32 TimeUntilNextCel = 0;
+    // Max time of the cel.
+    int32 MaxCelTime = 0;
+    // Event handlers for every function.
+    FEventHandler EventHandlers[EVT_NUM] = {};
+
+    /*
+     * Action data for objects only.
+     */
+    FGameplayTag ObjectStateName = {};
+    uint32 ObjectID = 0;
+
+protected:
+    /*
+     * Collision data
+     */
+    int32 PushHeight = 0;
+    int32 PushHeightLow = 0;
+    int32 PushWidth = 0;
+    int32 PushWidthExtend = 0;
+
+public:
+    /*
+     * Push collision
+     */
+
+    int32 L = 0;
+    int32 R = 0;
+    int32 T = 0;
+    int32 B = 0;
+
+    /*
+     * Socket data
+     */
+    FName SocketName = {};
+    EObjType SocketObj = OBJ_Self;
+    FVector SocketOffset = FVector::ZeroVector;
+
+    //material parameters
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor MulColor = FLinearColor(1, 1, 1, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor AddColor = FLinearColor(0, 0, 0, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor MulFadeColor = {};
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor AddFadeColor = {};
+    UPROPERTY(BlueprintReadWrite)
+    float MulFadeSpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float AddFadeSpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float Transparency = 1;
+    UPROPERTY(BlueprintReadWrite)
+    float FadeTransparency = 1;
+    UPROPERTY(BlueprintReadWrite)
+    float TransparencySpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor = FLinearColor(1, 1, 1, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor2 = FLinearColor(1, 1, 1, 1);
+
+    /*
+     * Miscellaneous data
+     */
+    int32 ColPosX = 0;
+    int32 ColPosY = 0;
+    int32 MiscFlags = 0;
+    int32 Timer0 = 0;
+    int32 Timer1 = 0;
+    bool IsPlayer = false;
+    bool IsActive = false;
+    UPROPERTY(BlueprintReadWrite)
+    int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
+
+    UPROPERTY(BlueprintReadWrite)
+    bool bRender = true;
+
+    UPROPERTY(BlueprintReadWrite)
+    FHomingParams HomingParams = FHomingParams();
+    UPROPERTY(BlueprintReadWrite)
+    FSuperArmorData SuperArmorData = FSuperArmorData();
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 UpdateTime = 0;
+
+    /*
+     * Visual object transform
+     */
+    UPROPERTY(BlueprintReadWrite)
+    FVector ObjectOffset = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadWrite)
+    FRotator ObjectRotation = FRotator::ZeroRotator;
+    UPROPERTY(BlueprintReadWrite)
+    FVector ObjectScale = FVector::One();
+
+    /*
+     * Object pointers.
+     */
+
+    // Pointer to player object. If this is not a player, it will point to the owning player.
+    UPROPERTY(BlueprintReadOnly)
+    APlayerObject* Player = nullptr;
+    UPROPERTY(BlueprintReadOnly)
+    ABattleObject* AttackOwner;
+    UPROPERTY(BlueprintReadOnly)
+    ABattleObject* AttackTarget = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* PositionLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* DrawPriorityLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* StopLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* MaterialLinkObj = nullptr;
+
+    int32 ObjectStateIndex = 0;
+    bool bIsCommonState = false;
+
+    // Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
+    unsigned char ObjSyncEnd = 0;
+
+    virtual void LogForSyncTestFile(std::ofstream& file);
+};
+
+/*
+ * A battle object.
+ * These are any objects that affect gameplay, or need values to change after being spawned.
+ */
+UCLASS()
+class NIGHTSKYENGINE_API ABattleObject : public APawn
+{
+    GENERATED_BODY()
+
+public:
+    // Sets default values for this pawn's properties
+    ABattleObject();
+
+    //Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
+    unsigned char ObjSync = 0;
+
+    /*
+     * Movement and position values
+     */
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 PosX = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 PosY = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 PosZ = 0;
+    int32 PrevPosX = 0;
+    int32 PrevPosY = 0;
+    int32 PrevPosZ = 0;
+    int32 PrevRootMotionX = 0;
+    int32 PrevRootMotionY = 0;
+    int32 PrevRootMotionZ = 0;
+    UPROPERTY(VisibleAnywhere)
+    int32 AnglePitch_x1000 = 0;
+    UPROPERTY(VisibleAnywhere)
+    int32 AngleYaw_x1000 = 0;
+    UPROPERTY(VisibleAnywhere)
+    int32 AngleRoll_x1000 = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Defaults)
+    bool BlendOffset = false;
+    int32 PrevOffsetX = 0;
+    int32 PrevOffsetY = 0;
+    int32 NextOffsetX = 0;
+    int32 NextOffsetY = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 SpeedX = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 SpeedY = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZ = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedXRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedXRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedYRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedYRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZRate = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SpeedZRatePerFrame = 100;
+    UPROPERTY(BlueprintReadWrite)
+    int32 Gravity = 1900;
+    // Inertia adds to the position every frame, but also decays every frame until it reaches zero.
+    UPROPERTY(BlueprintReadWrite)
+    int32 Inertia = 0;
+    // The minimum Y position before considered grounded.
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 GroundHeight = 0;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    TEnumAsByte<EObjDir> Direction = DIR_Right;
+    // Ground hit pushback.
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    int32 Pushback = 0;
+
+    /*
+     * Attack data
+     */
+
+    UPROPERTY(BlueprintReadWrite)
+    FHitDataCommon HitCommon = {};
+    UPROPERTY(BlueprintReadWrite)
+    FHitData NormalHit = {};
+    UPROPERTY(BlueprintReadWrite)
+    FHitData CounterHit = {};
+    uint32 AttackFlags = 0;
+
+    /*
+     * Received attack data
+     */
+
+    UPROPERTY(BlueprintReadOnly)
+    FHitDataCommon ReceivedHitCommon = {};
+    UPROPERTY(BlueprintReadOnly)
+    FHitData ReceivedHit = {};
+    int32 StunTime = 0;
+    int32 StunTimeMax = 0;
+    int32 Hitstop = 0;
+
+    /*
+     * Registers
+    */
+    
+    //The following values are per-action registers. Shared between the player and its child objects.
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg4 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg5 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg6 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg7 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ActionReg8 = 0;
+
+    //The following values are per-object registers.
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg4 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg5 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg6 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg7 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 ObjectReg8 = 0;
+
+    /*
+     * Subroutine registers. These are set when calling a subroutine, and reset upon round end.
+     */
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg1 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg2 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg3 = 0;
+    UPROPERTY(BlueprintReadOnly)
+    int32 SubroutineReg4 = 0;
+
+    /*
+     * Subroutine return values. Subroutines can optionally return values.
+     * These are reset upon the next called subroutine.
+    */
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal1 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal2 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal3 = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 SubroutineReturnVal4 = 0;
+
+    /*
+     * Action data
+     */
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 ActionTime = 0;
+    /*
+     * The current cel name.
+     * Cels map to collision data.
+     * The collision frame also stores animation data.
+     */
+    FGameplayTag CelName = {};
+    /*
+     * The blend cel name.
+     * This is used to make traditional 3D animations.
+     */
+    FGameplayTag BlendCelName = {};
+    /*
+     * The name of the label that is currently being jumped to.
+     */
+    FGameplayTag LabelName = {};
+
+    UPROPERTY(BlueprintReadOnly)
+    float AnimBlendIn{};
+    UPROPERTY(BlueprintReadOnly)
+    float AnimBlendOut{};
+    // Are we jumping to a label right now?
+    UPROPERTY(BlueprintReadWrite)
+    bool GotoLabelActive = false;
+    UPROPERTY(BlueprintReadWrite)
+    int32 AnimFrame = 0;
+    UPROPERTY(BlueprintReadWrite)
+    int32 BlendAnimFrame = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float FrameBlendPosition = 0;
+    // The index of the current cel in blueprint.
+    UPROPERTY(BlueprintReadWrite)
+    int32 CelIndex = 0;
+    // How long until the next cel activates.
+    UPROPERTY(BlueprintReadOnly)
+    int32 TimeUntilNextCel = 0;
+    // Max time of the cel.
+    int32 MaxCelTime = 0;
+    // Event handlers for every function.
+    FEventHandler EventHandlers[EVT_NUM] = {};
+
+    /*
+     * Action data for objects only.
+     */
+    FGameplayTag ObjectStateName = {};
+    uint32 ObjectID = 0;
+
+protected:
+    /*
+     * Collision data
+     */
+    int32 PushHeight = 0;
+    int32 PushHeightLow = 0;
+    int32 PushWidth = 0;
+    int32 PushWidthExtend = 0;
+
+public:
+    /*
+     * Push collision
+     */
+
+    int32 L = 0;
+    int32 R = 0;
+    int32 T = 0;
+    int32 B = 0;
+
+    /*
+     * Socket data
+     */
+    FName SocketName = {};
+    EObjType SocketObj = OBJ_Self;
+    FVector SocketOffset = FVector::ZeroVector;
+
+    //material parameters
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor MulColor = FLinearColor(1, 1, 1, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor AddColor = FLinearColor(0, 0, 0, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor MulFadeColor = {};
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor AddFadeColor = {};
+    UPROPERTY(BlueprintReadWrite)
+    float MulFadeSpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float AddFadeSpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    float Transparency = 1;
+    UPROPERTY(BlueprintReadWrite)
+    float FadeTransparency = 1;
+    UPROPERTY(BlueprintReadWrite)
+    float TransparencySpeed = 0;
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor = FLinearColor(1, 1, 1, 1);
+    UPROPERTY(BlueprintReadWrite)
+    FLinearColor DamageColor2 = FLinearColor(1, 1, 1, 1);
+
+    /*
+     * Miscellaneous data
+     */
+    int32 ColPosX = 0;
+    int32 ColPosY = 0;
+    int32 MiscFlags = 0;
+    int32 Timer0 = 0;
+    int32 Timer1 = 0;
+    bool IsPlayer = false;
+    bool IsActive = false;
+    UPROPERTY(BlueprintReadWrite)
+    int32 DrawPriority = 0; // the higher the number, the farther in front the object will be drawn
+
+    UPROPERTY(BlueprintReadWrite)
+    bool bRender = true;
+
+    UPROPERTY(BlueprintReadWrite)
+    FHomingParams HomingParams = FHomingParams();
+    UPROPERTY(BlueprintReadWrite)
+    FSuperArmorData SuperArmorData = FSuperArmorData();
+
+    UPROPERTY(BlueprintReadOnly)
+    int32 UpdateTime = 0;
+
+    /*
+     * Visual object transform
+     */
+    UPROPERTY(BlueprintReadWrite)
+    FVector ObjectOffset = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadWrite)
+    FRotator ObjectRotation = FRotator::ZeroRotator;
+    UPROPERTY(BlueprintReadWrite)
+    FVector ObjectScale = FVector::One();
+
+    /*
+     * Object pointers.
+     */
+
+    // Pointer to player object. If this is not a player, it will point to the owning player.
+    UPROPERTY(BlueprintReadOnly)
+    APlayerObject* Player = nullptr;
+    UPROPERTY(BlueprintReadOnly)
+    ABattleObject* AttackOwner;
+    UPROPERTY(BlueprintReadOnly)
+    ABattleObject* AttackTarget = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* PositionLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* DrawPriorityLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* StopLinkObj = nullptr;
+    UPROPERTY(BlueprintReadWrite)
+    ABattleObject* MaterialLinkObj = nullptr;
+
+    int32 ObjectStateIndex = 0;
+    bool bIsCommonState = false;
+
+    // Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
+    unsigned char ObjSyncEnd = 0;
+
+    UPROPERTY(SaveGame)
+    TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
+
+    UPROPERTY(BlueprintReadOnly, SaveGame)
+    TArray<FCollisionBox> Boxes;
+
+    /*
+     * Link data (for object), not serialized
+     */
+
+    UPROPERTY(SaveGame)
+    TObjectPtr<ALinkActor> LinkedActor;
+    UPROPERTY()
+    TObjectPtr<UNiagaraComponent> LinkedParticle = nullptr;
+
+    uint32 ObjNumber = 0;
+
+    UPROPERTY(BlueprintReadWrite, SaveGame)
+    float ScreenSpaceDepthOffset = 0;
+    UPROPERTY(BlueprintReadWrite, SaveGame)
+    float OrthoBlendActive = 0;
+
+    UPROPERTY(SaveGame)
+    TArray<FAnimStruct> AnimStructs;
+    
+    UPROPERTY(BlueprintReadOnly)
+    TObjectPtr<ANightSkyGameState> GameState = nullptr;
+    UPROPERTY()
+    TObjectPtr<ANightSkyCharaSelectGameState> CharaSelectGameState = nullptr;
+
+    UPROPERTY()
+    TObjectPtr<UState> ObjectState = nullptr;
+
+protected:
+    // Called when the game starts or when spawned
+    virtual void BeginPlay() override;
+    // Moves object
+    void Move();
+    void CalculateHoming();
+    bool SuperArmorSuccess(const ABattleObject* Attacker) const;
+
+public:
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
+    void PositionLinkUpdate();
+    //calculate pushbox
+    void CalculatePushbox();
+    //handles pushing objects
+    void HandlePushCollision(ABattleObject* OtherObj);
+    //handles hitting objects
+    void HandleHitCollision(ABattleObject* AttackedObj);
+    //initializes hit data by attack level
+    FHitData InitHitDataByAttackLevel(bool IsCounter);
+    //handles object clashes
+    void HandleClashCollision(ABattleObject* OtherObj);
+    //handles flip
+    void HandleFlip();
+    void TriggerEvent(EEventType EventType, FGameplayTag StateMachineName);
+
+    UFUNCTION(BlueprintCallable)
+    void CollisionView();
+
+    void SaveForRollback(unsigned char* Buffer) const;
+    void LoadForRollback(const unsigned char* Buffer);
+
+protected:
+    void FuncCall(const FName& FuncName) const;
+    UNightSkyAnimSequenceUserData* GetAnimSequenceUserData(const FName PartName) const;
+    TArray<UNightSkyAnimSequenceUserData*> GetAnimSequenceUserDatas() const;
+
+public:
+    // Cannot be called on player objects. Initializes the object for use.
+    void InitObject();
+    // update object
+    virtual void Update();
+    // update visuals
+    virtual void UpdateVisuals();
+    virtual void UpdateVisualsNoRollback();
+    UFUNCTION(BlueprintImplementableEvent)
+    void UpdateVisuals_BP();
+
+    void GetBoxes();
+
+    // resets object for next use
+    void ResetObject();
+
+    /*
+     * Blueprint callable functions.
+     */
+
+    UFUNCTION(BlueprintPure)
+    UAnimSequenceBase* GetAnimSequenceForPart(const FName Part) const;
+    UFUNCTION(BlueprintPure)
+    UPaperFlipbook* GetFlipbookForPart(const FName Part) const;
+    UFUNCTION(BlueprintPure)
+    bool IsStopped() const;
+    UFUNCTION(BlueprintPure)
+    bool IsTimerPaused() const;
+    //calls subroutine
+    UFUNCTION(BlueprintCallable)
+    void CallSubroutine(FGameplayTag Name);
+    //calls subroutine
+    UFUNCTION(BlueprintCallable)
+    void CallSubroutineWithArgs(FGameplayTag Name, int32 Arg1, int32 Arg2, int32 Arg3, int32 Arg4);
+    //initializes event handler
+    UFUNCTION(BlueprintCallable)
+    void InitEventHandler(EEventType EventType, FName FuncName, int32 Value, FGameplayTag SubroutineName);
+    //initializes event handler
+    UFUNCTION(BlueprintCallable)
+    void RemoveEventHandler(EEventType EventType);
+    //gets cel name
+    UFUNCTION(BlueprintPure)
+    FGameplayTag GetCelName() const;
+    //gets label name
+    UFUNCTION(BlueprintPure)
+    FGameplayTag GetLabelName() const;
+    //sets cel name
+    UFUNCTION(BlueprintCallable)
+    void SetCelName(FGameplayTag InName);
+    //sets cel name
+    UFUNCTION(BlueprintCallable)
+    void SetBlendCelName(FGameplayTag InName);
+    //jumps to label
+    UFUNCTION(BlueprintCallable)
+    void GotoLabel(FGameplayTag InName);
+    //sets time until next cel
+    UFUNCTION(BlueprintCallable)
+    void SetTimeUntilNextCel(int32 InTime);
+    // sets cel duration
+    UFUNCTION(BlueprintCallable)
+    void SetCelDuration(int32 InTime);
+    //adds x position
+    UFUNCTION(BlueprintCallable)
+    void AddPosXWithDir(int InPosX);
+    //sets x speed
+    UFUNCTION(BlueprintCallable)
+    void SetSpeedXRaw(int InSpeedX);
+    //adds x speed
+    UFUNCTION(BlueprintCallable)
+    void AddSpeedXRaw(int InSpeedX);
+    //gets y center
+    UFUNCTION(BlueprintPure)
+    int32 GetPosYCenter() const;
+    // Sets pitch.
+    UFUNCTION(BlueprintCallable)
+    void SetPitch(int32 Pitch_x1000);
+    // Sets pitch.
+    UFUNCTION(BlueprintCallable)
+    void SetYaw(int32 Yaw_x1000);
+    // Sets pitch.
+    UFUNCTION(BlueprintCallable)
+    void SetRoll(int32 Roll_x1000);
+    // Normalizes angle to between 0 and 360 degrees.
+    UFUNCTION(BlueprintPure)
+    static int32 NormalizeAngle(int32 Angle_x1000);
+    //calculates angle between points
+    UFUNCTION(BlueprintPure)
+    int32 CalculateSpeedAngle() const;
+    //calculates distance between points
+    UFUNCTION(BlueprintPure)
+    int32 CalculateDistanceBetweenPoints(EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2,
+                                         EPosType Pos2);
+    //calculates angle between points
+    UFUNCTION(BlueprintPure)
+    int32 CalculateAngleBetweenPoints(EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2);
+    //gets position from pos type
+    UFUNCTION(BlueprintPure)
+    void PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const;
+    UFUNCTION(BlueprintPure)
+    void ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
+    //sets direction
+    UFUNCTION(BlueprintCallable)
+    void SetFacing(EObjDir NewDir);
+    //flips character
+    UFUNCTION(BlueprintCallable)
+    void FlipObject();
+    //forcibly face opponent
+    UFUNCTION(BlueprintCallable)
+    void FaceOpponent();
+    //check if grounded
+    UFUNCTION(BlueprintPure)
+    bool CheckIsGrounded() const;
+    //enables hit
+    UFUNCTION(BlueprintCallable)
+    void EnableHit(bool Enabled);
+    //sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
+    UFUNCTION(BlueprintCallable)
+    void SetAttacking(bool Attacking);
+    UFUNCTION(BlueprintCallable)
+    void SetPlayerHit(bool Enable);
+    UFUNCTION(BlueprintCallable)
+    void SetProjectileAttribute(bool Attribute);
+    UFUNCTION(BlueprintCallable)
+    void SetProrateOnce(bool Once);
+    UFUNCTION(BlueprintCallable)
+    void SetIgnoreOTG(bool Ignore);
+    UFUNCTION(BlueprintCallable)
+    void SetHitOTG(bool Enable);
+    UFUNCTION(BlueprintCallable)
+    void SetIgnorePushbackScaling(bool Ignore);
+    UFUNCTION(BlueprintCallable)
+    void SetIgnoreHitstunScaling(bool Ignore);
+    //enables flip
+    UFUNCTION(BlueprintCallable)
+    void EnableFlip(bool Enabled);
+    //enables inertia
+    UFUNCTION(BlueprintCallable)
+    void EnableInertia();
+    //disables inertia
+    UFUNCTION(BlueprintCallable)
+    void DisableInertia();
+    //halts momentum
+    UFUNCTION(BlueprintCallable)
+    void HaltMomentum();
+    //should wall collision be used?
+    UFUNCTION(BlueprintCallable)
+    void SetWallCollisionActive(bool Active);
+    //should floor collision be used?
+    UFUNCTION(BlueprintCallable)
+    void SetFloorCollisionActive(bool Active);
+    //should push collision be used?
+    UFUNCTION(BlueprintCallable)
+    void SetPushCollisionActive(bool Active);
+    //set push width extend
+    UFUNCTION(BlueprintCallable)
+    void SetPushWidthExtend(int32 Extend);
+    //creates common particle
+    UFUNCTION(BlueprintCallable)
+    void CreateCommonParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector,
+                              FRotator Rotation = FRotator::ZeroRotator);
+    //creates character particle
+    UFUNCTION(BlueprintCallable)
+    void CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVector Offset = FVector::ZeroVector,
+                             FRotator Rotation = FRotator::ZeroRotator);
+    //creates common particle and attaches it to the object. can only be used with non-player objects.
+    UFUNCTION(BlueprintCallable)
+    void LinkCommonParticle(FGameplayTag Name);
+    //creates character particle and attaches it to the object. can only be used with non-player objects.
+    UFUNCTION(BlueprintCallable)
+    void LinkCharaParticle(FGameplayTag Name);
+    //gets link actor and attaches it to the object. can only be used with non-player objects.
+    UFUNCTION(BlueprintCallable)
+    ALinkActor* LinkActor(FGameplayTag Name);
+    UFUNCTION(BlueprintCallable)
+    void RemoveLinkActor();
+    //plays common sound
+    UFUNCTION(BlueprintCallable)
+    void PlayCommonSound(FGameplayTag Name);
+    //plays chara sound
+    UFUNCTION(BlueprintCallable)
+    void PlayCharaSound(FGameplayTag Name);
+    //attaches object to skeletal socket
+    UFUNCTION(BlueprintCallable)
+    void AttachToSocketOfObject(FName InSocketName, FVector Offset, EObjType ObjType);
+    //detaches object from skeletal socket
+    UFUNCTION(BlueprintCallable)
+    void DetachFromSocket();
+    UFUNCTION(BlueprintCallable)
+    void CameraShake(FGameplayTag PatternName, int32 Scale);
+    //generate random number
+    UFUNCTION(BlueprintPure)
+    int32 GenerateRandomNumber(int32 Min, int32 Max) const;
+    // starts super freeze
+    UFUNCTION(BlueprintCallable)
+    void StartSuperFreeze(int Duration, int SelfDuration = 0);
+    // ignore super freeze
+    UFUNCTION(BlueprintCallable)
+    void IgnoreSuperFreeze(bool Ignore);
+    //sets object id
+    UFUNCTION(BlueprintCallable)
+    void SetObjectID(int InObjectID);
+    //gets object by type
+    UFUNCTION(BlueprintPure)
+    ABattleObject* GetBattleObject(EObjType Type);
+    //creates common object
+    UFUNCTION(BlueprintCallable)
+    ABattleObject* AddCommonBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0,
+                                         EPosType PosType = POS_Player);
+    //creates object
+    UFUNCTION(BlueprintCallable)
+    ABattleObject* AddBattleObject(FGameplayTag InStateName, int32 PosXOffset = 0, int32 PosYOffset = 0,
+                                   EPosType PosType = POS_Player);
+    //if object goes beyond screen bounds, deactivate
+    UFUNCTION(BlueprintCallable)
+    void EnableDeactivateIfBeyondBounds(bool Enable);
+    //if player changes state, deactivate
+    UFUNCTION(BlueprintCallable)
+    void EnableDeactivateOnStateChange(bool Enable);
+    //if player receives hit, deactivate
+    UFUNCTION(BlueprintCallable)
+    void EnableDeactivateOnReceiveHit(bool Enable);
+    // Cannot be called on player objects. Deactivates the object and returns it to the pool.
+    UFUNCTION(BlueprintCallable)
+    void DeactivateObject();
+    UFUNCTION(BlueprintPure)
+    bool CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
+                         const EBoxType OtherType, const FGameplayTag OtherCustomType);
+    UFUNCTION(BlueprintPure)
+    void GetBoxPosition(const EBoxType BoxType, const FGameplayTag CustomType, int& OutPosX, int& OutPosY) const;
+    UFUNCTION(BlueprintPure)
+    int32 GetGauge(int32 GaugeIndex) const;
+    UFUNCTION(BlueprintCallable)
+    void SetGauge(int32 GaugeIndex, int32 Value);
+    UFUNCTION(BlueprintCallable)
+    void UseGauge(int32 GaugeIndex, int32 Value);
+
+    // Handles custom collision. Activates before clash or hit collision.
+    UFUNCTION(BlueprintImplementableEvent)
+    void HandleCustomCollision_PreHit(ABattleObject* OtherObj);
+    // Handles custom collision. Activates after clash and hit collision.
+    UFUNCTION(BlueprintImplementableEvent)
+    void HandleCustomCollision_PostHit(ABattleObject* OtherObj);
+};
+
+constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);
+
+#if WITH_EDITOR
+static_assert(offsetof(FBattleObjectLog, ObjSyncEnd) - offsetof(FBattleObjectLog, ObjSync) == SizeOfBattleObject,
+              "FBattleObjectLog must contain all members from ABattleObject between ObjSync and ObjSyncEnd");
+#endif
+```
+
+

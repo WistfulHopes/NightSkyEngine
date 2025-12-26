@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_flipbook_data" kind="class" language="C++" prot="public">
+    <compoundname>UFlipbookData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_flipbook_data_1a129dc60d07c836747769d644bdb89e51" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_flipbook_struct" kindref="compound">FFlipbookStruct</ref> &gt;</type>
+        <definition>TArray&lt;FFlipbookStruct&gt; UFlipbookData::FlipbookStructs</definition>
+        <argsstring></argsstring>
+        <name>FlipbookStructs</name>
+        <qualifiedname>UFlipbookData::FlipbookStructs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" line="32" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UFlipbookData</label>
+        <link refid="class_u_flipbook_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UFlipbookData</label>
+        <link refid="class_u_flipbook_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" line="26" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/FlipbookData.h" bodystart="27" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_u_flipbook_data_1a129dc60d07c836747769d644bdb89e51" prot="public" virt="non-virtual"><scope>UFlipbookData</scope><name>FlipbookStructs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_game_instance" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyGameInstance</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UGameInstance</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1ae2075871a22b963db182012fb0ecce20" prot="private" static="no" mutable="no">
+        <type><ref refid="class_u_replay_save_info" kindref="compound">UReplaySaveInfo</ref> *</type>
+        <definition>UReplaySaveInfo* UNightSkyGameInstance::CurrentReplay</definition>
+        <argsstring></argsstring>
+        <name>CurrentReplay</name>
+        <qualifiedname>UNightSkyGameInstance::CurrentReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="60" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a0aecc4d81705fd9ff3cca334d21a27e9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UNightSkyGameInstance::FinishedLoadingForNetworkBattle</definition>
+        <argsstring></argsstring>
+        <name>FinishedLoadingForNetworkBattle</name>
+        <qualifiedname>UNightSkyGameInstance::FinishedLoadingForNetworkBattle</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="69" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a16a4c9e2ed29bb80a7d8894b69363c6a" prot="public" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString UNightSkyGameInstance::GameVersion</definition>
+        <argsstring></argsstring>
+        <name>GameVersion</name>
+        <qualifiedname>UNightSkyGameInstance::GameVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="72" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a0a640fe33be78d89357ec198100ccf46" prot="public" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString UNightSkyGameInstance::BattleVersion</definition>
+        <argsstring></argsstring>
+        <name>BattleVersion</name>
+        <qualifiedname>UNightSkyGameInstance::BattleVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="74" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1aae0f809e1f5ab1bfa23a75172770dc9d" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_u_night_sky_settings_info" kindref="compound">UNightSkySettingsInfo</ref> &gt;</type>
+        <definition>TObjectPtr&lt;UNightSkySettingsInfo&gt; UNightSkyGameInstance::SettingsInfo</definition>
+        <argsstring></argsstring>
+        <name>SettingsInfo</name>
+        <qualifiedname>UNightSkyGameInstance::SettingsInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="77" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a08d29a3f1a254b7eebef2decbe73323e" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_u_sound_data" kindref="compound">USoundData</ref> &gt;</type>
+        <definition>TObjectPtr&lt;USoundData&gt; UNightSkyGameInstance::AnnouncerData</definition>
+        <argsstring></argsstring>
+        <name>AnnouncerData</name>
+        <qualifiedname>UNightSkyGameInstance::AnnouncerData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="80" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1ad5d3d4de4a9742184abc02efecdd5aca" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_u_sound_data" kindref="compound">USoundData</ref> &gt;</type>
+        <definition>TObjectPtr&lt;USoundData&gt; UNightSkyGameInstance::MusicData</definition>
+        <argsstring></argsstring>
+        <name>MusicData</name>
+        <qualifiedname>UNightSkyGameInstance::MusicData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="82" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a8a4ed3fd5bf379650c3a9b1f976b2bf1" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_u_replay_save_info" kindref="compound">UReplaySaveInfo</ref> * &gt;</type>
+        <definition>TArray&lt;UReplaySaveInfo*&gt; UNightSkyGameInstance::ReplayList</definition>
+        <argsstring></argsstring>
+        <name>ReplayList</name>
+        <qualifiedname>UNightSkyGameInstance::ReplayList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="85" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a6c4ccdf471013b181ed1e9014f0dffda" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyGameInstance::PlayerIndex</definition>
+        <argsstring></argsstring>
+        <name>PlayerIndex</name>
+        <qualifiedname>UNightSkyGameInstance::PlayerIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="87" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a25e8b55db7e6ad7a683742327569fa6e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref></type>
+        <definition>FBattleData UNightSkyGameInstance::BattleData</definition>
+        <argsstring></argsstring>
+        <name>BattleData</name>
+        <qualifiedname>UNightSkyGameInstance::BattleData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="89" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1ac30a420e1f080b7a475cb48cb46164e8" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UNightSkyGameInstance::IsTraining</definition>
+        <argsstring></argsstring>
+        <name>IsTraining</name>
+        <qualifiedname>UNightSkyGameInstance::IsTraining</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="92" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a3e837c7fd220a3719b851fac6ed62059" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UNightSkyGameInstance::IsCPUBattle</definition>
+        <argsstring></argsstring>
+        <name>IsCPUBattle</name>
+        <qualifiedname>UNightSkyGameInstance::IsCPUBattle</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="94" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a7b066ac5cfe306a766be8515c4f271ee" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UNightSkyGameInstance::IsReplay</definition>
+        <argsstring></argsstring>
+        <name>IsReplay</name>
+        <qualifiedname>UNightSkyGameInstance::IsReplay</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="96" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_game_instance_1a2c01e162b80cebfc7021a18e76cab833" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EFighterRunners &gt;</type>
+        <definition>TEnumAsByte&lt;EFighterRunners&gt; UNightSkyGameInstance::FighterRunner</definition>
+        <argsstring></argsstring>
+        <name>FighterRunner</name>
+        <qualifiedname>UNightSkyGameInstance::FighterRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="99" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a16b0d731443b79e1784e8a3c94865633" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::Init</definition>
+        <argsstring>() override</argsstring>
+        <name>Init</name>
+        <qualifiedname>UNightSkyGameInstance::Init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="62" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="13" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a25772e4fd499df189eb0695ebbc3400e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::BP_OnFindReplaysComplete</definition>
+        <argsstring>(const TArray&lt; UReplaySaveInfo * &gt; &amp;AllReplays)</argsstring>
+        <name>BP_OnFindReplaysComplete</name>
+        <qualifiedname>UNightSkyGameInstance::BP_OnFindReplaysComplete</qualifiedname>
+        <param>
+          <type>const TArray&lt; <ref refid="class_u_replay_save_info" kindref="compound">UReplaySaveInfo</ref> * &gt; &amp;</type>
+          <declname>AllReplays</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="66" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1af3211c7bec8ed5e194dff69c91e88ac1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::TravelToVSInfo</definition>
+        <argsstring>() const</argsstring>
+        <name>TravelToVSInfo</name>
+        <qualifiedname>UNightSkyGameInstance::TravelToVSInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="102" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a972b008dae0145795d37ca1d76a596f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::TravelToBattleMap</definition>
+        <argsstring>() const</argsstring>
+        <name>TravelToBattleMap</name>
+        <qualifiedname>UNightSkyGameInstance::TravelToBattleMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="103" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a0f4550072b3bc39af4397cfd9690558b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::LoadReplay</definition>
+        <argsstring>()</argsstring>
+        <name>LoadReplay</name>
+        <qualifiedname>UNightSkyGameInstance::LoadReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="105" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1aad122160059b952ef1edf2edef21e4de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::PlayReplayToGameState</definition>
+        <argsstring>(int32 FrameNumber, int32 &amp;OutP1Input, int32 &amp;OutP2Input) const</argsstring>
+        <name>PlayReplayToGameState</name>
+        <qualifiedname>UNightSkyGameInstance::PlayReplayToGameState</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>FrameNumber</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutP1Input</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutP2Input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="106" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="48" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1abcbb03385e644825e23a342ed554021e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::RecordReplay</definition>
+        <argsstring>()</argsstring>
+        <name>RecordReplay</name>
+        <qualifiedname>UNightSkyGameInstance::RecordReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="108" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="59" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a7b750ecfaa7205b4ff11189fd5f7da88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::UpdateReplay</definition>
+        <argsstring>(int32 InputsP1, int32 InputsP2) const</argsstring>
+        <name>UpdateReplay</name>
+        <qualifiedname>UNightSkyGameInstance::UpdateReplay</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>InputsP1</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>InputsP2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="109" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="67" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1ad8e09e15d7ae2ab67ce5441c54812b5f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::RollbackReplay</definition>
+        <argsstring>(int32 FramesToRollback) const</argsstring>
+        <name>RollbackReplay</name>
+        <qualifiedname>UNightSkyGameInstance::RollbackReplay</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>FramesToRollback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="110" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="75" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a9fd2d62b26f1599741bc8c8a1eb7c88a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::EndRecordReplay</definition>
+        <argsstring>() const</argsstring>
+        <name>EndRecordReplay</name>
+        <qualifiedname>UNightSkyGameInstance::EndRecordReplay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="111" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="85" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1aa603b7740de4e550ed3201f949febc93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::PlayReplayFromBP</definition>
+        <argsstring>(FString ReplayName)</argsstring>
+        <name>PlayReplayFromBP</name>
+        <qualifiedname>UNightSkyGameInstance::PlayReplayFromBP</qualifiedname>
+        <param>
+          <type>FString</type>
+          <declname>ReplayName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start playback for a previously recorded Replay, from blueprint </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="115" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="101" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a0f90a7241dced14c3bdb405b91412b5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::FindReplays</definition>
+        <argsstring>()</argsstring>
+        <name>FindReplays</name>
+        <qualifiedname>UNightSkyGameInstance::FindReplays</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start looking for/finding replays on the hard drive </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="119" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="110" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_game_instance_1a52e483f984c4df5f35f0f8d67d6a8562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyGameInstance::DeleteReplay</definition>
+        <argsstring>(const FString &amp;ReplayName)</argsstring>
+        <name>DeleteReplay</name>
+        <qualifiedname>UNightSkyGameInstance::DeleteReplay</qualifiedname>
+        <param>
+          <type>const FString &amp;</type>
+          <declname>ReplayName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete a previously recorded replay </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="123" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp" bodystart="132" bodyend="139"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UGameInstance</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="2">
+        <label>UGameInstance</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="4">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="55" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="56" bodyend="124"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_game_instance_1a08d29a3f1a254b7eebef2decbe73323e" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>AnnouncerData</name></member>
+      <member refid="class_u_night_sky_game_instance_1a25e8b55db7e6ad7a683742327569fa6e" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>BattleData</name></member>
+      <member refid="class_u_night_sky_game_instance_1a0a640fe33be78d89357ec198100ccf46" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>BattleVersion</name></member>
+      <member refid="class_u_night_sky_game_instance_1a25772e4fd499df189eb0695ebbc3400e" prot="protected" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>BP_OnFindReplaysComplete</name></member>
+      <member refid="class_u_night_sky_game_instance_1ae2075871a22b963db182012fb0ecce20" prot="private" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>CurrentReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1a52e483f984c4df5f35f0f8d67d6a8562" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>DeleteReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1a9fd2d62b26f1599741bc8c8a1eb7c88a" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>EndRecordReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1a2c01e162b80cebfc7021a18e76cab833" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>FighterRunner</name></member>
+      <member refid="class_u_night_sky_game_instance_1a0f90a7241dced14c3bdb405b91412b5e" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>FindReplays</name></member>
+      <member refid="class_u_night_sky_game_instance_1a0aecc4d81705fd9ff3cca334d21a27e9" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>FinishedLoadingForNetworkBattle</name></member>
+      <member refid="class_u_night_sky_game_instance_1a16a4c9e2ed29bb80a7d8894b69363c6a" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>GameVersion</name></member>
+      <member refid="class_u_night_sky_game_instance_1a16b0d731443b79e1784e8a3c94865633" prot="private" virt="virtual"><scope>UNightSkyGameInstance</scope><name>Init</name></member>
+      <member refid="class_u_night_sky_game_instance_1a3e837c7fd220a3719b851fac6ed62059" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>IsCPUBattle</name></member>
+      <member refid="class_u_night_sky_game_instance_1a7b066ac5cfe306a766be8515c4f271ee" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>IsReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1ac30a420e1f080b7a475cb48cb46164e8" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>IsTraining</name></member>
+      <member refid="class_u_night_sky_game_instance_1a0f4550072b3bc39af4397cfd9690558b" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>LoadReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1ad5d3d4de4a9742184abc02efecdd5aca" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>MusicData</name></member>
+      <member refid="class_u_night_sky_game_instance_1a6c4ccdf471013b181ed1e9014f0dffda" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>PlayerIndex</name></member>
+      <member refid="class_u_night_sky_game_instance_1aa603b7740de4e550ed3201f949febc93" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>PlayReplayFromBP</name></member>
+      <member refid="class_u_night_sky_game_instance_1aad122160059b952ef1edf2edef21e4de" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>PlayReplayToGameState</name></member>
+      <member refid="class_u_night_sky_game_instance_1abcbb03385e644825e23a342ed554021e" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>RecordReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1a8a4ed3fd5bf379650c3a9b1f976b2bf1" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>ReplayList</name></member>
+      <member refid="class_u_night_sky_game_instance_1ad8e09e15d7ae2ab67ce5441c54812b5f" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>RollbackReplay</name></member>
+      <member refid="class_u_night_sky_game_instance_1aae0f809e1f5ab1bfa23a75172770dc9d" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>SettingsInfo</name></member>
+      <member refid="class_u_night_sky_game_instance_1a972b008dae0145795d37ca1d76a596f7" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>TravelToBattleMap</name></member>
+      <member refid="class_u_night_sky_game_instance_1af3211c7bec8ed5e194dff69c91e88ac1" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>TravelToVSInfo</name></member>
+      <member refid="class_u_night_sky_game_instance_1a7b750ecfaa7205b4ff11189fd5f7da88" prot="public" virt="non-virtual"><scope>UNightSkyGameInstance</scope><name>UpdateReplay</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

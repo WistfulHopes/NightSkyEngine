@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_g_g_p_o_player" kind="struct" language="C++" prot="public">
+    <compoundname>GGPOPlayer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g_p_o_player_1aba11e66cf202a722b1bcb2c1de62855b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOPlayer::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>GGPOPlayer::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="242" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_player_1ac9c9f61171c94928fbe236eabae15ec3" prot="public" static="no" mutable="no">
+        <type>GGPOPlayerType</type>
+        <definition>GGPOPlayerType GGPOPlayer::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>GGPOPlayer::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="243" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_player_1a95e42a2e001e5cee78870fed9b0bf15c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOPlayer::player_num</definition>
+        <argsstring></argsstring>
+        <name>player_num</name>
+        <qualifiedname>GGPOPlayer::player_num</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="244" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_player_1a5873c88d598686e4972162f570710f8c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOPlayer::connection_id</definition>
+        <argsstring></argsstring>
+        <name>connection_id</name>
+        <qualifiedname>GGPOPlayer::connection_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="245" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="240" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="241" bodyend="246"/>
+    <listofallmembers>
+      <member refid="struct_g_g_p_o_player_1a5873c88d598686e4972162f570710f8c" prot="public" virt="non-virtual"><scope>GGPOPlayer</scope><name>connection_id</name></member>
+      <member refid="struct_g_g_p_o_player_1a95e42a2e001e5cee78870fed9b0bf15c" prot="public" virt="non-virtual"><scope>GGPOPlayer</scope><name>player_num</name></member>
+      <member refid="struct_g_g_p_o_player_1aba11e66cf202a722b1bcb2c1de62855b" prot="public" virt="non-virtual"><scope>GGPOPlayer</scope><name>size</name></member>
+      <member refid="struct_g_g_p_o_player_1ac9c9f61171c94928fbe236eabae15ec3" prot="public" virt="non-virtual"><scope>GGPOPlayer</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

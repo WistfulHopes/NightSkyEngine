@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_asset_type_actions___collision_data" kind="class" language="C++" prot="public">
+    <compoundname>FAssetTypeActions_CollisionData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FAssetTypeActions_Base</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_f_asset_type_actions___collision_data_1a2e66cc38171c47a09e017c91f4fa36f0" prot="private" static="no" mutable="no">
+        <type>EAssetTypeCategories::Type</type>
+        <definition>EAssetTypeCategories::Type FAssetTypeActions_CollisionData::AssetCategory</definition>
+        <argsstring></argsstring>
+        <name>AssetCategory</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::AssetCategory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="27" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1aeefb7c51597a202e38e23f614d6e5fa9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FAssetTypeActions_CollisionData::FAssetTypeActions_CollisionData</definition>
+        <argsstring>(EAssetTypeCategories::Type InAssetCategory)</argsstring>
+        <name>FAssetTypeActions_CollisionData</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::FAssetTypeActions_CollisionData</qualifiedname>
+        <param>
+          <type>EAssetTypeCategories::Type</type>
+          <declname>InAssetCategory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1a12182f7a24cd98d044266325ffb6e66f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>FColor</type>
+        <definition>FColor FAssetTypeActions_CollisionData::GetTypeColor</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetTypeColor</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::GetTypeColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="15" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1ab8a5c0d7758ba51ebae8de1e5db09399" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>UClass *</type>
+        <definition>UClass * FAssetTypeActions_CollisionData::GetSupportedClass</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetSupportedClass</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::GetSupportedClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="16" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1a31f10a16b512008fa6870567c780f71d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FAssetTypeActions_CollisionData::OpenAssetEditor</definition>
+        <argsstring>(const TArray&lt; UObject * &gt; &amp;InObjects, TSharedPtr&lt; IToolkitHost &gt; EditWithinLevelEditor) override</argsstring>
+        <name>OpenAssetEditor</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::OpenAssetEditor</qualifiedname>
+        <param>
+          <type>const TArray&lt; UObject * &gt; &amp;</type>
+          <declname>InObjects</declname>
+        </param>
+        <param>
+          <type>TSharedPtr&lt; IToolkitHost &gt;</type>
+          <declname>EditWithinLevelEditor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="18" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp" bodystart="19" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1a892e3ae852269bfc81a0cf12ce6afc10" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>FText</type>
+        <definition>FText FAssetTypeActions_CollisionData::GetName</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetName</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::GetName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="20" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1a6a97edb95bfd8b8bab6d10740fbfa772" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool FAssetTypeActions_CollisionData::CanFilter</definition>
+        <argsstring>() override</argsstring>
+        <name>CanFilter</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::CanFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="22" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_asset_type_actions___collision_data_1a49e31528449a647aaa5a15c7d406c400" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>uint32</type>
+        <definition>uint32 FAssetTypeActions_CollisionData::GetCategories</definition>
+        <argsstring>() override</argsstring>
+        <name>GetCategories</name>
+        <qualifiedname>FAssetTypeActions_CollisionData::GetCategories</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="24" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/AssetTypeActions_CollisionData.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>FAssetTypeActions_Base</label>
+      </node>
+      <node id="1">
+        <label>FAssetTypeActions_CollisionData</label>
+        <link refid="class_f_asset_type_actions___collision_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>FAssetTypeActions_Base</label>
+      </node>
+      <node id="1">
+        <label>FAssetTypeActions_CollisionData</label>
+        <link refid="class_f_asset_type_actions___collision_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" line="8" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/AssetTypeActions_CollisionData.h" bodystart="9" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_f_asset_type_actions___collision_data_1a2e66cc38171c47a09e017c91f4fa36f0" prot="private" virt="non-virtual"><scope>FAssetTypeActions_CollisionData</scope><name>AssetCategory</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1a6a97edb95bfd8b8bab6d10740fbfa772" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>CanFilter</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1aeefb7c51597a202e38e23f614d6e5fa9" prot="public" virt="non-virtual"><scope>FAssetTypeActions_CollisionData</scope><name>FAssetTypeActions_CollisionData</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1a49e31528449a647aaa5a15c7d406c400" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>GetCategories</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1a892e3ae852269bfc81a0cf12ce6afc10" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>GetName</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1ab8a5c0d7758ba51ebae8de1e5db09399" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>GetSupportedClass</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1a12182f7a24cd98d044266325ffb6e66f" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>GetTypeColor</name></member>
+      <member refid="class_f_asset_type_actions___collision_data_1a31f10a16b512008fa6870567c780f71d" prot="public" virt="virtual"><scope>FAssetTypeActions_CollisionData</scope><name>OpenAssetEditor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

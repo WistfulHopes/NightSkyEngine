@@ -1,0 +1,152 @@
+
+
+# File NightSkyGameInstance.cpp
+
+[**File List**](files.md) **>** [**Miscellaneous**](dir_3028ef8e315fbc532032c32a50fd3ba1.md) **>** [**NightSkyGameInstance.cpp**](_night_sky_game_instance_8cpp.md)
+
+[Go to the documentation of this file](_night_sky_game_instance_8cpp.md)
+
+
+```C++
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "NightSkyGameInstance.h"
+
+#include "NightSkySettingsInfo.h"
+#include "ReplayInfo.h"
+#include "Kismet/GameplayStatics.h"
+#include "NightSkyEngine/Data/PrimaryStageData.h"
+
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyGameInstance)
+
+void UNightSkyGameInstance::Init()
+{
+    Super::Init();
+
+    BattleData.Random = FRandomManager(FGenericPlatformMath::Rand());
+
+    SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::LoadGameFromSlot("SYSTEM", 0));
+    if (!SettingsInfo)
+    {
+        SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::CreateSaveGameObject(UNightSkySettingsInfo::StaticClass()));
+        UGameplayStatics::SaveGameToSlot(SettingsInfo, "SYSTEM", 0);
+    }
+
+    const FString AntiAliasingCommand = "r.AntiAliasingMethod " + FString::FromInt(SettingsInfo->AntiAliasingMethod);
+    const FString GlobalIlluminationCommand = "r.DynamicGlobalIlluminationMethod " + FString::FromInt(SettingsInfo->GlobalIlluminationMethod);
+
+    GetWorld()->Exec(GetWorld(), *AntiAliasingCommand);
+    GetWorld()->Exec(GetWorld(), *GlobalIlluminationCommand);
+}
+
+void UNightSkyGameInstance::TravelToVSInfo() const
+{
+    this->GetWorld()->ServerTravel("VSInfo_PL", true);
+}
+
+void UNightSkyGameInstance::TravelToBattleMap() const
+{
+    this->GetWorld()->ServerTravel(BattleData.Stage->StageURL, true);
+}
+
+void UNightSkyGameInstance::LoadReplay()
+{
+    BattleData = CurrentReplay->BattleData;
+}
+
+void UNightSkyGameInstance::PlayReplayToGameState(int32 FrameNumber, int32& OutP1Input, int32& OutP2Input) const
+{
+    if (FrameNumber >= CurrentReplay->LengthInFrames)
+    {
+        UGameplayStatics::OpenLevel(this, FName(TEXT("MainMenu_PL")));
+        return;
+    }
+    OutP1Input = CurrentReplay->InputsP1[FrameNumber];
+    OutP2Input = CurrentReplay->InputsP2[FrameNumber];
+}
+
+void UNightSkyGameInstance::RecordReplay()
+{
+    CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::CreateSaveGameObject(UReplaySaveInfo::StaticClass()));
+    CurrentReplay->BattleData = BattleData;
+    CurrentReplay->Version = BattleVersion;
+    CurrentReplay->bIsTraining = IsTraining;
+}
+
+void UNightSkyGameInstance::UpdateReplay(int32 InputsP1, int32 InputsP2) const
+{
+    if (!CurrentReplay) return;
+    CurrentReplay->LengthInFrames++;
+    CurrentReplay->InputsP1.Add(InputsP1);
+    CurrentReplay->InputsP2.Add(InputsP2);
+}
+
+void UNightSkyGameInstance::RollbackReplay(int32 FramesToRollback) const
+{
+    for (int i = 0; i < FramesToRollback; i++)
+    {
+        CurrentReplay->LengthInFrames--;
+        CurrentReplay->InputsP1.Pop();
+        CurrentReplay->InputsP2.Pop();
+    }
+}
+
+void UNightSkyGameInstance::EndRecordReplay() const
+{
+    if (IsReplay) return;
+    FString ReplayName = "REPLAY";
+    for (int i = 0; i < MaxReplays; i++)
+    {
+        ReplayName = "REPLAY";
+        ReplayName.AppendInt(i);
+        if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+        {
+            break;
+        }
+    }
+    UGameplayStatics::SaveGameToSlot(CurrentReplay, ReplayName, 0);
+}
+
+void UNightSkyGameInstance::PlayReplayFromBP(FString ReplayName)
+{
+    FighterRunner = Multiplayer;
+    IsReplay = true;
+    CurrentReplay = Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0));
+    IsTraining = CurrentReplay->bIsTraining;
+    LoadReplay();
+}
+
+void UNightSkyGameInstance::FindReplays()
+{
+    ReplayList.Empty();
+    for (int i = 0; i < MaxReplays; i++)
+    {
+        FString ReplayName = "REPLAY";
+        ReplayName.AppendInt(i);
+        if (!UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+        {
+            continue;
+        }
+        ReplayList.Add(Cast<UReplaySaveInfo>(UGameplayStatics::LoadGameFromSlot(ReplayName, 0)));
+        ReplayList.Last()->ReplayIndex = i;
+        if (ReplayList.Last()->Version != BattleVersion)
+        {
+            ReplayList.Pop();
+            UGameplayStatics::DeleteGameInSlot(ReplayName, 0);
+        }
+    }
+    BP_OnFindReplaysComplete(ReplayList);
+}
+
+void UNightSkyGameInstance::DeleteReplay(const FString& ReplayName)
+{
+    if (UGameplayStatics::DoesSaveGameExist(ReplayName, 0))
+    {
+        UGameplayStatics::DeleteGameInSlot(ReplayName, 0);
+    }
+    FindReplays();
+}
+```
+
+

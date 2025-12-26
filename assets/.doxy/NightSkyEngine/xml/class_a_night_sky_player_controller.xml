@@ -1,0 +1,1161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_player_controller" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyPlayerController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">APlayerController</basecompoundref>
+    <derivedcompoundref refid="class_a_night_sky_w_t_player_controller" prot="public" virt="non-virtual">ANightSkyWTPlayerController</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1aa941c6d850523b2778bddd764843057e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyPlayerController::Inputs</definition>
+        <argsstring></argsstring>
+        <name>Inputs</name>
+        <qualifiedname>ANightSkyPlayerController::Inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="91" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1abed7e8246d8019abaa2396f41f04eb40" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyPlayerController::Frame</definition>
+        <argsstring></argsstring>
+        <name>Frame</name>
+        <qualifiedname>ANightSkyPlayerController::Frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="92" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1a8551262652e4498a1380d96841832d2d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyPlayerController::bRematch</definition>
+        <argsstring></argsstring>
+        <name>bRematch</name>
+        <qualifiedname>ANightSkyPlayerController::bRematch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="93" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1a1b2592af49a4feb1d9f9e9c97a2e9404" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyPlayerController::bRematchAccepted</definition>
+        <argsstring></argsstring>
+        <name>bRematchAccepted</name>
+        <qualifiedname>ANightSkyPlayerController::bRematchAccepted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="94" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1a20c0c66ddb1e5dcc168666e370a30d34" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyPlayerController::bSentCharaData</definition>
+        <argsstring></argsstring>
+        <name>bSentCharaData</name>
+        <qualifiedname>ANightSkyPlayerController::bSentCharaData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="95" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1a373e5cf3d167f970f68bff5f20c84e24" prot="public" static="no" mutable="no">
+        <type>TSoftObjectPtr&lt; UInputMappingContext &gt;</type>
+        <definition>TSoftObjectPtr&lt;UInputMappingContext&gt; ANightSkyPlayerController::InputMapping</definition>
+        <argsstring></argsstring>
+        <name>InputMapping</name>
+        <qualifiedname>ANightSkyPlayerController::InputMapping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="98" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1a17b75fe0f61fc24a4c2e40e83473a17d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_battle_input_actions" kindref="compound">FBattleInputActions</ref></type>
+        <definition>FBattleInputActions ANightSkyPlayerController::InputActions</definition>
+        <argsstring></argsstring>
+        <name>InputActions</name>
+        <qualifiedname>ANightSkyPlayerController::InputActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="100" column="21" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_player_controller_1aba454772ebc5f60d65e7cfff7c473af3" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_network_pawn" kindref="compound">ANetworkPawn</ref> *</type>
+        <definition>ANetworkPawn* ANightSkyPlayerController::NetworkPawn</definition>
+        <argsstring></argsstring>
+        <name>NetworkPawn</name>
+        <qualifiedname>ANightSkyPlayerController::NetworkPawn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="140" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a26f85c3383067f88e46b2809107b4e54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyPlayerController::ANightSkyPlayerController</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyPlayerController</name>
+        <qualifiedname>ANightSkyPlayerController::ANightSkyPlayerController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="79" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="23" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aea64af8418947730f0a7b377f6c715f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>ANightSkyPlayerController::Tick</qualifiedname>
+        <reimplementedby refid="class_a_night_sky_w_t_player_controller_1a446f066d755916f3fd00877e588e795f">Tick</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="87" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="41" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aa7048663c4f6b41e3b8c22271a795918" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::SetupInputComponent</definition>
+        <argsstring>() override</argsstring>
+        <name>SetupInputComponent</name>
+        <qualifiedname>ANightSkyPlayerController::SetupInputComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="89" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="78" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aef4e9bc37f33a876113d8117fe590a08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressUp</definition>
+        <argsstring>()</argsstring>
+        <name>PressUp</name>
+        <qualifiedname>ANightSkyPlayerController::PressUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="102" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1af45362c85c8f05770f1fb512c384a891" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseUp</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseUp</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="103" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ad06e7fb46a2a75a367591416bff067dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressDown</definition>
+        <argsstring>()</argsstring>
+        <name>PressDown</name>
+        <qualifiedname>ANightSkyPlayerController::PressDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="104" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aa7b9600ef26f0bb57ea4de13ff230e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseDown</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseDown</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="105" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="168" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a41c00042a0eef54763e766088807fcb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressLeft</definition>
+        <argsstring>()</argsstring>
+        <name>PressLeft</name>
+        <qualifiedname>ANightSkyPlayerController::PressLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="106" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a6478c5a1a5027ce64e8651f5dc82d010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseLeft</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseLeft</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="107" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aabd2b158b59eb3da3b002ebc08b7dcc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressRight</definition>
+        <argsstring>()</argsstring>
+        <name>PressRight</name>
+        <qualifiedname>ANightSkyPlayerController::PressRight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="108" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="183" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aa9e7b369f800950b1f54b0482159c149" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseRight</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseRight</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseRight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="109" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="188" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a2b0311a543e31549cd5311a1dd640f85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressA</definition>
+        <argsstring>()</argsstring>
+        <name>PressA</name>
+        <qualifiedname>ANightSkyPlayerController::PressA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="110" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a244c320af930b7b00b84b4c383f8e8ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseA</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseA</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="111" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1abb65c88ba0c220ec4b1c2d0d90ee8769" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressB</definition>
+        <argsstring>()</argsstring>
+        <name>PressB</name>
+        <qualifiedname>ANightSkyPlayerController::PressB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="112" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="203" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ae8f868986898bc0aafc9a31ff15a79b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseB</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseB</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="113" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ac4f018cd42684b94c498f50216c108c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressC</definition>
+        <argsstring>()</argsstring>
+        <name>PressC</name>
+        <qualifiedname>ANightSkyPlayerController::PressC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="114" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a5bf59c183931961ca38598cc9fa2a920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseC</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseC</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="115" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a94c5e3450d163247bbdaf73730e519d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressD</definition>
+        <argsstring>()</argsstring>
+        <name>PressD</name>
+        <qualifiedname>ANightSkyPlayerController::PressD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="116" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="223" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ada9ffb9aefb2ce4f0e6dbc8faa0a2b76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseD</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseD</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="117" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="228" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a00ab937e21e92df5b00f927b7ad149d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressE</definition>
+        <argsstring>()</argsstring>
+        <name>PressE</name>
+        <qualifiedname>ANightSkyPlayerController::PressE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="118" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="233" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ae3c55f8c65b99d06bbbfcc0ce32b88a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseE</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseE</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="119" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="238" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aba45aaaed2eda2eaabaf307695d02724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressF</definition>
+        <argsstring>()</argsstring>
+        <name>PressF</name>
+        <qualifiedname>ANightSkyPlayerController::PressF</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="120" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="243" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a80d124042dd29d480a0e67c2d53000a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseF</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseF</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseF</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="121" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="248" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a54c928f0c749306c1dabd40dce16fc97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressG</definition>
+        <argsstring>()</argsstring>
+        <name>PressG</name>
+        <qualifiedname>ANightSkyPlayerController::PressG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="122" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="253" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1af333efcefff9d7425ce0720508f113bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseG</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseG</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="123" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="258" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a4c734462675a966e66304ada9db0542c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PressH</definition>
+        <argsstring>()</argsstring>
+        <name>PressH</name>
+        <qualifiedname>ANightSkyPlayerController::PressH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="124" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="264" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aae6630c00bc5104a4895dc224b547184" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ReleaseH</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseH</name>
+        <qualifiedname>ANightSkyPlayerController::ReleaseH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="125" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="269" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a17027ec1eac26ae67bed9eaa53d02394" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PauseGame</definition>
+        <argsstring>()</argsstring>
+        <name>PauseGame</name>
+        <qualifiedname>ANightSkyPlayerController::PauseGame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="127" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="274" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1ad76f873975567fcdd0e1f2d671a08af2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ResetTraining</definition>
+        <argsstring>()</argsstring>
+        <name>ResetTraining</name>
+        <qualifiedname>ANightSkyPlayerController::ResetTraining</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="128" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="286" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a9bcfa67a13c16fea37ab8997dec3615a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::SendGgpo</definition>
+        <argsstring>(ANetworkPawn *InNetworkPawn, bool Client) const</argsstring>
+        <name>SendGgpo</name>
+        <qualifiedname>ANightSkyPlayerController::SendGgpo</qualifiedname>
+        <param>
+          <type><ref refid="class_a_network_pawn" kindref="compound">ANetworkPawn</ref> *</type>
+          <declname>InNetworkPawn</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>Client</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="130" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="291" bodyend="320"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a3595e359e57aec0ba26299c7d569296c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::SendBattleData</definition>
+        <argsstring>()</argsstring>
+        <name>SendBattleData</name>
+        <qualifiedname>ANightSkyPlayerController::SendBattleData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="133" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="322" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a64308c1a69b1f6b184f812d54cf623fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::Rematch</definition>
+        <argsstring>()</argsstring>
+        <name>Rematch</name>
+        <qualifiedname>ANightSkyPlayerController::Rematch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="135" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="359" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a4ca1b7a0c7f8971a6e3eb303ef536e82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::PostRematch</definition>
+        <argsstring>()</argsstring>
+        <name>PostRematch</name>
+        <qualifiedname>ANightSkyPlayerController::PostRematch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="137" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="384" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1aab3c4ff6bbc75fa3997188d4a3142b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::OpenPauseMenu</definition>
+        <argsstring>()</argsstring>
+        <name>OpenPauseMenu</name>
+        <qualifiedname>ANightSkyPlayerController::OpenPauseMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="143" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a2e5f11164250f1c5f7b551310351508e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::ClosePauseMenu</definition>
+        <argsstring>()</argsstring>
+        <name>ClosePauseMenu</name>
+        <qualifiedname>ANightSkyPlayerController::ClosePauseMenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="146" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_night_sky_player_controller_1a1b627f578570f4a65167b055c4af56b2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyPlayerController::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANightSkyPlayerController::BeginPlay</qualifiedname>
+        <reimplementedby refid="class_a_night_sky_w_t_player_controller_1a6a2a47e50e81fec4d0e41639ff1c3272">BeginPlay</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="83" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ANightSkyPlayerController</label>
+        <link refid="class_a_night_sky_player_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ANightSkyWTPlayerController</label>
+        <link refid="class_a_night_sky_w_t_player_controller"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>APlayerController</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>AActor</label>
+      </node>
+      <node id="51">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>GameState</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>AFighterMultiplayerRunner</label>
+        <link refid="class_a_fighter_multiplayer_runner"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>connectionManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="4">
+        <label>ANetworkPawn</label>
+        <link refid="class_a_network_pawn"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>FighterMultiplayerRunner</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>BattleState</edgelabel>
+        </childnode>
+        <childnode refid="44" relation="usage">
+          <edgelabel>BattleExtensionData</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>GameInstance</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>ParticleManager</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>AudioManager</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>SequenceEnemy</edgelabel>
+          <edgelabel>SequenceTarget</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>FighterRunner</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>BattleHudActor</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ANightSkyPlayerController</label>
+        <link refid="class_a_night_sky_player_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>InputActions</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>NetworkPawn</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>APawn</label>
+      </node>
+      <node id="2">
+        <label>APlayerController</label>
+      </node>
+      <node id="24">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="56">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="42">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="47">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="48" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FBattleInputActions</label>
+        <link refid="struct_f_battle_input_actions"/>
+      </node>
+      <node id="11">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="19">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="16">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="17" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="18">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="17">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="22">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="26">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="25">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="13">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="12">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="31">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="27">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="43">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="20">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="55">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="56" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>UDataAsset</label>
+      </node>
+      <node id="46">
+        <label>UGameInstance</label>
+      </node>
+      <node id="37">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="54" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="46" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>UObject</label>
+      </node>
+      <node id="38">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="48">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="73" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="74" bodyend="147"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_player_controller_1a26f85c3383067f88e46b2809107b4e54" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ANightSkyPlayerController</name></member>
+      <member refid="class_a_night_sky_player_controller_1a1b627f578570f4a65167b055c4af56b2" prot="protected" virt="virtual"><scope>ANightSkyPlayerController</scope><name>BeginPlay</name></member>
+      <member refid="class_a_night_sky_player_controller_1a8551262652e4498a1380d96841832d2d" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>bRematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1a1b2592af49a4feb1d9f9e9c97a2e9404" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>bRematchAccepted</name></member>
+      <member refid="class_a_night_sky_player_controller_1a20c0c66ddb1e5dcc168666e370a30d34" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>bSentCharaData</name></member>
+      <member refid="class_a_night_sky_player_controller_1a2e5f11164250f1c5f7b551310351508e" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ClosePauseMenu</name></member>
+      <member refid="class_a_night_sky_player_controller_1abed7e8246d8019abaa2396f41f04eb40" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>Frame</name></member>
+      <member refid="class_a_night_sky_player_controller_1a17b75fe0f61fc24a4c2e40e83473a17d" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>InputActions</name></member>
+      <member refid="class_a_night_sky_player_controller_1a373e5cf3d167f970f68bff5f20c84e24" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>InputMapping</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa941c6d850523b2778bddd764843057e" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>Inputs</name></member>
+      <member refid="class_a_night_sky_player_controller_1aba454772ebc5f60d65e7cfff7c473af3" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>NetworkPawn</name></member>
+      <member refid="class_a_night_sky_player_controller_1aab3c4ff6bbc75fa3997188d4a3142b86" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>OpenPauseMenu</name></member>
+      <member refid="class_a_night_sky_player_controller_1a17027ec1eac26ae67bed9eaa53d02394" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PauseGame</name></member>
+      <member refid="class_a_night_sky_player_controller_1a4ca1b7a0c7f8971a6e3eb303ef536e82" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PostRematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1a2b0311a543e31549cd5311a1dd640f85" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressA</name></member>
+      <member refid="class_a_night_sky_player_controller_1abb65c88ba0c220ec4b1c2d0d90ee8769" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressB</name></member>
+      <member refid="class_a_night_sky_player_controller_1ac4f018cd42684b94c498f50216c108c9" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressC</name></member>
+      <member refid="class_a_night_sky_player_controller_1a94c5e3450d163247bbdaf73730e519d7" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressD</name></member>
+      <member refid="class_a_night_sky_player_controller_1ad06e7fb46a2a75a367591416bff067dc" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressDown</name></member>
+      <member refid="class_a_night_sky_player_controller_1a00ab937e21e92df5b00f927b7ad149d3" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressE</name></member>
+      <member refid="class_a_night_sky_player_controller_1aba45aaaed2eda2eaabaf307695d02724" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressF</name></member>
+      <member refid="class_a_night_sky_player_controller_1a54c928f0c749306c1dabd40dce16fc97" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressG</name></member>
+      <member refid="class_a_night_sky_player_controller_1a4c734462675a966e66304ada9db0542c" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressH</name></member>
+      <member refid="class_a_night_sky_player_controller_1a41c00042a0eef54763e766088807fcb8" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressLeft</name></member>
+      <member refid="class_a_night_sky_player_controller_1aabd2b158b59eb3da3b002ebc08b7dcc1" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressRight</name></member>
+      <member refid="class_a_night_sky_player_controller_1aef4e9bc37f33a876113d8117fe590a08" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>PressUp</name></member>
+      <member refid="class_a_night_sky_player_controller_1a244c320af930b7b00b84b4c383f8e8ea" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseA</name></member>
+      <member refid="class_a_night_sky_player_controller_1ae8f868986898bc0aafc9a31ff15a79b9" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseB</name></member>
+      <member refid="class_a_night_sky_player_controller_1a5bf59c183931961ca38598cc9fa2a920" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseC</name></member>
+      <member refid="class_a_night_sky_player_controller_1ada9ffb9aefb2ce4f0e6dbc8faa0a2b76" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseD</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa7b9600ef26f0bb57ea4de13ff230e03" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseDown</name></member>
+      <member refid="class_a_night_sky_player_controller_1ae3c55f8c65b99d06bbbfcc0ce32b88a8" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseE</name></member>
+      <member refid="class_a_night_sky_player_controller_1a80d124042dd29d480a0e67c2d53000a5" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseF</name></member>
+      <member refid="class_a_night_sky_player_controller_1af333efcefff9d7425ce0720508f113bb" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseG</name></member>
+      <member refid="class_a_night_sky_player_controller_1aae6630c00bc5104a4895dc224b547184" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseH</name></member>
+      <member refid="class_a_night_sky_player_controller_1a6478c5a1a5027ce64e8651f5dc82d010" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseLeft</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa9e7b369f800950b1f54b0482159c149" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseRight</name></member>
+      <member refid="class_a_night_sky_player_controller_1af45362c85c8f05770f1fb512c384a891" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ReleaseUp</name></member>
+      <member refid="class_a_night_sky_player_controller_1a64308c1a69b1f6b184f812d54cf623fe" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>Rematch</name></member>
+      <member refid="class_a_night_sky_player_controller_1ad76f873975567fcdd0e1f2d671a08af2" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>ResetTraining</name></member>
+      <member refid="class_a_night_sky_player_controller_1a3595e359e57aec0ba26299c7d569296c" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>SendBattleData</name></member>
+      <member refid="class_a_night_sky_player_controller_1a9bcfa67a13c16fea37ab8997dec3615a" prot="public" virt="non-virtual"><scope>ANightSkyPlayerController</scope><name>SendGgpo</name></member>
+      <member refid="class_a_night_sky_player_controller_1aa7048663c4f6b41e3b8c22271a795918" prot="public" virt="virtual"><scope>ANightSkyPlayerController</scope><name>SetupInputComponent</name></member>
+      <member refid="class_a_night_sky_player_controller_1aea64af8418947730f0a7b377f6c715f9" prot="public" virt="virtual"><scope>ANightSkyPlayerController</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

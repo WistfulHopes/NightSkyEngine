@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_rpc_connection_manager" kind="class" language="C++" prot="public">
+    <compoundname>RpcConnectionManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ConnectionManager</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_rpc_connection_manager_1a79bdbf93e970670a20f67e32a9cb735a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RpcConnectionManager::playerIndex</definition>
+        <argsstring></argsstring>
+        <name>playerIndex</name>
+        <qualifiedname>RpcConnectionManager::playerIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="20" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rpc_connection_manager_1ae25c7247023bbb1439c74dc1165814d4" prot="public" static="no" mutable="no">
+        <type>TDoubleLinkedList&lt; TArray&lt; int8 &gt; &gt;</type>
+        <definition>TDoubleLinkedList&lt;TArray&lt;int8&gt; &gt; RpcConnectionManager::sendSchedule</definition>
+        <argsstring></argsstring>
+        <name>sendSchedule</name>
+        <qualifiedname>RpcConnectionManager::sendSchedule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="21" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_rpc_connection_manager_1ab8875fff9f406a4913668382e904840e" prot="public" static="no" mutable="no">
+        <type>TDoubleLinkedList&lt; TArray&lt; int8 &gt; &gt;</type>
+        <definition>TDoubleLinkedList&lt;TArray&lt;int8&gt; &gt; RpcConnectionManager::receiveSchedule</definition>
+        <argsstring></argsstring>
+        <name>receiveSchedule</name>
+        <qualifiedname>RpcConnectionManager::receiveSchedule</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="22" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_rpc_connection_manager_1a72851be126eaa55174afeadb7e3b5285" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RpcConnectionManager::RpcConnectionManager</definition>
+        <argsstring>()</argsstring>
+        <name>RpcConnectionManager</name>
+        <qualifiedname>RpcConnectionManager::RpcConnectionManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.cpp" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rpc_connection_manager_1a9e77416bfa4189307fb2ee2c34339d77" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>RpcConnectionManager::~RpcConnectionManager</definition>
+        <argsstring>() override</argsstring>
+        <name>~RpcConnectionManager</name>
+        <qualifiedname>RpcConnectionManager::~RpcConnectionManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="15" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rpc_connection_manager_1a3ce1a294014dd5b2bd22cba2c316cd5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int RpcConnectionManager::SendTo</definition>
+        <argsstring>(const char *buffer, int len, int flags, int connection_id)</argsstring>
+        <name>SendTo</name>
+        <qualifiedname>RpcConnectionManager::SendTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="17" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.cpp" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_rpc_connection_manager_1a3097491d83d4aded544590b3da1b5e37" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>int</type>
+        <definition>int RpcConnectionManager::RecvFrom</definition>
+        <argsstring>(char *buffer, int len, int flags, int *connection_id)</argsstring>
+        <name>RecvFrom</name>
+        <qualifiedname>RpcConnectionManager::RecvFrom</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="18" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.cpp" bodystart="24" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="1">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="1">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" line="11" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/RpcConnectionManager.h" bodystart="12" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_rpc_connection_manager_1a79bdbf93e970670a20f67e32a9cb735a" prot="public" virt="non-virtual"><scope>RpcConnectionManager</scope><name>playerIndex</name></member>
+      <member refid="class_rpc_connection_manager_1ab8875fff9f406a4913668382e904840e" prot="public" virt="non-virtual"><scope>RpcConnectionManager</scope><name>receiveSchedule</name></member>
+      <member refid="class_rpc_connection_manager_1a3097491d83d4aded544590b3da1b5e37" prot="public" virt="virtual"><scope>RpcConnectionManager</scope><name>RecvFrom</name></member>
+      <member refid="class_rpc_connection_manager_1a72851be126eaa55174afeadb7e3b5285" prot="public" virt="non-virtual"><scope>RpcConnectionManager</scope><name>RpcConnectionManager</name></member>
+      <member refid="class_rpc_connection_manager_1ae25c7247023bbb1439c74dc1165814d4" prot="public" virt="non-virtual"><scope>RpcConnectionManager</scope><name>sendSchedule</name></member>
+      <member refid="class_rpc_connection_manager_1a3ce1a294014dd5b2bd22cba2c316cd5a" prot="public" virt="virtual"><scope>RpcConnectionManager</scope><name>SendTo</name></member>
+      <member refid="class_rpc_connection_manager_1a9e77416bfa4189307fb2ee2c34339d77" prot="public" virt="virtual"><scope>RpcConnectionManager</scope><name>~RpcConnectionManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_battle_hud_actor" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyBattleHudActor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AActor</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_battle_hud_actor_1aa3cf2d2a1f2920a31318b69bf41a4afe" prot="public" static="no" mutable="no">
+        <type><ref refid="class_u_night_sky_battle_widget" kindref="compound">UNightSkyBattleWidget</ref> *</type>
+        <definition>UNightSkyBattleWidget* ANightSkyBattleHudActor::TopWidget</definition>
+        <argsstring></argsstring>
+        <name>TopWidget</name>
+        <qualifiedname>ANightSkyBattleHudActor::TopWidget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" line="21" column="23" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_battle_hud_actor_1ad8afa8d8522c033e1c36b1225f96f674" prot="public" static="no" mutable="no">
+        <type><ref refid="class_u_night_sky_battle_widget" kindref="compound">UNightSkyBattleWidget</ref> *</type>
+        <definition>UNightSkyBattleWidget* ANightSkyBattleHudActor::BottomWidget</definition>
+        <argsstring></argsstring>
+        <name>BottomWidget</name>
+        <qualifiedname>ANightSkyBattleHudActor::BottomWidget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" line="23" column="23" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_battle_hud_actor_1a226267d8218ca0040eab6ec69095775d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyBattleHudActor::ANightSkyBattleHudActor</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyBattleHudActor</name>
+        <qualifiedname>ANightSkyBattleHudActor::ANightSkyBattleHudActor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AActor</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleHudActor.h" bodystart="13" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_battle_hud_actor_1a226267d8218ca0040eab6ec69095775d" prot="public" virt="non-virtual"><scope>ANightSkyBattleHudActor</scope><name>ANightSkyBattleHudActor</name></member>
+      <member refid="class_a_night_sky_battle_hud_actor_1ad8afa8d8522c033e1c36b1225f96f674" prot="public" virt="non-virtual"><scope>ANightSkyBattleHudActor</scope><name>BottomWidget</name></member>
+      <member refid="class_a_night_sky_battle_hud_actor_1aa3cf2d2a1f2920a31318b69bf41a4afe" prot="public" virt="non-virtual"><scope>ANightSkyBattleHudActor</scope><name>TopWidget</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

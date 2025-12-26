@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_night_sky_save_archive" kind="struct" language="C++" prot="public">
+    <compoundname>FNightSkySaveArchive</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FObjectAndNameAsStringProxyArchive</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_night_sky_save_archive_1a2d65fded5342914989bbb7b2cedb7a03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FNightSkySaveArchive::FNightSkySaveArchive</definition>
+        <argsstring>(FArchive &amp;InInnerArchive)</argsstring>
+        <name>FNightSkySaveArchive</name>
+        <qualifiedname>FNightSkySaveArchive::FNightSkySaveArchive</qualifiedname>
+        <param>
+          <type>FArchive &amp;</type>
+          <declname>InInnerArchive</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="8" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="8" bodyend="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FNightSkySaveArchive</label>
+        <link refid="struct_f_night_sky_save_archive"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FObjectAndNameAsStringProxyArchive</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FNightSkySaveArchive</label>
+        <link refid="struct_f_night_sky_save_archive"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FObjectAndNameAsStringProxyArchive</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" line="6" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkySaveInfo.h" bodystart="7" bodyend="14"/>
+    <listofallmembers>
+      <member refid="struct_f_night_sky_save_archive_1a2d65fded5342914989bbb7b2cedb7a03" prot="public" virt="non-virtual"><scope>FNightSkySaveArchive</scope><name>FNightSkySaveArchive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

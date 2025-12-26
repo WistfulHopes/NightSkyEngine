@@ -1,0 +1,2222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_player_object_log" kind="struct" language="C++" prot="public">
+    <compoundname>FPlayerObjectLog</compoundname>
+    <basecompoundref refid="struct_f_battle_object_log" prot="public" virt="non-virtual">FBattleObjectLog</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_player_object_log_1a04f13889bdcff13606009b024bf63e3a" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char FPlayerObjectLog::PlayerSync</definition>
+        <argsstring></argsstring>
+        <name>PlayerSync</name>
+        <qualifiedname>FPlayerObjectLog::PlayerSync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="72" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1af2fbdda9b5bbb035e5de5d801670610d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FWalkSpeed</definition>
+        <argsstring></argsstring>
+        <name>FWalkSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FWalkSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="79" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a236d7af63b1d36c42955c1131248826b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BWalkSpeed</definition>
+        <argsstring></argsstring>
+        <name>BWalkSpeed</name>
+        <qualifiedname>FPlayerObjectLog::BWalkSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="81" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aedae934d79c68285f2d4b59dcd43595a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FDashInitSpeed</definition>
+        <argsstring></argsstring>
+        <name>FDashInitSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FDashInitSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="83" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a54d5149b1b569668709e0f2fde2ee32b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FDashAccel</definition>
+        <argsstring></argsstring>
+        <name>FDashAccel</name>
+        <qualifiedname>FPlayerObjectLog::FDashAccel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="85" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1af9a53a67c546a2f3f3c517823c7e228e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FDashMaxSpeed</definition>
+        <argsstring></argsstring>
+        <name>FDashMaxSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FDashMaxSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="87" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a831490d858547bdd813056ff8d814549" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FDashFriction</definition>
+        <argsstring></argsstring>
+        <name>FDashFriction</name>
+        <qualifiedname>FPlayerObjectLog::FDashFriction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="89" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a708cbd8e197770d3d1357fae5d3676bd" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BDashSpeed</definition>
+        <argsstring></argsstring>
+        <name>BDashSpeed</name>
+        <qualifiedname>FPlayerObjectLog::BDashSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="91" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a7b82917a867537b583edc6954341a52c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BDashHeight</definition>
+        <argsstring></argsstring>
+        <name>BDashHeight</name>
+        <qualifiedname>FPlayerObjectLog::BDashHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="93" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad3b0f0281a05efbcd096a1f1721783a6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BDashGravity</definition>
+        <argsstring></argsstring>
+        <name>BDashGravity</name>
+        <qualifiedname>FPlayerObjectLog::BDashGravity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="95" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a597d3d0514f8572e60ac7f4ca6593945" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::JumpHeight</definition>
+        <argsstring></argsstring>
+        <name>JumpHeight</name>
+        <qualifiedname>FPlayerObjectLog::JumpHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="97" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ab71897032af653f1f2c4c752440dcf59" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FJumpSpeed</definition>
+        <argsstring></argsstring>
+        <name>FJumpSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FJumpSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="99" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a38e85afe880d03c2cc7040d4cd32b348" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BJumpSpeed</definition>
+        <argsstring></argsstring>
+        <name>BJumpSpeed</name>
+        <qualifiedname>FPlayerObjectLog::BJumpSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="101" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a8315d06c03beeba4950f5ea3144c61eb" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::JumpGravity</definition>
+        <argsstring></argsstring>
+        <name>JumpGravity</name>
+        <qualifiedname>FPlayerObjectLog::JumpGravity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="103" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ae0c45c1b43b9d5bbc9a47a2c375b2525" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::SuperJumpHeight</definition>
+        <argsstring></argsstring>
+        <name>SuperJumpHeight</name>
+        <qualifiedname>FPlayerObjectLog::SuperJumpHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="105" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aab1a57d259e67b93629f69523286960a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FSuperJumpSpeed</definition>
+        <argsstring></argsstring>
+        <name>FSuperJumpSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FSuperJumpSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="107" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a543a14370d7d0ef7246c8e472daa17a6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BSuperJumpSpeed</definition>
+        <argsstring></argsstring>
+        <name>BSuperJumpSpeed</name>
+        <qualifiedname>FPlayerObjectLog::BSuperJumpSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="109" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1afd877d7e60ef116f055de7aa3ac75b1d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::SuperJumpGravity</definition>
+        <argsstring></argsstring>
+        <name>SuperJumpGravity</name>
+        <qualifiedname>FPlayerObjectLog::SuperJumpGravity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="111" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1abc7b36214fb0d58713ca76662d55f48d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirDashMinimumHeight</definition>
+        <argsstring></argsstring>
+        <name>AirDashMinimumHeight</name>
+        <qualifiedname>FPlayerObjectLog::AirDashMinimumHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="113" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a1150dea0369d73e700417da5968be54d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FAirDashSpeed</definition>
+        <argsstring></argsstring>
+        <name>FAirDashSpeed</name>
+        <qualifiedname>FPlayerObjectLog::FAirDashSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="115" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a72261fe73d6ad263e883020e6a8dd904" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BAirDashSpeed</definition>
+        <argsstring></argsstring>
+        <name>BAirDashSpeed</name>
+        <qualifiedname>FPlayerObjectLog::BAirDashSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="117" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a8e2c1a6c93cc53b656a6ba8122cdbd67" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FAirDashTime</definition>
+        <argsstring></argsstring>
+        <name>FAirDashTime</name>
+        <qualifiedname>FPlayerObjectLog::FAirDashTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="120" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a40de3c711ba00aeaf3e07709c10d885d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BAirDashTime</definition>
+        <argsstring></argsstring>
+        <name>BAirDashTime</name>
+        <qualifiedname>FPlayerObjectLog::BAirDashTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="123" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad009d359a0a5b3652142edc58086d731" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::FAirDashNoAttackTime</definition>
+        <argsstring></argsstring>
+        <name>FAirDashNoAttackTime</name>
+        <qualifiedname>FPlayerObjectLog::FAirDashNoAttackTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="126" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a55c02f89396b93e9ae776dbeb46d05a7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::BAirDashNoAttackTime</definition>
+        <argsstring></argsstring>
+        <name>BAirDashNoAttackTime</name>
+        <qualifiedname>FPlayerObjectLog::BAirDashNoAttackTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="129" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a1137d7c0c25a081c0177961ee4ed2dbe" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirJumpCount</definition>
+        <argsstring></argsstring>
+        <name>AirJumpCount</name>
+        <qualifiedname>FPlayerObjectLog::AirJumpCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="131" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a9519441157899d3ea0e448061fd179a9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirDashCount</definition>
+        <argsstring></argsstring>
+        <name>AirDashCount</name>
+        <qualifiedname>FPlayerObjectLog::AirDashCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="133" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a41d07aac7a6ec73a220707736c1c9718" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::StandPushWidth</definition>
+        <argsstring></argsstring>
+        <name>StandPushWidth</name>
+        <qualifiedname>FPlayerObjectLog::StandPushWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="135" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a2d988e2961a8843aef301d44bf2def35" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::StandPushHeight</definition>
+        <argsstring></argsstring>
+        <name>StandPushHeight</name>
+        <qualifiedname>FPlayerObjectLog::StandPushHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="137" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac1dd3e2d3eb656be7e30c55180b87e4a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CrouchPushWidth</definition>
+        <argsstring></argsstring>
+        <name>CrouchPushWidth</name>
+        <qualifiedname>FPlayerObjectLog::CrouchPushWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="139" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aaf201ee1d0bc55ef23d5aa9fa15bb374" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CrouchPushHeight</definition>
+        <argsstring></argsstring>
+        <name>CrouchPushHeight</name>
+        <qualifiedname>FPlayerObjectLog::CrouchPushHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="141" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a8dd39157dc15ce90486e779720b99f15" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirPushWidth</definition>
+        <argsstring></argsstring>
+        <name>AirPushWidth</name>
+        <qualifiedname>FPlayerObjectLog::AirPushWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="143" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a555b8491347d461884137d19dd2c3209" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirPushHeight</definition>
+        <argsstring></argsstring>
+        <name>AirPushHeight</name>
+        <qualifiedname>FPlayerObjectLog::AirPushHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="145" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a55f14d234cbe10a730ea871e24a853aa" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AirPushHeightLow</definition>
+        <argsstring></argsstring>
+        <name>AirPushHeightLow</name>
+        <qualifiedname>FPlayerObjectLog::AirPushHeightLow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="147" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a36b126f488d6e27da28276c5e5fe7880" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CloseNormalRange</definition>
+        <argsstring></argsstring>
+        <name>CloseNormalRange</name>
+        <qualifiedname>FPlayerObjectLog::CloseNormalRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="149" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1acf384701bd2b6230c50421d8699cb08e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MaxHealth</definition>
+        <argsstring></argsstring>
+        <name>MaxHealth</name>
+        <qualifiedname>FPlayerObjectLog::MaxHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="151" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a34922ace157b5d41273b98e2815cb952" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MaxMeter</definition>
+        <argsstring></argsstring>
+        <name>MaxMeter</name>
+        <qualifiedname>FPlayerObjectLog::MaxMeter</qualifiedname>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="153" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a66c28bdf2fc5c423bb16352cb0ca523a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ComboRate</definition>
+        <argsstring></argsstring>
+        <name>ComboRate</name>
+        <qualifiedname>FPlayerObjectLog::ComboRate</qualifiedname>
+        <initializer>= 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="155" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a2f230b755184a70960403f85ab0771ce" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::OtgProration</definition>
+        <argsstring></argsstring>
+        <name>OtgProration</name>
+        <qualifiedname>FPlayerObjectLog::OtgProration</qualifiedname>
+        <initializer>= 80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="157" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aed834383b6477b64278446767947bc1e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ForwardWalkMeterGain</definition>
+        <argsstring></argsstring>
+        <name>ForwardWalkMeterGain</name>
+        <qualifiedname>FPlayerObjectLog::ForwardWalkMeterGain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="159" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac68edb7b6f64535d216d1a9fb39d773b" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ForwardJumpMeterGain</definition>
+        <argsstring></argsstring>
+        <name>ForwardJumpMeterGain</name>
+        <qualifiedname>FPlayerObjectLog::ForwardJumpMeterGain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="161" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad77fef48a6c14988f036d62de90e51ef" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ForwardDashMeterGain</definition>
+        <argsstring></argsstring>
+        <name>ForwardDashMeterGain</name>
+        <qualifiedname>FPlayerObjectLog::ForwardDashMeterGain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="163" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a004477f72af8d8169409b4a84103284c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ForwardAirDashMeterGain</definition>
+        <argsstring></argsstring>
+        <name>ForwardAirDashMeterGain</name>
+        <qualifiedname>FPlayerObjectLog::ForwardAirDashMeterGain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="165" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a5b75f8ebb0ab97d3977d891571fa8b65" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MeterPercentOnHit</definition>
+        <argsstring></argsstring>
+        <name>MeterPercentOnHit</name>
+        <qualifiedname>FPlayerObjectLog::MeterPercentOnHit</qualifiedname>
+        <initializer>= 72</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="167" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a42616a449c158ddbc8d68777830a6688" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MeterPercentOnHitGuard</definition>
+        <argsstring></argsstring>
+        <name>MeterPercentOnHitGuard</name>
+        <qualifiedname>FPlayerObjectLog::MeterPercentOnHitGuard</qualifiedname>
+        <initializer>= 18</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="169" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a336f49b590abfc5ffcc5e7b7af167b4f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MeterPercentOnReceiveHitGuard</definition>
+        <argsstring></argsstring>
+        <name>MeterPercentOnReceiveHitGuard</name>
+        <qualifiedname>FPlayerObjectLog::MeterPercentOnReceiveHitGuard</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="171" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a03d54b7bff127b998b2f40825c6cfc46" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MeterPercentOnReceiveHit</definition>
+        <argsstring></argsstring>
+        <name>MeterPercentOnReceiveHit</name>
+        <qualifiedname>FPlayerObjectLog::MeterPercentOnReceiveHit</qualifiedname>
+        <initializer>= 40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="173" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ab860104d66317cecad1cebebadc141d7" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::CanReverseBeat</definition>
+        <argsstring></argsstring>
+        <name>CanReverseBeat</name>
+        <qualifiedname>FPlayerObjectLog::CanReverseBeat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="175" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a44d467a3275e0bdecaf4ac73ad35fc26" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::CanProximityThrow</definition>
+        <argsstring></argsstring>
+        <name>CanProximityThrow</name>
+        <qualifiedname>FPlayerObjectLog::CanProximityThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="177" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a1074499b97e309ac00478df8ce4d5b21" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_input_condition" kindref="compound">FInputCondition</ref></type>
+        <definition>FInputCondition FPlayerObjectLog::ProximityThrowInput</definition>
+        <argsstring></argsstring>
+        <name>ProximityThrowInput</name>
+        <qualifiedname>FPlayerObjectLog::ProximityThrowInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="179" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1adb931642e7a775f4855f83fe937789c1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ThrowTechWindow</definition>
+        <argsstring></argsstring>
+        <name>ThrowTechWindow</name>
+        <qualifiedname>FPlayerObjectLog::ThrowTechWindow</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="181" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a3da0ac77f76ce9c7e8922370b38464d8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ThrowResistAfterWakeUp</definition>
+        <argsstring></argsstring>
+        <name>ThrowResistAfterWakeUp</name>
+        <qualifiedname>FPlayerObjectLog::ThrowResistAfterWakeUp</qualifiedname>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="183" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a96f79b34da63fa487d7dedf58b9dc667" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg1</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg1</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg1</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="190" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aec8d07a88d7f5fa78cb111e69b9aa8a0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg2</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg2</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg2</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="192" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1af013df2b081deab9bc41366fb5cbe1e0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg3</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg3</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg3</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="194" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a8bb74c9c3f28b808e2cd38b7b76b50b9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg4</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg4</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg4</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="196" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a5204ebf46c9128eceec5fe0a29fc37f1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg5</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg5</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg5</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="198" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1abe36799231438b0e0c67e84ca311e7d6" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg6</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg6</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg6</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="200" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ae6ce74f7679219c3325685a26b446c71" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg7</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg7</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg7</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="202" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ab684f7614aa9a20494317af3f5d99aff" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerReg8</definition>
+        <argsstring></argsstring>
+        <name>PlayerReg8</name>
+        <qualifiedname>FPlayerObjectLog::PlayerReg8</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="204" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad08169a6f06d0f6a30b96de274c43190" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg1</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg1</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg1</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="211" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad9a2376f3bb7e2ec4f0a828635c0474f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg2</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg2</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg2</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="213" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a56105197b7201b57742795e1eb441803" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg3</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg3</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg3</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="215" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac78b3006a431d4ea2d69486514d292df" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg4</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg4</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg4</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="217" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a880505056b1fd09af914747d8e606c5c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg5</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg5</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg5</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="219" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac55bbfbca1ae3839071c6812cfe865c9" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg6</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg6</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg6</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="221" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ab7b68b4b80f5e80a5b7385782c7823f0" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg7</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg7</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg7</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="223" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a32ec77425b3bfd9e5058d1f26f46e4be" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CmnPlayerReg8</definition>
+        <argsstring></argsstring>
+        <name>CmnPlayerReg8</name>
+        <qualifiedname>FPlayerObjectLog::CmnPlayerReg8</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="225" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a88a1c90aeb35ab217de3c0212c9706f0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::IntroEndFlag</definition>
+        <argsstring></argsstring>
+        <name>IntroEndFlag</name>
+        <qualifiedname>FPlayerObjectLog::IntroEndFlag</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="228" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a567afec95603ad3f9f357ea6bd1b7fff" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::RoundEndFlag</definition>
+        <argsstring></argsstring>
+        <name>RoundEndFlag</name>
+        <qualifiedname>FPlayerObjectLog::RoundEndFlag</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="230" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a5f5afc8fc5c633f8a45599b33a3ac0a4" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::Inputs</definition>
+        <argsstring></argsstring>
+        <name>Inputs</name>
+        <qualifiedname>FPlayerObjectLog::Inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="235" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a15c5910d914f749a9524c49254f8b2c7" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_input_buffer" kindref="compound">FInputBuffer</ref></type>
+        <definition>FInputBuffer FPlayerObjectLog::StoredInputBuffer</definition>
+        <argsstring></argsstring>
+        <name>StoredInputBuffer</name>
+        <qualifiedname>FPlayerObjectLog::StoredInputBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="237" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac3b915fc8c22bd21da28070fdfc9878d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::FlipInputs</definition>
+        <argsstring></argsstring>
+        <name>FlipInputs</name>
+        <qualifiedname>FPlayerObjectLog::FlipInputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="245" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1af9e8ee9ae553886448b6c308a8ec8a26" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::MaxOTGCount</definition>
+        <argsstring></argsstring>
+        <name>MaxOTGCount</name>
+        <qualifiedname>FPlayerObjectLog::MaxOTGCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="247" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a64007fd3dbb0bf0ecafc46768238e38f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::bLimitCrumple</definition>
+        <argsstring></argsstring>
+        <name>bLimitCrumple</name>
+        <qualifiedname>FPlayerObjectLog::bLimitCrumple</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="249" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a52c7e400a4963abbcd24b1d139210723" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::PlayerIndex</definition>
+        <argsstring></argsstring>
+        <name>PlayerIndex</name>
+        <qualifiedname>FPlayerObjectLog::PlayerIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="252" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a3256f878c81ca1592f2d9e62835d1aa5" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::TeamIndex</definition>
+        <argsstring></argsstring>
+        <name>TeamIndex</name>
+        <qualifiedname>FPlayerObjectLog::TeamIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="254" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a1f859d84febd61232b7a79f1119d45e1" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EActionStance &gt;</type>
+        <definition>TEnumAsByte&lt;EActionStance&gt; FPlayerObjectLog::Stance</definition>
+        <argsstring></argsstring>
+        <name>Stance</name>
+        <qualifiedname>FPlayerObjectLog::Stance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="257" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aba74481cf4116861e91ee1983a442878" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::CurrentHealth</definition>
+        <argsstring></argsstring>
+        <name>CurrentHealth</name>
+        <qualifiedname>FPlayerObjectLog::CurrentHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="260" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a64e3e825522761750b098423a5474508" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::RecoverableHealth</definition>
+        <argsstring></argsstring>
+        <name>RecoverableHealth</name>
+        <qualifiedname>FPlayerObjectLog::RecoverableHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="262" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a32c2c979ef775ac719a5ece5da265408" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ComboCounter</definition>
+        <argsstring></argsstring>
+        <name>ComboCounter</name>
+        <qualifiedname>FPlayerObjectLog::ComboCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="264" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a2b23ecf955bb10ec4e90d000996a4608" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::TotalProration</definition>
+        <argsstring></argsstring>
+        <name>TotalProration</name>
+        <qualifiedname>FPlayerObjectLog::TotalProration</qualifiedname>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="266" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a710dbe2c58c930eced4df5cd7099d2f8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ComboTimer</definition>
+        <argsstring></argsstring>
+        <name>ComboTimer</name>
+        <qualifiedname>FPlayerObjectLog::ComboTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="267" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a5f20a6999927a2379700727985d3a124" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::InvulnFlags</definition>
+        <argsstring></argsstring>
+        <name>InvulnFlags</name>
+        <qualifiedname>FPlayerObjectLog::InvulnFlags</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="268" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a0b3f1ec4fee58c8342a95f83f967878f" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::PlayerFlags</definition>
+        <argsstring></argsstring>
+        <name>PlayerFlags</name>
+        <qualifiedname>FPlayerObjectLog::PlayerFlags</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="269" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="269" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a7ad17cdbf6ec2b18d4f546d3778565b2" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::StrikeInvulnerableTimer</definition>
+        <argsstring></argsstring>
+        <name>StrikeInvulnerableTimer</name>
+        <qualifiedname>FPlayerObjectLog::StrikeInvulnerableTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="270" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1adb9bfcdff0c137cefe3569c80193fbca" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::ThrowInvulnerableTimer</definition>
+        <argsstring></argsstring>
+        <name>ThrowInvulnerableTimer</name>
+        <qualifiedname>FPlayerObjectLog::ThrowInvulnerableTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="271" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad670c599d434b6ddb92845be2af59423" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::ThrowResistTimer</definition>
+        <argsstring></argsstring>
+        <name>ThrowResistTimer</name>
+        <qualifiedname>FPlayerObjectLog::ThrowResistTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="272" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ac090e20ec9575cf37e82736754d5b715" prot="public" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::AirDashTimer</definition>
+        <argsstring></argsstring>
+        <name>AirDashTimer</name>
+        <qualifiedname>FPlayerObjectLog::AirDashTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="273" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1abcd2d026227537f13bc8bed240d42a93" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::OTGCount</definition>
+        <argsstring></argsstring>
+        <name>OTGCount</name>
+        <qualifiedname>FPlayerObjectLog::OTGCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="274" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1addf96eecddafe40b33a6a70cd8707056" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::bCrumpled</definition>
+        <argsstring></argsstring>
+        <name>bCrumpled</name>
+        <qualifiedname>FPlayerObjectLog::bCrumpled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="275" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1af35243a8d8c7940aa786af16e576dd5f" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::RoundWinTimer</definition>
+        <argsstring></argsstring>
+        <name>RoundWinTimer</name>
+        <qualifiedname>FPlayerObjectLog::RoundWinTimer</qualifiedname>
+        <initializer>= 120</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="276" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1acf5cb56e9d7010a8f94c9ddb4f122675" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::WallTouchTimer</definition>
+        <argsstring></argsstring>
+        <name>WallTouchTimer</name>
+        <qualifiedname>FPlayerObjectLog::WallTouchTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="277" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ad6118d92ccb6c6767c0635532c0ff391" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject* FPlayerObjectLog::Enemy</definition>
+        <argsstring></argsstring>
+        <name>Enemy</name>
+        <qualifiedname>FPlayerObjectLog::Enemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="284" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a9f92551e2fcb68ddc211518b2112537c" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+        <definition>ABattleObject* FPlayerObjectLog::StoredBattleObjects[16]</definition>
+        <argsstring>[16]</argsstring>
+        <name>StoredBattleObjects</name>
+        <qualifiedname>FPlayerObjectLog::StoredBattleObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="286" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1afac8fab2c1646a614ab2d4e1d7783e41" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::ComponentVisible[MaxComponentCount]</definition>
+        <argsstring>[MaxComponentCount]</argsstring>
+        <name>ComponentVisible</name>
+        <qualifiedname>FPlayerObjectLog::ComponentVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="288" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a83fe9c0c87d902492128c744f02ba5e7" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FPlayerObjectLog::StateEntryName</definition>
+        <argsstring></argsstring>
+        <name>StateEntryName</name>
+        <qualifiedname>FPlayerObjectLog::StateEntryName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="290" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a73aba52bc72d12751e77348e718ab8e8" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FPlayerObjectLog::IntroName</definition>
+        <argsstring></argsstring>
+        <name>IntroName</name>
+        <qualifiedname>FPlayerObjectLog::IntroName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="292" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a43825833282c3631e462c25e1610542b" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char FPlayerObjectLog::PlayerSyncEnd</definition>
+        <argsstring></argsstring>
+        <name>PlayerSyncEnd</name>
+        <qualifiedname>FPlayerObjectLog::PlayerSyncEnd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="319" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="struct_f_player_object_log_1aee0cbd096fcf259e76adfe6a930d8dd7" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::CurrentAirJumpCount</definition>
+        <argsstring></argsstring>
+        <name>CurrentAirJumpCount</name>
+        <qualifiedname>FPlayerObjectLog::CurrentAirJumpCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="298" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a0ebf39c498c47db1178303bd174e1d0f" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::CurrentAirDashCount</definition>
+        <argsstring></argsstring>
+        <name>CurrentAirDashCount</name>
+        <qualifiedname>FPlayerObjectLog::CurrentAirDashCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="299" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1afca12f59b813d199777831565586858c" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::AirDashTimerMax</definition>
+        <argsstring></argsstring>
+        <name>AirDashTimerMax</name>
+        <qualifiedname>FPlayerObjectLog::AirDashTimerMax</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="300" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a4236677313d5296acb500a03e4ccd0c0" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::CancelFlags</definition>
+        <argsstring></argsstring>
+        <name>CancelFlags</name>
+        <qualifiedname>FPlayerObjectLog::CancelFlags</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="301" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1afc9eb43ecbfbff6441ead55ba64ce4aa" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::AirDashNoAttackTime</definition>
+        <argsstring></argsstring>
+        <name>AirDashNoAttackTime</name>
+        <qualifiedname>FPlayerObjectLog::AirDashNoAttackTime</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="302" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aaa647a79cfd1987dbac2ed5f3ec0762b" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::InstantBlockLockoutTimer</definition>
+        <argsstring></argsstring>
+        <name>InstantBlockLockoutTimer</name>
+        <qualifiedname>FPlayerObjectLog::InstantBlockLockoutTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="303" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aeb682ec689f949712a6e754409b88fe2" prot="protected" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FPlayerObjectLog::MeterCooldownTimer</definition>
+        <argsstring></argsstring>
+        <name>MeterCooldownTimer</name>
+        <qualifiedname>FPlayerObjectLog::MeterCooldownTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="304" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1ab93d02718975b5077289326fd38ac4be" prot="protected" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ThrowRange</definition>
+        <argsstring></argsstring>
+        <name>ThrowRange</name>
+        <qualifiedname>FPlayerObjectLog::ThrowRange</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="305" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a8d2be352a42aa3c106cadb84b31ead03" prot="protected" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::ThrowTechTimer</definition>
+        <argsstring></argsstring>
+        <name>ThrowTechTimer</name>
+        <qualifiedname>FPlayerObjectLog::ThrowTechTimer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="306" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a768e3ce0c48cb5823443af2e30c0ef2e" prot="protected" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FPlayerObjectLog::AutoComboCancels[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>AutoComboCancels</name>
+        <qualifiedname>FPlayerObjectLog::AutoComboCancels</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="309" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="309" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a7c05d10db526608d04c8d2fb88fc3926" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FPlayerObjectLog::bIsAutoCombo</definition>
+        <argsstring></argsstring>
+        <name>bIsAutoCombo</name>
+        <qualifiedname>FPlayerObjectLog::bIsAutoCombo</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="312" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1aea7d37f087b1ff29a14266ff3f33e1f4" prot="protected" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FPlayerObjectLog::LastStateName</definition>
+        <argsstring></argsstring>
+        <name>LastStateName</name>
+        <qualifiedname>FPlayerObjectLog::LastStateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="313" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a74a23f8a8252ac6094ddbc5085e3e61b" prot="protected" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FPlayerObjectLog::ExeStateName</definition>
+        <argsstring></argsstring>
+        <name>ExeStateName</name>
+        <qualifiedname>FPlayerObjectLog::ExeStateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="314" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_player_object_log_1a680243975b8e2adc1c81d358e2431b8c" prot="protected" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FPlayerObjectLog::BufferedStateName</definition>
+        <argsstring></argsstring>
+        <name>BufferedStateName</name>
+        <qualifiedname>FPlayerObjectLog::BufferedStateName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="315" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_player_object_log_1a2fcf39d6666a3b627a3dba5a958681f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FPlayerObjectLog::LogForSyncTestFile</definition>
+        <argsstring>(std::ofstream &amp;file) override</argsstring>
+        <name>LogForSyncTestFile</name>
+        <qualifiedname>FPlayerObjectLog::LogForSyncTestFile</qualifiedname>
+        <reimplements refid="struct_f_battle_object_log_1a6d0f429ec5f5fcd2badefa421563626c">LogForSyncTestFile</reimplements>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="321" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.cpp" bodystart="34" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>FBattleObjectLog</label>
+        <link refid="struct_f_battle_object_log"/>
+      </node>
+      <node id="1">
+        <label>FPlayerObjectLog</label>
+        <link refid="struct_f_player_object_log"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="13">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="14" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>APawn</label>
+      </node>
+      <node id="12">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="26" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FBattleObjectLog</label>
+        <link refid="struct_f_battle_object_log"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="7">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="4">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="6">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="5">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="10">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="16">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="15">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="1">
+        <label>FPlayerObjectLog</label>
+        <link refid="struct_f_player_object_log"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="17">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="18" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="8">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="30">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UDataAsset</label>
+      </node>
+      <node id="27">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>UObject</label>
+      </node>
+      <node id="28">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" line="67" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.h" bodystart="68" bodyend="322"/>
+    <listofallmembers>
+      <member refid="struct_f_battle_object_log_1a2d4b1e6e2609ece646afbd4b2aba3f97" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg1</name></member>
+      <member refid="struct_f_battle_object_log_1a1bbdc4f5f01ed4fa7e01fce036eff448" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg2</name></member>
+      <member refid="struct_f_battle_object_log_1a7b4616a9813619975e00512b6e13bb7c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg3</name></member>
+      <member refid="struct_f_battle_object_log_1ae156effbad75562417fe29b6c790056f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg4</name></member>
+      <member refid="struct_f_battle_object_log_1ad67b0588e8d8f02fa496998d6a1c4b98" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg5</name></member>
+      <member refid="struct_f_battle_object_log_1aec503577e9f65862fe6de10474ec21e6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg6</name></member>
+      <member refid="struct_f_battle_object_log_1a41ef55c5f4c81e347f6481285a0c8d7b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg7</name></member>
+      <member refid="struct_f_battle_object_log_1a62ae426dc7f7f14c504c188eabec4085" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionReg8</name></member>
+      <member refid="struct_f_battle_object_log_1a3a2a04a189b966fe2dee49c6b29b0a15" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ActionTime</name></member>
+      <member refid="struct_f_battle_object_log_1a67c3afd063149fe55c214fbb97811ab6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AddColor</name></member>
+      <member refid="struct_f_battle_object_log_1aca5ce4c6b55bf2953edaa4448f7759dd" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AddFadeColor</name></member>
+      <member refid="struct_f_battle_object_log_1af4d92dd20520c387bb6d1727e2a11390" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AddFadeSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a9519441157899d3ea0e448061fd179a9" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirDashCount</name></member>
+      <member refid="struct_f_player_object_log_1abc7b36214fb0d58713ca76662d55f48d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirDashMinimumHeight</name></member>
+      <member refid="struct_f_player_object_log_1afc9eb43ecbfbff6441ead55ba64ce4aa" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirDashNoAttackTime</name></member>
+      <member refid="struct_f_player_object_log_1ac090e20ec9575cf37e82736754d5b715" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirDashTimer</name></member>
+      <member refid="struct_f_player_object_log_1afca12f59b813d199777831565586858c" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirDashTimerMax</name></member>
+      <member refid="struct_f_player_object_log_1a1137d7c0c25a081c0177961ee4ed2dbe" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirJumpCount</name></member>
+      <member refid="struct_f_player_object_log_1a555b8491347d461884137d19dd2c3209" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirPushHeight</name></member>
+      <member refid="struct_f_player_object_log_1a55f14d234cbe10a730ea871e24a853aa" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirPushHeightLow</name></member>
+      <member refid="struct_f_player_object_log_1a8dd39157dc15ce90486e779720b99f15" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AirPushWidth</name></member>
+      <member refid="struct_f_battle_object_log_1adefc5794fc294ac9eda2d970cea0a7dc" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AnglePitch_x10</name></member>
+      <member refid="struct_f_battle_object_log_1aaef993577abf485a4f6b91d8f21d7239" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AngleRoll_x10</name></member>
+      <member refid="struct_f_battle_object_log_1a86af2277fad9cba7ff46f4d7c1eeed59" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AngleYaw_x10</name></member>
+      <member refid="struct_f_battle_object_log_1a2a8dd6af658bbfc834f7339d5f9d7dee" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AnimBlendIn</name></member>
+      <member refid="struct_f_battle_object_log_1afe15832560b9eba8af08499f256b5b59" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AnimBlendOut</name></member>
+      <member refid="struct_f_battle_object_log_1a3a11c9aa937333984bda2ce1a24f7e06" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AnimFrame</name></member>
+      <member refid="struct_f_battle_object_log_1afc27101c7d5d7dabe1d4127cd76eb909" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AttackFlags</name></member>
+      <member refid="struct_f_battle_object_log_1a8cf257f04b7b74701f248ccf6d4ae2c6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AttackOwner</name></member>
+      <member refid="struct_f_battle_object_log_1aefaae6be128a67d1adf1a299fdc69da2" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AttackTarget</name></member>
+      <member refid="struct_f_player_object_log_1a768e3ce0c48cb5823443af2e30c0ef2e" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>AutoComboCancels</name></member>
+      <member refid="struct_f_battle_object_log_1a98403356ce4b1defcba681e7a04af81b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>B</name></member>
+      <member refid="struct_f_player_object_log_1a55c02f89396b93e9ae776dbeb46d05a7" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BAirDashNoAttackTime</name></member>
+      <member refid="struct_f_player_object_log_1a72261fe73d6ad263e883020e6a8dd904" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BAirDashSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a40de3c711ba00aeaf3e07709c10d885d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BAirDashTime</name></member>
+      <member refid="struct_f_player_object_log_1addf96eecddafe40b33a6a70cd8707056" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>bCrumpled</name></member>
+      <member refid="struct_f_player_object_log_1ad3b0f0281a05efbcd096a1f1721783a6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BDashGravity</name></member>
+      <member refid="struct_f_player_object_log_1a7b82917a867537b583edc6954341a52c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BDashHeight</name></member>
+      <member refid="struct_f_player_object_log_1a708cbd8e197770d3d1357fae5d3676bd" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BDashSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a7c05d10db526608d04c8d2fb88fc3926" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>bIsAutoCombo</name></member>
+      <member refid="struct_f_battle_object_log_1ad50cb3e76fa16f550b760c480aa84eb8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>bIsCommonState</name></member>
+      <member refid="struct_f_player_object_log_1a38e85afe880d03c2cc7040d4cd32b348" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BJumpSpeed</name></member>
+      <member refid="struct_f_battle_object_log_1a933910f45fba44ff09d244c98ef89672" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BlendAnimFrame</name></member>
+      <member refid="struct_f_battle_object_log_1a64e70d4c4a2c4febb884aa586bfc62d3" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BlendCelName</name></member>
+      <member refid="struct_f_battle_object_log_1adc45e6f4142cd18588bfda68efb5c8bb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BlendOffset</name></member>
+      <member refid="struct_f_player_object_log_1a64007fd3dbb0bf0ecafc46768238e38f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>bLimitCrumple</name></member>
+      <member refid="struct_f_battle_object_log_1a42176169f3ab274d7842b524b058c212" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>bRender</name></member>
+      <member refid="struct_f_player_object_log_1a543a14370d7d0ef7246c8e472daa17a6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BSuperJumpSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a680243975b8e2adc1c81d358e2431b8c" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BufferedStateName</name></member>
+      <member refid="struct_f_player_object_log_1a236d7af63b1d36c42955c1131248826b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>BWalkSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a4236677313d5296acb500a03e4ccd0c0" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CancelFlags</name></member>
+      <member refid="struct_f_player_object_log_1a44d467a3275e0bdecaf4ac73ad35fc26" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CanProximityThrow</name></member>
+      <member refid="struct_f_player_object_log_1ab860104d66317cecad1cebebadc141d7" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CanReverseBeat</name></member>
+      <member refid="struct_f_battle_object_log_1a9fd9da99980effe52cad59b8cd52240c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CelIndex</name></member>
+      <member refid="struct_f_battle_object_log_1aaf17953e0f6f61d747d7d5a80efc8207" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CelName</name></member>
+      <member refid="struct_f_player_object_log_1a36b126f488d6e27da28276c5e5fe7880" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CloseNormalRange</name></member>
+      <member refid="struct_f_player_object_log_1ad08169a6f06d0f6a30b96de274c43190" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg1</name></member>
+      <member refid="struct_f_player_object_log_1ad9a2376f3bb7e2ec4f0a828635c0474f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg2</name></member>
+      <member refid="struct_f_player_object_log_1a56105197b7201b57742795e1eb441803" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg3</name></member>
+      <member refid="struct_f_player_object_log_1ac78b3006a431d4ea2d69486514d292df" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg4</name></member>
+      <member refid="struct_f_player_object_log_1a880505056b1fd09af914747d8e606c5c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg5</name></member>
+      <member refid="struct_f_player_object_log_1ac55bbfbca1ae3839071c6812cfe865c9" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg6</name></member>
+      <member refid="struct_f_player_object_log_1ab7b68b4b80f5e80a5b7385782c7823f0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg7</name></member>
+      <member refid="struct_f_player_object_log_1a32ec77425b3bfd9e5058d1f26f46e4be" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CmnPlayerReg8</name></member>
+      <member refid="struct_f_battle_object_log_1ab479b431f891430e2cb1e578d9f1d6bf" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ColPosX</name></member>
+      <member refid="struct_f_battle_object_log_1a602b41f0461b52f9841e31df7a66e9ea" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ColPosY</name></member>
+      <member refid="struct_f_player_object_log_1a32c2c979ef775ac719a5ece5da265408" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ComboCounter</name></member>
+      <member refid="struct_f_player_object_log_1a66c28bdf2fc5c423bb16352cb0ca523a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ComboRate</name></member>
+      <member refid="struct_f_player_object_log_1a710dbe2c58c930eced4df5cd7099d2f8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ComboTimer</name></member>
+      <member refid="struct_f_player_object_log_1afac8fab2c1646a614ab2d4e1d7783e41" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ComponentVisible</name></member>
+      <member refid="struct_f_battle_object_log_1aed9e66badd7dca7cc1a3565978262558" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CounterHit</name></member>
+      <member refid="struct_f_player_object_log_1aaf201ee1d0bc55ef23d5aa9fa15bb374" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CrouchPushHeight</name></member>
+      <member refid="struct_f_player_object_log_1ac1dd3e2d3eb656be7e30c55180b87e4a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CrouchPushWidth</name></member>
+      <member refid="struct_f_player_object_log_1a0ebf39c498c47db1178303bd174e1d0f" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CurrentAirDashCount</name></member>
+      <member refid="struct_f_player_object_log_1aee0cbd096fcf259e76adfe6a930d8dd7" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CurrentAirJumpCount</name></member>
+      <member refid="struct_f_player_object_log_1aba74481cf4116861e91ee1983a442878" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>CurrentHealth</name></member>
+      <member refid="struct_f_battle_object_log_1a6eb5f8c3e20181af27ac545affc6aa68" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>DamageColor</name></member>
+      <member refid="struct_f_battle_object_log_1af74b51ada7eefc41122d0a1f3bd18b37" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>DamageColor2</name></member>
+      <member refid="struct_f_battle_object_log_1a25a76409bdd8c643b13f2bc76f77f8e9" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Direction</name></member>
+      <member refid="struct_f_battle_object_log_1acd205a99c6cefbca1b13e4c84b86c9e6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>DrawPriority</name></member>
+      <member refid="struct_f_battle_object_log_1a36bd576d8ddfceff8aaaa8c3b8cc64fb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>DrawPriorityLinkObj</name></member>
+      <member refid="struct_f_player_object_log_1ad6118d92ccb6c6767c0635532c0ff391" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Enemy</name></member>
+      <member refid="struct_f_battle_object_log_1a08bff96879a709e804ac326b6ef0fc8d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>EventHandlers</name></member>
+      <member refid="struct_f_player_object_log_1a74a23f8a8252ac6094ddbc5085e3e61b" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ExeStateName</name></member>
+      <member refid="struct_f_battle_object_log_1a326b2e5e97cad95d1849560fb72a8d29" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FadeTransparency</name></member>
+      <member refid="struct_f_player_object_log_1ad009d359a0a5b3652142edc58086d731" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FAirDashNoAttackTime</name></member>
+      <member refid="struct_f_player_object_log_1a1150dea0369d73e700417da5968be54d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FAirDashSpeed</name></member>
+      <member refid="struct_f_player_object_log_1a8e2c1a6c93cc53b656a6ba8122cdbd67" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FAirDashTime</name></member>
+      <member refid="struct_f_player_object_log_1a54d5149b1b569668709e0f2fde2ee32b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FDashAccel</name></member>
+      <member refid="struct_f_player_object_log_1a831490d858547bdd813056ff8d814549" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FDashFriction</name></member>
+      <member refid="struct_f_player_object_log_1aedae934d79c68285f2d4b59dcd43595a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FDashInitSpeed</name></member>
+      <member refid="struct_f_player_object_log_1af9a53a67c546a2f3f3c517823c7e228e" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FDashMaxSpeed</name></member>
+      <member refid="struct_f_player_object_log_1ab71897032af653f1f2c4c752440dcf59" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FJumpSpeed</name></member>
+      <member refid="struct_f_player_object_log_1ac3b915fc8c22bd21da28070fdfc9878d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FlipInputs</name></member>
+      <member refid="struct_f_player_object_log_1a004477f72af8d8169409b4a84103284c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ForwardAirDashMeterGain</name></member>
+      <member refid="struct_f_player_object_log_1ad77fef48a6c14988f036d62de90e51ef" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ForwardDashMeterGain</name></member>
+      <member refid="struct_f_player_object_log_1ac68edb7b6f64535d216d1a9fb39d773b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ForwardJumpMeterGain</name></member>
+      <member refid="struct_f_player_object_log_1aed834383b6477b64278446767947bc1e" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ForwardWalkMeterGain</name></member>
+      <member refid="struct_f_battle_object_log_1ab9f0f1a62ebb26bce8716e0ac6d37313" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FrameBlendPosition</name></member>
+      <member refid="struct_f_player_object_log_1aab1a57d259e67b93629f69523286960a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FSuperJumpSpeed</name></member>
+      <member refid="struct_f_player_object_log_1af2fbdda9b5bbb035e5de5d801670610d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>FWalkSpeed</name></member>
+      <member refid="struct_f_battle_object_log_1a8764b0f0c58e11862a110fe2fbb40952" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>GotoLabelActive</name></member>
+      <member refid="struct_f_battle_object_log_1abb006ba9bbbf9d7eebf8ad31399f285f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Gravity</name></member>
+      <member refid="struct_f_battle_object_log_1a511a600ca100b9f092f490387325b9a6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>GroundHeight</name></member>
+      <member refid="struct_f_battle_object_log_1afdc44f337eb7bb2d9896fe588833f0ff" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>HitCommon</name></member>
+      <member refid="struct_f_battle_object_log_1ab33e9b34c820afe9f2b32c3d191ab624" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Hitstop</name></member>
+      <member refid="struct_f_battle_object_log_1a3ac7eeee945918e4a9b6fd65ccd24a42" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>HomingParams</name></member>
+      <member refid="struct_f_battle_object_log_1a0c32a0469f02a20c9b95d008b69870eb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Inertia</name></member>
+      <member refid="struct_f_player_object_log_1a5f5afc8fc5c633f8a45599b33a3ac0a4" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Inputs</name></member>
+      <member refid="struct_f_player_object_log_1aaa647a79cfd1987dbac2ed5f3ec0762b" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>InstantBlockLockoutTimer</name></member>
+      <member refid="struct_f_player_object_log_1a88a1c90aeb35ab217de3c0212c9706f0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>IntroEndFlag</name></member>
+      <member refid="struct_f_player_object_log_1a73aba52bc72d12751e77348e718ab8e8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>IntroName</name></member>
+      <member refid="struct_f_player_object_log_1a5f20a6999927a2379700727985d3a124" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>InvulnFlags</name></member>
+      <member refid="struct_f_battle_object_log_1aa3d4a7fb982ba3684c99e94457c2d84f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>IsActive</name></member>
+      <member refid="struct_f_battle_object_log_1a2f99cbf173dc9de3e348bf6a36d78f5f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>IsPlayer</name></member>
+      <member refid="struct_f_player_object_log_1a8315d06c03beeba4950f5ea3144c61eb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>JumpGravity</name></member>
+      <member refid="struct_f_player_object_log_1a597d3d0514f8572e60ac7f4ca6593945" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>JumpHeight</name></member>
+      <member refid="struct_f_battle_object_log_1aa5d618acc41d7424a22b8664ceb905d0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>L</name></member>
+      <member refid="struct_f_battle_object_log_1a121a42edeb013ab8ea858ec3cfb770d0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>LabelName</name></member>
+      <member refid="struct_f_player_object_log_1aea7d37f087b1ff29a14266ff3f33e1f4" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>LastStateName</name></member>
+      <member refid="struct_f_player_object_log_1a2fcf39d6666a3b627a3dba5a958681f9" prot="public" virt="virtual"><scope>FPlayerObjectLog</scope><name>LogForSyncTestFile</name></member>
+      <member refid="struct_f_battle_object_log_1a2d74e51fe9d92725d9a29e04f3be6986" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MaterialLinkObj</name></member>
+      <member refid="struct_f_battle_object_log_1ae7d399f1348995fd7d006e0a3c12e796" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MaxCelTime</name></member>
+      <member refid="struct_f_player_object_log_1acf384701bd2b6230c50421d8699cb08e" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MaxHealth</name></member>
+      <member refid="struct_f_player_object_log_1a34922ace157b5d41273b98e2815cb952" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MaxMeter</name></member>
+      <member refid="struct_f_player_object_log_1af9e8ee9ae553886448b6c308a8ec8a26" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MaxOTGCount</name></member>
+      <member refid="struct_f_player_object_log_1aeb682ec689f949712a6e754409b88fe2" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MeterCooldownTimer</name></member>
+      <member refid="struct_f_player_object_log_1a5b75f8ebb0ab97d3977d891571fa8b65" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MeterPercentOnHit</name></member>
+      <member refid="struct_f_player_object_log_1a42616a449c158ddbc8d68777830a6688" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MeterPercentOnHitGuard</name></member>
+      <member refid="struct_f_player_object_log_1a03d54b7bff127b998b2f40825c6cfc46" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MeterPercentOnReceiveHit</name></member>
+      <member refid="struct_f_player_object_log_1a336f49b590abfc5ffcc5e7b7af167b4f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MeterPercentOnReceiveHitGuard</name></member>
+      <member refid="struct_f_battle_object_log_1ad1f2bdc287f5486d822fb2aae657fc42" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MiscFlags</name></member>
+      <member refid="struct_f_battle_object_log_1a28690e1b32606e696ab879b6906fa5f1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MulColor</name></member>
+      <member refid="struct_f_battle_object_log_1a46b0b8029a0e36bf4dbab19334101f14" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MulFadeColor</name></member>
+      <member refid="struct_f_battle_object_log_1a3a47386a5183681ae2d6a88da81a3fe2" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>MulFadeSpeed</name></member>
+      <member refid="struct_f_battle_object_log_1a1292748d17eb7898207dc8d8b0ef1d35" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>NextOffsetX</name></member>
+      <member refid="struct_f_battle_object_log_1a44f01a0d191a7e6a51d57bc5541d0e15" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>NextOffsetY</name></member>
+      <member refid="struct_f_battle_object_log_1af640c06c3400851c6ccdb79bb44521a0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>NormalHit</name></member>
+      <member refid="struct_f_battle_object_log_1a834f8b67a51f8452a4bc6f72da698e7c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectID</name></member>
+      <member refid="struct_f_battle_object_log_1a21eb8b26e991f1376a4f0736fc001113" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectOffset</name></member>
+      <member refid="struct_f_battle_object_log_1aa7946bda73fe3bb43720b71aee1f6891" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg1</name></member>
+      <member refid="struct_f_battle_object_log_1a83e89ea0f8cfaf0b69e7b315fbc857f5" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg2</name></member>
+      <member refid="struct_f_battle_object_log_1a41b6671e46cbf75f652eda10b5cf2d91" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg3</name></member>
+      <member refid="struct_f_battle_object_log_1a10fd981484b09c885d052af865ee3964" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg4</name></member>
+      <member refid="struct_f_battle_object_log_1a106acf636e68da1aee9291879872f376" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg5</name></member>
+      <member refid="struct_f_battle_object_log_1a200d232fabb8265952bba661398e1cdf" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg6</name></member>
+      <member refid="struct_f_battle_object_log_1a397953d8dd389dc1d254efdc75ec50ef" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg7</name></member>
+      <member refid="struct_f_battle_object_log_1a61f23e069c921c4a031349bc2079dba1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectReg8</name></member>
+      <member refid="struct_f_battle_object_log_1a7bceba9cfea59bf05fc12918fb46316d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectRotation</name></member>
+      <member refid="struct_f_battle_object_log_1afde8b4920bb56f9b6079c1d92c7acd4b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectScale</name></member>
+      <member refid="struct_f_battle_object_log_1a4523095a3f1c6e23496e6cc29d689e74" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectStateIndex</name></member>
+      <member refid="struct_f_battle_object_log_1aed86715a5d12983009e2a9d6a29b74f8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjectStateName</name></member>
+      <member refid="struct_f_battle_object_log_1a2548e1a788fa48c32bdf97af5a2cfb8e" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjSync</name></member>
+      <member refid="struct_f_battle_object_log_1a6e9fcc4fef43ca60481bfeecde20f82f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ObjSyncEnd</name></member>
+      <member refid="struct_f_player_object_log_1abcd2d026227537f13bc8bed240d42a93" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>OTGCount</name></member>
+      <member refid="struct_f_player_object_log_1a2f230b755184a70960403f85ab0771ce" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>OtgProration</name></member>
+      <member refid="struct_f_battle_object_log_1a801919a6e28c1c0eaae9faa3315ac097" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Player</name></member>
+      <member refid="struct_f_player_object_log_1a0b3f1ec4fee58c8342a95f83f967878f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerFlags</name></member>
+      <member refid="struct_f_player_object_log_1a52c7e400a4963abbcd24b1d139210723" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerIndex</name></member>
+      <member refid="struct_f_player_object_log_1a96f79b34da63fa487d7dedf58b9dc667" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg1</name></member>
+      <member refid="struct_f_player_object_log_1aec8d07a88d7f5fa78cb111e69b9aa8a0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg2</name></member>
+      <member refid="struct_f_player_object_log_1af013df2b081deab9bc41366fb5cbe1e0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg3</name></member>
+      <member refid="struct_f_player_object_log_1a8bb74c9c3f28b808e2cd38b7b76b50b9" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg4</name></member>
+      <member refid="struct_f_player_object_log_1a5204ebf46c9128eceec5fe0a29fc37f1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg5</name></member>
+      <member refid="struct_f_player_object_log_1abe36799231438b0e0c67e84ca311e7d6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg6</name></member>
+      <member refid="struct_f_player_object_log_1ae6ce74f7679219c3325685a26b446c71" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg7</name></member>
+      <member refid="struct_f_player_object_log_1ab684f7614aa9a20494317af3f5d99aff" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerReg8</name></member>
+      <member refid="struct_f_player_object_log_1a04f13889bdcff13606009b024bf63e3a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerSync</name></member>
+      <member refid="struct_f_player_object_log_1a43825833282c3631e462c25e1610542b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PlayerSyncEnd</name></member>
+      <member refid="struct_f_battle_object_log_1abf1fb9f2affd143c15bf7ade24c1bd7a" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PositionLinkObj</name></member>
+      <member refid="struct_f_battle_object_log_1add51491d99e451fce85922e6ab0e20a2" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PosX</name></member>
+      <member refid="struct_f_battle_object_log_1a116802cee5a4ec210cbf676f77cb8bfd" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PosY</name></member>
+      <member refid="struct_f_battle_object_log_1abc2aec47fb5dfe4210b5948b47215caa" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PosZ</name></member>
+      <member refid="struct_f_battle_object_log_1a2eba7434f49b518b34d02f9d08a64074" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevOffsetX</name></member>
+      <member refid="struct_f_battle_object_log_1a9a64d5a8e97269dc25d7f02a922060e3" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevOffsetY</name></member>
+      <member refid="struct_f_battle_object_log_1a477fa981d779a791e6e93b70f623fc2e" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevPosX</name></member>
+      <member refid="struct_f_battle_object_log_1a4efaf2e2b11b7c817dd28a900d0d40cb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevPosY</name></member>
+      <member refid="struct_f_battle_object_log_1a2507a7ce4d51ef5c0b736c727c660a7b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevPosZ</name></member>
+      <member refid="struct_f_battle_object_log_1a51f9f23a5e91742f48d832aa017942d5" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevRootMotionX</name></member>
+      <member refid="struct_f_battle_object_log_1a24f5d284e8a4a8d2277f5ec4686f0fec" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevRootMotionY</name></member>
+      <member refid="struct_f_battle_object_log_1a60e0b5e0b6465905b0c8cd1177f78ef8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PrevRootMotionZ</name></member>
+      <member refid="struct_f_player_object_log_1a1074499b97e309ac00478df8ce4d5b21" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ProximityThrowInput</name></member>
+      <member refid="struct_f_battle_object_log_1a048ca489ad7026857eb690219a8b7faf" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Pushback</name></member>
+      <member refid="struct_f_battle_object_log_1afac242c31496443fd60b2a2d9530683b" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PushHeight</name></member>
+      <member refid="struct_f_battle_object_log_1a57a95425acbd5f35411c8a5049c72724" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PushHeightLow</name></member>
+      <member refid="struct_f_battle_object_log_1a952e71015ed40b5cff7731303fab5b37" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PushWidth</name></member>
+      <member refid="struct_f_battle_object_log_1a89517fcfe06b2fc8f2a1e42fcd3611ae" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>PushWidthExtend</name></member>
+      <member refid="struct_f_battle_object_log_1af575748ec4c76bf10860c7df1c60dc42" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>R</name></member>
+      <member refid="struct_f_battle_object_log_1a297040b1508ed808ef6446e922290b8f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ReceivedHit</name></member>
+      <member refid="struct_f_battle_object_log_1a9fa41dbf04587fe92c3538702de4f3f2" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ReceivedHitCommon</name></member>
+      <member refid="struct_f_player_object_log_1a64e3e825522761750b098423a5474508" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>RecoverableHealth</name></member>
+      <member refid="struct_f_battle_object_log_1adb84a50f1365014ed4b3cdf8d92473d8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ReturnReg</name></member>
+      <member refid="struct_f_player_object_log_1a567afec95603ad3f9f357ea6bd1b7fff" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>RoundEndFlag</name></member>
+      <member refid="struct_f_player_object_log_1af35243a8d8c7940aa786af16e576dd5f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>RoundWinTimer</name></member>
+      <member refid="struct_f_battle_object_log_1abbd5d571f4fbdcf0de1173bde23b51c1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SocketName</name></member>
+      <member refid="struct_f_battle_object_log_1a73e21d8b1359c1b1a0ca4f6f23f2ad4d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SocketObj</name></member>
+      <member refid="struct_f_battle_object_log_1aa6b390ea87d58a639c9f181e18706467" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SocketOffset</name></member>
+      <member refid="struct_f_battle_object_log_1a68d96b2c68dcdfd6f28024c76d7eb0a8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedX</name></member>
+      <member refid="struct_f_battle_object_log_1a7bfb0898d835e1a9a0cbe0094abbbb38" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedXRate</name></member>
+      <member refid="struct_f_battle_object_log_1a440a54e6deec566264cb20538836595f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedXRatePerFrame</name></member>
+      <member refid="struct_f_battle_object_log_1aac107862f796aaab72dcbf0d38523b2c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedY</name></member>
+      <member refid="struct_f_battle_object_log_1afc45baaf603010b82e77e391db6b62fa" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedYRate</name></member>
+      <member refid="struct_f_battle_object_log_1a7f0ee84f920738b6db7eb7547911c28d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedYRatePerFrame</name></member>
+      <member refid="struct_f_battle_object_log_1a871ce9b71ba3362638b9315826fe4e94" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedZ</name></member>
+      <member refid="struct_f_battle_object_log_1a1e97e2c5db3115ced0e5d1ed4326a0e6" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedZRate</name></member>
+      <member refid="struct_f_battle_object_log_1a1bf9752f851a5791ae82399bc13d4d66" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SpeedZRatePerFrame</name></member>
+      <member refid="struct_f_player_object_log_1a1f859d84febd61232b7a79f1119d45e1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Stance</name></member>
+      <member refid="struct_f_player_object_log_1a2d988e2961a8843aef301d44bf2def35" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StandPushHeight</name></member>
+      <member refid="struct_f_player_object_log_1a41d07aac7a6ec73a220707736c1c9718" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StandPushWidth</name></member>
+      <member refid="struct_f_player_object_log_1a83fe9c0c87d902492128c744f02ba5e7" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StateEntryName</name></member>
+      <member refid="struct_f_battle_object_log_1a96edfe118d26482873705c6e112ea6e7" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StopLinkObj</name></member>
+      <member refid="struct_f_player_object_log_1a9f92551e2fcb68ddc211518b2112537c" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StoredBattleObjects</name></member>
+      <member refid="struct_f_player_object_log_1a15c5910d914f749a9524c49254f8b2c7" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StoredInputBuffer</name></member>
+      <member refid="struct_f_player_object_log_1a7ad17cdbf6ec2b18d4f546d3778565b2" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StrikeInvulnerableTimer</name></member>
+      <member refid="struct_f_battle_object_log_1a2b4b7f9c9167b2f1522a20af4fba0108" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StunTime</name></member>
+      <member refid="struct_f_battle_object_log_1a7c5b9f7ae4b4d06ef2a02ca1d5b59e0d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>StunTimeMax</name></member>
+      <member refid="struct_f_battle_object_log_1a896b35cf97450dfa9123205115ea3542" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReg1</name></member>
+      <member refid="struct_f_battle_object_log_1aa84ffb30c07cd41c7e11b4056d7096fb" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReg2</name></member>
+      <member refid="struct_f_battle_object_log_1a3065a892f1591f704b96e5d3b4e29e2f" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReg3</name></member>
+      <member refid="struct_f_battle_object_log_1aaebfd3b42999595049552cc37777f5ff" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReg4</name></member>
+      <member refid="struct_f_battle_object_log_1a494839e3abdc903ba444b0e9511dba49" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReturnVal1</name></member>
+      <member refid="struct_f_battle_object_log_1a9b2084999d588a6acd54aeac8c38b025" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReturnVal2</name></member>
+      <member refid="struct_f_battle_object_log_1a781c608f33a37a9c205318a77cf6ab5b" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReturnVal3</name></member>
+      <member refid="struct_f_battle_object_log_1a9eee2c12c2c916117963831f9f035076" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SubroutineReturnVal4</name></member>
+      <member refid="struct_f_battle_object_log_1af7516e924f913be5a5acd081bddf4df9" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SuperArmorData</name></member>
+      <member refid="struct_f_player_object_log_1afd877d7e60ef116f055de7aa3ac75b1d" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SuperJumpGravity</name></member>
+      <member refid="struct_f_player_object_log_1ae0c45c1b43b9d5bbc9a47a2c375b2525" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>SuperJumpHeight</name></member>
+      <member refid="struct_f_battle_object_log_1a0f5c77a4b1dbab4fd5178697d52d83c0" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>T</name></member>
+      <member refid="struct_f_player_object_log_1a3256f878c81ca1592f2d9e62835d1aa5" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>TeamIndex</name></member>
+      <member refid="struct_f_player_object_log_1adb9bfcdff0c137cefe3569c80193fbca" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowInvulnerableTimer</name></member>
+      <member refid="struct_f_player_object_log_1ab93d02718975b5077289326fd38ac4be" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowRange</name></member>
+      <member refid="struct_f_player_object_log_1a3da0ac77f76ce9c7e8922370b38464d8" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowResistAfterWakeUp</name></member>
+      <member refid="struct_f_player_object_log_1ad670c599d434b6ddb92845be2af59423" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowResistTimer</name></member>
+      <member refid="struct_f_player_object_log_1a8d2be352a42aa3c106cadb84b31ead03" prot="protected" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowTechTimer</name></member>
+      <member refid="struct_f_player_object_log_1adb931642e7a775f4855f83fe937789c1" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>ThrowTechWindow</name></member>
+      <member refid="struct_f_battle_object_log_1a2187e814f04d07c9df678e397a902f41" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Timer0</name></member>
+      <member refid="struct_f_battle_object_log_1a6c2174e07d371ed02b8c99ac979c5eaa" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Timer1</name></member>
+      <member refid="struct_f_battle_object_log_1a4d918befe98649d7c6bc9644959eba51" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>TimeUntilNextCel</name></member>
+      <member refid="struct_f_player_object_log_1a2b23ecf955bb10ec4e90d000996a4608" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>TotalProration</name></member>
+      <member refid="struct_f_battle_object_log_1ac6c1b46a8783e9b38057bee8c6bc9754" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>Transparency</name></member>
+      <member refid="struct_f_battle_object_log_1ae073cf36d2a9c391892485ffe90da786" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>TransparencySpeed</name></member>
+      <member refid="struct_f_battle_object_log_1a60ad07de00048c342338b9282ae383da" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>UpdateTime</name></member>
+      <member refid="struct_f_player_object_log_1acf5cb56e9d7010a8f94c9ddb4f122675" prot="public" virt="non-virtual"><scope>FPlayerObjectLog</scope><name>WallTouchTimer</name></member>
+      <member refid="struct_f_battle_object_log_1a209bd3914c0d3a6002203c605d6636ae" prot="public" virt="virtual"><scope>FPlayerObjectLog</scope><name>~FBattleObjectLog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_s_cel_asset_tree" kind="class" language="C++" prot="public">
+    <compoundname>SCelAssetTree</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">SCompoundWidget</basecompoundref>
+    <includes refid="_cel_asset_tree_8h" local="no">CelAssetTree.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1a972bfade6035cb18a47f8d286001f5a8" prot="private" static="no" mutable="no">
+        <type>TWeakObjectPtr&lt; UCollisionData &gt;</type>
+        <definition>TWeakObjectPtr&lt;UCollisionData&gt; SCelAssetTree::CollisionData</definition>
+        <argsstring></argsstring>
+        <name>CollisionData</name>
+        <qualifiedname>SCelAssetTree::CollisionData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="48" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1ab8c84e6f91d21bddb352a981db454eec" prot="private" static="no" mutable="no">
+        <type>TSharedPtr&lt; STreeView&lt; TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt; &gt; &gt;</type>
+        <definition>TSharedPtr&lt;STreeView&lt;TSharedPtr&lt;FCelAssetTreeNode&gt; &gt; &gt; SCelAssetTree::TreeView</definition>
+        <argsstring></argsstring>
+        <name>TreeView</name>
+        <qualifiedname>SCelAssetTree::TreeView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="49" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1ad67a7f9d30e37359e340a07dc1324f9c" prot="private" static="no" mutable="no">
+        <type>TArray&lt; TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt; &gt;</type>
+        <definition>TArray&lt;TSharedPtr&lt;FCelAssetTreeNode&gt; &gt; SCelAssetTree::RootNodes</definition>
+        <argsstring></argsstring>
+        <name>RootNodes</name>
+        <qualifiedname>SCelAssetTree::RootNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="50" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1a1f680aa9de08f14ae60c707b0666a59a" prot="private" static="no" mutable="no">
+        <type>TArray&lt; TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt; &gt;</type>
+        <definition>TArray&lt;TSharedPtr&lt;FCelAssetTreeNode&gt; &gt; SCelAssetTree::AllNodes</definition>
+        <argsstring></argsstring>
+        <name>AllNodes</name>
+        <qualifiedname>SCelAssetTree::AllNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="51" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1a14dbb21351a68d70a95abda497319262" prot="private" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString SCelAssetTree::CurrentFilterString</definition>
+        <argsstring></argsstring>
+        <name>CurrentFilterString</name>
+        <qualifiedname>SCelAssetTree::CurrentFilterString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="53" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1a796ff0683dc89e0e2c8b820cd3a429d6" prot="private" static="no" mutable="no">
+        <type>FOnCelSelected</type>
+        <definition>FOnCelSelected SCelAssetTree::OnCelSelectedDelegate</definition>
+        <argsstring></argsstring>
+        <name>OnCelSelectedDelegate</name>
+        <qualifiedname>SCelAssetTree::OnCelSelectedDelegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="54" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_cel_asset_tree_1a698cd9b9360961a9b399eb88212bf078" prot="private" static="no" mutable="no">
+        <type>TMap&lt; int32, TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt; &gt;</type>
+        <definition>TMap&lt;int32, TSharedPtr&lt;FCelAssetTreeNode&gt; &gt; SCelAssetTree::CelIndexToNodeMap</definition>
+        <argsstring></argsstring>
+        <name>CelIndexToNodeMap</name>
+        <qualifiedname>SCelAssetTree::CelIndexToNodeMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="57" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a55f315d05697ab60aa21414493ea7e16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SCelAssetTree::SLATE_BEGIN_ARGS</definition>
+        <argsstring>(SCelAssetTree)</argsstring>
+        <name>SLATE_BEGIN_ARGS</name>
+        <qualifiedname>SCelAssetTree::SLATE_BEGIN_ARGS</qualifiedname>
+        <param>
+          <type><ref refid="class_s_cel_asset_tree" kindref="compound">SCelAssetTree</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1afd4081e4df0ad9c1f4384dee5f3f6180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::Construct</definition>
+        <argsstring>(const FArguments &amp;InArgs, UCollisionData *InCollisionData)</argsstring>
+        <name>Construct</name>
+        <qualifiedname>SCelAssetTree::Construct</qualifiedname>
+        <param>
+          <type>const FArguments &amp;</type>
+          <declname>InArgs</declname>
+        </param>
+        <param>
+          <type>UCollisionData *</type>
+          <declname>InCollisionData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="23" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="33" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a9f67bf1cdbedf6c4a854acc2cbeabedf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::RefreshTree</definition>
+        <argsstring>()</argsstring>
+        <name>RefreshTree</name>
+        <qualifiedname>SCelAssetTree::RefreshTree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="25" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="62" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a6ae7faf810bcab33d543f4ee9e6c72c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::SetSelectedCel</definition>
+        <argsstring>(const FGameplayTag &amp;CelName)</argsstring>
+        <name>SetSelectedCel</name>
+        <qualifiedname>SCelAssetTree::SetSelectedCel</qualifiedname>
+        <param>
+          <type>const FGameplayTag &amp;</type>
+          <declname>CelName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="26" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="261" bodyend="291"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_s_cel_asset_tree_1ac82b9b36bbdac393bc427c8ecff2b8de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TSharedRef&lt; ITableRow &gt;</type>
+        <definition>TSharedRef&lt; ITableRow &gt; SCelAssetTree::GenerateTreeRow</definition>
+        <argsstring>(TSharedPtr&lt; FCelAssetTreeNode &gt; InNode, const TSharedRef&lt; STableViewBase &gt; &amp;OwnerTable)</argsstring>
+        <name>GenerateTreeRow</name>
+        <qualifiedname>SCelAssetTree::GenerateTreeRow</qualifiedname>
+        <param>
+          <type>TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt;</type>
+          <declname>InNode</declname>
+        </param>
+        <param>
+          <type>const TSharedRef&lt; STableViewBase &gt; &amp;</type>
+          <declname>OwnerTable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="29" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="293" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1afc1b54cdc1dd590a5e1f403702863582" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::GetChildrenForNode</definition>
+        <argsstring>(TSharedPtr&lt; FCelAssetTreeNode &gt; InNode, TArray&lt; TSharedPtr&lt; FCelAssetTreeNode &gt; &gt; &amp;OutChildren)</argsstring>
+        <name>GetChildrenForNode</name>
+        <qualifiedname>SCelAssetTree::GetChildrenForNode</qualifiedname>
+        <param>
+          <type>TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt;</type>
+          <declname>InNode</declname>
+        </param>
+        <param>
+          <type>TArray&lt; TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt; &gt; &amp;</type>
+          <declname>OutChildren</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="33" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="319" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a531b6ceca45df9b7da198c062922d93b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::OnSelectionChanged</definition>
+        <argsstring>(TSharedPtr&lt; FCelAssetTreeNode &gt; SelectedNode, ESelectInfo::Type SelectInfo)</argsstring>
+        <name>OnSelectionChanged</name>
+        <qualifiedname>SCelAssetTree::OnSelectionChanged</qualifiedname>
+        <param>
+          <type>TSharedPtr&lt; <ref refid="class_f_cel_asset_tree_node" kindref="compound">FCelAssetTreeNode</ref> &gt;</type>
+          <declname>SelectedNode</declname>
+        </param>
+        <param>
+          <type>ESelectInfo::Type</type>
+          <declname>SelectInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="37" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="329" bodyend="349"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a2fb3b0ddbc8844edeed7f6ef3aa75e4d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::OnFilterTextChanged</definition>
+        <argsstring>(const FText &amp;InText)</argsstring>
+        <name>OnFilterTextChanged</name>
+        <qualifiedname>SCelAssetTree::OnFilterTextChanged</qualifiedname>
+        <param>
+          <type>const FText &amp;</type>
+          <declname>InText</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="41" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="351" bodyend="355"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_cel_asset_tree_1a5240e529e6554eaf6960851ce7ad0421" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SCelAssetTree::BuildTreeFromCollisionData</definition>
+        <argsstring>()</argsstring>
+        <name>BuildTreeFromCollisionData</name>
+        <qualifiedname>SCelAssetTree::BuildTreeFromCollisionData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="43" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/CelAssetTree.cpp" bodystart="82" bodyend="259"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Tree view widget for browsing cels grouped by GameplayTag hierarchy. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>SCelAssetTree</label>
+        <link refid="class_s_cel_asset_tree"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SCompoundWidget</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>SCelAssetTree</label>
+        <link refid="class_s_cel_asset_tree"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SCompoundWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/CelAssetTree.h" bodystart="17" bodyend="58"/>
+    <listofallmembers>
+      <member refid="class_s_cel_asset_tree_1a1f680aa9de08f14ae60c707b0666a59a" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>AllNodes</name></member>
+      <member refid="class_s_cel_asset_tree_1a5240e529e6554eaf6960851ce7ad0421" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>BuildTreeFromCollisionData</name></member>
+      <member refid="class_s_cel_asset_tree_1a698cd9b9360961a9b399eb88212bf078" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>CelIndexToNodeMap</name></member>
+      <member refid="class_s_cel_asset_tree_1a972bfade6035cb18a47f8d286001f5a8" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>CollisionData</name></member>
+      <member refid="class_s_cel_asset_tree_1afd4081e4df0ad9c1f4384dee5f3f6180" prot="public" virt="non-virtual"><scope>SCelAssetTree</scope><name>Construct</name></member>
+      <member refid="class_s_cel_asset_tree_1a14dbb21351a68d70a95abda497319262" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>CurrentFilterString</name></member>
+      <member refid="class_s_cel_asset_tree_1ac82b9b36bbdac393bc427c8ecff2b8de" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>GenerateTreeRow</name></member>
+      <member refid="class_s_cel_asset_tree_1afc1b54cdc1dd590a5e1f403702863582" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>GetChildrenForNode</name></member>
+      <member refid="class_s_cel_asset_tree_1a796ff0683dc89e0e2c8b820cd3a429d6" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>OnCelSelectedDelegate</name></member>
+      <member refid="class_s_cel_asset_tree_1a2fb3b0ddbc8844edeed7f6ef3aa75e4d" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>OnFilterTextChanged</name></member>
+      <member refid="class_s_cel_asset_tree_1a531b6ceca45df9b7da198c062922d93b" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>OnSelectionChanged</name></member>
+      <member refid="class_s_cel_asset_tree_1a9f67bf1cdbedf6c4a854acc2cbeabedf" prot="public" virt="non-virtual"><scope>SCelAssetTree</scope><name>RefreshTree</name></member>
+      <member refid="class_s_cel_asset_tree_1ad67a7f9d30e37359e340a07dc1324f9c" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>RootNodes</name></member>
+      <member refid="class_s_cel_asset_tree_1a6ae7faf810bcab33d543f4ee9e6c72c0" prot="public" virt="non-virtual"><scope>SCelAssetTree</scope><name>SetSelectedCel</name></member>
+      <member refid="class_s_cel_asset_tree_1a55f315d05697ab60aa21414493ea7e16" prot="public" virt="non-virtual"><scope>SCelAssetTree</scope><name>SLATE_BEGIN_ARGS</name></member>
+      <member refid="class_s_cel_asset_tree_1ab8c84e6f91d21bddb352a981db454eec" prot="private" virt="non-virtual"><scope>SCelAssetTree</scope><name>TreeView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

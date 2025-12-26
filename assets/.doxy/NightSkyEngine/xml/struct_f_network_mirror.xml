@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_network_mirror" kind="struct" language="C++" prot="public">
+    <compoundname>FNetworkMirror</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_network_mirror_1aedc8ecc0ebcdda27f1fd3a91c84f826a" prot="public" static="no" mutable="no">
+        <type>TArray&lt; FPrimaryAssetId &gt;</type>
+        <definition>TArray&lt;FPrimaryAssetId&gt; FNetworkMirror::PlayerList</definition>
+        <argsstring></argsstring>
+        <name>PlayerList</name>
+        <qualifiedname>FNetworkMirror::PlayerList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="18" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_network_mirror_1a98f52279a2674afd4a39a50fd2425f30" prot="public" static="no" mutable="no">
+        <type>FPrimaryAssetId</type>
+        <definition>FPrimaryAssetId FNetworkMirror::Stage</definition>
+        <argsstring></argsstring>
+        <name>Stage</name>
+        <qualifiedname>FNetworkMirror::Stage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="20" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="struct_f_network_mirror_1aedc8ecc0ebcdda27f1fd3a91c84f826a" prot="public" virt="non-virtual"><scope>FNetworkMirror</scope><name>PlayerList</name></member>
+      <member refid="struct_f_network_mirror_1a98f52279a2674afd4a39a50fd2425f30" prot="public" virt="non-virtual"><scope>FNetworkMirror</scope><name>Stage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

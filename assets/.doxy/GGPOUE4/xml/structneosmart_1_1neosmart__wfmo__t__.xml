@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="structneosmart_1_1neosmart__wfmo__t__" kind="struct" language="C++" prot="public">
+    <compoundname>neosmart::neosmart_wfmo_t_</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1a3ad19a262b12391834df2d445b4f7138" prot="public" static="no" mutable="no">
+        <type>pthread_mutex_t</type>
+        <definition>pthread_mutex_t neosmart::neosmart_wfmo_t_::Mutex</definition>
+        <argsstring></argsstring>
+        <name>Mutex</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::Mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="26" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1ad2fda7f37bcf50e01e321d706b155fa9" prot="public" static="no" mutable="no">
+        <type>pthread_cond_t</type>
+        <definition>pthread_cond_t neosmart::neosmart_wfmo_t_::CVariable</definition>
+        <argsstring></argsstring>
+        <name>CVariable</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::CVariable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="27" column="24" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1a44392e2588dc437bd58756f5d21a5240" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int neosmart::neosmart_wfmo_t_::RefCount</definition>
+        <argsstring></argsstring>
+        <name>RefCount</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::RefCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="28" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1a602c336f68f699915f1028b52ae6c433" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int neosmart::neosmart_wfmo_t_::FiredEvent</definition>
+        <argsstring></argsstring>
+        <name>FiredEvent</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::FiredEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="30" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1ac8366f0778ac642cb402dad15156a80a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int neosmart::neosmart_wfmo_t_::EventsLeft</definition>
+        <argsstring></argsstring>
+        <name>EventsLeft</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::EventsLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="31" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1a99e5d6b2421cb3e36606f914185673fe" prot="public" static="no" mutable="no">
+        <type>union <ref refid="structneosmart_1_1neosmart__wfmo__t__" kindref="compound">neosmart::neosmart_wfmo_t_</ref></type>
+        <definition>union neosmart::neosmart_wfmo_t_ neosmart::neosmart_wfmo_t_::Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::Status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="32" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1a817647e78f0e9ee1f98e08105bcbbebb" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool neosmart::neosmart_wfmo_t_::WaitAll</definition>
+        <argsstring></argsstring>
+        <name>WaitAll</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::WaitAll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="33" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structneosmart_1_1neosmart__wfmo__t___1aa586838c5cd8acc08d19d1dedf99cfe2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool neosmart::neosmart_wfmo_t_::StillWaiting</definition>
+        <argsstring></argsstring>
+        <name>StillWaiting</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::StillWaiting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="34" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structneosmart_1_1neosmart__wfmo__t___1a3dbaa8b0e0e616f6738ccf6914a7a861" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void neosmart::neosmart_wfmo_t_::Destroy</definition>
+        <argsstring>()</argsstring>
+        <name>Destroy</name>
+        <qualifiedname>neosmart::neosmart_wfmo_t_::Destroy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="36" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" line="25" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/pevents.cpp" bodystart="25" bodyend="40"/>
+    <listofallmembers>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1ad2fda7f37bcf50e01e321d706b155fa9" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>CVariable</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a3dbaa8b0e0e616f6738ccf6914a7a861" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>Destroy</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1ac8366f0778ac642cb402dad15156a80a" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>EventsLeft</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a602c336f68f699915f1028b52ae6c433" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>FiredEvent</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a3ad19a262b12391834df2d445b4f7138" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>Mutex</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a44392e2588dc437bd58756f5d21a5240" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>RefCount</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a99e5d6b2421cb3e36606f914185673fe" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>Status</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1aa586838c5cd8acc08d19d1dedf99cfe2" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>StillWaiting</name></member>
+      <member refid="structneosmart_1_1neosmart__wfmo__t___1a817647e78f0e9ee1f98e08105bcbbebb" prot="public" virt="non-virtual"><scope>neosmart::neosmart_wfmo_t_</scope><name>WaitAll</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

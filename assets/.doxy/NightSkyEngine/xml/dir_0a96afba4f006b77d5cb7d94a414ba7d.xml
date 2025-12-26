@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_0a96afba4f006b77d5cb7d94a414ba7d" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo</compoundname>
+    <innerfile refid="_night_sky_v_s_info_game_state_8cpp">NightSkyVSInfoGameState.cpp</innerfile>
+    <innerfile refid="_night_sky_v_s_info_game_state_8h">NightSkyVSInfoGameState.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/"/>
+  </compounddef>
+</doxygen>

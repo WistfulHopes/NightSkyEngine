@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_collision_animation_preview_scene" kind="class" language="C++" prot="public">
+    <compoundname>FCollisionAnimationPreviewScene</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FAdvancedPreviewScene</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_f_collision_animation_preview_scene_1acd30351fc48f6a21a786c3e7cc3a3c16" prot="private" static="no" mutable="no">
+        <type>APlayerObject *</type>
+        <definition>APlayerObject* FCollisionAnimationPreviewScene::PreviewPlayerObject</definition>
+        <argsstring></argsstring>
+        <name>PreviewPlayerObject</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::PreviewPlayerObject</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="29" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_collision_animation_preview_scene_1af007f8029cad801d8dd11835f39ed9f5" prot="private" static="no" mutable="no">
+        <type>TWeakPtr&lt; <ref refid="class_f_collision_data_editor_toolkit" kindref="compound">FCollisionDataEditorToolkit</ref> &gt;</type>
+        <definition>TWeakPtr&lt;FCollisionDataEditorToolkit&gt; FCollisionAnimationPreviewScene::EditorPtr</definition>
+        <argsstring></argsstring>
+        <name>EditorPtr</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::EditorPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="30" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_f_collision_animation_preview_scene_1a612290b9e214888e7f96cb3ee74db834" prot="private" static="no" mutable="no">
+        <type>UCollisionData *</type>
+        <definition>UCollisionData* FCollisionAnimationPreviewScene::CurrentCollisionData</definition>
+        <argsstring></argsstring>
+        <name>CurrentCollisionData</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::CurrentCollisionData</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="31" column="20" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a12cb5c5ebbf3e3db68a522e081e0d1af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FCollisionAnimationPreviewScene::FCollisionAnimationPreviewScene</definition>
+        <argsstring>(ConstructionValues CVS, const TSharedRef&lt; FCollisionDataEditorToolkit &gt; &amp;EditorToolkit)</argsstring>
+        <name>FCollisionAnimationPreviewScene</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::FCollisionAnimationPreviewScene</qualifiedname>
+        <param>
+          <type>ConstructionValues</type>
+          <declname>CVS</declname>
+        </param>
+        <param>
+          <type>const TSharedRef&lt; <ref refid="class_f_collision_data_editor_toolkit" kindref="compound">FCollisionDataEditorToolkit</ref> &gt; &amp;</type>
+          <declname>EditorToolkit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="14" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="8" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a08e24e12f67cbcd1b71885a53af9a01f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>FCollisionAnimationPreviewScene::~FCollisionAnimationPreviewScene</definition>
+        <argsstring>() override</argsstring>
+        <name>~FCollisionAnimationPreviewScene</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::~FCollisionAnimationPreviewScene</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="15" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a5f7cb237b7a7cabc0b910967f5a5480f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationPreviewScene::Tick</definition>
+        <argsstring>(float InDeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>InDeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="17" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="22" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a9123967032bbc12a04e7c543b1f0175f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>APlayerObject *</type>
+        <definition>APlayerObject * FCollisionAnimationPreviewScene::SetPlayerObject</definition>
+        <argsstring>(const UClass *Class)</argsstring>
+        <name>SetPlayerObject</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::SetPlayerObject</qualifiedname>
+        <param>
+          <type>const UClass *</type>
+          <declname>Class</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="20" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="31" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1af273fe9ef8102e22b4d916d1787cf473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationPreviewScene::SetupScene</definition>
+        <argsstring>(UCollisionData *CollisionData)</argsstring>
+        <name>SetupScene</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::SetupScene</qualifiedname>
+        <param>
+          <type>UCollisionData *</type>
+          <declname>CollisionData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="23" column="10" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a6e63e222a86f1f4ee5591ae264f2dc60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationPreviewScene::UpdateCollisionView</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateCollisionView</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::UpdateCollisionView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="26" column="10" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="83" bodyend="93"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1a1682e9c10f0f39a9ac88034ac16d0ccb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationPreviewScene::UpdateMeshAndAnimation</definition>
+        <argsstring>(float DeltaTime)</argsstring>
+        <name>UpdateMeshAndAnimation</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::UpdateMeshAndAnimation</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="34" column="10" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="62" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_preview_scene_1abcc37d78a6510cac692d960c95488375" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationPreviewScene::DrawCollisionData</definition>
+        <argsstring>()</argsstring>
+        <name>DrawCollisionData</name>
+        <qualifiedname>FCollisionAnimationPreviewScene::DrawCollisionData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="37" column="10" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationPreviewScene.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>FAdvancedPreviewScene</label>
+      </node>
+      <node id="1">
+        <label>FCollisionAnimationPreviewScene</label>
+        <link refid="class_f_collision_animation_preview_scene"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>FAdvancedPreviewScene</label>
+      </node>
+      <node id="1">
+        <label>FCollisionAnimationPreviewScene</label>
+        <link refid="class_f_collision_animation_preview_scene"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" line="11" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationPreviewScene.h" bodystart="12" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_f_collision_animation_preview_scene_1a612290b9e214888e7f96cb3ee74db834" prot="private" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>CurrentCollisionData</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1abcc37d78a6510cac692d960c95488375" prot="private" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>DrawCollisionData</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1af007f8029cad801d8dd11835f39ed9f5" prot="private" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>EditorPtr</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a12cb5c5ebbf3e3db68a522e081e0d1af" prot="public" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>FCollisionAnimationPreviewScene</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1acd30351fc48f6a21a786c3e7cc3a3c16" prot="private" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>PreviewPlayerObject</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a9123967032bbc12a04e7c543b1f0175f" prot="public" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>SetPlayerObject</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1af273fe9ef8102e22b4d916d1787cf473" prot="public" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>SetupScene</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a5f7cb237b7a7cabc0b910967f5a5480f" prot="public" virt="virtual"><scope>FCollisionAnimationPreviewScene</scope><name>Tick</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a6e63e222a86f1f4ee5591ae264f2dc60" prot="public" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>UpdateCollisionView</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a1682e9c10f0f39a9ac88034ac16d0ccb" prot="private" virt="non-virtual"><scope>FCollisionAnimationPreviewScene</scope><name>UpdateMeshAndAnimation</name></member>
+      <member refid="class_f_collision_animation_preview_scene_1a08e24e12f67cbcd1b71885a53af9a01f" prot="public" virt="virtual"><scope>FCollisionAnimationPreviewScene</scope><name>~FCollisionAnimationPreviewScene</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

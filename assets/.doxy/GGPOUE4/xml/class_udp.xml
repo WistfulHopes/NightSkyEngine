@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_udp" kind="class" language="C++" prot="public">
+    <compoundname>Udp</compoundname>
+    <basecompoundref refid="class_i_poll_sink" prot="public" virt="non-virtual">IPollSink</basecompoundref>
+    <innerclass refid="struct_udp_1_1_callbacks" prot="public">Udp::Callbacks</innerclass>
+    <innerclass refid="struct_udp_1_1_stats" prot="public">Udp::Stats</innerclass>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_udp_1a503c23099e03cc930c231d53e3016106" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+        <definition>ConnectionManager* Udp::_connection_manager</definition>
+        <argsstring></argsstring>
+        <name>_connection_manager</name>
+        <qualifiedname>Udp::_connection_manager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="51" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_udp_1a2c1c666436d6b16026e83535696eb5a2" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_udp_1_1_callbacks" kindref="compound">Callbacks</ref> *</type>
+        <definition>Callbacks* Udp::_callbacks</definition>
+        <argsstring></argsstring>
+        <name>_callbacks</name>
+        <qualifiedname>Udp::_callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="54" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_udp_1aaf74f1a820e0ed1aa6cdfda668afa599" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_poll" kindref="compound">Poll</ref> *</type>
+        <definition>Poll* Udp::_poll</definition>
+        <argsstring></argsstring>
+        <name>_poll</name>
+        <qualifiedname>Udp::_poll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="55" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_udp_1af42b497d12d3ff000e456fcb2adb3bc4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Udp::Log</definition>
+        <argsstring>(const char *fmt,...)</argsstring>
+        <name>Log</name>
+        <qualifiedname>Udp::Log</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="36" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="70" bodyend="83"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_udp_1acbfd83b59b802720c0016ea9ca691624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Udp::Udp</definition>
+        <argsstring>()</argsstring>
+        <name>Udp</name>
+        <qualifiedname>Udp::Udp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="39" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="11" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_udp_1acf4d3967b7c2c1e585df34d2140529a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Udp::Init</definition>
+        <argsstring>(Poll *p, Callbacks *callbacks, ConnectionManager *connection_manager)</argsstring>
+        <name>Init</name>
+        <qualifiedname>Udp::Init</qualifiedname>
+        <param>
+          <type><ref refid="class_poll" kindref="compound">Poll</ref> *</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_udp_1_1_callbacks" kindref="compound">Callbacks</ref> *</type>
+          <declname>callbacks</declname>
+        </param>
+        <param>
+          <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+          <declname>connection_manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="41" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="23" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_udp_1af7e6b334a109c5b249cd9fc2fc276086" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Udp::SendTo</definition>
+        <argsstring>(char *buffer, int len, int flags, int connection_id)</argsstring>
+        <name>SendTo</name>
+        <qualifiedname>Udp::SendTo</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="43" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_udp_1ac896bbc24b2205c11a46f0f3c415646c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Udp::OnLoopPoll</definition>
+        <argsstring>(void *cookie)</argsstring>
+        <name>OnLoopPoll</name>
+        <qualifiedname>Udp::OnLoopPoll</qualifiedname>
+        <reimplements refid="class_i_poll_sink_1a6ce7971591eae8e79885c638df113eea">OnLoopPoll</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>cookie</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="45" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="39" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_udp_1a4554d19aa2b2eb3ff2a9b660ffa9f0a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Udp::~Udp</definition>
+        <argsstring>(void)</argsstring>
+        <name>~Udp</name>
+        <qualifiedname>Udp::~Udp</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="48" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.cpp" bodystart="18" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="1">
+        <label>Udp</label>
+        <link refid="class_udp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>ConnectionManager</label>
+        <link refid="class_connection_manager"/>
+      </node>
+      <node id="2">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="5">
+        <label>Poll</label>
+        <link refid="class_poll"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_handle_sinks</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>_loop_sinks</edgelabel>
+          <edgelabel>_msg_sinks</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>_periodic_sinks</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Poll::PollPeriodicSinkCb</label>
+        <link refid="struct_poll_1_1_poll_periodic_sink_cb"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Poll::PollSinkCb</label>
+        <link refid="struct_poll_1_1_poll_sink_cb"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>sink</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>StaticBuffer&lt; Poll::PollPeriodicSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>StaticBuffer&lt; Poll::PollSinkCb, 16 &gt;</label>
+        <link refid="class_static_buffer"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>_elements</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Udp</label>
+        <link refid="class_udp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_connection_manager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>_poll</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="20" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="21" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_udp_1a2c1c666436d6b16026e83535696eb5a2" prot="protected" virt="non-virtual"><scope>Udp</scope><name>_callbacks</name></member>
+      <member refid="class_udp_1a503c23099e03cc930c231d53e3016106" prot="protected" virt="non-virtual"><scope>Udp</scope><name>_connection_manager</name></member>
+      <member refid="class_udp_1aaf74f1a820e0ed1aa6cdfda668afa599" prot="protected" virt="non-virtual"><scope>Udp</scope><name>_poll</name></member>
+      <member refid="class_udp_1acf4d3967b7c2c1e585df34d2140529a2" prot="public" virt="non-virtual"><scope>Udp</scope><name>Init</name></member>
+      <member refid="class_udp_1af42b497d12d3ff000e456fcb2adb3bc4" prot="protected" virt="non-virtual"><scope>Udp</scope><name>Log</name></member>
+      <member refid="class_i_poll_sink_1aab81d52926d439740ab423db5e3b556c" prot="public" virt="virtual"><scope>Udp</scope><name>OnHandlePoll</name></member>
+      <member refid="class_udp_1ac896bbc24b2205c11a46f0f3c415646c" prot="public" virt="virtual"><scope>Udp</scope><name>OnLoopPoll</name></member>
+      <member refid="class_i_poll_sink_1a7c94a054d4cd962abbc444cc75ec65f4" prot="public" virt="virtual"><scope>Udp</scope><name>OnMsgPoll</name></member>
+      <member refid="class_i_poll_sink_1a8e333d0677fc88a2852e4002c14ce93f" prot="public" virt="virtual"><scope>Udp</scope><name>OnPeriodicPoll</name></member>
+      <member refid="class_udp_1af7e6b334a109c5b249cd9fc2fc276086" prot="public" virt="non-virtual"><scope>Udp</scope><name>SendTo</name></member>
+      <member refid="class_udp_1acbfd83b59b802720c0016ea9ca691624" prot="public" virt="non-virtual"><scope>Udp</scope><name>Udp</name></member>
+      <member refid="class_i_poll_sink_1a6254d40907f5c3e7db3baea80b71e5a5" prot="public" virt="virtual"><scope>Udp</scope><name>~IPollSink</name></member>
+      <member refid="class_udp_1a4554d19aa2b2eb3ff2a9b660ffa9f0a0" prot="public" virt="non-virtual"><scope>Udp</scope><name>~Udp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_anim_instance" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyAnimInstance</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UAnimInstance</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_anim_instance_1aac624a4ab2612e163e75a541e898a126" prot="public" static="no" mutable="no">
+        <type>UAnimMontage *</type>
+        <definition>UAnimMontage* UNightSkyAnimInstance::RootMontage</definition>
+        <argsstring></argsstring>
+        <name>RootMontage</name>
+        <qualifiedname>UNightSkyAnimInstance::RootMontage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" line="22" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_anim_instance_1add7aa6c6caff67e49f170c8d3d662a85" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float UNightSkyAnimInstance::CurrentAnimTime</definition>
+        <argsstring></argsstring>
+        <name>CurrentAnimTime</name>
+        <qualifiedname>UNightSkyAnimInstance::CurrentAnimTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" line="25" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_u_night_sky_anim_instance_1a43706f606c9cb584b1184db4d9631ef0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void UNightSkyAnimInstance::Montage_Advance</definition>
+        <argsstring>(float DeltaSeconds) override</argsstring>
+        <name>Montage_Advance</name>
+        <qualifiedname>UNightSkyAnimInstance::Montage_Advance</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" line="18" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.cpp" bodystart="8" bodyend="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_anim_instance_1ae3d2cf70e64e23511c82cb984ece2ae5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyAnimInstance::CreateRootMontage</definition>
+        <argsstring>(UAnimSequenceBase *Asset, const FAlphaBlendArgs &amp;BlendIn, const FAlphaBlendArgs &amp;BlendOut)</argsstring>
+        <name>CreateRootMontage</name>
+        <qualifiedname>UNightSkyAnimInstance::CreateRootMontage</qualifiedname>
+        <param>
+          <type>UAnimSequenceBase *</type>
+          <declname>Asset</declname>
+        </param>
+        <param>
+          <type>const FAlphaBlendArgs &amp;</type>
+          <declname>BlendIn</declname>
+        </param>
+        <param>
+          <type>const FAlphaBlendArgs &amp;</type>
+          <declname>BlendOut</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" line="28" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.cpp" bodystart="19" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UAnimInstance</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimInstance</label>
+        <link refid="class_u_night_sky_anim_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UAnimInstance</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyAnimInstance</label>
+        <link refid="class_u_night_sky_anim_instance"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Animation/NightSkyAnimInstance.h" bodystart="14" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_anim_instance_1ae3d2cf70e64e23511c82cb984ece2ae5" prot="public" virt="non-virtual"><scope>UNightSkyAnimInstance</scope><name>CreateRootMontage</name></member>
+      <member refid="class_u_night_sky_anim_instance_1add7aa6c6caff67e49f170c8d3d662a85" prot="public" virt="non-virtual"><scope>UNightSkyAnimInstance</scope><name>CurrentAnimTime</name></member>
+      <member refid="class_u_night_sky_anim_instance_1a43706f606c9cb584b1184db4d9631ef0" prot="protected" virt="virtual"><scope>UNightSkyAnimInstance</scope><name>Montage_Advance</name></member>
+      <member refid="class_u_night_sky_anim_instance_1aac624a4ab2612e163e75a541e898a126" prot="public" virt="non-virtual"><scope>UNightSkyAnimInstance</scope><name>RootMontage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

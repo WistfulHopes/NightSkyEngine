@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_battle_input_actions" kind="struct" language="C++" prot="public">
+    <compoundname>FBattleInputActions</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a37fa68e3a8fa6dff067eda0015e885e2" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressUp</definition>
+        <argsstring></argsstring>
+        <name>PressUp</name>
+        <qualifiedname>FBattleInputActions::PressUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="19" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1ac3edcc5b5c12444177038228cf571833" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseUp</definition>
+        <argsstring></argsstring>
+        <name>ReleaseUp</name>
+        <qualifiedname>FBattleInputActions::ReleaseUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="21" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a750104c938ef78b276c0ae10d4069f09" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressDown</definition>
+        <argsstring></argsstring>
+        <name>PressDown</name>
+        <qualifiedname>FBattleInputActions::PressDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="23" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1adc5f853360e934bae5b534a84753e172" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseDown</definition>
+        <argsstring></argsstring>
+        <name>ReleaseDown</name>
+        <qualifiedname>FBattleInputActions::ReleaseDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="25" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a9f13fcc129f43c85c1bdd4f9a105a825" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressLeft</definition>
+        <argsstring></argsstring>
+        <name>PressLeft</name>
+        <qualifiedname>FBattleInputActions::PressLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="27" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1abb8870f1a44c4153083b72ec91ba5e49" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseLeft</definition>
+        <argsstring></argsstring>
+        <name>ReleaseLeft</name>
+        <qualifiedname>FBattleInputActions::ReleaseLeft</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="29" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1aa644155e58366dc20f53f5e630743def" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressRight</definition>
+        <argsstring></argsstring>
+        <name>PressRight</name>
+        <qualifiedname>FBattleInputActions::PressRight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="31" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a98eecf629fcbfb0107514a0b1d6cd0d1" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseRight</definition>
+        <argsstring></argsstring>
+        <name>ReleaseRight</name>
+        <qualifiedname>FBattleInputActions::ReleaseRight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="33" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1aaf07afcaffefe21007b297a84c71ca87" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressA</definition>
+        <argsstring></argsstring>
+        <name>PressA</name>
+        <qualifiedname>FBattleInputActions::PressA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="35" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a0bf5843ee2e0c338a965797a55e56e01" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseA</definition>
+        <argsstring></argsstring>
+        <name>ReleaseA</name>
+        <qualifiedname>FBattleInputActions::ReleaseA</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="37" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1ae0db0f2a6d9626d7983010ef6e20c18e" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressB</definition>
+        <argsstring></argsstring>
+        <name>PressB</name>
+        <qualifiedname>FBattleInputActions::PressB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="39" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1aeebb02a2d98efcc804c47521ee4aba20" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseB</definition>
+        <argsstring></argsstring>
+        <name>ReleaseB</name>
+        <qualifiedname>FBattleInputActions::ReleaseB</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="41" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1ada99b6446583759e4102005a3dac6ced" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressC</definition>
+        <argsstring></argsstring>
+        <name>PressC</name>
+        <qualifiedname>FBattleInputActions::PressC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="43" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1acf2d9c5da5864a2e38fc8152e64c83ec" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseC</definition>
+        <argsstring></argsstring>
+        <name>ReleaseC</name>
+        <qualifiedname>FBattleInputActions::ReleaseC</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="45" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a3b0c7e68c062f78b198fc66e3aa6a2d6" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressD</definition>
+        <argsstring></argsstring>
+        <name>PressD</name>
+        <qualifiedname>FBattleInputActions::PressD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="47" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1aacd19249e163ec3fc6b2c69cd6a6fea4" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseD</definition>
+        <argsstring></argsstring>
+        <name>ReleaseD</name>
+        <qualifiedname>FBattleInputActions::ReleaseD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="49" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a0841b254110531cb78150aba515e836a" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressE</definition>
+        <argsstring></argsstring>
+        <name>PressE</name>
+        <qualifiedname>FBattleInputActions::PressE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="51" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a97d5e9e6e52bed7126b5fe3b00fc4d67" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseE</definition>
+        <argsstring></argsstring>
+        <name>ReleaseE</name>
+        <qualifiedname>FBattleInputActions::ReleaseE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="53" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a5afdf039e1d68e402f4ac68e4f0345e4" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressF</definition>
+        <argsstring></argsstring>
+        <name>PressF</name>
+        <qualifiedname>FBattleInputActions::PressF</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="55" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a93e64183cd2de5fd5ccbead3ecb26589" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseF</definition>
+        <argsstring></argsstring>
+        <name>ReleaseF</name>
+        <qualifiedname>FBattleInputActions::ReleaseF</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="57" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1ae6fd197c967d24510c573dc346e7242f" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressG</definition>
+        <argsstring></argsstring>
+        <name>PressG</name>
+        <qualifiedname>FBattleInputActions::PressG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="59" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a96c49e332a08f1f54fa9a0c84d0ceb27" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseG</definition>
+        <argsstring></argsstring>
+        <name>ReleaseG</name>
+        <qualifiedname>FBattleInputActions::ReleaseG</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="61" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a58ee10c971c08675c04179c2313698ad" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PressH</definition>
+        <argsstring></argsstring>
+        <name>PressH</name>
+        <qualifiedname>FBattleInputActions::PressH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="63" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a4d44a5844a96cfa238ef3baa9eb44c96" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ReleaseH</definition>
+        <argsstring></argsstring>
+        <name>ReleaseH</name>
+        <qualifiedname>FBattleInputActions::ReleaseH</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="65" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1a7badaede9956e1e6983b315d2d03ce1e" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::PauseGame</definition>
+        <argsstring></argsstring>
+        <name>PauseGame</name>
+        <qualifiedname>FBattleInputActions::PauseGame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="67" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_input_actions_1ad647ddfd2f1c72b6233511fe5361e586" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; const UInputAction &gt;</type>
+        <definition>TObjectPtr&lt;const UInputAction&gt; FBattleInputActions::ResetTraining</definition>
+        <argsstring></argsstring>
+        <name>ResetTraining</name>
+        <qualifiedname>FBattleInputActions::ResetTraining</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="69" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" bodystart="15" bodyend="70"/>
+    <listofallmembers>
+      <member refid="struct_f_battle_input_actions_1a7badaede9956e1e6983b315d2d03ce1e" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PauseGame</name></member>
+      <member refid="struct_f_battle_input_actions_1aaf07afcaffefe21007b297a84c71ca87" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressA</name></member>
+      <member refid="struct_f_battle_input_actions_1ae0db0f2a6d9626d7983010ef6e20c18e" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressB</name></member>
+      <member refid="struct_f_battle_input_actions_1ada99b6446583759e4102005a3dac6ced" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressC</name></member>
+      <member refid="struct_f_battle_input_actions_1a3b0c7e68c062f78b198fc66e3aa6a2d6" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressD</name></member>
+      <member refid="struct_f_battle_input_actions_1a750104c938ef78b276c0ae10d4069f09" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressDown</name></member>
+      <member refid="struct_f_battle_input_actions_1a0841b254110531cb78150aba515e836a" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressE</name></member>
+      <member refid="struct_f_battle_input_actions_1a5afdf039e1d68e402f4ac68e4f0345e4" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressF</name></member>
+      <member refid="struct_f_battle_input_actions_1ae6fd197c967d24510c573dc346e7242f" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressG</name></member>
+      <member refid="struct_f_battle_input_actions_1a58ee10c971c08675c04179c2313698ad" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressH</name></member>
+      <member refid="struct_f_battle_input_actions_1a9f13fcc129f43c85c1bdd4f9a105a825" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressLeft</name></member>
+      <member refid="struct_f_battle_input_actions_1aa644155e58366dc20f53f5e630743def" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressRight</name></member>
+      <member refid="struct_f_battle_input_actions_1a37fa68e3a8fa6dff067eda0015e885e2" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>PressUp</name></member>
+      <member refid="struct_f_battle_input_actions_1a0bf5843ee2e0c338a965797a55e56e01" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseA</name></member>
+      <member refid="struct_f_battle_input_actions_1aeebb02a2d98efcc804c47521ee4aba20" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseB</name></member>
+      <member refid="struct_f_battle_input_actions_1acf2d9c5da5864a2e38fc8152e64c83ec" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseC</name></member>
+      <member refid="struct_f_battle_input_actions_1aacd19249e163ec3fc6b2c69cd6a6fea4" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseD</name></member>
+      <member refid="struct_f_battle_input_actions_1adc5f853360e934bae5b534a84753e172" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseDown</name></member>
+      <member refid="struct_f_battle_input_actions_1a97d5e9e6e52bed7126b5fe3b00fc4d67" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseE</name></member>
+      <member refid="struct_f_battle_input_actions_1a93e64183cd2de5fd5ccbead3ecb26589" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseF</name></member>
+      <member refid="struct_f_battle_input_actions_1a96c49e332a08f1f54fa9a0c84d0ceb27" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseG</name></member>
+      <member refid="struct_f_battle_input_actions_1a4d44a5844a96cfa238ef3baa9eb44c96" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseH</name></member>
+      <member refid="struct_f_battle_input_actions_1abb8870f1a44c4153083b72ec91ba5e49" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseLeft</name></member>
+      <member refid="struct_f_battle_input_actions_1a98eecf629fcbfb0107514a0b1d6cd0d1" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseRight</name></member>
+      <member refid="struct_f_battle_input_actions_1ac3edcc5b5c12444177038228cf571833" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ReleaseUp</name></member>
+      <member refid="struct_f_battle_input_actions_1ad647ddfd2f1c72b6233511fe5361e586" prot="public" virt="non-virtual"><scope>FBattleInputActions</scope><name>ResetTraining</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
+  <compound refid="class_f_asset_type_actions___collision_data" kind="class"><name>FAssetTypeActions_CollisionData</name>
+    <member refid="class_f_asset_type_actions___collision_data_1a2e66cc38171c47a09e017c91f4fa36f0" kind="variable"><name>AssetCategory</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1aeefb7c51597a202e38e23f614d6e5fa9" kind="function"><name>FAssetTypeActions_CollisionData</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1a12182f7a24cd98d044266325ffb6e66f" kind="function"><name>GetTypeColor</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1ab8a5c0d7758ba51ebae8de1e5db09399" kind="function"><name>GetSupportedClass</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1a31f10a16b512008fa6870567c780f71d" kind="function"><name>OpenAssetEditor</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1a892e3ae852269bfc81a0cf12ce6afc10" kind="function"><name>GetName</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1a6a97edb95bfd8b8bab6d10740fbfa772" kind="function"><name>CanFilter</name></member>
+    <member refid="class_f_asset_type_actions___collision_data_1a49e31528449a647aaa5a15c7d406c400" kind="function"><name>GetCategories</name></member>
+  </compound>
+  <compound refid="class_f_cel_asset_tree_node" kind="class"><name>FCelAssetTreeNode</name>
+    <member refid="class_f_cel_asset_tree_node_1acd5d7e70236197b4287e6977db975195" kind="variable"><name>Parent</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a471e6c4c30112c035fc831358788c36c" kind="variable"><name>Children</name></member>
+    <member refid="class_f_cel_asset_tree_node_1af22acc8c5e7ad4d34baa42bd3028ecf9" kind="variable"><name>DisplayName</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a74666c1818d4b45fb6f7dea721e3fd38" kind="variable"><name>CelIndex</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a2a60c08588899e7df50a59eb358b0f11" kind="variable"><name>bHasProblem</name></member>
+    <member refid="class_f_cel_asset_tree_node_1adcde79d0779a905b6f0e821769236109" kind="function"><name>FCelAssetTreeNode</name></member>
+    <member refid="class_f_cel_asset_tree_node_1ab57cfaed7b2461e6e1a13bf9acbc8da1" kind="function"><name>FCelAssetTreeNode</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a538287cc1163174527ffea7ed7dfbf6a" kind="function"><name>IsCategory</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a9038a21a7d679c2348dc42a1aea9048b" kind="function"><name>IsCel</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a69c50baa1f2090c47b19fc3b4bbdf6b0" kind="function"><name>IsValid</name></member>
+    <member refid="class_f_cel_asset_tree_node_1ac0d88a9971494dd4b9f71d58d31a97e0" kind="function"><name>GetDisplayName</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a30a71a3db46df6e6871a27421c931615" kind="function"><name>GetCelIndex</name></member>
+    <member refid="class_f_cel_asset_tree_node_1a4af14ce292ae349813eb487de3c4527e" kind="function"><name>SetCelIndex</name></member>
+    <member refid="class_f_cel_asset_tree_node_1aa678d23542e35d8c2475e879325b3f7f" kind="function"><name>FindOrCreateChild</name></member>
+  </compound>
+  <compound refid="class_f_collision_animation_preview_scene" kind="class"><name>FCollisionAnimationPreviewScene</name>
+    <member refid="class_f_collision_animation_preview_scene_1acd30351fc48f6a21a786c3e7cc3a3c16" kind="variable"><name>PreviewPlayerObject</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1af007f8029cad801d8dd11835f39ed9f5" kind="variable"><name>EditorPtr</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a612290b9e214888e7f96cb3ee74db834" kind="variable"><name>CurrentCollisionData</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a12cb5c5ebbf3e3db68a522e081e0d1af" kind="function"><name>FCollisionAnimationPreviewScene</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a08e24e12f67cbcd1b71885a53af9a01f" kind="function"><name>~FCollisionAnimationPreviewScene</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a5f7cb237b7a7cabc0b910967f5a5480f" kind="function"><name>Tick</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a9123967032bbc12a04e7c543b1f0175f" kind="function"><name>SetPlayerObject</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1af273fe9ef8102e22b4d916d1787cf473" kind="function"><name>SetupScene</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a6e63e222a86f1f4ee5591ae264f2dc60" kind="function"><name>UpdateCollisionView</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1a1682e9c10f0f39a9ac88034ac16d0ccb" kind="function"><name>UpdateMeshAndAnimation</name></member>
+    <member refid="class_f_collision_animation_preview_scene_1abcc37d78a6510cac692d960c95488375" kind="function"><name>DrawCollisionData</name></member>
+  </compound>
+  <compound refid="class_f_collision_animation_viewport_client" kind="class"><name>FCollisionAnimationViewportClient</name>
+    <member refid="class_f_collision_animation_viewport_client_1acce212b0af545a2df4bc8bd721a3be54" kind="variable"><name>AdvancedPreviewScene</name></member>
+    <member refid="class_f_collision_animation_viewport_client_1a30a7dd39b308d5c4c9172be9f4fa69f3" kind="function"><name>FCollisionAnimationViewportClient</name></member>
+    <member refid="class_f_collision_animation_viewport_client_1a05fe025a2d7852082ff34da6d4e92ac1" kind="function"><name>Tick</name></member>
+    <member refid="class_f_collision_animation_viewport_client_1a820a10c14e70dab93d8f76c0cd874927" kind="function"><name>~FCollisionAnimationViewportClient</name></member>
+  </compound>
+  <compound refid="class_f_collision_data_details" kind="class"><name>FCollisionDataDetails</name>
+    <member refid="class_f_collision_data_details_1a88e5c2873da949350c850a23886d8cbe" kind="variable"><name>CollisionDataPtr</name></member>
+    <member refid="class_f_collision_data_details_1a93fa6e598b004b7623d2357ec2f44da7" kind="variable"><name>CollisionFramesHandle</name></member>
+    <member refid="class_f_collision_data_details_1abcd34093c124d16e3208d40daaff4fa1" kind="variable"><name>CachedDetailBuilder</name></member>
+    <member refid="class_f_collision_data_details_1af8fc4b40d7a4d509df39221be31009f9" kind="variable"><name>SelectedCelName</name></member>
+    <member refid="class_f_collision_data_details_1a2ccf12f824a2bdbc6e487f7f33212027" kind="function"><name>MakeInstance</name></member>
+    <member refid="class_f_collision_data_details_1afb7e44294cbd7d9456d72882025cd8fc" kind="function"><name>CustomizeDetails</name></member>
+    <member refid="class_f_collision_data_details_1a10dbaaca54898fe6082ad4bfa6eb07c1" kind="function"><name>BuildSelectedCelView</name></member>
+    <member refid="class_f_collision_data_details_1a172c8ee34208b5a0089012d6b81c578c" kind="function"><name>OnCelSelected</name></member>
+    <member refid="class_f_collision_data_details_1adf85a0ae7aaf73e57c1d6ded8ef3d8ba" kind="function"><name>OnAddNewCel</name></member>
+    <member refid="class_f_collision_data_details_1ada4d9954ded086ce1005417ad2a9df15" kind="function"><name>OnDeleteSelectedCel</name></member>
+    <member refid="class_f_collision_data_details_1a1d04fc6ef45c1ac5143805af312e1e8d" kind="function"><name>OnTemplateSelectedCel</name></member>
+    <member refid="class_f_collision_data_details_1afb1be37fab69fc62518ffae4c9f9a8f5" kind="function"><name>OnRefreshTree</name></member>
+    <member refid="class_f_collision_data_details_1a32e189a921c0b31794245c3af72bf566" kind="function"><name>CanDeleteSelectedCel</name></member>
+    <member refid="class_f_collision_data_details_1acb07292f92311065c741a43dcea62046" kind="function"><name>CanTemplateSelectedCel</name></member>
+  </compound>
+  <compound refid="class_f_collision_data_editor_toolkit" kind="class"><name>FCollisionDataEditorToolkit</name>
+    <member refid="class_f_collision_data_editor_toolkit_1a950c121ea2358e1569f8fa89f23b47e4" kind="variable"><name>DetailsView</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a1861c7599ff0f3cdb69207ef55a6c45b" kind="variable"><name>PlayerObjectBPPicker</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a2b9cc75cc1b7494cd86c22154992eb4c" kind="variable"><name>PreviewScene</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ae4124609156ed42a799159e13485e66d" kind="variable"><name>PreviewViewportWidget</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ad7a2582286ad31b4d6650051e87da089" kind="variable"><name>CollisionData</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a212440eb5df7054f0ad52fcf70cbee38" kind="variable"><name>CelAssetTree</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a508dd11aa055581c3a95373d0db9c25a" kind="variable"><name>SelectedCel</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a19d04828f48cdfbe7a0a718138966f13" kind="variable"><name>PlayerObjectClass</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a1917cb3124e52553c4648e1c45e3be74" kind="variable"><name>PlayerObject</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a84b37db38af2abcf768086df44c6fccc" kind="function"><name>FCollisionDataEditorToolkit</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a0b7a9b4c2d2e187f1ff3fb03ad0fbb0e" kind="function"><name>~FCollisionDataEditorToolkit</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ada0e112a8c6eda1b4f237f8ee2b5e8da" kind="function"><name>Initialize</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a11f611a33b6b174d0fd177acd26158f6" kind="function"><name>GetToolkitFName</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a917211d89b4b9aeb1ab38bc2cfb1dcb4" kind="function"><name>GetBaseToolkitName</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1aead09fd6a6b5702de0ca1fe334015b1c" kind="function"><name>GetToolkitName</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a4441df1804ea82da06f1960a4c490c05" kind="function"><name>GetWorldCentricTabPrefix</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a8508dc2eb2a119268e4240d262020425" kind="function"><name>GetWorldCentricTabColorScale</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a9f53b5f7592b37e41bb0fd93419be3b0" kind="function"><name>RegisterTabSpawners</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ad6f44386fd24e8cb242bda58fa6b8fcb" kind="function"><name>UnregisterTabSpawners</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a7e3e05b495015d7d38c2a01c0d5c6a42" kind="function"><name>SpawnTab_CollisionDataDetails</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a788eaf201bc2c9036a3b7cb9459afe9b" kind="function"><name>SpawnTab_PlayerObjectSelector</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1af364b56f24b20f679c4daa3b0a006385" kind="function"><name>SpawnTab_ViewportTab</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a7192f15c1a81d3b0b33b69c17216264c" kind="function"><name>InitializePreviewScene</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ac287a82f6aa4e35274db21a34e38db25" kind="function"><name>GetSelectedState</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a0d772ad9759469aa2df544603c378812" kind="function"><name>InitializeCelAssetTree</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a9233c2ab29911b364461d2f8152453b5" kind="function"><name>OnCelSelected</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ae41af9f1eab86993b6c3b4f68f04fad2" kind="function"><name>OnCollisionFramesChanged</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1aff21c95e8be344e06ee4d803689d40e6" kind="function"><name>OnPlayerObjectBPSelected</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1afd02ea3c74e02bb10e89046449e84e91" kind="function"><name>InitializePlayerObjectBPPicker</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a4fea1157379a40c7aaea21a256339f56" kind="function"><name>GetCurrentCelName</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1ae25bb975e5fbe63995e74dd991858f20" kind="function"><name>UpdateAnimationPlayback</name></member>
+    <member refid="class_f_collision_data_editor_toolkit_1a7a37fe7b99c7949ac568d7a2729fd005" kind="function"><name>OnClose</name></member>
+  </compound>
+  <compound refid="class_f_collision_editor" kind="class"><name>FCollisionEditor</name>
+    <member refid="class_f_collision_editor_1a7056f3c6fc8b72ac765aacdb5fc5f2dd" kind="variable"><name>CollisionAssetCategoryBit</name></member>
+    <member refid="class_f_collision_editor_1a4b2b81be33816eb5a7a0c729342ca105" kind="function"><name>StartupModule</name></member>
+    <member refid="class_f_collision_editor_1a4d6fb7571a2f9263bb83c4c62e3a942b" kind="function"><name>ShutdownModule</name></member>
+    <member refid="class_f_collision_editor_1aaef14d2b29be42387cb5bf0437cde325" kind="function"><name>RegisterAssetTools</name></member>
+    <member refid="class_f_collision_editor_1a42fd00cb0294df633b07616e036f53d8" kind="function"><name>RegisterPropertyCustomizations</name></member>
+    <member refid="class_f_collision_editor_1ae00044547f92ad4eb750c65c9c7d0bdd" kind="function"><name>UnregisterPropertyCustomizations</name></member>
+  </compound>
+  <compound refid="class_s_cel_asset_tree" kind="class"><name>SCelAssetTree</name>
+    <member refid="class_s_cel_asset_tree_1a972bfade6035cb18a47f8d286001f5a8" kind="variable"><name>CollisionData</name></member>
+    <member refid="class_s_cel_asset_tree_1ab8c84e6f91d21bddb352a981db454eec" kind="variable"><name>TreeView</name></member>
+    <member refid="class_s_cel_asset_tree_1ad67a7f9d30e37359e340a07dc1324f9c" kind="variable"><name>RootNodes</name></member>
+    <member refid="class_s_cel_asset_tree_1a1f680aa9de08f14ae60c707b0666a59a" kind="variable"><name>AllNodes</name></member>
+    <member refid="class_s_cel_asset_tree_1a14dbb21351a68d70a95abda497319262" kind="variable"><name>CurrentFilterString</name></member>
+    <member refid="class_s_cel_asset_tree_1a796ff0683dc89e0e2c8b820cd3a429d6" kind="variable"><name>OnCelSelectedDelegate</name></member>
+    <member refid="class_s_cel_asset_tree_1a698cd9b9360961a9b399eb88212bf078" kind="variable"><name>CelIndexToNodeMap</name></member>
+    <member refid="class_s_cel_asset_tree_1a55f315d05697ab60aa21414493ea7e16" kind="function"><name>SLATE_BEGIN_ARGS</name></member>
+    <member refid="class_s_cel_asset_tree_1afd4081e4df0ad9c1f4384dee5f3f6180" kind="function"><name>Construct</name></member>
+    <member refid="class_s_cel_asset_tree_1a9f67bf1cdbedf6c4a854acc2cbeabedf" kind="function"><name>RefreshTree</name></member>
+    <member refid="class_s_cel_asset_tree_1a6ae7faf810bcab33d543f4ee9e6c72c0" kind="function"><name>SetSelectedCel</name></member>
+    <member refid="class_s_cel_asset_tree_1ac82b9b36bbdac393bc427c8ecff2b8de" kind="function"><name>GenerateTreeRow</name></member>
+    <member refid="class_s_cel_asset_tree_1afc1b54cdc1dd590a5e1f403702863582" kind="function"><name>GetChildrenForNode</name></member>
+    <member refid="class_s_cel_asset_tree_1a531b6ceca45df9b7da198c062922d93b" kind="function"><name>OnSelectionChanged</name></member>
+    <member refid="class_s_cel_asset_tree_1a2fb3b0ddbc8844edeed7f6ef3aa75e4d" kind="function"><name>OnFilterTextChanged</name></member>
+    <member refid="class_s_cel_asset_tree_1a5240e529e6554eaf6960851ce7ad0421" kind="function"><name>BuildTreeFromCollisionData</name></member>
+  </compound>
+  <compound refid="class_s_collision_animation_viewport" kind="class"><name>SCollisionAnimationViewport</name>
+    <member refid="class_s_collision_animation_viewport_1ae25dd95ef2a60ccd9d26274d5dbd6ff3" kind="variable"><name>PreviewScene</name></member>
+    <member refid="class_s_collision_animation_viewport_1ab41de0d127b768b357423a4836c95e42" kind="variable"><name>ViewportClient</name></member>
+    <member refid="class_s_collision_animation_viewport_1aa7ac1691c1787082d083c3d2aea0654d" kind="variable"><name>EditorToolkit</name></member>
+    <member refid="class_s_collision_animation_viewport_1a1ac204b2961b98e2d3150fd8478243a7" kind="function"><name>SLATE_BEGIN_ARGS</name></member>
+    <member refid="class_s_collision_animation_viewport_1ac0108087b0240f18218eea0006da3bc9" kind="function"><name>Construct</name></member>
+    <member refid="class_s_collision_animation_viewport_1a5f3dc2cb18ef5563d2faafd7deab8f75" kind="function"><name>~SCollisionAnimationViewport</name></member>
+    <member refid="class_s_collision_animation_viewport_1a898769da77539639047bbb4b6fadd186" kind="function"><name>AddReferencedObjects</name></member>
+    <member refid="class_s_collision_animation_viewport_1a9c4097e8394d2ceccf151ab62b2cbe20" kind="function"><name>GetReferencerName</name></member>
+    <member refid="class_s_collision_animation_viewport_1ad10b39b6b41aa1d614a81e1d5fd82eb4" kind="function"><name>GetViewportWidget</name></member>
+    <member refid="class_s_collision_animation_viewport_1aefc345bd5c5b7a1e6780fd34e432ebee" kind="function"><name>GetExtenders</name></member>
+    <member refid="class_s_collision_animation_viewport_1a10caf8b8fab7967b34cd13feabbc99d6" kind="function"><name>OnFloatingButtonClicked</name></member>
+    <member refid="class_s_collision_animation_viewport_1abb267bfb1774b428fcd2eead0a5089c8" kind="function"><name>OnFocusViewportToSelection</name></member>
+    <member refid="class_s_collision_animation_viewport_1a32329158c04395ae9230e027b0b27d6f" kind="function"><name>MakeEditorViewportClient</name></member>
+  </compound>
+  <compound refid="_asset_type_actions___collision_data_8cpp" kind="file"><name>AssetTypeActions_CollisionData.cpp</name>
+    <member refid="_asset_type_actions___collision_data_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+  </compound>
+  <compound refid="_cel_asset_tree_8cpp" kind="file"><name>CelAssetTree.cpp</name>
+  </compound>
+  <compound refid="_collision_data_details_8cpp" kind="file"><name>CollisionDataDetails.cpp</name>
+    <member refid="_collision_data_details_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+  </compound>
+  <compound refid="_collision_data_editor_toolkit_8cpp" kind="file"><name>CollisionDataEditorToolkit.cpp</name>
+    <member refid="_collision_data_editor_toolkit_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+  </compound>
+  <compound refid="_collision_editor_8cpp" kind="file"><name>CollisionEditor.cpp</name>
+    <member refid="_collision_editor_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+    <member refid="_collision_editor_8cpp_1a6294176623c23b09d157bc42beb4ed42" kind="function"><name>IMPLEMENT_MODULE</name></member>
+  </compound>
+  <compound refid="_logging_8cpp" kind="file"><name>Logging.cpp</name>
+    <member refid="_logging_8cpp_1a3bde4cde746e801ad90b91afdc6ea0de" kind="function"><name>DEFINE_LOG_CATEGORY</name></member>
+  </compound>
+  <compound refid="_logging_8h" kind="file"><name>Logging.h</name>
+    <member refid="_logging_8h_1a552de03b0f5a8ef4c13473d1b4fe77ba" kind="function"><name>DECLARE_LOG_CATEGORY_EXTERN</name></member>
+  </compound>
+  <compound refid="_collision_animation_preview_scene_8cpp" kind="file"><name>CollisionAnimationPreviewScene.cpp</name>
+  </compound>
+  <compound refid="_collision_animation_viewport_8cpp" kind="file"><name>CollisionAnimationViewport.cpp</name>
+    <member refid="_collision_animation_viewport_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+  </compound>
+  <compound refid="_collision_animation_viewport_client_8cpp" kind="file"><name>CollisionAnimationViewportClient.cpp</name>
+  </compound>
+  <compound refid="_asset_type_actions___collision_data_8h" kind="file"><name>AssetTypeActions_CollisionData.h</name>
+  </compound>
+  <compound refid="_cel_asset_tree_8h" kind="file"><name>CelAssetTree.h</name>
+    <member refid="_cel_asset_tree_8h_1a7b8b5b1c612458fdc30ea9806a1b9f5a" kind="function"><name>DECLARE_DELEGATE_OneParam</name></member>
+  </compound>
+  <compound refid="_cel_asset_tree_node_8h" kind="file"><name>CelAssetTreeNode.h</name>
+  </compound>
+  <compound refid="_collision_data_details_8h" kind="file"><name>CollisionDataDetails.h</name>
+  </compound>
+  <compound refid="_collision_data_editor_toolkit_8h" kind="file"><name>CollisionDataEditorToolkit.h</name>
+    <member refid="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6" kind="enum"><name>ESceneInteractionMode</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6a79beda8ebf691d39462ed1e9de5617e6" kind="enumvalue"><name>Interaction_CameraMove</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a92be44cde4fc0ecaa15cafd263f3bcc6a9c93a5b26fbeba19e30008b205b906b5" kind="enumvalue"><name>Interaction_EditCollisionBoxes</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94" kind="enum"><name>EBoxEditMode</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a46d0f3ea8a5f0e9a4e80e7d23c9d119a" kind="enumvalue"><name>EditMode_None</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a6a23ad9c8a3aff9c068e47d4ce996d26" kind="enumvalue"><name>EditMode_Add</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94ae9492e585c7226d86bd144e724abfb96" kind="enumvalue"><name>EditMode_Move</name></member>
+    <member refid="_collision_data_editor_toolkit_8h_1a40ce039b60b3467f07c4f550c9b64b94a830bac0360a94ff68d79811113ff2f59" kind="enumvalue"><name>EditMode_Delete</name></member>
+  </compound>
+  <compound refid="_collision_editor_8h" kind="file"><name>CollisionEditor.h</name>
+  </compound>
+  <compound refid="_collision_animation_preview_scene_8h" kind="file"><name>CollisionAnimationPreviewScene.h</name>
+  </compound>
+  <compound refid="_collision_animation_viewport_8h" kind="file"><name>CollisionAnimationViewport.h</name>
+  </compound>
+  <compound refid="_collision_animation_viewport_client_8h" kind="file"><name>CollisionAnimationViewportClient.h</name>
+  </compound>
+  <compound refid="dir_940e8f38acfe3acbe44a727b0224043a" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor</name>
+  </compound>
+  <compound refid="dir_01309b4faf1ec48651014f612e2b32bb" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine</name>
+  </compound>
+  <compound refid="dir_0b4eaef40a1fe20bedafe9e8e719ce66" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins</name>
+  </compound>
+  <compound refid="dir_b4aad7ce9c05cbacc2935f83ad755e41" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private</name>
+  </compound>
+  <compound refid="dir_56ac83e1ee3de8bf475f92dfdd96fd55" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public</name>
+  </compound>
+  <compound refid="dir_d32ee28216ed342fa25c01ae9dcd9cc4" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source</name>
+  </compound>
+  <compound refid="dir_29897cda01bed08dbaaebcd119403720" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport</name>
+  </compound>
+  <compound refid="dir_d692cfa9987693da5da8910b9a0fc6c1" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport</name>
+  </compound>
+</doxygenindex>

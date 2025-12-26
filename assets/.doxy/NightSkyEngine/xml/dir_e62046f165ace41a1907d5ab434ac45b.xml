@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_e62046f165ace41a1907d5ab434ac45b" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects</compoundname>
+    <innerfile refid="_battle_object_8cpp">BattleObject.cpp</innerfile>
+    <innerfile refid="_battle_object_8h">BattleObject.h</innerfile>
+    <innerfile refid="_player_object_8cpp">PlayerObject.cpp</innerfile>
+    <innerfile refid="_player_object_8h">PlayerObject.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/"/>
+  </compounddef>
+</doxygen>

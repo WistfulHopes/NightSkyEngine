@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_a12a4fa09c295aab9e164f44221961f1" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine</compoundname>
+    <innerdir refid="dir_59b3558fc0091a3111c9e7dd8d94b2ea">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle</innerdir>
+    <innerdir refid="dir_6b9168031f99509f1c8b2ee0b61f41f7">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/CharaSelect</innerdir>
+    <innerdir refid="dir_856985a2681c172443de4762aa082512">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data</innerdir>
+    <innerdir refid="dir_80ad56285f8ebf3da6163cdc63ed7343">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Input</innerdir>
+    <innerdir refid="dir_3028ef8e315fbc532032c32a50fd3ba1">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous</innerdir>
+    <innerdir refid="dir_261b7ff0e57c151ad26fd5c163777bbe">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network</innerdir>
+    <innerdir refid="dir_a40c408bd590fbad9d640bb5832ac49f">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI</innerdir>
+    <innerdir refid="dir_0a96afba4f006b77d5cb7d94a414ba7d">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo</innerdir>
+    <innerdir refid="dir_cd88faa59062fd9190839afeb0d4d29a">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT</innerdir>
+    <innerfile refid="_night_sky_engine_8cpp">NightSkyEngine.cpp</innerfile>
+    <innerfile refid="_night_sky_engine_8h">NightSkyEngine.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_battle_extension_data" kind="class" language="C++" prot="public">
+    <compoundname>UBattleExtensionData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_battle_extension_data_1a3014b666462b3029011a4db9e7dd2718" prot="public" static="no" mutable="no">
+        <type>TArray&lt; TSubclassOf&lt; <ref refid="class_u_battle_extension" kindref="compound">UBattleExtension</ref> &gt; &gt;</type>
+        <definition>TArray&lt;TSubclassOf&lt;UBattleExtension&gt; &gt; UBattleExtensionData::ExtensionArray</definition>
+        <argsstring></argsstring>
+        <name>ExtensionArray</name>
+        <qualifiedname>UBattleExtensionData::ExtensionArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h" line="24" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/BattleExtensionData.h" bodystart="19" bodyend="25"/>
+    <listofallmembers>
+      <member refid="class_u_battle_extension_data_1a3014b666462b3029011a4db9e7dd2718" prot="public" virt="non-virtual"><scope>UBattleExtensionData</scope><name>ExtensionArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

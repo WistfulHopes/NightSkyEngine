@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_subroutine_data" kind="class" language="C++" prot="public">
+    <compoundname>USubroutineData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_subroutine_data_1a20231681e36edb5e629238fbfcfebd2a" prot="public" static="no" mutable="no">
+        <type>TArray&lt; TSubclassOf&lt; <ref refid="class_u_subroutine" kindref="compound">USubroutine</ref> &gt; &gt;</type>
+        <definition>TArray&lt;TSubclassOf&lt;USubroutine&gt; &gt; USubroutineData::SubroutineArray</definition>
+        <argsstring></argsstring>
+        <name>SubroutineArray</name>
+        <qualifiedname>USubroutineData::SubroutineArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="40" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UDataAsset</label>
+      </node>
+      <node id="1">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" line="34" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SubroutineData.h" bodystart="35" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_u_subroutine_data_1a20231681e36edb5e629238fbfcfebd2a" prot="public" virt="non-virtual"><scope>USubroutineData</scope><name>SubroutineArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

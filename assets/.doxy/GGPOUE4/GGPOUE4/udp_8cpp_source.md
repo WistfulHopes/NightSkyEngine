@@ -1,0 +1,96 @@
+
+
+# File udp.cpp
+
+[**File List**](files.md) **>** [**GGPOUE4**](dir_61f8f2a9aed5edd4e8edeed0f59c7e8a.md) **>** [**Private**](dir_37a60bd602479ee08f2dd49815e2e03d.md) **>** [**network**](dir_ecf22e3aebc35a5fe7ab40162c798880.md) **>** [**udp.cpp**](udp_8cpp.md)
+
+[Go to the documentation of this file](udp_8cpp.md)
+
+
+```C++
+/* -----------------------------------------------------------------------
+ * GGPO.net (http://ggpo.net)  -  Copyright 2009 GroundStorm Studios, LLC.
+ *
+ * Use of this software is governed by the MIT license that can be found
+ * in the LICENSE file.
+ */
+
+#include "udp.h"
+#include "types.h"
+
+Udp::Udp() :
+   _connection_manager(),
+   _callbacks(NULL),
+   _poll(NULL)
+{
+}
+
+Udp::~Udp(void)
+{
+}
+
+void
+Udp::Init(Poll *poll, Callbacks *callbacks, ConnectionManager* connection_manager)
+{
+   _callbacks = callbacks;
+
+   _poll = poll;
+   _connection_manager = connection_manager;
+   _poll->RegisterLoop(this);
+}
+
+void
+Udp::SendTo(char *buffer, int len, int flags, int connection_id)
+{
+   _connection_manager->SendTo(buffer, len, flags, connection_id);
+}
+
+bool
+Udp::OnLoopPoll(void *cookie)
+{
+   uint8          recv_buf[MAX_UDP_PACKET_SIZE];
+
+   for (;;) {
+      int connection_id = -1;
+      int len = _connection_manager->RecvFrom((char*)recv_buf, MAX_UDP_PACKET_SIZE, 0, &connection_id);
+
+      // TODO: handle len == 0... indicates a disconnect.
+
+      if (len == -1 || connection_id == -1) {
+#ifdef _WIN32
+         int error = WSAGetLastError();
+#else
+         int error = 1;
+#endif
+         if (error != WSAEWOULDBLOCK) {
+            Log("recvfrom WSAGetLastError returned %d (%x).\n", error, error);
+         }
+         break;
+      } else if (len > 0) {
+         //Log("recvfrom returned (len:%d  from:%s).\n", len, _connection_manager->ToString(connection_id).c_str());
+         UdpMsg *msg = (UdpMsg *)recv_buf;
+         _callbacks->OnMsg(connection_id, msg, len);
+      } 
+   }
+   return true;
+}
+
+
+void
+Udp::Log(const char *fmt, ...)
+{
+   char buf[1024];
+   size_t offset;
+   va_list args;
+
+   strcpy(buf, "udp | ");
+   offset = strlen(buf);
+   va_start(args, fmt);
+   vsnprintf(buf + offset, ARRAY_SIZE(buf) - offset - 1, fmt, args);
+   buf[ARRAY_SIZE(buf)-1] = '\0';
+   ::Log(buf);
+   va_end(args);
+}
+```
+
+

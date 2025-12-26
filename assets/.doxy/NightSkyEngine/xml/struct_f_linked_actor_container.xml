@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_linked_actor_container" kind="struct" language="C++" prot="public">
+    <compoundname>FLinkedActorContainer</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_linked_actor_container_1afd618a146364f82e52cab7328945bc4d" prot="public" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_a_link_actor" kindref="compound">ALinkActor</ref> &gt;</type>
+        <definition>TObjectPtr&lt;ALinkActor&gt; FLinkedActorContainer::StoredActor</definition>
+        <argsstring></argsstring>
+        <name>StoredActor</name>
+        <qualifiedname>FLinkedActorContainer::StoredActor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="578" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="578" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_linked_actor_container_1abd017e25bef5cbb228d1beb1438dfc1a" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FLinkedActorContainer::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FLinkedActorContainer::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="579" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="579" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_linked_actor_container_1a9d9ff8b6f05afa23879f6561f61955a8" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FLinkedActorContainer::Index</definition>
+        <argsstring></argsstring>
+        <name>Index</name>
+        <qualifiedname>FLinkedActorContainer::Index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="580" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="580" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_linked_actor_container_1afda89aab89de43badcf89bb53f6c0a0a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FLinkedActorContainer::bIsActive</definition>
+        <argsstring></argsstring>
+        <name>bIsActive</name>
+        <qualifiedname>FLinkedActorContainer::bIsActive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="582" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="582" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="573" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="574" bodyend="583"/>
+    <listofallmembers>
+      <member refid="struct_f_linked_actor_container_1afda89aab89de43badcf89bb53f6c0a0a" prot="public" virt="non-virtual"><scope>FLinkedActorContainer</scope><name>bIsActive</name></member>
+      <member refid="struct_f_linked_actor_container_1a9d9ff8b6f05afa23879f6561f61955a8" prot="public" virt="non-virtual"><scope>FLinkedActorContainer</scope><name>Index</name></member>
+      <member refid="struct_f_linked_actor_container_1abd017e25bef5cbb228d1beb1438dfc1a" prot="public" virt="non-virtual"><scope>FLinkedActorContainer</scope><name>Name</name></member>
+      <member refid="struct_f_linked_actor_container_1afd618a146364f82e52cab7328945bc4d" prot="public" virt="non-virtual"><scope>FLinkedActorContainer</scope><name>StoredActor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

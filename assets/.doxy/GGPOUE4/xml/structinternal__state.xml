@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="structinternal__state" kind="struct" language="C++" prot="public">
+    <compoundname>internal_state</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structinternal__state_1ab000a3e3c901dd063859521988ad7e52" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int internal_state::dummy</definition>
+        <argsstring></argsstring>
+        <name>dummy</name>
+        <qualifiedname>internal_state::dummy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="882" column="29" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="882" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" line="882" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/zlib.h" bodystart="882" bodyend="882"/>
+    <listofallmembers>
+      <member refid="structinternal__state_1ab000a3e3c901dd063859521988ad7e52" prot="public" virt="non-virtual"><scope>internal_state</scope><name>dummy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

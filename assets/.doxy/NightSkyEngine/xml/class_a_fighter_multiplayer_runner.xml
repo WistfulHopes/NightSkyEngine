@@ -1,0 +1,859 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_fighter_multiplayer_runner" kind="class" language="C++" prot="public">
+    <compoundname>AFighterMultiplayerRunner</compoundname>
+    <basecompoundref refid="class_a_fighter_local_runner" prot="public" virt="non-virtual">AFighterLocalRunner</basecompoundref>
+    <derivedcompoundref refid="class_a_fighter_synctest_runner" prot="public" virt="non-virtual">AFighterSynctestRunner</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1ab265fc510123230814a382cadf7bf417" prot="public" static="no" mutable="no">
+        <type>GGPOSession *</type>
+        <definition>GGPOSession* AFighterMultiplayerRunner::ggpo</definition>
+        <argsstring></argsstring>
+        <name>ggpo</name>
+        <qualifiedname>AFighterMultiplayerRunner::ggpo</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="36" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1a47a49f410c529ca4339d534da50b8513" prot="public" static="no" mutable="no">
+        <type>TArray&lt; GGPOPlayerHandle &gt;</type>
+        <definition>TArray&lt;GGPOPlayerHandle&gt; AFighterMultiplayerRunner::PlayerHandles</definition>
+        <argsstring></argsstring>
+        <name>PlayerHandles</name>
+        <qualifiedname>AFighterMultiplayerRunner::PlayerHandles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="37" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1ac20b97e60db3bddfb3bc87f60170edd9" prot="public" static="no" mutable="no">
+        <type>TArray&lt; GGPOPlayer * &gt;</type>
+        <definition>TArray&lt;GGPOPlayer*&gt; AFighterMultiplayerRunner::Players</definition>
+        <argsstring></argsstring>
+        <name>Players</name>
+        <qualifiedname>AFighterMultiplayerRunner::Players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="38" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1ad49db0e311d10627d672824a6c03fa2c" prot="public" static="no" mutable="no">
+        <type>class <ref refid="class_rpc_connection_manager" kindref="compound">RpcConnectionManager</ref> *</type>
+        <definition>class RpcConnectionManager* AFighterMultiplayerRunner::connectionManager</definition>
+        <argsstring></argsstring>
+        <name>connectionManager</name>
+        <qualifiedname>AFighterMultiplayerRunner::connectionManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="49" column="28" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1aa80ab5213671e536f16c4202352f574e" prot="protected" static="no" mutable="no">
+        <type>TArray&lt; int &gt;</type>
+        <definition>TArray&lt;int&gt; AFighterMultiplayerRunner::PlayerInputIndex</definition>
+        <argsstring></argsstring>
+        <name>PlayerInputIndex</name>
+        <qualifiedname>AFighterMultiplayerRunner::PlayerInputIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="41" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1aef4a41e73fe8e438a35ca9766c47169c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AFighterMultiplayerRunner::MultipliedFramesAhead</definition>
+        <argsstring></argsstring>
+        <name>MultipliedFramesAhead</name>
+        <qualifiedname>AFighterMultiplayerRunner::MultipliedFramesAhead</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="44" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_fighter_multiplayer_runner_1ad862c19eeb49b402eae64c68f6470e6c" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AFighterMultiplayerRunner::MultipliedFramesBehind</definition>
+        <argsstring></argsstring>
+        <name>MultipliedFramesBehind</name>
+        <qualifiedname>AFighterMultiplayerRunner::MultipliedFramesBehind</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="45" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1ac11c224913c889cadac90ef22d6374bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AFighterMultiplayerRunner::AFighterMultiplayerRunner</definition>
+        <argsstring>()</argsstring>
+        <name>AFighterMultiplayerRunner</name>
+        <qualifiedname>AFighterMultiplayerRunner::AFighterMultiplayerRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="19" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a2eb28c2e722f44bb10027252242fe2cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AFighterMultiplayerRunner::Update</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Update</name>
+        <qualifiedname>AFighterMultiplayerRunner::Update</qualifiedname>
+        <reimplements refid="class_a_fighter_local_runner_1ab426d88218ba8427f95dc85958919fbf">Update</reimplements>
+        <reimplementedby refid="class_a_fighter_synctest_runner_1a257f1e06cdc29f015ece45a6993ed605">Update</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="48" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="354" bodyend="384"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a3bc84feceb5cb35e880ef23bfce8430e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AFighterMultiplayerRunner::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>AFighterMultiplayerRunner::BeginPlay</qualifiedname>
+        <reimplements refid="class_a_fighter_local_runner_1ae374e0f46f1820a90ee2cbfe511a826a">BeginPlay</reimplements>
+        <reimplementedby refid="class_a_fighter_synctest_runner_1a0b26cfb2b581f16be641c61d968c0691">BeginPlay</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="23" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="28" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1adea5a0a815a0f265616ec3d5173445ec" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AFighterMultiplayerRunner::EndPlay</definition>
+        <argsstring>(const EEndPlayReason::Type EndPlayReason) override</argsstring>
+        <name>EndPlay</name>
+        <qualifiedname>AFighterMultiplayerRunner::EndPlay</qualifiedname>
+        <param>
+          <type>const EEndPlayReason::Type</type>
+          <declname>EndPlayReason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="24" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="59" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1ab323a973cf0d9a8d04924efd6cac57f6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPOSessionCallbacks</type>
+        <definition>GGPOSessionCallbacks AFighterMultiplayerRunner::CreateCallbacks</definition>
+        <argsstring>()</argsstring>
+        <name>CreateCallbacks</name>
+        <qualifiedname>AFighterMultiplayerRunner::CreateCallbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="26" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="67" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a724ac67720cd381d51cb87a4487f0a9b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::BeginGameCallback</definition>
+        <argsstring>(const char *)</argsstring>
+        <name>BeginGameCallback</name>
+        <qualifiedname>AFighterMultiplayerRunner::BeginGameCallback</qualifiedname>
+        <param>
+          <type>const char *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="27" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a84642150ce87eae4d72448f194d2e18e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::SaveGameStateCallback</definition>
+        <argsstring>(unsigned char **buffer, int32 *len, int32 *checksum, int32)</argsstring>
+        <name>SaveGameStateCallback</name>
+        <qualifiedname>AFighterMultiplayerRunner::SaveGameStateCallback</qualifiedname>
+        <param>
+          <type>unsigned char **</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>checksum</declname>
+        </param>
+        <param>
+          <type>int32</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="28" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="91" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a3e808c7a3b14deb5a69c919b317f42f5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::LoadGameStateCallback</definition>
+        <argsstring>(unsigned char *buffer, int32 len)</argsstring>
+        <name>LoadGameStateCallback</name>
+        <qualifiedname>AFighterMultiplayerRunner::LoadGameStateCallback</qualifiedname>
+        <param>
+          <type>unsigned char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="29" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="106" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1adf783d8d33366d8d6995753be87e97bc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::LogGameState</definition>
+        <argsstring>(const char *filename, unsigned char *buffer, int len)</argsstring>
+        <name>LogGameState</name>
+        <qualifiedname>AFighterMultiplayerRunner::LogGameState</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>unsigned char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="30" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="119" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1adf206cf83820803526ede56160da315c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void __cdecl</type>
+        <definition>void AFighterMultiplayerRunner::FreeBuffer</definition>
+        <argsstring>(void *buffer)</argsstring>
+        <name>FreeBuffer</name>
+        <qualifiedname>AFighterMultiplayerRunner::FreeBuffer</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="31" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="243" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a8776253fae462f93eb603a222c7dac68" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::AdvanceFrameCallback</definition>
+        <argsstring>(int32)</argsstring>
+        <name>AdvanceFrameCallback</name>
+        <qualifiedname>AFighterMultiplayerRunner::AdvanceFrameCallback</qualifiedname>
+        <param>
+          <type>int32</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="32" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="248" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a9fe7540a343cca23d03cab08833d11b2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool __cdecl</type>
+        <definition>bool AFighterMultiplayerRunner::OnEventCallback</definition>
+        <argsstring>(GGPOEvent *info)</argsstring>
+        <name>OnEventCallback</name>
+        <qualifiedname>AFighterMultiplayerRunner::OnEventCallback</qualifiedname>
+        <param>
+          <type>GGPOEvent *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="33" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="258" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a937e8e20ad276dd024e89d0dbcc5864e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AFighterMultiplayerRunner::GgpoUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>GgpoUpdate</name>
+        <qualifiedname>AFighterMultiplayerRunner::GgpoUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="42" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="318" bodyend="352"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_a_fighter_multiplayer_runner_1a53159d8535646d41302cf7b89ac1e44b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AFighterMultiplayerRunner::fletcher32_checksum</definition>
+        <argsstring>(short *data, size_t len)</argsstring>
+        <name>fletcher32_checksum</name>
+        <qualifiedname>AFighterMultiplayerRunner::fletcher32_checksum</qualifiedname>
+        <param>
+          <type>short *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="51" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.cpp" bodystart="389" bodyend="411"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>AActor</label>
+      </node>
+      <node id="2">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>AFighterMultiplayerRunner</label>
+        <link refid="class_a_fighter_multiplayer_runner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>AFighterSynctestRunner</label>
+        <link refid="class_a_fighter_synctest_runner"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>AActor</label>
+      </node>
+      <node id="47">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>GameState</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>AFighterMultiplayerRunner</label>
+        <link refid="class_a_fighter_multiplayer_runner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>connectionManager</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="48">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>BattleState</edgelabel>
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>BattleExtensionData</edgelabel>
+        </childnode>
+        <childnode refid="41" relation="usage">
+          <edgelabel>GameInstance</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>ParticleManager</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>AudioManager</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>SequenceEnemy</edgelabel>
+          <edgelabel>SequenceTarget</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>FighterRunner</edgelabel>
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>BattleHudActor</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>APawn</label>
+      </node>
+      <node id="20">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>ConnectionManager</label>
+      </node>
+      <node id="38">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="43">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="44" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="17">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="15">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="12">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="14">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="13">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="18">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="22">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="21">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="8">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="7">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="27">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="23">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="19">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="39">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="16">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="51">
+        <label>RpcConnectionManager</label>
+        <link refid="class_rpc_connection_manager"/>
+        <childnode refid="52" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>UDataAsset</label>
+      </node>
+      <node id="42">
+        <label>UGameInstance</label>
+      </node>
+      <node id="33">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="26">
+        <label>UObject</label>
+      </node>
+      <node id="34">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="44">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="45" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/FighterRunners/FighterMultiplayerRunner.h" bodystart="14" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_a_fighter_multiplayer_runner_1a8776253fae462f93eb603a222c7dac68" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>AdvanceFrameCallback</name></member>
+      <member refid="class_a_fighter_local_runner_1a5c336f06fa3102457a45e7e2bc91289e" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>AFighterLocalRunner</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ac11c224913c889cadac90ef22d6374bd" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>AFighterMultiplayerRunner</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a724ac67720cd381d51cb87a4487f0a9b" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>BeginGameCallback</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a3bc84feceb5cb35e880ef23bfce8430e" prot="protected" virt="virtual"><scope>AFighterMultiplayerRunner</scope><name>BeginPlay</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ad49db0e311d10627d672824a6c03fa2c" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>connectionManager</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ab323a973cf0d9a8d04924efd6cac57f6" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>CreateCallbacks</name></member>
+      <member refid="class_a_fighter_local_runner_1a13b7c7c60e442d0215f8cb78b55557c1" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>ElapsedTime</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1adea5a0a815a0f265616ec3d5173445ec" prot="protected" virt="virtual"><scope>AFighterMultiplayerRunner</scope><name>EndPlay</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a53159d8535646d41302cf7b89ac1e44b" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>fletcher32_checksum</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1adf206cf83820803526ede56160da315c" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>FreeBuffer</name></member>
+      <member refid="class_a_fighter_local_runner_1a5a1cb7f0e753c273d6f72068a7b3976b" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>GameState</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ab265fc510123230814a382cadf7bf417" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>ggpo</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a937e8e20ad276dd024e89d0dbcc5864e" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>GgpoUpdate</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a3e808c7a3b14deb5a69c919b317f42f5" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>LoadGameStateCallback</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1adf783d8d33366d8d6995753be87e97bc" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>LogGameState</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1aef4a41e73fe8e438a35ca9766c47169c" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>MultipliedFramesAhead</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ad862c19eeb49b402eae64c68f6470e6c" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>MultipliedFramesBehind</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a9fe7540a343cca23d03cab08833d11b2" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>OnEventCallback</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a47a49f410c529ca4339d534da50b8513" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>PlayerHandles</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1aa80ab5213671e536f16c4202352f574e" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>PlayerInputIndex</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1ac20b97e60db3bddfb3bc87f60170edd9" prot="public" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>Players</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a84642150ce87eae4d72448f194d2e18e" prot="protected" virt="non-virtual"><scope>AFighterMultiplayerRunner</scope><name>SaveGameStateCallback</name></member>
+      <member refid="class_a_fighter_multiplayer_runner_1a2eb28c2e722f44bb10027252242fe2cd" prot="public" virt="virtual"><scope>AFighterMultiplayerRunner</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

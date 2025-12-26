@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_56ac83e1ee3de8bf475f92dfdd96fd55" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public</compoundname>
+    <innerdir refid="dir_d692cfa9987693da5da8910b9a0fc6c1">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport</innerdir>
+    <innerfile refid="_asset_type_actions___collision_data_8h">AssetTypeActions_CollisionData.h</innerfile>
+    <innerfile refid="_cel_asset_tree_8h">CelAssetTree.h</innerfile>
+    <innerfile refid="_cel_asset_tree_node_8h">CelAssetTreeNode.h</innerfile>
+    <innerfile refid="_collision_data_details_8h">CollisionDataDetails.h</innerfile>
+    <innerfile refid="_collision_data_editor_toolkit_8h">CollisionDataEditorToolkit.h</innerfile>
+    <innerfile refid="_collision_editor_8h">CollisionEditor.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/"/>
+  </compounddef>
+</doxygen>

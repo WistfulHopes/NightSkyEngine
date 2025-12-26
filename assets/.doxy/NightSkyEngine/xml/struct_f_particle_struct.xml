@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_particle_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FParticleStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_particle_struct_1a10ec087e0446f742264fbbe321e00398" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FParticleStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FParticleStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" line="25" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_particle_struct_1a71d234b661a0025ab2f97bca7a093073" prot="public" static="no" mutable="no">
+        <type>class UNiagaraSystem *</type>
+        <definition>class UNiagaraSystem* FParticleStruct::ParticleSystem</definition>
+        <argsstring></argsstring>
+        <name>ParticleSystem</name>
+        <qualifiedname>FParticleStruct::ParticleSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" line="27" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" line="21" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/ParticleData.h" bodystart="22" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_f_particle_struct_1a10ec087e0446f742264fbbe321e00398" prot="public" virt="non-virtual"><scope>FParticleStruct</scope><name>Name</name></member>
+      <member refid="struct_f_particle_struct_1a71d234b661a0025ab2f97bca7a093073" prot="public" virt="non-virtual"><scope>FParticleStruct</scope><name>ParticleSystem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

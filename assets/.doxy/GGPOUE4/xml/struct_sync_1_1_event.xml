@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_sync_1_1_event" kind="struct" language="C++" prot="public">
+    <compoundname>Sync::Event</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_sync_1_1_event_1ae2244032cd28b77799dfb91b2386543b" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <qualifiedname>Sync::Event</qualifiedname>
+        <enumvalue id="struct_sync_1_1_event_1ae2244032cd28b77799dfb91b2386543ba034331a1de381b66eab307f9d1b36e83" prot="public">
+          <name>ConfirmedInput</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="31" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="31" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sync_1_1_event_1af74445293146178396ad255013afe5b6" prot="public" static="no" mutable="no">
+        <type>enum <ref refid="struct_sync_1_1_event" kindref="compound">Sync::Event</ref></type>
+        <definition>enum Sync::Event Sync::Event::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Sync::Event::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="33" column="12"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_event_1a5b61c3cdcaa4494a25ba269835bc6f66" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_game_input" kindref="compound">GameInput</ref></type>
+        <definition>GameInput Sync::Event::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <qualifiedname>Sync::Event::input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="36" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_event_1a64de28b2bb323b404910bfc793a2cdf4" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_sync_1_1_event" kindref="compound">Sync::Event</ref></type>
+        <definition>struct Sync::Event Sync::Event::confirmedInput</definition>
+        <argsstring></argsstring>
+        <name>confirmedInput</name>
+        <qualifiedname>Sync::Event::confirmedInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="37" column="25"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_event_1a3c234882b5a9c72238b9896f8e33c501" prot="public" static="no" mutable="no">
+        <type>union <ref refid="struct_sync_1_1_event" kindref="compound">Sync::Event</ref></type>
+        <definition>union Sync::Event Sync::Event::u</definition>
+        <argsstring></argsstring>
+        <name>u</name>
+        <qualifiedname>Sync::Event::u</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="38" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInput</label>
+        <link refid="struct_game_input"/>
+      </node>
+      <node id="1">
+        <label>Sync::Event</label>
+        <link refid="struct_sync_1_1_event"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>input</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="30" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="30" bodyend="39"/>
+    <listofallmembers>
+      <member refid="struct_sync_1_1_event_1ae2244032cd28b77799dfb91b2386543ba034331a1de381b66eab307f9d1b36e83" prot="public" virt="non-virtual"><scope>Sync::Event</scope><name>ConfirmedInput</name></member>
+      <member refid="struct_sync_1_1_event_1a64de28b2bb323b404910bfc793a2cdf4" prot="public" virt="non-virtual"><scope>Sync::Event</scope><name>confirmedInput</name></member>
+      <member refid="struct_sync_1_1_event_1a5b61c3cdcaa4494a25ba269835bc6f66" prot="public" virt="non-virtual"><scope>Sync::Event</scope><name>input</name></member>
+      <member refid="struct_sync_1_1_event_1af74445293146178396ad255013afe5b6" prot="public" virt="non-virtual"><scope>Sync::Event</scope><name>type</name></member>
+      <member refid="struct_sync_1_1_event_1a3c234882b5a9c72238b9896f8e33c501" prot="public" virt="non-virtual"><scope>Sync::Event</scope><name>u</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

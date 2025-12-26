@@ -1,0 +1,2372 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_game_state" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyGameState</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AGameStateBase</basecompoundref>
+    <derivedcompoundref refid="class_a_night_sky_w_t_game_state" prot="public" virt="non-virtual">ANightSkyWTGameState</derivedcompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a9f15fbdce293ed5595e4b74f421c795c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ANightSkyGameState::MaxBattleObjects</definition>
+        <argsstring></argsstring>
+        <name>MaxBattleObjects</name>
+        <qualifiedname>ANightSkyGameState::MaxBattleObjects</qualifiedname>
+        <initializer>= 400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="298" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ae95a2b019e404a79bd3e49eeb58f9959" prot="public" static="no" mutable="no">
+        <type>TSubclassOf&lt; <ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> &gt;</type>
+        <definition>TSubclassOf&lt;ABattleObject&gt; ANightSkyGameState::BattleObjectClass</definition>
+        <argsstring></argsstring>
+        <name>BattleObjectClass</name>
+        <qualifiedname>ANightSkyGameState::BattleObjectClass</qualifiedname>
+        <initializer>= ABattleObject::StaticClass()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="300" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a8e836fac4411aa4ea99afac63236eafa" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> * &gt;</type>
+        <definition>TArray&lt;ABattleObject*&gt; ANightSkyGameState::Objects</definition>
+        <argsstring></argsstring>
+        <name>Objects</name>
+        <qualifiedname>ANightSkyGameState::Objects</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="302" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="302" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a6da4d717719236c06f4ced0dade80c3a" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> * &gt;</type>
+        <definition>TArray&lt;APlayerObject*&gt; ANightSkyGameState::Players</definition>
+        <argsstring></argsstring>
+        <name>Players</name>
+        <qualifiedname>ANightSkyGameState::Players</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="304" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a82f626cda00b6d7dc9812a696925466a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_battle_state" kindref="compound">FBattleState</ref></type>
+        <definition>FBattleState ANightSkyGameState::BattleState</definition>
+        <argsstring></argsstring>
+        <name>BattleState</name>
+        <qualifiedname>ANightSkyGameState::BattleState</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="306" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="306" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a76a1c7a9445f0d2aca43129a41ab9681" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> * &gt;</type>
+        <definition>TArray&lt;ABattleObject*&gt; ANightSkyGameState::SortedObjects</definition>
+        <argsstring></argsstring>
+        <name>SortedObjects</name>
+        <qualifiedname>ANightSkyGameState::SortedObjects</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="309" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="309" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a0efd53610c503246d9370fe2f4dc8597" prot="public" static="no" mutable="no">
+        <type>FTransform</type>
+        <definition>FTransform ANightSkyGameState::BattleSceneTransform</definition>
+        <argsstring></argsstring>
+        <name>BattleSceneTransform</name>
+        <qualifiedname>ANightSkyGameState::BattleSceneTransform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="312" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a68f964a63e667331960d458773af8f8d" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="class_u_battle_extension" kindref="compound">UBattleExtension</ref> * &gt;</type>
+        <definition>TArray&lt;UBattleExtension*&gt; ANightSkyGameState::BattleExtensions</definition>
+        <argsstring></argsstring>
+        <name>BattleExtensions</name>
+        <qualifiedname>ANightSkyGameState::BattleExtensions</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="315" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="315" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a093795c68f5ba8cacffa740f139534d7" prot="public" static="no" mutable="no">
+        <type>TArray&lt; FGameplayTag &gt;</type>
+        <definition>TArray&lt;FGameplayTag&gt; ANightSkyGameState::BattleExtensionNames</definition>
+        <argsstring></argsstring>
+        <name>BattleExtensionNames</name>
+        <qualifiedname>ANightSkyGameState::BattleExtensionNames</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="316" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="316" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a1df5aeb17a42c418957875cea2b106e2" prot="public" static="no" mutable="no">
+        <type><ref refid="class_u_battle_extension_data" kindref="compound">UBattleExtensionData</ref> *</type>
+        <definition>UBattleExtensionData* ANightSkyGameState::BattleExtensionData</definition>
+        <argsstring></argsstring>
+        <name>BattleExtensionData</name>
+        <qualifiedname>ANightSkyGameState::BattleExtensionData</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="319" column="22" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="319" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ad9e7d7dabfe2465be4c8ad361bc83ecf" prot="public" static="no" mutable="no">
+        <type>class <ref refid="class_u_night_sky_game_instance" kindref="compound">UNightSkyGameInstance</ref> *</type>
+        <definition>class UNightSkyGameInstance* ANightSkyGameState::GameInstance</definition>
+        <argsstring></argsstring>
+        <name>GameInstance</name>
+        <qualifiedname>ANightSkyGameState::GameInstance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="322" column="29" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a4b951c7c6172d94166fcd9d8e047e66d" prot="public" static="no" mutable="no">
+        <type>class <ref refid="class_a_particle_manager" kindref="compound">AParticleManager</ref> *</type>
+        <definition>class AParticleManager* ANightSkyGameState::ParticleManager</definition>
+        <argsstring></argsstring>
+        <name>ParticleManager</name>
+        <qualifiedname>ANightSkyGameState::ParticleManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="325" column="24" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1abdbf271239b53a4b3fa2c5a8a0f3e965" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_audio_manager" kindref="compound">AAudioManager</ref> *</type>
+        <definition>AAudioManager* ANightSkyGameState::AudioManager</definition>
+        <argsstring></argsstring>
+        <name>AudioManager</name>
+        <qualifiedname>ANightSkyGameState::AudioManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="327" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ae0a348ef2adc96a6754f32ac48be1c62" prot="public" static="no" mutable="no">
+        <type>class ALevelSequenceActor *</type>
+        <definition>class ALevelSequenceActor* ANightSkyGameState::SequenceActor</definition>
+        <argsstring></argsstring>
+        <name>SequenceActor</name>
+        <qualifiedname>ANightSkyGameState::SequenceActor</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="330" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a1e3d04923638eef0e6b3f877e48ed478" prot="public" static="no" mutable="no">
+        <type>ACameraActor *</type>
+        <definition>ACameraActor* ANightSkyGameState::CameraActor</definition>
+        <argsstring></argsstring>
+        <name>CameraActor</name>
+        <qualifiedname>ANightSkyGameState::CameraActor</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="332" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a4789ea3d1b4c192e90263711dd119f68" prot="public" static="no" mutable="no">
+        <type>ACameraActor *</type>
+        <definition>ACameraActor* ANightSkyGameState::SequenceCameraActor</definition>
+        <argsstring></argsstring>
+        <name>SequenceCameraActor</name>
+        <qualifiedname>ANightSkyGameState::SequenceCameraActor</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="334" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a8e82208933b7fe3bee935160821e63a9" prot="public" static="no" mutable="no">
+        <type>TSubclassOf&lt; ACameraActor &gt;</type>
+        <definition>TSubclassOf&lt;ACameraActor&gt; ANightSkyGameState::SequenceCameraActorClass</definition>
+        <argsstring></argsstring>
+        <name>SequenceCameraActorClass</name>
+        <qualifiedname>ANightSkyGameState::SequenceCameraActorClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="336" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1adf1104a680ac0db0515ac4edd758f5d0" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject* ANightSkyGameState::SequenceTarget</definition>
+        <argsstring></argsstring>
+        <name>SequenceTarget</name>
+        <qualifiedname>ANightSkyGameState::SequenceTarget</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="338" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a0ab498d17c8b73cd98479814643342aa" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject* ANightSkyGameState::SequenceEnemy</definition>
+        <argsstring></argsstring>
+        <name>SequenceEnemy</name>
+        <qualifiedname>ANightSkyGameState::SequenceEnemy</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="340" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ad66d0d0039f0c7c20947d058ddc17d9f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::bPauseGame</definition>
+        <argsstring></argsstring>
+        <name>bPauseGame</name>
+        <qualifiedname>ANightSkyGameState::bPauseGame</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="342" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a80288ec5e5294572daab40c7e4786ea0" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::bViewCollision</definition>
+        <argsstring></argsstring>
+        <name>bViewCollision</name>
+        <qualifiedname>ANightSkyGameState::bViewCollision</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="344" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1adfabb2278d28ea80e4aca9625eba7173" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::bIsPlayingSequence</definition>
+        <argsstring></argsstring>
+        <name>bIsPlayingSequence</name>
+        <qualifiedname>ANightSkyGameState::bIsPlayingSequence</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="347" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a23c398c92de2aee7e4184ba243f9288c" prot="public" static="no" mutable="no">
+        <type>class <ref refid="class_a_fighter_local_runner" kindref="compound">AFighterLocalRunner</ref> *</type>
+        <definition>class AFighterLocalRunner* ANightSkyGameState::FighterRunner</definition>
+        <argsstring></argsstring>
+        <name>FighterRunner</name>
+        <qualifiedname>ANightSkyGameState::FighterRunner</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="350" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a4734cceabdd728a987f5c460058bf515" prot="public" static="no" mutable="no">
+        <type><ref refid="class_a_night_sky_battle_hud_actor" kindref="compound">ANightSkyBattleHudActor</ref> *</type>
+        <definition>ANightSkyBattleHudActor* ANightSkyGameState::BattleHudActor</definition>
+        <argsstring></argsstring>
+        <name>BattleHudActor</name>
+        <qualifiedname>ANightSkyGameState::BattleHudActor</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="352" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ae9a25298800a2cf39df994407402f8e1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::LocalFrame</definition>
+        <argsstring></argsstring>
+        <name>LocalFrame</name>
+        <qualifiedname>ANightSkyGameState::LocalFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="354" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a1872b0356bf03b3bcc7944e5842c903c" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::RemoteFrame</definition>
+        <argsstring></argsstring>
+        <name>RemoteFrame</name>
+        <qualifiedname>ANightSkyGameState::RemoteFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="355" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a580e1bb0af4868690530b7079fc80a76" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::LocalInputs[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>LocalInputs</name>
+        <qualifiedname>ANightSkyGameState::LocalInputs</qualifiedname>
+        <initializer>= {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="358" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="358" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a8718509b8f476114526445ee1bb7c671" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::Checksum</definition>
+        <argsstring></argsstring>
+        <name>Checksum</name>
+        <qualifiedname>ANightSkyGameState::Checksum</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="359" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a6d087e39e0696fe1a59874d48fa67574" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::OtherChecksum</definition>
+        <argsstring></argsstring>
+        <name>OtherChecksum</name>
+        <qualifiedname>ANightSkyGameState::OtherChecksum</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="360" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1aee63fecadfe27f3be5aa32b590d32a4a" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::OtherChecksumFrame</definition>
+        <argsstring></argsstring>
+        <name>OtherChecksumFrame</name>
+        <qualifiedname>ANightSkyGameState::OtherChecksumFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="361" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a40c7575b0261afbf837731ca11cb7c75" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::PrevOtherChecksumFrame</definition>
+        <argsstring></argsstring>
+        <name>PrevOtherChecksumFrame</name>
+        <qualifiedname>ANightSkyGameState::PrevOtherChecksumFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="362" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a1d290c930a9bd4c21019b5225ed6e014" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_f_network_stats" kindref="compound">FNetworkStats</ref></type>
+        <definition>FNetworkStats ANightSkyGameState::NetworkStats</definition>
+        <argsstring></argsstring>
+        <name>NetworkStats</name>
+        <qualifiedname>ANightSkyGameState::NetworkStats</qualifiedname>
+        <initializer>= <ref refid="struct_f_network_stats" kindref="compound">FNetworkStats</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="363" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1ade868dcf1dd5f21fcdd79c4c923c55e6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::bIsResimulating</definition>
+        <argsstring></argsstring>
+        <name>bIsResimulating</name>
+        <qualifiedname>ANightSkyGameState::bIsResimulating</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="364" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="364" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a4153ccb90bc3b86fcb90fba48314d584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyGameState::ANightSkyGameState</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyGameState</name>
+        <qualifiedname>ANightSkyGameState::ANightSkyGameState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="295" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="46" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3a0f433fb302364e61c64deb66797bf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::Tick</definition>
+        <argsstring>(float DeltaTime) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>ANightSkyGameState::Tick</qualifiedname>
+        <reimplementedby refid="class_a_night_sky_w_t_game_state_1af49cf6744858093a763389b69fdb48ba">Tick</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>DeltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="387" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="308" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1acf3da41307f5a783341a3abd5f50f679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::MatchInit</definition>
+        <argsstring>()</argsstring>
+        <name>MatchInit</name>
+        <qualifiedname>ANightSkyGameState::MatchInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="390" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="315" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a5c7bc7a88758184be99f2a72bc3f422d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::RoundInit</definition>
+        <argsstring>()</argsstring>
+        <name>RoundInit</name>
+        <qualifiedname>ANightSkyGameState::RoundInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="391" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="187" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a6b5aa0e4df147ff0d3789556312a2512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::AssignEnemy</definition>
+        <argsstring>()</argsstring>
+        <name>AssignEnemy</name>
+        <qualifiedname>ANightSkyGameState::AssignEnemy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="393" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="286" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a32af680ea6004c8b03c93809d70b34e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateGameState</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateGameState</name>
+        <qualifiedname>ANightSkyGameState::UpdateGameState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="395" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="813" bodyend="818"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a843add8f2bca455c6d77dcc3bd4ec031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateGameState</definition>
+        <argsstring>(int32 Input1, int32 Input2, bool bShouldResimulate)</argsstring>
+        <name>UpdateGameState</name>
+        <qualifiedname>ANightSkyGameState::UpdateGameState</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>Input1</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Input2</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bShouldResimulate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="396" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="389" bodyend="619"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a33d67ae015e8a623b2f7911959398070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetScreenCorners</definition>
+        <argsstring>()</argsstring>
+        <name>SetScreenCorners</name>
+        <qualifiedname>ANightSkyGameState::SetScreenCorners</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="398" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="621" bodyend="672"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a1de7f6dbdabee6c8017b0f9b0b2cf311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateScreen</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateScreen</name>
+        <qualifiedname>ANightSkyGameState::UpdateScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="399" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="674" bodyend="811"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a15044147972aba8a215afc694124cb6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetScreenBounds</definition>
+        <argsstring>() const</argsstring>
+        <name>SetScreenBounds</name>
+        <qualifiedname>ANightSkyGameState::SetScreenBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="400" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1180" bodyend="1223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3845f653b032f44a47eb1a98ef811c80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::StartSuperFreeze</definition>
+        <argsstring>(int32 Duration, int32 SelfDuration, ABattleObject *CallingObject)</argsstring>
+        <name>StartSuperFreeze</name>
+        <qualifiedname>ANightSkyGameState::StartSuperFreeze</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>Duration</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>SelfDuration</declname>
+        </param>
+        <param>
+          <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+          <declname>CallingObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="401" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1225" bodyend="1231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1adb8be86243850439d8490c880a451178" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::ScreenPosToWorldPos</definition>
+        <argsstring>(int32 X, int32 Y, int32 &amp;OutX, int32 &amp;OutY) const</argsstring>
+        <name>ScreenPosToWorldPos</name>
+        <qualifiedname>ANightSkyGameState::ScreenPosToWorldPos</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutX</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="402" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1802" bodyend="1808"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a268885bdfbae7dd51fe888a29c2df695" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+        <definition>ABattleObject * ANightSkyGameState::AddBattleObject</definition>
+        <argsstring>(const UState *InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject *Parent) const</argsstring>
+        <name>AddBattleObject</name>
+        <qualifiedname>ANightSkyGameState::AddBattleObject</qualifiedname>
+        <param>
+          <type>const <ref refid="class_u_state" kindref="compound">UState</ref> *</type>
+          <declname>InState</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>PosX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>PosY</declname>
+        </param>
+        <param>
+          <type>EObjDir</type>
+          <declname>Dir</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>ObjectStateIndex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bIsCommonState</declname>
+        </param>
+        <param>
+          <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+          <declname>Parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="403" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1233" bodyend="1260"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8271db2df9a043f12572fe52a6f3297a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetDrawPriorityFront</definition>
+        <argsstring>(ABattleObject *InObject) const</argsstring>
+        <name>SetDrawPriorityFront</name>
+        <qualifiedname>ANightSkyGameState::SetDrawPriorityFront</qualifiedname>
+        <param>
+          <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+          <declname>InObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="404" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1531" bodyend="1553"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ac08d1203c7fbf38c5475511add0019a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetDrawPriorityBack</definition>
+        <argsstring>(ABattleObject *InObject) const</argsstring>
+        <name>SetDrawPriorityBack</name>
+        <qualifiedname>ANightSkyGameState::SetDrawPriorityBack</qualifiedname>
+        <param>
+          <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
+          <declname>InObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="405" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1555" bodyend="1575"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a062a01be98e5eb642af2bb02c58ee4e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject * ANightSkyGameState::SwitchMainPlayer</definition>
+        <argsstring>(APlayerObject *InPlayer, int TeamIndex, bool bForce=false, bool bEvenOnScreen=false)</argsstring>
+        <name>SwitchMainPlayer</name>
+        <qualifiedname>ANightSkyGameState::SwitchMainPlayer</qualifiedname>
+        <param>
+          <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+          <declname>InPlayer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>TeamIndex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bForce</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bEvenOnScreen</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="406" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1577" bodyend="1615"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ae8f605270d780b0cc15f36b25cde8926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject * ANightSkyGameState::CallAssist</definition>
+        <argsstring>(const bool IsP1, int AssistIndex, const FGameplayTag AssistName)</argsstring>
+        <name>CallAssist</name>
+        <qualifiedname>ANightSkyGameState::CallAssist</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>AssistIndex</declname>
+        </param>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>AssistName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="407" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1617" bodyend="1634"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1afc7cc5300fd35ffc10afbfea4376c396" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetTeamCooldown</definition>
+        <argsstring>(const bool IsP1, const int TeamIndex, const int Cooldown)</argsstring>
+        <name>SetTeamCooldown</name>
+        <qualifiedname>ANightSkyGameState::SetTeamCooldown</qualifiedname>
+        <param>
+          <type>const bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>TeamIndex</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>Cooldown</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="408" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1636" bodyend="1639"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a4143e5ba45bee2c9e781409c29d12441" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::CanTag</definition>
+        <argsstring>(const APlayerObject *InPlayer, int TeamIndex) const</argsstring>
+        <name>CanTag</name>
+        <qualifiedname>ANightSkyGameState::CanTag</qualifiedname>
+        <param>
+          <type>const <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+          <declname>InPlayer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>TeamIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="409" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1641" bodyend="1657"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1addba85ed7a649f021c5c243deaca7681" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SaveGameState</definition>
+        <argsstring>(FRollbackData &amp;RollbackData, int32 *InChecksum)</argsstring>
+        <name>SaveGameState</name>
+        <qualifiedname>ANightSkyGameState::SaveGameState</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref> &amp;</type>
+          <declname>RollbackData</declname>
+        </param>
+        <param>
+          <type>int32 *</type>
+          <declname>InChecksum</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="411" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2034" bodyend="2089"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1aa1c2f14de7a4f18064dae2af9adc1125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::LoadGameState</definition>
+        <argsstring>(FRollbackData &amp;RollbackData)</argsstring>
+        <name>LoadGameState</name>
+        <qualifiedname>ANightSkyGameState::LoadGameState</qualifiedname>
+        <param>
+          <type><ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref> &amp;</type>
+          <declname>RollbackData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="412" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2091" bodyend="2135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a60ec96cb34b97512f4d5071b306e4afc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TArray&lt; uint8 &gt;</type>
+        <definition>TArray&lt; uint8 &gt; ANightSkyGameState::SaveForRollback</definition>
+        <argsstring>()</argsstring>
+        <name>SaveForRollback</name>
+        <qualifiedname>ANightSkyGameState::SaveForRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="414" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2137" bodyend="2144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1afa469f5702101d1dc4c27599d350a843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::LoadForRollback</definition>
+        <argsstring>(const TArray&lt; uint8 &gt; &amp;InBytes)</argsstring>
+        <name>LoadForRollback</name>
+        <qualifiedname>ANightSkyGameState::LoadForRollback</qualifiedname>
+        <param>
+          <type>const TArray&lt; uint8 &gt; &amp;</type>
+          <declname>InBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="415" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2146" bodyend="2152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ae5a5b4a1004263186a4476fac16ae488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::EndMatch</definition>
+        <argsstring>()</argsstring>
+        <name>EndMatch</name>
+        <qualifiedname>ANightSkyGameState::EndMatch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="416" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2154" bodyend="2158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1af38079d0ed7561c917d14258b9c73fda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateCamera</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateCamera</name>
+        <qualifiedname>ANightSkyGameState::UpdateCamera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="418" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1262" bodyend="1336"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8b6e16e904a31da19541dfab27164dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayLevelSequence</definition>
+        <argsstring>(APlayerObject *Target, APlayerObject *Enemy, ULevelSequence *Sequence)</argsstring>
+        <name>PlayLevelSequence</name>
+        <qualifiedname>ANightSkyGameState::PlayLevelSequence</qualifiedname>
+        <param>
+          <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+          <declname>Target</declname>
+        </param>
+        <param>
+          <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+          <declname>Enemy</declname>
+        </param>
+        <param>
+          <type>ULevelSequence *</type>
+          <declname>Sequence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="419" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1338" bodyend="1401"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1afdfd9d60f61e5b09515524eb921c85fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::StopLevelSequence</definition>
+        <argsstring>()</argsstring>
+        <name>StopLevelSequence</name>
+        <qualifiedname>ANightSkyGameState::StopLevelSequence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="420" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1403" bodyend="1408"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ab1b4f6ed6493c24ed1a7ebd1d9eef224" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::CameraShake</definition>
+        <argsstring>(const TSubclassOf&lt; UCameraShakeBase &gt; &amp;Pattern, float Scale) const</argsstring>
+        <name>CameraShake</name>
+        <qualifiedname>ANightSkyGameState::CameraShake</qualifiedname>
+        <param>
+          <type>const TSubclassOf&lt; UCameraShakeBase &gt; &amp;</type>
+          <declname>Pattern</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="421" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1410" bodyend="1418"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ac0d0cf0b862cba561c4e15c0fdccc60a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::HUDInit</definition>
+        <argsstring>() const</argsstring>
+        <name>HUDInit</name>
+        <qualifiedname>ANightSkyGameState::HUDInit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="423" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1420" bodyend="1432"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a835a5d6908786f9c7d3259fd94f1bd48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateHUD</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateHUD</name>
+        <qualifiedname>ANightSkyGameState::UpdateHUD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="424" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1434" bodyend="1529"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ac5e7a7901c991843fa0b7bc677002264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::BattleHudVisibility</definition>
+        <argsstring>(bool Visible)</argsstring>
+        <name>BattleHudVisibility</name>
+        <qualifiedname>ANightSkyGameState::BattleHudVisibility</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>Visible</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="425" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1810" bodyend="1813"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a7eeb4cf3d98d684ae723ffc7043f31ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayCommonAudio</definition>
+        <argsstring>(USoundBase *InSoundWave, float MaxDuration)</argsstring>
+        <name>PlayCommonAudio</name>
+        <qualifiedname>ANightSkyGameState::PlayCommonAudio</qualifiedname>
+        <param>
+          <type>USoundBase *</type>
+          <declname>InSoundWave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>MaxDuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="427" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1815" bodyend="1833"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a1893908bdf90037b088d6bbafb6c2e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayCharaAudio</definition>
+        <argsstring>(USoundBase *InSoundWave, float MaxDuration)</argsstring>
+        <name>PlayCharaAudio</name>
+        <qualifiedname>ANightSkyGameState::PlayCharaAudio</qualifiedname>
+        <param>
+          <type>USoundBase *</type>
+          <declname>InSoundWave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>MaxDuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="428" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1835" bodyend="1853"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1afd35da68de6c1f4935117eeaf0827943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayVoiceLine</definition>
+        <argsstring>(USoundBase *InSoundWave, float MaxDuration, int Player)</argsstring>
+        <name>PlayVoiceLine</name>
+        <qualifiedname>ANightSkyGameState::PlayVoiceLine</qualifiedname>
+        <param>
+          <type>USoundBase *</type>
+          <declname>InSoundWave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>MaxDuration</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Player</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="429" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1855" bodyend="1866"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1aa29921ab0bb18ef8508afb07aade95f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayAnnouncerVoice</definition>
+        <argsstring>(USoundBase *InSoundWave, float MaxDuration)</argsstring>
+        <name>PlayAnnouncerVoice</name>
+        <qualifiedname>ANightSkyGameState::PlayAnnouncerVoice</qualifiedname>
+        <param>
+          <type>USoundBase *</type>
+          <declname>InSoundWave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>MaxDuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="430" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1868" bodyend="1879"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3ef4939f42f3436e8f53aacf4b6c0645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayMusic</definition>
+        <argsstring>(USoundBase *InSoundWave, float MaxDuration)</argsstring>
+        <name>PlayMusic</name>
+        <qualifiedname>ANightSkyGameState::PlayMusic</qualifiedname>
+        <param>
+          <type>USoundBase *</type>
+          <declname>InSoundWave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>MaxDuration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="431" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1898" bodyend="1908"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8de81b84d109ae61792a6de30ae2df73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::ManageAudio</definition>
+        <argsstring>()</argsstring>
+        <name>ManageAudio</name>
+        <qualifiedname>ANightSkyGameState::ManageAudio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="432" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1910" bodyend="1972"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8c5af5ed36d76c18bedb028fa04bce9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::RollbackStartAudio</definition>
+        <argsstring>(int32 InFrame)</argsstring>
+        <name>RollbackStartAudio</name>
+        <qualifiedname>ANightSkyGameState::RollbackStartAudio</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>InFrame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="433" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1974" bodyend="2032"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a11db0c56d04c167fb1eb77b4b95057fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ANightSkyGameState::GetLocalInputs</definition>
+        <argsstring>(int Index) const</argsstring>
+        <name>GetLocalInputs</name>
+        <qualifiedname>ANightSkyGameState::GetLocalInputs</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>Index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="435" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1659" bodyend="1667"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a5a1eafca3aeb31c0aec995e6b8d4eb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetOtherChecksum</definition>
+        <argsstring>(uint32 RemoteChecksum, int32 InFrame)</argsstring>
+        <name>SetOtherChecksum</name>
+        <qualifiedname>ANightSkyGameState::SetOtherChecksum</qualifiedname>
+        <param>
+          <type>uint32</type>
+          <declname>RemoteChecksum</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>InFrame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="436" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1669" bodyend="1673"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8dc2d3c6e37ec7f6d0a178835a88b3ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayAnnouncerVoice</definition>
+        <argsstring>(const FGameplayTag Name)</argsstring>
+        <name>PlayAnnouncerVoice</name>
+        <qualifiedname>ANightSkyGameState::PlayAnnouncerVoice</qualifiedname>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="439" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1675" bodyend="1690"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a9f3e382b5096e449bd7f102a38de3054" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayMusic</definition>
+        <argsstring>(const FGameplayTag Name)</argsstring>
+        <name>PlayMusic</name>
+        <qualifiedname>ANightSkyGameState::PlayMusic</qualifiedname>
+        <param>
+          <type>const FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="441" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1881" bodyend="1896"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a54186d1a1ffd51197caf5553457e9183" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>TArray&lt; <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> * &gt;</type>
+        <definition>TArray&lt; APlayerObject * &gt; ANightSkyGameState::GetTeam</definition>
+        <argsstring>(bool IsP1) const</argsstring>
+        <name>GetTeam</name>
+        <qualifiedname>ANightSkyGameState::GetTeam</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="444" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1692" bodyend="1723"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a6726354baa9f0118fcae2e61e0f49c9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
+        <definition>APlayerObject * ANightSkyGameState::GetMainPlayer</definition>
+        <argsstring>(bool IsP1) const</argsstring>
+        <name>GetMainPlayer</name>
+        <qualifiedname>ANightSkyGameState::GetMainPlayer</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="446" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1725" bodyend="1729"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1af1cef72e0b99f6407c80237c44eea405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::CallBattleExtension</definition>
+        <argsstring>(FGameplayTag Name)</argsstring>
+        <name>CallBattleExtension</name>
+        <qualifiedname>ANightSkyGameState::CallBattleExtension</qualifiedname>
+        <param>
+          <type>FGameplayTag</type>
+          <declname>Name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="448" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1731" bodyend="1737"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a926c073b249026a0f6dfecff445e3d42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::GetGauge</definition>
+        <argsstring>(bool IsP1, int32 GaugeIndex) const</argsstring>
+        <name>GetGauge</name>
+        <qualifiedname>ANightSkyGameState::GetGauge</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>GaugeIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="450" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1739" bodyend="1748"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ab826b90894f91433718d38e2d0417dc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetGauge</definition>
+        <argsstring>(bool IsP1, int32 GaugeIndex, int32 Value)</argsstring>
+        <name>SetGauge</name>
+        <qualifiedname>ANightSkyGameState::SetGauge</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>GaugeIndex</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="452" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1750" bodyend="1757"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a05e8e6845c19c70357d5d30cf06140f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UseGauge</definition>
+        <argsstring>(bool IsP1, int32 GaugeIndex, int32 Value)</argsstring>
+        <name>UseGauge</name>
+        <qualifiedname>ANightSkyGameState::UseGauge</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>IsP1</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>GaugeIndex</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="454" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1759" bodyend="1766"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a056583c7db62fb119481018d2ecfe7f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>EScreenFlag</type>
+        <definition>EScreenFlag ANightSkyGameState::GetScreenFlags</definition>
+        <argsstring>() const</argsstring>
+        <name>GetScreenFlags</name>
+        <qualifiedname>ANightSkyGameState::GetScreenFlags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="456" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1768" bodyend="1771"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1abe60381060787b345b223f57928d7a6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetScreenFlags</definition>
+        <argsstring>(UPARAM(meta=(Bitmask, BitmaskEnum=&quot;/Script/NightSkyEngine.EScreenFlag&quot;)) int32 InFlags)</argsstring>
+        <name>SetScreenFlags</name>
+        <qualifiedname>ANightSkyGameState::SetScreenFlags</qualifiedname>
+        <param>
+          <type>UPARAM(meta=(Bitmask, BitmaskEnum=&quot;/Script/NightSkyEngine.EScreenFlag&quot;)) int32</type>
+          <declname>InFlags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="458" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1773" bodyend="1776"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a36b7ce1ad370bb8795d9f347b34d063e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::IsTagBattle</definition>
+        <argsstring>() const</argsstring>
+        <name>IsTagBattle</name>
+        <qualifiedname>ANightSkyGameState::IsTagBattle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="460" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1778" bodyend="1781"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a61ed83052fdd9dc9055d1e3ca266fad8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::GetTeamCount</definition>
+        <argsstring>(bool bIsP1) const</argsstring>
+        <name>GetTeamCount</name>
+        <qualifiedname>ANightSkyGameState::GetTeamCount</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bIsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="462" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1783" bodyend="1786"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a38a8437b4667c6457ec07764018bb8ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::GetPaused</definition>
+        <argsstring>() const</argsstring>
+        <name>GetPaused</name>
+        <qualifiedname>ANightSkyGameState::GetPaused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="465" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1788" bodyend="1791"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3758439ae3a33d55365986fcb6120568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SetPaused</definition>
+        <argsstring>(bool bPause)</argsstring>
+        <name>SetPaused</name>
+        <qualifiedname>ANightSkyGameState::SetPaused</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bPause</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="467" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1793" bodyend="1800"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8236e0446711d7d818f2ec7acf232aec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::EndMatch_BP</definition>
+        <argsstring>()</argsstring>
+        <name>EndMatch_BP</name>
+        <qualifiedname>ANightSkyGameState::EndMatch_BP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="470" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a5e064325b6d435f125534bffe7ea66f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateHUD_BP</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateHUD_BP</name>
+        <qualifiedname>ANightSkyGameState::UpdateHUD_BP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="472" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ab8336aa4e5bae1388fa95f31e5d28fdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateHUDAnimations_BP</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateHUDAnimations_BP</name>
+        <qualifiedname>ANightSkyGameState::UpdateHUDAnimations_BP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="474" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a69d36476e6b24d8e9cc107a264d0e60a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANightSkyGameState::BeginPlay</qualifiedname>
+        <reimplementedby refid="class_a_night_sky_w_t_game_state_1a6bf6433b015afd1e49528999f8122238">BeginPlay</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="368" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="54" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a81ef4a7114d83745db6e526680aff1d2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::EndPlay</definition>
+        <argsstring>(const EEndPlayReason::Type EndPlayReason) override</argsstring>
+        <name>EndPlay</name>
+        <qualifiedname>ANightSkyGameState::EndPlay</qualifiedname>
+        <param>
+          <type>const EEndPlayReason::Type</type>
+          <declname>EndPlayReason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="369" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="72" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1adc753665a96ea7d8774f647bab1d20e1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::Init</definition>
+        <argsstring>()</argsstring>
+        <name>Init</name>
+        <qualifiedname>ANightSkyGameState::Init</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="370" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="78" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a675944b459fe3810f0d134253213b99b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::PlayIntros</definition>
+        <argsstring>()</argsstring>
+        <name>PlayIntros</name>
+        <qualifiedname>ANightSkyGameState::PlayIntros</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="371" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="172" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a635a16015e51ba8289b6003ba9dbaac1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateLocalInput</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateLocalInput</name>
+        <qualifiedname>ANightSkyGameState::UpdateLocalInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="372" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="301" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1abe6f8b26ba3183e8e0cbc1a17613c4f6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::SortObjects</definition>
+        <argsstring>()</argsstring>
+        <name>SortObjects</name>
+        <qualifiedname>ANightSkyGameState::SortObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="373" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="820" bodyend="839"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a9ba76a8231f737d0b01f4f64020ca961" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::HandlePushCollision</definition>
+        <argsstring>() const</argsstring>
+        <name>HandlePushCollision</name>
+        <qualifiedname>ANightSkyGameState::HandlePushCollision</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="374" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="841" bodyend="854"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a14e591fa8665c7b0307c8ab032fcf584" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::HandleHitCollision</definition>
+        <argsstring>() const</argsstring>
+        <name>HandleHitCollision</name>
+        <qualifiedname>ANightSkyGameState::HandleHitCollision</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="375" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="856" bodyend="877"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a23a136407c51b13d13b17006ddb58ed4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::UpdateVisuals</definition>
+        <argsstring>(bool bShouldResimulate) const</argsstring>
+        <name>UpdateVisuals</name>
+        <qualifiedname>ANightSkyGameState::UpdateVisuals</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bShouldResimulate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="376" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="879" bodyend="887"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a193d6e2b417dc7f17aec9b107b5bbf8e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::HandleRoundWin</definition>
+        <argsstring>()</argsstring>
+        <name>HandleRoundWin</name>
+        <qualifiedname>ANightSkyGameState::HandleRoundWin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="377" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="889" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1ab59d1059cce9881b80ee21b308460f77" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::NextRoundTransition</definition>
+        <argsstring>(bool bIsP1)</argsstring>
+        <name>NextRoundTransition</name>
+        <qualifiedname>ANightSkyGameState::NextRoundTransition</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bIsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="378" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="997" bodyend="1023"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3309abfb5bfd68517e2dc47af4a9b72b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ANightSkyGameState::HandleMatchWin</definition>
+        <argsstring>()</argsstring>
+        <name>HandleMatchWin</name>
+        <qualifiedname>ANightSkyGameState::HandleMatchWin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="379" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1025" bodyend="1106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a870fc08ae3a8e37fbcf308d52788b687" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::CollisionView</definition>
+        <argsstring>() const</argsstring>
+        <name>CollisionView</name>
+        <qualifiedname>ANightSkyGameState::CollisionView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="380" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1108" bodyend="1117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a3e20535f5a4a6914ae9784275044022f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 ANightSkyGameState::CreateChecksum</definition>
+        <argsstring>()</argsstring>
+        <name>CreateChecksum</name>
+        <qualifiedname>ANightSkyGameState::CreateChecksum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="381" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1119" bodyend="1144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a8e2a9e51e4f6e632b4c3709042e9b7e3" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>FGGPONetworkStats</type>
+        <definition>FGGPONetworkStats ANightSkyGameState::GetNetworkStats</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNetworkStats</name>
+        <qualifiedname>ANightSkyGameState::GetNetworkStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="382" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1146" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a99b8713d01a18fd6a89d2524a764bca4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::ResetTraining</definition>
+        <argsstring>()</argsstring>
+        <name>ResetTraining</name>
+        <qualifiedname>ANightSkyGameState::ResetTraining</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="383" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1160" bodyend="1178"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ANightSkyWTGameState</label>
+        <link refid="class_a_night_sky_w_t_game_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="44">
+        <label>AActor</label>
+      </node>
+      <node id="45">
+        <label>AAudioManager</label>
+        <link refid="class_a_audio_manager"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ABattleObject</label>
+        <link refid="class_a_battle_object"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>HitCommon</edgelabel>
+          <edgelabel>ReceivedHitCommon</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>CounterHit</edgelabel>
+          <edgelabel>NormalHit</edgelabel>
+          <edgelabel>ReceivedHit</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>EventHandlers</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>HomingParams</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>SuperArmorData</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Player</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>AttackOwner</edgelabel>
+          <edgelabel>AttackTarget</edgelabel>
+          <edgelabel>DrawPriorityLinkObj</edgelabel>
+          <edgelabel>MaterialLinkObj</edgelabel>
+          <edgelabel>PositionLinkObj</edgelabel>
+          <edgelabel>StopLinkObj</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>AFighterLocalRunner</label>
+        <link refid="class_a_fighter_local_runner"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>GameState</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="47">
+        <label>ANightSkyBattleHudActor</label>
+        <link refid="class_a_night_sky_battle_hud_actor"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+        <childnode refid="48" relation="usage">
+          <edgelabel>BottomWidget</edgelabel>
+          <edgelabel>TopWidget</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ANightSkyGameState</label>
+        <link refid="class_a_night_sky_game_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BattleState</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>BattleExtensionData</edgelabel>
+        </childnode>
+        <childnode refid="38" relation="usage">
+          <edgelabel>GameInstance</edgelabel>
+        </childnode>
+        <childnode refid="43" relation="usage">
+          <edgelabel>ParticleManager</edgelabel>
+        </childnode>
+        <childnode refid="45" relation="usage">
+          <edgelabel>AudioManager</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>SequenceEnemy</edgelabel>
+          <edgelabel>SequenceTarget</edgelabel>
+        </childnode>
+        <childnode refid="46" relation="usage">
+          <edgelabel>FighterRunner</edgelabel>
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>BattleHudActor</edgelabel>
+        </childnode>
+      </node>
+      <node id="43">
+        <label>AParticleManager</label>
+        <link refid="class_a_particle_manager"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>APawn</label>
+      </node>
+      <node id="17">
+        <label>APlayerObject</label>
+        <link refid="class_a_player_object"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>ProximityThrowInput</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>StoredInputBuffer</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Enemy</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>StoredBattleObjects</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>PrimaryStateMachine</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>CollisionData</edgelabel>
+          <edgelabel>CommonCollisionData</edgelabel>
+        </childnode>
+        <childnode refid="27" relation="usage">
+          <edgelabel>CharaSubroutineData</edgelabel>
+          <edgelabel>CommonSubroutineData</edgelabel>
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>CharaStateData</edgelabel>
+          <edgelabel>CommonObjectStateData</edgelabel>
+          <edgelabel>ObjectStateData</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>MaterialData</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>CommonLinkActorData</edgelabel>
+          <edgelabel>LinkActorData</edgelabel>
+        </childnode>
+        <childnode refid="31" relation="usage">
+          <edgelabel>CharaParticleData</edgelabel>
+          <edgelabel>CommonParticleData</edgelabel>
+        </childnode>
+        <childnode refid="32" relation="usage">
+          <edgelabel>CommonSequenceData</edgelabel>
+          <edgelabel>SequenceData</edgelabel>
+        </childnode>
+        <childnode refid="33" relation="usage">
+          <edgelabel>CameraShakeData</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>CommonSoundData</edgelabel>
+          <edgelabel>SoundData</edgelabel>
+          <edgelabel>VoiceData</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>FAudioChannel</label>
+        <link refid="struct_f_audio_channel"/>
+      </node>
+      <node id="40">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="41" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FBattleState</label>
+        <link refid="struct_f_battle_state"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>ScreenData</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>RandomManager</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>SuperFreezeCaller</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>MainPlayer</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>AnnouncerVoiceChannel</edgelabel>
+          <edgelabel>CharaAudioChannels</edgelabel>
+          <edgelabel>CharaVoiceChannels</edgelabel>
+          <edgelabel>CommonAudioChannels</edgelabel>
+          <edgelabel>MusicChannel</edgelabel>
+        </childnode>
+        <childnode refid="36" relation="usage">
+          <edgelabel>TeamData</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>FEventHandler</label>
+        <link refid="struct_f_event_handler"/>
+      </node>
+      <node id="12">
+        <label>FGroundBounceData</label>
+        <link refid="struct_f_ground_bounce_data"/>
+      </node>
+      <node id="9">
+        <label>FHitData</label>
+        <link refid="struct_f_hit_data"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>AirPushbackXOverTime</edgelabel>
+          <edgelabel>AirPushbackYOverTime</edgelabel>
+          <edgelabel>GravityOverTime</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Position</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>GroundBounce</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>WallBounce</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FHitDataCommon</label>
+        <link refid="struct_f_hit_data_common"/>
+      </node>
+      <node id="11">
+        <label>FHitPosition</label>
+        <link refid="struct_f_hit_position"/>
+      </node>
+      <node id="10">
+        <label>FHitValueOverTime</label>
+        <link refid="struct_f_hit_value_over_time"/>
+      </node>
+      <node id="15">
+        <label>FHomingParams</label>
+        <link refid="struct_f_homing_params"/>
+      </node>
+      <node id="19">
+        <label>FInputBuffer</label>
+        <link refid="struct_f_input_buffer"/>
+      </node>
+      <node id="18">
+        <label>FInputCondition</label>
+        <link refid="struct_f_input_condition"/>
+      </node>
+      <node id="5">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="4">
+        <label>FScreenData</label>
+        <link refid="struct_f_screen_data"/>
+      </node>
+      <node id="24">
+        <label>FStateCPUData</label>
+        <link refid="struct_f_state_c_p_u_data"/>
+      </node>
+      <node id="20">
+        <label>FStateMachine</label>
+        <link refid="struct_f_state_machine"/>
+        <childnode refid="21" relation="usage">
+          <edgelabel>CurrentState</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>FSuperArmorData</label>
+        <link refid="struct_f_super_armor_data"/>
+      </node>
+      <node id="36">
+        <label>FTeamData</label>
+        <link refid="struct_f_team_data"/>
+      </node>
+      <node id="13">
+        <label>FWallBounceData</label>
+        <link refid="struct_f_wall_bounce_data"/>
+      </node>
+      <node id="37">
+        <label>UBattleExtensionData</label>
+        <link refid="class_u_battle_extension_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>UCameraShakeData</label>
+        <link refid="class_u_camera_shake_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>UCollisionData</label>
+        <link refid="class_u_collision_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>UDataAsset</label>
+      </node>
+      <node id="39">
+        <label>UGameInstance</label>
+      </node>
+      <node id="30">
+        <label>ULinkActorData</label>
+        <link refid="class_u_link_actor_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>UMaterialData</label>
+        <link refid="class_u_material_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="49" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>UNightSkyGameInstance</label>
+        <link refid="class_u_night_sky_game_instance"/>
+        <childnode refid="39" relation="public-inheritance">
+        </childnode>
+        <childnode refid="40" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>UObject</label>
+      </node>
+      <node id="31">
+        <label>UParticleData</label>
+        <link refid="class_u_particle_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="41">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="42" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>USequenceData</label>
+        <link refid="class_u_sequence_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>USoundData</label>
+        <link refid="class_u_sound_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="22" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>CPUData</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>UStateData</label>
+        <link refid="class_u_state_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>USubroutineData</label>
+        <link refid="class_u_subroutine_data"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="289" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="290" bodyend="475"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_game_state_1a268885bdfbae7dd51fe888a29c2df695" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>AddBattleObject</name></member>
+      <member refid="class_a_night_sky_game_state_1a4153ccb90bc3b86fcb90fba48314d584" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ANightSkyGameState</name></member>
+      <member refid="class_a_night_sky_game_state_1a6b5aa0e4df147ff0d3789556312a2512" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>AssignEnemy</name></member>
+      <member refid="class_a_night_sky_game_state_1abdbf271239b53a4b3fa2c5a8a0f3e965" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>AudioManager</name></member>
+      <member refid="class_a_night_sky_game_state_1a1df5aeb17a42c418957875cea2b106e2" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleExtensionData</name></member>
+      <member refid="class_a_night_sky_game_state_1a093795c68f5ba8cacffa740f139534d7" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleExtensionNames</name></member>
+      <member refid="class_a_night_sky_game_state_1a68f964a63e667331960d458773af8f8d" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleExtensions</name></member>
+      <member refid="class_a_night_sky_game_state_1a4734cceabdd728a987f5c460058bf515" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleHudActor</name></member>
+      <member refid="class_a_night_sky_game_state_1ac5e7a7901c991843fa0b7bc677002264" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleHudVisibility</name></member>
+      <member refid="class_a_night_sky_game_state_1ae95a2b019e404a79bd3e49eeb58f9959" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleObjectClass</name></member>
+      <member refid="class_a_night_sky_game_state_1a0efd53610c503246d9370fe2f4dc8597" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleSceneTransform</name></member>
+      <member refid="class_a_night_sky_game_state_1a82f626cda00b6d7dc9812a696925466a" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>BattleState</name></member>
+      <member refid="class_a_night_sky_game_state_1a69d36476e6b24d8e9cc107a264d0e60a" prot="protected" virt="virtual"><scope>ANightSkyGameState</scope><name>BeginPlay</name></member>
+      <member refid="class_a_night_sky_game_state_1adfabb2278d28ea80e4aca9625eba7173" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>bIsPlayingSequence</name></member>
+      <member refid="class_a_night_sky_game_state_1ade868dcf1dd5f21fcdd79c4c923c55e6" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>bIsResimulating</name></member>
+      <member refid="class_a_night_sky_game_state_1ad66d0d0039f0c7c20947d058ddc17d9f" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>bPauseGame</name></member>
+      <member refid="class_a_night_sky_game_state_1a80288ec5e5294572daab40c7e4786ea0" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>bViewCollision</name></member>
+      <member refid="class_a_night_sky_game_state_1ae8f605270d780b0cc15f36b25cde8926" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CallAssist</name></member>
+      <member refid="class_a_night_sky_game_state_1af1cef72e0b99f6407c80237c44eea405" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CallBattleExtension</name></member>
+      <member refid="class_a_night_sky_game_state_1a1e3d04923638eef0e6b3f877e48ed478" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraActor</name></member>
+      <member refid="class_a_night_sky_game_state_1ab1b4f6ed6493c24ed1a7ebd1d9eef224" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraShake</name></member>
+      <member refid="class_a_night_sky_game_state_1a4143e5ba45bee2c9e781409c29d12441" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CanTag</name></member>
+      <member refid="class_a_night_sky_game_state_1a8718509b8f476114526445ee1bb7c671" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>Checksum</name></member>
+      <member refid="class_a_night_sky_game_state_1a870fc08ae3a8e37fbcf308d52788b687" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CollisionView</name></member>
+      <member refid="class_a_night_sky_game_state_1a3e20535f5a4a6914ae9784275044022f" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CreateChecksum</name></member>
+      <member refid="class_a_night_sky_game_state_1ae5a5b4a1004263186a4476fac16ae488" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>EndMatch</name></member>
+      <member refid="class_a_night_sky_game_state_1a8236e0446711d7d818f2ec7acf232aec" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>EndMatch_BP</name></member>
+      <member refid="class_a_night_sky_game_state_1a81ef4a7114d83745db6e526680aff1d2" prot="protected" virt="virtual"><scope>ANightSkyGameState</scope><name>EndPlay</name></member>
+      <member refid="class_a_night_sky_game_state_1a23c398c92de2aee7e4184ba243f9288c" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>FighterRunner</name></member>
+      <member refid="class_a_night_sky_game_state_1ad9e7d7dabfe2465be4c8ad361bc83ecf" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GameInstance</name></member>
+      <member refid="class_a_night_sky_game_state_1a926c073b249026a0f6dfecff445e3d42" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetGauge</name></member>
+      <member refid="class_a_night_sky_game_state_1a11db0c56d04c167fb1eb77b4b95057fc" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetLocalInputs</name></member>
+      <member refid="class_a_night_sky_game_state_1a6726354baa9f0118fcae2e61e0f49c9c" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetMainPlayer</name></member>
+      <member refid="class_a_night_sky_game_state_1a8e2a9e51e4f6e632b4c3709042e9b7e3" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetNetworkStats</name></member>
+      <member refid="class_a_night_sky_game_state_1a38a8437b4667c6457ec07764018bb8ed" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetPaused</name></member>
+      <member refid="class_a_night_sky_game_state_1a056583c7db62fb119481018d2ecfe7f4" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetScreenFlags</name></member>
+      <member refid="class_a_night_sky_game_state_1a54186d1a1ffd51197caf5553457e9183" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetTeam</name></member>
+      <member refid="class_a_night_sky_game_state_1a61ed83052fdd9dc9055d1e3ca266fad8" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>GetTeamCount</name></member>
+      <member refid="class_a_night_sky_game_state_1a14e591fa8665c7b0307c8ab032fcf584" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>HandleHitCollision</name></member>
+      <member refid="class_a_night_sky_game_state_1a3309abfb5bfd68517e2dc47af4a9b72b" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>HandleMatchWin</name></member>
+      <member refid="class_a_night_sky_game_state_1a9ba76a8231f737d0b01f4f64020ca961" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>HandlePushCollision</name></member>
+      <member refid="class_a_night_sky_game_state_1a193d6e2b417dc7f17aec9b107b5bbf8e" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>HandleRoundWin</name></member>
+      <member refid="class_a_night_sky_game_state_1ac0d0cf0b862cba561c4e15c0fdccc60a" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>HUDInit</name></member>
+      <member refid="class_a_night_sky_game_state_1adc753665a96ea7d8774f647bab1d20e1" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>Init</name></member>
+      <member refid="class_a_night_sky_game_state_1a36b7ce1ad370bb8795d9f347b34d063e" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>IsTagBattle</name></member>
+      <member refid="class_a_night_sky_game_state_1afa469f5702101d1dc4c27599d350a843" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>LoadForRollback</name></member>
+      <member refid="class_a_night_sky_game_state_1aa1c2f14de7a4f18064dae2af9adc1125" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>LoadGameState</name></member>
+      <member refid="class_a_night_sky_game_state_1ae9a25298800a2cf39df994407402f8e1" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>LocalFrame</name></member>
+      <member refid="class_a_night_sky_game_state_1a580e1bb0af4868690530b7079fc80a76" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>LocalInputs</name></member>
+      <member refid="class_a_night_sky_game_state_1a8de81b84d109ae61792a6de30ae2df73" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ManageAudio</name></member>
+      <member refid="class_a_night_sky_game_state_1acf3da41307f5a783341a3abd5f50f679" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>MatchInit</name></member>
+      <member refid="class_a_night_sky_game_state_1a9f15fbdce293ed5595e4b74f421c795c" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>MaxBattleObjects</name></member>
+      <member refid="class_a_night_sky_game_state_1a1d290c930a9bd4c21019b5225ed6e014" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>NetworkStats</name></member>
+      <member refid="class_a_night_sky_game_state_1ab59d1059cce9881b80ee21b308460f77" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>NextRoundTransition</name></member>
+      <member refid="class_a_night_sky_game_state_1a8e836fac4411aa4ea99afac63236eafa" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>Objects</name></member>
+      <member refid="class_a_night_sky_game_state_1a6d087e39e0696fe1a59874d48fa67574" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>OtherChecksum</name></member>
+      <member refid="class_a_night_sky_game_state_1aee63fecadfe27f3be5aa32b590d32a4a" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>OtherChecksumFrame</name></member>
+      <member refid="class_a_night_sky_game_state_1a4b951c7c6172d94166fcd9d8e047e66d" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ParticleManager</name></member>
+      <member refid="class_a_night_sky_game_state_1aa29921ab0bb18ef8508afb07aade95f7" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayAnnouncerVoice</name></member>
+      <member refid="class_a_night_sky_game_state_1a8dc2d3c6e37ec7f6d0a178835a88b3ce" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayAnnouncerVoice</name></member>
+      <member refid="class_a_night_sky_game_state_1a1893908bdf90037b088d6bbafb6c2e48" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayCharaAudio</name></member>
+      <member refid="class_a_night_sky_game_state_1a7eeb4cf3d98d684ae723ffc7043f31ff" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayCommonAudio</name></member>
+      <member refid="class_a_night_sky_game_state_1a6da4d717719236c06f4ced0dade80c3a" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>Players</name></member>
+      <member refid="class_a_night_sky_game_state_1a675944b459fe3810f0d134253213b99b" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayIntros</name></member>
+      <member refid="class_a_night_sky_game_state_1a8b6e16e904a31da19541dfab27164dd3" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayLevelSequence</name></member>
+      <member refid="class_a_night_sky_game_state_1a3ef4939f42f3436e8f53aacf4b6c0645" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayMusic</name></member>
+      <member refid="class_a_night_sky_game_state_1a9f3e382b5096e449bd7f102a38de3054" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayMusic</name></member>
+      <member refid="class_a_night_sky_game_state_1afd35da68de6c1f4935117eeaf0827943" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PlayVoiceLine</name></member>
+      <member refid="class_a_night_sky_game_state_1a40c7575b0261afbf837731ca11cb7c75" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>PrevOtherChecksumFrame</name></member>
+      <member refid="class_a_night_sky_game_state_1a1872b0356bf03b3bcc7944e5842c903c" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>RemoteFrame</name></member>
+      <member refid="class_a_night_sky_game_state_1a99b8713d01a18fd6a89d2524a764bca4" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ResetTraining</name></member>
+      <member refid="class_a_night_sky_game_state_1a8c5af5ed36d76c18bedb028fa04bce9e" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>RollbackStartAudio</name></member>
+      <member refid="class_a_night_sky_game_state_1a5c7bc7a88758184be99f2a72bc3f422d" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>RoundInit</name></member>
+      <member refid="class_a_night_sky_game_state_1a60ec96cb34b97512f4d5071b306e4afc" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SaveForRollback</name></member>
+      <member refid="class_a_night_sky_game_state_1addba85ed7a649f021c5c243deaca7681" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SaveGameState</name></member>
+      <member refid="class_a_night_sky_game_state_1adb8be86243850439d8490c880a451178" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ScreenPosToWorldPos</name></member>
+      <member refid="class_a_night_sky_game_state_1ae0a348ef2adc96a6754f32ac48be1c62" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SequenceActor</name></member>
+      <member refid="class_a_night_sky_game_state_1a4789ea3d1b4c192e90263711dd119f68" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SequenceCameraActor</name></member>
+      <member refid="class_a_night_sky_game_state_1a8e82208933b7fe3bee935160821e63a9" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SequenceCameraActorClass</name></member>
+      <member refid="class_a_night_sky_game_state_1a0ab498d17c8b73cd98479814643342aa" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SequenceEnemy</name></member>
+      <member refid="class_a_night_sky_game_state_1adf1104a680ac0db0515ac4edd758f5d0" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SequenceTarget</name></member>
+      <member refid="class_a_night_sky_game_state_1ac08d1203c7fbf38c5475511add0019a3" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetDrawPriorityBack</name></member>
+      <member refid="class_a_night_sky_game_state_1a8271db2df9a043f12572fe52a6f3297a" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetDrawPriorityFront</name></member>
+      <member refid="class_a_night_sky_game_state_1ab826b90894f91433718d38e2d0417dc9" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetGauge</name></member>
+      <member refid="class_a_night_sky_game_state_1a5a1eafca3aeb31c0aec995e6b8d4eb0c" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetOtherChecksum</name></member>
+      <member refid="class_a_night_sky_game_state_1a3758439ae3a33d55365986fcb6120568" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetPaused</name></member>
+      <member refid="class_a_night_sky_game_state_1a15044147972aba8a215afc694124cb6e" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetScreenBounds</name></member>
+      <member refid="class_a_night_sky_game_state_1a33d67ae015e8a623b2f7911959398070" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetScreenCorners</name></member>
+      <member refid="class_a_night_sky_game_state_1abe60381060787b345b223f57928d7a6d" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetScreenFlags</name></member>
+      <member refid="class_a_night_sky_game_state_1afc7cc5300fd35ffc10afbfea4376c396" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SetTeamCooldown</name></member>
+      <member refid="class_a_night_sky_game_state_1a76a1c7a9445f0d2aca43129a41ab9681" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SortedObjects</name></member>
+      <member refid="class_a_night_sky_game_state_1abe6f8b26ba3183e8e0cbc1a17613c4f6" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SortObjects</name></member>
+      <member refid="class_a_night_sky_game_state_1a3845f653b032f44a47eb1a98ef811c80" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>StartSuperFreeze</name></member>
+      <member refid="class_a_night_sky_game_state_1afdfd9d60f61e5b09515524eb921c85fb" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>StopLevelSequence</name></member>
+      <member refid="class_a_night_sky_game_state_1a062a01be98e5eb642af2bb02c58ee4e6" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>SwitchMainPlayer</name></member>
+      <member refid="class_a_night_sky_game_state_1a3a0f433fb302364e61c64deb66797bf7" prot="public" virt="virtual"><scope>ANightSkyGameState</scope><name>Tick</name></member>
+      <member refid="class_a_night_sky_game_state_1af38079d0ed7561c917d14258b9c73fda" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateCamera</name></member>
+      <member refid="class_a_night_sky_game_state_1a32af680ea6004c8b03c93809d70b34e9" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateGameState</name></member>
+      <member refid="class_a_night_sky_game_state_1a843add8f2bca455c6d77dcc3bd4ec031" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateGameState</name></member>
+      <member refid="class_a_night_sky_game_state_1a835a5d6908786f9c7d3259fd94f1bd48" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateHUD</name></member>
+      <member refid="class_a_night_sky_game_state_1a5e064325b6d435f125534bffe7ea66f5" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateHUD_BP</name></member>
+      <member refid="class_a_night_sky_game_state_1ab8336aa4e5bae1388fa95f31e5d28fdf" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateHUDAnimations_BP</name></member>
+      <member refid="class_a_night_sky_game_state_1a635a16015e51ba8289b6003ba9dbaac1" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateLocalInput</name></member>
+      <member refid="class_a_night_sky_game_state_1a1de7f6dbdabee6c8017b0f9b0b2cf311" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateScreen</name></member>
+      <member refid="class_a_night_sky_game_state_1a23a136407c51b13d13b17006ddb58ed4" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateVisuals</name></member>
+      <member refid="class_a_night_sky_game_state_1a05e8e6845c19c70357d5d30cf06140f8" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UseGauge</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

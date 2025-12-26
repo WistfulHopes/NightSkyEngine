@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_a_night_sky_v_s_info_game_state" kind="class" language="C++" prot="public">
+    <compoundname>ANightSkyVSInfoGameState</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AGameStateBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1a528676255576f94e82ba8180e489b2c9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ANightSkyVSInfoGameState::VSInfoTime</definition>
+        <argsstring></argsstring>
+        <name>VSInfoTime</name>
+        <qualifiedname>ANightSkyVSInfoGameState::VSInfoTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="18" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1a7f965b5e3bbf89016d5710950812361a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ANightSkyVSInfoGameState::MapLoaded</definition>
+        <argsstring></argsstring>
+        <name>MapLoaded</name>
+        <qualifiedname>ANightSkyVSInfoGameState::MapLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="19" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1a4314b21dd33c56832f3378dee05aa891" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyVSInfoGameState::LoadedCharaPackageCount</definition>
+        <argsstring></argsstring>
+        <name>LoadedCharaPackageCount</name>
+        <qualifiedname>ANightSkyVSInfoGameState::LoadedCharaPackageCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="20" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1adf3823fe4a8698a31cd10df08385f391" prot="private" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 ANightSkyVSInfoGameState::TotalCharaPackageCount</definition>
+        <argsstring></argsstring>
+        <name>TotalCharaPackageCount</name>
+        <qualifiedname>ANightSkyVSInfoGameState::TotalCharaPackageCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="21" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1affc9c12b02755b44bd68876eb2cf8985" prot="private" static="no" mutable="no">
+        <type>TArray&lt; TObjectPtr&lt; UPackage &gt; &gt;</type>
+        <definition>TArray&lt;TObjectPtr&lt;UPackage&gt; &gt; ANightSkyVSInfoGameState::Packages</definition>
+        <argsstring></argsstring>
+        <name>Packages</name>
+        <qualifiedname>ANightSkyVSInfoGameState::Packages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="24" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1afee758af4239c5237308b06f8b696a13" prot="private" static="no" mutable="no">
+        <type>TObjectPtr&lt; <ref refid="class_u_night_sky_game_instance" kindref="compound">UNightSkyGameInstance</ref> &gt;</type>
+        <definition>TObjectPtr&lt;UNightSkyGameInstance&gt; ANightSkyVSInfoGameState::GameInstance</definition>
+        <argsstring></argsstring>
+        <name>GameInstance</name>
+        <qualifiedname>ANightSkyVSInfoGameState::GameInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="26" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_night_sky_v_s_info_game_state_1a1d7e2f480d4da384933091728e6be6ff" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double ANightSkyVSInfoGameState::MaxVSInfoTime</definition>
+        <argsstring></argsstring>
+        <name>MaxVSInfoTime</name>
+        <qualifiedname>ANightSkyVSInfoGameState::MaxVSInfoTime</qualifiedname>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="32" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_night_sky_v_s_info_game_state_1a4d795422193f3e34ac58d43d29ffc353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ANightSkyVSInfoGameState::ANightSkyVSInfoGameState</definition>
+        <argsstring>()</argsstring>
+        <name>ANightSkyVSInfoGameState</name>
+        <qualifiedname>ANightSkyVSInfoGameState::ANightSkyVSInfoGameState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="29" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.cpp" bodystart="15" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_v_s_info_game_state_1a7b2028cfbd5ce9fe0e57e768c25cdd71" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyVSInfoGameState::BeginPlay</definition>
+        <argsstring>() override</argsstring>
+        <name>BeginPlay</name>
+        <qualifiedname>ANightSkyVSInfoGameState::BeginPlay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="34" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.cpp" bodystart="25" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_v_s_info_game_state_1a766e0878d2775442a20da7e980038802" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void ANightSkyVSInfoGameState::Tick</definition>
+        <argsstring>(float DeltaSeconds) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>ANightSkyVSInfoGameState::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="35" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.cpp" bodystart="52" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_v_s_info_game_state_1ac6197ccbb5ffedc2ece3ef7c9bd5362b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyVSInfoGameState::OnMapPackageLoaded</definition>
+        <argsstring>(const FName &amp;PackageName, UPackage *LoadedPackage, EAsyncLoadingResult::Type Result)</argsstring>
+        <name>OnMapPackageLoaded</name>
+        <qualifiedname>ANightSkyVSInfoGameState::OnMapPackageLoaded</qualifiedname>
+        <param>
+          <type>const FName &amp;</type>
+          <declname>PackageName</declname>
+        </param>
+        <param>
+          <type>UPackage *</type>
+          <declname>LoadedPackage</declname>
+        </param>
+        <param>
+          <type>EAsyncLoadingResult::Type</type>
+          <declname>Result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="37" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.cpp" bodystart="76" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_v_s_info_game_state_1a63b72ebb27a77534042379faa3f8b8fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyVSInfoGameState::OnCharaPackageLoaded</definition>
+        <argsstring>(const FName &amp;PackageName, UPackage *LoadedPackage, EAsyncLoadingResult::Type Result)</argsstring>
+        <name>OnCharaPackageLoaded</name>
+        <qualifiedname>ANightSkyVSInfoGameState::OnCharaPackageLoaded</qualifiedname>
+        <param>
+          <type>const FName &amp;</type>
+          <declname>PackageName</declname>
+        </param>
+        <param>
+          <type>UPackage *</type>
+          <declname>LoadedPackage</declname>
+        </param>
+        <param>
+          <type>EAsyncLoadingResult::Type</type>
+          <declname>Result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="38" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.cpp" bodystart="83" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyVSInfoGameState</label>
+        <link refid="class_a_night_sky_v_s_info_game_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>AGameStateBase</label>
+      </node>
+      <node id="1">
+        <label>ANightSkyVSInfoGameState</label>
+        <link refid="class_a_night_sky_v_s_info_game_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/VSInfo/NightSkyVSInfoGameState.h" bodystart="15" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a4d795422193f3e34ac58d43d29ffc353" prot="public" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>ANightSkyVSInfoGameState</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a7b2028cfbd5ce9fe0e57e768c25cdd71" prot="public" virt="virtual"><scope>ANightSkyVSInfoGameState</scope><name>BeginPlay</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1afee758af4239c5237308b06f8b696a13" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>GameInstance</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a4314b21dd33c56832f3378dee05aa891" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>LoadedCharaPackageCount</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a7f965b5e3bbf89016d5710950812361a" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>MapLoaded</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a1d7e2f480d4da384933091728e6be6ff" prot="public" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>MaxVSInfoTime</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a63b72ebb27a77534042379faa3f8b8fd" prot="public" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>OnCharaPackageLoaded</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1ac6197ccbb5ffedc2ece3ef7c9bd5362b" prot="public" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>OnMapPackageLoaded</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1affc9c12b02755b44bd68876eb2cf8985" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>Packages</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a766e0878d2775442a20da7e980038802" prot="public" virt="virtual"><scope>ANightSkyVSInfoGameState</scope><name>Tick</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1adf3823fe4a8698a31cd10df08385f391" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>TotalCharaPackageCount</name></member>
+      <member refid="class_a_night_sky_v_s_info_game_state_1a528676255576f94e82ba8180e489b2c9" prot="private" virt="non-virtual"><scope>ANightSkyVSInfoGameState</scope><name>VSInfoTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

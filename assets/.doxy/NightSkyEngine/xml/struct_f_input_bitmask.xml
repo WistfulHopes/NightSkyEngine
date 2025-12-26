@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_input_bitmask" kind="struct" language="C++" prot="public">
+    <compoundname>FInputBitmask</compoundname>
+    <includes refid="_state_8h" local="no">State.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_input_bitmask_1aecbf448e2487a94980c26a4742605123" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FInputBitmask::InputFlag</definition>
+        <argsstring></argsstring>
+        <name>InputFlag</name>
+        <qualifiedname>FInputBitmask::InputFlag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The input flag.</para>
+<para><simplesect kind="see"><para>EInputFlags </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="190" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_bitmask_1a27a5dd8410051f2a6954c5c7dc72ff62" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FInputBitmask::Lenience</definition>
+        <argsstring></argsstring>
+        <name>Lenience</name>
+        <qualifiedname>FInputBitmask::Lenience</qualifiedname>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How much buffer time there is for the input. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="196" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_bitmask_1a06bf34ff3be450452bc4d4f3d0e02a47" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FInputBitmask::Hold</definition>
+        <argsstring></argsstring>
+        <name>Hold</name>
+        <qualifiedname>FInputBitmask::Hold</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>How long the input must be held for. Unless you&apos;re creating a charge/hold input, leave as zero. Does not work with the Negative or Negative Strict input methods. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="203" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_bitmask_1a0190f45882328e2ca7883fecad4c0767" prot="public" static="no" mutable="no">
+        <type>TArray&lt; TEnumAsByte&lt; EInputFlags &gt; &gt;</type>
+        <definition>TArray&lt;TEnumAsByte&lt;EInputFlags&gt; &gt; FInputBitmask::DisallowedInputs</definition>
+        <argsstring></argsstring>
+        <name>DisallowedInputs</name>
+        <qualifiedname>FInputBitmask::DisallowedInputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disallowed inputs. If any inputs in this array are detected, this input is invalidated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="209" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_input_bitmask_1a61c4766aa2aa45b33b6c949beb898abd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FInputBitmask::FInputBitmask</definition>
+        <argsstring>()</argsstring>
+        <name>FInputBitmask</name>
+        <qualifiedname>FInputBitmask::FInputBitmask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="175" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_bitmask_1aa44db1a4269413704aed072f94c68a36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FInputBitmask::FInputBitmask</definition>
+        <argsstring>(EInputFlags Input)</argsstring>
+        <name>FInputBitmask</name>
+        <qualifiedname>FInputBitmask::FInputBitmask</qualifiedname>
+        <param>
+          <type>EInputFlags</type>
+          <declname>Input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="179" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="179" bodyend="182"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A container struct for input bitmasks. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="171" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="172" bodyend="210"/>
+    <listofallmembers>
+      <member refid="struct_f_input_bitmask_1a0190f45882328e2ca7883fecad4c0767" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>DisallowedInputs</name></member>
+      <member refid="struct_f_input_bitmask_1a61c4766aa2aa45b33b6c949beb898abd" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>FInputBitmask</name></member>
+      <member refid="struct_f_input_bitmask_1aa44db1a4269413704aed072f94c68a36" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>FInputBitmask</name></member>
+      <member refid="struct_f_input_bitmask_1a06bf34ff3be450452bc4d4f3d0e02a47" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>Hold</name></member>
+      <member refid="struct_f_input_bitmask_1aecbf448e2487a94980c26a4742605123" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>InputFlag</name></member>
+      <member refid="struct_f_input_bitmask_1a27a5dd8410051f2a6954c5c7dc72ff62" prot="public" virt="non-virtual"><scope>FInputBitmask</scope><name>Lenience</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

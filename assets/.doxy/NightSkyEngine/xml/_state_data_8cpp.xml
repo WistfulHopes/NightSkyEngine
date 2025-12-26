@@ -1,0 +1,1383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_state_data_8cpp" kind="file" language="C++">
+    <compoundname>StateData.cpp</compoundname>
+    <includes refid="_state_data_8h" local="yes">StateData.h</includes>
+    <incdepgraph>
+      <node id="21">
+        <label>BattleObject.generated.h</label>
+      </node>
+      <node id="7">
+        <label>NightSkyEngine/Battle/Misc/Bitflags.h</label>
+        <link refid="_bitflags_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>NightSkyEngine/Battle/Misc/CollisionBox.h</label>
+        <link refid="_collision_box_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Globals.h</label>
+        <link refid="_globals_8h_source"/>
+      </node>
+      <node id="9">
+        <label>NightSkyEngine/Battle/Misc/SerializableObj.h</label>
+        <link refid="_serializable_obj_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>NightSkyEngine/Battle/Objects/BattleObject.h</label>
+        <link refid="_battle_object_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>NightSkyEngine/Battle/Script/State.h</label>
+        <link refid="_state_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>NightSkyEngine/Data/CollisionData.h</label>
+        <link refid="_collision_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp</label>
+        <link refid="_state_data_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>StateData.h</label>
+        <link refid="_state_data_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>CollisionBox.generated.h</label>
+      </node>
+      <node id="20">
+        <label>CollisionData.generated.h</label>
+      </node>
+      <node id="3">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="5">
+        <label>Engine/DataAsset.h</label>
+      </node>
+      <node id="14">
+        <label>GameFramework/Pawn.h</label>
+      </node>
+      <node id="8">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="4">
+        <label>NativeGameplayTags.h</label>
+      </node>
+      <node id="19">
+        <label>PaperFlipbook.h</label>
+      </node>
+      <node id="11">
+        <label>SerializableObj.generated.h</label>
+      </node>
+      <node id="22">
+        <label>State.generated.h</label>
+      </node>
+      <node id="23">
+        <label>StateData.generated.h</label>
+      </node>
+      <node id="10">
+        <label>UObject/Object.h</label>
+      </node>
+      <node id="13">
+        <label>fstream</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="_state_data_8cpp_1a125bb0e16cb9d01ead0924250a4ace91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Stand, &quot;State.Universal.Stand&quot;, &quot;Stand State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Stand</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Stand&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Stand State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="5" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="5" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a7974f36a0201ac2eefa3b2d2434b5595" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Crouch, &quot;State.Universal.Crouch&quot;, &quot;Crouch State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Crouch</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Crouch&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="6" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="6" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a5deedbabce04b26c877a6ba37b85c1ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Jump_V, &quot;State.Universal.Jump.V&quot;, &quot;Vertical Jump State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Jump_V</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Jump.V&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Vertical Jump State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="7" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="7" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1aa1af7e2ae0630885aa28eead8838e174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_JumpLanding, &quot;State.Universal.JumpLanding&quot;, &quot;Jump Landing State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_JumpLanding</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.JumpLanding&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Jump Landing State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="8" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="8" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a824cf024e61edfd56154c032aa83c0b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_StandFlip, &quot;State.Universal.StandFlip&quot;, &quot;Stand Flip State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_StandFlip</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.StandFlip&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Stand Flip State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="9" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="9" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ac8f7ba6948cfe6aff94b0146ba0a59eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchFlip, &quot;State.Universal.CrouchFlip&quot;, &quot;Crouch Flip State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchFlip</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.CrouchFlip&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Flip State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="10" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="10" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a1f4676606bad478e4ce3b57f7d5b2ad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_JumpFlip, &quot;State.Universal.AirFlip&quot;, &quot;Jump Flip State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_JumpFlip</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.AirFlip&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Jump Flip State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="11" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="11" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a617a2f6d1e89376184172836e2487d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_StandBlock, &quot;State.Universal.Block.Stand&quot;, &quot;Stand Block State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_StandBlock</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Stand&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Stand Block State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="12" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a77dd823e0587800e0e4802f227491708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchBlock, &quot;State.Universal.Block.Crouch&quot;, &quot;Crouch Block State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchBlock</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Crouch&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Block State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="13" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a1c801637b8bf21b7a9e890e2d497d603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_AirBlock, &quot;State.Universal.Block.Air&quot;, &quot;Jump Block State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_AirBlock</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Air&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Jump Block State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="14" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="14" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1acb0eb03f6a153fc7c2aecb3fa3e96667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_StandBlockEnd, &quot;State.Universal.Block.Stand.End&quot;, &quot;Stand Block (End) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_StandBlockEnd</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Stand.End&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Stand Block (End) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="15" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="15" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1aaf26c04f094481d5ac43291c1f16bb3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchBlockEnd, &quot;State.Universal.Block.Crouch.End&quot;, &quot;Crouch Block (End) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchBlockEnd</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Crouch.End&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Block (End) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="16" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="16" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a49ec66544d884bddc19416e8a76a1bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_AirBlockEnd, &quot;State.Universal.Block.Air.End&quot;, &quot;Jump Block (End) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_AirBlockEnd</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Block.Air.End&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Jump Block (End) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="17" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a81a05c6aeb065e445a77c31add004655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_GuardBreakStand, &quot;State.Universal.GuardBreak.Stand&quot;, &quot;Guard Break (Stand) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_GuardBreakStand</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.GuardBreak.Stand&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Guard Break (Stand) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="18" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a027220142f8219dc1191d21dea1ca826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_GuardBreakCrouch, &quot;State.Universal.GuardBreak.Crouch&quot;, &quot;Guard Break (Crouch) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_GuardBreakCrouch</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.GuardBreak.Crouch&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Guard Break (Crouch) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="19" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a381fd3bfe99175ab685606b7d86ed00c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_GuardBreakAir, &quot;State.Universal.GuardBreak.Air&quot;, &quot;Guard Break (Jump) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_GuardBreakAir</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.GuardBreak.Air&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Guard Break (Jump) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="20" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="20" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a4ff030641fc6ea325397682ccf7e6f28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_0, &quot;State.Universal.Hitstun.0&quot;, &quot;Hitstun (Level 0) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_0</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.0&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 0) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="21" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="21" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a104d415843412f86abcd14578cd91808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_1, &quot;State.Universal.Hitstun.1&quot;, &quot;Hitstun (Level 1) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_1</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.1&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 1) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="22" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="22" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a29d7e135df910e87a330ddd03fc9726c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_2, &quot;State.Universal.Hitstun.2&quot;, &quot;Hitstun (Level 2) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_2</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.2&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 2) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="23" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="23" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ab26da86e30b3f3612f58a4dce499f19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_3, &quot;State.Universal.Hitstun.3&quot;, &quot;Hitstun (Level 3) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_3</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.3&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 3) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="24" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="24" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ad925cc610463cced55a39dc5bc5b001c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_4, &quot;State.Universal.Hitstun.4&quot;, &quot;Hitstun (Level 4) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_4</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.4&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 4) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="25" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="25" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a95836ee3fa2441b11ae11c5caf0d5f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Hitstun_5, &quot;State.Universal.Hitstun.5&quot;, &quot;Hitstun (Level 5) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Hitstun_5</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.5&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Hitstun (Level 5) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="26" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="26" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a4b15c94b677b368e0a9fcd610eeb198d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_0, &quot;State.Universal.Hitstun.Crouch.0&quot;, &quot;Crouch Hitstun (Level 0) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_0</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.0&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 0) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="27" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="27" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a90c1b31eb8406d2cb1fd2f183005ed3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_1, &quot;State.Universal.Hitstun.Crouch.1&quot;, &quot;Crouch Hitstun (Level 1) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_1</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.1&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 1) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="28" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="28" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a4f17fd6882a639efb27f41e7e6b7a2a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_2, &quot;State.Universal.Hitstun.Crouch.2&quot;, &quot;Crouch Hitstun (Level 2) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_2</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.2&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 2) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="29" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="29" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a0f8d1ba18bf2d32fbe1ea07c35571538" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_3, &quot;State.Universal.Hitstun.Crouch.3&quot;, &quot;Crouch Hitstun (Level 3) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_3</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.3&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 3) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="30" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="30" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a92166fe76ffbe62e7d9932bc85ba3a26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_4, &quot;State.Universal.Hitstun.Crouch.4&quot;, &quot;Crouch Hitstun (Level 4) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_4</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.4&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 4) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="31" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="31" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a59645afcc9d8952a7313009a87c8275c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_CrouchHitstun_5, &quot;State.Universal.Hitstun.Crouch.5&quot;, &quot;Crouch Hitstun (Level 5) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_CrouchHitstun_5</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Hitstun.Crouch.5&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crouch Hitstun (Level 5) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="32" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="32" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a82fd093f8308025322bda06e6dea4a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Launch_B, &quot;State.Universal.Launch.B&quot;, &quot;Backward Launch State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Launch_B</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Launch.B&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Backward Launch State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="33" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="33" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ab8900c194d7705e0734f3868a03197b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Launch_V, &quot;State.Universal.Launch.V&quot;, &quot;Vertical Launch State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Launch_V</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Launch.V&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Vertical Launch State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="34" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="34" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1adebc908d8be90f64dff3dab984db775e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Launch_F, &quot;State.Universal.Launch.F&quot;, &quot;Forward Launch State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Launch_F</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Launch.F&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Forward Launch State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="35" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="35" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a644938a646a664ceb1cb68d7c37af596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Blowback, &quot;State.Universal.Blowback&quot;, &quot;Blowback State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Blowback</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Blowback&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Blowback State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="36" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="36" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1aa8a11ba7c3a377f9cc4aa5d4916907b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Tailspin, &quot;State.Universal.Tailspin&quot;, &quot;Tailspin State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Tailspin</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Tailspin&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Tailspin State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="37" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="37" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a32ace362663437db77a333c10aeded3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Crumple, &quot;State.Universal.Crumple&quot;, &quot;Crumple State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Crumple</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Crumple&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Crumple State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="38" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="38" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a51e4ae72bf03cf58b3ab0739d6e145d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FloatingCrumpleBody, &quot;State.Universal.FloatingCrumple.Body&quot;, &quot;Floating Crumple (Body) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FloatingCrumpleBody</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FloatingCrumple.Body&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Floating Crumple (Body) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="39" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="39" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a9af285c6cf7a263fd24ab7520a448796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FloatingCrumpleHead, &quot;State.Universal.FloatingCrumple.Head&quot;, &quot;Floating Crumple (Head) State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FloatingCrumpleHead</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FloatingCrumple.Head&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Floating Crumple (Head) State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="40" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="40" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a5d336b4e7808bdf39fd40a90d338ab69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_WallBounce, &quot;State.Universal.WallBounce&quot;, &quot;Wall Bounce State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_WallBounce</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.WallBounce&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Wall Bounce State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="41" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="41" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ab949a75cb025430d73fd1b442a6685a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceDownBounce, &quot;State.Universal.FaceDown.Bounce&quot;, &quot;Face Down Bounce State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceDownBounce</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceDown.Bounce&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Down Bounce State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="42" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="42" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ad1f9d95a56212fc256c036fbe0afa505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceUpBounce, &quot;State.Universal.FaceUp.Bounce&quot;, &quot;Face Up Bounce State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceUpBounce</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceUp.Bounce&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Up Bounce State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="43" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="43" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a073c89c5959f04999f1ff46f925632c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceDownLoop, &quot;State.Universal.FaceDown.Loop&quot;, &quot;Face Down Loop State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceDownLoop</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceDown.Loop&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Down Loop State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="44" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="44" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a47a546e68059a1b224d32b2604339698" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceUpLoop, &quot;State.Universal.FaceUp.Loop&quot;, &quot;Face Up Loop State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceUpLoop</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceUp.Loop&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Up Loop State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="45" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="45" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ab5de7e5fdd5efa42eec5df8af3311209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceDownWakeUp, &quot;State.Universal.FaceDown.WakeUp&quot;, &quot;Face Down Wake Up State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceDownWakeUp</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceDown.WakeUp&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Down Wake Up State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="46" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="46" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a04cb312de56025b000d448b4165927ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_FaceUpWakeUp, &quot;State.Universal.FaceUp.WakeUp&quot;, &quot;Face Up Wake Up State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_FaceUpWakeUp</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.FaceUp.WakeUp&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Face Up Wake Up State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="47" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="47" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1adf261505b989a5501a2e7748f9358367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_Throw, &quot;State.Universal.Throw&quot;, &quot;Throw State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_Throw</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.Throw&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Throw State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="48" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="48" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a8d7417636eb12d2091c8a6996a67b288" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_ThrowLock, &quot;State.Universal.ThrowLock&quot;, &quot;Throw Lock State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_ThrowLock</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.ThrowLock&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Throw Lock State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="49" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="49" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a96d662ce1bef3e76b634fa7007fe0d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_TagIn, &quot;State.Universal.TagIn&quot;, &quot;Tag In State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_TagIn</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.TagIn&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Tag In State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="50" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="50" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a9f0e752aa4b4e89b55fc7ea9fd300931" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_RoundWin, &quot;State.Universal.RoundWin&quot;, &quot;Round Win State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_RoundWin</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.RoundWin&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Round Win State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="51" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1afd271ef9076be5776ffa9ad240187562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_RoundLose, &quot;State.Universal.RoundLose&quot;, &quot;Round Lose State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_RoundLose</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.RoundLose&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Round Lose State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="52" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="52" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a169cca43ea4a14028cb588819a94eb10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_Universal_MatchWin, &quot;State.Universal.MatchWin&quot;, &quot;Match Win State&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_Universal_MatchWin</type>
+        </param>
+        <param>
+          <type>&quot;State.Universal.MatchWin&quot;</type>
+        </param>
+        <param>
+          <type>&quot;Match Win State&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="53" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="53" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a94cd93f778b32acaf8c5baa4e3b2060d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_BattleObject_KO_S, &quot;State.BattleObject.KO.S&quot;, &quot;KO (Small) Battle Object&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_BattleObject_KO_S</type>
+        </param>
+        <param>
+          <type>&quot;State.BattleObject.KO.S&quot;</type>
+        </param>
+        <param>
+          <type>&quot;KO (Small) Battle Object&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="55" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="55" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1abb5c065c3201880e02ec5f428c4eccf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_BattleObject_KO_M, &quot;State.BattleObject.KO.M&quot;, &quot;KO (Small) Battle Object&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_BattleObject_KO_M</type>
+        </param>
+        <param>
+          <type>&quot;State.BattleObject.KO.M&quot;</type>
+        </param>
+        <param>
+          <type>&quot;KO (Small) Battle Object&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="56" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="56" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1a6a65fbe19c3553f4d507fbac3ae8916e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_BattleObject_KO_L, &quot;State.BattleObject.KO.L&quot;, &quot;KO (Small) Battle Object&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_BattleObject_KO_L</type>
+        </param>
+        <param>
+          <type>&quot;State.BattleObject.KO.L&quot;</type>
+        </param>
+        <param>
+          <type>&quot;KO (Small) Battle Object&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="57" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="57" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="_state_data_8cpp_1ad3cba9270ebf2ab4d9b33d1c5ac6bf1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UE_DEFINE_GAMEPLAY_TAG_COMMENT</definition>
+        <argsstring>(State_BattleObject_KO_Draw, &quot;State.BattleObject.KO.Draw&quot;, &quot;KO (Draw) Battle Object&quot;)</argsstring>
+        <name>UE_DEFINE_GAMEPLAY_TAG_COMMENT</name>
+        <param>
+          <type>State_BattleObject_KO_Draw</type>
+        </param>
+        <param>
+          <type>&quot;State.BattleObject.KO.Draw&quot;</type>
+        </param>
+        <param>
+          <type>&quot;KO (Draw) Battle Object&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" line="58" column="1" declfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp" declline="58" declcolumn="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;StateData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>UE_INLINE_GENERATED_CPP_BY_NAME(StateData)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Stand,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Stand&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Stand<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crouch,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Crouch&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Jump_V,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Jump.V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Vertical<sp/>Jump<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_JumpLanding,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.JumpLanding&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Jump<sp/>Landing<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandFlip,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.StandFlip&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Stand<sp/>Flip<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchFlip,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.CrouchFlip&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Flip<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_JumpFlip,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.AirFlip&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Jump<sp/>Flip<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandBlock,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Stand&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Stand<sp/>Block<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchBlock,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Crouch&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Block<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_AirBlock,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Air&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Jump<sp/>Block<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_StandBlockEnd,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Stand.End&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Stand<sp/>Block<sp/>(End)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchBlockEnd,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Crouch.End&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Block<sp/>(End)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_AirBlockEnd,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Block.Air.End&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Jump<sp/>Block<sp/>(End)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakStand,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.GuardBreak.Stand&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Guard<sp/>Break<sp/>(Stand)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakCrouch,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.GuardBreak.Crouch&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Guard<sp/>Break<sp/>(Crouch)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_GuardBreakAir,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.GuardBreak.Air&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Guard<sp/>Break<sp/>(Jump)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_0,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>0)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_1,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.1&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>1)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_2,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.2&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>2)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_3,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.3&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>3)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_4,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.4&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>4)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Hitstun_5,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.5&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Hitstun<sp/>(Level<sp/>5)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_0,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.0&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>0)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_1,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.1&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>1)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_2,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.2&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>2)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_3,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.3&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>3)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_4,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.4&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>4)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_CrouchHitstun_5,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Hitstun.Crouch.5&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crouch<sp/>Hitstun<sp/>(Level<sp/>5)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_B,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Launch.B&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Backward<sp/>Launch<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_V,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Launch.V&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Vertical<sp/>Launch<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Launch_F,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Launch.F&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Forward<sp/>Launch<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Blowback,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Blowback&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Blowback<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Tailspin,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Tailspin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Tailspin<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Crumple,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Crumple&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Crumple<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleBody,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FloatingCrumple.Body&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Floating<sp/>Crumple<sp/>(Body)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FloatingCrumpleHead,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FloatingCrumple.Head&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Floating<sp/>Crumple<sp/>(Head)<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_WallBounce,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.WallBounce&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Wall<sp/>Bounce<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownBounce,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceDown.Bounce&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Down<sp/>Bounce<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpBounce,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceUp.Bounce&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Up<sp/>Bounce<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownLoop,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceDown.Loop&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Down<sp/>Loop<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpLoop,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceUp.Loop&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Up<sp/>Loop<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceDownWakeUp,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceDown.WakeUp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Down<sp/>Wake<sp/>Up<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_FaceUpWakeUp,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.FaceUp.WakeUp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Face<sp/>Up<sp/>Wake<sp/>Up<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_Throw,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.Throw&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Throw<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_ThrowLock,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.ThrowLock&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Throw<sp/>Lock<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_TagIn,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.TagIn&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Tag<sp/>In<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundWin,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.RoundWin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Round<sp/>Win<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_RoundLose,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.RoundLose&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Round<sp/>Lose<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_Universal_MatchWin,<sp/></highlight><highlight class="stringliteral">&quot;State.Universal.MatchWin&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Match<sp/>Win<sp/>State&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_S,<sp/></highlight><highlight class="stringliteral">&quot;State.BattleObject.KO.S&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;KO<sp/>(Small)<sp/>Battle<sp/>Object&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_M,<sp/></highlight><highlight class="stringliteral">&quot;State.BattleObject.KO.M&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;KO<sp/>(Small)<sp/>Battle<sp/>Object&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_L,<sp/></highlight><highlight class="stringliteral">&quot;State.BattleObject.KO.L&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;KO<sp/>(Small)<sp/>Battle<sp/>Object&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">UE_DEFINE_GAMEPLAY_TAG_COMMENT(State_BattleObject_KO_Draw,<sp/></highlight><highlight class="stringliteral">&quot;State.BattleObject.KO.Draw&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;KO<sp/>(Draw)<sp/>Battle<sp/>Object&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/StateData.cpp"/>
+  </compounddef>
+</doxygen>

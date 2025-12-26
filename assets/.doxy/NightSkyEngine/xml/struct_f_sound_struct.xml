@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_sound_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FSoundStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_sound_struct_1ad53e687af8e6aaaac3b100bc5d0e25b1" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FSoundStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FSoundStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="33" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_sound_struct_1ab49124a20ef92d8b321cec226019efbc" prot="public" static="no" mutable="no">
+        <type>USoundBase *</type>
+        <definition>USoundBase* FSoundStruct::SoundWave</definition>
+        <argsstring></argsstring>
+        <name>SoundWave</name>
+        <qualifiedname>FSoundStruct::SoundWave</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="35" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_sound_struct_1a734e276f8c9339f3e390a50de9519293" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float FSoundStruct::MaxDuration</definition>
+        <argsstring></argsstring>
+        <name>MaxDuration</name>
+        <qualifiedname>FSoundStruct::MaxDuration</qualifiedname>
+        <initializer>= 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="37" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" line="28" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SoundData.h" bodystart="29" bodyend="39"/>
+    <listofallmembers>
+      <member refid="struct_f_sound_struct_1a734e276f8c9339f3e390a50de9519293" prot="public" virt="non-virtual"><scope>FSoundStruct</scope><name>MaxDuration</name></member>
+      <member refid="struct_f_sound_struct_1ad53e687af8e6aaaac3b100bc5d0e25b1" prot="public" virt="non-virtual"><scope>FSoundStruct</scope><name>Name</name></member>
+      <member refid="struct_f_sound_struct_1ab49124a20ef92d8b321cec226019efbc" prot="public" virt="non-virtual"><scope>FSoundStruct</scope><name>SoundWave</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

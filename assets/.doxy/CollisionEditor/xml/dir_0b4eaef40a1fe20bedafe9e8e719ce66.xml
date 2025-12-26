@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_0b4eaef40a1fe20bedafe9e8e719ce66" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins</compoundname>
+    <innerdir refid="dir_01309b4faf1ec48651014f612e2b32bb">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/"/>
+  </compounddef>
+</doxygen>

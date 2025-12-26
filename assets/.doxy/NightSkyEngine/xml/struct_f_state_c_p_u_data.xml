@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_state_c_p_u_data" kind="struct" language="C++" prot="public">
+    <compoundname>FStateCPUData</compoundname>
+    <includes refid="_state_8h" local="no">State.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1aebfe1e90d07adb3e36e02885ca2072e1" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FStateCPUData::AttackXBeginRange</definition>
+        <argsstring></argsstring>
+        <name>AttackXBeginRange</name>
+        <qualifiedname>FStateCPUData::AttackXBeginRange</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="289" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1afdc6987dd0e2eafa061726859062d779" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FStateCPUData::AttackXEndRange</definition>
+        <argsstring></argsstring>
+        <name>AttackXEndRange</name>
+        <qualifiedname>FStateCPUData::AttackXEndRange</qualifiedname>
+        <initializer>= 300000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="291" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1aece146c789a7363cfdeadf2d5844fcc7" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FStateCPUData::AttackYBeginRange</definition>
+        <argsstring></argsstring>
+        <name>AttackYBeginRange</name>
+        <qualifiedname>FStateCPUData::AttackYBeginRange</qualifiedname>
+        <initializer>= 120000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="293" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a44ca605166abdc5de3ee2283bc94ff9d" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FStateCPUData::AttackYEndRange</definition>
+        <argsstring></argsstring>
+        <name>AttackYEndRange</name>
+        <qualifiedname>FStateCPUData::AttackYEndRange</qualifiedname>
+        <initializer>= 360000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="295" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a2b52ec67d3ddb08329c218087645007c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bAttack</definition>
+        <argsstring></argsstring>
+        <name>bAttack</name>
+        <qualifiedname>FStateCPUData::bAttack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="297" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="297" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a35076fb5521bb41077cd1299a5dfab0f" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bCombo</definition>
+        <argsstring></argsstring>
+        <name>bCombo</name>
+        <qualifiedname>FStateCPUData::bCombo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="299" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1adff871b967cf4b37ce0af227e78a2c4e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bNoCombo</definition>
+        <argsstring></argsstring>
+        <name>bNoCombo</name>
+        <qualifiedname>FStateCPUData::bNoCombo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="301" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a05b32572bebb608a8d5e2c42e33de770" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bBlockstring</definition>
+        <argsstring></argsstring>
+        <name>bBlockstring</name>
+        <qualifiedname>FStateCPUData::bBlockstring</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="303" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a5b2cd505df50396782850f30731ee2e1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bPunish</definition>
+        <argsstring></argsstring>
+        <name>bPunish</name>
+        <qualifiedname>FStateCPUData::bPunish</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="305" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a142efd8d7660e97d3d357328b1a2aa7e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bAntiAir</definition>
+        <argsstring></argsstring>
+        <name>bAntiAir</name>
+        <qualifiedname>FStateCPUData::bAntiAir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="307" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a80f9b4d7ffb2445b4bda8052fdc25443" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bThrow</definition>
+        <argsstring></argsstring>
+        <name>bThrow</name>
+        <qualifiedname>FStateCPUData::bThrow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="309" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a0338490dc5253b11b89cb34766cab37d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bProjectile</definition>
+        <argsstring></argsstring>
+        <name>bProjectile</name>
+        <qualifiedname>FStateCPUData::bProjectile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="311" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1ae267d0b8b06917e148739dd331cceeb9" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; ERangeType &gt;</type>
+        <definition>TEnumAsByte&lt;ERangeType&gt; FStateCPUData::PunishRange</definition>
+        <argsstring></argsstring>
+        <name>PunishRange</name>
+        <qualifiedname>FStateCPUData::PunishRange</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="313" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1ae2afa273637eea3f5c2c4d2089923b28" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EBlockType &gt;</type>
+        <definition>TEnumAsByte&lt;EBlockType&gt; FStateCPUData::BlockType</definition>
+        <argsstring></argsstring>
+        <name>BlockType</name>
+        <qualifiedname>FStateCPUData::BlockType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="315" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1ae928b4f5a06a396095763e17e77d85b2" prot="public" static="no" mutable="no">
+        <type>TEnumAsByte&lt; EAttackSpeed &gt;</type>
+        <definition>TEnumAsByte&lt;EAttackSpeed&gt; FStateCPUData::AttackSpeed</definition>
+        <argsstring></argsstring>
+        <name>AttackSpeed</name>
+        <qualifiedname>FStateCPUData::AttackSpeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="317" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a58fd9a8cb7fce5510d9205cef3a82de9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bBigDamage</definition>
+        <argsstring></argsstring>
+        <name>bBigDamage</name>
+        <qualifiedname>FStateCPUData::bBigDamage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="319" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a1966143eeede9eaae7706b49d9fc307b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bUsesResource</definition>
+        <argsstring></argsstring>
+        <name>bUsesResource</name>
+        <qualifiedname>FStateCPUData::bUsesResource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="321" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_state_c_p_u_data_1a38f4f9d651f519a83c635ca10cbd6595" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FStateCPUData::bInvuln</definition>
+        <argsstring></argsstring>
+        <name>bInvuln</name>
+        <qualifiedname>FStateCPUData::bInvuln</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="323" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Data for the CPU to use when deciding which state to enter. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="284" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="285" bodyend="324"/>
+    <listofallmembers>
+      <member refid="struct_f_state_c_p_u_data_1ae928b4f5a06a396095763e17e77d85b2" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>AttackSpeed</name></member>
+      <member refid="struct_f_state_c_p_u_data_1aebfe1e90d07adb3e36e02885ca2072e1" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>AttackXBeginRange</name></member>
+      <member refid="struct_f_state_c_p_u_data_1afdc6987dd0e2eafa061726859062d779" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>AttackXEndRange</name></member>
+      <member refid="struct_f_state_c_p_u_data_1aece146c789a7363cfdeadf2d5844fcc7" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>AttackYBeginRange</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a44ca605166abdc5de3ee2283bc94ff9d" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>AttackYEndRange</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a142efd8d7660e97d3d357328b1a2aa7e" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bAntiAir</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a2b52ec67d3ddb08329c218087645007c" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bAttack</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a58fd9a8cb7fce5510d9205cef3a82de9" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bBigDamage</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a05b32572bebb608a8d5e2c42e33de770" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bBlockstring</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a35076fb5521bb41077cd1299a5dfab0f" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bCombo</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a38f4f9d651f519a83c635ca10cbd6595" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bInvuln</name></member>
+      <member refid="struct_f_state_c_p_u_data_1ae2afa273637eea3f5c2c4d2089923b28" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>BlockType</name></member>
+      <member refid="struct_f_state_c_p_u_data_1adff871b967cf4b37ce0af227e78a2c4e" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bNoCombo</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a0338490dc5253b11b89cb34766cab37d" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bProjectile</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a5b2cd505df50396782850f30731ee2e1" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bPunish</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a80f9b4d7ffb2445b4bda8052fdc25443" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bThrow</name></member>
+      <member refid="struct_f_state_c_p_u_data_1a1966143eeede9eaae7706b49d9fc307b" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>bUsesResource</name></member>
+      <member refid="struct_f_state_c_p_u_data_1ae267d0b8b06917e148739dd331cceeb9" prot="public" virt="non-virtual"><scope>FStateCPUData</scope><name>PunishRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,966 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
+  <compound refid="struct_udp_1_1_callbacks" kind="struct"><name>Udp::Callbacks</name>
+    <member refid="struct_udp_1_1_callbacks_1a5574a58d0688501174793ffb60092204" kind="function"><name>~Callbacks</name></member>
+    <member refid="struct_udp_1_1_callbacks_1a6dbc37b63c464c94dfe263849a573f5f" kind="function"><name>OnMsg</name></member>
+  </compound>
+  <compound refid="struct_sync_1_1_config" kind="struct"><name>Sync::Config</name>
+    <member refid="struct_sync_1_1_config_1a80883b0dfec8d7246c897db38623468a" kind="variable"><name>callbacks</name></member>
+    <member refid="struct_sync_1_1_config_1ae4af24e1e16bb15c43272da6cb9889cc" kind="variable"><name>num_prediction_frames</name></member>
+    <member refid="struct_sync_1_1_config_1a15ac3c7e25554d1539ff52148cf06b92" kind="variable"><name>num_players</name></member>
+    <member refid="struct_sync_1_1_config_1aaee3934437c661aabed66f2268e44dfe" kind="variable"><name>input_size</name></member>
+  </compound>
+  <compound refid="struct_udp_msg_1_1connect__status" kind="struct"><name>UdpMsg::connect_status</name>
+    <member refid="struct_udp_msg_1_1connect__status_1a3614b375fa0634b1cc8ecface1732be6" kind="variable"><name>disconnected</name></member>
+    <member refid="struct_udp_msg_1_1connect__status_1ae1ae21115092beb16fff452cd44e04d7" kind="variable"><name>last_frame</name></member>
+  </compound>
+  <compound refid="class_connection_info" kind="class"><name>ConnectionInfo</name>
+    <member refid="class_connection_info_1a0e4ab16145b81c57545dc2ba48ff3f2f" kind="function"><name>ConnectionInfo</name></member>
+    <member refid="class_connection_info_1ab6799424ac6df43cd13b615afb11f801" kind="function"><name>~ConnectionInfo</name></member>
+    <member refid="class_connection_info_1a661b99bd0408093e7f8433ae892f92dc" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="class_connection_manager" kind="class"><name>ConnectionManager</name>
+    <member refid="class_connection_manager_1a78c473cc2cb49ed5e15fdaefd8f34ee4" kind="variable"><name>_id_to_issue</name></member>
+    <member refid="class_connection_manager_1a173747d503c19bdcee06be0bc7b0bf4b" kind="variable"><name>_connection_map</name></member>
+    <member refid="class_connection_manager_1a68db2f9138942ef16d50ebd753188410" kind="function"><name>ConnectionManager</name></member>
+    <member refid="class_connection_manager_1a5c2a49d02244fc399deba3ce6ffe77ac" kind="function"><name>~ConnectionManager</name></member>
+    <member refid="class_connection_manager_1a097382f1392bfa183ecc78048e8a20a6" kind="function"><name>SendTo</name></member>
+    <member refid="class_connection_manager_1ade224d3c38a0da75815694a489a1f562" kind="function"><name>RecvFrom</name></member>
+    <member refid="class_connection_manager_1a3603136f66413d575ac9a680107c4d77" kind="function"><name>ResetManager</name></member>
+    <member refid="class_connection_manager_1afd59c39c4e7995deb925cfa6ecaeda5e" kind="function"><name>ToString</name></member>
+    <member refid="class_connection_manager_1aacec4228c55f8916fae712181089390c" kind="function"><name>Log</name></member>
+    <member refid="class_connection_manager_1ab3f6b85b4014beabd2ce98ecc06002f2" kind="function"><name>AddConnection</name></member>
+  </compound>
+  <compound refid="struct_sync_1_1_event" kind="struct"><name>Sync::Event</name>
+    <member refid="struct_sync_1_1_event_1ae2244032cd28b77799dfb91b2386543b" kind="enum"><name></name></member>
+    <member refid="struct_sync_1_1_event_1ae2244032cd28b77799dfb91b2386543ba034331a1de381b66eab307f9d1b36e83" kind="enumvalue"><name>ConfirmedInput</name></member>
+    <member refid="struct_sync_1_1_event_1af74445293146178396ad255013afe5b6" kind="variable"><name>type</name></member>
+    <member refid="struct_sync_1_1_event_1a5b61c3cdcaa4494a25ba269835bc6f66" kind="variable"><name>input</name></member>
+    <member refid="struct_sync_1_1_event_1a64de28b2bb323b404910bfc793a2cdf4" kind="variable"><name>confirmedInput</name></member>
+    <member refid="struct_sync_1_1_event_1a3c234882b5a9c72238b9896f8e33c501" kind="variable"><name>u</name></member>
+  </compound>
+  <compound refid="struct_udp_protocol_1_1_event" kind="struct"><name>UdpProtocol::Event</name>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965" kind="enum"><name>Type</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a301defce1abd9ff3781d5473b0c826a8" kind="enumvalue"><name>Unknown</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ab7a342936c84c441f52569b3202569fa" kind="enumvalue"><name>Connected</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965aa2ba25007f734d90dc68fa13ef98779c" kind="enumvalue"><name>Synchronizing</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a8d848090631d37a603573963de683d49" kind="enumvalue"><name>Synchronzied</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965ac32d91d27b8fd656482b7897fa5d3a36" kind="enumvalue"><name>Input</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5e03804d743984cb01f5001e284ee5ba" kind="enumvalue"><name>Disconnected</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a5127645849c26597c5d046b8258d1bbd" kind="enumvalue"><name>NetworkInterrupted</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a88b72f2d158fe47d20003bf902e0e965a2218587a02e4e7acf8e9037235a2e581" kind="enumvalue"><name>NetworkResumed</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a387ee139cb7de92b6759b0455cc50d0d" kind="variable"><name>type</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1ae6003390479450be5c3f13bc2fc596ac" kind="variable"><name>input</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a915d6e7e1234ab94ee22c25c29a07e42" kind="variable"><name>input</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1aec555c2ba5a90b4e3cffc40ec434c97d" kind="variable"><name>total</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1abfdc1378b4fd6ede1453b7d23cb44577" kind="variable"><name>count</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1ad83f33e7e06e2f4a858342e8ccd2f11f" kind="variable"><name>synchronizing</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a45b4d43b1dc45518d33e069eec577e77" kind="variable"><name>disconnect_timeout</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1aef7b7c972b155ebdaa9478eead63ff60" kind="variable"><name>network_interrupted</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1ab79055ba2ee503cc59cdbd89b14656b1" kind="variable"><name>u</name></member>
+    <member refid="struct_udp_protocol_1_1_event_1a24b66fcd23f803860cc1962d3085e3e8" kind="function"><name>Event</name></member>
+  </compound>
+  <compound refid="struct_f_g_g_p_o_network_info" kind="struct"><name>FGGPONetworkInfo</name>
+    <member refid="struct_f_g_g_p_o_network_info_1aa1968eae649520cfa69cbf5226683e17" kind="variable"><name>send_queue_len</name></member>
+    <member refid="struct_f_g_g_p_o_network_info_1ac90d181cf32ab89d7c813e92444199bc" kind="variable"><name>recv_queue_len</name></member>
+    <member refid="struct_f_g_g_p_o_network_info_1a42ba869f14ba7bb7c6c4bd92b8f845a7" kind="variable"><name>ping</name></member>
+    <member refid="struct_f_g_g_p_o_network_info_1aafda548d44260f81ed6a36b795023761" kind="variable"><name>kbps_sent</name></member>
+  </compound>
+  <compound refid="struct_f_g_g_p_o_network_stats" kind="struct"><name>FGGPONetworkStats</name>
+    <member refid="struct_f_g_g_p_o_network_stats_1a67b92541f01cc198aedb9f14b45b081c" kind="variable"><name>network</name></member>
+    <member refid="struct_f_g_g_p_o_network_stats_1aa5c8dfe09f7b031febb8544df61aabd4" kind="variable"><name>timesync</name></member>
+  </compound>
+  <compound refid="struct_f_g_g_p_o_sync_info" kind="struct"><name>FGGPOSyncInfo</name>
+    <member refid="struct_f_g_g_p_o_sync_info_1ad7587afe00df009ed50a440ef55819dc" kind="variable"><name>local_frames_behind</name></member>
+    <member refid="struct_f_g_g_p_o_sync_info_1ab51d5e8bf3a64a738c3cffbc9d395773" kind="variable"><name>remote_frames_behind</name></member>
+  </compound>
+  <compound refid="class_f_g_g_p_o_u_e4_module" kind="class"><name>FGGPOUE4Module</name>
+    <member refid="class_f_g_g_p_o_u_e4_module_1a7378105ff2c32b4bbdc2c4831399492b" kind="function"><name>StartupModule</name></member>
+    <member refid="class_f_g_g_p_o_u_e4_module_1a766f0fababb1b59ba4f55dfacae25fa1" kind="function"><name>ShutdownModule</name></member>
+  </compound>
+  <compound refid="struct_game_input" kind="struct"><name>GameInput</name>
+    <member refid="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19" kind="enum"><name>Constants</name></member>
+    <member refid="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19a41ed14baae91e6fae46456d7b6a2feef" kind="enumvalue"><name>NullFrame</name></member>
+    <member refid="struct_game_input_1a631fcd6a7db9434a41b3c0419f77a818" kind="variable"><name>frame</name></member>
+    <member refid="struct_game_input_1a656a81d98df2c17169c77d35e64e9a8d" kind="variable"><name>size</name></member>
+    <member refid="struct_game_input_1afaba41561497d8a483476e07aa8fc4ee" kind="variable"><name>bits</name></member>
+    <member refid="struct_game_input_1a4c8ea750666878b34b5b8e906ca268fc" kind="function"><name>is_null</name></member>
+    <member refid="struct_game_input_1ad04c550dbc03f250149b978bce8d08ad" kind="function"><name>init</name></member>
+    <member refid="struct_game_input_1a2b7ab859cb6a89478516995c8a8aeba9" kind="function"><name>init</name></member>
+    <member refid="struct_game_input_1a55b9a56166e32ffb00fdbb65460f7f56" kind="function"><name>value</name></member>
+    <member refid="struct_game_input_1af1e61085054bbbb7b15dd4d740362dea" kind="function"><name>set</name></member>
+    <member refid="struct_game_input_1ab2adeb0a88d0b0910383a04c3006f3dc" kind="function"><name>clear</name></member>
+    <member refid="struct_game_input_1a7fd041b4d53778f2e59ac0a180ade9fc" kind="function"><name>erase</name></member>
+    <member refid="struct_game_input_1a58eef47d255151bff2915e620faf2ee3" kind="function"><name>desc</name></member>
+    <member refid="struct_game_input_1a225b7b8f826df003bce7ca290924c87b" kind="function"><name>log</name></member>
+    <member refid="struct_game_input_1a7bb8e5d4338e48044c64133011863ff8" kind="function"><name>equal</name></member>
+  </compound>
+  <compound refid="struct_g_g_p_o_event" kind="struct"><name>GGPOEvent</name>
+    <member refid="struct_g_g_p_o_event_1ae17ed1ead54da64a01f373d9c82139e9" kind="variable"><name>code</name></member>
+    <member refid="struct_g_g_p_o_event_1a5a45f1a9fa267d7908a079fae961486d" kind="variable"><name>player</name></member>
+    <member refid="struct_g_g_p_o_event_1a748b80c3831a598b8024b6cdbcffec43" kind="variable"><name>connected</name></member>
+    <member refid="struct_g_g_p_o_event_1a10e40b74e124f8ab3ea9cd6fb7dbf83d" kind="variable"><name>count</name></member>
+    <member refid="struct_g_g_p_o_event_1a6a2b59ba8265743bbac2e571330555c5" kind="variable"><name>total</name></member>
+    <member refid="struct_g_g_p_o_event_1a5424b87b9fdbadcb3586fd15efd7530b" kind="variable"><name>synchronizing</name></member>
+    <member refid="struct_g_g_p_o_event_1ae4bb5835d400cf0dbaa161148f68b4f2" kind="variable"><name>synchronized</name></member>
+    <member refid="struct_g_g_p_o_event_1ac1d1e0f7e76bcf3e152f0dd1f52a06c9" kind="variable"><name>disconnected</name></member>
+    <member refid="struct_g_g_p_o_event_1a73ed3a337b584e190e8ad8c521fbd04e" kind="variable"><name>frames_ahead</name></member>
+    <member refid="struct_g_g_p_o_event_1ae62e8719e4813e13b2ee20924f912dfc" kind="variable"><name>timesync</name></member>
+    <member refid="struct_g_g_p_o_event_1a6c87187cc29f7604b70f0abfe12cb1aa" kind="variable"><name>disconnect_timeout</name></member>
+    <member refid="struct_g_g_p_o_event_1a48e43cfac27a10ce7457cb96f978bef9" kind="variable"><name>connection_interrupted</name></member>
+    <member refid="struct_g_g_p_o_event_1af8e7e085e705bc5ffb366145a84cfb97" kind="variable"><name>connection_resumed</name></member>
+    <member refid="struct_g_g_p_o_event_1a1fd1a6a677102cb0925f31822cfbf3c3" kind="variable"><name>u</name></member>
+  </compound>
+  <compound refid="struct_g_g_p_o_local_endpoint" kind="struct"><name>GGPOLocalEndpoint</name>
+    <member refid="struct_g_g_p_o_local_endpoint_1a750a1c8a30b08603d277ac59df8b4699" kind="variable"><name>player_num</name></member>
+  </compound>
+  <compound refid="class_g_g_p_o_net" kind="class"><name>GGPONet</name>
+    <member refid="class_g_g_p_o_net_1a764f0887499d69dee20a0f3848a003fb" kind="function"><name>ggpo_start_session</name></member>
+    <member refid="class_g_g_p_o_net_1a5a142c4e0c53dc50bfb9172814b03b3a" kind="function"><name>ggpo_add_player</name></member>
+    <member refid="class_g_g_p_o_net_1af8a4743d829856696e74a78e95b82e49" kind="function"><name>ggpo_start_synctest</name></member>
+    <member refid="class_g_g_p_o_net_1a2c3950921733ee07306d1dbf26bd6b60" kind="function"><name>ggpo_start_spectating</name></member>
+    <member refid="class_g_g_p_o_net_1a9183f3e494a0549b0f8a9c26a3ff4584" kind="function"><name>ggpo_close_session</name></member>
+    <member refid="class_g_g_p_o_net_1abae6c50b1d12ad18f36602acfd8a9b82" kind="function"><name>ggpo_set_frame_delay</name></member>
+    <member refid="class_g_g_p_o_net_1a47b24019771b90d17bac9d74ce25a7f3" kind="function"><name>ggpo_idle</name></member>
+    <member refid="class_g_g_p_o_net_1af921a7ba983c6837846ada85377297a5" kind="function"><name>ggpo_add_local_input</name></member>
+    <member refid="class_g_g_p_o_net_1ad1e4722f50a76f861c23794706744f50" kind="function"><name>ggpo_synchronize_input</name></member>
+    <member refid="class_g_g_p_o_net_1a96581c8189e0398006e2b57fd48a59ae" kind="function"><name>ggpo_disconnect_player</name></member>
+    <member refid="class_g_g_p_o_net_1a9aa5dd3ece1296ef7d5229c58a2407bf" kind="function"><name>ggpo_advance_frame</name></member>
+    <member refid="class_g_g_p_o_net_1ad472ad388d930524ce772f722fbda861" kind="function"><name>ggpo_get_network_stats</name></member>
+    <member refid="class_g_g_p_o_net_1adf0ed400adb0e1f7ad147c80e7e47d50" kind="function"><name>ggpo_set_disconnect_timeout</name></member>
+    <member refid="class_g_g_p_o_net_1ada843eb75d343e7da021605822428007" kind="function"><name>ggpo_set_disconnect_notify_start</name></member>
+    <member refid="class_g_g_p_o_net_1a3fd17901f8e85a02d486ca3bcb0e3517" kind="function"><name>ggpo_try_synchronize_local</name></member>
+  </compound>
+  <compound refid="struct_g_g_p_o_player" kind="struct"><name>GGPOPlayer</name>
+    <member refid="struct_g_g_p_o_player_1aba11e66cf202a722b1bcb2c1de62855b" kind="variable"><name>size</name></member>
+    <member refid="struct_g_g_p_o_player_1ac9c9f61171c94928fbe236eabae15ec3" kind="variable"><name>type</name></member>
+    <member refid="struct_g_g_p_o_player_1a95e42a2e001e5cee78870fed9b0bf15c" kind="variable"><name>player_num</name></member>
+    <member refid="struct_g_g_p_o_player_1a5873c88d598686e4972162f570710f8c" kind="variable"><name>connection_id</name></member>
+  </compound>
+  <compound refid="struct_g_g_p_o_session" kind="struct"><name>GGPOSession</name>
+    <member refid="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" kind="function"><name>~GGPOSession</name></member>
+    <member refid="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26" kind="function"><name>DoPoll</name></member>
+    <member refid="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763" kind="function"><name>AddPlayer</name></member>
+    <member refid="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100" kind="function"><name>AddLocalInput</name></member>
+    <member refid="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618" kind="function"><name>SyncInput</name></member>
+    <member refid="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1" kind="function"><name>IncrementFrame</name></member>
+    <member refid="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" kind="function"><name>Chat</name></member>
+    <member refid="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515" kind="function"><name>DisconnectPlayer</name></member>
+    <member refid="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15" kind="function"><name>GetNetworkStats</name></member>
+    <member refid="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53" kind="function"><name>Logv</name></member>
+    <member refid="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214" kind="function"><name>SetFrameDelay</name></member>
+    <member refid="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16" kind="function"><name>SetDisconnectTimeout</name></member>
+    <member refid="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c" kind="function"><name>SetDisconnectNotifyStart</name></member>
+    <member refid="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc" kind="function"><name>TrySynchronizeLocal</name></member>
+  </compound>
+  <compound refid="struct_g_g_p_o_session_callbacks" kind="struct"><name>GGPOSessionCallbacks</name>
+    <member refid="struct_g_g_p_o_session_callbacks_1ab22c621b726c2c4bc802ddafc71f496b" kind="variable"><name>len</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a154765943509572c16755d16e4df6ff9" kind="variable"><name>checksum</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1affb7edc7fa899c7648ae63f96945c924" kind="variable"><name>frame</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1abbdf7ce10db85356b30eaac690c9fcd0" kind="variable"><name>len</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a0e75e49bc8fc402515c75052f90f6c6e" kind="variable"><name>buffer</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1ad145d9311aaaf785f3976a5dac57fbaa" kind="variable"><name>len</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a330c83351d35bd72d2d3cb44dc09a4c8" kind="function"><name>bool</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a8b7e769e99f01a3bd2f99f0829c3935e" kind="function"><name>bool</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a0a63fb55bfb7497701ebf530367fc98b" kind="function"><name>bool</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1afca4b53ef99d1f3ba7ab1c7c238d0e20" kind="function"><name>bool</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a0a974590c4d41e0e48367c17698fd14f" kind="function"><name>void</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a73b75811a76ef66f78f9d91a46574a4c" kind="function"><name>bool</name></member>
+    <member refid="struct_g_g_p_o_session_callbacks_1a85d7dcb70d05d162332d36e81d800fd1" kind="function"><name>bool</name></member>
+  </compound>
+  <compound refid="class_input_queue" kind="class"><name>InputQueue</name>
+    <member refid="class_input_queue_1a78e10ae9ba598b275091ad5a9937a8f8" kind="variable"><name>_id</name></member>
+    <member refid="class_input_queue_1aac3cc879fab0a83b90ed88741c3da597" kind="variable"><name>_head</name></member>
+    <member refid="class_input_queue_1ad9b7abd6bb45f4b93796d0bd2e870d68" kind="variable"><name>_tail</name></member>
+    <member refid="class_input_queue_1aeaaf7cb2743aa9cb9fb5623dd2f4c4d1" kind="variable"><name>_length</name></member>
+    <member refid="class_input_queue_1af407535c197c98f3ce68ed021f115d24" kind="variable"><name>_first_frame</name></member>
+    <member refid="class_input_queue_1aeca81c41d099381e88b5e53187f37da8" kind="variable"><name>_last_user_added_frame</name></member>
+    <member refid="class_input_queue_1a5a62598a9d656ed5be8c837d1fffccf4" kind="variable"><name>_last_added_frame</name></member>
+    <member refid="class_input_queue_1ace9c6f4a852ec323638addfabed0065c" kind="variable"><name>_first_incorrect_frame</name></member>
+    <member refid="class_input_queue_1aec25a89a4de3f49e4aa0230b91316420" kind="variable"><name>_last_frame_requested</name></member>
+    <member refid="class_input_queue_1a2bf206243aa5ed595c0e474f8ff2e148" kind="variable"><name>_frame_delay</name></member>
+    <member refid="class_input_queue_1a8206845b7f7c659d140ad1327c2b11aa" kind="variable"><name>_inputs</name></member>
+    <member refid="class_input_queue_1a11cf5a0be06432c18accb5d77972d139" kind="variable"><name>_prediction</name></member>
+    <member refid="class_input_queue_1a8a1266e61889fbb5720532affc6a0ad5" kind="function"><name>InputQueue</name></member>
+    <member refid="class_input_queue_1a96b7b70ff860828b5efb01ff77da2a90" kind="function"><name>~InputQueue</name></member>
+    <member refid="class_input_queue_1a325851898a73d1226c35b4cb68a32676" kind="function"><name>Init</name></member>
+    <member refid="class_input_queue_1ab1a43e113e5da8dd2fe68d7f1c444329" kind="function"><name>GetLastConfirmedFrame</name></member>
+    <member refid="class_input_queue_1abc8e179cc7c3b3fa2fdee5b86c4c2d93" kind="function"><name>GetFirstIncorrectFrame</name></member>
+    <member refid="class_input_queue_1a841e1bd5979b937ac5081772ed1ea406" kind="function"><name>GetLength</name></member>
+    <member refid="class_input_queue_1a7b425a95faf46a088a665c96ca075128" kind="function"><name>SetFrameDelay</name></member>
+    <member refid="class_input_queue_1a14e178a095c8500f144096195b4cf9d7" kind="function"><name>ResetPrediction</name></member>
+    <member refid="class_input_queue_1af4f9579e35165f9d84692856deb4726a" kind="function"><name>DiscardConfirmedFrames</name></member>
+    <member refid="class_input_queue_1a682dfe8eb6d93f5da8acd53fda0806ae" kind="function"><name>GetConfirmedInput</name></member>
+    <member refid="class_input_queue_1af31f79bbed89d70abcb10d40202551cd" kind="function"><name>GetInput</name></member>
+    <member refid="class_input_queue_1a9cfffc951c0bf3ee259b90fc3ac1e94c" kind="function"><name>AddInput</name></member>
+    <member refid="class_input_queue_1ada1d5dd6560d11137e42124051510e6c" kind="function"><name>AdvanceQueueHead</name></member>
+    <member refid="class_input_queue_1a6c296a4071e39b04d1f9c7ac77afd531" kind="function"><name>AddDelayedInputToQueue</name></member>
+    <member refid="class_input_queue_1a5cd114f3f1258ee7e49f4b7dddc0c875" kind="function"><name>Log</name></member>
+  </compound>
+  <compound refid="structinternal__state" kind="struct"><name>internal_state</name>
+    <member refid="structinternal__state_1ab000a3e3c901dd063859521988ad7e52" kind="variable"><name>dummy</name></member>
+  </compound>
+  <compound refid="class_i_poll_sink" kind="class"><name>IPollSink</name>
+    <member refid="class_i_poll_sink_1a6254d40907f5c3e7db3baea80b71e5a5" kind="function"><name>~IPollSink</name></member>
+    <member refid="class_i_poll_sink_1aab81d52926d439740ab423db5e3b556c" kind="function"><name>OnHandlePoll</name></member>
+    <member refid="class_i_poll_sink_1a7c94a054d4cd962abbc444cc75ec65f4" kind="function"><name>OnMsgPoll</name></member>
+    <member refid="class_i_poll_sink_1a8e333d0677fc88a2852e4002c14ce93f" kind="function"><name>OnPeriodicPoll</name></member>
+    <member refid="class_i_poll_sink_1a6ce7971591eae8e79885c638df113eea" kind="function"><name>OnLoopPoll</name></member>
+  </compound>
+  <compound refid="structneosmart_1_1neosmart__event__t__" kind="struct"><name>neosmart::neosmart_event_t_</name>
+    <member refid="structneosmart_1_1neosmart__event__t___1a6f6faf9d30fda8b3c50c464aab9cf13e" kind="variable"><name>CVariable</name></member>
+    <member refid="structneosmart_1_1neosmart__event__t___1a896c85d4171b6c01871787e0aa01e470" kind="variable"><name>Mutex</name></member>
+    <member refid="structneosmart_1_1neosmart__event__t___1a6ba38a51cb70ee3621a3672df454e9b5" kind="variable"><name>AutoReset</name></member>
+    <member refid="structneosmart_1_1neosmart__event__t___1aa12848eb92b875733ad3315fce730cb0" kind="variable"><name>State</name></member>
+    <member refid="structneosmart_1_1neosmart__event__t___1a1819863d5f028e8eeb0b1da38591ae40" kind="variable"><name>RegisteredWaits</name></member>
+  </compound>
+  <compound refid="structneosmart_1_1neosmart__wfmo__info__t__" kind="struct"><name>neosmart::neosmart_wfmo_info_t_</name>
+    <member refid="structneosmart_1_1neosmart__wfmo__info__t___1a7f11d43e64534d4f103e0f5b2dda9f00" kind="variable"><name>Waiter</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__info__t___1a9b0bdbbc65b4875cf38af7c46619106e" kind="variable"><name>WaitIndex</name></member>
+  </compound>
+  <compound refid="structneosmart_1_1neosmart__wfmo__t__" kind="struct"><name>neosmart::neosmart_wfmo_t_</name>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a3ad19a262b12391834df2d445b4f7138" kind="variable"><name>Mutex</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1ad2fda7f37bcf50e01e321d706b155fa9" kind="variable"><name>CVariable</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a44392e2588dc437bd58756f5d21a5240" kind="variable"><name>RefCount</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a602c336f68f699915f1028b52ae6c433" kind="variable"><name>FiredEvent</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1ac8366f0778ac642cb402dad15156a80a" kind="variable"><name>EventsLeft</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a99e5d6b2421cb3e36606f914185673fe" kind="variable"><name>Status</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a817647e78f0e9ee1f98e08105bcbbebb" kind="variable"><name>WaitAll</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1aa586838c5cd8acc08d19d1dedf99cfe2" kind="variable"><name>StillWaiting</name></member>
+    <member refid="structneosmart_1_1neosmart__wfmo__t___1a3dbaa8b0e0e616f6738ccf6914a7a861" kind="function"><name>Destroy</name></member>
+  </compound>
+  <compound refid="class_peer2_peer_backend" kind="class"><name>Peer2PeerBackend</name>
+    <member refid="class_peer2_peer_backend_1a0dc9361321dd374054849c06d64305be" kind="variable"><name>remoteplayerId</name></member>
+    <member refid="class_peer2_peer_backend_1adde83ceaf5102d1648b277fc88c96e27" kind="variable"><name>remoteplayerQueueu</name></member>
+    <member refid="class_peer2_peer_backend_1a116abbcb9c3162208504a8315e71a1fa" kind="variable"><name>_callbacks</name></member>
+    <member refid="class_peer2_peer_backend_1a97ea883226ee6c196be22f3eba52caf0" kind="variable"><name>_poll</name></member>
+    <member refid="class_peer2_peer_backend_1ae46371640b9de01db60fbc098b94d79a" kind="variable"><name>_sync</name></member>
+    <member refid="class_peer2_peer_backend_1a58e88d206fa85a9c81aded8dbdd593f5" kind="variable"><name>_udp</name></member>
+    <member refid="class_peer2_peer_backend_1a2a97f1f1e89de359b6e113c6c7bba29f" kind="variable"><name>_endpoints</name></member>
+    <member refid="class_peer2_peer_backend_1a3d5885698dd655fc9379cf3756083dd6" kind="variable"><name>_spectators</name></member>
+    <member refid="class_peer2_peer_backend_1adc97b9017880dcff2f4c314a200f01d7" kind="variable"><name>_num_spectators</name></member>
+    <member refid="class_peer2_peer_backend_1aedfbc7e179a3d7144381c952286a9937" kind="variable"><name>_input_size</name></member>
+    <member refid="class_peer2_peer_backend_1aa42b65f65e5b83f8929bc223cf176a29" kind="variable"><name>_synchronizing</name></member>
+    <member refid="class_peer2_peer_backend_1a7426d5145f4f705bc49ce63d085f8b99" kind="variable"><name>_num_players</name></member>
+    <member refid="class_peer2_peer_backend_1a31c52226eaba3c038fe0da139707c81b" kind="variable"><name>_next_recommended_sleep</name></member>
+    <member refid="class_peer2_peer_backend_1aaeacdd52d53b9f48f35b7127d80673c9" kind="variable"><name>_next_spectator_frame</name></member>
+    <member refid="class_peer2_peer_backend_1a4a6a2900c246e92b5679db1e1ad45ebe" kind="variable"><name>_disconnect_timeout</name></member>
+    <member refid="class_peer2_peer_backend_1a7ca43504959460c18aa550d1466284ec" kind="variable"><name>_disconnect_notify_start</name></member>
+    <member refid="class_peer2_peer_backend_1a5741275ad0ae3d77751d312ea4c2cfaf" kind="variable"><name>_local_connect_status</name></member>
+    <member refid="class_peer2_peer_backend_1a000949c4b8af9e6568f6c7cb73258cff" kind="function"><name>Peer2PeerBackend</name></member>
+    <member refid="class_peer2_peer_backend_1aa6d7da48cc55a0a6605332912c2930a6" kind="function"><name>~Peer2PeerBackend</name></member>
+    <member refid="class_peer2_peer_backend_1a89d44cfc270cf0f5ac7bbddd7c72a385" kind="function"><name>DoPoll</name></member>
+    <member refid="class_peer2_peer_backend_1adefc9597dfadffc2d8420b33863f0d7b" kind="function"><name>AddPlayer</name></member>
+    <member refid="class_peer2_peer_backend_1ada462fb9ef656f0118d3fce3952e8ecf" kind="function"><name>AddLocalInput</name></member>
+    <member refid="class_peer2_peer_backend_1a131cd86c1d0874e3c5a3af24dc25faec" kind="function"><name>SyncInput</name></member>
+    <member refid="class_peer2_peer_backend_1ac0d1108adefac427e49e8008030e7427" kind="function"><name>IncrementFrame</name></member>
+    <member refid="class_peer2_peer_backend_1ad05f1d66b90a6fb21f2cd7a95351414d" kind="function"><name>DisconnectPlayer</name></member>
+    <member refid="class_peer2_peer_backend_1aedede95e79482412a12e89f8f62ea5ae" kind="function"><name>GetNetworkStats</name></member>
+    <member refid="class_peer2_peer_backend_1a0c4377e972ccb231cc7b1084a274fc32" kind="function"><name>SetFrameDelay</name></member>
+    <member refid="class_peer2_peer_backend_1a78b5f9c18b3169e6a46dab56aa3a951a" kind="function"><name>SetDisconnectTimeout</name></member>
+    <member refid="class_peer2_peer_backend_1a849ba8c143087843b591437ba5c61e03" kind="function"><name>SetDisconnectNotifyStart</name></member>
+    <member refid="class_peer2_peer_backend_1a3dd8591fef0a94703f8231ec67bffb1b" kind="function"><name>TrySynchronizeLocal</name></member>
+    <member refid="class_peer2_peer_backend_1a76a49db5e89b461cdcba14ad03ef5395" kind="function"><name>OnMsg</name></member>
+    <member refid="class_peer2_peer_backend_1a4ac5629049e540b5ce65dc4f548c7543" kind="function"><name>PlayerHandleToQueue</name></member>
+    <member refid="class_peer2_peer_backend_1a2c301c7c2354303fa1f1ec0bd373dd79" kind="function"><name>QueueToPlayerHandle</name></member>
+    <member refid="class_peer2_peer_backend_1a1e0d2dbc00cb6fe8c68a10c4e5591ae0" kind="function"><name>QueueToSpectatorHandle</name></member>
+    <member refid="class_peer2_peer_backend_1aa790931612bbb378baab55b85e318d03" kind="function"><name>DisconnectPlayerQueue</name></member>
+    <member refid="class_peer2_peer_backend_1acd93f433bd457b4821ef2862d173a15a" kind="function"><name>PollSyncEvents</name></member>
+    <member refid="class_peer2_peer_backend_1a5f3141e7dd7ac3d4b9a141e589ddb7e7" kind="function"><name>PollUdpProtocolEvents</name></member>
+    <member refid="class_peer2_peer_backend_1abd0829b5121db804c8e1c56e206a8502" kind="function"><name>CheckInitialSync</name></member>
+    <member refid="class_peer2_peer_backend_1a92c664b0093583f09db969b42b9e1d62" kind="function"><name>Poll2Players</name></member>
+    <member refid="class_peer2_peer_backend_1a0ffff1f3958d76d493feb8fb65f754d0" kind="function"><name>PollNPlayers</name></member>
+    <member refid="class_peer2_peer_backend_1ab98c271ea0c49913805c816c015cb027" kind="function"><name>AddRemotePlayer</name></member>
+    <member refid="class_peer2_peer_backend_1acb2b25e80ff3d487fdfe7c79a4ff61b6" kind="function"><name>AddSpectator</name></member>
+    <member refid="class_peer2_peer_backend_1a1ecff1111278ba09f4049029e4961e6d" kind="function"><name>OnSyncEvent</name></member>
+    <member refid="class_peer2_peer_backend_1adb3978f68dc4e8043b27e9c45ed505f1" kind="function"><name>OnUdpProtocolEvent</name></member>
+    <member refid="class_peer2_peer_backend_1a70f37cbbe2acdd94788b446145c0b927" kind="function"><name>OnUdpProtocolPeerEvent</name></member>
+    <member refid="class_peer2_peer_backend_1a4231e06a8892d42197978823f431f455" kind="function"><name>OnUdpProtocolSpectatorEvent</name></member>
+  </compound>
+  <compound refid="class_poll" kind="class"><name>Poll</name>
+    <member refid="class_poll_1a82019e897faaeff2b777d7cf4acb85f0" kind="variable"><name>_start_time</name></member>
+    <member refid="class_poll_1aa6292f97a216e39cdc487a3c0686806b" kind="variable"><name>_handle_count</name></member>
+    <member refid="class_poll_1aece05a5298d18935aa92672760c88a60" kind="variable"><name>_handles</name></member>
+    <member refid="class_poll_1a498f286f2fea3ca652aacfa7a80cfd64" kind="variable"><name>_handle_sinks</name></member>
+    <member refid="class_poll_1a5bd0a611bcffffac3c124c6095e2add1" kind="variable"><name>_msg_sinks</name></member>
+    <member refid="class_poll_1ab83bc92ec3bca595a0c43cee0db645af" kind="variable"><name>_loop_sinks</name></member>
+    <member refid="class_poll_1a6d7a55f2521c74a46a063fee553fea75" kind="variable"><name>_periodic_sinks</name></member>
+    <member refid="class_poll_1ab6b46fe6a27d7dc73b0e10dc854f32ce" kind="function"><name>Poll</name></member>
+    <member refid="class_poll_1a2d73146370a708871a8e24a57bf19b5a" kind="function"><name>RegisterHandle</name></member>
+    <member refid="class_poll_1a14439e08f890692b968affb158f8f418" kind="function"><name>RegisterMsgLoop</name></member>
+    <member refid="class_poll_1acefd5598689f56ba4d44b48f82374f83" kind="function"><name>RegisterPeriodic</name></member>
+    <member refid="class_poll_1a6a9841d49ea7802258ef127f5d742eb1" kind="function"><name>RegisterLoop</name></member>
+    <member refid="class_poll_1a46c22d427120f6c0132da9223664ee14" kind="function"><name>Run</name></member>
+    <member refid="class_poll_1ad55603d38999f860d834762a1e280286" kind="function"><name>Pump</name></member>
+    <member refid="class_poll_1a2b23d74146c9d3d0dc2e2e760a067c0d" kind="function"><name>ComputeWaitTime</name></member>
+  </compound>
+  <compound refid="struct_poll_1_1_poll_periodic_sink_cb" kind="struct"><name>Poll::PollPeriodicSinkCb</name>
+    <member refid="struct_poll_1_1_poll_periodic_sink_cb_1a5ef6d571c2f68cbce6ab0fd113da8edc" kind="variable"><name>interval</name></member>
+    <member refid="struct_poll_1_1_poll_periodic_sink_cb_1a76b61c2c1bc8a1bd248dbc7321b18c4e" kind="variable"><name>last_fired</name></member>
+    <member refid="struct_poll_1_1_poll_periodic_sink_cb_1a58c5a507d8085ef4ef8e950b46c1361d" kind="function"><name>PollPeriodicSinkCb</name></member>
+    <member refid="struct_poll_1_1_poll_periodic_sink_cb_1a80ac83183b5d85e6904e8e99cba78c71" kind="function"><name>PollPeriodicSinkCb</name></member>
+  </compound>
+  <compound refid="struct_poll_1_1_poll_sink_cb" kind="struct"><name>Poll::PollSinkCb</name>
+    <member refid="struct_poll_1_1_poll_sink_cb_1af149f17638f28c30dd12dd366c100e5b" kind="variable"><name>sink</name></member>
+    <member refid="struct_poll_1_1_poll_sink_cb_1a99816ffc772e3c3a099f87e24922423d" kind="variable"><name>cookie</name></member>
+    <member refid="struct_poll_1_1_poll_sink_cb_1aaee52cdb0c7bb12923df7034d778ab62" kind="function"><name>PollSinkCb</name></member>
+    <member refid="struct_poll_1_1_poll_sink_cb_1ad7ba02622fda04075c5bc832806d1923" kind="function"><name>PollSinkCb</name></member>
+  </compound>
+  <compound refid="struct_udp_protocol_1_1_queue_entry" kind="struct"><name>UdpProtocol::QueueEntry</name>
+    <member refid="struct_udp_protocol_1_1_queue_entry_1a673587a029a91e5906882010b906b279" kind="variable"><name>queue_time</name></member>
+    <member refid="struct_udp_protocol_1_1_queue_entry_1af26a3b25e267de244bf84b5b8bf576ec" kind="variable"><name>connection_id</name></member>
+    <member refid="struct_udp_protocol_1_1_queue_entry_1a0ac1079407b6d04deadd27eed8cce145" kind="variable"><name>msg</name></member>
+    <member refid="struct_udp_protocol_1_1_queue_entry_1ac47eec270a697cd73a90fe449c5ee9f5" kind="function"><name>QueueEntry</name></member>
+    <member refid="struct_udp_protocol_1_1_queue_entry_1a3a95c57e32d48b1f938bbb8a0f943f05" kind="function"><name>QueueEntry</name></member>
+  </compound>
+  <compound refid="class_ring_buffer" kind="class"><name>RingBuffer</name>
+    <member refid="class_ring_buffer_1a1aebddfc26caf86596879238d66638f4" kind="variable"><name>_elements</name></member>
+    <member refid="class_ring_buffer_1a23f32fb3f92b26b48c5f046b07cd2eba" kind="variable"><name>_head</name></member>
+    <member refid="class_ring_buffer_1ace705ccea22e9e9138a45d34d0542e8b" kind="variable"><name>_tail</name></member>
+    <member refid="class_ring_buffer_1a22b178963f9fbfac900a817ed2d3dc1c" kind="variable"><name>_size</name></member>
+    <member refid="class_ring_buffer_1a3a714890d98de4f9fd0f26295dd483ca" kind="function"><name>RingBuffer</name></member>
+    <member refid="class_ring_buffer_1a580989755a99114b07a93841c5385597" kind="function"><name>front</name></member>
+    <member refid="class_ring_buffer_1a1c596b94a0053c650121b89833bd4acd" kind="function"><name>item</name></member>
+    <member refid="class_ring_buffer_1a02bea387f5c1981b615fe7f694f63279" kind="function"><name>pop</name></member>
+    <member refid="class_ring_buffer_1a4cd8e6a74611e88a34c494e761f7c32c" kind="function"><name>push</name></member>
+    <member refid="class_ring_buffer_1a3cf5bb1fdc9df1819dfba3e91b017f57" kind="function"><name>size</name></member>
+    <member refid="class_ring_buffer_1aeb444add9bfefe5ca744bb06c282a9bd" kind="function"><name>empty</name></member>
+  </compound>
+  <compound refid="struct_sync_1_1_saved_frame" kind="struct"><name>Sync::SavedFrame</name>
+    <member refid="struct_sync_1_1_saved_frame_1aec3b83a216c7211f5e88f3d7b9553ef2" kind="variable"><name>buf</name></member>
+    <member refid="struct_sync_1_1_saved_frame_1a854bbfc7b20480686401f925c64f192a" kind="variable"><name>cbuf</name></member>
+    <member refid="struct_sync_1_1_saved_frame_1a676883242fd6cedeac17d52517ad6105" kind="variable"><name>frame</name></member>
+    <member refid="struct_sync_1_1_saved_frame_1a31230f5845eff46b1a907347a1c447c1" kind="variable"><name>checksum</name></member>
+    <member refid="struct_sync_1_1_saved_frame_1acba43a0cba1fee2bdd2641d5773c6b0b" kind="function"><name>SavedFrame</name></member>
+  </compound>
+  <compound refid="struct_sync_test_backend_1_1_saved_info" kind="struct"><name>SyncTestBackend::SavedInfo</name>
+    <member refid="struct_sync_test_backend_1_1_saved_info_1a519dd0abde2daee26deca954b7e665bc" kind="variable"><name>frame</name></member>
+    <member refid="struct_sync_test_backend_1_1_saved_info_1a7ac10e97ba06c459cdbd1a1b776fde4d" kind="variable"><name>checksum</name></member>
+    <member refid="struct_sync_test_backend_1_1_saved_info_1a255d74cbb5dfbfbe98548081739984ee" kind="variable"><name>buf</name></member>
+    <member refid="struct_sync_test_backend_1_1_saved_info_1a0b4b0bf286c457aa62349a8aa41c7489" kind="variable"><name>cbuf</name></member>
+    <member refid="struct_sync_test_backend_1_1_saved_info_1a6d8a4b38eb693f1e247e160222b113b0" kind="variable"><name>input</name></member>
+  </compound>
+  <compound refid="struct_sync_1_1_saved_state" kind="struct"><name>Sync::SavedState</name>
+    <member refid="struct_sync_1_1_saved_state_1ae92b9dace371415356b8bcc6436667ae" kind="variable"><name>frames</name></member>
+    <member refid="struct_sync_1_1_saved_state_1a09e3c03b8709b9e39baecdeedb74bd0e" kind="variable"><name>head</name></member>
+  </compound>
+  <compound refid="class_spectator_backend" kind="class"><name>SpectatorBackend</name>
+    <member refid="class_spectator_backend_1a9ac33ffca87440b1e3477fbc5f13697a" kind="variable"><name>_callbacks</name></member>
+    <member refid="class_spectator_backend_1a318a3a0c715c95ebcaed04da7be4762d" kind="variable"><name>_poll</name></member>
+    <member refid="class_spectator_backend_1aa5934b1fcf5a055253bb83643f089234" kind="variable"><name>_udp</name></member>
+    <member refid="class_spectator_backend_1a3b5463f5d55699a733fa676a40bea19f" kind="variable"><name>_host</name></member>
+    <member refid="class_spectator_backend_1ac90e654e04f5c9a2e6fcb3b34aa6032d" kind="variable"><name>_synchronizing</name></member>
+    <member refid="class_spectator_backend_1a914248806fb452ebf3d9a23f8c7086bd" kind="variable"><name>_input_size</name></member>
+    <member refid="class_spectator_backend_1a3a49edb6af672e03872f6fac7235a37f" kind="variable"><name>_num_players</name></member>
+    <member refid="class_spectator_backend_1a41505ab0f26d85f34a8eb086a265c715" kind="variable"><name>_next_input_to_send</name></member>
+    <member refid="class_spectator_backend_1af726e2ed84ec6bbae202ee4b333a64ec" kind="variable"><name>_inputs</name></member>
+    <member refid="class_spectator_backend_1ab790c81f9e2abf9ed787c0fbdd37aad2" kind="function"><name>SpectatorBackend</name></member>
+    <member refid="class_spectator_backend_1a893c0d3fc582a34d1abaa1d083d80750" kind="function"><name>~SpectatorBackend</name></member>
+    <member refid="class_spectator_backend_1a7be7cb835ef37ba23c8b592f715e8d2a" kind="function"><name>DoPoll</name></member>
+    <member refid="class_spectator_backend_1aeeb6dd6764923ac97cd68dec399de1e1" kind="function"><name>AddPlayer</name></member>
+    <member refid="class_spectator_backend_1a7caad5ddc6f81a4a2c0e3e33c5a247d1" kind="function"><name>AddLocalInput</name></member>
+    <member refid="class_spectator_backend_1a31870fa76d5033b34a66cae638821606" kind="function"><name>SyncInput</name></member>
+    <member refid="class_spectator_backend_1a233b1329d4b4e4fe590e2f5c9fbe29b4" kind="function"><name>IncrementFrame</name></member>
+    <member refid="class_spectator_backend_1addae89b72a69582c7ddf14068f9f4303" kind="function"><name>DisconnectPlayer</name></member>
+    <member refid="class_spectator_backend_1a5a6f600fb59e84bbbf1f5a23e872e952" kind="function"><name>GetNetworkStats</name></member>
+    <member refid="class_spectator_backend_1ac705008965f25c800083921976d92a4e" kind="function"><name>SetFrameDelay</name></member>
+    <member refid="class_spectator_backend_1ade1452a1cdefce35a2f04a1a414fa3e5" kind="function"><name>SetDisconnectTimeout</name></member>
+    <member refid="class_spectator_backend_1a0beb752b9732f87eeb0a453bc802bb0a" kind="function"><name>SetDisconnectNotifyStart</name></member>
+    <member refid="class_spectator_backend_1a597a8c30a4c86d5becf050a5be6dff2b" kind="function"><name>OnMsg</name></member>
+    <member refid="class_spectator_backend_1a80190fb665bdae3ef85908c26097452c" kind="function"><name>PollUdpProtocolEvents</name></member>
+    <member refid="class_spectator_backend_1a5841dc8cdef0f8543f1181e9696e71bd" kind="function"><name>CheckInitialSync</name></member>
+    <member refid="class_spectator_backend_1afbab90efc2da67fa64624a543f7998f5" kind="function"><name>OnUdpProtocolEvent</name></member>
+  </compound>
+  <compound refid="class_static_buffer" kind="class"><name>StaticBuffer</name>
+    <member refid="class_static_buffer_1a1731f9d31743b9eb28f0f8cf90395170" kind="variable"><name>_elements</name></member>
+    <member refid="class_static_buffer_1ab12188c417259118975fc38f3446d251" kind="variable"><name>_size</name></member>
+    <member refid="class_static_buffer_1a1cc24ccc0e3a15325e485a85e7618d1b" kind="function"><name>StaticBuffer</name></member>
+    <member refid="class_static_buffer_1a639245e1149374115f1a70a21a60fc02" kind="function"><name>operator[]</name></member>
+    <member refid="class_static_buffer_1ae28e15d0d30721b0f376ddbf208130d3" kind="function"><name>push_back</name></member>
+    <member refid="class_static_buffer_1a86ced6f66f56d7b1386ec7c1821b72d2" kind="function"><name>size</name></member>
+  </compound>
+  <compound refid="struct_udp_1_1_stats" kind="struct"><name>Udp::Stats</name>
+    <member refid="struct_udp_1_1_stats_1a492aea1e70aefe05f4bf4131b3a55d9d" kind="variable"><name>bytes_sent</name></member>
+    <member refid="struct_udp_1_1_stats_1a8161c273d0053ef347cba1c5ae9d03e1" kind="variable"><name>packets_sent</name></member>
+    <member refid="struct_udp_1_1_stats_1a9ac588ddfe1722d6c8ae466a60f5cc96" kind="variable"><name>kbps_sent</name></member>
+  </compound>
+  <compound refid="struct_udp_protocol_1_1_stats" kind="struct"><name>UdpProtocol::Stats</name>
+    <member refid="struct_udp_protocol_1_1_stats_1aa0cc8549e10575e77dc85c5cb3989e68" kind="variable"><name>ping</name></member>
+    <member refid="struct_udp_protocol_1_1_stats_1a061a6995807f632407eecc7866e29bce" kind="variable"><name>remote_frame_advantage</name></member>
+    <member refid="struct_udp_protocol_1_1_stats_1a8f2b9eedc321b6f5893e0c497747fcb3" kind="variable"><name>local_frame_advantage</name></member>
+    <member refid="struct_udp_protocol_1_1_stats_1ab70f2222f38a03ea6bb939d0aabc100d" kind="variable"><name>send_queue_len</name></member>
+    <member refid="struct_udp_protocol_1_1_stats_1ad72b6fe5d7f757b3f4deadd37103a53e" kind="variable"><name>udp</name></member>
+  </compound>
+  <compound refid="class_sync" kind="class"><name>Sync</name>
+    <member refid="class_sync_1a5af2dc107ce2719525b23f97a2f5a424" kind="variable"><name>SyncTestBackend</name></member>
+    <member refid="class_sync_1a0187e3a4f56df05938d08a5015804bbd" kind="variable"><name>_callbacks</name></member>
+    <member refid="class_sync_1a882e90b96918e8daa5ca7918c421d928" kind="variable"><name>_savedstate</name></member>
+    <member refid="class_sync_1a8433275cf6fa058b14eccf64beb2edb4" kind="variable"><name>_config</name></member>
+    <member refid="class_sync_1ad278a795ecae2776c19504d16c85f83b" kind="variable"><name>_rollingback</name></member>
+    <member refid="class_sync_1a1338efd7bccf931d2b726ad322209e40" kind="variable"><name>_last_confirmed_frame</name></member>
+    <member refid="class_sync_1a20a5ba80bdf746dad1a6907fac95ca27" kind="variable"><name>_framecount</name></member>
+    <member refid="class_sync_1a40dad52df9a569fdd82e7f43b28050ce" kind="variable"><name>_max_prediction_frames</name></member>
+    <member refid="class_sync_1ad8eb4c10ef7833078cfd239cc05f745b" kind="variable"><name>_input_queues</name></member>
+    <member refid="class_sync_1a1a72468690a342063346bb2e2ef02d45" kind="variable"><name>_event_queue</name></member>
+    <member refid="class_sync_1a2d78921713beb69cfd0d0cc45e35105c" kind="variable"><name>_local_connect_status</name></member>
+    <member refid="class_sync_1a1b29e385898c7954045ebbba58b06c1b" kind="function"><name>Sync</name></member>
+    <member refid="class_sync_1a20785d8f916197bd0381d805289bf9f4" kind="function"><name>~Sync</name></member>
+    <member refid="class_sync_1a939c3cf3ff1b49832fcc60736cdecaf5" kind="function"><name>Init</name></member>
+    <member refid="class_sync_1ae6c0d6a891aa93f6f8501c2434a1ea67" kind="function"><name>SetLastConfirmedFrame</name></member>
+    <member refid="class_sync_1a0f6d719c4ee41cc599ba27a6a6baa827" kind="function"><name>SetFrameDelay</name></member>
+    <member refid="class_sync_1ab92e564172d42d7d64b9f21e46d0c2ae" kind="function"><name>AddLocalInput</name></member>
+    <member refid="class_sync_1ae60f245482e000c57386e99b5d541b27" kind="function"><name>AddRemoteInput</name></member>
+    <member refid="class_sync_1af5e00cfc3146570e85f9ae39c0d3a5c4" kind="function"><name>GetConfirmedInputs</name></member>
+    <member refid="class_sync_1a976cddad3e8c25f4fd6d2904bf85d065" kind="function"><name>SynchronizeInputs</name></member>
+    <member refid="class_sync_1a0cadd03b33350450d2a5240191f1a5e8" kind="function"><name>CheckSimulation</name></member>
+    <member refid="class_sync_1aefc861128703b840c3f92c34713d0622" kind="function"><name>AdjustSimulation</name></member>
+    <member refid="class_sync_1abb0614a77357e3ea3ef44711a05f776e" kind="function"><name>IncrementFrame</name></member>
+    <member refid="class_sync_1aaeec98ea7b67eef9cd7f7bb29daea2c3" kind="function"><name>GetFrameCount</name></member>
+    <member refid="class_sync_1ada77c4da829fc385607226eb7c03792f" kind="function"><name>InRollback</name></member>
+    <member refid="class_sync_1a990b87770f4adff5e5fc4652cd1a26e2" kind="function"><name>GetEvent</name></member>
+    <member refid="class_sync_1a7f73458a1b67e760ead03cec2bb60d50" kind="function"><name>LoadFrame</name></member>
+    <member refid="class_sync_1acd8e5784b0567104063ad6fbc4a34981" kind="function"><name>SaveCurrentFrame</name></member>
+    <member refid="class_sync_1a9204100c4c22c432d178660cfae4a23a" kind="function"><name>FindSavedFrameIndex</name></member>
+    <member refid="class_sync_1a1e1b1d8670d4c2fd3c3e208f4a4413b8" kind="function"><name>GetLastSavedFrame</name></member>
+    <member refid="class_sync_1a2f2e185fde4c3f7c5f3a8274e0a8166f" kind="function"><name>CreateQueues</name></member>
+    <member refid="class_sync_1a37cb7db9fa3052012466a7fe1fb9b64c" kind="function"><name>CheckSimulationConsistency</name></member>
+    <member refid="class_sync_1a76976914b593d548e3727c91b0843966" kind="function"><name>ResetPrediction</name></member>
+  </compound>
+  <compound refid="class_sync_test_backend" kind="class"><name>SyncTestBackend</name>
+    <member refid="class_sync_test_backend_1a4a1eb3a4a3eec24c2a89437e7dea2445" kind="variable"><name>_callbacks</name></member>
+    <member refid="class_sync_test_backend_1aef8b4fb9eedb4c759050d9601a51c097" kind="variable"><name>_sync</name></member>
+    <member refid="class_sync_test_backend_1a2187bdd6b48a81cea82c4faf5666be80" kind="variable"><name>_num_players</name></member>
+    <member refid="class_sync_test_backend_1aabd420f290c1f3db90565e1084f46ffe" kind="variable"><name>_check_distance</name></member>
+    <member refid="class_sync_test_backend_1acf37cb7f195663f7331afeaeec8298c4" kind="variable"><name>_last_verified</name></member>
+    <member refid="class_sync_test_backend_1a7c20a7faf65a631805473c2e8279f29b" kind="variable"><name>_rollingback</name></member>
+    <member refid="class_sync_test_backend_1a750d0a54dbd0356e022a9844c0b3f965" kind="variable"><name>_running</name></member>
+    <member refid="class_sync_test_backend_1aeb7614383ddc83e35d947895473b8d7a" kind="variable"><name>_logfp</name></member>
+    <member refid="class_sync_test_backend_1a8fa3e3f74633c5940279efb4f32c4b1d" kind="variable"><name>_game</name></member>
+    <member refid="class_sync_test_backend_1a48eeb6ab95be7edadbb5a311f65858eb" kind="variable"><name>_current_input</name></member>
+    <member refid="class_sync_test_backend_1ac23ee6dad64709cf1d440268f208ef59" kind="variable"><name>_last_input</name></member>
+    <member refid="class_sync_test_backend_1a14475876d76d98ac1f391b929e41a429" kind="variable"><name>_saved_frames</name></member>
+    <member refid="class_sync_test_backend_1a0ae7af45d3eda3688b9f6d5316640a5a" kind="function"><name>SyncTestBackend</name></member>
+    <member refid="class_sync_test_backend_1a1b347e4f8e6414592bc6015499dff405" kind="function"><name>~SyncTestBackend</name></member>
+    <member refid="class_sync_test_backend_1a2e5afecb6a6f92329122a69eaf2f4f93" kind="function"><name>DoPoll</name></member>
+    <member refid="class_sync_test_backend_1aaf69ea8aa089a316db5da2f040308769" kind="function"><name>AddPlayer</name></member>
+    <member refid="class_sync_test_backend_1a3049d0c6d5e29c74a4a2ef66f6babc4a" kind="function"><name>AddLocalInput</name></member>
+    <member refid="class_sync_test_backend_1ae583bde3e3aaf06d36eeebcbf1360511" kind="function"><name>SyncInput</name></member>
+    <member refid="class_sync_test_backend_1acebdff9f41ba8a0b7a356dcbafc997cd" kind="function"><name>IncrementFrame</name></member>
+    <member refid="class_sync_test_backend_1aa7439669cee308d3a4f8261d2e6441e4" kind="function"><name>Logv</name></member>
+    <member refid="class_sync_test_backend_1a9c6b3a4c2ec79a6d3cc1eb4ecf3ae448" kind="function"><name>RaiseSyncError</name></member>
+    <member refid="class_sync_test_backend_1aed6d2158e0fc709b4fef23296973df80" kind="function"><name>BeginLog</name></member>
+    <member refid="class_sync_test_backend_1ab3e96ddd985926e20baf1dd56dee1eac" kind="function"><name>EndLog</name></member>
+    <member refid="class_sync_test_backend_1a68300fe0d78ad9f6a2c279cc150de3bd" kind="function"><name>LogSaveStates</name></member>
+  </compound>
+  <compound refid="class_time_sync" kind="class"><name>TimeSync</name>
+    <member refid="class_time_sync_1aad591a1fc6919352546a49a558734d59" kind="variable"><name>_local</name></member>
+    <member refid="class_time_sync_1a5765965be103c4e12abf71e8442e0454" kind="variable"><name>_remote</name></member>
+    <member refid="class_time_sync_1a64ebbb77aebd74177844136ace0bf753" kind="variable"><name>_last_inputs</name></member>
+    <member refid="class_time_sync_1a80d12fb101456f4242f9bed3e776eed2" kind="variable"><name>_next_prediction</name></member>
+    <member refid="class_time_sync_1ac5ef72858cd13f42bb25af72c2523863" kind="function"><name>TimeSync</name></member>
+    <member refid="class_time_sync_1ab8dc55cad76024232f962dbc7f2b541e" kind="function"><name>~TimeSync</name></member>
+    <member refid="class_time_sync_1a9e19666df6ccd25f7b0455d7e284e366" kind="function"><name>advance_frame</name></member>
+    <member refid="class_time_sync_1a5f173a01b0450643f78a7dcfc9034616" kind="function"><name>recommend_frame_wait_duration</name></member>
+  </compound>
+  <compound refid="class_udp" kind="class"><name>Udp</name>
+    <member refid="class_udp_1a503c23099e03cc930c231d53e3016106" kind="variable"><name>_connection_manager</name></member>
+    <member refid="class_udp_1a2c1c666436d6b16026e83535696eb5a2" kind="variable"><name>_callbacks</name></member>
+    <member refid="class_udp_1aaf74f1a820e0ed1aa6cdfda668afa599" kind="variable"><name>_poll</name></member>
+    <member refid="class_udp_1af42b497d12d3ff000e456fcb2adb3bc4" kind="function"><name>Log</name></member>
+    <member refid="class_udp_1acbfd83b59b802720c0016ea9ca691624" kind="function"><name>Udp</name></member>
+    <member refid="class_udp_1acf4d3967b7c2c1e585df34d2140529a2" kind="function"><name>Init</name></member>
+    <member refid="class_udp_1af7e6b334a109c5b249cd9fc2fc276086" kind="function"><name>SendTo</name></member>
+    <member refid="class_udp_1ac896bbc24b2205c11a46f0f3c415646c" kind="function"><name>OnLoopPoll</name></member>
+    <member refid="class_udp_1a4554d19aa2b2eb3ff2a9b660ffa9f0a0" kind="function"><name>~Udp</name></member>
+  </compound>
+  <compound refid="struct_udp_msg" kind="struct"><name>UdpMsg</name>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486" kind="enum"><name>MsgType</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486acfcf446a32b79e33cbb60242d2b7a050" kind="enumvalue"><name>Invalid</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a65b07232ddce129e1fdd4863d6cefa46" kind="enumvalue"><name>SyncRequest</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a8b891f6ea92514923f559bd6dd3b6612" kind="enumvalue"><name>SyncReply</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a7160d3b40a2e59c374a87831c3bc7230" kind="enumvalue"><name>Input</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486ab7c8c47bf5638e696a4085c866e770b4" kind="enumvalue"><name>QualityReport</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a5addbc827ea18f849046082295f046ee" kind="enumvalue"><name>QualityReply</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a6dd50b47f6a12e67a6fdc6734c604ae9" kind="enumvalue"><name>KeepAlive</name></member>
+    <member refid="struct_udp_msg_1ac4b3f9dd47d368942038c16a63278486a26ef552891ccb5e20de25c356572ce40" kind="enumvalue"><name>InputAck</name></member>
+    <member refid="struct_udp_msg_1a75cf11076be0487433e89eaf131717f6" kind="variable"><name>magic</name></member>
+    <member refid="struct_udp_msg_1aa2d0c13cb798728c1d89244f7eb3f265" kind="variable"><name>sequence_number</name></member>
+    <member refid="struct_udp_msg_1a814f93dedf44b2af5f95d3ee665b6140" kind="variable"><name>type</name></member>
+    <member refid="struct_udp_msg_1ab04df7f285a123128eb323361747d7ec" kind="variable"><name>hdr</name></member>
+    <member refid="struct_udp_msg_1a229c2f084ed2eebbc6d65d96a5400cfc" kind="variable"><name>random_request</name></member>
+    <member refid="struct_udp_msg_1ac46ee1adb5acb675032d1ada99de8043" kind="variable"><name>remote_magic</name></member>
+    <member refid="struct_udp_msg_1a7dcaa897a75dbabc0a2739821fd019c0" kind="variable"><name>remote_endpoint</name></member>
+    <member refid="struct_udp_msg_1a40e74f9dc3be1ce5e8cd7de962c42800" kind="variable"><name>sync_request</name></member>
+    <member refid="struct_udp_msg_1ab2ebbfd5953c722346f881dbe4173394" kind="variable"><name>random_reply</name></member>
+    <member refid="struct_udp_msg_1ad4d7e5673f419cbeaed55b685827849d" kind="variable"><name>sync_reply</name></member>
+    <member refid="struct_udp_msg_1a1f85bfa0bfa5479b767dc5d159bc55f6" kind="variable"><name>frame_advantage</name></member>
+    <member refid="struct_udp_msg_1ac1c0c6ce8793fe0cdcb061ddbc4551c5" kind="variable"><name>ping</name></member>
+    <member refid="struct_udp_msg_1abf59cee52e4271ce6b24149a9a52d845" kind="variable"><name>quality_report</name></member>
+    <member refid="struct_udp_msg_1a528c242d810eb65688f6a0ff10b29fd4" kind="variable"><name>pong</name></member>
+    <member refid="struct_udp_msg_1a0d65f7ffcd95bc407dc78c9a26f2661d" kind="variable"><name>quality_reply</name></member>
+    <member refid="struct_udp_msg_1a61bc514f6187513246d3f2de86888e6d" kind="variable"><name>peer_connect_status</name></member>
+    <member refid="struct_udp_msg_1af74fbcfaf7c20180604dc36b13a11bd2" kind="variable"><name>start_frame</name></member>
+    <member refid="struct_udp_msg_1a7afaed9abbfebec13e36ed7a1fcd0dab" kind="variable"><name>disconnect_requested</name></member>
+    <member refid="struct_udp_msg_1ad80bd38374bfeef388b55566ed049103" kind="variable"><name>ack_frame</name></member>
+    <member refid="struct_udp_msg_1a09c63ff10033766a7c0fdcd1a9d99c62" kind="variable"><name>num_bits</name></member>
+    <member refid="struct_udp_msg_1a9d2b4c1e56ceeb01231a6a47054f7bbf" kind="variable"><name>input_size</name></member>
+    <member refid="struct_udp_msg_1af1f725aaa613cee3ad299c3bbe6f8c53" kind="variable"><name>bits</name></member>
+    <member refid="struct_udp_msg_1ad64c04d0d30fc7254f14b3029a52e09b" kind="variable"><name>input</name></member>
+    <member refid="struct_udp_msg_1a2b3a26c528c0a69ccb9a6145874c4bfa" kind="variable"><name>input_ack</name></member>
+    <member refid="struct_udp_msg_1ae855dda55e12e43942ae91d595bd1a3f" kind="variable"><name>u</name></member>
+    <member refid="struct_udp_msg_1a0dac27ea5cfd73d6b3e046372b33e654" kind="function"><name>PacketSize</name></member>
+    <member refid="struct_udp_msg_1a4fc9c5c6ff72ad42ffd94217b2357e37" kind="function"><name>PayloadSize</name></member>
+    <member refid="struct_udp_msg_1a5137c7f01b86cca6a5c6f4cf4ea1df19" kind="function"><name>UdpMsg</name></member>
+  </compound>
+  <compound refid="class_udp_protocol" kind="class"><name>UdpProtocol</name>
+    <member refid="class_udp_protocol_1a17cb8c24b31b6cf7a7c27ff4860787f4" kind="enum"><name>State</name></member>
+    <member refid="class_udp_protocol_1a17cb8c24b31b6cf7a7c27ff4860787f4a5884788c2d58773bdd531779f30e29a4" kind="enumvalue"><name>Syncing</name></member>
+    <member refid="class_udp_protocol_1a17cb8c24b31b6cf7a7c27ff4860787f4a7a4524ff63778729eaa5b419310ac80d" kind="enumvalue"><name>Synchronzied</name></member>
+    <member refid="class_udp_protocol_1a17cb8c24b31b6cf7a7c27ff4860787f4a2ad67023c210b56dcde081bb05f7def6" kind="enumvalue"><name>Running</name></member>
+    <member refid="class_udp_protocol_1a17cb8c24b31b6cf7a7c27ff4860787f4a70e7b0de01dddaf5cbcd22cba635998c" kind="enumvalue"><name>Disconnected</name></member>
+    <member refid="class_udp_protocol_1a5190578dbf35a6018322915defa69bf7" kind="variable"><name>connection_manager</name></member>
+    <member refid="class_udp_protocol_1ad0f7413c83ec1b03e4d2dd103e97458f" kind="variable"><name>_udp</name></member>
+    <member refid="class_udp_protocol_1a183fdd20687a705878d909d60c341578" kind="variable"><name>_connection_id</name></member>
+    <member refid="class_udp_protocol_1a2f5bcdabb91e0528c209feea15a4fbaa" kind="variable"><name>_magic_number</name></member>
+    <member refid="class_udp_protocol_1a416bfd307ca9d4e87a6fcb35db094498" kind="variable"><name>_queue</name></member>
+    <member refid="class_udp_protocol_1a3dbf83aa937b3a80648148f761db96ac" kind="variable"><name>_remote_magic_number</name></member>
+    <member refid="class_udp_protocol_1ab701472996be1e40d66189f66f57ab39" kind="variable"><name>_connected</name></member>
+    <member refid="class_udp_protocol_1a311d0918c7ea0399762bbe53e5afeb4f" kind="variable"><name>_send_latency</name></member>
+    <member refid="class_udp_protocol_1a1224abc694b9164870def8179047126f" kind="variable"><name>_oop_percent</name></member>
+    <member refid="class_udp_protocol_1aed80f936bca9f3876394c09dd4c407b0" kind="variable"><name>_oo_packet</name></member>
+    <member refid="class_udp_protocol_1a937b5ec916f9867a2773ea9c4c5611bf" kind="variable"><name>_send_queue</name></member>
+    <member refid="class_udp_protocol_1a58ed3d104fbf854c76ad951d94465d10" kind="variable"><name>_round_trip_time</name></member>
+    <member refid="class_udp_protocol_1a66ff6fc7d2b4688f0babf320b6913441" kind="variable"><name>_packets_sent</name></member>
+    <member refid="class_udp_protocol_1a1252940b2f2f1b937d6aa38bfb4a9951" kind="variable"><name>_bytes_sent</name></member>
+    <member refid="class_udp_protocol_1a6c9bee6d658db95f1cef71286f96e4bb" kind="variable"><name>_kbps_sent</name></member>
+    <member refid="class_udp_protocol_1a8fe1cfb7fbe562a905f923866fb43da9" kind="variable"><name>_stats_start_time</name></member>
+    <member refid="class_udp_protocol_1a70591a45927a5647a7c8daa28b352495" kind="variable"><name>_local_connect_status</name></member>
+    <member refid="class_udp_protocol_1a10cf0440acb1cf07a761c82e2177fa2c" kind="variable"><name>_peer_connect_status</name></member>
+    <member refid="class_udp_protocol_1a2939b9508763c89a997eb1b03869057d" kind="variable"><name>_current_state</name></member>
+    <member refid="class_udp_protocol_1a1972b1d8a9328780f0dff32be018efaa" kind="variable"><name>_state</name></member>
+    <member refid="class_udp_protocol_1aed32ac87492c933702523e1c3e6988c5" kind="variable"><name>_local_frame_advantage</name></member>
+    <member refid="class_udp_protocol_1aa85842f670d37e1027f5ba317e08e8df" kind="variable"><name>_remote_frame_advantage</name></member>
+    <member refid="class_udp_protocol_1a04669bf788a62403bf5d049d2ea5ea6a" kind="variable"><name>_pending_output</name></member>
+    <member refid="class_udp_protocol_1ae25c57b7ffce934dd538ac000131ce68" kind="variable"><name>_last_received_input</name></member>
+    <member refid="class_udp_protocol_1ad98f42aeec9b02eb6dd51648baa3460c" kind="variable"><name>_last_sent_input</name></member>
+    <member refid="class_udp_protocol_1a502f42ce902bd5d86b64fc5afc400f12" kind="variable"><name>_last_acked_input</name></member>
+    <member refid="class_udp_protocol_1a5c36d1596bd8104530675ac351b7c097" kind="variable"><name>_last_send_time</name></member>
+    <member refid="class_udp_protocol_1a8aa7d20d04660afbabe8e1000659565e" kind="variable"><name>_last_recv_time</name></member>
+    <member refid="class_udp_protocol_1aab0d0acc0016a4fed431e81eefe1f634" kind="variable"><name>_shutdown_timeout</name></member>
+    <member refid="class_udp_protocol_1a2cbbd4bacaf332a48a7d65481b9238cf" kind="variable"><name>_disconnect_event_sent</name></member>
+    <member refid="class_udp_protocol_1a4e707d5af28e4350d37a622e11debfe4" kind="variable"><name>_disconnect_timeout</name></member>
+    <member refid="class_udp_protocol_1ae5659327826854bd8801ae61c7e9c0e4" kind="variable"><name>_disconnect_notify_start</name></member>
+    <member refid="class_udp_protocol_1a6884879bfb1d0adaa0b6d71041b7290b" kind="variable"><name>_disconnect_notify_sent</name></member>
+    <member refid="class_udp_protocol_1a93683b601c29678aec6d2a9bfbc6d2ac" kind="variable"><name>_next_send_seq</name></member>
+    <member refid="class_udp_protocol_1a95d3e65fa2bcfb39dc2c40f5b4b587b6" kind="variable"><name>_next_recv_seq</name></member>
+    <member refid="class_udp_protocol_1a7f30e5320c0b08394346b5ca5ec8138d" kind="variable"><name>_timesync</name></member>
+    <member refid="class_udp_protocol_1a12a0e9669590b71a3aff904735fef7d6" kind="variable"><name>_event_queue</name></member>
+    <member refid="class_udp_protocol_1aa2b654ad05c809a65940c0cc4caa69fe" kind="variable"><name>send_time</name></member>
+    <member refid="class_udp_protocol_1a46270deed9e0c30bbeec07fa5bfe8471" kind="variable"><name>connection_id</name></member>
+    <member refid="class_udp_protocol_1a713ddebe5701f85168dfd455df934553" kind="variable"><name>msg</name></member>
+    <member refid="class_udp_protocol_1ad67e2d080990ae3e5716aab7bd199ce3" kind="variable"><name>roundtrips_remaining</name></member>
+    <member refid="class_udp_protocol_1a11a8031a33d86b2998067a01105d7bba" kind="variable"><name>random</name></member>
+    <member refid="class_udp_protocol_1a36532307ec4c697941c789852462f8eb" kind="variable"><name>sync</name></member>
+    <member refid="class_udp_protocol_1a924f4a3ce6d19ce375648286ec6b96bb" kind="variable"><name>last_quality_report_time</name></member>
+    <member refid="class_udp_protocol_1a9f0b9acc42f4dfc2ed2a3a11f5de788a" kind="variable"><name>last_network_stats_interval</name></member>
+    <member refid="class_udp_protocol_1a2e9e7a74f80e853e0b25a2b33f591618" kind="variable"><name>last_input_packet_recv_time</name></member>
+    <member refid="class_udp_protocol_1a499b2187ad80d3b06e87a019355af507" kind="variable"><name>running</name></member>
+    <member refid="class_udp_protocol_1a41110f01151447893665dd9d400be7f7" kind="function"><name>OnLoopPoll</name></member>
+    <member refid="class_udp_protocol_1a32c4e6caae782219efd12e7441067be0" kind="function"><name>UdpProtocol</name></member>
+    <member refid="class_udp_protocol_1a69194c9b96307cfaa67aa38dedfe08a8" kind="function"><name>~UdpProtocol</name></member>
+    <member refid="class_udp_protocol_1aec03cd78075c6f3bfd48869636c55e0c" kind="function"><name>Init</name></member>
+    <member refid="class_udp_protocol_1a0cae901ce62299454ceaab1cd159e2c6" kind="function"><name>Synchronize</name></member>
+    <member refid="class_udp_protocol_1accf3d68b50c38545e0968120f336b32b" kind="function"><name>GetPeerConnectStatus</name></member>
+    <member refid="class_udp_protocol_1a8fdba438aa5bd65462b67cb44da00661" kind="function"><name>IsInitialized</name></member>
+    <member refid="class_udp_protocol_1a390a15e4557837badea88e6fbc28b1b3" kind="function"><name>IsSynchronized</name></member>
+    <member refid="class_udp_protocol_1a885759809c969663fb1f5881da06024d" kind="function"><name>IsRunning</name></member>
+    <member refid="class_udp_protocol_1ae5099ba1bcc0994a4b6aba69125d3bf6" kind="function"><name>SendInput</name></member>
+    <member refid="class_udp_protocol_1a85e3387be41cff885ce9f9cb0f3f6705" kind="function"><name>SendInputAck</name></member>
+    <member refid="class_udp_protocol_1ada9fbc4cc72a06b6e8f0f7ed1f212071" kind="function"><name>HandlesMsg</name></member>
+    <member refid="class_udp_protocol_1ac038fb79456fa2f3e0b2eb22ba88d36a" kind="function"><name>OnMsg</name></member>
+    <member refid="class_udp_protocol_1af3cef1db98338da60bdf0d5dc7f7d8e5" kind="function"><name>Disconnect</name></member>
+    <member refid="class_udp_protocol_1a686bb68749075daa4015c465ee0fac2f" kind="function"><name>GetNetworkStats</name></member>
+    <member refid="class_udp_protocol_1acb12314c0ed47af4ff195b551d1cdd0c" kind="function"><name>GetEvent</name></member>
+    <member refid="class_udp_protocol_1a1f840eda1077a08cca183963a77fb1fd" kind="function"><name>GGPONetworkStats</name></member>
+    <member refid="class_udp_protocol_1a98d40d55de00bc2c5ca3452816161959" kind="function"><name>SetLocalFrameNumber</name></member>
+    <member refid="class_udp_protocol_1adbf269b2c14cb4fbfb3715e448bb41d2" kind="function"><name>RecommendFrameDelay</name></member>
+    <member refid="class_udp_protocol_1a910e2e27b6e605d91849040ee31916a0" kind="function"><name>SetDisconnectTimeout</name></member>
+    <member refid="class_udp_protocol_1a2126e37337a9dba2883d55c3ae323518" kind="function"><name>SetDisconnectNotifyStart</name></member>
+    <member refid="class_udp_protocol_1a8647e9126f97b360c451f0d6b6843c08" kind="function"><name>CreateSocket</name></member>
+    <member refid="class_udp_protocol_1aac8d0bd45aa016475c32af0194abf0bc" kind="function"><name>UpdateNetworkStats</name></member>
+    <member refid="class_udp_protocol_1ad0bcef9eb75d9eeedb95538103431b92" kind="function"><name>QueueEvent</name></member>
+    <member refid="class_udp_protocol_1a74daab8748eb1687c1698c74f7a9a39a" kind="function"><name>ClearSendQueue</name></member>
+    <member refid="class_udp_protocol_1aac058fcb011a760825c2a1b59d56443a" kind="function"><name>Log</name></member>
+    <member refid="class_udp_protocol_1a252a80bc67117dbbcf5464f831832c23" kind="function"><name>LogMsg</name></member>
+    <member refid="class_udp_protocol_1a8e0e98a4a4dd551e4418a85c014a726b" kind="function"><name>LogEvent</name></member>
+    <member refid="class_udp_protocol_1a02e1b065503fcd4afbc81d48776bb51f" kind="function"><name>SendSyncRequest</name></member>
+    <member refid="class_udp_protocol_1a13289060532c5e02ea4b9a9ea7203f22" kind="function"><name>SendMsg</name></member>
+    <member refid="class_udp_protocol_1af2ce95a8a304bd16052900b065bd9f63" kind="function"><name>PumpSendQueue</name></member>
+    <member refid="class_udp_protocol_1aa40b8cbd92111092627f24f6dcc8090a" kind="function"><name>DispatchMsg</name></member>
+    <member refid="class_udp_protocol_1ac22f8f120bca116c219d982305a684b1" kind="function"><name>SendPendingOutput</name></member>
+    <member refid="class_udp_protocol_1a065c71c9c21664471de259601521ed1c" kind="function"><name>OnInvalid</name></member>
+    <member refid="class_udp_protocol_1a5b3605aed3e1c388904524b3d680952e" kind="function"><name>OnSyncRequest</name></member>
+    <member refid="class_udp_protocol_1ae587ea5ddaacb35f3eba7255bc911428" kind="function"><name>OnSyncReply</name></member>
+    <member refid="class_udp_protocol_1afb4976fe96d3bbd0eac8ebdd0992d487" kind="function"><name>OnInput</name></member>
+    <member refid="class_udp_protocol_1a973b4fb33d898ec052f3396a3c41d4c4" kind="function"><name>OnInputAck</name></member>
+    <member refid="class_udp_protocol_1acdaff803c0f544c9edf38215f424fffe" kind="function"><name>OnQualityReport</name></member>
+    <member refid="class_udp_protocol_1aa4c6f89c87a1ef93ea01e3f162a10aa8" kind="function"><name>OnQualityReply</name></member>
+    <member refid="class_udp_protocol_1a1935480e3c3d8d903ac4cf8dcf33530f" kind="function"><name>OnKeepAlive</name></member>
+  </compound>
+  <compound refid="class_u_g_g_p_o_game_instance" kind="class"><name>UGGPOGameInstance</name>
+    <member refid="class_u_g_g_p_o_game_instance_1a57889884ce9c1b956f62f85727c3af18" kind="variable"><name>NetworkAddresses</name></member>
+    <member refid="class_u_g_g_p_o_game_instance_1ad0eec696432cb6f575887bb2bec2547a" kind="function"><name>CreateNetwork</name></member>
+  </compound>
+  <compound refid="class_u_g_g_p_o_network" kind="class"><name>UGGPONetwork</name>
+    <member refid="class_u_g_g_p_o_network_1a62b4aaee6aecf0a7fd67ba10d09c7ead" kind="variable"><name>LocalPlayerIndex</name></member>
+    <member refid="class_u_g_g_p_o_network_1aea376424127caba215fb3caef6ea081e" kind="variable"><name>Addresses</name></member>
+    <member refid="class_u_g_g_p_o_network_1a2b4746a8f46e6dcb4390f2b85c297b76" kind="function"><name>UGGPONetwork</name></member>
+    <member refid="class_u_g_g_p_o_network_1a065cb6d86fe35362947da0ac80c13ed2" kind="function"><name>AllValidAddresses</name></member>
+    <member refid="class_u_g_g_p_o_network_1a3a2384786e067704944a3bc48b9f7801" kind="function"><name>AllUniqueAddresses</name></member>
+    <member refid="class_u_g_g_p_o_network_1abf0449e26f503598c632dc944ef79881" kind="function"><name>GetAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_1a271d8237f65f7ca79c3374831e0ce055" kind="function"><name>NumPlayers</name></member>
+    <member refid="class_u_g_g_p_o_network_1a43e54545130d797d8dfc0d2548e7cdbd" kind="function"><name>GetPlayerIndex</name></member>
+    <member refid="class_u_g_g_p_o_network_1ac0e5081740c53c52adeb712ce9ebd325" kind="function"><name>GetLocalPort</name></member>
+    <member refid="class_u_g_g_p_o_network_1a9980e81cc1262cfe79bfbf57f1ae2387" kind="function"><name>CreateNetwork</name></member>
+  </compound>
+  <compound refid="class_u_g_g_p_o_network_address" kind="class"><name>UGGPONetworkAddress</name>
+    <member refid="class_u_g_g_p_o_network_address_1ac0579489b58e0642b321877645204827" kind="variable"><name>bValidAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a0fc428a3cab575e51a0871ef4fe4d663" kind="variable"><name>IpAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1ac62fbf6abbf4412614b7fcc3b6d80936" kind="variable"><name>Port</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1aa8de6bebb70a5b1ff58bd7ab6ef255d4" kind="function"><name>UGGPONetworkAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1ac90635a86367d3f4d82bbfbd12e168e6" kind="function"><name>GetIpAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a833ad6b61b367117b94c33124aa16957" kind="function"><name>IsValidAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a311a2658078a7c8e93228273a25e358f" kind="function"><name>GetIpAddressString</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a4863dccf0987dea98825967a68ba2b9d" kind="function"><name>GetPort</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a9695a0511b494dc57c1ff9eb40281b0e" kind="function"><name>IsSameAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1a8b003d2a131ed439f435c8a3f0c90823" kind="function"><name>CreateNetworkAddress</name></member>
+    <member refid="class_u_g_g_p_o_network_address_1ad6c439abe87a8717b2b171cedf658017" kind="function"><name>CreateLocalAddress</name></member>
+  </compound>
+  <compound refid="structz__stream__s" kind="struct"><name>z_stream_s</name>
+    <member refid="structz__stream__s_1a21d2c026f0f2fcd67f33011231f8ed00" kind="variable"><name>next_in</name></member>
+    <member refid="structz__stream__s_1a0cf177f50dbb49692f27480cbcfde794" kind="variable"><name>avail_in</name></member>
+    <member refid="structz__stream__s_1aa8f408b9632737dc21519fa1ed34b08d" kind="variable"><name>total_in</name></member>
+    <member refid="structz__stream__s_1aed4a02cfe93e975314fed50b04427bf3" kind="variable"><name>next_out</name></member>
+    <member refid="structz__stream__s_1a45ad2364307af9d944fd39d4eca3ca3c" kind="variable"><name>avail_out</name></member>
+    <member refid="structz__stream__s_1abae26f1f236cf920250b9d37fdf009c1" kind="variable"><name>total_out</name></member>
+    <member refid="structz__stream__s_1a9b2f745fc780e3b33e2935f8c650a326" kind="variable"><name>msg</name></member>
+    <member refid="structz__stream__s_1ac4a114217a1868dc6fbe7d1f5bda126b" kind="variable"><name>state</name></member>
+    <member refid="structz__stream__s_1a23a2299c384f808e76e9908f21216b0f" kind="variable"><name>zalloc</name></member>
+    <member refid="structz__stream__s_1a89eb750ade7f4f0b56bfdadf13344982" kind="variable"><name>zfree</name></member>
+    <member refid="structz__stream__s_1ab72467f908d2ce65d5b42ee6556ef8bb" kind="variable"><name>opaque</name></member>
+    <member refid="structz__stream__s_1a9d8f63877d7639a8bca60f9fc3704fc4" kind="variable"><name>data_type</name></member>
+    <member refid="structz__stream__s_1ade2217fe31e671be1257731883201223" kind="variable"><name>adler</name></member>
+    <member refid="structz__stream__s_1add73791dd19b49c9c68f3f3d328c37db" kind="variable"><name>reserved</name></member>
+  </compound>
+  <compound refid="namespaceneosmart" kind="namespace"><name>neosmart</name>
+    <member refid="pevents_8cpp_1ad806f50de88f99b014ac9fbee078e974" kind="typedef"><name>neosmart_wfmo_t</name></member>
+    <member refid="pevents_8cpp_1ac312b114637a683b4a2ff0736e42944c" kind="typedef"><name>neosmart_wfmo_info_t</name></member>
+    <member refid="pevents_8h_1a82728bb6cf80a2647158c033dc355748" kind="typedef"><name>neosmart_event_t</name></member>
+    <member refid="pevents_8cpp_1a98b50c5c04b1e731e62ed49df6a7e31a" kind="function"><name>RemoveExpiredWaitHelper</name></member>
+    <member refid="pevents_8cpp_1a4fa01783f0e93a360d03aba6b40ad81e" kind="function"><name>CreateEvent</name></member>
+    <member refid="pevents_8cpp_1aac09b4a346f6557f251c3d8704922122" kind="function"><name>UnlockedWaitForEvent</name></member>
+    <member refid="pevents_8cpp_1ab1955ef1f279aabb00bd5e3cb82d5329" kind="function"><name>WaitForEvent</name></member>
+    <member refid="pevents_8cpp_1a53424be407eb5773a906a8613c6684fc" kind="function"><name>WaitForMultipleEvents</name></member>
+    <member refid="pevents_8cpp_1a80e25f003bfc0d72748437a9e6481691" kind="function"><name>WaitForMultipleEvents</name></member>
+    <member refid="pevents_8cpp_1aa1e8ab0ed4fb21f074829b8b3e2400d4" kind="function"><name>DestroyEvent</name></member>
+    <member refid="pevents_8cpp_1ab3400cd2c1da03caf78027ca3356a928" kind="function"><name>SetEvent</name></member>
+    <member refid="pevents_8cpp_1ad24b9db7c55cf29b6c7f7509feee154e" kind="function"><name>ResetEvent</name></member>
+  </compound>
+  <compound refid="backend_8h" kind="file"><name>backend.h</name>
+    <member refid="backend_8h_1aaa4e633b808b2a401a8a8a09f5b2692a" kind="typedef"><name>Quark</name></member>
+    <member refid="backend_8h_1a1184ef8c0c6b9f7be74efd6798bbe5ea" kind="typedef"><name>IQuarkBackend</name></member>
+  </compound>
+  <compound refid="p2p_8cpp" kind="file"><name>p2p.cpp</name>
+    <member refid="p2p_8cpp_1a37afc9176edb58af52db02b30c65e470" kind="variable"><name>RECOMMENDATION_INTERVAL</name></member>
+    <member refid="p2p_8cpp_1a0d3cc022a931e04a504786aab423750f" kind="variable"><name>DEFAULT_DISCONNECT_TIMEOUT</name></member>
+    <member refid="p2p_8cpp_1a2aae43188de8384766917f083a3cf154" kind="variable"><name>DEFAULT_DISCONNECT_NOTIFY_START</name></member>
+  </compound>
+  <compound refid="p2p_8h" kind="file"><name>p2p.h</name>
+  </compound>
+  <compound refid="spectator_8cpp" kind="file"><name>spectator.cpp</name>
+  </compound>
+  <compound refid="spectator_8h" kind="file"><name>spectator.h</name>
+    <member refid="spectator_8h_1ae308772b873609b1d6db010b374709a0" kind="define"><name>SPECTATOR_FRAME_BUFFER_SIZE</name></member>
+  </compound>
+  <compound refid="synctest_8cpp" kind="file"><name>synctest.cpp</name>
+  </compound>
+  <compound refid="synctest_8h" kind="file"><name>synctest.h</name>
+  </compound>
+  <compound refid="bitvector_8cpp" kind="file"><name>bitvector.cpp</name>
+    <member refid="bitvector_8cpp_1a30c7992308283cfc40050beeecafbf8e" kind="function"><name>BitVector_SetBit</name></member>
+    <member refid="bitvector_8cpp_1a65881c5cd8c285d40b73bfc0a3f7138f" kind="function"><name>BitVector_ClearBit</name></member>
+    <member refid="bitvector_8cpp_1a65499474021a79ae8c4219a65c30d552" kind="function"><name>BitVector_WriteNibblet</name></member>
+    <member refid="bitvector_8cpp_1a27b25ddcd1e389fba891140421a08de0" kind="function"><name>BitVector_ReadBit</name></member>
+    <member refid="bitvector_8cpp_1a1f94251521a29a9cecc5b842ff749b69" kind="function"><name>BitVector_ReadNibblet</name></member>
+  </compound>
+  <compound refid="bitvector_8h" kind="file"><name>bitvector.h</name>
+    <member refid="bitvector_8h_1a19d3605cd36b15399e6ac99b317ee745" kind="define"><name>BITVECTOR_NIBBLE_SIZE</name></member>
+    <member refid="bitvector_8h_1a30c7992308283cfc40050beeecafbf8e" kind="function"><name>BitVector_SetBit</name></member>
+    <member refid="bitvector_8h_1a65881c5cd8c285d40b73bfc0a3f7138f" kind="function"><name>BitVector_ClearBit</name></member>
+    <member refid="bitvector_8h_1a65499474021a79ae8c4219a65c30d552" kind="function"><name>BitVector_WriteNibblet</name></member>
+    <member refid="bitvector_8h_1a27b25ddcd1e389fba891140421a08de0" kind="function"><name>BitVector_ReadBit</name></member>
+    <member refid="bitvector_8h_1a1f94251521a29a9cecc5b842ff749b69" kind="function"><name>BitVector_ReadNibblet</name></member>
+  </compound>
+  <compound refid="game__input_8cpp" kind="file"><name>game_input.cpp</name>
+  </compound>
+  <compound refid="game__input_8h" kind="file"><name>game_input.h</name>
+    <member refid="game__input_8h_1aeb9b46a80bbe7544ba21f19e559b9de4" kind="define"><name>GAMEINPUT_MAX_BYTES</name></member>
+    <member refid="game__input_8h_1a37c6ff1e9b90892f74ad3b768e5865e3" kind="define"><name>GAMEINPUT_MAX_PLAYERS</name></member>
+  </compound>
+  <compound refid="_g_g_p_o_game_instance_8cpp" kind="file"><name>GGPOGameInstance.cpp</name>
+  </compound>
+  <compound refid="_g_g_p_o_u_e4_8cpp" kind="file"><name>GGPOUE4.cpp</name>
+    <member refid="_g_g_p_o_u_e4_8cpp_1a0de3ae51f3a629a8e5d113f1b9390da7" kind="define"><name>LOCTEXT_NAMESPACE</name></member>
+    <member refid="_g_g_p_o_u_e4_8cpp_1a2768616f29325dd4590aff70baa0f20a" kind="function"><name>DEFINE_LOG_CATEGORY</name></member>
+  </compound>
+  <compound refid="connection__manager_8cpp" kind="file"><name>connection_manager.cpp</name>
+  </compound>
+  <compound refid="input__queue_8cpp" kind="file"><name>input_queue.cpp</name>
+    <member refid="input__queue_8cpp_1a9bd542e3e7122fad6a493d49a02ec020" kind="define"><name>PREVIOUS_FRAME</name></member>
+  </compound>
+  <compound refid="input__queue_8h" kind="file"><name>input_queue.h</name>
+    <member refid="input__queue_8h_1a716166ca1817053da57b47ba759a0a78" kind="define"><name>INPUT_QUEUE_LENGTH</name></member>
+    <member refid="input__queue_8h_1a83fd57d21c44480732dd58d6b4fd076b" kind="define"><name>DEFAULT_INPUT_SIZE</name></member>
+  </compound>
+  <compound refid="log_8cpp" kind="file"><name>log.cpp</name>
+    <member refid="log_8cpp_1ab25a3625a8efbaa3d81ef27bbb51c9c5" kind="variable"><name>logfile</name></member>
+    <member refid="log_8cpp_1aba1c0ecedb1ce5d8d0cb209994d30f4e" kind="variable"><name>logbuf</name></member>
+    <member refid="log_8cpp_1ab953d8d1aaee879cabed31f88a2ae1e4" kind="function"><name>LogFlush</name></member>
+    <member refid="log_8cpp_1a11a1cb4ce9e509c587e0dae3842f0973" kind="function"><name>Log</name></member>
+    <member refid="log_8cpp_1a5589393add64ebe0da06a99f7fa312dd" kind="function"><name>Logv</name></member>
+    <member refid="log_8cpp_1ad371f8795dd51357f7864ec517d2ca58" kind="function"><name>Logv</name></member>
+  </compound>
+  <compound refid="log_8h" kind="file"><name>log.h</name>
+    <member refid="log_8h_1a11a1cb4ce9e509c587e0dae3842f0973" kind="function"><name>Log</name></member>
+    <member refid="log_8h_1ab7377be886c92b2fa3dfc90caa02d5a8" kind="function"><name>Logv</name></member>
+    <member refid="log_8h_1ad371f8795dd51357f7864ec517d2ca58" kind="function"><name>Logv</name></member>
+    <member refid="log_8h_1ab953d8d1aaee879cabed31f88a2ae1e4" kind="function"><name>LogFlush</name></member>
+    <member refid="log_8h_1a53f1c4fe4036470ff10ad756cc5e6eb4" kind="function"><name>LogFlushOnLog</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1aeaf43b8c79dd894cb11bc3a0b6fc919d" kind="function"><name>ggpo_log</name></member>
+    <member refid="main_8cpp_1a967cf010b150d8bc0a1cdf30d9ab86e4" kind="function"><name>ggpo_logv</name></member>
+    <member refid="main_8cpp_1a11802c3e072a0fab11bfdcdc8dfce52c" kind="function"><name>ggpo_client_chat</name></member>
+  </compound>
+  <compound refid="udp_8cpp" kind="file"><name>udp.cpp</name>
+  </compound>
+  <compound refid="udp_8h" kind="file"><name>udp.h</name>
+    <member refid="udp_8h_1adf0cd516f24a6edd6837b1e7b0a0def5" kind="define"><name>MAX_UDP_ENDPOINTS</name></member>
+    <member refid="udp_8h_1aea0cad172e2fc3d40e30838e1ecee87c" kind="variable"><name>MAX_UDP_PACKET_SIZE</name></member>
+  </compound>
+  <compound refid="udp__msg_8h" kind="file"><name>udp_msg.h</name>
+    <member refid="udp__msg_8h_1af965cf7d07a3166cdb7e8582da8e332a" kind="define"><name>MAX_COMPRESSED_BITS</name></member>
+    <member refid="udp__msg_8h_1a16324d49d7940807e3addb7615c7dab6" kind="define"><name>UDP_MSG_MAX_PLAYERS</name></member>
+  </compound>
+  <compound refid="udp__proto_8cpp" kind="file"><name>udp_proto.cpp</name>
+    <member refid="udp__proto_8cpp_1acdb5919a803e00438aaa0c694062f519" kind="variable"><name>UDP_HEADER_SIZE</name></member>
+    <member refid="udp__proto_8cpp_1a2b8469726690f5e101c1a2d48cdf5acc" kind="variable"><name>NUM_SYNC_PACKETS</name></member>
+    <member refid="udp__proto_8cpp_1a03e7b2f9251d5e1cda1bbaeadd8e8781" kind="variable"><name>SYNC_RETRY_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1a9b7320117d1792b563273b53462e0b21" kind="variable"><name>SYNC_FIRST_RETRY_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1ace0ff9914befd844ee5c4361923c6eeb" kind="variable"><name>RUNNING_RETRY_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1a6adaaa2807cc479bb8c95eedb3624eb7" kind="variable"><name>KEEP_ALIVE_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1a03733a0ad7020ee0d83052190d3716fe" kind="variable"><name>QUALITY_REPORT_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1abd42a0fbc0d08effa6853791fdda0d0d" kind="variable"><name>NETWORK_STATS_INTERVAL</name></member>
+    <member refid="udp__proto_8cpp_1ab5588eae750421afc76bf590fdbfde31" kind="variable"><name>UDP_SHUTDOWN_TIMER</name></member>
+    <member refid="udp__proto_8cpp_1a2df2132e05fdcc78b32605d6ecd0cd21" kind="variable"><name>MAX_SEQ_DISTANCE</name></member>
+  </compound>
+  <compound refid="udp__proto_8h" kind="file"><name>udp_proto.h</name>
+  </compound>
+  <compound refid="pevents_8cpp" kind="file"><name>pevents.cpp</name>
+  </compound>
+  <compound refid="pevents_8h" kind="file"><name>pevents.h</name>
+    <member refid="pevents_8h_1a5578de68603dc6185924f95f1ae4be6e" kind="define"><name>WAIT_TIMEOUT</name></member>
+    <member refid="pevents_8h_1a89290ccfbf1eb77ab45d4454051229a4" kind="define"><name>WFMO</name></member>
+  </compound>
+  <compound refid="platform__unix_8cpp" kind="file"><name>platform_unix.cpp</name>
+  </compound>
+  <compound refid="platform__unix_8h" kind="file"><name>platform_unix.h</name>
+  </compound>
+  <compound refid="platform__windows_8cpp" kind="file"><name>platform_windows.cpp</name>
+  </compound>
+  <compound refid="platform__windows_8h" kind="file"><name>platform_windows.h</name>
+  </compound>
+  <compound refid="poll_8cpp" kind="file"><name>poll.cpp</name>
+  </compound>
+  <compound refid="poll_8h" kind="file"><name>poll.h</name>
+    <member refid="poll_8h_1a59cf7988096279e12ea7f024c5e0e802" kind="define"><name>MAX_POLLABLE_HANDLES</name></member>
+  </compound>
+  <compound refid="ring__buffer_8h" kind="file"><name>ring_buffer.h</name>
+  </compound>
+  <compound refid="static__buffer_8h" kind="file"><name>static_buffer.h</name>
+  </compound>
+  <compound refid="sync_8cpp" kind="file"><name>sync.cpp</name>
+  </compound>
+  <compound refid="sync_8h" kind="file"><name>sync.h</name>
+    <member refid="sync_8h_1ad13d44e71a8d064d2165fa813d6e738b" kind="define"><name>MAX_PREDICTION_FRAMES</name></member>
+  </compound>
+  <compound refid="timesync_8cpp" kind="file"><name>timesync.cpp</name>
+  </compound>
+  <compound refid="timesync_8h" kind="file"><name>timesync.h</name>
+    <member refid="timesync_8h_1ab92cead25641139dee587e848a47ecab" kind="define"><name>FRAME_WINDOW_SIZE</name></member>
+    <member refid="timesync_8h_1a557f224aaa1e82d9a3c4b4fed6c022e4" kind="define"><name>MIN_UNIQUE_FRAMES</name></member>
+    <member refid="timesync_8h_1af07e6185eb114c368e781ed0be98556d" kind="define"><name>MIN_FRAME_ADVANTAGE</name></member>
+    <member refid="timesync_8h_1a5be61e7044ae27e7758e0126a93f6235" kind="define"><name>MAX_FRAME_ADVANTAGE</name></member>
+  </compound>
+  <compound refid="types_8h" kind="file"><name>types.h</name>
+    <member refid="types_8h_1aca68c0d4ac8df0838e209fb5300f7be3" kind="define"><name>ASSERT</name></member>
+    <member refid="types_8h_1a25f003de16c08a4888b69f619d70f427" kind="define"><name>ARRAY_SIZE</name></member>
+    <member refid="types_8h_1aaa1ac5caef84256eaeb39594e58e096f" kind="define"><name>MAX_INT</name></member>
+    <member refid="types_8h_1aacc3ee1a7f283f8ef65cea31f4436a95" kind="define"><name>MAX</name></member>
+    <member refid="types_8h_1a74e75242132eaabbc1c512488a135926" kind="define"><name>MIN</name></member>
+    <member refid="types_8h_1a0c8186d9b9b7880309c27230bbb5e69d" kind="typedef"><name>byte</name></member>
+  </compound>
+  <compound refid="zconf_8h" kind="file"><name>zconf.h</name>
+    <member refid="zconf_8h_1a181415878f03b95a7094309d824a14b6" kind="define"><name>ZEXPORT</name></member>
+    <member refid="zconf_8h_1af38d1853df635eee27f1a02f96457b22" kind="define"><name>ZEXPORTVA</name></member>
+    <member refid="zconf_8h_1a2c212835823e3c54a8ab6d95c652660e" kind="define"><name>const</name></member>
+    <member refid="zconf_8h_1a8e9fefb3d20386851ca693946127ab2e" kind="define"><name>MAX_MEM_LEVEL</name></member>
+    <member refid="zconf_8h_1abd2f406ac1f9c49236376115d78ccb5b" kind="define"><name>MAX_WBITS</name></member>
+    <member refid="zconf_8h_1aa6c3c093d0900e1d96d07c91b53c1b5d" kind="define"><name>OF</name></member>
+    <member refid="zconf_8h_1a49b7f5eccfcc99e53178581632bc9589" kind="define"><name>ZEXTERN</name></member>
+    <member refid="zconf_8h_1aef060b3456fdcc093a7210a762d5f2ed" kind="define"><name>FAR</name></member>
+    <member refid="zconf_8h_1a0d112bae8fd35be772185b6ec6bcbe64" kind="define"><name>SEEK_SET</name></member>
+    <member refid="zconf_8h_1a4c8d0b76b470ba65a43ca46a88320f39" kind="define"><name>SEEK_CUR</name></member>
+    <member refid="zconf_8h_1ad2a2e6c114780c3071efd24f16c7f7d8" kind="define"><name>SEEK_END</name></member>
+    <member refid="zconf_8h_1a8cf4661a88ec12823d7cbdd3fa629eb0" kind="define"><name>z_off_t</name></member>
+    <member refid="zconf_8h_1ae3a497195d617519e5353ea7b417940f" kind="typedef"><name>Byte</name></member>
+    <member refid="zconf_8h_1a87d141052bcd5ec8a80812a565c70369" kind="typedef"><name>uInt</name></member>
+    <member refid="zconf_8h_1acd2a5701a3aecf6700d2c66c606ecb40" kind="typedef"><name>uLong</name></member>
+    <member refid="zconf_8h_1aeb722a888064be47e12d05f692e0f407" kind="typedef"><name>Bytef</name></member>
+    <member refid="zconf_8h_1a0f3f92a9c02f6f688bf081aabf230212" kind="typedef"><name>charf</name></member>
+    <member refid="zconf_8h_1aa857123283d7630b35e9b1d427dd6438" kind="typedef"><name>intf</name></member>
+    <member refid="zconf_8h_1adddbe74608d318334285e01f8a56fa5a" kind="typedef"><name>uIntf</name></member>
+    <member refid="zconf_8h_1a0426a5a0ed418ec4ae15af8281c64254" kind="typedef"><name>uLongf</name></member>
+    <member refid="zconf_8h_1a04c731495379021454c8e61439dc88ec" kind="typedef"><name>voidpf</name></member>
+    <member refid="zconf_8h_1aa3397ff439b5e076528b04bc9b8b086a" kind="typedef"><name>voidp</name></member>
+  </compound>
+  <compound refid="zlib_8h" kind="file"><name>zlib.h</name>
+    <member refid="zlib_8h_1a51dc9dc65e483b3222c1f0f6a87eb76e" kind="define"><name>ZLIB_VERSION</name></member>
+    <member refid="zlib_8h_1ac3b62e37b9922d9496014515acd6083a" kind="define"><name>Z_NO_FLUSH</name></member>
+    <member refid="zlib_8h_1adbd49089a5611593f05ac80c9e12cc7f" kind="define"><name>Z_PARTIAL_FLUSH</name></member>
+    <member refid="zlib_8h_1aa32ca175522e0ef314f4dc0b0196bada" kind="define"><name>Z_SYNC_FLUSH</name></member>
+    <member refid="zlib_8h_1aed4fbb038c3973aacf52fccffbc44b53" kind="define"><name>Z_FULL_FLUSH</name></member>
+    <member refid="zlib_8h_1a876a626ba14eb12eea4bbf6823b6ca50" kind="define"><name>Z_FINISH</name></member>
+    <member refid="zlib_8h_1a8cb802b6a11e926478dc6547c514c65c" kind="define"><name>Z_OK</name></member>
+    <member refid="zlib_8h_1a7d94a4a852228a899864a0053162e7a8" kind="define"><name>Z_STREAM_END</name></member>
+    <member refid="zlib_8h_1a32916ba675b2d06463da2576b6a49d64" kind="define"><name>Z_NEED_DICT</name></member>
+    <member refid="zlib_8h_1a3c66d64c427c0337c64e578537478737" kind="define"><name>Z_ERRNO</name></member>
+    <member refid="zlib_8h_1aad97cde83a9a4bb77f5c3b03bb68e483" kind="define"><name>Z_STREAM_ERROR</name></member>
+    <member refid="zlib_8h_1a9eda83d428a71752d148f38b5dbe04f2" kind="define"><name>Z_DATA_ERROR</name></member>
+    <member refid="zlib_8h_1ae2be6be871e377c6e2c25a7296ce320c" kind="define"><name>Z_MEM_ERROR</name></member>
+    <member refid="zlib_8h_1a425e2f0664e1b1f75bf2bffab88d353d" kind="define"><name>Z_BUF_ERROR</name></member>
+    <member refid="zlib_8h_1a7634cdd55f955ee1be99c065c6977371" kind="define"><name>Z_VERSION_ERROR</name></member>
+    <member refid="zlib_8h_1a496a4523776bcfa14568cd083b59f24c" kind="define"><name>Z_NO_COMPRESSION</name></member>
+    <member refid="zlib_8h_1ad5222ae19b77c6e83815d07ca5d03fd8" kind="define"><name>Z_BEST_SPEED</name></member>
+    <member refid="zlib_8h_1a8db83edd9dea51f8cf0afd1727838b95" kind="define"><name>Z_BEST_COMPRESSION</name></member>
+    <member refid="zlib_8h_1af5387baee05124298e431ebe6fe96b17" kind="define"><name>Z_DEFAULT_COMPRESSION</name></member>
+    <member refid="zlib_8h_1af01ccb5a9db8d415cde987d9553ad200" kind="define"><name>Z_FILTERED</name></member>
+    <member refid="zlib_8h_1a1eec3d3720ba91fd54fa08d2757c1785" kind="define"><name>Z_HUFFMAN_ONLY</name></member>
+    <member refid="zlib_8h_1a580d7c2527e653ddd783109271750849" kind="define"><name>Z_DEFAULT_STRATEGY</name></member>
+    <member refid="zlib_8h_1a2bfe22ed89d3553335d18a4c3cab67af" kind="define"><name>Z_BINARY</name></member>
+    <member refid="zlib_8h_1a9a852d9163cdb10687403d4e79dda06e" kind="define"><name>Z_ASCII</name></member>
+    <member refid="zlib_8h_1a4be54d9d68d40adb73f87492284cc290" kind="define"><name>Z_UNKNOWN</name></member>
+    <member refid="zlib_8h_1a27a96226f3dc88e4743131c632adf32f" kind="define"><name>Z_DEFLATED</name></member>
+    <member refid="zlib_8h_1ad15afa2776b41b2f4d8582dd152bd736" kind="define"><name>Z_NULL</name></member>
+    <member refid="zlib_8h_1a1f228220c3e6935eb171761c61487059" kind="define"><name>zlib_version</name></member>
+    <member refid="zlib_8h_1ae7440c1c5a8becba6dbf410275dc0a5c" kind="define"><name>deflateInit</name></member>
+    <member refid="zlib_8h_1ad7c6797b618699f70f61323c5184f26e" kind="define"><name>inflateInit</name></member>
+    <member refid="zlib_8h_1a59b575a521efe7ea0d3b9dd3c8d315c1" kind="define"><name>deflateInit2</name></member>
+    <member refid="zlib_8h_1a611fc206e69f34e812ca8b590982fdd5" kind="define"><name>inflateInit2</name></member>
+    <member refid="zlib_8h_1a5e6a891fd338c45ec682ae8b25c05ef3" kind="typedef"><name>OF</name></member>
+    <member refid="zlib_8h_1aa4751fbf6d882976fb300ea9815f5010" kind="typedef"><name>z_stream</name></member>
+    <member refid="zlib_8h_1a6ede25c84d3c9f8632305866acffb1d6" kind="typedef"><name>z_streamp</name></member>
+    <member refid="zlib_8h_1acd0143ddd532551631ecc7093fd7adfc" kind="typedef"><name>gzFile</name></member>
+    <member refid="zlib_8h_1a8eb5b079733669d90e6832a5910fc8c8" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a2e6d9561156aac56578c2f1434dc2595" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1aaf595349427894f1dbaff9b509791256" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a2a46b5c7e44d2163fa24d943211aedf2" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1ae1a33ab7164b2fbab7683c4bea4c50c4" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a35cdc947fd49a1bc22481945422bb97e" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a85df695aadb45de9c814f7a11f74705c" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1aa38fec9fd654c448681296d8bfee871a" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1aefa7cf8ffe7d0612cce1682e8eddc033" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a60335f5e60905450d17d415a99db1d0e" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a4bf8da17c7ec075cfbe8ba5340897cfd" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1afe848f00a307b58004de5a0ed5c7a98d" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1aa16722ec242cc8e52e5a9bcb07f6681a" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1afce6ce4068efaf8d5035a06a2a8ef8d4" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a4229eb398a27566536f9fe7ae246d3e5" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a71bf5da80bd11fd776592fc319d6305c" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a200aee6968107e38df3efcf80e9b696f" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a1f60ebb9d0a34dc0246d08f8c17892e4" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a036580ed18d33791beb30eee4a381233" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a480b1e1e10692b523bf07211dc1cbbf1" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a58d297b6efb8e8abf76451b5be91eac9" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a6fd2dcbf92d74eb1debc04f1ad4a7064" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1aee7a3a2881b7bfd06796c01120975964" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a6fd21cd770ef0aeb9689108a28c17848" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a655c43f39bb876aa13ff7d3b4857d0d1" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1afd10a0d837b233c416cd330bc1982de4" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1ad2a43e9b10e2b11790c4e18e63dfabbf" kind="function"><name>OF</name></member>
+    <member refid="zlib_8h_1a2e797b0d60f7efb11e86f4161207d166" kind="function"><name>OF</name></member>
+  </compound>
+  <compound refid="_g_g_p_o_game_instance_8h" kind="file"><name>GGPOGameInstance.h</name>
+  </compound>
+  <compound refid="_g_g_p_o_u_e4_8h" kind="file"><name>GGPOUE4.h</name>
+    <member refid="_g_g_p_o_u_e4_8h_1a373af4ca640367fb2920445e9ffc7f94" kind="function"><name>DECLARE_LOG_CATEGORY_EXTERN</name></member>
+  </compound>
+  <compound refid="connection__manager_8h" kind="file"><name>connection_manager.h</name>
+  </compound>
+  <compound refid="ggponet_8cpp" kind="file"><name>ggponet.cpp</name>
+    <member refid="ggponet_8cpp_1ae6015fe9c3b9bd2d1d43f3453b0fb566" kind="define"><name>ARRAYSIZEOF</name></member>
+  </compound>
+  <compound refid="ggponet_8h" kind="file"><name>ggponet.h</name>
+    <member refid="ggponet_8h_1a14f88c517a127daa7d9a64d9be3e3326" kind="define"><name>GGPO_API</name></member>
+    <member refid="ggponet_8h_1a62100ae35601bb3fdcc35475b5adeb10" kind="define"><name>GGPO_MAX_PLAYERS</name></member>
+    <member refid="ggponet_8h_1ad1d7151876c7e8d359c459effbf8045c" kind="define"><name>GGPO_MAX_PREDICTION_FRAMES</name></member>
+    <member refid="ggponet_8h_1ad8bf76a2f3debc5e3305a41164b93015" kind="define"><name>GGPO_MAX_SPECTATORS</name></member>
+    <member refid="ggponet_8h_1a3bf45e6bbedfdcff125b1212c5b3d68c" kind="define"><name>GGPO_SPECTATOR_INPUT_INTERVAL</name></member>
+    <member refid="ggponet_8h_1aa2eda4d687cc4777084741ab7aa804d1" kind="define"><name>GGPO_ERRORLIST</name></member>
+    <member refid="ggponet_8h_1a58e29816fa89cf9745de8484a0faf34c" kind="define"><name>GGPO_ERRORLIST_ENTRY</name></member>
+    <member refid="ggponet_8h_1ab392ee73cd16bf0c148f0bc679f8a4b8" kind="define"><name>GGPO_SUCCEEDED</name></member>
+    <member refid="ggponet_8h_1a1d27bf4de3b0b7220fb532b7b5088895" kind="define"><name>GGPO_INVALID_HANDLE</name></member>
+    <member refid="ggponet_8h_1a1f827ca2ec924d9448ae40975386dbdb" kind="define"><name>GGPONET_CONVENTION</name></member>
+    <member refid="ggponet_8h_1a16c514f1c7e692270b906482d5e03f8a" kind="enum"><name>GGPOPlayerType</name></member>
+    <member refid="ggponet_8h_1a16c514f1c7e692270b906482d5e03f8aa203eb8471a2370c6d93c3446da127b41" kind="enumvalue"><name>GGPO_PLAYERTYPE_LOCAL</name></member>
+    <member refid="ggponet_8h_1a16c514f1c7e692270b906482d5e03f8aade4bba196acc9e608ab8c42620aa5b81" kind="enumvalue"><name>GGPO_PLAYERTYPE_REMOTE</name></member>
+    <member refid="ggponet_8h_1a16c514f1c7e692270b906482d5e03f8aa8ec37680fddb55024f01a5bf7edffeeb" kind="enumvalue"><name>GGPO_PLAYERTYPE_SPECTATOR</name></member>
+    <member refid="ggponet_8h_1ae3b39bfd8b7abca8c19a04047bf802c6" kind="enum"><name>GGPOErrorCode</name></member>
+    <member refid="ggponet_8h_1ae3b39bfd8b7abca8c19a04047bf802c6af0ac5182ace2c6190e283db18dd603dd" kind="enumvalue"><name>GGPO_ERRORLIST</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823" kind="enum"><name>GGPOEventCode</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a6547ca8cfb11581a0df2759c12752851" kind="enumvalue"><name>GGPO_EVENTCODE_CONNECTED_TO_PEER</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a9daa81de18693e9d1f4444f1df8ff389" kind="enumvalue"><name>GGPO_EVENTCODE_SYNCHRONIZING_WITH_PEER</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a3d31a903c8276bd9e915ae650afe525c" kind="enumvalue"><name>GGPO_EVENTCODE_SYNCHRONIZED_WITH_PEER</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823ac5bc8430e550c608947913078b119f80" kind="enumvalue"><name>GGPO_EVENTCODE_RUNNING</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a9fb79c4a94f4bdb326093de9bfe63a57" kind="enumvalue"><name>GGPO_EVENTCODE_DISCONNECTED_FROM_PEER</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a701a3a7910f6173cc409fb4f7c2ddefd" kind="enumvalue"><name>GGPO_EVENTCODE_TIMESYNC</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a2565356cc1303abf23bfa40e1b8d76ef" kind="enumvalue"><name>GGPO_EVENTCODE_CONNECTION_INTERRUPTED</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823af93c49e06d20e48bf6281206219eb5a8" kind="enumvalue"><name>GGPO_EVENTCODE_CONNECTION_RESUMED</name></member>
+    <member refid="ggponet_8h_1a642d2a35cacbfde7032c0e1513613823a4a4172525390c5ee0820bf7fc9c16557" kind="enumvalue"><name>GGPO_EVENTCODE_TIMESYNC_BEHIND</name></member>
+    <member refid="ggponet_8h_1a0b20341d4809b5752f0fcf796ed2c58f" kind="typedef"><name>GGPOSession</name></member>
+    <member refid="ggponet_8h_1a16cb1393f8f4de8293f66e8ee585f0c3" kind="typedef"><name>GGPOPlayerHandle</name></member>
+    <member refid="ggponet_8h_1ad0fd3fe70bc69d3b12c511368b68701c" kind="typedef"><name>GGPOPlayer</name></member>
+    <member refid="ggponet_8h_1a8ab6d2ef2ef34e06954641c4c0f06158" kind="typedef"><name>GGPOLocalEndpoint</name></member>
+    <member refid="ggponet_8h_1a7dbaf7a8968975fb5c7203a65e3025ce" kind="typedef"><name>ggpo_milliseconds_t</name></member>
+  </compound>
+  <compound refid="dir_fadaa0fd8ddaab1f868c01be974d2395" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends</name>
+  </compound>
+  <compound refid="dir_61f8f2a9aed5edd4e8edeed0f59c7e8a" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4</name>
+  </compound>
+  <compound refid="dir_318b426d8cd05d152bbbb07da75dfdce" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/include</name>
+  </compound>
+  <compound refid="dir_a7503a859c0cbfef62dfa39920604457" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include</name>
+  </compound>
+  <compound refid="dir_ecf22e3aebc35a5fe7ab40162c798880" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network</name>
+  </compound>
+  <compound refid="dir_01309b4faf1ec48651014f612e2b32bb" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine</name>
+  </compound>
+  <compound refid="dir_0b4eaef40a1fe20bedafe9e8e719ce66" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins</name>
+  </compound>
+  <compound refid="dir_37a60bd602479ee08f2dd49815e2e03d" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private</name>
+  </compound>
+  <compound refid="dir_85b7962d70ed8e910f117d16fb4825fd" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public</name>
+  </compound>
+  <compound refid="dir_d32ee28216ed342fa25c01ae9dcd9cc4" kind="dir"><name>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source</name>
+  </compound>
+</doxygenindex>

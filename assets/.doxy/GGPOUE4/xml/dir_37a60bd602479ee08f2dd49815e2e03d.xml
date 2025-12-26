@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_37a60bd602479ee08f2dd49815e2e03d" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private</compoundname>
+    <innerdir refid="dir_fadaa0fd8ddaab1f868c01be974d2395">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends</innerdir>
+    <innerdir refid="dir_318b426d8cd05d152bbbb07da75dfdce">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/include</innerdir>
+    <innerdir refid="dir_ecf22e3aebc35a5fe7ab40162c798880">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network</innerdir>
+    <innerfile refid="bitvector_8cpp">bitvector.cpp</innerfile>
+    <innerfile refid="bitvector_8h">bitvector.h</innerfile>
+    <innerfile refid="game__input_8cpp">game_input.cpp</innerfile>
+    <innerfile refid="game__input_8h">game_input.h</innerfile>
+    <innerfile refid="_g_g_p_o_game_instance_8cpp">GGPOGameInstance.cpp</innerfile>
+    <innerfile refid="_g_g_p_o_u_e4_8cpp">GGPOUE4.cpp</innerfile>
+    <innerfile refid="input__queue_8cpp">input_queue.cpp</innerfile>
+    <innerfile refid="input__queue_8h">input_queue.h</innerfile>
+    <innerfile refid="log_8cpp">log.cpp</innerfile>
+    <innerfile refid="log_8h">log.h</innerfile>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="pevents_8cpp">pevents.cpp</innerfile>
+    <innerfile refid="pevents_8h">pevents.h</innerfile>
+    <innerfile refid="platform__unix_8cpp">platform_unix.cpp</innerfile>
+    <innerfile refid="platform__unix_8h">platform_unix.h</innerfile>
+    <innerfile refid="platform__windows_8cpp">platform_windows.cpp</innerfile>
+    <innerfile refid="platform__windows_8h">platform_windows.h</innerfile>
+    <innerfile refid="poll_8cpp">poll.cpp</innerfile>
+    <innerfile refid="poll_8h">poll.h</innerfile>
+    <innerfile refid="ring__buffer_8h">ring_buffer.h</innerfile>
+    <innerfile refid="static__buffer_8h">static_buffer.h</innerfile>
+    <innerfile refid="sync_8cpp">sync.cpp</innerfile>
+    <innerfile refid="sync_8h">sync.h</innerfile>
+    <innerfile refid="timesync_8cpp">timesync.cpp</innerfile>
+    <innerfile refid="timesync_8h">timesync.h</innerfile>
+    <innerfile refid="types_8h">types.h</innerfile>
+    <innerfile refid="zconf_8h">zconf.h</innerfile>
+    <innerfile refid="zlib_8h">zlib.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/"/>
+  </compounddef>
+</doxygen>

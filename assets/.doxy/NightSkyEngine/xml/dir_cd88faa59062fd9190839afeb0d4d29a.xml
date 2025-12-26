@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_cd88faa59062fd9190839afeb0d4d29a" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT</compoundname>
+    <innerfile refid="_night_sky_w_t_game_state_8cpp">NightSkyWTGameState.cpp</innerfile>
+    <innerfile refid="_night_sky_w_t_game_state_8h">NightSkyWTGameState.h</innerfile>
+    <innerfile refid="_night_sky_w_t_player_controller_8cpp">NightSkyWTPlayerController.cpp</innerfile>
+    <innerfile refid="_night_sky_w_t_player_controller_8h">NightSkyWTPlayerController.h</innerfile>
+    <innerfile refid="_w_t_character_8cpp">WTCharacter.cpp</innerfile>
+    <innerfile refid="_w_t_character_8h">WTCharacter.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/"/>
+  </compounddef>
+</doxygen>

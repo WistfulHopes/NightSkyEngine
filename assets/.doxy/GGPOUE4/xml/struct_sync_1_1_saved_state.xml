@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_sync_1_1_saved_state" kind="struct" language="C++" prot="protected">
+    <compoundname>Sync::SavedState</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sync_1_1_saved_state_1ae92b9dace371415356b8bcc6436667ae" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_sync_1_1_saved_frame" kindref="compound">SavedFrame</ref></type>
+        <definition>SavedFrame Sync::SavedState::frames[MAX_PREDICTION_FRAMES+2]</definition>
+        <argsstring>[MAX_PREDICTION_FRAMES+2]</argsstring>
+        <name>frames</name>
+        <qualifiedname>Sync::SavedState::frames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="74" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sync_1_1_saved_state_1a09e3c03b8709b9e39baecdeedb74bd0e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Sync::SavedState::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <qualifiedname>Sync::SavedState::head</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="75" column="11" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Sync::SavedFrame</label>
+        <link refid="struct_sync_1_1_saved_frame"/>
+      </node>
+      <node id="1">
+        <label>Sync::SavedState</label>
+        <link refid="struct_sync_1_1_saved_state"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>frames</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" line="73" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/sync.h" bodystart="73" bodyend="76"/>
+    <listofallmembers>
+      <member refid="struct_sync_1_1_saved_state_1ae92b9dace371415356b8bcc6436667ae" prot="public" virt="non-virtual"><scope>Sync::SavedState</scope><name>frames</name></member>
+      <member refid="struct_sync_1_1_saved_state_1a09e3c03b8709b9e39baecdeedb74bd0e" prot="public" virt="non-virtual"><scope>Sync::SavedState</scope><name>head</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

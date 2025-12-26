@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_serializable_obj" kind="class" language="C++" prot="public">
+    <compoundname>USerializableObj</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UObject</basecompoundref>
+    <derivedcompoundref refid="class_u_battle_extension" prot="public" virt="non-virtual">UBattleExtension</derivedcompoundref>
+    <derivedcompoundref refid="class_u_state" prot="public" virt="non-virtual">UState</derivedcompoundref>
+    <derivedcompoundref refid="class_u_subroutine" prot="public" virt="non-virtual">USubroutine</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_serializable_obj_1a3f268293c2e75f051793048237a2cfd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TArray&lt; uint8 &gt;</type>
+        <definition>TArray&lt; uint8 &gt; USerializableObj::SaveForRollback</definition>
+        <argsstring>()</argsstring>
+        <name>SaveForRollback</name>
+        <qualifiedname>USerializableObj::SaveForRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.h" line="18" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.cpp" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_serializable_obj_1aec48c81aec9146b9171d1152e8f92dcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void USerializableObj::LoadForRollback</definition>
+        <argsstring>(const TArray&lt; uint8 &gt; &amp;InBytes)</argsstring>
+        <name>LoadForRollback</name>
+        <qualifiedname>USerializableObj::LoadForRollback</qualifiedname>
+        <param>
+          <type>const TArray&lt; uint8 &gt; &amp;</type>
+          <declname>InBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.h" line="19" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.cpp" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_serializable_obj_1a77748ccb93ac7d070d29ceb6641adef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void USerializableObj::ResetToCDO</definition>
+        <argsstring>()</argsstring>
+        <name>ResetToCDO</name>
+        <qualifiedname>USerializableObj::ResetToCDO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.h" line="20" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.cpp" bodystart="28" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>UBattleExtension</label>
+        <link refid="class_u_battle_extension"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UObject</label>
+      </node>
+      <node id="1">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UState</label>
+        <link refid="class_u_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>UStateAlias</label>
+        <link refid="class_u_state_alias"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>USubroutine</label>
+        <link refid="class_u_subroutine"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>USubroutineState</label>
+        <link refid="class_u_subroutine_state"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UObject</label>
+      </node>
+      <node id="1">
+        <label>USerializableObj</label>
+        <link refid="class_u_serializable_obj"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/SerializableObj.h" bodystart="14" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_u_serializable_obj_1aec48c81aec9146b9171d1152e8f92dcb" prot="public" virt="non-virtual"><scope>USerializableObj</scope><name>LoadForRollback</name></member>
+      <member refid="class_u_serializable_obj_1a77748ccb93ac7d070d29ceb6641adef5" prot="public" virt="non-virtual"><scope>USerializableObj</scope><name>ResetToCDO</name></member>
+      <member refid="class_u_serializable_obj_1a3f268293c2e75f051793048237a2cfd0" prot="public" virt="non-virtual"><scope>USerializableObj</scope><name>SaveForRollback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_random_manager" kind="struct" language="C++" prot="public">
+    <compoundname>FRandomManager</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_f_random_manager_1ae18af237b1996d49bd255a4b7ea52057" prot="private" static="no" mutable="no">
+        <type>uint32</type>
+        <definition>uint32 FRandomManager::Seed</definition>
+        <argsstring></argsstring>
+        <name>Seed</name>
+        <qualifiedname>FRandomManager::Seed</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="10" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_f_random_manager_1a81d755bb5f4dfda207b89e3abfb8c221" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FRandomManager::FRandomManager</definition>
+        <argsstring>()</argsstring>
+        <name>FRandomManager</name>
+        <qualifiedname>FRandomManager::FRandomManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1aacc4ec89340c11376f318ce773592cb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FRandomManager::FRandomManager</definition>
+        <argsstring>(uint32 InSeed)</argsstring>
+        <name>FRandomManager</name>
+        <qualifiedname>FRandomManager::FRandomManager</qualifiedname>
+        <param>
+          <type>uint32</type>
+          <declname>InSeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1a5e52a05c78eb95b7017aec84113d7a4f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int FRandomManager::Rand</definition>
+        <argsstring>()</argsstring>
+        <name>Rand</name>
+        <qualifiedname>FRandomManager::Rand</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="15" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="15" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1aa9d193806090dee7584fd96c6a58637f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int FRandomManager::RandRange</definition>
+        <argsstring>(int Min, int Max)</argsstring>
+        <name>RandRange</name>
+        <qualifiedname>FRandomManager::RandRange</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>Min</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>Max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="21" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="21" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1a208e62c6c252f060fc6864e23d66304c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FRandomManager::Reseed</definition>
+        <argsstring>(uint32 InSeed)</argsstring>
+        <name>Reseed</name>
+        <qualifiedname>FRandomManager::Reseed</qualifiedname>
+        <param>
+          <type>uint32</type>
+          <declname>InSeed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="34" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1a865f39364e5f25681a5985aa498d3c2c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32</type>
+        <definition>uint32 FRandomManager::GetSeed</definition>
+        <argsstring>() const</argsstring>
+        <name>GetSeed</name>
+        <qualifiedname>FRandomManager::GetSeed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="39" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_random_manager_1aa0dbbe87f176b96cccc22cfbb889bd39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32</type>
+        <definition>int32 FRandomManager::GenerateRandomNumber</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateRandomNumber</name>
+        <qualifiedname>FRandomManager::GenerateRandomNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="44" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.cpp" bodystart="6" bodyend="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" line="6" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/RandomManager.h" bodystart="7" bodyend="45"/>
+    <listofallmembers>
+      <member refid="struct_f_random_manager_1a81d755bb5f4dfda207b89e3abfb8c221" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>FRandomManager</name></member>
+      <member refid="struct_f_random_manager_1aacc4ec89340c11376f318ce773592cb0" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>FRandomManager</name></member>
+      <member refid="struct_f_random_manager_1aa0dbbe87f176b96cccc22cfbb889bd39" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>GenerateRandomNumber</name></member>
+      <member refid="struct_f_random_manager_1a865f39364e5f25681a5985aa498d3c2c" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>GetSeed</name></member>
+      <member refid="struct_f_random_manager_1a5e52a05c78eb95b7017aec84113d7a4f" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>Rand</name></member>
+      <member refid="struct_f_random_manager_1aa9d193806090dee7584fd96c6a58637f" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>RandRange</name></member>
+      <member refid="struct_f_random_manager_1a208e62c6c252f060fc6864e23d66304c" prot="public" virt="non-virtual"><scope>FRandomManager</scope><name>Reseed</name></member>
+      <member refid="struct_f_random_manager_1ae18af237b1996d49bd255a4b7ea52057" prot="private" virt="non-virtual"><scope>FRandomManager</scope><name>Seed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

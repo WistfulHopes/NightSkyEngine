@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_1_1_callbacks" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>Udp::Callbacks</compoundname>
+    <derivedcompoundref refid="class_peer2_peer_backend" prot="private" virt="non-virtual">Peer2PeerBackend</derivedcompoundref>
+    <derivedcompoundref refid="class_spectator_backend" prot="private" virt="non-virtual">SpectatorBackend</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_udp_1_1_callbacks_1a5574a58d0688501174793ffb60092204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Udp::Callbacks::~Callbacks</definition>
+        <argsstring>()</argsstring>
+        <name>~Callbacks</name>
+        <qualifiedname>Udp::Callbacks::~Callbacks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="30" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_udp_1_1_callbacks_1a6dbc37b63c464c94dfe263849a573f5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Udp::Callbacks::OnMsg</definition>
+        <argsstring>(int connection_id, UdpMsg *msg, int len)=0</argsstring>
+        <name>OnMsg</name>
+        <qualifiedname>Udp::Callbacks::OnMsg</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a76a49db5e89b461cdcba14ad03ef5395">OnMsg</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a597a8c30a4c86d5becf050a5be6dff2b">OnMsg</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_udp_msg" kindref="compound">UdpMsg</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="31" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Peer2PeerBackend</label>
+        <link refid="class_peer2_peer_backend"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SpectatorBackend</label>
+        <link refid="class_spectator_backend"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Udp::Callbacks</label>
+        <link refid="struct_udp_1_1_callbacks"/>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="29" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="29" bodyend="32"/>
+    <listofallmembers>
+      <member refid="struct_udp_1_1_callbacks_1a6dbc37b63c464c94dfe263849a573f5f" prot="public" virt="pure-virtual"><scope>Udp::Callbacks</scope><name>OnMsg</name></member>
+      <member refid="struct_udp_1_1_callbacks_1a5574a58d0688501174793ffb60092204" prot="public" virt="virtual"><scope>Udp::Callbacks</scope><name>~Callbacks</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_fadaa0fd8ddaab1f868c01be974d2395" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends</compoundname>
+    <innerfile refid="backend_8h">backend.h</innerfile>
+    <innerfile refid="p2p_8cpp">p2p.cpp</innerfile>
+    <innerfile refid="p2p_8h">p2p.h</innerfile>
+    <innerfile refid="spectator_8cpp">spectator.cpp</innerfile>
+    <innerfile refid="spectator_8h">spectator.h</innerfile>
+    <innerfile refid="synctest_8cpp">synctest.cpp</innerfile>
+    <innerfile refid="synctest_8h">synctest.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/"/>
+  </compounddef>
+</doxygen>

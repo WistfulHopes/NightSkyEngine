@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_ecf22e3aebc35a5fe7ab40162c798880" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network</compoundname>
+    <innerfile refid="udp_8cpp">udp.cpp</innerfile>
+    <innerfile refid="udp_8h">udp.h</innerfile>
+    <innerfile refid="udp__msg_8h">udp_msg.h</innerfile>
+    <innerfile refid="udp__proto_8cpp">udp_proto.cpp</innerfile>
+    <innerfile refid="udp__proto_8h">udp_proto.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/"/>
+  </compounddef>
+</doxygen>

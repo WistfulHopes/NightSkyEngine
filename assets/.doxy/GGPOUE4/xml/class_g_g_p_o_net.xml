@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_g_g_p_o_net" kind="class" language="C++" prot="public">
+    <compoundname>GGPONet</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_g_p_o_net_1a764f0887499d69dee20a0f3848a003fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_start_session</definition>
+        <argsstring>(GGPOSession **session, GGPOSessionCallbacks *cb, ConnectionManager *connection_manager, const char *game, int num_players, int input_size)</argsstring>
+        <name>ggpo_start_session</name>
+        <qualifiedname>GGPONet::ggpo_start_session</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> **</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+          <declname>connection_manager</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>game</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="534" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="32" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a5a142c4e0c53dc50bfb9172814b03b3a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_add_player</definition>
+        <argsstring>(GGPOSession *session, GGPOPlayer *player, GGPOPlayerHandle *handle)</argsstring>
+        <name>ggpo_add_player</name>
+        <qualifiedname>GGPONet::ggpo_add_player</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g_p_o_player" kindref="compound">GGPOPlayer</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="553" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="48" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1af8a4743d829856696e74a78e95b82e49" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_start_synctest</definition>
+        <argsstring>(GGPOSession **session, GGPOSessionCallbacks *cb, const char *game, int num_players, int input_size, int frames)</argsstring>
+        <name>ggpo_start_synctest</name>
+        <qualifiedname>GGPONet::ggpo_start_synctest</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> **</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>game</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="582" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="61" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a2c3950921733ee07306d1dbf26bd6b60" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_start_spectating</definition>
+        <argsstring>(GGPOSession **session, GGPOSessionCallbacks *cb, ConnectionManager *connection_manager, const char *game, int num_players, int input_size, int connection_id)</argsstring>
+        <name>ggpo_start_spectating</name>
+        <qualifiedname>GGPONet::ggpo_start_spectating</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> **</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session_callbacks" kindref="compound">GGPOSessionCallbacks</ref> *</type>
+          <declname>cb</declname>
+        </param>
+        <param>
+          <type><ref refid="class_connection_manager" kindref="compound">ConnectionManager</ref> *</type>
+          <declname>connection_manager</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>game</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_players</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>connection_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="614" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="190" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a9183f3e494a0549b0f8a9c26a3ff4584" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_close_session</definition>
+        <argsstring>(GGPOSession *)</argsstring>
+        <name>ggpo_close_session</name>
+        <qualifiedname>GGPONet::ggpo_close_session</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="627" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="156" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1abae6c50b1d12ad18f36602acfd8a9b82" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_set_frame_delay</definition>
+        <argsstring>(GGPOSession *, GGPOPlayerHandle player, int frame_delay)</argsstring>
+        <name>ggpo_set_frame_delay</name>
+        <qualifiedname>GGPONet::ggpo_set_frame_delay</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>frame_delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="636" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a47b24019771b90d17bac9d74ce25a7f3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_idle</definition>
+        <argsstring>(GGPOSession *, int timeout)</argsstring>
+        <name>ggpo_idle</name>
+        <qualifiedname>GGPONet::ggpo_idle</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="649" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="84" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1af921a7ba983c6837846ada85377297a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_add_local_input</definition>
+        <argsstring>(GGPOSession *, GGPOPlayerHandle player, void *values, int size)</argsstring>
+        <name>ggpo_add_local_input</name>
+        <qualifiedname>GGPONet::ggpo_add_local_input</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="667" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="93" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1ad1e4722f50a76f861c23794706744f50" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_synchronize_input</definition>
+        <argsstring>(GGPOSession *, void *values, int size, int *disconnect_flags)</argsstring>
+        <name>ggpo_synchronize_input</name>
+        <qualifiedname>GGPONet::ggpo_synchronize_input</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>disconnect_flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="689" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a96581c8189e0398006e2b57fd48a59ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_disconnect_player</definition>
+        <argsstring>(GGPOSession *, GGPOPlayerHandle player)</argsstring>
+        <name>ggpo_disconnect_player</name>
+        <qualifiedname>GGPONet::ggpo_disconnect_player</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="700" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="116" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a9aa5dd3ece1296ef7d5229c58a2407bf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_advance_frame</definition>
+        <argsstring>(GGPOSession *)</argsstring>
+        <name>ggpo_advance_frame</name>
+        <qualifiedname>GGPONet::ggpo_advance_frame</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="711" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="126" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1ad472ad388d930524ce772f722fbda861" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_get_network_stats</definition>
+        <argsstring>(GGPOSession *, GGPOPlayerHandle player, FGGPONetworkStats *stats)</argsstring>
+        <name>ggpo_get_network_stats</name>
+        <qualifiedname>GGPONet::ggpo_get_network_stats</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_f_g_g_p_o_network_stats" kindref="compound">FGGPONetworkStats</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="723" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="144" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1adf0ed400adb0e1f7ad147c80e7e47d50" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_set_disconnect_timeout</definition>
+        <argsstring>(GGPOSession *, int timeout)</argsstring>
+        <name>ggpo_set_disconnect_timeout</name>
+        <qualifiedname>GGPONet::ggpo_set_disconnect_timeout</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="740" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="166" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1ada843eb75d343e7da021605822428007" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_set_disconnect_notify_start</definition>
+        <argsstring>(GGPOSession *, int timeout)</argsstring>
+        <name>ggpo_set_disconnect_notify_start</name>
+        <qualifiedname>GGPONet::ggpo_set_disconnect_notify_start</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <defname>ggpo</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="752" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="175" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_g_p_o_net_1a3fd17901f8e85a02d486ca3bcb0e3517" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GGPO_API GGPOErrorCode __cdecl</type>
+        <definition>GGPOErrorCode GGPONet::ggpo_try_synchronize_local</definition>
+        <argsstring>(GGPOSession *ggpo)</argsstring>
+        <name>ggpo_try_synchronize_local</name>
+        <qualifiedname>GGPONet::ggpo_try_synchronize_local</qualifiedname>
+        <param>
+          <type><ref refid="struct_g_g_p_o_session" kindref="compound">GGPOSession</ref> *</type>
+          <declname>ggpo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="761" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/main.cpp" bodystart="183" bodyend="188"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="508" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="509" bodyend="762"/>
+    <listofallmembers>
+      <member refid="class_g_g_p_o_net_1af921a7ba983c6837846ada85377297a5" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_add_local_input</name></member>
+      <member refid="class_g_g_p_o_net_1a5a142c4e0c53dc50bfb9172814b03b3a" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_add_player</name></member>
+      <member refid="class_g_g_p_o_net_1a9aa5dd3ece1296ef7d5229c58a2407bf" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_advance_frame</name></member>
+      <member refid="class_g_g_p_o_net_1a9183f3e494a0549b0f8a9c26a3ff4584" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_close_session</name></member>
+      <member refid="class_g_g_p_o_net_1a96581c8189e0398006e2b57fd48a59ae" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_disconnect_player</name></member>
+      <member refid="class_g_g_p_o_net_1ad472ad388d930524ce772f722fbda861" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_get_network_stats</name></member>
+      <member refid="class_g_g_p_o_net_1a47b24019771b90d17bac9d74ce25a7f3" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_idle</name></member>
+      <member refid="class_g_g_p_o_net_1ada843eb75d343e7da021605822428007" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_set_disconnect_notify_start</name></member>
+      <member refid="class_g_g_p_o_net_1adf0ed400adb0e1f7ad147c80e7e47d50" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_set_disconnect_timeout</name></member>
+      <member refid="class_g_g_p_o_net_1abae6c50b1d12ad18f36602acfd8a9b82" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_set_frame_delay</name></member>
+      <member refid="class_g_g_p_o_net_1a764f0887499d69dee20a0f3848a003fb" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_start_session</name></member>
+      <member refid="class_g_g_p_o_net_1a2c3950921733ee07306d1dbf26bd6b60" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_start_spectating</name></member>
+      <member refid="class_g_g_p_o_net_1af8a4743d829856696e74a78e95b82e49" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_start_synctest</name></member>
+      <member refid="class_g_g_p_o_net_1ad1e4722f50a76f861c23794706744f50" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_synchronize_input</name></member>
+      <member refid="class_g_g_p_o_net_1a3fd17901f8e85a02d486ca3bcb0e3517" prot="public" virt="non-virtual"><scope>GGPONet</scope><name>ggpo_try_synchronize_local</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

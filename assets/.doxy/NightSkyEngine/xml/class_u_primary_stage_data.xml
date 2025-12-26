@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_primary_stage_data" kind="class" language="C++" prot="public">
+    <compoundname>UPrimaryStageData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UPrimaryDataAsset</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_primary_stage_data_1ae8e301079de14a81533bbe58d5469ac9" prot="public" static="no" mutable="no">
+        <type>FName</type>
+        <definition>FName UPrimaryStageData::StageName</definition>
+        <argsstring></argsstring>
+        <name>StageName</name>
+        <qualifiedname>UPrimaryStageData::StageName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="24" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_stage_data_1a75ed26a53c4456b60f0ad60025b7f597" prot="public" static="no" mutable="no">
+        <type>FText</type>
+        <definition>FText UPrimaryStageData::StageFriendlyName</definition>
+        <argsstring></argsstring>
+        <name>StageFriendlyName</name>
+        <qualifiedname>UPrimaryStageData::StageFriendlyName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="26" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_stage_data_1a113cf0aa287fb37ae80d2a39d416e621" prot="public" static="no" mutable="no">
+        <type>FText</type>
+        <definition>FText UPrimaryStageData::StageDescription</definition>
+        <argsstring></argsstring>
+        <name>StageDescription</name>
+        <qualifiedname>UPrimaryStageData::StageDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="28" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_stage_data_1a30672890b0526bff383e5aaee996d123" prot="public" static="no" mutable="no">
+        <type>UTexture2D *</type>
+        <definition>UTexture2D* UPrimaryStageData::StageSelectIcon</definition>
+        <argsstring></argsstring>
+        <name>StageSelectIcon</name>
+        <qualifiedname>UPrimaryStageData::StageSelectIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="30" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_stage_data_1a3f667d21dee368109dfcea83bd9e0345" prot="public" static="no" mutable="no">
+        <type>UTexture2D *</type>
+        <definition>UTexture2D* UPrimaryStageData::StageSplashIcon</definition>
+        <argsstring></argsstring>
+        <name>StageSplashIcon</name>
+        <qualifiedname>UPrimaryStageData::StageSplashIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="32" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_primary_stage_data_1a299d70c882453884fbc6216793d8f0ca" prot="public" static="no" mutable="no">
+        <type>FString</type>
+        <definition>FString UPrimaryStageData::StageURL</definition>
+        <argsstring></argsstring>
+        <name>StageURL</name>
+        <qualifiedname>UPrimaryStageData::StageURL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="34" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_primary_stage_data_1ad4804686bbb77bdd14cb3f0cc2f11b1c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>FPrimaryAssetId</type>
+        <definition>virtual FPrimaryAssetId UPrimaryStageData::GetPrimaryAssetId</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetPrimaryAssetId</name>
+        <qualifiedname>UPrimaryStageData::GetPrimaryAssetId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="18" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="18" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="1">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/PrimaryStageData.h" bodystart="14" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_u_primary_stage_data_1ad4804686bbb77bdd14cb3f0cc2f11b1c" prot="public" virt="virtual"><scope>UPrimaryStageData</scope><name>GetPrimaryAssetId</name></member>
+      <member refid="class_u_primary_stage_data_1a113cf0aa287fb37ae80d2a39d416e621" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageDescription</name></member>
+      <member refid="class_u_primary_stage_data_1a75ed26a53c4456b60f0ad60025b7f597" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageFriendlyName</name></member>
+      <member refid="class_u_primary_stage_data_1ae8e301079de14a81533bbe58d5469ac9" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageName</name></member>
+      <member refid="class_u_primary_stage_data_1a30672890b0526bff383e5aaee996d123" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageSelectIcon</name></member>
+      <member refid="class_u_primary_stage_data_1a3f667d21dee368109dfcea83bd9e0345" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageSplashIcon</name></member>
+      <member refid="class_u_primary_stage_data_1a299d70c882453884fbc6216793d8f0ca" prot="public" virt="non-virtual"><scope>UPrimaryStageData</scope><name>StageURL</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_ground_bounce_data" kind="struct" language="C++" prot="public">
+    <compoundname>FGroundBounceData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1ac8edcb6d1fd0b0d2627a581f18bfe249" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceCount</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceCount</name>
+        <qualifiedname>FGroundBounceData::GroundBounceCount</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="298" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1aff723a86fd6ddb88be6d6c43c6f6a2db" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceUntech</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceUntech</name>
+        <qualifiedname>FGroundBounceData::GroundBounceUntech</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="301" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1a669460ce428024dfe0ab10ba3453d588" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceStop</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceStop</name>
+        <qualifiedname>FGroundBounceData::GroundBounceStop</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="304" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1ad67a4ed53c073034c687ef81a2117307" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceXSpeed</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceXSpeed</name>
+        <qualifiedname>FGroundBounceData::GroundBounceXSpeed</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="310" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1ab6915941d7944339907d5bfe8774af8e" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceXRate</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceXRate</name>
+        <qualifiedname>FGroundBounceData::GroundBounceXRate</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="316" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="316" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1aca03c8bfc45fbac070175bf1594f63fc" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceYSpeed</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceYSpeed</name>
+        <qualifiedname>FGroundBounceData::GroundBounceYSpeed</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="322" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1aee0a927274771de02e92ee5427757eac" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceYRate</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceYRate</name>
+        <qualifiedname>FGroundBounceData::GroundBounceYRate</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="328" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_ground_bounce_data_1afc4c84e85cdb5c3066bc143d017d38e3" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FGroundBounceData::GroundBounceGravity</definition>
+        <argsstring></argsstring>
+        <name>GroundBounceGravity</name>
+        <qualifiedname>FGroundBounceData::GroundBounceGravity</qualifiedname>
+        <initializer>= INT_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="334" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="292" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="293" bodyend="335"/>
+    <listofallmembers>
+      <member refid="struct_f_ground_bounce_data_1ac8edcb6d1fd0b0d2627a581f18bfe249" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceCount</name></member>
+      <member refid="struct_f_ground_bounce_data_1afc4c84e85cdb5c3066bc143d017d38e3" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceGravity</name></member>
+      <member refid="struct_f_ground_bounce_data_1a669460ce428024dfe0ab10ba3453d588" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceStop</name></member>
+      <member refid="struct_f_ground_bounce_data_1aff723a86fd6ddb88be6d6c43c6f6a2db" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceUntech</name></member>
+      <member refid="struct_f_ground_bounce_data_1ab6915941d7944339907d5bfe8774af8e" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceXRate</name></member>
+      <member refid="struct_f_ground_bounce_data_1ad67a4ed53c073034c687ef81a2117307" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceXSpeed</name></member>
+      <member refid="struct_f_ground_bounce_data_1aee0a927274771de02e92ee5427757eac" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceYRate</name></member>
+      <member refid="struct_f_ground_bounce_data_1aca03c8bfc45fbac070175bf1594f63fc" prot="public" virt="non-virtual"><scope>FGroundBounceData</scope><name>GroundBounceYSpeed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

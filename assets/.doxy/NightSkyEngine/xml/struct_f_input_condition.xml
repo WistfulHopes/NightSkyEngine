@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_input_condition" kind="struct" language="C++" prot="public">
+    <compoundname>FInputCondition</compoundname>
+    <includes refid="_state_8h" local="no">State.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_input_condition_1a9be6400d9916f51c83f37a8342d46294" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_input_bitmask" kindref="compound">FInputBitmask</ref> &gt;</type>
+        <definition>TArray&lt;FInputBitmask&gt; FInputCondition::Sequence</definition>
+        <argsstring></argsstring>
+        <name>Sequence</name>
+        <qualifiedname>FInputCondition::Sequence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A sequence of input bitmasks. Depending on lenience, the amount of time between inputs is increased or decreased. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="225" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_condition_1a7f422a4bdd486d02b1f109725dcd774d" prot="public" static="no" mutable="no">
+        <type>TArray&lt; TEnumAsByte&lt; EInputFlags &gt; &gt;</type>
+        <definition>TArray&lt;TEnumAsByte&lt;EInputFlags&gt; &gt; FInputCondition::DisallowedInputs</definition>
+        <argsstring></argsstring>
+        <name>DisallowedInputs</name>
+        <qualifiedname>FInputCondition::DisallowedInputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="230" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_condition_1ae0452631ef06bbaf7c1b5a5a3623afe0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int FInputCondition::ImpreciseInputCount</definition>
+        <argsstring></argsstring>
+        <name>ImpreciseInputCount</name>
+        <qualifiedname>FInputCondition::ImpreciseInputCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This value determines how many imprecise inputs are allowed in this condition. An imprecise input is a diagonal input that matches the cardinal direction. For use with the Strict or Once Strict input methods. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="237" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_input_condition_1ae98fad561b9d4c2d87dfa7282921a1a9" prot="public" static="no" mutable="no">
+        <type>EInputMethod</type>
+        <definition>EInputMethod FInputCondition::Method</definition>
+        <argsstring></argsstring>
+        <name>Method</name>
+        <qualifiedname>FInputCondition::Method</qualifiedname>
+        <initializer>= EInputMethod::Normal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The input method used for this condition. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="242" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Contains an input condition. </para>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" line="216" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/State.h" bodystart="217" bodyend="243"/>
+    <listofallmembers>
+      <member refid="struct_f_input_condition_1a7f422a4bdd486d02b1f109725dcd774d" prot="public" virt="non-virtual"><scope>FInputCondition</scope><name>DisallowedInputs</name></member>
+      <member refid="struct_f_input_condition_1ae0452631ef06bbaf7c1b5a5a3623afe0" prot="public" virt="non-virtual"><scope>FInputCondition</scope><name>ImpreciseInputCount</name></member>
+      <member refid="struct_f_input_condition_1ae98fad561b9d4c2d87dfa7282921a1a9" prot="public" virt="non-virtual"><scope>FInputCondition</scope><name>Method</name></member>
+      <member refid="struct_f_input_condition_1a9be6400d9916f51c83f37a8342d46294" prot="public" virt="non-virtual"><scope>FInputCondition</scope><name>Sequence</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_g_g_p_o_session_callbacks" kind="struct" language="C++" prot="public">
+    <compoundname>GGPOSessionCallbacks</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1ab22c621b726c2c4bc802ddafc71f496b" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* GGPOSessionCallbacks::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>GGPOSessionCallbacks::len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="463" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1a154765943509572c16755d16e4df6ff9" prot="public" static="no" mutable="no">
+        <type>int int *</type>
+        <definition>int int* GGPOSessionCallbacks::checksum</definition>
+        <argsstring></argsstring>
+        <name>checksum</name>
+        <qualifiedname>GGPOSessionCallbacks::checksum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="463" column="26" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1affb7edc7fa899c7648ae63f96945c924" prot="public" static="no" mutable="no">
+        <type>int int int</type>
+        <definition>int int int GGPOSessionCallbacks::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <qualifiedname>GGPOSessionCallbacks::frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="463" column="39" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1abbdf7ce10db85356b30eaac690c9fcd0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GGPOSessionCallbacks::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>GGPOSessionCallbacks::len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="472" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="472" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1a0e75e49bc8fc402515c75052f90f6c6e" prot="public" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* GGPOSessionCallbacks::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <qualifiedname>GGPOSessionCallbacks::buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="479" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="479" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_g_p_o_session_callbacks_1ad145d9311aaaf785f3976a5dac57fbaa" prot="public" static="no" mutable="no">
+        <type>unsigned char int</type>
+        <definition>unsigned char int GGPOSessionCallbacks::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>GGPOSessionCallbacks::len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="479" column="38" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="479" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a330c83351d35bd72d2d3cb44dc09a4c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *begin_game)(const char *game)</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>begin_game</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="455" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a8b7e769e99f01a3bd2f99f0829c3935e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *save_game_state)(unsigned char **buffer</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>save_game_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="463" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a0a63fb55bfb7497701ebf530367fc98b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *load_game_state)(unsigned char *buffer</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>load_game_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="472" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1afca4b53ef99d1f3ba7ab1c7c238d0e20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *log_game_state)(char *filename</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>log_game_state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="479" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a0a974590c4d41e0e48367c17698fd14f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::void</definition>
+        <argsstring>(__cdecl *free_buffer)(void *buffer)</argsstring>
+        <name>void</name>
+        <qualifiedname>GGPOSessionCallbacks::void</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>free_buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="485" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a73b75811a76ef66f78f9d91a46574a4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *advance_frame)(int flags)</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>advance_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="496" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_callbacks_1a85d7dcb70d05d162332d36e81d800fd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GGPOSessionCallbacks::bool</definition>
+        <argsstring>(__cdecl *on_event)(GGPOEvent *info)</argsstring>
+        <name>bool</name>
+        <qualifiedname>GGPOSessionCallbacks::bool</qualifiedname>
+        <param>
+          <type>__cdecl *</type>
+          <declname>on_event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="502" column="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" line="450" column="2" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Public/include/ggponet.h" bodystart="450" bodyend="503"/>
+    <listofallmembers>
+      <member refid="struct_g_g_p_o_session_callbacks_1a330c83351d35bd72d2d3cb44dc09a4c8" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a8b7e769e99f01a3bd2f99f0829c3935e" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a0a63fb55bfb7497701ebf530367fc98b" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1afca4b53ef99d1f3ba7ab1c7c238d0e20" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a73b75811a76ef66f78f9d91a46574a4c" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a85d7dcb70d05d162332d36e81d800fd1" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>bool</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a0e75e49bc8fc402515c75052f90f6c6e" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>buffer</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a154765943509572c16755d16e4df6ff9" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>checksum</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1affb7edc7fa899c7648ae63f96945c924" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>frame</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1ab22c621b726c2c4bc802ddafc71f496b" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>len</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1abbdf7ce10db85356b30eaac690c9fcd0" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>len</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1ad145d9311aaaf785f3976a5dac57fbaa" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>len</name></member>
+      <member refid="struct_g_g_p_o_session_callbacks_1a0a974590c4d41e0e48367c17698fd14f" prot="public" virt="non-virtual"><scope>GGPOSessionCallbacks</scope><name>void</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

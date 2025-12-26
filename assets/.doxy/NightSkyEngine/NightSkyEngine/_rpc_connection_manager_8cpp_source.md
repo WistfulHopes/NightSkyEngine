@@ -1,0 +1,52 @@
+
+
+# File RpcConnectionManager.cpp
+
+[**File List**](files.md) **>** [**Network**](dir_261b7ff0e57c151ad26fd5c163777bbe.md) **>** [**RpcConnectionManager.cpp**](_rpc_connection_manager_8cpp.md)
+
+[Go to the documentation of this file](_rpc_connection_manager_8cpp.md)
+
+
+```C++
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "RpcConnectionManager.h"
+
+
+RpcConnectionManager::RpcConnectionManager()
+{
+    playerIndex = 0;
+}
+
+RpcConnectionManager::~RpcConnectionManager()
+{
+}
+
+int RpcConnectionManager::SendTo(const char* buffer, int len, int flags, int connection_id)
+{
+    const TArray scheduledMessage((int8*)buffer,len);
+    sendSchedule.AddTail(scheduledMessage);
+
+    return 0;
+}
+
+int RpcConnectionManager::RecvFrom(char* buffer, int len, int flags, int* connection_id)
+{
+    if (receiveSchedule.Num() == 0)
+        return -1;
+    auto msg = receiveSchedule.GetTail();
+    
+    auto msgVal = msg->GetValue();
+    auto rec = (char*)msgVal.GetData();
+    auto leng = msgVal.Num(); // int* to char* size
+    if (leng == 0)
+        return -1;
+    memcpy(buffer, rec, leng);
+    receiveSchedule.Empty();
+    *connection_id = playerIndex;
+    return leng;
+}
+```
+
+

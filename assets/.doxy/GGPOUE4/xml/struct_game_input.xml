@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_game_input" kind="struct" language="C++" prot="public">
+    <compoundname>GameInput</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Constants</name>
+        <qualifiedname>GameInput::Constants</qualifiedname>
+        <enumvalue id="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19a41ed14baae91e6fae46456d7b6a2feef" prot="public">
+          <name>NullFrame</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="21" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="21" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_game_input_1a631fcd6a7db9434a41b3c0419f77a818" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GameInput::frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <qualifiedname>GameInput::frame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="24" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_game_input_1a656a81d98df2c17169c77d35e64e9a8d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GameInput::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>GameInput::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="25" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_game_input_1afaba41561497d8a483476e07aa8fc4ee" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char GameInput::bits[GAMEINPUT_MAX_BYTES *GAMEINPUT_MAX_PLAYERS]</definition>
+        <argsstring>[GAMEINPUT_MAX_BYTES *GAMEINPUT_MAX_PLAYERS]</argsstring>
+        <name>bits</name>
+        <qualifiedname>GameInput::bits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="26" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_game_input_1a4c8ea750666878b34b5b8e906ca268fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameInput::is_null</definition>
+        <argsstring>()</argsstring>
+        <name>is_null</name>
+        <qualifiedname>GameInput::is_null</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="28" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1ad04c550dbc03f250149b978bce8d08ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::init</definition>
+        <argsstring>(int frame, char *bits, int size, int offset)</argsstring>
+        <name>init</name>
+        <qualifiedname>GameInput::init</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="29" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.cpp" bodystart="13" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a2b7ab859cb6a89478516995c8a8aeba9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::init</definition>
+        <argsstring>(int frame, char *bits, int size)</argsstring>
+        <name>init</name>
+        <qualifiedname>GameInput::init</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="30" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.cpp" bodystart="26" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a55b9a56166e32ffb00fdbb65460f7f56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameInput::value</definition>
+        <argsstring>(int i) const</argsstring>
+        <name>value</name>
+        <qualifiedname>GameInput::value</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="31" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1af1e61085054bbbb7b15dd4d740362dea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::set</definition>
+        <argsstring>(int i)</argsstring>
+        <name>set</name>
+        <qualifiedname>GameInput::set</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="32" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1ab2adeb0a88d0b0910383a04c3006f3dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::clear</definition>
+        <argsstring>(int i)</argsstring>
+        <name>clear</name>
+        <qualifiedname>GameInput::clear</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="33" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a7fd041b4d53778f2e59ac0a180ade9fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::erase</definition>
+        <argsstring>()</argsstring>
+        <name>erase</name>
+        <qualifiedname>GameInput::erase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="34" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a58eef47d255151bff2915e620faf2ee3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::desc</definition>
+        <argsstring>(char *buf, size_t buf_size, bool show_frame=true) const</argsstring>
+        <name>desc</name>
+        <qualifiedname>GameInput::desc</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>buf</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>buf_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>show_frame</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="35" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.cpp" bodystart="39" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a225b7b8f826df003bce7ca290924c87b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameInput::log</definition>
+        <argsstring>(char *prefix, bool show_frame=true) const</argsstring>
+        <name>log</name>
+        <qualifiedname>GameInput::log</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>show_frame</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="36" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.cpp" bodystart="61" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_game_input_1a7bb8e5d4338e48044c64133011863ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameInput::equal</definition>
+        <argsstring>(GameInput &amp;input, bool bitsonly=false)</argsstring>
+        <name>equal</name>
+        <qualifiedname>GameInput::equal</qualifiedname>
+        <param>
+          <type><ref refid="struct_game_input" kindref="compound">GameInput</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bitsonly</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="37" column="9" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.cpp" bodystart="72" bodyend="87"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" line="20" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/game_input.h" bodystart="20" bodyend="38"/>
+    <listofallmembers>
+      <member refid="struct_game_input_1afaba41561497d8a483476e07aa8fc4ee" prot="public" virt="non-virtual"><scope>GameInput</scope><name>bits</name></member>
+      <member refid="struct_game_input_1ab2adeb0a88d0b0910383a04c3006f3dc" prot="public" virt="non-virtual"><scope>GameInput</scope><name>clear</name></member>
+      <member refid="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19" prot="public" virt="non-virtual"><scope>GameInput</scope><name>Constants</name></member>
+      <member refid="struct_game_input_1a58eef47d255151bff2915e620faf2ee3" prot="public" virt="non-virtual"><scope>GameInput</scope><name>desc</name></member>
+      <member refid="struct_game_input_1a7bb8e5d4338e48044c64133011863ff8" prot="public" virt="non-virtual"><scope>GameInput</scope><name>equal</name></member>
+      <member refid="struct_game_input_1a7fd041b4d53778f2e59ac0a180ade9fc" prot="public" virt="non-virtual"><scope>GameInput</scope><name>erase</name></member>
+      <member refid="struct_game_input_1a631fcd6a7db9434a41b3c0419f77a818" prot="public" virt="non-virtual"><scope>GameInput</scope><name>frame</name></member>
+      <member refid="struct_game_input_1ad04c550dbc03f250149b978bce8d08ad" prot="public" virt="non-virtual"><scope>GameInput</scope><name>init</name></member>
+      <member refid="struct_game_input_1a2b7ab859cb6a89478516995c8a8aeba9" prot="public" virt="non-virtual"><scope>GameInput</scope><name>init</name></member>
+      <member refid="struct_game_input_1a4c8ea750666878b34b5b8e906ca268fc" prot="public" virt="non-virtual"><scope>GameInput</scope><name>is_null</name></member>
+      <member refid="struct_game_input_1a225b7b8f826df003bce7ca290924c87b" prot="public" virt="non-virtual"><scope>GameInput</scope><name>log</name></member>
+      <member refid="struct_game_input_1aa5ba4c6343815dd31e7b3e4be6dfae19a41ed14baae91e6fae46456d7b6a2feef" prot="public" virt="non-virtual"><scope>GameInput</scope><name>NullFrame</name></member>
+      <member refid="struct_game_input_1af1e61085054bbbb7b15dd4d740362dea" prot="public" virt="non-virtual"><scope>GameInput</scope><name>set</name></member>
+      <member refid="struct_game_input_1a656a81d98df2c17169c77d35e64e9a8d" prot="public" virt="non-virtual"><scope>GameInput</scope><name>size</name></member>
+      <member refid="struct_game_input_1a55b9a56166e32ffb00fdbb65460f7f56" prot="public" virt="non-virtual"><scope>GameInput</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

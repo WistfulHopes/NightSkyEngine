@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_udp_1_1_stats" kind="struct" language="C++" prot="public">
+    <compoundname>Udp::Stats</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_udp_1_1_stats_1a492aea1e70aefe05f4bf4131b3a55d9d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Udp::Stats::bytes_sent</definition>
+        <argsstring></argsstring>
+        <name>bytes_sent</name>
+        <qualifiedname>Udp::Stats::bytes_sent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="24" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_1_1_stats_1a8161c273d0053ef347cba1c5ae9d03e1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Udp::Stats::packets_sent</definition>
+        <argsstring></argsstring>
+        <name>packets_sent</name>
+        <qualifiedname>Udp::Stats::packets_sent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="25" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_udp_1_1_stats_1a9ac588ddfe1722d6c8ae466a60f5cc96" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Udp::Stats::kbps_sent</definition>
+        <argsstring></argsstring>
+        <name>kbps_sent</name>
+        <qualifiedname>Udp::Stats::kbps_sent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="26" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" line="23" column="4" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/network/udp.h" bodystart="23" bodyend="27"/>
+    <listofallmembers>
+      <member refid="struct_udp_1_1_stats_1a492aea1e70aefe05f4bf4131b3a55d9d" prot="public" virt="non-virtual"><scope>Udp::Stats</scope><name>bytes_sent</name></member>
+      <member refid="struct_udp_1_1_stats_1a9ac588ddfe1722d6c8ae466a60f5cc96" prot="public" virt="non-virtual"><scope>Udp::Stats</scope><name>kbps_sent</name></member>
+      <member refid="struct_udp_1_1_stats_1a8161c273d0053ef347cba1c5ae9d03e1" prot="public" virt="non-virtual"><scope>Udp::Stats</scope><name>packets_sent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_battle_widget" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyBattleWidget</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UUserWidget</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a33dbdbf6ccf61d080b2d93d0dfbcc05a" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P1Health</definition>
+        <argsstring></argsstring>
+        <name>P1Health</name>
+        <qualifiedname>UNightSkyBattleWidget::P1Health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="34" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a4b77a577d645a266c0217b55ffd99205" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P2Health</definition>
+        <argsstring></argsstring>
+        <name>P2Health</name>
+        <qualifiedname>UNightSkyBattleWidget::P2Health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="36" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a80f56cc7b3278d90be047ea0ca19fc0a" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P1RecoverableHealth</definition>
+        <argsstring></argsstring>
+        <name>P1RecoverableHealth</name>
+        <qualifiedname>UNightSkyBattleWidget::P1RecoverableHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="38" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1ac8d13142a9621ec8d1c79c905d53629f" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P2RecoverableHealth</definition>
+        <argsstring></argsstring>
+        <name>P2RecoverableHealth</name>
+        <qualifiedname>UNightSkyBattleWidget::P2RecoverableHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="40" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a39119899c88e9e0dec9b65c935641ede" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float UNightSkyBattleWidget::Timer</definition>
+        <argsstring></argsstring>
+        <name>Timer</name>
+        <qualifiedname>UNightSkyBattleWidget::Timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="42" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a4bb9861acbe33c4d4af818338acf4ce9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float UNightSkyBattleWidget::P1Meter</definition>
+        <argsstring></argsstring>
+        <name>P1Meter</name>
+        <qualifiedname>UNightSkyBattleWidget::P1Meter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="44" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a8b2777628976c3cfe1e20f0859b7a38d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float UNightSkyBattleWidget::P2Meter</definition>
+        <argsstring></argsstring>
+        <name>P2Meter</name>
+        <qualifiedname>UNightSkyBattleWidget::P2Meter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="46" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a19da72cc54d901ccb2ea7ea81a31362b" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P1Gauge</definition>
+        <argsstring></argsstring>
+        <name>P1Gauge</name>
+        <qualifiedname>UNightSkyBattleWidget::P1Gauge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="48" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a717c19e05f1d6cf465f57c9cc18095b3" prot="public" static="no" mutable="no">
+        <type>TArray&lt; float &gt;</type>
+        <definition>TArray&lt;float&gt; UNightSkyBattleWidget::P2Gauge</definition>
+        <argsstring></argsstring>
+        <name>P2Gauge</name>
+        <qualifiedname>UNightSkyBattleWidget::P2Gauge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="50" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1aec44636a4b3b249fb053c822b5733479" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::P1RoundsWon</definition>
+        <argsstring></argsstring>
+        <name>P1RoundsWon</name>
+        <qualifiedname>UNightSkyBattleWidget::P1RoundsWon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="52" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1adad0b49e2cce08e5cb2ddd87c3690b2a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::P2RoundsWon</definition>
+        <argsstring></argsstring>
+        <name>P2RoundsWon</name>
+        <qualifiedname>UNightSkyBattleWidget::P2RoundsWon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="54" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1aac1649e5a3fca8f2ab89e47cbb14f86a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::P1ComboCounter</definition>
+        <argsstring></argsstring>
+        <name>P1ComboCounter</name>
+        <qualifiedname>UNightSkyBattleWidget::P1ComboCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="56" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a33178e93c96a0f828ed6c294053f5daa" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::P2ComboCounter</definition>
+        <argsstring></argsstring>
+        <name>P2ComboCounter</name>
+        <qualifiedname>UNightSkyBattleWidget::P2ComboCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="58" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a8ad100262f079a3e100fb5670e02c126" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::Ping</definition>
+        <argsstring></argsstring>
+        <name>Ping</name>
+        <qualifiedname>UNightSkyBattleWidget::Ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="60" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1a70db704afa4ecb5d400037c2105ed360" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UNightSkyBattleWidget::RollbackFrames</definition>
+        <argsstring></argsstring>
+        <name>RollbackFrames</name>
+        <qualifiedname>UNightSkyBattleWidget::RollbackFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="62" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_night_sky_battle_widget_1abdcca425f2964312d1a62d8b38f3883e" prot="public" static="no" mutable="no">
+        <type>TArray&lt; <ref refid="struct_f_rollback_animation" kindref="compound">FRollbackAnimation</ref> &gt;</type>
+        <definition>TArray&lt;FRollbackAnimation&gt; UNightSkyBattleWidget::WidgetAnimationRollback</definition>
+        <argsstring></argsstring>
+        <name>WidgetAnimationRollback</name>
+        <qualifiedname>UNightSkyBattleWidget::WidgetAnimationRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="65" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a04c638d73e3705205fe0a99187ef1b51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::RegisterAnimationsForRollback</definition>
+        <argsstring>()</argsstring>
+        <name>RegisterAnimationsForRollback</name>
+        <qualifiedname>UNightSkyBattleWidget::RegisterAnimationsForRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="68" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a79bc4623c8a0808f32dff054fafded8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayFadeAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayFadeAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayFadeAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="71" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1abeb8f2688ba85573b516266f059ed629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayFadeOutAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayFadeOutAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayFadeOutAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="74" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1aaa5b02b87eee267920114eec27297f44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayHealthAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayHealthAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayHealthAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="77" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a014b1cb358c7c8cf5c0cc04e615a6ef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayRecoverableHealthAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayRecoverableHealthAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayRecoverableHealthAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="80" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a4229f7b6b999f65819768e2ce5651e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayTimerAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayTimerAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayTimerAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="83" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a58d2ef23f26f71e31492054287936850" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayMeterAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayMeterAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayMeterAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="86" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a9c51b8e9800ea0c36bd8b080dfac0ea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayGaugeAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayGaugeAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayGaugeAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="89" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1ac43d5929982873cb82fac56d48a0adf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayRoundInitAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayRoundInitAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayRoundInitAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="92" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1afb91d85bdb7c5944fb0b4804ef80870a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayRoundWinAnim</definition>
+        <argsstring>(bool bIsP1)</argsstring>
+        <name>PlayRoundWinAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayRoundWinAnim</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bIsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="95" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a633d010faf70a026e472f7c273cdb4a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayMatchWinAnim</definition>
+        <argsstring>(bool bIsP1)</argsstring>
+        <name>PlayMatchWinAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayMatchWinAnim</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>bIsP1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="98" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a6255b7c281e65823ac3719eb0a261a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayComboCounterAnim</definition>
+        <argsstring>()</argsstring>
+        <name>PlayComboCounterAnim</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayComboCounterAnim</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="101" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1ab9e82cf7e0bd4eb7c587ab1041eaebb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::PlayStandardAnimations</definition>
+        <argsstring>()</argsstring>
+        <name>PlayStandardAnimations</name>
+        <qualifiedname>UNightSkyBattleWidget::PlayStandardAnimations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="103" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.cpp" bodystart="11" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a0ef816e191536426aa10757ed34f3bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::SetAnimationRollbackData</definition>
+        <argsstring>()</argsstring>
+        <name>SetAnimationRollbackData</name>
+        <qualifiedname>UNightSkyBattleWidget::SetAnimationRollbackData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="104" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.cpp" bodystart="21" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1ac30581332466939c34659552c4bdf280" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::RollbackAnimations</definition>
+        <argsstring>()</argsstring>
+        <name>RollbackAnimations</name>
+        <qualifiedname>UNightSkyBattleWidget::RollbackAnimations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="105" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.cpp" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1a14b8f9ac82707aadc5d7197073fab520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TArray&lt; uint8 &gt;</type>
+        <definition>TArray&lt; uint8 &gt; UNightSkyBattleWidget::SaveForRollback</definition>
+        <argsstring>()</argsstring>
+        <name>SaveForRollback</name>
+        <qualifiedname>UNightSkyBattleWidget::SaveForRollback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="107" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.cpp" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_battle_widget_1af7fb29c16dce88ce105a231b07e33293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UNightSkyBattleWidget::LoadForRollback</definition>
+        <argsstring>(const TArray&lt; uint8 &gt; &amp;InBytes)</argsstring>
+        <name>LoadForRollback</name>
+        <qualifiedname>UNightSkyBattleWidget::LoadForRollback</qualifiedname>
+        <param>
+          <type>const TArray&lt; uint8 &gt; &amp;</type>
+          <declname>InBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="108" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.cpp" bodystart="53" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UUserWidget</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UNightSkyBattleWidget</label>
+        <link refid="class_u_night_sky_battle_widget"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UUserWidget</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" line="28" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/UI/NightSkyBattleWidget.h" bodystart="29" bodyend="109"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_battle_widget_1af7fb29c16dce88ce105a231b07e33293" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>LoadForRollback</name></member>
+      <member refid="class_u_night_sky_battle_widget_1aac1649e5a3fca8f2ab89e47cbb14f86a" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1ComboCounter</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a19da72cc54d901ccb2ea7ea81a31362b" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1Gauge</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a33dbdbf6ccf61d080b2d93d0dfbcc05a" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1Health</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a4bb9861acbe33c4d4af818338acf4ce9" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1Meter</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a80f56cc7b3278d90be047ea0ca19fc0a" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1RecoverableHealth</name></member>
+      <member refid="class_u_night_sky_battle_widget_1aec44636a4b3b249fb053c822b5733479" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P1RoundsWon</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a33178e93c96a0f828ed6c294053f5daa" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2ComboCounter</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a717c19e05f1d6cf465f57c9cc18095b3" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2Gauge</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a4b77a577d645a266c0217b55ffd99205" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2Health</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a8b2777628976c3cfe1e20f0859b7a38d" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2Meter</name></member>
+      <member refid="class_u_night_sky_battle_widget_1ac8d13142a9621ec8d1c79c905d53629f" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2RecoverableHealth</name></member>
+      <member refid="class_u_night_sky_battle_widget_1adad0b49e2cce08e5cb2ddd87c3690b2a" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>P2RoundsWon</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a8ad100262f079a3e100fb5670e02c126" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>Ping</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a6255b7c281e65823ac3719eb0a261a57" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayComboCounterAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a79bc4623c8a0808f32dff054fafded8d" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayFadeAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1abeb8f2688ba85573b516266f059ed629" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayFadeOutAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a9c51b8e9800ea0c36bd8b080dfac0ea4" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayGaugeAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1aaa5b02b87eee267920114eec27297f44" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayHealthAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a633d010faf70a026e472f7c273cdb4a3" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayMatchWinAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a58d2ef23f26f71e31492054287936850" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayMeterAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a014b1cb358c7c8cf5c0cc04e615a6ef2" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayRecoverableHealthAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1ac43d5929982873cb82fac56d48a0adf4" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayRoundInitAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1afb91d85bdb7c5944fb0b4804ef80870a" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayRoundWinAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1ab9e82cf7e0bd4eb7c587ab1041eaebb8" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayStandardAnimations</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a4229f7b6b999f65819768e2ce5651e99" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>PlayTimerAnim</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a04c638d73e3705205fe0a99187ef1b51" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>RegisterAnimationsForRollback</name></member>
+      <member refid="class_u_night_sky_battle_widget_1ac30581332466939c34659552c4bdf280" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>RollbackAnimations</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a70db704afa4ecb5d400037c2105ed360" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>RollbackFrames</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a14b8f9ac82707aadc5d7197073fab520" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>SaveForRollback</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a0ef816e191536426aa10757ed34f3bad" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>SetAnimationRollbackData</name></member>
+      <member refid="class_u_night_sky_battle_widget_1a39119899c88e9e0dec9b65c935641ede" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>Timer</name></member>
+      <member refid="class_u_night_sky_battle_widget_1abdcca425f2964312d1a62d8b38f3883e" prot="public" virt="non-virtual"><scope>UNightSkyBattleWidget</scope><name>WidgetAnimationRollback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_51f67430d2b061bf5371397678dcec7e" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors</compoundname>
+    <innerfile refid="_audio_manager_8cpp">AudioManager.cpp</innerfile>
+    <innerfile refid="_audio_manager_8h">AudioManager.h</innerfile>
+    <innerfile refid="_link_actor_8cpp">LinkActor.cpp</innerfile>
+    <innerfile refid="_link_actor_8h">LinkActor.h</innerfile>
+    <innerfile refid="_particle_manager_8cpp">ParticleManager.cpp</innerfile>
+    <innerfile refid="_particle_manager_8h">ParticleManager.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Actors/"/>
+  </compounddef>
+</doxygen>

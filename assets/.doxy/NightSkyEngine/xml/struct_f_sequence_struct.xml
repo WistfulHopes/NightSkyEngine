@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_f_sequence_struct" kind="struct" language="C++" prot="public">
+    <compoundname>FSequenceStruct</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_sequence_struct_1a8fe7ecb3d312e33a13ff6f227a9e091e" prot="public" static="no" mutable="no">
+        <type>FGameplayTag</type>
+        <definition>FGameplayTag FSequenceStruct::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>FSequenceStruct::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" line="16" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_sequence_struct_1a4db78d42fa5552c1a8ad3862c7a8bd18" prot="public" static="no" mutable="no">
+        <type>ULevelSequence *</type>
+        <definition>ULevelSequence* FSequenceStruct::Sequence</definition>
+        <argsstring></argsstring>
+        <name>Sequence</name>
+        <qualifiedname>FSequenceStruct::Sequence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" line="18" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" line="12" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/SequenceData.h" bodystart="13" bodyend="19"/>
+    <listofallmembers>
+      <member refid="struct_f_sequence_struct_1a8fe7ecb3d312e33a13ff6f227a9e091e" prot="public" virt="non-virtual"><scope>FSequenceStruct</scope><name>Name</name></member>
+      <member refid="struct_f_sequence_struct_1a4db78d42fa5552c1a8ad3862c7a8bd18" prot="public" virt="non-virtual"><scope>FSequenceStruct</scope><name>Sequence</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

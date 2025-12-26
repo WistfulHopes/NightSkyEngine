@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_f_collision_animation_viewport_client" kind="class" language="C++" prot="public">
+    <compoundname>FCollisionAnimationViewportClient</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FEditorViewportClient</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_f_collision_animation_viewport_client_1acce212b0af545a2df4bc8bd721a3be54" prot="private" static="no" mutable="no">
+        <type>FAdvancedPreviewScene *</type>
+        <definition>FAdvancedPreviewScene* FCollisionAnimationViewportClient::AdvancedPreviewScene</definition>
+        <argsstring></argsstring>
+        <name>AdvancedPreviewScene</name>
+        <qualifiedname>FCollisionAnimationViewportClient::AdvancedPreviewScene</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" line="26" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_collision_animation_viewport_client_1a30a7dd39b308d5c4c9172be9f4fa69f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FCollisionAnimationViewportClient::FCollisionAnimationViewportClient</definition>
+        <argsstring>(const TSharedRef&lt; SEditorViewport &gt; &amp;InEditorViewport, const TSharedRef&lt; FAdvancedPreviewScene &gt; &amp;InPreviewScene)</argsstring>
+        <name>FCollisionAnimationViewportClient</name>
+        <qualifiedname>FCollisionAnimationViewportClient::FCollisionAnimationViewportClient</qualifiedname>
+        <param>
+          <type>const TSharedRef&lt; SEditorViewport &gt; &amp;</type>
+          <declname>InEditorViewport</declname>
+        </param>
+        <param>
+          <type>const TSharedRef&lt; FAdvancedPreviewScene &gt; &amp;</type>
+          <declname>InPreviewScene</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" line="16" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationViewportClient.cpp" bodystart="4" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_viewport_client_1a05fe025a2d7852082ff34da6d4e92ac1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void FCollisionAnimationViewportClient::Tick</definition>
+        <argsstring>(float DeltaSeconds) override</argsstring>
+        <name>Tick</name>
+        <qualifiedname>FCollisionAnimationViewportClient::Tick</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>DeltaSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" line="17" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationViewportClient.cpp" bodystart="24" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_collision_animation_viewport_client_1a820a10c14e70dab93d8f76c0cd874927" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>FCollisionAnimationViewportClient::~FCollisionAnimationViewportClient</definition>
+        <argsstring>()</argsstring>
+        <name>~FCollisionAnimationViewportClient</name>
+        <qualifiedname>FCollisionAnimationViewportClient::~FCollisionAnimationViewportClient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" line="19" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Private/Viewport/CollisionAnimationViewportClient.cpp" bodystart="34" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FCollisionAnimationViewportClient</label>
+        <link refid="class_f_collision_animation_viewport_client"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FEditorViewportClient</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FCollisionAnimationViewportClient</label>
+        <link refid="class_f_collision_animation_viewport_client"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FEditorViewportClient</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" line="13" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/CollisionEditor/Public/Viewport/CollisionAnimationViewportClient.h" bodystart="14" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_f_collision_animation_viewport_client_1acce212b0af545a2df4bc8bd721a3be54" prot="private" virt="non-virtual"><scope>FCollisionAnimationViewportClient</scope><name>AdvancedPreviewScene</name></member>
+      <member refid="class_f_collision_animation_viewport_client_1a30a7dd39b308d5c4c9172be9f4fa69f3" prot="public" virt="non-virtual"><scope>FCollisionAnimationViewportClient</scope><name>FCollisionAnimationViewportClient</name></member>
+      <member refid="class_f_collision_animation_viewport_client_1a05fe025a2d7852082ff34da6d4e92ac1" prot="public" virt="virtual"><scope>FCollisionAnimationViewportClient</scope><name>Tick</name></member>
+      <member refid="class_f_collision_animation_viewport_client_1a820a10c14e70dab93d8f76c0cd874927" prot="public" virt="virtual"><scope>FCollisionAnimationViewportClient</scope><name>~FCollisionAnimationViewportClient</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

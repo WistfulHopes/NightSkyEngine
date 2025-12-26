@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_i_poll_sink" kind="class" language="C++" prot="public">
+    <compoundname>IPollSink</compoundname>
+    <derivedcompoundref refid="class_peer2_peer_backend" prot="private" virt="non-virtual">Peer2PeerBackend</derivedcompoundref>
+    <derivedcompoundref refid="class_spectator_backend" prot="private" virt="non-virtual">SpectatorBackend</derivedcompoundref>
+    <derivedcompoundref refid="class_udp" prot="public" virt="non-virtual">Udp</derivedcompoundref>
+    <derivedcompoundref refid="class_udp_protocol" prot="public" virt="non-virtual">UdpProtocol</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_i_poll_sink_1a6254d40907f5c3e7db3baea80b71e5a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual IPollSink::~IPollSink</definition>
+        <argsstring>()</argsstring>
+        <name>~IPollSink</name>
+        <qualifiedname>IPollSink::~IPollSink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="18" column="12" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_poll_sink_1aab81d52926d439740ab423db5e3b556c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool IPollSink::OnHandlePoll</definition>
+        <argsstring>(void *)</argsstring>
+        <name>OnHandlePoll</name>
+        <qualifiedname>IPollSink::OnHandlePoll</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="19" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_poll_sink_1a7c94a054d4cd962abbc444cc75ec65f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool IPollSink::OnMsgPoll</definition>
+        <argsstring>(void *)</argsstring>
+        <name>OnMsgPoll</name>
+        <qualifiedname>IPollSink::OnMsgPoll</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="20" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_poll_sink_1a8e333d0677fc88a2852e4002c14ce93f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool IPollSink::OnPeriodicPoll</definition>
+        <argsstring>(void *, int)</argsstring>
+        <name>OnPeriodicPoll</name>
+        <qualifiedname>IPollSink::OnPeriodicPoll</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="21" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_poll_sink_1a6ce7971591eae8e79885c638df113eea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool IPollSink::OnLoopPoll</definition>
+        <argsstring>(void *)</argsstring>
+        <name>OnLoopPoll</name>
+        <qualifiedname>IPollSink::OnLoopPoll</qualifiedname>
+        <reimplementedby refid="class_udp_1ac896bbc24b2205c11a46f0f3c415646c">OnLoopPoll</reimplementedby>
+        <reimplementedby refid="class_udp_protocol_1a41110f01151447893665dd9d400be7f7">OnLoopPoll</reimplementedby>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="22" column="17" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IPollSink</label>
+        <link refid="class_i_poll_sink"/>
+      </node>
+      <node id="2">
+        <label>Peer2PeerBackend</label>
+        <link refid="class_peer2_peer_backend"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SpectatorBackend</label>
+        <link refid="class_spectator_backend"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Udp</label>
+        <link refid="class_udp"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>UdpProtocol</label>
+        <link refid="class_udp_protocol"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" line="16" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/poll.h" bodystart="16" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_i_poll_sink_1aab81d52926d439740ab423db5e3b556c" prot="public" virt="virtual"><scope>IPollSink</scope><name>OnHandlePoll</name></member>
+      <member refid="class_i_poll_sink_1a6ce7971591eae8e79885c638df113eea" prot="public" virt="virtual"><scope>IPollSink</scope><name>OnLoopPoll</name></member>
+      <member refid="class_i_poll_sink_1a7c94a054d4cd962abbc444cc75ec65f4" prot="public" virt="virtual"><scope>IPollSink</scope><name>OnMsgPoll</name></member>
+      <member refid="class_i_poll_sink_1a8e333d0677fc88a2852e4002c14ce93f" prot="public" virt="virtual"><scope>IPollSink</scope><name>OnPeriodicPoll</name></member>
+      <member refid="class_i_poll_sink_1a6254d40907f5c3e7db3baea80b71e5a5" prot="public" virt="virtual"><scope>IPollSink</scope><name>~IPollSink</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_0ca77fec7001245ae32841da8dbaa106" kind="dir">
+    <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script</compoundname>
+    <innerfile refid="_battle_extension_8cpp">BattleExtension.cpp</innerfile>
+    <innerfile refid="_battle_extension_8h">BattleExtension.h</innerfile>
+    <innerfile refid="_state_8cpp">State.cpp</innerfile>
+    <innerfile refid="_state_8h">State.h</innerfile>
+    <innerfile refid="_state_alias_8h">StateAlias.h</innerfile>
+    <innerfile refid="_state_machine_8cpp">StateMachine.cpp</innerfile>
+    <innerfile refid="_state_machine_8h">StateMachine.h</innerfile>
+    <innerfile refid="_subroutine_8cpp">Subroutine.cpp</innerfile>
+    <innerfile refid="_subroutine_8h">Subroutine.h</innerfile>
+    <innerfile refid="_subroutine_state_8h">SubroutineState.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Script/"/>
+  </compounddef>
+</doxygen>

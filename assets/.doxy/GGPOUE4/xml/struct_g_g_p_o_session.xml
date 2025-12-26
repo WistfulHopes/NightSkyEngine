@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_g_g_p_o_session" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>GGPOSession</compoundname>
+    <derivedcompoundref refid="class_peer2_peer_backend" prot="public" virt="non-virtual">Peer2PeerBackend</derivedcompoundref>
+    <derivedcompoundref refid="class_spectator_backend" prot="public" virt="non-virtual">SpectatorBackend</derivedcompoundref>
+    <derivedcompoundref refid="class_sync_test_backend" prot="public" virt="non-virtual">SyncTestBackend</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual GGPOSession::~GGPOSession</definition>
+        <argsstring>()</argsstring>
+        <name>~GGPOSession</name>
+        <qualifiedname>GGPOSession::~GGPOSession</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="15" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::DoPoll</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>DoPoll</name>
+        <qualifiedname>GGPOSession::DoPoll</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a89d44cfc270cf0f5ac7bbddd7c72a385">DoPoll</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a7be7cb835ef37ba23c8b592f715e8d2a">DoPoll</reimplementedby>
+        <reimplementedby refid="class_sync_test_backend_1a2e5afecb6a6f92329122a69eaf2f4f93">DoPoll</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="16" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::AddPlayer</definition>
+        <argsstring>(GGPOPlayer *player, GGPOPlayerHandle *handle)=0</argsstring>
+        <name>AddPlayer</name>
+        <qualifiedname>GGPOSession::AddPlayer</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1adefc9597dfadffc2d8420b33863f0d7b">AddPlayer</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1aeeb6dd6764923ac97cd68dec399de1e1">AddPlayer</reimplementedby>
+        <reimplementedby refid="class_sync_test_backend_1aaf69ea8aa089a316db5da2f040308769">AddPlayer</reimplementedby>
+        <param>
+          <type><ref refid="struct_g_g_p_o_player" kindref="compound">GGPOPlayer</ref> *</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle *</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="17" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::AddLocalInput</definition>
+        <argsstring>(GGPOPlayerHandle player, void *values, int size)=0</argsstring>
+        <name>AddLocalInput</name>
+        <qualifiedname>GGPOSession::AddLocalInput</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1ada462fb9ef656f0118d3fce3952e8ecf">AddLocalInput</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a7caad5ddc6f81a4a2c0e3e33c5a247d1">AddLocalInput</reimplementedby>
+        <reimplementedby refid="class_sync_test_backend_1a3049d0c6d5e29c74a4a2ef66f6babc4a">AddLocalInput</reimplementedby>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="18" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::SyncInput</definition>
+        <argsstring>(void *values, int size, int *disconnect_flags)=0</argsstring>
+        <name>SyncInput</name>
+        <qualifiedname>GGPOSession::SyncInput</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a131cd86c1d0874e3c5a3af24dc25faec">SyncInput</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a31870fa76d5033b34a66cae638821606">SyncInput</reimplementedby>
+        <reimplementedby refid="class_sync_test_backend_1ae583bde3e3aaf06d36eeebcbf1360511">SyncInput</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>values</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>disconnect_flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="19" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::IncrementFrame</definition>
+        <argsstring>(void)</argsstring>
+        <name>IncrementFrame</name>
+        <qualifiedname>GGPOSession::IncrementFrame</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1ac0d1108adefac427e49e8008030e7427">IncrementFrame</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a233b1329d4b4e4fe590e2f5c9fbe29b4">IncrementFrame</reimplementedby>
+        <reimplementedby refid="class_sync_test_backend_1acebdff9f41ba8a0b7a356dcbafc997cd">IncrementFrame</reimplementedby>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="20" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::Chat</definition>
+        <argsstring>(char *text)</argsstring>
+        <name>Chat</name>
+        <qualifiedname>GGPOSession::Chat</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="21" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::DisconnectPlayer</definition>
+        <argsstring>(GGPOPlayerHandle handle)</argsstring>
+        <name>DisconnectPlayer</name>
+        <qualifiedname>GGPOSession::DisconnectPlayer</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1ad05f1d66b90a6fb21f2cd7a95351414d">DisconnectPlayer</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1addae89b72a69582c7ddf14068f9f4303">DisconnectPlayer</reimplementedby>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="22" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::GetNetworkStats</definition>
+        <argsstring>(FGGPONetworkStats *stats, GGPOPlayerHandle handle)</argsstring>
+        <name>GetNetworkStats</name>
+        <qualifiedname>GGPOSession::GetNetworkStats</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1aedede95e79482412a12e89f8f62ea5ae">GetNetworkStats</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a5a6f600fb59e84bbbf1f5a23e872e952">GetNetworkStats</reimplementedby>
+        <param>
+          <type><ref refid="struct_f_g_g_p_o_network_stats" kindref="compound">FGGPONetworkStats</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="23" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::Logv</definition>
+        <argsstring>(const char *fmt, va_list list)</argsstring>
+        <name>Logv</name>
+        <qualifiedname>GGPOSession::Logv</qualifiedname>
+        <reimplementedby refid="class_sync_test_backend_1aa7439669cee308d3a4f8261d2e6441e4">Logv</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>fmt</declname>
+        </param>
+        <param>
+          <type>va_list</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="24" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::SetFrameDelay</definition>
+        <argsstring>(GGPOPlayerHandle player, int delay)</argsstring>
+        <name>SetFrameDelay</name>
+        <qualifiedname>GGPOSession::SetFrameDelay</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a0c4377e972ccb231cc7b1084a274fc32">SetFrameDelay</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1ac705008965f25c800083921976d92a4e">SetFrameDelay</reimplementedby>
+        <param>
+          <type>GGPOPlayerHandle</type>
+          <declname>player</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>delay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="26" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::SetDisconnectTimeout</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectTimeout</name>
+        <qualifiedname>GGPOSession::SetDisconnectTimeout</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a78b5f9c18b3169e6a46dab56aa3a951a">SetDisconnectTimeout</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1ade1452a1cdefce35a2f04a1a414fa3e5">SetDisconnectTimeout</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="27" column="23" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::SetDisconnectNotifyStart</definition>
+        <argsstring>(int timeout)</argsstring>
+        <name>SetDisconnectNotifyStart</name>
+        <qualifiedname>GGPOSession::SetDisconnectNotifyStart</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a849ba8c143087843b591437ba5c61e03">SetDisconnectNotifyStart</reimplementedby>
+        <reimplementedby refid="class_spectator_backend_1a0beb752b9732f87eeb0a453bc802bb0a">SetDisconnectNotifyStart</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="28" column="23" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>GGPOErrorCode</type>
+        <definition>virtual GGPOErrorCode GGPOSession::TrySynchronizeLocal</definition>
+        <argsstring>()</argsstring>
+        <name>TrySynchronizeLocal</name>
+        <qualifiedname>GGPOSession::TrySynchronizeLocal</qualifiedname>
+        <reimplementedby refid="class_peer2_peer_backend_1a3dd8591fef0a94703f8231ec67bffb1b">TrySynchronizeLocal</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="29" column="23" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GGPOSession</label>
+        <link refid="struct_g_g_p_o_session"/>
+      </node>
+      <node id="2">
+        <label>Peer2PeerBackend</label>
+        <link refid="class_peer2_peer_backend"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SpectatorBackend</label>
+        <link refid="class_spectator_backend"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>SyncTestBackend</label>
+        <link refid="class_sync_test_backend"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/GGPOUE4/Private/backends/backend.h" bodystart="14" bodyend="30"/>
+    <listofallmembers>
+      <member refid="struct_g_g_p_o_session_1a35d8f040c60c79aa27497256651fe100" prot="public" virt="pure-virtual"><scope>GGPOSession</scope><name>AddLocalInput</name></member>
+      <member refid="struct_g_g_p_o_session_1a96709df6daaba090112ed85eb6218763" prot="public" virt="pure-virtual"><scope>GGPOSession</scope><name>AddPlayer</name></member>
+      <member refid="struct_g_g_p_o_session_1a2bbcd33f1b48340a3f539d401408be99" prot="public" virt="virtual"><scope>GGPOSession</scope><name>Chat</name></member>
+      <member refid="struct_g_g_p_o_session_1a3a3d51c16a85ebaa662a2eed26065515" prot="public" virt="virtual"><scope>GGPOSession</scope><name>DisconnectPlayer</name></member>
+      <member refid="struct_g_g_p_o_session_1add585d393e164a2c7134e9df5e330e26" prot="public" virt="virtual"><scope>GGPOSession</scope><name>DoPoll</name></member>
+      <member refid="struct_g_g_p_o_session_1a303ab6417c4e2ffed371968b9297bb15" prot="public" virt="virtual"><scope>GGPOSession</scope><name>GetNetworkStats</name></member>
+      <member refid="struct_g_g_p_o_session_1a98e408edd44bbae7ab8d0aaa3517ffd1" prot="public" virt="virtual"><scope>GGPOSession</scope><name>IncrementFrame</name></member>
+      <member refid="struct_g_g_p_o_session_1a3d6932e7751d032d19b9fd315b805e53" prot="public" virt="virtual"><scope>GGPOSession</scope><name>Logv</name></member>
+      <member refid="struct_g_g_p_o_session_1a47e0575be3552b442578c44ab97f1a5c" prot="public" virt="virtual"><scope>GGPOSession</scope><name>SetDisconnectNotifyStart</name></member>
+      <member refid="struct_g_g_p_o_session_1af146b863c49192d6cdcaa158fe83fe16" prot="public" virt="virtual"><scope>GGPOSession</scope><name>SetDisconnectTimeout</name></member>
+      <member refid="struct_g_g_p_o_session_1a99da8d6ed65a03b193fa6361ab64c214" prot="public" virt="virtual"><scope>GGPOSession</scope><name>SetFrameDelay</name></member>
+      <member refid="struct_g_g_p_o_session_1a79fdbac312b28404d2e4acc8bed58618" prot="public" virt="pure-virtual"><scope>GGPOSession</scope><name>SyncInput</name></member>
+      <member refid="struct_g_g_p_o_session_1aef555f18078c4a5bfb3c934a8cd955fc" prot="public" virt="virtual"><scope>GGPOSession</scope><name>TrySynchronizeLocal</name></member>
+      <member refid="struct_g_g_p_o_session_1ac5f7475aa0b1965611589e6e3c56fbc6" prot="public" virt="virtual"><scope>GGPOSession</scope><name>~GGPOSession</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
