@@ -19467,8 +19467,8 @@
 
 <h1 id="your-first-state">Your First State</h1>
 <p>Let's put what you've learned into practice, and create a new state.</p>
-<p>First, navigate to your character's folder in the Content Drawer. An example path would be <code>Blueprints/Characters/Manny/States</code>. Right-click in an empty spot of the Content Drawer, and create a new Blueprint. </p>
-<p>Generally, you do not want to inherit directly from the State class. Instead, I have prepared a plethora of state templates in <code>Blueprints/Characters/Common/States</code>. In this example, we'll create a normal attack, so let's inherit from <code>ST_CommonNormalAttack</code>.</p>
+<p>First, navigate to your character's folder in the Content Drawer. An example path would be <code>Content/NightSkyEngine/Blueprints/Characters/Manny/States</code>. Right-click in an empty spot of the Content Drawer, and create a new Blueprint. </p>
+<p>Generally, you do not want to inherit directly from the State class. Instead, I have prepared a plethora of state templates in <code>Content/NightSkyEngine/Blueprints/Characters/Common/States</code>. In this example, we'll create a normal attack, so let's inherit from <code>ST_CommonNormalAttack</code>.</p>
 <p>The standard naming convention for states is <code>ST_{Character}{StateName}</code>. We'll be creating a new standing light, so let's go with <code>ST_MannyNmlAtk5A</code>. If you don't understand the state name, <a href="https://glossary.infil.net/?t=Numpad%20Notation#:~:text=A%20way%20to%20describe%20joystick,d%20call%20it%20%222MK%22.">there is a page on Infil's Fighting Game Glossary about numpad notation.</a></p>
 <p>First, you should define default values for your State. On the rightmost panel, you will see the Details tab. For now, here's the basics you need to understand about the State defaults:</p>
 <ul>
@@ -19492,7 +19492,7 @@
 <li>Set Attacking changes the attacking state of the object. When attacking, the object is allowed to hit or Chain Cancel, but may be counter hit in return. Meanwhile, when not attacking, the object may not hit the opponent or Chain Cancel, but is no longer vulnerable to counter hits.</li>
 <li>Exit State will exit the current state and enter the default state for the current stance (standing, crouching, or jumping).</li>
 </ul>
-<p>Congrats, you have created your first State! Now, to see it in action, open the character's State Data. In this case, it is located at <code>Blueprints/Characters/Manny/DA_MannyStates</code>. Open the asset, and add a new entry to the State Array. Set the value to <code>ST_MannyNmlAtk5A</code>. Now, you can open Play in Editor and test out your new state.</p>
+<p>Congrats, you have created your first State! Now, to see it in action, open the character's State Data. In this case, it is located at <code>Content/NightSkyEngine/Blueprints/Characters/Manny/DA_MannyStates</code>. Open the asset, and add a new entry to the State Array. Set the value to <code>ST_MannyNmlAtk5A</code>. Now, you can open Play in Editor and test out your new state.</p>
 <table>
 <thead>
 <tr>
