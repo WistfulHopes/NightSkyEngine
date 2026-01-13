@@ -1,6 +1,7 @@
 nav:
   - index.md
   - getting-started
+  - basics
   - API:
     - Night Sky Engine:
       - Source:

@@ -42,6 +42,6 @@ I will explain what each macro or function call does, however:
 
 Congrats, you have created your first State! Now, to see it in action, open the character's State Data. In this case, it is located at `Content/NightSkyEngine/Blueprints/Characters/Manny/DA_MannyStates`. Open the asset, and add a new entry to the State Array. Set the value to `ST_MannyNmlAtk5A`. Now, you can open Play in Editor and test out your new state.
 
-| Previous          |
-|:------------------|
-| [What Is A State? Part 2](state-p1.md) | 
+| Previous          |                              Next |
+|:------------------|----------------------------------:|
+| [What Is A State? Part 2](state-p1.md) | [Project Structure](../basics/structure.md) |
