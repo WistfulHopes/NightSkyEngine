@@ -6,8 +6,6 @@ It requires Unreal Engine 5.7.
 
 Documentation link: https://wistfulhopes.github.io/NightSkyEngine/
 
-Trello link: https://trello.com/b/5PfGceqs/night-sky-engine
-
 Discord link: https://discord.gg/mJTU9PV7jH
 
 The following additional plugins are used:
