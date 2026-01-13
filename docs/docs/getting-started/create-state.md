@@ -3,9 +3,9 @@ Your First State
 
 Let's put what you've learned into practice, and create a new state.
 
-First, navigate to your character's folder in the Content Drawer. An example path would be `Blueprints/Characters/Manny/States`. Right-click in an empty spot of the Content Drawer, and create a new Blueprint. 
+First, navigate to your character's folder in the Content Drawer. An example path would be `Content/NightSkyEngine/Blueprints/Characters/Manny/States`. Right-click in an empty spot of the Content Drawer, and create a new Blueprint. 
 
-Generally, you do not want to inherit directly from the State class. Instead, I have prepared a plethora of state templates in `Blueprints/Characters/Common/States`. In this example, we'll create a normal attack, so let's inherit from `ST_CommonNormalAttack`.
+Generally, you do not want to inherit directly from the State class. Instead, I have prepared a plethora of state templates in `Content/NightSkyEngine/Blueprints/Characters/Common/States`. In this example, we'll create a normal attack, so let's inherit from `ST_CommonNormalAttack`.
 
 The standard naming convention for states is `ST_{Character}{StateName}`. We'll be creating a new standing light, so let's go with `ST_MannyNmlAtk5A`. If you don't understand the state name, [there is a page on Infil's Fighting Game Glossary about numpad notation.](https://glossary.infil.net/?t=Numpad%20Notation#:~:text=A%20way%20to%20describe%20joystick,d%20call%20it%20%222MK%22.)
 
@@ -40,7 +40,7 @@ I will explain what each macro or function call does, however:
 - Set Attacking changes the attacking state of the object. When attacking, the object is allowed to hit or Chain Cancel, but may be counter hit in return. Meanwhile, when not attacking, the object may not hit the opponent or Chain Cancel, but is no longer vulnerable to counter hits.
 - Exit State will exit the current state and enter the default state for the current stance (standing, crouching, or jumping).
 
-Congrats, you have created your first State! Now, to see it in action, open the character's State Data. In this case, it is located at `Blueprints/Characters/Manny/DA_MannyStates`. Open the asset, and add a new entry to the State Array. Set the value to `ST_MannyNmlAtk5A`. Now, you can open Play in Editor and test out your new state.
+Congrats, you have created your first State! Now, to see it in action, open the character's State Data. In this case, it is located at `Content/NightSkyEngine/Blueprints/Characters/Manny/DA_MannyStates`. Open the asset, and add a new entry to the State Array. Set the value to `ST_MannyNmlAtk5A`. Now, you can open Play in Editor and test out your new state.
 
 | Previous          |
 |:------------------|
