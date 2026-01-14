@@ -4,7 +4,7 @@ Project Structure
 Night Sky Engine's project structure may feel overwhelming at first glance. This page is designed to break down what each folder's intended use is.
 
 # Root folder
-The intended filesystem for projects is to leave core implementation details in `Content/NightSkyEngine`, and put game-specific files in `Content/<Project Name>`. 
+The intended filesystem for projects is to leave core implementation details in `Content/NightSkyEngine`, and put game-specific files in `Content/<Project Name>`.
 
 ## Blueprints
 As one would expect, this folder contains all of the Blueprints for the given folder. Additionally, gameplay-related data assets tend to reside in this folder. Note that Widget Blueprints should be stored elsewhere.
@@ -68,6 +68,6 @@ Common assets, such as master materials, inputs, and others should reside in thi
 ## UI
 All UI elements, such as widget blueprints, should reside in this folder.
 
-| Previous          |
-|:------------------|
-| [Your First State](../getting-started/create-state.md) |
+| Previous          |                              Next |
+|:------------------|----------------------------------:|
+| [Your First State](../getting-started/create-state.md) | [Collision Data and Cels: Tying Frame Data, Animations, and Hitboxes Together](collision-data.md) |

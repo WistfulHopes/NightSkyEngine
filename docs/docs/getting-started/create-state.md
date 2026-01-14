@@ -35,7 +35,7 @@ There are a lot of nodes that should be plugged into Exec, so I won't explain ev
 
 I will explain what each macro or function call does, however:
 
-- Set Cel and Blend Cel sets the Cel and Blend Cel names. The Cel system was previously explained, but Blend Cels are used to have limited interpolation between the data of two Cels. In this case, we're using it to interpolate the animation's frame. The Blend Cel is automatically set based on the ending digits of the Cel Name.
+- Set Cel and Blend Cel sets the Cel and Blend Cel names. The Cel system was previously explained, but Blend Cels are used to have animation interpolation between two frames. In other words, rather than just jumping from pose to pose, the character will smoothly transition based on your animation.
 - Enable Hit must be called when you wish to hit the opponent, and Enabled must be set to True to allow hitting the opponent.
 - Set Attacking changes the attacking state of the object. When attacking, the object is allowed to hit or Chain Cancel, but may be counter hit in return. Meanwhile, when not attacking, the object may not hit the opponent or Chain Cancel, but is no longer vulnerable to counter hits.
 - Exit State will exit the current state and enter the default state for the current stance (standing, crouching, or jumping).
@@ -44,4 +44,4 @@ Congrats, you have created your first State! Now, to see it in action, open the 
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [What Is A State? Part 2](state-p1.md) | [Project Structure](../basics/structure.md) |
+| [What Is A State? Part 2](state-p1.md) | [Basics](../basics/basics.md) |

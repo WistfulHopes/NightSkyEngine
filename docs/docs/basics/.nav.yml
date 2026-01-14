@@ -1,2 +1,4 @@
 nav:
+  - basics.md
   - structure.md
+  - collision-data.md

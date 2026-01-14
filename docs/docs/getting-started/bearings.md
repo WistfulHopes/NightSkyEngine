@@ -26,13 +26,13 @@ An object state is attached to a created Battle Object to set properties (such a
 A player state is attached to a Player Object's state machine for much the same reason as an object state. Unlike an object state, a player state will transition into another state upon ending, either via the Exit State macro (which will return the Player Object to a neutral state) or via the Jump to State function (which will forcibly enter a new state). Additionally, conditions can be set for entering the state, such as an input sequence or a variable.
 
 ## Cels
-Frame data and anything else that should only update at a specific point of a state is handled by the Cel system. Cels are a two-part system: one part being the Cel Gate, and the other part being in the Player Object's Collision Data.
+Frame data and anything else that should only update at a specific point of a state is handled by the Cel system. Cels are a two-part system: one part being the `Cel Gate`, and the other part being in the Player Object's Collision Data.
 
-By using a Cel Gate macro in a state, you can create a "divider" of sorts for your state code. Code connected to the On Enter line will execute immediately upon a Cel's activation, and code connected to the On Update line will execute otherwise. The Duration parameter of the macro sets how long a Cel lasts. Once a Cel's duration elapses, the Next Cel line will activate, thereby creating a frame data system. All Cel Gates should be connected via the Next Cel line.
+By using a `Cel Gate` macro in a state, you can create a "keyframe" of sorts for your state code. Code connected to the On Enter line will execute immediately upon a Cel's activation, and code connected to the On Update line will execute otherwise. The Duration parameter of the macro sets how long a Cel lasts. Once a Cel's duration elapses, the Next Cel line will activate, thereby creating a frame data system. All `Cel Gates` should be connected via the Next Cel line.
 
 For the Collision Data part, Cels can be connected to animation frames and collision data via the Set Cel Name function. By setting the current Battle Object's Cel name to the corresponding entry in the Collision Data, the Battle Object's animation and collision data will be updated.
 
-Under normal circumstances, there is no need to directly interact with a Cel Gate. Instead, it is recommended to use the Set Cel macro, or the Set Cel and Blend Cel macro for blended animations.
+Under normal circumstances, there is no need to directly interact with a `Cel Gate`. Instead, it is recommended to use the `Set Cel` macro, or the `Set Cel and Blend Cel` macro for interpolated animations.
 
 As an example, say we have a Set Cel macro for the first 8 frames of a player's standing state. The Cel Name is set to `Manny.Stand.00`. In the Collision Data, `Manny.Stand.00` is connected to the first frame of the standing animation and collision data. Upon entering the standing state, the player will immediately set its Cel name, then wait 8 frames. Upon its duration elapsing, the next Cel hooked up to Skip will activate, and so on.
 
