@@ -2010,6 +2010,7 @@ void ABattleObject::ResetObject()
 	{
 		LinkedParticle->SetVisibility(false);
 		LinkedParticle->Deactivate();
+		LinkedParticle = nullptr;
 	}
 	RemoveLinkActor();
 	OrthoBlendActive = 1;

@@ -14,7 +14,7 @@ void UNightSkyGameInstance::Init()
 {
 	Super::Init();
 
-	BattleData.Random = FRandomManager(FGenericPlatformMath::Rand());
+	BattleData.Random = FRandomManager(FDateTime::Now().ToUnixTimestamp());
 
 	SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::LoadGameFromSlot("SYSTEM", 0));
 	if (!SettingsInfo)
