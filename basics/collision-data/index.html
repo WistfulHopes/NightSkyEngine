@@ -19737,22 +19737,26 @@
 <h2 id="hitboxes">Hitboxes</h2>
 <p>Finally, every Cel can have an arbitrary number of boxes. The Collision Data editor comes with a built-in preview for the boxes, relative to the animating character.
 <img alt="An example preview of hitboxes for a Cel." src="../collision-preview.png" /></p>
-<p>Every Collision Box comes with some properties. Here's what they all do:
-- Type: There are five types of boxes.
-    - Pushbox. This is currently unused, as push collision is handled elsewhere. However, this is planned to be an option as a separate push collision system.
-    - Hurtbox.
-    - Hitbox.
-    - Offset. This can be used as a "root motion" system for sprites.
-    - Custom. This box type can be used in conjunction with the <code>Custom Type</code> property for custom logic.
-- Custom Type: For boxes with the Custom type, this specifies what kind of custom box it is. You can set any tag you want, but it should preferably use the naming convention <code>Collision.&lt;Type&gt;</code>.
-- X Position: The box X axis position relative to the character's origin in Night Sky units, divided by 1000. The position is used as the box center.Updating this will update the <code>X Position (Unreal)</code> property, and vice versa.
-- Y Position: The box Y axis position relative to the character's origin in Night Sky units, divided by 1000. The position is used as the box center. Updating this will update the <code>Y Position (Unreal)</code> property, and vice versa.
-- X Size: The box width in Night Sky units, divided by 1000. Updating this will update the <code>X Size (Unreal)</code> property, and vice versa.
-- Y Size: The box height in Night Sky units, divided by 1000. Updating this will update the <code>Y Size (Unreal)</code> property, and vice versa.
-- X Position (Unreal): The box X axis position relative to the character's origin in centimeters. The position is used as the box center. Updating this will update the regular <code>X Position</code> property, and vice versa.
-- Y Position (Unreal): The box Y axis position relative to the character's origin in centimeters. The position is used as the box center. Updating this will update the regular <code>Y Position</code> property, and vice versa.
-- X Size: The box width in centimeters. Updating this will update the regular <code>X Size</code> property, and vice versa.
-- Y Size: The box height in centimeters. Updating this will update the regular <code>Y Size</code> property, and vice versa.</p>
+<p>Every Collision Box comes with some properties. Here's what they all do:</p>
+<ul>
+<li>Type: There are five types of boxes.<ul>
+<li>Pushbox. This is currently unused, as push collision is handled elsewhere. However, this is planned to be an option as a separate push collision system.</li>
+<li>Hurtbox.</li>
+<li>Hitbox.</li>
+<li>Offset. This can be used as a "root motion" system for sprites.</li>
+<li>Custom. This box type can be used in conjunction with the <code>Custom Type</code> property for custom logic.</li>
+</ul>
+</li>
+<li>Custom Type: For boxes with the Custom type, this specifies what kind of custom box it is. You can set any tag you want, but it should preferably use the naming convention <code>Collision.&lt;Type&gt;</code>.</li>
+<li>X Position: The box X axis position relative to the character's origin in Night Sky units, divided by 1000. The position is used as the box center.Updating this will update the <code>X Position (Unreal)</code> property, and vice versa.</li>
+<li>Y Position: The box Y axis position relative to the character's origin in Night Sky units, divided by 1000. The position is used as the box center. Updating this will update the <code>Y Position (Unreal)</code> property, and vice versa.</li>
+<li>X Size: The box width in Night Sky units, divided by 1000. Updating this will update the <code>X Size (Unreal)</code> property, and vice versa.</li>
+<li>Y Size: The box height in Night Sky units, divided by 1000. Updating this will update the <code>Y Size (Unreal)</code> property, and vice versa.</li>
+<li>X Position (Unreal): The box X axis position relative to the character's origin in centimeters. The position is used as the box center. Updating this will update the regular <code>X Position</code> property, and vice versa.</li>
+<li>Y Position (Unreal): The box Y axis position relative to the character's origin in centimeters. The position is used as the box center. Updating this will update the regular <code>Y Position</code> property, and vice versa.</li>
+<li>X Size: The box width in centimeters. Updating this will update the regular <code>X Size</code> property, and vice versa.</li>
+<li>Y Size: The box height in centimeters. Updating this will update the regular <code>Y Size</code> property, and vice versa.</li>
+</ul>
 <p><img alt="A look at all of the Box properties." src="../box.png" /></p>
 <table>
 <thead>
