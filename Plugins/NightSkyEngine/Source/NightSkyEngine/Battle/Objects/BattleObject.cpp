@@ -2948,6 +2948,9 @@ void ABattleObject::HaltMomentum()
 	SpeedX = 0;
 	SpeedY = 0;
 	SpeedZ = 0;
+	SpeedXRate = 100;
+	SpeedYRate = 100;
+	SpeedZRate = 100;
 	Gravity = 0;
 	Inertia = 0;
 }
