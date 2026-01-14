@@ -14,7 +14,7 @@
         <link rel="prev" href="../state-p2/">
       
       
-        <link rel="next" href="../../basics/structure/">
+        <link rel="next" href="../../basics/basics/">
       
       
         
@@ -598,6 +598,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../basics/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../basics/structure/" class="md-nav__link">
         
   
@@ -606,6 +634,34 @@
     
   
     Project Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/collision-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collision Data and Cels: Tying Frame Data, Animations, and Hitboxes Together
   
 
     
@@ -19569,7 +19625,7 @@
 <p>There are a lot of nodes that should be plugged into Exec, so I won't explain everything step-by-step. Instead, replicate the following image's node setup: <img alt="The node setup." src="../state-example.png" /></p>
 <p>I will explain what each macro or function call does, however:</p>
 <ul>
-<li>Set Cel and Blend Cel sets the Cel and Blend Cel names. The Cel system was previously explained, but Blend Cels are used to have limited interpolation between the data of two Cels. In this case, we're using it to interpolate the animation's frame. The Blend Cel is automatically set based on the ending digits of the Cel Name.</li>
+<li>Set Cel and Blend Cel sets the Cel and Blend Cel names. The Cel system was previously explained, but Blend Cels are used to have animation interpolation between two frames. In other words, rather than just jumping from pose to pose, the character will smoothly transition based on your animation.</li>
 <li>Enable Hit must be called when you wish to hit the opponent, and Enabled must be set to True to allow hitting the opponent.</li>
 <li>Set Attacking changes the attacking state of the object. When attacking, the object is allowed to hit or Chain Cancel, but may be counter hit in return. Meanwhile, when not attacking, the object may not hit the opponent or Chain Cancel, but is no longer vulnerable to counter hits.</li>
 <li>Exit State will exit the current state and enter the default state for the current stance (standing, crouching, or jumping).</li>
@@ -19585,7 +19641,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><a href="../state-p1/">What Is A State? Part 2</a></td>
-<td style="text-align: right;"><a href="../../basics/structure/">Project Structure</a></td>
+<td style="text-align: right;"><a href="../../basics/basics/">Basics</a></td>
 </tr>
 </tbody>
 </table>
