@@ -28,6 +28,7 @@ Finally, every Cel can have an arbitrary number of boxes. The Collision Data edi
 ![An example preview of hitboxes for a Cel.](collision-preview.png)
 
 Every Collision Box comes with some properties. Here's what they all do:
+
 - Type: There are five types of boxes.
     - Pushbox. This is currently unused, as push collision is handled elsewhere. However, this is planned to be an option as a separate push collision system.
     - Hurtbox.

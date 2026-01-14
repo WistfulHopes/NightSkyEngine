@@ -70,4 +70,4 @@ All UI elements, such as widget blueprints, should reside in this folder.
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [Your First State](../getting-started/create-state.md) | [Collision Data and Cels: Tying Frame Data, Animations, and Hitboxes Together](collision-data.md) |
+| [Basics](basics.md) | [Collision Data and Cels: Tying Frame Data, Animations, and Hitboxes Together](collision-data.md) |
