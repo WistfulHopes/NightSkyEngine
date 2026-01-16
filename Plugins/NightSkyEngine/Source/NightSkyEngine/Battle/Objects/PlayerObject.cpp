@@ -2470,6 +2470,7 @@ void APlayerObject::UpdateVisualsNoRollback()
 
 	for (const auto& LinkActor : StoredLinkActors)
 	{
+		if (!LinkActor.StoredActor) continue;
 		LinkActor.StoredActor->SetActorHiddenInGame(!LinkActor.bIsActive);
 	}
 	SetComponentVisibility();
