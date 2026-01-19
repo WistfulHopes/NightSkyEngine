@@ -1469,8 +1469,8 @@ void APlayerObject::SetHitValues(bool bCustomAir)
 void APlayerObject::SetGuardValues()
 {
     if (StunTime <= 0) return;
+    HaltMomentum();
     Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
-    SpeedX = 0;
     if (PlayerFlags & PLF_TouchingWall)
     {
         AttackOwner->Pushback = -ReceivedHitCommon.GroundGuardPushbackX;
@@ -2480,6 +2480,7 @@ void APlayerObject::UpdateVisualsNoRollback()
 
     for (const auto& LinkActor : StoredLinkActors)
     {
+        if (!LinkActor.StoredActor) continue;
         LinkActor.StoredActor->SetActorHiddenInGame(!LinkActor.bIsActive);
     }
     SetComponentVisibility();

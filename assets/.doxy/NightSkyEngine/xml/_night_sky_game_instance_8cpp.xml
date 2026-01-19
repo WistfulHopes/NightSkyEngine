@@ -160,7 +160,7 @@
 <codeline lineno="14"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Super::Init();</highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleData.Random<sp/>=<sp/><ref refid="struct_f_random_manager" kindref="compound">FRandomManager</ref>(FGenericPlatformMath::Rand());</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleData.Random<sp/>=<sp/><ref refid="struct_f_random_manager" kindref="compound">FRandomManager</ref>(FDateTime::Now().ToUnixTimestamp());</highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>SettingsInfo<sp/>=<sp/>Cast&lt;UNightSkySettingsInfo&gt;(UGameplayStatics::LoadGameFromSlot(</highlight><highlight class="stringliteral">&quot;SYSTEM&quot;</highlight><highlight class="normal">,<sp/>0));</highlight></codeline>
 <codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!SettingsInfo)</highlight></codeline>

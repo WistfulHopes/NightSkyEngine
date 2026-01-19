@@ -33,9 +33,15 @@ void AWTCharacter::BeginPlay()
     GameState = Cast<ANightSkyWTGameState>(GetWorld()->GetGameState());
     if (GameState)
         GameState->OnBattleEndDelegate.AddUniqueDynamic(this, &AWTCharacter::EndBattle);
-    
+
     BattlePlayer = GetWorld()->SpawnActor<APlayerObject>(BattlePlayerClass);
     BattlePlayer->SetActorHiddenInGame(true);
+
+    if (!IsPlayerControlled())
+    {
+        BattlePlayer->SpawnDefaultController();
+        BattlePlayer->bIsCpu = true;
+    }
 }
 
 // Called every frame

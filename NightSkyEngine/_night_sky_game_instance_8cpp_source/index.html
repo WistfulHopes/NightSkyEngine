@@ -19626,7 +19626,7 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Super</span><span class="o">::</span><span class="n">Init</span><span class="p">();</span>
 
-<span class="w">    </span><span class="n">BattleData</span><span class="p">.</span><span class="n">Random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FRandomManager</span><span class="p">(</span><span class="n">FGenericPlatformMath</span><span class="o">::</span><span class="n">Rand</span><span class="p">());</span>
+<span class="w">    </span><span class="n">BattleData</span><span class="p">.</span><span class="n">Random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FRandomManager</span><span class="p">(</span><span class="n">FDateTime</span><span class="o">::</span><span class="n">Now</span><span class="p">().</span><span class="n">ToUnixTimestamp</span><span class="p">());</span>
 
 <span class="w">    </span><span class="n">SettingsInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">UNightSkySettingsInfo</span><span class="o">&gt;</span><span class="p">(</span><span class="n">UGameplayStatics</span><span class="o">::</span><span class="n">LoadGameFromSlot</span><span class="p">(</span><span class="s">&quot;SYSTEM&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">SettingsInfo</span><span class="p">)</span>

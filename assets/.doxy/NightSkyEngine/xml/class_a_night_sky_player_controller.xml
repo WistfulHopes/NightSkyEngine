@@ -592,7 +592,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="137" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="384" bodyend="388"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.h" line="137" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp" bodystart="384" bodyend="389"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_player_controller_1aab3c4ff6bbc75fa3997188d4a3142b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

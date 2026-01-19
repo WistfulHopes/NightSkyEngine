@@ -395,6 +395,7 @@ void ANightSkyPlayerController::PostRematch()
 {
     NetworkPawn->bRematchAccepted = false;
     bRematch = false;
+    Inputs = Inputs & ~INP_Rematch;
 }
 ```
 

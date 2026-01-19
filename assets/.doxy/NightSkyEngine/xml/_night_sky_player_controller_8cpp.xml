@@ -856,7 +856,8 @@
 <codeline lineno="385"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/>NetworkPawn-&gt;bRematchAccepted<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/>bRematch<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="388"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/>Inputs<sp/>=<sp/>Inputs<sp/>&amp;<sp/>~INP_Rematch;</highlight></codeline>
+<codeline lineno="389"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyPlayerController.cpp"/>
   </compounddef>

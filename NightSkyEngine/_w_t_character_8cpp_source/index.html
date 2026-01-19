@@ -19638,6 +19638,12 @@
 
 <span class="w">    </span><span class="n">BattlePlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">SpawnActor</span><span class="o">&lt;</span><span class="n">APlayerObject</span><span class="o">&gt;</span><span class="p">(</span><span class="n">BattlePlayerClass</span><span class="p">);</span>
 <span class="w">    </span><span class="n">BattlePlayer</span><span class="o">-&gt;</span><span class="n">SetActorHiddenInGame</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">IsPlayerControlled</span><span class="p">())</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BattlePlayer</span><span class="o">-&gt;</span><span class="n">SpawnDefaultController</span><span class="p">();</span>
+<span class="w">        </span><span class="n">BattlePlayer</span><span class="o">-&gt;</span><span class="n">bIsCpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Called every frame</span>

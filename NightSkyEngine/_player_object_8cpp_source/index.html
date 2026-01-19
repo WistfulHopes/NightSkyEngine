@@ -21071,8 +21071,8 @@
 <span class="kt">void</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">SetGuardValues</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">StunTime</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="n">HaltMomentum</span><span class="p">();</span>
 <span class="w">    </span><span class="n">Pushback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">ReceivedHitCommon</span><span class="p">.</span><span class="n">GroundGuardPushbackX</span><span class="p">;</span>
-<span class="w">    </span><span class="n">SpeedX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_TouchingWall</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">AttackOwner</span><span class="o">-&gt;</span><span class="n">Pushback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">ReceivedHitCommon</span><span class="p">.</span><span class="n">GroundGuardPushbackX</span><span class="p">;</span>
@@ -22082,6 +22082,7 @@
 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">LinkActor</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">StoredLinkActors</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">LinkActor</span><span class="p">.</span><span class="n">StoredActor</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
 <span class="w">        </span><span class="n">LinkActor</span><span class="p">.</span><span class="n">StoredActor</span><span class="o">-&gt;</span><span class="n">SetActorHiddenInGame</span><span class="p">(</span><span class="o">!</span><span class="n">LinkActor</span><span class="p">.</span><span class="n">bIsActive</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">SetComponentVisibility</span><span class="p">();</span>

@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="36" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="32" bodyend="35"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="36" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="38" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="class_a_w_t_character_1abd01490e2b70ae78983f3782fcf59411" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="39" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="38" bodyend="41"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="39" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="class_a_w_t_character_1a98bf9dcfe45b5ac2ff7bfbdeb3a3579f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="42" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="43" bodyend="52"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="42" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="49" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="class_a_w_t_character_1a5657675be18d4a09e4ef0d6cc47b26bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="45" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="54" bodyend="59"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="45" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="60" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="class_a_w_t_character_1a2d479eadfdffb2a55e9fc6c47670ebc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="32" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="19" bodyend="29"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.h" line="32" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/WT/WTCharacter.cpp" bodystart="19" bodyend="35"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
