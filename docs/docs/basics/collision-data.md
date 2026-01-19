@@ -27,6 +27,9 @@ This screenshot has quite a bit going on, so let's break it down:
 Finally, every Cel can have an arbitrary number of boxes. The Collision Data editor comes with a built-in preview for the boxes, relative to the animating character.
 ![An example preview of hitboxes for a Cel.](collision-preview.png)
 
+To set the character to preview collision for, use the dropdown below the `Cel Browser` and select the blueprint for your character.
+![How to set the character to preview collision for.](bp-select-collision.png)
+
 Every Collision Box comes with some properties. Here's what they all do:
 
 - Type: There are five types of boxes.
