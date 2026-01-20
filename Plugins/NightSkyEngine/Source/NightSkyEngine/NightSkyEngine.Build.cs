@@ -34,6 +34,7 @@ public class NightSkyEngine : ModuleRules
 			"GameplayTags",
 			"CinematicCamera",
 			"StateTreeModule", 
+			"DeveloperSettings",
 		});
 
 		// Uncomment if you are using Slate UI

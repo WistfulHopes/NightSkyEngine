@@ -3,6 +3,7 @@
 
 #include "NightSkyGameInstance.h"
 
+#include "NightSkyEditorSettings.h"
 #include "NightSkySettingsInfo.h"
 #include "ReplayInfo.h"
 #include "Kismet/GameplayStatics.h"
@@ -14,6 +15,12 @@ void UNightSkyGameInstance::Init()
 {
 	Super::Init();
 
+#if WITH_EDITOR
+	if (auto& InBattleData = UNightSkyEditorSettings::GetConst()->BattleData; InBattleData.bIsValid) 
+		BattleData = InBattleData;
+#endif
+	
+	BattleData.bIsValid = true;	
 	BattleData.Random = FRandomManager(FDateTime::Now().ToUnixTimestamp());
 
 	SettingsInfo = Cast<UNightSkySettingsInfo>(UGameplayStatics::LoadGameFromSlot("SYSTEM", 0));

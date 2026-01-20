@@ -24,6 +24,8 @@ struct FBattleData
 {
 	GENERATED_BODY()
 	
+	UPROPERTY(EditAnywhere)
+	bool bIsValid = false;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<UPrimaryCharaData*> PlayerListP1;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -37,9 +39,9 @@ struct FBattleData
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int32 TimeUntilRoundStart = 180;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int32 RoundCount;
+	int32 RoundCount = 2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int32 StartRoundTimer;
+	int32 StartRoundTimer = 99;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UPrimaryStageData* Stage;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
