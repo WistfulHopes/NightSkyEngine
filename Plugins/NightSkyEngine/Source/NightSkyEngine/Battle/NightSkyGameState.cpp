@@ -395,8 +395,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 			UGameplayStatics::GetPlayerController(GetWorld(), 0));
 		ANightSkyPlayerController* Controller2 = Cast<ANightSkyPlayerController>(
 			UGameplayStatics::GetPlayerController(GetWorld(), 1));
-		Controller1->PostRematch();
-		Controller2->PostRematch();
+		if (Controller1) Controller1->PostRematch();
+		if (Controller2) Controller2->PostRematch();
 	}
 	if (Input1 & INP_ResetTraining || Input2 & INP_ResetTraining)
 	{
