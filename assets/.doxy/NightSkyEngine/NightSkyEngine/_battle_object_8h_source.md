@@ -1417,6 +1417,9 @@ public:
     //adds x position
     UFUNCTION(BlueprintCallable)
     void AddPosXWithDir(int InPosX);
+    // applies root motion
+    UFUNCTION(BlueprintCallable)
+    void ApplyRootMotion();
     //sets x speed
     UFUNCTION(BlueprintCallable)
     void SetSpeedXRaw(int InSpeedX);

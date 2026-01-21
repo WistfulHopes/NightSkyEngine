@@ -23,6 +23,10 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h</label>
+        <link refid="_night_sky_editor_settings_8h_source"/>
+      </node>
       <node id="2">
         <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h</label>
         <link refid="_night_sky_game_instance_8h_source"/>
@@ -30,8 +34,10 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/ReplayInfo.h</label>
         <link refid="_replay_info_8h_source"/>
       </node>
@@ -41,7 +47,7 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="5">
         <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Network/NetworkPawn.h</label>
         <link refid="_network_pawn_8h_source"/>
       </node>

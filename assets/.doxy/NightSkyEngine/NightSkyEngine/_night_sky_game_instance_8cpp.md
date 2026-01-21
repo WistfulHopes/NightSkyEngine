@@ -11,6 +11,7 @@
 
 
 * `#include "NightSkyGameInstance.h"`
+* `#include "NightSkyEditorSettings.h"`
 * `#include "NightSkySettingsInfo.h"`
 * `#include "ReplayInfo.h"`
 * `#include "Kismet/GameplayStatics.h"`

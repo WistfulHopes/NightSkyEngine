@@ -197,6 +197,7 @@ Inherited by the following classes: [APlayerObject](class_a_player_object.md)
 |  [**ABattleObject**](class_a_battle_object.md) \* | [**AddCommonBattleObject**](#function-addcommonbattleobject) (FGameplayTag InStateName, int32 PosXOffset=0, int32 PosYOffset=0, EPosType PosType=POS\_Player) <br> |
 |  void | [**AddPosXWithDir**](#function-addposxwithdir) (int InPosX) <br> |
 |  void | [**AddSpeedXRaw**](#function-addspeedxraw) (int InSpeedX) <br> |
+|  void | [**ApplyRootMotion**](#function-applyrootmotion) () <br> |
 |  void | [**AttachToSocketOfObject**](#function-attachtosocketofobject) (FName InSocketName, FVector Offset, EObjType ObjType) <br> |
 |  int32 | [**CalculateAngleBetweenPoints**](#function-calculateanglebetweenpoints) (EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2) <br> |
 |  int32 | [**CalculateDistanceBetweenPoints**](#function-calculatedistancebetweenpoints) (EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2) <br> |
@@ -2173,6 +2174,19 @@ void ABattleObject::AddPosXWithDir (
 void ABattleObject::AddSpeedXRaw (
     int InSpeedX
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### function ApplyRootMotion 
+
+```C++
+void ABattleObject::ApplyRootMotion () 
 ```
 
 

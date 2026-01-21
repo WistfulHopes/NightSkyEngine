@@ -98,6 +98,7 @@
 * [**UNightSkyAnimSequenceUserData**](class_u_night_sky_anim_sequence_user_data.md)
 * [**UNightSkyBattleWidget**](class_u_night_sky_battle_widget.md)
 * [**UNightSkyBlueprintFunctionLibrary**](class_u_night_sky_blueprint_function_library.md)
+* [**UNightSkyEditorSettings**](class_u_night_sky_editor_settings.md)
 * [**UNightSkyGameInstance**](class_u_night_sky_game_instance.md)
 * [**UNightSkySaveInfo**](class_u_night_sky_save_info.md)
 * [**UNightSkySettingsInfo**](class_u_night_sky_settings_info.md)

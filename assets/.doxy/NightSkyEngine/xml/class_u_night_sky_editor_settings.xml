@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_u_night_sky_editor_settings" kind="class" language="C++" prot="public">
+    <compoundname>UNightSkyEditorSettings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">UDeveloperSettings</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_u_night_sky_editor_settings_1aa867f9c8856742b57df09e0b3933b6eb" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref></type>
+        <definition>FBattleData UNightSkyEditorSettings::BattleData</definition>
+        <argsstring></argsstring>
+        <name>BattleData</name>
+        <qualifiedname>UNightSkyEditorSettings::BattleData</qualifiedname>
+        <initializer>= <ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" line="22" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_night_sky_editor_settings_1ab7af8d6fe39fb4ac67d3e3dcd123abc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UNightSkyEditorSettings::UNightSkyEditorSettings</definition>
+        <argsstring>(const FObjectInitializer &amp;ObjectInitializer)</argsstring>
+        <name>UNightSkyEditorSettings</name>
+        <qualifiedname>UNightSkyEditorSettings::UNightSkyEditorSettings</qualifiedname>
+        <param>
+          <type>const FObjectInitializer &amp;</type>
+          <declname>ObjectInitializer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" line="19" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.cpp" bodystart="6" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_u_night_sky_editor_settings_1aa75390b9c84b8384a8dcec4f2c7d4ca9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NIGHTSKYENGINE_API <ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref> *</type>
+        <definition>UNightSkyEditorSettings * UNightSkyEditorSettings::Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>UNightSkyEditorSettings::Get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" line="24" column="51" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_night_sky_editor_settings_1ab9db76860318549f9577aab2c030b577" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NIGHTSKYENGINE_API const <ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref> *</type>
+        <definition>const UNightSkyEditorSettings * UNightSkyEditorSettings::GetConst</definition>
+        <argsstring>()</argsstring>
+        <name>GetConst</name>
+        <qualifiedname>UNightSkyEditorSettings::GetConst</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" line="25" column="57" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.cpp" bodystart="18" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>UDeveloperSettings</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyEditorSettings</label>
+        <link refid="class_u_night_sky_editor_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>FBattleData</label>
+        <link refid="struct_f_battle_data"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Stage</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Random</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>FRandomManager</label>
+        <link refid="struct_f_random_manager"/>
+      </node>
+      <node id="2">
+        <label>UDeveloperSettings</label>
+      </node>
+      <node id="1">
+        <label>UNightSkyEditorSettings</label>
+        <link refid="class_u_night_sky_editor_settings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>BattleData</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>UPrimaryDataAsset</label>
+      </node>
+      <node id="4">
+        <label>UPrimaryStageData</label>
+        <link refid="class_u_primary_stage_data"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" line="14" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h" bodystart="15" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_u_night_sky_editor_settings_1aa867f9c8856742b57df09e0b3933b6eb" prot="public" virt="non-virtual"><scope>UNightSkyEditorSettings</scope><name>BattleData</name></member>
+      <member refid="class_u_night_sky_editor_settings_1aa75390b9c84b8384a8dcec4f2c7d4ca9" prot="public" virt="non-virtual"><scope>UNightSkyEditorSettings</scope><name>Get</name></member>
+      <member refid="class_u_night_sky_editor_settings_1ab9db76860318549f9577aab2c030b577" prot="public" virt="non-virtual"><scope>UNightSkyEditorSettings</scope><name>GetConst</name></member>
+      <member refid="class_u_night_sky_editor_settings_1ab7af8d6fe39fb4ac67d3e3dcd123abc7" prot="public" virt="non-virtual"><scope>UNightSkyEditorSettings</scope><name>UNightSkyEditorSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

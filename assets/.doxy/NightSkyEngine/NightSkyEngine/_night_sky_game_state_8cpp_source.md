@@ -405,8 +405,8 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
             UGameplayStatics::GetPlayerController(GetWorld(), 0));
         ANightSkyPlayerController* Controller2 = Cast<ANightSkyPlayerController>(
             UGameplayStatics::GetPlayerController(GetWorld(), 1));
-        Controller1->PostRematch();
-        Controller2->PostRematch();
+        if (Controller1) Controller1->PostRematch();
+        if (Controller2) Controller2->PostRematch();
     }
     if (Input1 & INP_ResetTraining || Input2 & INP_ResetTraining)
     {
@@ -816,7 +816,7 @@ void ANightSkyGameState::UpdateScreen()
         ScreenData->FinalScreenY = ScreenData->
             StageBoundsTop - 106;
 
-    ScreenData->ScreenYZoom = 150 * (1
+    ScreenData->ScreenYZoom = 106 * (1
         - static_cast<float>(ScreenData->FinalScreenWidth) / static_cast<float>(ScreenData->DefaultWidth));
 }
 
@@ -1277,11 +1277,11 @@ void ANightSkyGameState::UpdateCamera()
 
         BattleState.CameraPosition = BattleSceneTransform.GetRotation().RotateVector(
                 FVector(ScreenData->FinalScreenX * 0.43, ScreenData->FinalScreenWidth * 0.43,
-                        ScreenData->FinalScreenY * 0.43 - ScreenData->ScreenYZoom + 150)) + BattleSceneTransform.
+                        ScreenData->FinalScreenY * 0.43 - ScreenData->ScreenYZoom + 106)) + BattleSceneTransform.
             GetLocation();
         FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
         CameraRotation.Yaw -= 90;
-        CameraRotation.Pitch -= 2.5;
+        CameraRotation.Pitch += 2.5;
         CameraActor->SetActorLocation(BattleState.CameraPosition);
         CameraActor->SetActorRotation(CameraRotation);
         if (BattleState.CurrentSequenceTime == -1)

@@ -90,6 +90,7 @@ Here are the classes, structs, unions and interfaces with brief descriptions:
 * **class** [**UNightSkyAnimSequenceUserData**](class_u_night_sky_anim_sequence_user_data.md)     
 * **class** [**UNightSkyBattleWidget**](class_u_night_sky_battle_widget.md)     
 * **class** [**UNightSkyBlueprintFunctionLibrary**](class_u_night_sky_blueprint_function_library.md)     
+* **class** [**UNightSkyEditorSettings**](class_u_night_sky_editor_settings.md)     
 * **class** [**UNightSkyGameInstance**](class_u_night_sky_game_instance.md)     
 * **class** [**UNightSkySaveInfo**](class_u_night_sky_save_info.md)     
 * **class** [**UNightSkySettingsInfo**](class_u_night_sky_settings_info.md)     

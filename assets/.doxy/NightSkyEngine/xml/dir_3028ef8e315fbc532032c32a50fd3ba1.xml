@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
   <compounddef id="dir_3028ef8e315fbc532032c32a50fd3ba1" kind="dir">
     <compoundname>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous</compoundname>
+    <innerfile refid="_night_sky_editor_settings_8cpp">NightSkyEditorSettings.cpp</innerfile>
+    <innerfile refid="_night_sky_editor_settings_8h">NightSkyEditorSettings.h</innerfile>
     <innerfile refid="_night_sky_engine_game_mode_base_8cpp">NightSkyEngineGameModeBase.cpp</innerfile>
     <innerfile refid="_night_sky_engine_game_mode_base_8h">NightSkyEngineGameModeBase.h</innerfile>
     <innerfile refid="_night_sky_game_instance_8cpp">NightSkyGameInstance.cpp</innerfile>

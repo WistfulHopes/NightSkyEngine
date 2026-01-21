@@ -3,6 +3,21 @@
   <compounddef id="struct_f_battle_data" kind="struct" language="C++" prot="public">
     <compoundname>FBattleData</compoundname>
     <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_f_battle_data_1a9b16881fe2e55a0878542571f2421b16" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool FBattleData::bIsValid</definition>
+        <argsstring></argsstring>
+        <name>bIsValid</name>
+        <qualifiedname>FBattleData::bIsValid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="28" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a3b229c96a87177f0a4b59518c09f7bbb" prot="public" static="no" mutable="no">
         <type>TArray&lt; <ref refid="class_u_primary_chara_data" kindref="compound">UPrimaryCharaData</ref> * &gt;</type>
         <definition>TArray&lt;UPrimaryCharaData*&gt; FBattleData::PlayerListP1</definition>
@@ -15,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="28" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="28" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="30" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a16387376cd2e8c41f9eb83ad5d662793" prot="public" static="no" mutable="no">
         <type>TArray&lt; <ref refid="class_u_primary_chara_data" kindref="compound">UPrimaryCharaData</ref> * &gt;</type>
@@ -29,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="30" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="30" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="32" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a5d1e4f1899d3cb14d8199e7195e155ad" prot="public" static="no" mutable="no">
         <type>TArray&lt; int32 &gt;</type>
@@ -43,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="32" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="32" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="34" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a62436caceba763bafc09ff811929a2a9" prot="public" static="no" mutable="no">
         <type>TArray&lt; int32 &gt;</type>
@@ -57,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="34" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="34" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="36" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a79ec91dd25be1e34799bd518a48556ec" prot="public" static="no" mutable="no">
         <type>EBattleFormat</type>
@@ -71,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="36" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="36" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="38" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a87f107719ef1f5831f19686034bc6673" prot="public" static="no" mutable="no">
         <type>int32</type>
@@ -86,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="38" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="38" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="40" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1ad11f27c6dee8341695afcdaf7eace38e" prot="public" static="no" mutable="no">
         <type>int32</type>
@@ -94,20 +109,7 @@
         <argsstring></argsstring>
         <name>RoundCount</name>
         <qualifiedname>FBattleData::RoundCount</qualifiedname>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="40" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="40" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="struct_f_battle_data_1a64a2cb75ce7aa89b43159c4bf328930a" prot="public" static="no" mutable="no">
-        <type>int32</type>
-        <definition>int32 FBattleData::StartRoundTimer</definition>
-        <argsstring></argsstring>
-        <name>StartRoundTimer</name>
-        <qualifiedname>FBattleData::StartRoundTimer</qualifiedname>
+        <initializer>= 2</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -115,6 +117,21 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="42" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_f_battle_data_1a64a2cb75ce7aa89b43159c4bf328930a" prot="public" static="no" mutable="no">
+        <type>int32</type>
+        <definition>int32 FBattleData::StartRoundTimer</definition>
+        <argsstring></argsstring>
+        <name>StartRoundTimer</name>
+        <qualifiedname>FBattleData::StartRoundTimer</qualifiedname>
+        <initializer>= 99</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="44" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1ad55319b8c93d6e18777747e1b12cee58" prot="public" static="no" mutable="no">
         <type><ref refid="class_u_primary_stage_data" kindref="compound">UPrimaryStageData</ref> *</type>
@@ -128,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="44" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="44" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="46" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a826ba78b5ccbc66a6d04f283467b90bf" prot="public" static="no" mutable="no">
         <type>FGameplayTag</type>
@@ -142,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="46" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="46" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="48" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_battle_data_1a4df4cee8133d154740a63034192d82b1" prot="public" static="no" mutable="no">
         <type><ref refid="struct_f_random_manager" kindref="compound">FRandomManager</ref></type>
@@ -156,7 +173,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="48" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="48" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="50" column="16" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="50" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -188,9 +205,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="23" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="24" bodyend="49"/>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" line="23" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.h" bodystart="24" bodyend="51"/>
     <listofallmembers>
       <member refid="struct_f_battle_data_1a79ec91dd25be1e34799bd518a48556ec" prot="public" virt="non-virtual"><scope>FBattleData</scope><name>BattleFormat</name></member>
+      <member refid="struct_f_battle_data_1a9b16881fe2e55a0878542571f2421b16" prot="public" virt="non-virtual"><scope>FBattleData</scope><name>bIsValid</name></member>
       <member refid="struct_f_battle_data_1a5d1e4f1899d3cb14d8199e7195e155ad" prot="public" virt="non-virtual"><scope>FBattleData</scope><name>ColorIndicesP1</name></member>
       <member refid="struct_f_battle_data_1a62436caceba763bafc09ff811929a2a9" prot="public" virt="non-virtual"><scope>FBattleData</scope><name>ColorIndicesP2</name></member>
       <member refid="struct_f_battle_data_1a826ba78b5ccbc66a6d04f283467b90bf" prot="public" virt="non-virtual"><scope>FBattleData</scope><name>MusicName</name></member>

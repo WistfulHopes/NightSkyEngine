@@ -187,6 +187,7 @@
     <member refid="class_a_battle_object_1a8dc94af19b741e8539d53ba1787f469a" kind="function"><name>SetTimeUntilNextCel</name></member>
     <member refid="class_a_battle_object_1ae21daa5f29907f4d7fd899450d009fd2" kind="function"><name>SetCelDuration</name></member>
     <member refid="class_a_battle_object_1a0d7c9c2d17913d81de09606525080d9f" kind="function"><name>AddPosXWithDir</name></member>
+    <member refid="class_a_battle_object_1ab9751aedfabd23bda440eee27ad5a23d" kind="function"><name>ApplyRootMotion</name></member>
     <member refid="class_a_battle_object_1a298060ce8fb78f483517cf2d5e547184" kind="function"><name>SetSpeedXRaw</name></member>
     <member refid="class_a_battle_object_1a2afca758d8df18da7e92ed8b8c1d9873" kind="function"><name>AddSpeedXRaw</name></member>
     <member refid="class_a_battle_object_1a2efdb217d7c6f95c6e4aea8f342e6a73" kind="function"><name>GetPosYCenter</name></member>
@@ -894,6 +895,7 @@
     <member refid="struct_f_audio_channel_1a67d8ca479eba1f72e3c2ceed4e4bdf77" kind="variable"><name>Finished</name></member>
   </compound>
   <compound refid="struct_f_battle_data" kind="struct"><name>FBattleData</name>
+    <member refid="struct_f_battle_data_1a9b16881fe2e55a0878542571f2421b16" kind="variable"><name>bIsValid</name></member>
     <member refid="struct_f_battle_data_1a3b229c96a87177f0a4b59518c09f7bbb" kind="variable"><name>PlayerListP1</name></member>
     <member refid="struct_f_battle_data_1a16387376cd2e8c41f9eb83ad5d662793" kind="variable"><name>PlayerListP2</name></member>
     <member refid="struct_f_battle_data_1a5d1e4f1899d3cb14d8199e7195e155ad" kind="variable"><name>ColorIndicesP1</name></member>
@@ -1702,6 +1704,12 @@
     <member refid="class_u_night_sky_blueprint_function_library_1acf2c54a283d55067d2e5a715a83476a2" kind="function"><name>Vec2Angle_x1000</name></member>
     <member refid="class_u_night_sky_blueprint_function_library_1acc73b4ac4fec9dd17fc96ae632bcc42f" kind="function"><name>Cos_x1000</name></member>
     <member refid="class_u_night_sky_blueprint_function_library_1aae4df8762dfb9340390a58145df942f7" kind="function"><name>Sin_x1000</name></member>
+  </compound>
+  <compound refid="class_u_night_sky_editor_settings" kind="class"><name>UNightSkyEditorSettings</name>
+    <member refid="class_u_night_sky_editor_settings_1aa867f9c8856742b57df09e0b3933b6eb" kind="variable"><name>BattleData</name></member>
+    <member refid="class_u_night_sky_editor_settings_1ab7af8d6fe39fb4ac67d3e3dcd123abc7" kind="function"><name>UNightSkyEditorSettings</name></member>
+    <member refid="class_u_night_sky_editor_settings_1aa75390b9c84b8384a8dcec4f2c7d4ca9" kind="function"><name>Get</name></member>
+    <member refid="class_u_night_sky_editor_settings_1ab9db76860318549f9577aab2c030b577" kind="function"><name>GetConst</name></member>
   </compound>
   <compound refid="class_u_night_sky_game_instance" kind="class"><name>UNightSkyGameInstance</name>
     <member refid="class_u_night_sky_game_instance_1ae2075871a22b963db182012fb0ecce20" kind="variable"><name>CurrentReplay</name></member>
@@ -2624,6 +2632,10 @@
   <compound refid="_n_s_e_player_mappable_key_settings_8cpp" kind="file"><name>NSEPlayerMappableKeySettings.cpp</name>
   </compound>
   <compound refid="_n_s_e_player_mappable_key_settings_8h" kind="file"><name>NSEPlayerMappableKeySettings.h</name>
+  </compound>
+  <compound refid="_night_sky_editor_settings_8cpp" kind="file"><name>NightSkyEditorSettings.cpp</name>
+  </compound>
+  <compound refid="_night_sky_editor_settings_8h" kind="file"><name>NightSkyEditorSettings.h</name>
   </compound>
   <compound refid="_night_sky_engine_game_mode_base_8cpp" kind="file"><name>NightSkyEngineGameModeBase.cpp</name>
   </compound>

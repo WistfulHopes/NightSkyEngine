@@ -525,6 +525,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/state-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Data Asset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2466,6 +2494,62 @@
     
   
     File NightSkyCharaSelectGameState.h
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_night_sky_editor_settings_8cpp_source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File NightSkyEditorSettings.cpp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_night_sky_editor_settings_8h_source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File NightSkyEditorSettings.h
   
 
     
@@ -5649,6 +5733,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../_night_sky_editor_settings_8cpp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File NightSkyEditorSettings.cpp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_night_sky_editor_settings_8h/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File NightSkyEditorSettings.h
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../_night_sky_engine_8cpp/" class="md-nav__link">
         
   
@@ -8317,6 +8457,34 @@
     
   
     Class UNightSkyBlueprintFunctionLibrary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_u_night_sky_editor_settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Class UNightSkyEditorSettings
   
 
     
@@ -19684,8 +19852,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">MaxCelTime</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">Frame60</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AnimFrame</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">BlendAnimFrame</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">AnimFrame</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">MaxCelTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TimeUntilNextCel</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">MaxCelTime</span><span class="p">;</span>
-<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">FrameAnim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Frame60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BodyAnimUserData</span><span class="o">-&gt;</span><span class="n">GetFrameRate</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">FrameAnim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AnimFrame</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">BlendAnimFrame</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">AnimFrame</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">MaxCelTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TimeUntilNextCel</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">MaxCelTime</span><span class="p">;</span>
 <span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">RootMotion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BodyAnimUserData</span><span class="o">-&gt;</span><span class="n">GetRootTranslationAtTime</span><span class="p">(</span><span class="n">FrameAnim</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">AddPosXWithDir</span><span class="p">(</span><span class="n">RootMotion</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">PrevRootMotionX</span><span class="p">);</span>
@@ -19694,10 +19861,7 @@
 
 <span class="w">        </span><span class="k">return</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="n">PrevRootMotionX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PrevRootMotionY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PrevRootMotionZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ApplyRootMotion</span><span class="p">();</span>
 
 <span class="w">    </span><span class="n">SpeedX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeedX</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">SpeedXRatePerFrame</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="w">    </span><span class="n">SpeedY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeedY</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">SpeedYRatePerFrame</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
@@ -21917,6 +22081,13 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">PosX</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">InPosX</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">ApplyRootMotion</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">PrevRootMotionX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PrevRootMotionY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PrevRootMotionZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">SetSpeedXRaw</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">InSpeedX</span><span class="p">)</span>

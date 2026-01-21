@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_night_sky_editor_settings_8h" kind="file" language="C++">
+    <compoundname>NightSkyEditorSettings.h</compoundname>
+    <includes local="yes">CoreMinimal.h</includes>
+    <includes local="yes">Engine/DeveloperSettings.h</includes>
+    <includes refid="_night_sky_game_instance_8h" local="yes">NightSkyEngine/Miscellaneous/NightSkyGameInstance.h</includes>
+    <includes local="yes">NightSkyEditorSettings.generated.h</includes>
+    <includedby refid="_night_sky_editor_settings_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.cpp</includedby>
+    <includedby refid="_night_sky_game_instance_8cpp" local="yes">C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyGameInstance.cpp</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>NightSkyEngine/Battle/Misc/RandomManager.h</label>
+        <link refid="_random_manager_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h</label>
+        <link refid="_night_sky_editor_settings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>NightSkyEngine/Miscellaneous/NightSkyGameInstance.h</label>
+        <link refid="_night_sky_game_instance_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>NightSkyEngine/Network/FighterRunners.h</label>
+        <link refid="_fighter_runners_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CoreMinimal.h</label>
+      </node>
+      <node id="3">
+        <label>Engine/DeveloperSettings.h</label>
+      </node>
+      <node id="10">
+        <label>Engine/GameInstance.h</label>
+      </node>
+      <node id="6">
+        <label>FighterRunners.generated.h</label>
+      </node>
+      <node id="7">
+        <label>GameplayTagContainer.h</label>
+      </node>
+      <node id="12">
+        <label>NightSkyEditorSettings.generated.h</label>
+      </node>
+      <node id="11">
+        <label>NightSkyGameInstance.generated.h</label>
+      </node>
+      <node id="9">
+        <label>RandomManager.generated.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_u_night_sky_editor_settings" prot="public">UNightSkyEditorSettings</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Fill<sp/>out<sp/>your<sp/>copyright<sp/>notice<sp/>in<sp/>the<sp/>Description<sp/>page<sp/>of<sp/>Project<sp/>Settings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;CoreMinimal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Engine/DeveloperSettings.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NightSkyEngine/Miscellaneous/NightSkyGameInstance.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;NightSkyEditorSettings.generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">UCLASS(Config<sp/>=<sp/>EditorPerProjectUserSettings,<sp/>DefaultConfig,<sp/>meta<sp/>=<sp/>(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Night<sp/>Sky<sp/>Engine<sp/>Editor<sp/>Settings&quot;</highlight><highlight class="normal">),<sp/>MinimalAPI)</highlight></codeline>
+<codeline lineno="14" refid="class_u_night_sky_editor_settings" refkind="compound"><highlight class="normal">class<sp/><ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref><sp/>:<sp/>public<sp/>UDeveloperSettings</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>GENERATED_BODY()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FObjectInitializer&amp;<sp/>ObjectInitializer);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>UPROPERTY(Config,<sp/>EditAnywhere,<sp/>Category<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Battle&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref><sp/>BattleData<sp/>=<sp/><ref refid="struct_f_battle_data" kindref="compound">FBattleData</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>NIGHTSKYENGINE_API<sp/><ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref>*<sp/>Get();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>NIGHTSKYENGINE_API<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_u_night_sky_editor_settings" kindref="compound">UNightSkyEditorSettings</ref>*<sp/>GetConst();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Miscellaneous/NightSkyEditorSettings.h"/>
+  </compounddef>
+</doxygen>

@@ -3846,518 +3846,519 @@
 <codeline lineno="3117"><highlight class="normal"><sp/><sp/><sp/><sp/>MeterCooldownTimer<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="3118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>LinkActor<sp/>:<sp/>StoredLinkActors)</highlight></codeline>
 <codeline lineno="3119"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LinkActor.bIsActive<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LinkActor.StoredActor-&gt;SetActorHiddenInGame(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="3122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int32&amp;<sp/>CancelOption<sp/>:<sp/>AutoComboCancels)</highlight></codeline>
-<codeline lineno="3124"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelOption<sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="3126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3127"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachine_Primary).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Empty();</highlight></codeline>
-<codeline lineno="3128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>StateMachine<sp/>:<sp/>SubStateMachines)</highlight></codeline>
-<codeline lineno="3129"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StateMachine.<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Empty();</highlight></codeline>
-<codeline lineno="3131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3132"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.Empty();</highlight></codeline>
-<codeline lineno="3133"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.Empty();</highlight></codeline>
-<codeline lineno="3134"><highlight class="normal"><sp/><sp/><sp/><sp/>MovesUsedInCombo.Empty();</highlight></codeline>
-<codeline lineno="3135"><highlight class="normal"><sp/><sp/><sp/><sp/>LastStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
-<codeline lineno="3136"><highlight class="normal"><sp/><sp/><sp/><sp/>ExeStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
-<codeline lineno="3137"><highlight class="normal"><sp/><sp/><sp/><sp/>BufferedStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
-<codeline lineno="3138"><highlight class="normal"><sp/><sp/><sp/><sp/>WallTouchTimer<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3139"><highlight class="normal"><sp/><sp/><sp/><sp/>GameState-&gt;BattleState.MaxMeter[PlayerIndex]<sp/>=<sp/>MaxMeter;</highlight></codeline>
-<codeline lineno="3140"><highlight class="normal"><sp/><sp/><sp/><sp/>SetDefaultComponentVisibility();</highlight></codeline>
-<codeline lineno="3141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PlayerIndex<sp/>==<sp/>1)</highlight></codeline>
-<codeline lineno="3142"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetFacing(DIR_Left);</highlight></codeline>
-<codeline lineno="3144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3145"><highlight class="normal"><sp/><sp/><sp/><sp/>RoundInit_BP();</highlight></codeline>
-<codeline lineno="3146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3147"><highlight class="normal"><sp/><sp/><sp/><sp/>CallSubroutine(Subroutine_Cmn_RoundInit);</highlight></codeline>
-<codeline lineno="3148"><highlight class="normal"><sp/><sp/><sp/><sp/>CallSubroutine(Subroutine_RoundInit);</highlight></codeline>
-<codeline lineno="3149"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3150"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3151"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::HandleFlipInput()</highlight></codeline>
-<codeline lineno="3152"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((Direction<sp/>==<sp/>DIR_Left<sp/>&amp;&amp;<sp/>!FlipInputs)<sp/>||<sp/>(FlipInputs<sp/>&amp;&amp;<sp/>Direction<sp/>==<sp/>DIR_Right))</highlight></codeline>
-<codeline lineno="3154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//flip<sp/>inputs<sp/>with<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3155"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Inputs<sp/>=<sp/>FlipInput(Inputs);</highlight></codeline>
-<codeline lineno="3157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3158"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3159"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3160"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::HandleEndCombo()</highlight></codeline>
-<codeline lineno="3161"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CheckIsStunned()<sp/>&amp;&amp;<sp/>IsMainPlayer()<sp/>&amp;&amp;<sp/>Enemy-&gt;ComboCounter)</highlight></codeline>
-<codeline lineno="3163"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;ComboCounter<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;ComboTimer<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;CallSubroutine(Subroutine_Cmn_OnComboEnd);</highlight></codeline>
-<codeline lineno="3167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;CallSubroutine(Subroutine_OnComboEnd);</highlight></codeline>
-<codeline lineno="3168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ReceivedHitCommon<sp/>=<sp/><ref refid="struct_f_hit_data_common" kindref="compound">FHitDataCommon</ref>();</highlight></codeline>
-<codeline lineno="3169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ReceivedHit<sp/>=<sp/><ref refid="struct_f_hit_data" kindref="compound">FHitData</ref>();</highlight></codeline>
-<codeline lineno="3170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TotalProration<sp/>=<sp/>10000;</highlight></codeline>
-<codeline lineno="3171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTGCount<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bCrumpled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3174"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SaveForRollbackPlayer(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Buffer)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3177"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3178"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(Buffer,<sp/>&amp;PlayerSync,<sp/>SizeOfPlayerObject);</highlight></codeline>
-<codeline lineno="3179"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3181"><highlight class="normal">TArray&lt;uint8&gt;<sp/>APlayerObject::SaveForRollbackBP()</highlight></codeline>
-<codeline lineno="3182"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3183"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;uint8&gt;<sp/>SaveData;</highlight></codeline>
-<codeline lineno="3184"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectWriter<sp/>Writer(SaveData);</highlight></codeline>
-<codeline lineno="3185"><highlight class="normal"><sp/><sp/><sp/><sp/>Writer.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3186"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Writer,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="3187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SaveData;</highlight></codeline>
-<codeline lineno="3188"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3189"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3190"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::LoadForRollbackPlayer(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Buffer)</highlight></codeline>
-<codeline lineno="3191"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3192"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(&amp;PlayerSync,<sp/>Buffer,<sp/>SizeOfPlayerObject);</highlight></codeline>
-<codeline lineno="3193"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::LoadForRollbackBP(TArray&lt;uint8&gt;<sp/>InBytes)</highlight></codeline>
-<codeline lineno="3196"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InBytes.Num()<sp/>&lt;=<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3198"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectReader<sp/>Reader(InBytes);</highlight></codeline>
-<codeline lineno="3199"><highlight class="normal"><sp/><sp/><sp/><sp/>Reader.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3200"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Reader,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="3201"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3202"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3203"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableState(int32<sp/>EnableType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3204"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3205"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>|=<sp/>EnableType;</highlight></codeline>
-<codeline lineno="3206"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3207"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3208"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableState(int32<sp/>EnableType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3209"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3210"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>=<sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>&amp;<sp/>~EnableType;</highlight></codeline>
-<codeline lineno="3211"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3212"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3213"><highlight class="normal">int32<sp/>APlayerObject::GetEnableFlags(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3214"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref>;</highlight></codeline>
-<codeline lineno="3216"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3217"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3218"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableCustomState(FGameplayTag<sp/>CustomStateType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3219"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3220"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.AddUnique(CustomStateType);</highlight></codeline>
-<codeline lineno="3221"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3222"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3223"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableCustomState(FGameplayTag<sp/>CustomStateType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3224"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3225"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Remove(CustomStateType);</highlight></codeline>
-<codeline lineno="3226"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3227"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3228"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableAttacks()</highlight></codeline>
-<codeline lineno="3229"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3230"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_NormalAttack,<sp/>StateMachine_Primary);</highlight></codeline>
-<codeline lineno="3231"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SpecialAttack,<sp/>StateMachine_Primary);</highlight></codeline>
-<codeline lineno="3232"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SuperAttack,<sp/>StateMachine_Primary);</highlight></codeline>
-<codeline lineno="3233"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3235"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableCancelIntoSelf(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3236"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3238"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_CancelIntoSelf;</highlight></codeline>
-<codeline lineno="3240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3242"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_CancelIntoSelf;</highlight></codeline>
-<codeline lineno="3244"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3245"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3246"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3247"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableAll(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3248"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3249"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Standing,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3250"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Crouching,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3251"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Jumping,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3252"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardWalk,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3253"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackWalk,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3254"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3255"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3256"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardAirDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3257"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackAirDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3258"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_NormalAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3259"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SpecialAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3260"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SuperAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3261"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Block,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3262"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ProximityBlock,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3263"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Tech,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3264"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Burst,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3265"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Tag,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3266"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Assist,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3267"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3268"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3269"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableAll(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
-<codeline lineno="3270"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3271"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Standing,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3272"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Crouching,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3273"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Jumping,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3274"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardWalk,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3275"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackWalk,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3276"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3277"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3278"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardAirDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3279"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackAirDash,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3280"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_NormalAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3281"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_SpecialAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3282"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_SuperAttack,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3283"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Block,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3284"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ProximityBlock,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3285"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Tech,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3286"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Burst,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3287"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Tag,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3288"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Assist,<sp/>StateMachineName);</highlight></codeline>
-<codeline lineno="3289"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3290"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3291"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckInput(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_input_condition" kindref="compound">FInputCondition</ref>&amp;<sp/>Input)</highlight></codeline>
-<codeline lineno="3292"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3293"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>StoredInputBuffer.<ref refid="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" kindref="member">CheckInputCondition</ref>(Input);</highlight></codeline>
-<codeline lineno="3294"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3295"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3296"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckIsAttacking()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3297"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>AttackFlags<sp/>&amp;<sp/>ATK_IsAttacking;</highlight></codeline>
-<codeline lineno="3299"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3300"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3301"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckHasHit()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3302"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>AttackFlags<sp/>&amp;<sp/>ATK_HasHit;</highlight></codeline>
-<codeline lineno="3304"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3305"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3306"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckIsStunned()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3307"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsStunned<sp/>||<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock<sp/>||<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsDead</highlight></codeline>
-<codeline lineno="3309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" kindref="member">CurrentState</ref>-&gt;<ref refid="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" kindref="member">StateType</ref><sp/>==<sp/>EStateType::Hitstun</highlight></codeline>
-<codeline lineno="3310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" kindref="member">CurrentState</ref>-&gt;<ref refid="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" kindref="member">StateType</ref><sp/>==<sp/>EStateType::Blockstun;</highlight></codeline>
-<codeline lineno="3311"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3312"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3313"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAirJump(int32<sp/>NewAirJump)</highlight></codeline>
-<codeline lineno="3314"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3315"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirJumpCount<sp/>+=<sp/>NewAirJump;</highlight></codeline>
-<codeline lineno="3316"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3317"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3318"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::ResetAirJump()</highlight></codeline>
-<codeline lineno="3319"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3320"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirJumpCount<sp/>=<sp/>AirJumpCount;</highlight></codeline>
-<codeline lineno="3321"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3322"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3323"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAirDash(int32<sp/>NewAirDash)</highlight></codeline>
-<codeline lineno="3324"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3325"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirDashCount<sp/>+=<sp/>NewAirDash;</highlight></codeline>
-<codeline lineno="3326"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3327"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3328"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::ResetAirDash()</highlight></codeline>
-<codeline lineno="3329"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3330"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirDashCount<sp/>=<sp/>AirDashCount;</highlight></codeline>
-<codeline lineno="3331"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3332"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3333"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetAirDashTimer(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsForward)</highlight></codeline>
-<codeline lineno="3334"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3335"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsForward)</highlight></codeline>
-<codeline lineno="3336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashTimer<sp/>=<sp/>FAirDashTime<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="3337"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashTimer<sp/>=<sp/>BAirDashTime<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="3339"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3340"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3341"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetAirDashNoAttackTimer(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsForward)</highlight></codeline>
-<codeline lineno="3342"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3343"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsForward)</highlight></codeline>
-<codeline lineno="3344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashNoAttackTime<sp/>=<sp/>FAirDashNoAttackTime<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="3345"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashNoAttackTime<sp/>=<sp/>BAirDashNoAttackTime<sp/>+<sp/>1;</highlight></codeline>
-<codeline lineno="3347"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3348"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3349"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddChainCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
-<codeline lineno="3350"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3351"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.AddUnique(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
-<codeline lineno="3352"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3353"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3354"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAutoComboCancel(FGameplayTag<sp/>Option,<sp/>EInputFlags<sp/>Button)</highlight></codeline>
-<codeline lineno="3355"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3356"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Index;</highlight></codeline>
-<codeline lineno="3357"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(Button)</highlight></codeline>
-<codeline lineno="3358"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3359"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_A:</highlight></codeline>
-<codeline lineno="3360"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="3361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3363"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_B:</highlight></codeline>
-<codeline lineno="3364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="3365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3366"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_C:</highlight></codeline>
-<codeline lineno="3367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>2;</highlight></codeline>
-<codeline lineno="3368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3369"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_D:</highlight></codeline>
-<codeline lineno="3370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>3;</highlight></codeline>
-<codeline lineno="3371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3372"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_E:</highlight></codeline>
-<codeline lineno="3373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>4;</highlight></codeline>
-<codeline lineno="3374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3375"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_F:</highlight></codeline>
-<codeline lineno="3376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>5;</highlight></codeline>
-<codeline lineno="3377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3378"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_G:</highlight></codeline>
-<codeline lineno="3379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>6;</highlight></codeline>
-<codeline lineno="3380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3381"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_H:</highlight></codeline>
-<codeline lineno="3382"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>7;</highlight></codeline>
-<codeline lineno="3383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3384"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3385"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3386"><highlight class="normal"><sp/><sp/><sp/><sp/>AutoComboCancels[Index]<sp/>=<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option);</highlight></codeline>
-<codeline lineno="3387"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3388"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3389"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddWhiffCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
-<codeline lineno="3390"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3391"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.AddUnique(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
-<codeline lineno="3392"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3393"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3394"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveChainCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
-<codeline lineno="3395"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3396"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.Remove(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
-<codeline lineno="3397"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3398"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3399"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveAutoComboCancel(EInputFlags<sp/>Button)</highlight></codeline>
-<codeline lineno="3400"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3401"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Index;</highlight></codeline>
-<codeline lineno="3402"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(Button)</highlight></codeline>
-<codeline lineno="3403"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3404"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_A:</highlight></codeline>
-<codeline lineno="3405"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3407"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_B:</highlight></codeline>
-<codeline lineno="3408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="3409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3410"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_C:</highlight></codeline>
-<codeline lineno="3411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>2;</highlight></codeline>
-<codeline lineno="3412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3413"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_D:</highlight></codeline>
-<codeline lineno="3414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>3;</highlight></codeline>
-<codeline lineno="3415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3416"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_E:</highlight></codeline>
-<codeline lineno="3417"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>4;</highlight></codeline>
-<codeline lineno="3418"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3419"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_F:</highlight></codeline>
-<codeline lineno="3420"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>5;</highlight></codeline>
-<codeline lineno="3421"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3422"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_G:</highlight></codeline>
-<codeline lineno="3423"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>6;</highlight></codeline>
-<codeline lineno="3424"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3425"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_H:</highlight></codeline>
-<codeline lineno="3426"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>7;</highlight></codeline>
-<codeline lineno="3427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3428"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3429"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3430"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3431"><highlight class="normal"><sp/><sp/><sp/><sp/>AutoComboCancels[Index]<sp/>=<sp/>-1;</highlight></codeline>
-<codeline lineno="3432"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3433"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3434"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveWhiffCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
-<codeline lineno="3435"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3436"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.Remove(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
-<codeline lineno="3437"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3438"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3439"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableChainCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3440"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3441"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3442"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3443"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_ChainCancelEnabled;</highlight></codeline>
-<codeline lineno="3444"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3445"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3446"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3447"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_ChainCancelEnabled;</highlight></codeline>
-<codeline lineno="3448"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3449"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3450"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3451"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableWhiffCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3452"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3453"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3454"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_WhiffCancelEnabled;</highlight></codeline>
-<codeline lineno="3456"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3457"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3458"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3459"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_WhiffCancelEnabled;</highlight></codeline>
-<codeline lineno="3460"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3461"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3462"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3463"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableReverseBeat(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3464"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3465"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3466"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3467"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_EnableReverseBeat;</highlight></codeline>
-<codeline lineno="3468"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3469"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3470"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_EnableReverseBeat;</highlight></codeline>
-<codeline lineno="3472"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3473"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3474"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3475"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableJumpCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3476"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3477"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3478"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3479"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_JumpCancel;</highlight></codeline>
-<codeline lineno="3480"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3481"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3482"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3483"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_JumpCancel;</highlight></codeline>
-<codeline lineno="3484"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3485"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3486"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3487"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableSpecialCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3488"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3489"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3490"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3491"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SpecialCancel;</highlight></codeline>
-<codeline lineno="3492"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SuperCancel;</highlight></codeline>
-<codeline lineno="3493"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3494"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3495"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3496"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SpecialCancel;</highlight></codeline>
-<codeline lineno="3497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SuperCancel;</highlight></codeline>
-<codeline lineno="3498"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3499"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3500"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3501"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableSuperCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3502"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3503"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3504"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SuperCancel;</highlight></codeline>
-<codeline lineno="3506"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3507"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3508"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SuperCancel;</highlight></codeline>
-<codeline lineno="3510"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3511"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3512"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3513"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableForwardAirdashCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3514"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3515"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3516"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3517"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_FAirDashCancel;</highlight></codeline>
-<codeline lineno="3518"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3520"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3521"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_FAirDashCancel;</highlight></codeline>
-<codeline lineno="3522"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3523"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3524"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3525"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetDefaultLandingAction(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
-<codeline lineno="3526"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3527"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
-<codeline lineno="3528"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3529"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayerFlags<sp/>|=<sp/>PLF_DefaultLandingAction;</highlight></codeline>
-<codeline lineno="3530"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3531"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3532"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3533"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayerFlags<sp/>&amp;=<sp/>~PLF_DefaultLandingAction;</highlight></codeline>
-<codeline lineno="3534"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3535"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3536"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3537"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetKnockdownState()</highlight></codeline>
-<codeline lineno="3538"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3539"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTime<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3540"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTimeMax<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="3541"><highlight class="normal"><sp/><sp/><sp/><sp/>PlayerFlags<sp/>|=<sp/>PLF_IsKnockedDown;</highlight></codeline>
-<codeline lineno="3542"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((PlayerFlags<sp/>&amp;<sp/>PLF_IsHardKnockedDown)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>!(PlayerFlags<sp/>&amp;<sp/>PLF_IsDead))</highlight></codeline>
-<codeline lineno="3543"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EnableState(ENB_Tech,<sp/>StateMachine_Primary);</highlight></codeline>
-<codeline lineno="3544"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3545"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3546"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::IsTouchingWall()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3547"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3548"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PlayerFlags<sp/>&amp;<sp/>PLF_TouchingWall;</highlight></codeline>
-<codeline lineno="3549"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3550"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3551"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::IsInvulnerable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref>*<sp/>Attacker)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
-<codeline lineno="3552"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3553"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsInvulnerable_BP())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3554"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="3555"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock<sp/>&amp;&amp;<sp/>Attacker<sp/>!=<sp/>Enemy)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3556"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enemy-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3557"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InvulnFlags<sp/>&amp;<sp/>INV_StrikeInvulnerable<sp/>||<sp/>StrikeInvulnerableTimer)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3558"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_AttackHeadAttribute<sp/>&amp;&amp;<sp/>InvulnFlags<sp/>&amp;<sp/>INV_HeadInvulnerable)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3559"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_AttackProjectileAttribute<sp/>&amp;&amp;<sp/>InvulnFlags<sp/>&amp;<sp/>INV_ProjectileInvulnerable)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3560"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_HitOTG)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsKnockedDown)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3561"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="3562"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="3563"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3564"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3565"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStrikeInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
-<codeline lineno="3566"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3567"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
-<codeline lineno="3568"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3569"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_StrikeInvulnerable;</highlight></codeline>
-<codeline lineno="3570"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3571"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3572"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3573"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_StrikeInvulnerable;</highlight></codeline>
-<codeline lineno="3574"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3575"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3576"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3577"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
-<codeline lineno="3578"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3579"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
-<codeline lineno="3580"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3581"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_ThrowInvulnerable;</highlight></codeline>
-<codeline lineno="3582"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3583"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3584"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_ThrowInvulnerable;</highlight></codeline>
-<codeline lineno="3586"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3587"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3588"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3589"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetHeadInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
-<codeline lineno="3590"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3591"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
-<codeline lineno="3592"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_HeadInvulnerable;</highlight></codeline>
-<codeline lineno="3594"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3595"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3596"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3597"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_HeadInvulnerable;</highlight></codeline>
-<codeline lineno="3598"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3599"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3600"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3601"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetProjectileInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
-<codeline lineno="3602"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3603"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
-<codeline lineno="3604"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3605"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_ProjectileInvulnerable;</highlight></codeline>
-<codeline lineno="3606"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3607"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3608"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="3609"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_ProjectileInvulnerable;</highlight></codeline>
-<codeline lineno="3610"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="3611"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3612"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3613"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStrikeInvulnerableForTime(int32<sp/>Timer)</highlight></codeline>
-<codeline lineno="3614"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3615"><highlight class="normal"><sp/><sp/><sp/><sp/>StrikeInvulnerableTimer<sp/>=<sp/>Timer;</highlight></codeline>
-<codeline lineno="3616"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3617"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3618"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowInvulnerableForTime(int32<sp/>Timer)</highlight></codeline>
-<codeline lineno="3619"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3620"><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowInvulnerableTimer<sp/>=<sp/>Timer;</highlight></codeline>
-<codeline lineno="3621"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3622"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3623"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowResistForTime(int32<sp/>Timer)</highlight></codeline>
-<codeline lineno="3624"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3625"><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowResistTimer<sp/>=<sp/>Timer;</highlight></codeline>
-<codeline lineno="3626"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="3627"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3628"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStunTime(int32<sp/>NewTime)</highlight></codeline>
-<codeline lineno="3629"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="3630"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTime<sp/>=<sp/>NewTime;</highlight></codeline>
-<codeline lineno="3631"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!LinkActor.StoredActor)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LinkActor.bIsActive<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LinkActor.StoredActor-&gt;SetActorHiddenInGame(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="3123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(int32&amp;<sp/>CancelOption<sp/>:<sp/>AutoComboCancels)</highlight></codeline>
+<codeline lineno="3125"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelOption<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="3127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3128"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachine_Primary).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Empty();</highlight></codeline>
+<codeline lineno="3129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>StateMachine<sp/>:<sp/>SubStateMachines)</highlight></codeline>
+<codeline lineno="3130"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StateMachine.<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Empty();</highlight></codeline>
+<codeline lineno="3132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3133"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.Empty();</highlight></codeline>
+<codeline lineno="3134"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.Empty();</highlight></codeline>
+<codeline lineno="3135"><highlight class="normal"><sp/><sp/><sp/><sp/>MovesUsedInCombo.Empty();</highlight></codeline>
+<codeline lineno="3136"><highlight class="normal"><sp/><sp/><sp/><sp/>LastStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
+<codeline lineno="3137"><highlight class="normal"><sp/><sp/><sp/><sp/>ExeStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
+<codeline lineno="3138"><highlight class="normal"><sp/><sp/><sp/><sp/>BufferedStateName<sp/>=<sp/>FGameplayTag();</highlight></codeline>
+<codeline lineno="3139"><highlight class="normal"><sp/><sp/><sp/><sp/>WallTouchTimer<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3140"><highlight class="normal"><sp/><sp/><sp/><sp/>GameState-&gt;BattleState.MaxMeter[PlayerIndex]<sp/>=<sp/>MaxMeter;</highlight></codeline>
+<codeline lineno="3141"><highlight class="normal"><sp/><sp/><sp/><sp/>SetDefaultComponentVisibility();</highlight></codeline>
+<codeline lineno="3142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PlayerIndex<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="3143"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetFacing(DIR_Left);</highlight></codeline>
+<codeline lineno="3145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3146"><highlight class="normal"><sp/><sp/><sp/><sp/>RoundInit_BP();</highlight></codeline>
+<codeline lineno="3147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3148"><highlight class="normal"><sp/><sp/><sp/><sp/>CallSubroutine(Subroutine_Cmn_RoundInit);</highlight></codeline>
+<codeline lineno="3149"><highlight class="normal"><sp/><sp/><sp/><sp/>CallSubroutine(Subroutine_RoundInit);</highlight></codeline>
+<codeline lineno="3150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3152"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::HandleFlipInput()</highlight></codeline>
+<codeline lineno="3153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((Direction<sp/>==<sp/>DIR_Left<sp/>&amp;&amp;<sp/>!FlipInputs)<sp/>||<sp/>(FlipInputs<sp/>&amp;&amp;<sp/>Direction<sp/>==<sp/>DIR_Right))</highlight></codeline>
+<codeline lineno="3155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//flip<sp/>inputs<sp/>with<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3156"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Inputs<sp/>=<sp/>FlipInput(Inputs);</highlight></codeline>
+<codeline lineno="3158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3161"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::HandleEndCombo()</highlight></codeline>
+<codeline lineno="3162"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!CheckIsStunned()<sp/>&amp;&amp;<sp/>IsMainPlayer()<sp/>&amp;&amp;<sp/>Enemy-&gt;ComboCounter)</highlight></codeline>
+<codeline lineno="3164"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;ComboCounter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;ComboTimer<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;CallSubroutine(Subroutine_Cmn_OnComboEnd);</highlight></codeline>
+<codeline lineno="3168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Enemy-&gt;CallSubroutine(Subroutine_OnComboEnd);</highlight></codeline>
+<codeline lineno="3169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ReceivedHitCommon<sp/>=<sp/><ref refid="struct_f_hit_data_common" kindref="compound">FHitDataCommon</ref>();</highlight></codeline>
+<codeline lineno="3170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ReceivedHit<sp/>=<sp/><ref refid="struct_f_hit_data" kindref="compound">FHitData</ref>();</highlight></codeline>
+<codeline lineno="3171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TotalProration<sp/>=<sp/>10000;</highlight></codeline>
+<codeline lineno="3172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OTGCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bCrumpled<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3177"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SaveForRollbackPlayer(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Buffer)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3178"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3179"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(Buffer,<sp/>&amp;PlayerSync,<sp/>SizeOfPlayerObject);</highlight></codeline>
+<codeline lineno="3180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3182"><highlight class="normal">TArray&lt;uint8&gt;<sp/>APlayerObject::SaveForRollbackBP()</highlight></codeline>
+<codeline lineno="3183"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3184"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;uint8&gt;<sp/>SaveData;</highlight></codeline>
+<codeline lineno="3185"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectWriter<sp/>Writer(SaveData);</highlight></codeline>
+<codeline lineno="3186"><highlight class="normal"><sp/><sp/><sp/><sp/>Writer.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3187"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Writer,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="3188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SaveData;</highlight></codeline>
+<codeline lineno="3189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3191"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::LoadForRollbackPlayer(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Buffer)</highlight></codeline>
+<codeline lineno="3192"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3193"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(&amp;PlayerSync,<sp/>Buffer,<sp/>SizeOfPlayerObject);</highlight></codeline>
+<codeline lineno="3194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::LoadForRollbackBP(TArray&lt;uint8&gt;<sp/>InBytes)</highlight></codeline>
+<codeline lineno="3197"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InBytes.Num()<sp/>&lt;=<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3199"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectReader<sp/>Reader(InBytes);</highlight></codeline>
+<codeline lineno="3200"><highlight class="normal"><sp/><sp/><sp/><sp/>Reader.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3201"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Reader,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="3202"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3204"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableState(int32<sp/>EnableType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3205"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3206"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>|=<sp/>EnableType;</highlight></codeline>
+<codeline lineno="3207"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3209"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableState(int32<sp/>EnableType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3210"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3211"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>=<sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref><sp/>&amp;<sp/>~EnableType;</highlight></codeline>
+<codeline lineno="3212"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3214"><highlight class="normal">int32<sp/>APlayerObject::GetEnableFlags(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3215"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1a00af9211534c045c88d3fd2164737b19" kindref="member">EnableFlags</ref>;</highlight></codeline>
+<codeline lineno="3217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3219"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableCustomState(FGameplayTag<sp/>CustomStateType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3220"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3221"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.AddUnique(CustomStateType);</highlight></codeline>
+<codeline lineno="3222"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3224"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableCustomState(FGameplayTag<sp/>CustomStateType,<sp/>FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3225"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3226"><highlight class="normal"><sp/><sp/><sp/><sp/>GetStateMachine(StateMachineName).<ref refid="struct_f_state_machine_1adeb47109af876c87237f945a6b8ed47b" kindref="member">EnabledCustomStateTypes</ref>.Remove(CustomStateType);</highlight></codeline>
+<codeline lineno="3227"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3229"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableAttacks()</highlight></codeline>
+<codeline lineno="3230"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3231"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_NormalAttack,<sp/>StateMachine_Primary);</highlight></codeline>
+<codeline lineno="3232"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SpecialAttack,<sp/>StateMachine_Primary);</highlight></codeline>
+<codeline lineno="3233"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SuperAttack,<sp/>StateMachine_Primary);</highlight></codeline>
+<codeline lineno="3234"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3236"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableCancelIntoSelf(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3237"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3239"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_CancelIntoSelf;</highlight></codeline>
+<codeline lineno="3241"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3243"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_CancelIntoSelf;</highlight></codeline>
+<codeline lineno="3245"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3246"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3248"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableAll(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3249"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3250"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Standing,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3251"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Crouching,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3252"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Jumping,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3253"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardWalk,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3254"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackWalk,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3255"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3256"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3257"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ForwardAirDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3258"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_BackAirDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3259"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_NormalAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3260"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SpecialAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3261"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_SuperAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3262"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Block,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3263"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_ProximityBlock,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3264"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Tech,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3265"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Burst,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3266"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Tag,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3267"><highlight class="normal"><sp/><sp/><sp/><sp/>EnableState(ENB_Assist,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3268"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3270"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::DisableAll(FGameplayTag<sp/>StateMachineName)</highlight></codeline>
+<codeline lineno="3271"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3272"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Standing,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3273"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Crouching,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3274"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Jumping,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3275"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardWalk,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3276"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackWalk,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3277"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3278"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3279"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ForwardAirDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3280"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_BackAirDash,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3281"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_NormalAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3282"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_SpecialAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3283"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_SuperAttack,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3284"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Block,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3285"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_ProximityBlock,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3286"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Tech,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3287"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Burst,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3288"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Tag,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3289"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableState(ENB_Assist,<sp/>StateMachineName);</highlight></codeline>
+<codeline lineno="3290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3292"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckInput(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_input_condition" kindref="compound">FInputCondition</ref>&amp;<sp/>Input)</highlight></codeline>
+<codeline lineno="3293"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>StoredInputBuffer.<ref refid="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" kindref="member">CheckInputCondition</ref>(Input);</highlight></codeline>
+<codeline lineno="3295"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3296"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3297"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckIsAttacking()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3298"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>AttackFlags<sp/>&amp;<sp/>ATK_IsAttacking;</highlight></codeline>
+<codeline lineno="3300"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3302"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckHasHit()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3303"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3304"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>AttackFlags<sp/>&amp;<sp/>ATK_HasHit;</highlight></codeline>
+<codeline lineno="3305"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3307"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::CheckIsStunned()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3308"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsStunned<sp/>||<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock<sp/>||<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsDead</highlight></codeline>
+<codeline lineno="3310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" kindref="member">CurrentState</ref>-&gt;<ref refid="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" kindref="member">StateType</ref><sp/>==<sp/>EStateType::Hitstun</highlight></codeline>
+<codeline lineno="3311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>||<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1ae92d46791f56ad407756e945cfa61057" kindref="member">CurrentState</ref>-&gt;<ref refid="class_u_state_1a3d21a8484ecd69c9e4d1e8b3ccf8733e" kindref="member">StateType</ref><sp/>==<sp/>EStateType::Blockstun;</highlight></codeline>
+<codeline lineno="3312"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3314"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAirJump(int32<sp/>NewAirJump)</highlight></codeline>
+<codeline lineno="3315"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3316"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirJumpCount<sp/>+=<sp/>NewAirJump;</highlight></codeline>
+<codeline lineno="3317"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3319"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::ResetAirJump()</highlight></codeline>
+<codeline lineno="3320"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3321"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirJumpCount<sp/>=<sp/>AirJumpCount;</highlight></codeline>
+<codeline lineno="3322"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3324"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAirDash(int32<sp/>NewAirDash)</highlight></codeline>
+<codeline lineno="3325"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3326"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirDashCount<sp/>+=<sp/>NewAirDash;</highlight></codeline>
+<codeline lineno="3327"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3329"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::ResetAirDash()</highlight></codeline>
+<codeline lineno="3330"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3331"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentAirDashCount<sp/>=<sp/>AirDashCount;</highlight></codeline>
+<codeline lineno="3332"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3334"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetAirDashTimer(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsForward)</highlight></codeline>
+<codeline lineno="3335"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3336"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsForward)</highlight></codeline>
+<codeline lineno="3337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashTimer<sp/>=<sp/>FAirDashTime<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="3338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashTimer<sp/>=<sp/>BAirDashTime<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="3340"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3342"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetAirDashNoAttackTimer(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsForward)</highlight></codeline>
+<codeline lineno="3343"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsForward)</highlight></codeline>
+<codeline lineno="3345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashNoAttackTime<sp/>=<sp/>FAirDashNoAttackTime<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="3346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AirDashNoAttackTime<sp/>=<sp/>BAirDashNoAttackTime<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="3348"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3350"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddChainCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
+<codeline lineno="3351"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3352"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.AddUnique(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
+<codeline lineno="3353"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3354"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3355"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddAutoComboCancel(FGameplayTag<sp/>Option,<sp/>EInputFlags<sp/>Button)</highlight></codeline>
+<codeline lineno="3356"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3357"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Index;</highlight></codeline>
+<codeline lineno="3358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(Button)</highlight></codeline>
+<codeline lineno="3359"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3360"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_A:</highlight></codeline>
+<codeline lineno="3361"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="3362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_B:</highlight></codeline>
+<codeline lineno="3365"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="3366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3367"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_C:</highlight></codeline>
+<codeline lineno="3368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="3369"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_D:</highlight></codeline>
+<codeline lineno="3371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="3372"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3373"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_E:</highlight></codeline>
+<codeline lineno="3374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="3375"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3376"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_F:</highlight></codeline>
+<codeline lineno="3377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="3378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3379"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_G:</highlight></codeline>
+<codeline lineno="3380"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="3381"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3382"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_H:</highlight></codeline>
+<codeline lineno="3383"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>7;</highlight></codeline>
+<codeline lineno="3384"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3385"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3387"><highlight class="normal"><sp/><sp/><sp/><sp/>AutoComboCancels[Index]<sp/>=<sp/>PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option);</highlight></codeline>
+<codeline lineno="3388"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3389"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3390"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::AddWhiffCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
+<codeline lineno="3391"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3392"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.AddUnique(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
+<codeline lineno="3393"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3394"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3395"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveChainCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
+<codeline lineno="3396"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3397"><highlight class="normal"><sp/><sp/><sp/><sp/>ChainCancelOptions.Remove(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
+<codeline lineno="3398"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3400"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveAutoComboCancel(EInputFlags<sp/>Button)</highlight></codeline>
+<codeline lineno="3401"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3402"><highlight class="normal"><sp/><sp/><sp/><sp/>int32<sp/>Index;</highlight></codeline>
+<codeline lineno="3403"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(Button)</highlight></codeline>
+<codeline lineno="3404"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3405"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_A:</highlight></codeline>
+<codeline lineno="3406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3408"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_B:</highlight></codeline>
+<codeline lineno="3409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="3410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3411"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_C:</highlight></codeline>
+<codeline lineno="3412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="3413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3414"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_D:</highlight></codeline>
+<codeline lineno="3415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="3416"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3417"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_E:</highlight></codeline>
+<codeline lineno="3418"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="3419"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3420"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_F:</highlight></codeline>
+<codeline lineno="3421"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="3422"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3423"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_G:</highlight></codeline>
+<codeline lineno="3424"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>6;</highlight></codeline>
+<codeline lineno="3425"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3426"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>INP_H:</highlight></codeline>
+<codeline lineno="3427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Index<sp/>=<sp/>7;</highlight></codeline>
+<codeline lineno="3428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3429"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3430"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3432"><highlight class="normal"><sp/><sp/><sp/><sp/>AutoComboCancels[Index]<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="3433"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3434"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3435"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::RemoveWhiffCancelOption(FGameplayTag<sp/>Option)</highlight></codeline>
+<codeline lineno="3436"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3437"><highlight class="normal"><sp/><sp/><sp/><sp/>WhiffCancelOptions.Remove(PrimaryStateMachine.<ref refid="struct_f_state_machine_1a29ef887b67e2e222f5011827a63f3436" kindref="member">GetStateIndex</ref>(Option));</highlight></codeline>
+<codeline lineno="3438"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3439"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3440"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableChainCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3441"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3442"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3443"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_ChainCancelEnabled;</highlight></codeline>
+<codeline lineno="3445"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3446"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3447"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_ChainCancelEnabled;</highlight></codeline>
+<codeline lineno="3449"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3450"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3451"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3452"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableWhiffCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3453"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3454"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3455"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3456"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_WhiffCancelEnabled;</highlight></codeline>
+<codeline lineno="3457"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3458"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3459"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3460"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_WhiffCancelEnabled;</highlight></codeline>
+<codeline lineno="3461"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3462"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3463"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3464"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableReverseBeat(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3465"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3466"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3467"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_EnableReverseBeat;</highlight></codeline>
+<codeline lineno="3469"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3470"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3471"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_EnableReverseBeat;</highlight></codeline>
+<codeline lineno="3473"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3474"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3475"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3476"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableJumpCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3477"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3478"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3479"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_JumpCancel;</highlight></codeline>
+<codeline lineno="3481"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3482"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3483"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_JumpCancel;</highlight></codeline>
+<codeline lineno="3485"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3486"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3487"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3488"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableSpecialCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3489"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3490"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3491"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3492"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SpecialCancel;</highlight></codeline>
+<codeline lineno="3493"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SuperCancel;</highlight></codeline>
+<codeline lineno="3494"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3495"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3496"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3497"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SpecialCancel;</highlight></codeline>
+<codeline lineno="3498"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SuperCancel;</highlight></codeline>
+<codeline lineno="3499"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3500"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3501"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3502"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableSuperCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3503"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3504"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3505"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_SuperCancel;</highlight></codeline>
+<codeline lineno="3507"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3508"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3509"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_SuperCancel;</highlight></codeline>
+<codeline lineno="3511"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3512"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3513"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3514"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::EnableForwardAirdashCancel(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3515"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3516"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3517"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3518"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>|=<sp/>CNC_FAirDashCancel;</highlight></codeline>
+<codeline lineno="3519"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3520"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3521"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3522"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CancelFlags<sp/>&amp;=<sp/>~CNC_FAirDashCancel;</highlight></codeline>
+<codeline lineno="3523"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3524"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3525"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3526"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetDefaultLandingAction(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Enable)</highlight></codeline>
+<codeline lineno="3527"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3528"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enable)</highlight></codeline>
+<codeline lineno="3529"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3530"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayerFlags<sp/>|=<sp/>PLF_DefaultLandingAction;</highlight></codeline>
+<codeline lineno="3531"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3532"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3533"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3534"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayerFlags<sp/>&amp;=<sp/>~PLF_DefaultLandingAction;</highlight></codeline>
+<codeline lineno="3535"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3536"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3537"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3538"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetKnockdownState()</highlight></codeline>
+<codeline lineno="3539"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3540"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3541"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTimeMax<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="3542"><highlight class="normal"><sp/><sp/><sp/><sp/>PlayerFlags<sp/>|=<sp/>PLF_IsKnockedDown;</highlight></codeline>
+<codeline lineno="3543"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((PlayerFlags<sp/>&amp;<sp/>PLF_IsHardKnockedDown)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>!(PlayerFlags<sp/>&amp;<sp/>PLF_IsDead))</highlight></codeline>
+<codeline lineno="3544"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EnableState(ENB_Tech,<sp/>StateMachine_Primary);</highlight></codeline>
+<codeline lineno="3545"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3546"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3547"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::IsTouchingWall()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3548"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3549"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PlayerFlags<sp/>&amp;<sp/>PLF_TouchingWall;</highlight></codeline>
+<codeline lineno="3550"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3551"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3552"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>APlayerObject::IsInvulnerable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref>*<sp/>Attacker)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="3553"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3554"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsInvulnerable_BP())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3555"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="3556"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock<sp/>&amp;&amp;<sp/>Attacker<sp/>!=<sp/>Enemy)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3557"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Enemy-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsThrowLock)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3558"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InvulnFlags<sp/>&amp;<sp/>INV_StrikeInvulnerable<sp/>||<sp/>StrikeInvulnerableTimer)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3559"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_AttackHeadAttribute<sp/>&amp;&amp;<sp/>InvulnFlags<sp/>&amp;<sp/>INV_HeadInvulnerable)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3560"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_AttackProjectileAttribute<sp/>&amp;&amp;<sp/>InvulnFlags<sp/>&amp;<sp/>INV_ProjectileInvulnerable)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3561"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((Attacker-&gt;AttackFlags<sp/>&amp;<sp/>ATK_HitOTG)<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>PlayerFlags<sp/>&amp;<sp/>PLF_IsKnockedDown)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3562"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="3563"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="3564"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3565"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3566"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStrikeInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
+<codeline lineno="3567"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3568"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
+<codeline lineno="3569"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3570"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_StrikeInvulnerable;</highlight></codeline>
+<codeline lineno="3571"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3572"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3573"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3574"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_StrikeInvulnerable;</highlight></codeline>
+<codeline lineno="3575"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3576"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3577"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3578"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
+<codeline lineno="3579"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3580"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
+<codeline lineno="3581"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3582"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_ThrowInvulnerable;</highlight></codeline>
+<codeline lineno="3583"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3584"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3585"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3586"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_ThrowInvulnerable;</highlight></codeline>
+<codeline lineno="3587"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3588"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3589"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3590"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetHeadInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
+<codeline lineno="3591"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3592"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
+<codeline lineno="3593"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3594"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_HeadInvulnerable;</highlight></codeline>
+<codeline lineno="3595"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3596"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3597"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3598"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_HeadInvulnerable;</highlight></codeline>
+<codeline lineno="3599"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3600"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3601"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3602"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetProjectileInvulnerable(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Invulnerable)</highlight></codeline>
+<codeline lineno="3603"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3604"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Invulnerable)</highlight></codeline>
+<codeline lineno="3605"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3606"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>|=<sp/>INV_ProjectileInvulnerable;</highlight></codeline>
+<codeline lineno="3607"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3608"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3609"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="3610"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>InvulnFlags<sp/>&amp;=<sp/>~INV_ProjectileInvulnerable;</highlight></codeline>
+<codeline lineno="3611"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="3612"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3613"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3614"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStrikeInvulnerableForTime(int32<sp/>Timer)</highlight></codeline>
+<codeline lineno="3615"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3616"><highlight class="normal"><sp/><sp/><sp/><sp/>StrikeInvulnerableTimer<sp/>=<sp/>Timer;</highlight></codeline>
+<codeline lineno="3617"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3618"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3619"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowInvulnerableForTime(int32<sp/>Timer)</highlight></codeline>
+<codeline lineno="3620"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3621"><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowInvulnerableTimer<sp/>=<sp/>Timer;</highlight></codeline>
+<codeline lineno="3622"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3623"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3624"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetThrowResistForTime(int32<sp/>Timer)</highlight></codeline>
+<codeline lineno="3625"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3626"><highlight class="normal"><sp/><sp/><sp/><sp/>ThrowResistTimer<sp/>=<sp/>Timer;</highlight></codeline>
+<codeline lineno="3627"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3628"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3629"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>APlayerObject::SetStunTime(int32<sp/>NewTime)</highlight></codeline>
+<codeline lineno="3630"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3631"><highlight class="normal"><sp/><sp/><sp/><sp/>StunTime<sp/>=<sp/>NewTime;</highlight></codeline>
+<codeline lineno="3632"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/PlayerObject.cpp"/>
   </compounddef>

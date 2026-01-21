@@ -3127,6 +3127,7 @@ void APlayerObject::RoundInit(bool ResetHealth)
     MeterCooldownTimer = 0;
     for (auto& LinkActor : StoredLinkActors)
     {
+        if (!LinkActor.StoredActor) continue;
         LinkActor.bIsActive = false;
         LinkActor.StoredActor->SetActorHiddenInGame(true);
     }

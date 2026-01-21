@@ -499,6 +499,7 @@ See [ABattleObject](class_a_battle_object.md)
 |  [**ABattleObject**](class_a_battle_object.md) \* | [**AddCommonBattleObject**](class_a_battle_object.md#function-addcommonbattleobject) (FGameplayTag InStateName, int32 PosXOffset=0, int32 PosYOffset=0, EPosType PosType=POS\_Player) <br> |
 |  void | [**AddPosXWithDir**](class_a_battle_object.md#function-addposxwithdir) (int InPosX) <br> |
 |  void | [**AddSpeedXRaw**](class_a_battle_object.md#function-addspeedxraw) (int InSpeedX) <br> |
+|  void | [**ApplyRootMotion**](class_a_battle_object.md#function-applyrootmotion) () <br> |
 |  void | [**AttachToSocketOfObject**](class_a_battle_object.md#function-attachtosocketofobject) (FName InSocketName, FVector Offset, EObjType ObjType) <br> |
 |  int32 | [**CalculateAngleBetweenPoints**](class_a_battle_object.md#function-calculateanglebetweenpoints) (EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2) <br> |
 |  int32 | [**CalculateDistanceBetweenPoints**](class_a_battle_object.md#function-calculatedistancebetweenpoints) (EDistanceType Type, EObjType Obj1, EPosType Pos1, EObjType Obj2, EPosType Pos2) <br> |

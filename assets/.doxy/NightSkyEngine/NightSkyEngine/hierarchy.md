@@ -167,6 +167,8 @@ This inheritance list is sorted roughly, but not completely, alphabetically:
     * **class** [**UNightSkyBattleWidget**](class_u_night_sky_battle_widget.md) 
 * **class** **UBlueprintFunctionLibrary**    
     * **class** [**UNightSkyBlueprintFunctionLibrary**](class_u_night_sky_blueprint_function_library.md) 
+* **class** **UDeveloperSettings**    
+    * **class** [**UNightSkyEditorSettings**](class_u_night_sky_editor_settings.md) 
 * **class** **UGameInstance**    
     * **class** [**UNightSkyGameInstance**](class_u_night_sky_game_instance.md) 
 * **class** **USaveGame**    

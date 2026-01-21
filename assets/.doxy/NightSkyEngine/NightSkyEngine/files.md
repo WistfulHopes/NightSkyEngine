@@ -99,6 +99,8 @@ Here is a list of all files with brief descriptions:
                     * **file** [**NSEPlayerMappableKeySettings.cpp**](_n_s_e_player_mappable_key_settings_8cpp.md) 
                     * **file** [**NSEPlayerMappableKeySettings.h**](_n_s_e_player_mappable_key_settings_8h.md)     
                 * **dir** [**Miscellaneous**](dir_3028ef8e315fbc532032c32a50fd3ba1.md)     
+                    * **file** [**NightSkyEditorSettings.cpp**](_night_sky_editor_settings_8cpp.md) 
+                    * **file** [**NightSkyEditorSettings.h**](_night_sky_editor_settings_8h.md)     
                     * **file** [**NightSkyEngineGameModeBase.cpp**](_night_sky_engine_game_mode_base_8cpp.md) 
                     * **file** [**NightSkyEngineGameModeBase.h**](_night_sky_engine_game_mode_base_8h.md)     
                     * **file** [**NightSkyGameInstance.cpp**](_night_sky_game_instance_8cpp.md) 

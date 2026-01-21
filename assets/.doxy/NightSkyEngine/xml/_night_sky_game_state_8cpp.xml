@@ -1038,8 +1038,8 @@
 <codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UGameplayStatics::GetPlayerController(GetWorld(),<sp/>0));</highlight></codeline>
 <codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_a_night_sky_player_controller" kindref="compound">ANightSkyPlayerController</ref>*<sp/>Controller2<sp/>=<sp/>Cast&lt;ANightSkyPlayerController&gt;(</highlight></codeline>
 <codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UGameplayStatics::GetPlayerController(GetWorld(),<sp/>1));</highlight></codeline>
-<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Controller1-&gt;PostRematch();</highlight></codeline>
-<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Controller2-&gt;PostRematch();</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Controller1)<sp/>Controller1-&gt;PostRematch();</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Controller2)<sp/>Controller2-&gt;PostRematch();</highlight></codeline>
 <codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Input1<sp/>&amp;<sp/>INP_ResetTraining<sp/>||<sp/>Input2<sp/>&amp;<sp/>INP_ResetTraining)</highlight></codeline>
 <codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -1449,7 +1449,7 @@
 <codeline lineno="806"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>=<sp/>ScreenData-&gt;</highlight></codeline>
 <codeline lineno="807"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StageBoundsTop<sp/>-<sp/>106;</highlight></codeline>
 <codeline lineno="808"><highlight class="normal"></highlight></codeline>
-<codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>ScreenData-&gt;ScreenYZoom<sp/>=<sp/>150<sp/>*<sp/>(1</highlight></codeline>
+<codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>ScreenData-&gt;ScreenYZoom<sp/>=<sp/>106<sp/>*<sp/>(1</highlight></codeline>
 <codeline lineno="810"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ScreenData-&gt;FinalScreenWidth)<sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ScreenData-&gt;DefaultWidth));</highlight></codeline>
 <codeline lineno="811"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="812"><highlight class="normal"></highlight></codeline>
@@ -1910,11 +1910,11 @@
 <codeline lineno="1267"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CameraPosition<sp/>=<sp/>BattleSceneTransform.GetRotation().RotateVector(</highlight></codeline>
 <codeline lineno="1269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FVector(ScreenData-&gt;FinalScreenX<sp/>*<sp/>0.43,<sp/>ScreenData-&gt;FinalScreenWidth<sp/>*<sp/>0.43,</highlight></codeline>
-<codeline lineno="1270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>*<sp/>0.43<sp/>-<sp/>ScreenData-&gt;ScreenYZoom<sp/>+<sp/>150))<sp/>+<sp/>BattleSceneTransform.</highlight></codeline>
+<codeline lineno="1270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>*<sp/>0.43<sp/>-<sp/>ScreenData-&gt;ScreenYZoom<sp/>+<sp/>106))<sp/>+<sp/>BattleSceneTransform.</highlight></codeline>
 <codeline lineno="1271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetLocation();</highlight></codeline>
 <codeline lineno="1272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FRotator<sp/>CameraRotation<sp/>=<sp/>BattleSceneTransform.GetRotation().Rotator();</highlight></codeline>
 <codeline lineno="1273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Yaw<sp/>-=<sp/>90;</highlight></codeline>
-<codeline lineno="1274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Pitch<sp/>-=<sp/>2.5;</highlight></codeline>
+<codeline lineno="1274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Pitch<sp/>+=<sp/>2.5;</highlight></codeline>
 <codeline lineno="1275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraActor-&gt;SetActorLocation(BattleState.CameraPosition);</highlight></codeline>
 <codeline lineno="1276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraActor-&gt;SetActorRotation(CameraRotation);</highlight></codeline>
 <codeline lineno="1277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CurrentSequenceTime<sp/>==<sp/>-1)</highlight></codeline>

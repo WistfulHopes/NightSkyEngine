@@ -42,10 +42,11 @@
 |  TArray&lt; [**UPrimaryCharaData**](class_u_primary_chara_data.md) \* &gt; | [**PlayerListP1**](#variable-playerlistp1)  <br> |
 |  TArray&lt; [**UPrimaryCharaData**](class_u_primary_chara_data.md) \* &gt; | [**PlayerListP2**](#variable-playerlistp2)  <br> |
 |  [**FRandomManager**](struct_f_random_manager.md) | [**Random**](#variable-random)  <br> |
-|  int32 | [**RoundCount**](#variable-roundcount)  <br> |
+|  int32 | [**RoundCount**](#variable-roundcount)   = `2`<br> |
 |  [**UPrimaryStageData**](class_u_primary_stage_data.md) \* | [**Stage**](#variable-stage)  <br> |
-|  int32 | [**StartRoundTimer**](#variable-startroundtimer)  <br> |
+|  int32 | [**StartRoundTimer**](#variable-startroundtimer)   = `99`<br> |
 |  int32 | [**TimeUntilRoundStart**](#variable-timeuntilroundstart)   = `180`<br> |
+|  bool | [**bIsValid**](#variable-bisvalid)   = `false`<br> |
 
 
 
@@ -229,6 +230,19 @@ int32 FBattleData::StartRoundTimer;
 
 ```C++
 int32 FBattleData::TimeUntilRoundStart;
+```
+
+
+
+
+<hr>
+
+
+
+### variable bIsValid 
+
+```C++
+bool FBattleData::bIsValid;
 ```
 
 
