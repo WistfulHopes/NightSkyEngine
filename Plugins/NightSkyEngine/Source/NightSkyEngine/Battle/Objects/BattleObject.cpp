@@ -72,8 +72,7 @@ void ABattleObject::Move()
 	{
 		if (!MaxCelTime) return;
 		
-		const auto Frame60 = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
-		const auto FrameAnim = Frame60 * BodyAnimUserData->GetFrameRate() / 60;
+		const auto FrameAnim = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
 		const auto RootMotion = BodyAnimUserData->GetRootTranslationAtTime(FrameAnim);
 
 		AddPosXWithDir(RootMotion.X - PrevRootMotionX);
@@ -82,10 +81,7 @@ void ABattleObject::Move()
 
 		return;
 	}
-
-	PrevRootMotionX = 0;
-	PrevRootMotionY = 0;
-	PrevRootMotionZ = 0;
+	ApplyRootMotion();
 
 	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
 	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
@@ -2305,6 +2301,13 @@ void ABattleObject::AddPosXWithDir(int InPosX)
 	{
 		PosX -= InPosX;
 	}
+}
+
+void ABattleObject::ApplyRootMotion()
+{
+	PrevRootMotionX = 0;
+	PrevRootMotionY = 0;
+	PrevRootMotionZ = 0;
 }
 
 void ABattleObject::SetSpeedXRaw(int InSpeedX)
