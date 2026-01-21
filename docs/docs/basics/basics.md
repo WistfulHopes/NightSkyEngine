@@ -8,4 +8,4 @@ Now that you have the bare-minimum rundown of Night Sky Engine, it's time to lea
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [Your First State](../getting-started/create-state.md) | [Project Structure](structure.md) |
+| [State Data Asset](../getting-started/state-data.md) | [Project Structure](structure.md) |
