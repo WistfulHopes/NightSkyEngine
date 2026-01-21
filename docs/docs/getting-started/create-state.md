@@ -44,4 +44,4 @@ Congrats, you have created your first State! Now, to see it in action, open the 
 
 | Previous          |                              Next |
 |:------------------|----------------------------------:|
-| [What Is A State? Part 2](state-p1.md) | [State Data Asset](../basics/state-data.md) |
+| [What Is A State? Part 2](state-p1.md) | [State Data Asset](state-data.md) |
