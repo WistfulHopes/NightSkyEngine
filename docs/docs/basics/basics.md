@@ -1,4 +1,4 @@
-Quick Start
+Basics
 =========
 
 Now that you have the bare-minimum rundown of Night Sky Engine, it's time to learn the basics in more detail.

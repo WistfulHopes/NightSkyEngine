@@ -8,9 +8,26 @@ There are two methods to installing Night Sky Engine: downloading the official r
     The official release only has support for Windows on x64. While other platforms do work, they are not bunudled with the official release. You will need to build from source for Mac, Linux, or Windows on ARM.
 
 # Download Official Release
-To download the latest release, simply download `NightSkyEngine.rar` from [this link.](https://github.com/WistfulHopes/NightSkyEngine/releases/latest). Then, extract `NightSkyEngine.rar` using your tool of choice. 
+Starting from version 1.0.1, there are multiple versions of the official release that can be installed: the full project, the low-end project, and the plugin.
+
+- The full project comes with a ton of example assets to get started with. It is designed for high-end machines, such as more powerful PCs or console.
+- The low-end project comes with the same assets, but is much lighter on the graphics end. It is designed for low-end machines, such as mobile.
+- The plugin is all of the code required to use Night Sky Engine, but without any of the assets.
+
+## Full Project
+To download the latest full project release, simply download `NightSkyEngine.rar` from [this link.](https://github.com/WistfulHopes/NightSkyEngine/releases/latest). Then, extract `NightSkyEngine.rar` using your tool of choice.
 
 Then, you will need to install Unreal Engine 5.7. Details can be found [here](https://www.unrealengine.com/en-US/download). After installing Unreal Engine, you may run it, then open `NightSkyEngine/NightSkyEngine.uproject` from within the editor.
+
+## Low-End Project
+To download the latest low-end project release, simply download `NSELowEnd.rar` from [this link.](https://github.com/WistfulHopes/NightSkyEngine/releases/latest). Then, extract `NSELowEnd.rar` using your tool of choice.
+
+Then, you will need to install Unreal Engine 5.7. Details can be found [here](https://www.unrealengine.com/en-US/download). After installing Unreal Engine, you may run it, then open `NightSkyEngine/NightSkyEngine.uproject` from within the editor.
+
+## Plugin
+To download the latest plugin release, simply download `NSEPlugin.rar` from [this link.](https://github.com/WistfulHopes/NightSkyEngine/releases/latest). Then, extract `NSEPlugin.rar` using your tool of choice.
+
+Then, you will need to install Unreal Engine 5.7. Details can be found [here](https://www.unrealengine.com/en-US/download). After installing Unreal Engine, you may run it, then create a new project. Finally, put the contents of `NSEPlugin.rar` in `<Project Folder>\Plugins`, so that the `NightSkyEngine` folder sits within the `Plugins` folder.
 
 # Build From Source
 Building from source takes more steps than just downloading the release. You'll need to know how to use Git and Visual Studio (or your IDE of choice).
