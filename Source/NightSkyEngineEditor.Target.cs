@@ -11,6 +11,5 @@ public class NightSkyEngineEditorTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("NightSkyEngineDemo");
-		ExtraModuleNames.Add("RenderHotpatch");
 	}
 }
