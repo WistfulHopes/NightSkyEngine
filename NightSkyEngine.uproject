@@ -3,6 +3,24 @@
 	"EngineAssociation": "5.7",
 	"Category": "",
 	"Description": "",
+	"Modules": [
+		{
+			"Name": "NightSkyEngineDemo",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"CoreUObject",
+				"NightSkyEngine",
+				"GGPOUE4"
+			]
+		},
+		{
+			"Name": "RenderHotpatch",
+			"Type": "Editor",
+			"LoadingPhase": "EarliestPossible"
+		}
+	],
 	"Plugins": [
 		{
 			"Name": "ModelingToolsEditorMode",
