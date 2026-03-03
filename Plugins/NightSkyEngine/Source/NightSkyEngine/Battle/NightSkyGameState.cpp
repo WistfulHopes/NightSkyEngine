@@ -356,7 +356,7 @@ void ANightSkyGameState::MatchInit()
 	for (int i = 0; i < Players.Num(); i++)
 	{
 		Players[i]->PlayerIndex = i >= BattleState.TeamData[0].TeamCount;
-		Players[i]->TeamIndex = i >= BattleState.TeamData[0].TeamCount ? i - BattleState.TeamData[0].TeamCount : i;
+		Players[i]->TeamIndex = i >= BattleState.TeamData[0].TeamCount ? 0 : 1;
 		Players[i]->PlayerFlags &= ~PLF_IsOnScreen;
 		Players[i]->ObjNumber = i + MaxBattleObjects;
 		Players[i]->CallSubroutine(Subroutine_Cmn_MatchInit);
@@ -1708,7 +1708,7 @@ TArray<APlayerObject*> ANightSkyGameState::GetTeam(bool IsP1) const
 		return PlayerObjects;
 	}
 	TArray<APlayerObject*> PlayerObjects;
-	for (int i = BattleState.TeamData[1].TeamCount; i < Players.Num(); i++)
+	for (int i = BattleState.TeamData[0].TeamCount; i < Players.Num(); i++)
 	{
 		PlayerObjects.Add(Players[i]);
 		for (int j = 0; j < PlayerObjects.Num() - 1; j++)
