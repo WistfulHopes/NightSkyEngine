@@ -141,6 +141,13 @@ void APlayerObject::BeginPlay()
 	}
 
 	InitPlayer();
+	
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (const auto& Component : Components)
+	{
+		Component->AddTickPrerequisiteActor(this);
+	}
 }
 
 void APlayerObject::HandleLanding()

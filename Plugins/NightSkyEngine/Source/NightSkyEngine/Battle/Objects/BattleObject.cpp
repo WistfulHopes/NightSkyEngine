@@ -2045,6 +2045,13 @@ void ABattleObject::InitObject()
 	{
 		SetActorScale3D(FVector(1, 1, 1));
 	}
+	
+	TInlineComponentArray<UPrimitiveComponent*> Components;
+	GetComponents(Components);
+	for (const auto& Component : Components)
+	{
+		Component->AddTickPrerequisiteActor(this);
+	}
 }
 
 void ABattleObject::Update()

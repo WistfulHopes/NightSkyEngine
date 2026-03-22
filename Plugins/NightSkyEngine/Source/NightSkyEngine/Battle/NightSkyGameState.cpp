@@ -106,6 +106,7 @@ void ANightSkyGameState::Init()
 		}
 		SortedObjects.Add(SpawnedPlayer);
 		SpawnedPlayer->GameState = this;
+		SpawnedPlayer->AddTickPrerequisiteActor(this);
 	}
 
 	for (int i = 0; i < GameInstance->BattleData.PlayerListP2.Num(); i++)
@@ -144,6 +145,7 @@ void ANightSkyGameState::Init()
 		}
 		SortedObjects.Add(SpawnedPlayer);
 		SpawnedPlayer->GameState = this;
+		SpawnedPlayer->AddTickPrerequisiteActor(this);
 
 		if (GameInstance->IsCPUBattle && !GameInstance->IsTraining)
 		{
@@ -156,6 +158,7 @@ void ANightSkyGameState::Init()
 	{
 		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(BattleObjectClass, BattleSceneTransform));
 		Objects[i]->GameState = this;
+		Objects[i]->AddTickPrerequisiteActor(this);
 		SortedObjects.Add(Objects.Last());
 	}
 
