@@ -89,6 +89,8 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < GameInstance->BattleData.PlayerListP1.Num(); i++)
 	{
+		auto Unused = GameInstance->BattleData.PlayerListP1[i].LoadSynchronous();
+
 		APlayerObject* SpawnedPlayer;
 		if (const auto Player = GameInstance->BattleData.PlayerListP1[i]; Player != nullptr)
 		{
@@ -111,6 +113,8 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < GameInstance->BattleData.PlayerListP2.Num(); i++)
 	{
+		auto Unused = GameInstance->BattleData.PlayerListP2[i].LoadSynchronous();
+
 		APlayerObject* SpawnedPlayer;
 		if (const auto Player = GameInstance->BattleData.PlayerListP2[i]; Player != nullptr)
 		{
@@ -122,7 +126,7 @@ void ANightSkyGameState::Init()
 				SpawnedPlayer->ColorIndex = GameInstance->BattleData.ColorIndicesP2[i];
 			for (int j = 0; j < GameInstance->BattleData.PlayerListP1.Num(); j++)
 			{
-				if (IsValid(GameInstance->BattleData.PlayerListP1[j]))
+				if (IsValid(GameInstance->BattleData.PlayerListP1[j].Get()))
 				{
 					if (SpawnedPlayer->IsA(GameInstance->BattleData.PlayerListP1[j]->PlayerClass))
 					{
@@ -568,11 +572,6 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	}
 
 	// these aren't strictly game state related, but tying them to game state update makes things better	
-
-	if (!GameInstance->IsReplay)
-	{
-		// GameInstance->UpdateReplay(Input1, Input2);
-	}
 
 	CollisionView();
 
