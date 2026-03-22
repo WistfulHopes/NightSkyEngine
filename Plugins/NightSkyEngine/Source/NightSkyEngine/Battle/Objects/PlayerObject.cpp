@@ -2223,8 +2223,10 @@ bool APlayerObject::CheckMovesUsedInChain(const FGameplayTag Name, FStateMachine
 			return false;
 		}
 	}
-	
-	auto State = StateMachine.States[StateMachine.GetStateIndex(Name)];
+
+	const auto StateIndex = StateMachine.GetStateIndex(Name);
+	if (StateIndex == INDEX_NONE) return false;
+	const auto State = StateMachine.States[StateIndex];
 	
 	if (Usages < State->MaxChain || State->MaxChain == -1)
 	{
