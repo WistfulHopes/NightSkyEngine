@@ -232,6 +232,10 @@ enum EPlayerFlags
 	 * Flag sets if player kara canceled into the current state.
 	 */
 	PLF_DidKaraCancel = 0x8000 UMETA(DisplayName = "Did Kara Cancel"),
+	/**
+	 * Flag sets if player has been bounced in current combo.
+	 */
+	PLF_HasBounced = 0x20000 UMETA(DisplayName = "Has Bounced"),
 };
 
 /**

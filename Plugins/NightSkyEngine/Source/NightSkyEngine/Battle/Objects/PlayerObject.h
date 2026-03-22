@@ -843,6 +843,9 @@ public:
 	// Get state machine by name.
 	UFUNCTION(BlueprintPure)
 	FStateMachine& GetStateMachine(FGameplayTag StateMachineName);
+	//Gets the state type of the current state.
+	UFUNCTION(BlueprintPure)
+	EStateType GetStateType() const;
 	// Get enable flags.
 	UFUNCTION(BlueprintPure)
 	int32 GetEnableFlags(FGameplayTag StateMachineName);
@@ -878,6 +881,9 @@ public:
 	//checks input condition
 	UFUNCTION(BlueprintPure)
 	bool CheckInput(const FInputCondition& Input);
+	//clear input buffer
+	UFUNCTION(BlueprintCallable)
+	void ClearInputBuffer();
 	//is attacking
 	UFUNCTION(BlueprintPure)
 	bool CheckIsAttacking() const;
@@ -1045,6 +1051,8 @@ public:
 	void SetTeamCooldown(int NewTeamIndex, int Cooldown);
 	UFUNCTION(BlueprintPure)
 	bool IsMainPlayer() const;
+	UFUNCTION(BlueprintPure)
+	APlayerObject* GetMainPlayer() const;
 	UFUNCTION(BlueprintPure)
 	bool IsOnScreen() const;
 	UFUNCTION(BlueprintCallable)
