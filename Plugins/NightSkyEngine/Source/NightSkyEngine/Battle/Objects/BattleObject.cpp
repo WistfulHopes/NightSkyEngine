@@ -2665,12 +2665,16 @@ void ABattleObject::EnableHit(bool Enabled)
 	}
 }
 
-void ABattleObject::SetAttacking(bool Attacking)
+void ABattleObject::SetAttacking(bool Attacking, bool AllowCancel)
 {
 	if (Attacking)
 	{
 		AttackFlags |= ATK_IsAttacking;
 		AttackFlags &= ~ATK_HasHit;
+		if (IsPlayer)
+		{
+			Player->EnableChainCancel(AllowCancel);
+		}
 	}
 	else
 	{

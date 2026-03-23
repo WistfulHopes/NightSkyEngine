@@ -2144,7 +2144,7 @@ bool APlayerObject::HandleStateCondition(EStateCondition StateCondition) const
 
 bool APlayerObject::FindChainCancelOption(const FGameplayTag Name, FStateMachine& StateMachine)
 {
-	if (AttackFlags & ATK_HasHit && AttackFlags & ATK_IsAttacking && CancelFlags & CNC_ChainCancelEnabled)
+	if (AttackFlags & ATK_HasHit && CancelFlags & CNC_ChainCancelEnabled)
 	{
 		if (CheckReverseBeat(Name, StateMachine))
 			return true;

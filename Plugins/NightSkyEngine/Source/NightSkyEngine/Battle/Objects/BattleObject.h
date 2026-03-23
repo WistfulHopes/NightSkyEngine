@@ -1471,7 +1471,7 @@ public:
 	void EnableHit(bool Enabled);
 	//sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
 	UFUNCTION(BlueprintCallable)
-	void SetAttacking(bool Attacking);
+	void SetAttacking(bool Attacking, bool AllowCancel = false);
 	UFUNCTION(BlueprintCallable)
 	void SetPlayerHit(bool Enable);
 	UFUNCTION(BlueprintCallable)
