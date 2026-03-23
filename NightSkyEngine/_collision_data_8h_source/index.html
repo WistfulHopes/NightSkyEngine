@@ -19804,6 +19804,12 @@
 <span class="w">    </span><span class="n">UAnimSequenceBase</span><span class="o">*</span><span class="w"> </span><span class="n">AnimSequence</span><span class="p">;</span>
 <span class="w">    </span><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">EditAnywhere</span><span class="p">)</span>
 <span class="w">    </span><span class="n">UPaperFlipbook</span><span class="o">*</span><span class="w"> </span><span class="n">Flipbook</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">FAnimStruct</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">AnimSequence</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">Flipbook</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">FAnimStruct</span><span class="p">(</span><span class="n">UAnimSequenceBase</span><span class="o">*</span><span class="w"> </span><span class="n">SourceSequence</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">AnimSequence</span><span class="p">(</span><span class="n">SourceSequence</span><span class="p">),</span><span class="w"> </span><span class="n">Flipbook</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">FAnimStruct</span><span class="p">(</span><span class="n">UPaperFlipbook</span><span class="o">*</span><span class="w"> </span><span class="n">SourceFlipbook</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">AnimSequence</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span><span class="w"> </span><span class="n">Flipbook</span><span class="p">(</span><span class="n">SourceFlipbook</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 <span class="p">};</span>
 
 <span class="n">USTRUCT</span><span class="p">()</span>

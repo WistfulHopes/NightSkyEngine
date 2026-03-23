@@ -161,6 +161,7 @@
     <member refid="class_a_battle_object_1af1f837b45ca273976312dab4c0c0b2c3" kind="function"><name>HandleClashCollision</name></member>
     <member refid="class_a_battle_object_1aa924749e006f37f9e4f4fabaf9c1b542" kind="function"><name>HandleFlip</name></member>
     <member refid="class_a_battle_object_1a00aa13b84bdeb54a21157fcb36abcb8a" kind="function"><name>TriggerEvent</name></member>
+    <member refid="class_a_battle_object_1ab37373cc486584c8e30bfc1a4e0f00d7" kind="function"><name>UpdateCel</name></member>
     <member refid="class_a_battle_object_1a096cf2cf54c5416efcbf074af245847a" kind="function"><name>CollisionView</name></member>
     <member refid="class_a_battle_object_1a5f660dca3a5fbef8ba9df02bcab27f4d" kind="function"><name>SaveForRollback</name></member>
     <member refid="class_a_battle_object_1aa23e1ab95017d2c4c6dd110c1f75a48d" kind="function"><name>LoadForRollback</name></member>
@@ -199,6 +200,7 @@
     <member refid="class_a_battle_object_1a9f8417edeba36fda94d4d2e2be45b06e" kind="function"><name>CalculateAngleBetweenPoints</name></member>
     <member refid="class_a_battle_object_1a5398686d3b31ab3e5b0196a87a4f44b8" kind="function"><name>PosTypeToPosition</name></member>
     <member refid="class_a_battle_object_1aaae76f9f5822b456a4da25375812329e" kind="function"><name>ScreenPosToWorldPos</name></member>
+    <member refid="class_a_battle_object_1a9da9eed2c278c1605388c6b434b41128" kind="function"><name>WorldPosToScreenPos</name></member>
     <member refid="class_a_battle_object_1a9e1c7afdd8f284c5ac16be085ca94d3b" kind="function"><name>SetFacing</name></member>
     <member refid="class_a_battle_object_1aaf93ca308ab4af11720218424dae89be" kind="function"><name>FlipObject</name></member>
     <member refid="class_a_battle_object_1a6332a79be3c384c488dd998581e0abcf" kind="function"><name>FaceOpponent</name></member>
@@ -387,6 +389,8 @@
     <member refid="class_a_night_sky_game_state_1ad66d0d0039f0c7c20947d058ddc17d9f" kind="variable"><name>bPauseGame</name></member>
     <member refid="class_a_night_sky_game_state_1a80288ec5e5294572daab40c7e4786ea0" kind="variable"><name>bViewCollision</name></member>
     <member refid="class_a_night_sky_game_state_1adfabb2278d28ea80e4aca9625eba7173" kind="variable"><name>bIsPlayingSequence</name></member>
+    <member refid="class_a_night_sky_game_state_1a41e848b74cd1fb4bf6b7b5456cd0b4bd" kind="variable"><name>CameraYaw</name></member>
+    <member refid="class_a_night_sky_game_state_1acb89e0643e3e7cd29feeca8ca926471a" kind="variable"><name>CameraYOffset</name></member>
     <member refid="class_a_night_sky_game_state_1a23c398c92de2aee7e4184ba243f9288c" kind="variable"><name>FighterRunner</name></member>
     <member refid="class_a_night_sky_game_state_1a4734cceabdd728a987f5c460058bf515" kind="variable"><name>BattleHudActor</name></member>
     <member refid="class_a_night_sky_game_state_1ae9a25298800a2cf39df994407402f8e1" kind="variable"><name>LocalFrame</name></member>
@@ -410,6 +414,7 @@
     <member refid="class_a_night_sky_game_state_1a15044147972aba8a215afc694124cb6e" kind="function"><name>SetScreenBounds</name></member>
     <member refid="class_a_night_sky_game_state_1a3845f653b032f44a47eb1a98ef811c80" kind="function"><name>StartSuperFreeze</name></member>
     <member refid="class_a_night_sky_game_state_1adb8be86243850439d8490c880a451178" kind="function"><name>ScreenPosToWorldPos</name></member>
+    <member refid="class_a_night_sky_game_state_1a6243b120d1a95233e460a9d116abb4bb" kind="function"><name>WorldPosToScreenPos</name></member>
     <member refid="class_a_night_sky_game_state_1a268885bdfbae7dd51fe888a29c2df695" kind="function"><name>AddBattleObject</name></member>
     <member refid="class_a_night_sky_game_state_1a8271db2df9a043f12572fe52a6f3297a" kind="function"><name>SetDrawPriorityFront</name></member>
     <member refid="class_a_night_sky_game_state_1ac08d1203c7fbf38c5475511add0019a3" kind="function"><name>SetDrawPriorityBack</name></member>
@@ -759,6 +764,7 @@
     <member refid="class_a_player_object_1a96c719b3ff68b9023b20a9296ac94d5a" kind="function"><name>GetLastStateName</name></member>
     <member refid="class_a_player_object_1a11d8173868e17e825e52c4ac0edc7f85" kind="function"><name>GetStateEntryName</name></member>
     <member refid="class_a_player_object_1aa4ff28cc0d0b05f10406ea45b7654214" kind="function"><name>GetStateMachine</name></member>
+    <member refid="class_a_player_object_1a8d07ea28e3809a07502d786e8a320e30" kind="function"><name>GetStateType</name></member>
     <member refid="class_a_player_object_1ae32ee159d5bb44afd1fec4c4bc7685d2" kind="function"><name>GetEnableFlags</name></member>
     <member refid="class_a_player_object_1a2414635d0a2228121051a739f3447eb9" kind="function"><name>CheckStateEnabled</name></member>
     <member refid="class_a_player_object_1a0f2ab24349e37b19d31ef485051c8d9a" kind="function"><name>EnableState</name></member>
@@ -770,6 +776,7 @@
     <member refid="class_a_player_object_1ae75c0ddd7ea92904cf1286caeb67832b" kind="function"><name>EnableAll</name></member>
     <member refid="class_a_player_object_1ad5837ea202ac097abdd438a056fe71c0" kind="function"><name>DisableAll</name></member>
     <member refid="class_a_player_object_1a3c91dee03ebb4cdcd9fb08ba2b707d2b" kind="function"><name>CheckInput</name></member>
+    <member refid="class_a_player_object_1a6ff180e4fc7167b477be2e4f9f469d73" kind="function"><name>ClearInputBuffer</name></member>
     <member refid="class_a_player_object_1a7d59f03cf6d9e3cd103e081df9325e3c" kind="function"><name>CheckIsAttacking</name></member>
     <member refid="class_a_player_object_1a4bce70002e5e810314ad4ebcc16fbc8f" kind="function"><name>CheckHasHit</name></member>
     <member refid="class_a_player_object_1a94f64faabed4cc34b4e603dda609cea5" kind="function"><name>CheckIsStunned</name></member>
@@ -785,6 +792,7 @@
     <member refid="class_a_player_object_1af39730a8c62f61cc9c88d76bf1d4b342" kind="function"><name>RemoveChainCancelOption</name></member>
     <member refid="class_a_player_object_1a1044362809a444d0219a9034a1eaaf30" kind="function"><name>RemoveAutoComboCancel</name></member>
     <member refid="class_a_player_object_1a836dc577dcdbc14a7ac740d74c9cbc28" kind="function"><name>RemoveWhiffCancelOption</name></member>
+    <member refid="class_a_player_object_1a9bd8bc779b785751f81583160e0e850a" kind="function"><name>ClearMovesUsedInChain</name></member>
     <member refid="class_a_player_object_1a3f1f5a60fd99dfa1dbf0a3919239f1ce" kind="function"><name>EnableChainCancel</name></member>
     <member refid="class_a_player_object_1a6cb28122d397f10d83ffacc1686dcbd8" kind="function"><name>EnableWhiffCancel</name></member>
     <member refid="class_a_player_object_1aa03edda0200b1deb2c2b29646910951f" kind="function"><name>EnableReverseBeat</name></member>
@@ -828,6 +836,7 @@
     <member refid="class_a_player_object_1afaad67191773dbce12944ee19eee857c" kind="function"><name>SwitchMainPlayer</name></member>
     <member refid="class_a_player_object_1a2597f275b9bfdf3e2d37febb5ec161e4" kind="function"><name>SetTeamCooldown</name></member>
     <member refid="class_a_player_object_1aa1804005f4927779e34afba5a192961e" kind="function"><name>IsMainPlayer</name></member>
+    <member refid="class_a_player_object_1adecb2db55c2655db8ac4372f65ae708a" kind="function"><name>GetMainPlayer</name></member>
     <member refid="class_a_player_object_1a66fd4e3f0e36fecbcff386b5e56f94f5" kind="function"><name>IsOnScreen</name></member>
     <member refid="class_a_player_object_1a8a8a51900aba996d729c0e7ef425c56b" kind="function"><name>SetOnScreen</name></member>
     <member refid="class_a_player_object_1a8a6814f6bf3f3ba00b3972028cab79cd" kind="function"><name>ToggleComponentVisibility</name></member>
@@ -848,7 +857,7 @@
     <member refid="class_a_player_object_1a1c3db20381f893800ca70e8fd6369dcd" kind="function"><name>CheckReverseBeat</name></member>
     <member refid="class_a_player_object_1a245dca4031b248d339978fbc2ce8c998" kind="function"><name>CheckMovesUsedInChain</name></member>
     <member refid="class_a_player_object_1ab3273921911068390b8f8da982dc1802" kind="function"><name>HandleThrowCollision</name></member>
-    <member refid="class_a_player_object_1a0e474539f821e277201c30b936d7ee4a" kind="function"><name>CheckKaraCancel</name></member>
+    <member refid="class_a_player_object_1a533387d1c8c802290fdd1b2ace89b81b" kind="function"><name>CheckKaraCancel</name></member>
     <member refid="class_a_player_object_1ad41ee23ce18484bb37667c5d7cb98a84" kind="function"><name>CheckObjectPreventingState</name></member>
     <member refid="class_a_player_object_1a91500fd4786ad66e506d16527bcfc7b4" kind="function"><name>HandleWallBounce</name></member>
     <member refid="class_a_player_object_1ac6c0853ed505fba72bed78760fedd841" kind="function"><name>HandleGroundBounce</name></member>
@@ -877,6 +886,9 @@
     <member refid="struct_f_anim_struct_1a2353d4b9ab3dc659bfb9911d84c9ed14" kind="variable"><name>PartName</name></member>
     <member refid="struct_f_anim_struct_1ad4e19b451a22836a03fdce49b8241615" kind="variable"><name>AnimSequence</name></member>
     <member refid="struct_f_anim_struct_1a7e7a17f180ae3916d06b1b5a6902284c" kind="variable"><name>Flipbook</name></member>
+    <member refid="struct_f_anim_struct_1a728d2921f3c0d37ed8885f19f885de59" kind="function"><name>FAnimStruct</name></member>
+    <member refid="struct_f_anim_struct_1a78e885c2ddc4eb234c740f06d28426e4" kind="function"><name>FAnimStruct</name></member>
+    <member refid="struct_f_anim_struct_1aaa48dad0baf70adaa7868b3228063b96" kind="function"><name>FAnimStruct</name></member>
   </compound>
   <compound refid="struct_f_anim_transform" kind="struct"><name>FAnimTransform</name>
     <member refid="struct_f_anim_transform_1a610567a02a021aaacf4a3625e63ebcfe" kind="variable"><name>Position</name></member>
@@ -1257,6 +1269,7 @@
     <member refid="struct_f_input_buffer_1a1056d71f90e720feb70f4866b0229c71" kind="variable"><name>ImpreciseInputCount</name></member>
     <member refid="struct_f_input_buffer_1a85640033b0644f05e57754175c19111d" kind="variable"><name>DisallowedInputs</name></member>
     <member refid="struct_f_input_buffer_1a6369cced274b3c38dcbcf100a437feda" kind="variable"><name>InputBufferInternal</name></member>
+    <member refid="struct_f_input_buffer_1af1c0afe652bf3192cc4b4dd9b1daa8d6" kind="variable"><name>InputBufferValid</name></member>
     <member refid="struct_f_input_buffer_1a75ffe79b4c4c7450647b34c030e0f0e6" kind="variable"><name>InputTime</name></member>
     <member refid="struct_f_input_buffer_1aa4756533add2897b5f0103f773b5325a" kind="function"><name>WriteInputCondition</name></member>
     <member refid="struct_f_input_buffer_1a79fe8b63fd15d169d4395aac846b0efa" kind="function"><name>Update</name></member>
@@ -1271,6 +1284,7 @@
     <member refid="struct_f_input_buffer_1aab4a0b86af5b2094f2859ee65e4dda70" kind="function"><name>CheckInputSequenceNegative</name></member>
     <member refid="struct_f_input_buffer_1a530bee84c2413780c20e4f8f0e4213de" kind="function"><name>CheckInputSequenceNegativeStrict</name></member>
     <member refid="struct_f_input_buffer_1abe3833b886dd17c7d04092836719b65c" kind="function"><name>FlipInputsInBuffer</name></member>
+    <member refid="struct_f_input_buffer_1accc8996f27ae77719b94b40d9acbfc01" kind="function"><name>ResetBuffer</name></member>
   </compound>
   <compound refid="struct_f_input_condition" kind="struct"><name>FInputCondition</name>
     <member refid="struct_f_input_condition_1a9be6400d9916f51c83f37a8342d46294" kind="variable"><name>Sequence</name></member>
@@ -1578,6 +1592,7 @@
     <member refid="struct_f_super_armor_data_1a7e405cc196f0a437402dbc1a6c0c6d7f" kind="variable"><name>bArmorHead</name></member>
     <member refid="struct_f_super_armor_data_1a0dcd6c761c7f39879e7179c93bfbc1ba" kind="variable"><name>bArmorProjectile</name></member>
     <member refid="struct_f_super_armor_data_1a6065045ea656ef09ad3f29e9ae468021" kind="variable"><name>bArmorTakeChipDamage</name></member>
+    <member refid="struct_f_super_armor_data_1a3c1ec9e7b9dcfc51b901b36684a91c6e" kind="variable"><name>bArmorDisableIncomingHit</name></member>
     <member refid="struct_f_super_armor_data_1a14ef40dd816a593524a98246b64817af" kind="variable"><name>ArmorDamagePercent</name></member>
     <member refid="struct_f_super_armor_data_1adef8fac74aee09f911d6e8f97b167f2d" kind="variable"><name>ArmorHits</name></member>
   </compound>
@@ -2029,6 +2044,7 @@
     <member refid="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a5511fb319241d4c0b3f836ac61369f42" kind="enumvalue"><name>PLF_HitgrabActive</name></member>
     <member refid="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a5b6d3d12246340a06274918d43cec598" kind="enumvalue"><name>PLF_ReceivedCounterHit</name></member>
     <member refid="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a7104ab69a055e340abe10d04e5c91a80" kind="enumvalue"><name>PLF_DidKaraCancel</name></member>
+    <member refid="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a396f05f437b56baa90dc69bd8e38d018" kind="enumvalue"><name>PLF_HasBounced</name></member>
     <member refid="_bitflags_8h_1ae8de8b3f036722830413b279350505bc" kind="enum"><name>ECancelFlags</name></member>
     <member refid="_bitflags_8h_1ae8de8b3f036722830413b279350505bca91befe426e3a336b860a2c3158706a17" kind="enumvalue"><name>CNC_ChainCancelEnabled</name></member>
     <member refid="_bitflags_8h_1ae8de8b3f036722830413b279350505bcaf9b1696e7553c989b960fb51e734fffe" kind="enumvalue"><name>CNC_WhiffCancelEnabled</name></member>
@@ -2061,6 +2077,7 @@
     <member refid="_globals_8cpp_1ae49b095761db133067dd98cb9086af73" kind="function"><name>isqrt</name></member>
   </compound>
   <compound refid="_globals_8h" kind="file"><name>Globals.h</name>
+    <member refid="_globals_8h_1ad0d2c507d3562dd59d3a5a46cc3c4a42" kind="define"><name>OBJ_SCALE</name></member>
     <member refid="_globals_8h_1a42c0d3a4d490ce1397135827b08c4032" kind="define"><name>COORD_SCALE</name></member>
     <member refid="_globals_8h_1a47803990afbdb74bcadf329bf215c554" kind="variable"><name>gSinTable</name></member>
     <member refid="_globals_8h_1a111bbcdda59b7d68031450dae90847fe" kind="function"><name>isqrt_impl</name></member>

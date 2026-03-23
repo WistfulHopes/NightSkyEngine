@@ -20577,6 +20577,7 @@
 <li><strong>bThrow</strong> (<a href="../struct_f_state_c_p_u_data/"><strong>FStateCPUData</strong></a>)</li>
 <li><strong>bUsesResource</strong> (<a href="../struct_f_state_c_p_u_data/"><strong>FStateCPUData</strong></a>)</li>
 <li><strong>bPrimary</strong> (<a href="../struct_f_state_machine/"><strong>FStateMachine</strong></a>)</li>
+<li><strong>bArmorDisableIncomingHit</strong> (<a href="../struct_f_super_armor_data/"><strong>FSuperArmorData</strong></a>)</li>
 <li><strong>bArmorHead</strong> (<a href="../struct_f_super_armor_data/"><strong>FSuperArmorData</strong></a>)</li>
 <li><strong>bArmorLow</strong> (<a href="../struct_f_super_armor_data/"><strong>FSuperArmorData</strong></a>)</li>
 <li><strong>bArmorMid</strong> (<a href="../struct_f_super_armor_data/"><strong>FSuperArmorData</strong></a>)</li>
@@ -20630,6 +20631,8 @@
 <li><strong>CallAssist</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>, <a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>CallBattleExtension</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>CameraActor</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
+<li><strong>CameraYOffset</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
+<li><strong>CameraYaw</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>CanTag</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>Checksum</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>CreateChecksum</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
@@ -20653,6 +20656,8 @@
 <li><strong>CheckObjectPreventingState</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>CheckReverseBeat</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>CheckStateEnabled</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
+<li><strong>ClearInputBuffer</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
+<li><strong>ClearMovesUsedInChain</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>CloseNormalRange</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
 <li><strong>CmnPlayerReg1</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
 <li><strong>CmnPlayerReg2</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
@@ -20836,6 +20841,7 @@
 <li><strong>ForwardDashMeterGain</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
 <li><strong>ForwardJumpMeterGain</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
 <li><strong>ForwardWalkMeterGain</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>
+<li><strong>FAnimStruct</strong> (<a href="../struct_f_anim_struct/"><strong>FAnimStruct</strong></a>)</li>
 <li><strong>Flipbook</strong> (<a href="../struct_f_anim_struct/"><strong>FAnimStruct</strong></a>, <a href="../struct_f_flipbook_struct/"><strong>FFlipbookStruct</strong></a>)</li>
 <li><strong>Finished</strong> (<a href="../struct_f_audio_channel/"><strong>FAudioChannel</strong></a>)</li>
 <li><strong>FBattleParticle</strong> (<a href="../struct_f_battle_particle/"><strong>FBattleParticle</strong></a>)</li>
@@ -20891,7 +20897,7 @@
 <li><strong>GetEnemyDistanceX</strong> (<a href="../class_a_night_sky_a_i_controller/"><strong>ANightSkyAIController</strong></a>)</li>
 <li><strong>GetEnemyDistanceY</strong> (<a href="../class_a_night_sky_a_i_controller/"><strong>ANightSkyAIController</strong></a>)</li>
 <li><strong>GetLocalInputs</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
-<li><strong>GetMainPlayer</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
+<li><strong>GetMainPlayer</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>, <a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>GetNetworkStats</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>GetPaused</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>GetScreenFlags</strong> (<a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
@@ -20903,6 +20909,7 @@
 <li><strong>GetLastStateName</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>GetStateEntryName</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>GetStateMachine</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
+<li><strong>GetStateType</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
 <li><strong>GaugeP1</strong> (<a href="../struct_f_battle_state/"><strong>FBattleState</strong></a>)</li>
 <li><strong>GaugeP2</strong> (<a href="../struct_f_battle_state/"><strong>FBattleState</strong></a>)</li>
 <li><strong>GroundBounceCount</strong> (<a href="../struct_f_ground_bounce_data/"><strong>FGroundBounceData</strong></a>)</li>
@@ -21022,6 +21029,7 @@
 <li><strong>InputFlag</strong> (<a href="../struct_f_input_bitmask/"><strong>FInputBitmask</strong></a>)</li>
 <li><strong>ImpreciseInputCount</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>, <a href="../struct_f_input_condition/"><strong>FInputCondition</strong></a>)</li>
 <li><strong>InputBufferInternal</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>)</li>
+<li><strong>InputBufferValid</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>)</li>
 <li><strong>InputSequence</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>)</li>
 <li><strong>InputTime</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>)</li>
 <li><strong>InputConditions</strong> (<a href="../struct_f_input_condition_list/"><strong>FInputConditionList</strong></a>)</li>
@@ -21387,6 +21395,7 @@
 <li><strong>RoundStartPos</strong> (<a href="../struct_f_battle_state/"><strong>FBattleState</strong></a>)</li>
 <li><strong>RoundTimer</strong> (<a href="../struct_f_battle_state/"><strong>FBattleState</strong></a>)</li>
 <li><strong>RecoverableDamagePercent</strong> (<a href="../struct_f_hit_data/"><strong>FHitData</strong></a>)</li>
+<li><strong>ResetBuffer</strong> (<a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>)</li>
 <li><strong>RollbackFrames</strong> (<a href="../struct_f_network_stats/"><strong>FNetworkStats</strong></a>, <a href="../class_u_night_sky_battle_widget/"><strong>UNightSkyBattleWidget</strong></a>)</li>
 <li><strong>Rand</strong> (<a href="../struct_f_random_manager/"><strong>FRandomManager</strong></a>)</li>
 <li><strong>RandRange</strong> (<a href="../struct_f_random_manager/"><strong>FRandomManager</strong></a>)</li>
@@ -21653,6 +21662,7 @@
 <h2 id="u">u</h2>
 <ul>
 <li><strong>Update</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>, <a href="../class_a_fighter_local_runner/"><strong>AFighterLocalRunner</strong></a>, <a href="../class_a_fighter_multiplayer_runner/"><strong>AFighterMultiplayerRunner</strong></a>, <a href="../class_a_fighter_replay_runner/"><strong>AFighterReplayRunner</strong></a>, <a href="../class_a_fighter_synctest_runner/"><strong>AFighterSynctestRunner</strong></a>, <a href="../class_a_link_actor/"><strong>ALinkActor</strong></a>, <a href="../class_a_night_sky_a_i_controller/"><strong>ANightSkyAIController</strong></a>, <a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_input_buffer/"><strong>FInputBuffer</strong></a>, <a href="../struct_f_state_machine/"><strong>FStateMachine</strong></a>)</li>
+<li><strong>UpdateCel</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>)</li>
 <li><strong>UpdateTime</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>, <a href="../struct_f_battle_object_log/"><strong>FBattleObjectLog</strong></a>)</li>
 <li><strong>UpdateVisuals</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>, <a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>UpdateVisualsNoRollback</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>, <a href="../class_a_player_object/"><strong>APlayerObject</strong></a>)</li>
@@ -21697,6 +21707,7 @@
 </ul>
 <h2 id="w">w</h2>
 <ul>
+<li><strong>WorldPosToScreenPos</strong> (<a href="../class_a_battle_object/"><strong>ABattleObject</strong></a>, <a href="../class_a_night_sky_game_state/"><strong>ANightSkyGameState</strong></a>)</li>
 <li><strong>WaitCount</strong> (<a href="../class_a_night_sky_a_i_controller/"><strong>ANightSkyAIController</strong></a>)</li>
 <li><strong>WaitLimit</strong> (<a href="../class_a_night_sky_a_i_controller/"><strong>ANightSkyAIController</strong></a>)</li>
 <li><strong>WallTouchTimer</strong> (<a href="../class_a_player_object/"><strong>APlayerObject</strong></a>, <a href="../struct_f_player_object_log/"><strong>FPlayerObjectLog</strong></a>)</li>

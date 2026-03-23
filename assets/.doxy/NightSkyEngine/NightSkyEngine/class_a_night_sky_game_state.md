@@ -46,6 +46,8 @@ Inherited by the following classes: [ANightSkyWTGameState](class_a_night_sky_w_t
 |  FTransform | [**BattleSceneTransform**](#variable-battlescenetransform)  <br> |
 |  [**FBattleState**](struct_f_battle_state.md) | [**BattleState**](#variable-battlestate)   = `{}`<br> |
 |  ACameraActor \* | [**CameraActor**](#variable-cameraactor)   = `nullptr`<br> |
+|  float | [**CameraYOffset**](#variable-camerayoffset)   = `105.0f`<br> |
+|  float | [**CameraYaw**](#variable-camerayaw)   = `-2.5f`<br> |
 |  class [**AFighterLocalRunner**](class_a_fighter_local_runner.md) \* | [**FighterRunner**](#variable-fighterrunner)   = `nullptr`<br> |
 |  class [**UNightSkyGameInstance**](class_u_night_sky_game_instance.md) \* | [**GameInstance**](#variable-gameinstance)   = `nullptr`<br> |
 |  int32 | [**LocalFrame**](#variable-localframe)   = `0`<br> |
@@ -140,6 +142,7 @@ Inherited by the following classes: [ANightSkyWTGameState](class_a_night_sky_w_t
 |  void | [**UpdateHUD\_BP**](#function-updatehud_bp) () <br> |
 |  void | [**UpdateScreen**](#function-updatescreen) () <br> |
 |  void | [**UseGauge**](#function-usegauge) (bool IsP1, int32 GaugeIndex, int32 Value) <br> |
+|  void | [**WorldPosToScreenPos**](#function-worldpostoscreenpos) (int32 X, int32 Y, int32 & OutX, int32 & OutY) const<br> |
 
 
 
@@ -301,6 +304,32 @@ FBattleState ANightSkyGameState::BattleState;
 
 ```C++
 ACameraActor* ANightSkyGameState::CameraActor;
+```
+
+
+
+
+<hr>
+
+
+
+### variable CameraYOffset 
+
+```C++
+float ANightSkyGameState::CameraYOffset;
+```
+
+
+
+
+<hr>
+
+
+
+### variable CameraYaw 
+
+```C++
+float ANightSkyGameState::CameraYaw;
 ```
 
 
@@ -1374,6 +1403,24 @@ void ANightSkyGameState::UseGauge (
     int32 GaugeIndex,
     int32 Value
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WorldPosToScreenPos 
+
+```C++
+void ANightSkyGameState::WorldPosToScreenPos (
+    int32 X,
+    int32 Y,
+    int32 & OutX,
+    int32 & OutY
+) const
 ```
 
 

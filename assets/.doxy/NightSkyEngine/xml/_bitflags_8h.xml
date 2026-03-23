@@ -800,6 +800,15 @@
 <para>Flag sets if player kara canceled into the current state. </para>
           </detaileddescription>
         </enumvalue>
+        <enumvalue id="_bitflags_8h_1a0ccfd221aafc30ac983062c04b161990a396f05f437b56baa90dc69bd8e38d018" prot="public">
+          <name>PLF_HasBounced</name>
+          <initializer>= 0x20000 UMETA(DisplayName = &quot;Has Bounced&quot;)</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Flag sets if player has been bounced in current combo. </para>
+          </detaileddescription>
+        </enumvalue>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -807,7 +816,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="169" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="170" bodyend="235"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="169" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="170" bodyend="239"/>
       </memberdef>
       <memberdef kind="enum" id="_bitflags_8h_1ae8de8b3f036722830413b279350505bc" prot="public" static="no" strong="no">
         <type></type>
@@ -909,7 +918,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="241" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="242" bodyend="283"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="245" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="246" bodyend="287"/>
       </memberdef>
       <memberdef kind="enum" id="_bitflags_8h_1a0578249cb4be7488c128b28d142aab0d" prot="public" static="no" strong="no">
         <type></type>
@@ -957,7 +966,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="289" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="290" bodyend="307"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" line="293" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h" bodystart="294" bodyend="311"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -1106,31 +1115,32 @@
 <codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_HitgrabActive<sp/>=<sp/>0x2000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hitgrab<sp/>Active&quot;</highlight><highlight class="normal">),</highlight></codeline>
 <codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_ReceivedCounterHit<sp/>=<sp/>0x4000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Received<sp/>Counter<sp/>Hit&quot;</highlight><highlight class="normal">),</highlight></codeline>
 <codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_DidKaraCancel<sp/>=<sp/>0x8000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Did<sp/>Kara<sp/>Cancel&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="235"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal">UENUM()</highlight></codeline>
-<codeline lineno="241"><highlight class="normal">enum<sp/>ECancelFlags</highlight></codeline>
-<codeline lineno="242"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_ChainCancelEnabled<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Chain<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_WhiffCancelEnabled<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Whiff<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SpecialCancel<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Special<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SuperCancel<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Super<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_JumpCancel<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Jump<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_FAirDashCancel<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Forward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
-<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_BAirDashCancel<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Backward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableKaraCancel<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Kara<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_CancelIntoSelf<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Cancel<sp/>Into<sp/>Self<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableReverseBeat<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Reverse<sp/>Beat<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="283"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="284"><highlight class="normal"></highlight></codeline>
-<codeline lineno="288"><highlight class="normal">UENUM()</highlight></codeline>
-<codeline lineno="289"><highlight class="normal">enum<sp/>EInvulnFlags</highlight></codeline>
-<codeline lineno="290"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_StrikeInvulnerable<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Strike<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ThrowInvulnerable<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Throw<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ProjectileInvulnerable<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Projectile<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_HeadInvulnerable<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Head<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
-<codeline lineno="307"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>PLF_HasBounced<sp/>=<sp/>0x20000<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Has<sp/>Bounced&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">enum<sp/>ECancelFlags</highlight></codeline>
+<codeline lineno="246"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_ChainCancelEnabled<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Chain<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_WhiffCancelEnabled<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Whiff<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SpecialCancel<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Special<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_SuperCancel<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Super<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_JumpCancel<sp/>=<sp/>0x10<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Jump<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_FAirDashCancel<sp/>=<sp/>0x20<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Forward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),<sp/></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_BAirDashCancel<sp/>=<sp/>0x40<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Backward<sp/>Air<sp/>Dash<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableKaraCancel<sp/>=<sp/>0x80<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Kara<sp/>Cancel<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_CancelIntoSelf<sp/>=<sp/>0x100<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Cancel<sp/>Into<sp/>Self<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>CNC_EnableReverseBeat<sp/>=<sp/>0x200<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Reverse<sp/>Beat<sp/>Enabled&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal">UENUM()</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">enum<sp/>EInvulnFlags</highlight></codeline>
+<codeline lineno="294"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_StrikeInvulnerable<sp/>=<sp/>0x1<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Strike<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ThrowInvulnerable<sp/>=<sp/>0x2<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Throw<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_ProjectileInvulnerable<sp/>=<sp/>0x4<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Projectile<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>INV_HeadInvulnerable<sp/>=<sp/>0x8<sp/>UMETA(DisplayName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Is<sp/>Head<sp/>Invulnerable&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="311"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/Bitflags.h"/>
   </compounddef>

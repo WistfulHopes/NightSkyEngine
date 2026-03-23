@@ -13,5 +13,10 @@
 * **LOCTEXT\_NAMESPACE** ([**CollisionData.cpp**](_collision_data_8cpp.md), [**ExtendedCommonActivatableWidget.cpp**](_extended_common_activatable_widget_8cpp.md))
 
 
+## o
+
+* **OBJ\_SCALE** ([**Globals.h**](_globals_8h.md))
+
+
 
 

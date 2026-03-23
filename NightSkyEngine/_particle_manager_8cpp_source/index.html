@@ -19820,14 +19820,20 @@
 <span class="w">            </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">AdvanceSimulation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">OneFrame</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
 <span class="w">            </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">SetDesiredAge</span><span class="p">(</span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">GetDesiredAge</span><span class="p">());</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">IsComplete</span><span class="p">())</span>
+<span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">                </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="k">continue</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">SetPaused</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="w">        </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">AdvanceSimulation</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">OneFrame</span><span class="p">);</span>
 <span class="w">        </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">SetDesiredAge</span><span class="p">(</span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">GetDesiredAge</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">OneFrame</span><span class="p">);</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">IsComplete</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">            </span><span class="n">NiagaraComponent</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 

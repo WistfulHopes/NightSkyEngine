@@ -54,6 +54,13 @@
 
 
 
+## Public Functions
+
+| Type | Name |
+| ---: | :--- |
+|   | [**FAnimStruct**](#function-fanimstruct-13) () <br> |
+|   | [**FAnimStruct**](#function-fanimstruct-23) (UAnimSequenceBase \* SourceSequence) <br> |
+|   | [**FAnimStruct**](#function-fanimstruct-33) (UPaperFlipbook \* SourceFlipbook) <br> |
 
 
 
@@ -117,6 +124,51 @@ UPaperFlipbook* FAnimStruct::Flipbook;
 
 ```C++
 FName FAnimStruct::PartName;
+```
+
+
+
+
+<hr>
+## Public Functions Documentation
+
+
+
+
+### function FAnimStruct [1/3]
+
+```C++
+inline FAnimStruct::FAnimStruct () 
+```
+
+
+
+
+<hr>
+
+
+
+### function FAnimStruct [2/3]
+
+```C++
+inline explicit FAnimStruct::FAnimStruct (
+    UAnimSequenceBase * SourceSequence
+) 
+```
+
+
+
+
+<hr>
+
+
+
+### function FAnimStruct [3/3]
+
+```C++
+inline explicit FAnimStruct::FAnimStruct (
+    UPaperFlipbook * SourceFlipbook
+) 
 ```
 
 

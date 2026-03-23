@@ -10683,6 +10683,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-inputbuffervalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable InputBufferValid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-inputtime" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -10825,6 +10836,17 @@
     <span class="md-ellipsis">
       
         function FlipInputsInBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-resetbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ResetBuffer
       
     </span>
   </a>
@@ -20092,6 +20114,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-inputbuffervalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable InputBufferValid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-inputtime" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -20241,6 +20274,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-resetbuffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function ResetBuffer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-update" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -20304,6 +20348,10 @@
 <td style="text-align: left;"><a href="#variable-inputbufferinternal"><strong>InputBufferInternal</strong></a>   = <code>{ 16 }</code><br></td>
 </tr>
 <tr>
+<td style="text-align: right;">int8_t</td>
+<td style="text-align: left;"><a href="#variable-inputbuffervalid"><strong>InputBufferValid</strong></a>   = <code>{ 16 }</code><br></td>
+</tr>
+<tr>
 <td style="text-align: right;">int32</td>
 <td style="text-align: left;"><a href="#variable-inputtime"><strong>InputTime</strong></a>   = <code>{}</code><br></td>
 </tr>
@@ -20364,6 +20412,10 @@
 </tr>
 <tr>
 <td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-resetbuffer"><strong>ResetBuffer</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
 <td style="text-align: left;"><a href="#function-update"><strong>Update</strong></a> (int32 Input, bool bStopped=false) <br><em>Stores the input for this frame.</em></td>
 </tr>
 <tr>
@@ -20377,6 +20429,12 @@
 <h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
 <h3 id="variable-inputbufferinternal">variable InputBufferInternal</h3>
 <div class="highlight"><pre><span></span><code><span class="n">int32</span><span class="w"> </span><span class="n">FInputBuffer</span><span class="o">::</span><span class="n">InputBufferInternal</span><span class="p">[</span><span class="n">InputBufferSize</span><span class="p">];</span>
+</code></pre></div>
+<p>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. </p>
+<hr>
+
+<h3 id="variable-inputbuffervalid">variable InputBufferValid</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">int8_t</span><span class="w"> </span><span class="n">FInputBuffer</span><span class="o">::</span><span class="n">InputBufferValid</span><span class="p">[</span><span class="n">InputBufferSize</span><span class="p">];</span>
 </code></pre></div>
 <p>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. </p>
 <hr>
@@ -20491,6 +20549,12 @@
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">FInputBuffer</span><span class="o">::</span><span class="n">FlipInputsInBuffer</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
 </code></pre></div>
 <p>Flips the directional inputs in the buffer. For use after a character switches sides. </p>
+<hr>
+
+<h3 id="function-resetbuffer">function ResetBuffer</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">FInputBuffer</span><span class="o">::</span><span class="n">ResetBuffer</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</code></pre></div>
+<p>Resets the input buffer, as if it were the start of a match. </p>
 <hr>
 
 <h3 id="function-update">function Update</h3>

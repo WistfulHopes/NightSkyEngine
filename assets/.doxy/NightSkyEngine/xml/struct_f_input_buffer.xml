@@ -70,6 +70,22 @@
         </inbodydescription>
         <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="42" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="42" bodyend="42"/>
       </memberdef>
+      <memberdef kind="variable" id="struct_f_input_buffer_1af1c0afe652bf3192cc4b4dd9b1daa8d6" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t FInputBuffer::InputBufferValid[InputBufferSize]</definition>
+        <argsstring>[InputBufferSize]</argsstring>
+        <name>InputBufferValid</name>
+        <qualifiedname>FInputBuffer::InputBufferValid</qualifiedname>
+        <initializer>= { 16 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="47" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="47" bodyend="47"/>
+      </memberdef>
       <memberdef kind="variable" id="struct_f_input_buffer_1a75ffe79b4c4c7450647b34c030e0f0e6" prot="public" static="no" mutable="no">
         <type>int32</type>
         <definition>int32 FInputBuffer::InputTime[InputBufferSize]</definition>
@@ -84,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="47" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="47" bodyend="47"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="52" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="52" bodyend="52"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -114,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="53" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="8" bodyend="56"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="58" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="8" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a79fe8b63fd15d169d4395aac846b0efa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -156,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="61" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="58" bodyend="78"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="66" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="58" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a38dd70c735bf461fb4a5dc4d6cd98d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -197,7 +213,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="68" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="80" bodyend="85"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="73" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="82" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -228,7 +244,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="75" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="87" bodyend="121"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="80" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="90" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a84695de1bd43d2cf4ec88b6b3c8e8d91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -247,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="83" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="123" bodyend="171"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="88" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="126" bodyend="174"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a72d144db38b8b2fc9be7740e2aa9a62f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -266,7 +282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="90" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="173" bodyend="241"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="95" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="176" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a0333dcb5b370ea3e0f79f9f0c774adff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -285,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="97" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="243" bodyend="299"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="102" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="246" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a499890ad60181f63f3db52e5d885ac44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -304,7 +320,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="104" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="301" bodyend="377"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="109" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="304" bodyend="380"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1ad81b56cb025947f0538c14da44400f86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -323,7 +339,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="111" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="379" bodyend="443"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="116" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="382" bodyend="446"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a1766ec583260c1fdf66ac5d2f0837919" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -342,7 +358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="118" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="445" bodyend="527"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="123" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="448" bodyend="530"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1aab4a0b86af5b2094f2859ee65e4dda70" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -361,7 +377,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="125" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="529" bodyend="574"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="130" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="532" bodyend="577"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1a530bee84c2413780c20e4f8f0e4213de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -380,7 +396,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="132" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="576" bodyend="637"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="137" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="579" bodyend="640"/>
       </memberdef>
       <memberdef kind="function" id="struct_f_input_buffer_1abe3833b886dd17c7d04092836719b65c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -395,7 +411,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="136" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="639" bodyend="651"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="141" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="642" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_f_input_buffer_1accc8996f27ae77719b94b40d9acbfc01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FInputBuffer::ResetBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>ResetBuffer</name>
+        <qualifiedname>FInputBuffer::ResetBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resets the input buffer, as if it were the start of a match. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="145" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.cpp" bodystart="656" bodyend="664"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -404,7 +435,7 @@
     <detaileddescription>
 <para>Stores inputs every frame, and handles input checking. </para>
     </detaileddescription>
-    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="19" bodyend="137"/>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" line="18" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Misc/InputBuffer.h" bodystart="19" bodyend="146"/>
     <listofallmembers>
       <member refid="struct_f_input_buffer_1adfe7bd4acb973c5587a7e802a626cba4" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputCondition</name></member>
       <member refid="struct_f_input_buffer_1a84695de1bd43d2cf4ec88b6b3c8e8d91" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>CheckInputSequence</name></member>
@@ -420,8 +451,10 @@
       <member refid="struct_f_input_buffer_1abe3833b886dd17c7d04092836719b65c" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>FlipInputsInBuffer</name></member>
       <member refid="struct_f_input_buffer_1a1056d71f90e720feb70f4866b0229c71" prot="private" virt="non-virtual"><scope>FInputBuffer</scope><name>ImpreciseInputCount</name></member>
       <member refid="struct_f_input_buffer_1a6369cced274b3c38dcbcf100a437feda" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>InputBufferInternal</name></member>
+      <member refid="struct_f_input_buffer_1af1c0afe652bf3192cc4b4dd9b1daa8d6" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>InputBufferValid</name></member>
       <member refid="struct_f_input_buffer_1a4e72416642cc09c142b55cd34c6bde42" prot="private" virt="non-virtual"><scope>FInputBuffer</scope><name>InputSequence</name></member>
       <member refid="struct_f_input_buffer_1a75ffe79b4c4c7450647b34c030e0f0e6" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>InputTime</name></member>
+      <member refid="struct_f_input_buffer_1accc8996f27ae77719b94b40d9acbfc01" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>ResetBuffer</name></member>
       <member refid="struct_f_input_buffer_1a79fe8b63fd15d169d4395aac846b0efa" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>Update</name></member>
       <member refid="struct_f_input_buffer_1aa4756533add2897b5f0103f773b5325a" prot="public" virt="non-virtual"><scope>FInputBuffer</scope><name>WriteInputCondition</name></member>
     </listofallmembers>

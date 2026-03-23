@@ -137,6 +137,21 @@
         </inbodydescription>
         <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="615" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="615" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="struct_f_super_armor_data_1a3c1ec9e7b9dcfc51b901b36684a91c6e" prot="public" static="no" mutable="no">
+        <type>uint8</type>
+        <definition>uint8 FSuperArmorData::bArmorDisableIncomingHit</definition>
+        <argsstring></argsstring>
+        <name>bArmorDisableIncomingHit</name>
+        <qualifiedname>FSuperArmorData::bArmorDisableIncomingHit</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="617" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="617" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="struct_f_super_armor_data_1a14ef40dd816a593524a98246b64817af" prot="public" static="no" mutable="no">
         <type>int32</type>
         <definition>int32 FSuperArmorData::ArmorDamagePercent</definition>
@@ -149,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="617" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="617" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="619" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="619" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_f_super_armor_data_1adef8fac74aee09f911d6e8f97b167f2d" prot="public" static="no" mutable="no">
         <type>int32</type>
@@ -163,17 +178,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="619" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="619" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="621" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="621" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="594" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="595" bodyend="620"/>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" line="594" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/Objects/BattleObject.h" bodystart="595" bodyend="622"/>
     <listofallmembers>
       <member refid="struct_f_super_armor_data_1a14ef40dd816a593524a98246b64817af" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>ArmorDamagePercent</name></member>
       <member refid="struct_f_super_armor_data_1adef8fac74aee09f911d6e8f97b167f2d" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>ArmorHits</name></member>
+      <member refid="struct_f_super_armor_data_1a3c1ec9e7b9dcfc51b901b36684a91c6e" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorDisableIncomingHit</name></member>
       <member refid="struct_f_super_armor_data_1a7e405cc196f0a437402dbc1a6c0c6d7f" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorHead</name></member>
       <member refid="struct_f_super_armor_data_1af1fc732285dd9f02e5d961e3c1665414" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorLow</name></member>
       <member refid="struct_f_super_armor_data_1a863461c950d937f8c73b5a2ed11824bf" prot="public" virt="non-virtual"><scope>FSuperArmorData</scope><name>bArmorMid</name></member>

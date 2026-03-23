@@ -32,6 +32,7 @@ private:
     
 public:
     int32 InputBufferInternal[InputBufferSize] = { 16 };
+    int8_t InputBufferValid[InputBufferSize] = { 16 };
     int32 InputTime[InputBufferSize] = {};
 
     void WriteInputCondition(const FInputCondition& InputCondition);
@@ -49,6 +50,7 @@ public:
     bool CheckInputSequenceNegative() const;
     bool CheckInputSequenceNegativeStrict() const;
     void FlipInputsInBuffer();
+    void ResetBuffer();
 };
 ```
 

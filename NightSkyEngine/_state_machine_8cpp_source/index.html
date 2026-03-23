@@ -19798,6 +19798,7 @@
 <span class="w">        </span><span class="n">CurrentState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Config</span><span class="p">;</span>
 <span class="w">        </span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
 <span class="w">        </span><span class="n">Update</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">UpdateCel</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -19832,7 +19833,7 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">SubroutineState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">USubroutineState</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StateToEnter</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">SubroutineState</span><span class="o">-&gt;</span><span class="n">SubroutineName</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bIsAlias</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -19851,6 +19852,8 @@
 <span class="w">    </span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
 <span class="w">    </span><span class="n">Update</span><span class="p">();</span>
 
+<span class="w">    </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">UpdateCel</span><span class="p">();</span>
+
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -19865,7 +19868,7 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">SubroutineState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">USubroutineState</span><span class="o">&gt;</span><span class="p">(</span><span class="n">StateToEnter</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">SubroutineState</span><span class="o">-&gt;</span><span class="n">SubroutineName</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bIsAlias</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -19884,6 +19887,8 @@
 <span class="w">    </span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
 <span class="w">    </span><span class="n">Update</span><span class="p">();</span>
 
+<span class="w">    </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">UpdateCel</span><span class="p">();</span>
+
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -19896,7 +19901,7 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">SubroutineState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">USubroutineState</span><span class="o">&gt;</span><span class="p">(</span><span class="n">State</span><span class="p">))</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">SubroutineState</span><span class="o">-&gt;</span><span class="n">SubroutineName</span><span class="p">);</span>
-<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bIsAlias</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
@@ -19914,6 +19919,8 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bPrimary</span><span class="p">)</span><span class="w"> </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">PostStateChange</span><span class="p">();</span>
 <span class="w">            </span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
 <span class="w">            </span><span class="n">Update</span><span class="p">();</span>
+
+<span class="w">            </span><span class="n">Parent</span><span class="o">-&gt;</span><span class="n">UpdateCel</span><span class="p">();</span>
 
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>

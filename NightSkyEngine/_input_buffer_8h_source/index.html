@@ -19802,6 +19802,7 @@
 
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">InputBufferInternal</span><span class="p">[</span><span class="n">InputBufferSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int8_t</span><span class="w"> </span><span class="n">InputBufferValid</span><span class="p">[</span><span class="n">InputBufferSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">};</span>
 <span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">InputTime</span><span class="p">[</span><span class="n">InputBufferSize</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">WriteInputCondition</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FInputCondition</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InputCondition</span><span class="p">);</span>
@@ -19819,6 +19820,7 @@
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckInputSequenceNegative</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckInputSequenceNegativeStrict</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">FlipInputsInBuffer</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">ResetBuffer</span><span class="p">();</span>
 <span class="p">};</span>
 </code></pre></div>
 

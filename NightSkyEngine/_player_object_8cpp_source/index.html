@@ -20266,10 +20266,7 @@
 <span class="w">            </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">TimeUntilNextCel</span><span class="o">--</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">CelIndex</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">UpdateCel</span><span class="p">();</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ActionTime</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThrowTechTimer</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
@@ -20356,7 +20353,7 @@
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsMainPlayer</span><span class="p">())</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_DeathCamOverride</span><span class="p">))</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_DeathCamOverride</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">AttackOwner</span><span class="p">)</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ReceivedHitCommon</span><span class="p">.</span><span class="n">AttackLevel</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="w">                    </span><span class="p">{</span>
@@ -20375,7 +20372,7 @@
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Enemy</span><span class="o">-&gt;</span><span class="n">CurrentHealth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">Enemy</span><span class="o">-&gt;</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsDead</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Enemy</span><span class="o">-&gt;</span><span class="n">CurrentHealth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">Enemy</span><span class="o">-&gt;</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsDead</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">AttackOwner</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">AddCommonBattleObject</span><span class="p">(</span><span class="n">State_BattleObject_KO_Draw</span><span class="p">);</span>
 <span class="w">            </span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -20454,6 +20451,19 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AirDashNoAttackTime</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="n">EnableAttacks</span><span class="p">();</span>
 
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EStateType</span><span class="o">::</span><span class="n">Hitstun</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">State_Universal_FaceDownBounce</span>
+<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">State_Universal_FaceUpBounce</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ReceivedHit</span><span class="p">.</span><span class="n">GroundBounce</span><span class="p">.</span><span class="n">GroundBounceCount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ActionTime</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">HandleGroundBounce</span><span class="p">();</span>
+<span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">StunTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StunTime</span><span class="o">--</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">StunTime</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsDead</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CheckIsStunned</span><span class="p">())</span>
@@ -20475,6 +20485,8 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PosY</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GroundHeight</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PrevPosY</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GroundHeight</span><span class="w"> </span>
 <span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_Crumple</span><span class="w"> </span>
+<span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_FaceDownBounce</span>
+<span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_FaceUpBounce</span>
 <span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_FaceDownLoop</span><span class="w"> </span>
 <span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_FaceUpLoop</span>
 <span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">State_Universal_FaceDownWakeUp</span><span class="w"> </span>
@@ -20492,16 +20504,22 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(((</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsKnockedDown</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsHardKnockedDown</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span>
-<span class="w">                </span><span class="n">PLF_IsDead</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">                </span><span class="n">EnableState</span><span class="p">(</span><span class="n">ENB_Tech</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsDead</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsKnockedDown</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">EnableState</span><span class="p">(</span><span class="n">ENB_Tech</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+<span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsHardKnockedDown</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ActionTime</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">EnableState</span><span class="p">(</span><span class="n">ENB_Tech</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_TouchingWall</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Enemy</span><span class="o">-&gt;</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EStateType</span><span class="o">::</span><span class="n">Hitstun</span><span class="w"> </span><span class="o">&amp;&amp;</span>
 <span class="w">        </span><span class="n">Pushback</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">AttackOwner</span><span class="p">))</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">AttackOwner</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">AttackOwner</span><span class="o">-&gt;</span><span class="n">IsPlayer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">AttackOwner</span><span class="o">-&gt;</span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">Stance</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EActionStance</span><span class="o">::</span><span class="n">ACT_Jumping</span><span class="p">)</span>
 <span class="w">            </span><span class="n">AttackOwner</span><span class="o">-&gt;</span><span class="n">Pushback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pushback</span><span class="p">;</span>
 <span class="w">        </span><span class="n">Pushback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -20570,24 +20588,12 @@
 
 <span class="w">    </span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EVT_Update</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EStateType</span><span class="o">::</span><span class="n">Hitstun</span><span class="p">)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">State_Universal_FaceDownBounce</span>
-<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">GetCurrentStateName</span><span class="p">(</span><span class="n">StateMachine_Primary</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">State_Universal_FaceUpBounce</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ReceivedHit</span><span class="p">.</span><span class="n">GroundBounce</span><span class="p">.</span><span class="n">GroundBounceCount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">HandleGroundBounce</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">UpdateCel</span><span class="p">();</span>
 
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Gauge</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ExtraGauges</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Gauge</span><span class="p">.</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FMath</span><span class="o">::</span><span class="n">Clamp</span><span class="p">(</span><span class="n">Gauge</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">Gauge</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">TimeUntilNextCel</span><span class="o">--</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CelIndex</span><span class="o">++</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EStateType</span><span class="o">::</span><span class="n">Hitstun</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ReceivedHit</span><span class="p">.</span><span class="n">WallBounce</span><span class="p">.</span><span class="n">WallBounceCount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">PosY</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">GroundHeight</span><span class="p">)</span>
@@ -20617,10 +20623,7 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">Update</span><span class="p">();</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">TimeUntilNextCel</span><span class="o">--</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CelIndex</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UpdateCel</span><span class="p">();</span>
 <span class="w">    </span><span class="n">GetBoxes</span><span class="p">();</span>
 
 <span class="w">    </span><span class="n">UpdateVisuals</span><span class="p">();</span>
@@ -21447,6 +21450,12 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">GetMainPlayer</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
+<span class="n">APlayerObject</span><span class="o">*</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">GetMainPlayer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GameState</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">GetMainPlayer</span><span class="p">(</span><span class="n">PlayerIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
 <span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">IsOnScreen</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsOnScreen</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PLF_IsOnScreen</span><span class="p">;</span>
@@ -21484,7 +21493,7 @@
 <span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">FindChainCancelOption</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
 <span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">FindAutoComboCancelOption</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
 <span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="n">FindWhiffCancelOption</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
-<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">CheckKaraCancel</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
+<span class="w">            </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">CheckKaraCancel</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">CustomStateType</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
 <span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">IsFollowupState</span>
 <span class="w">                </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">GetStateIndex</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Name</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">GetStateIndex</span><span class="p">(</span><span class="n">GetStateEntryName</span><span class="p">()))</span>
 <span class="w">        </span><span class="p">))</span><span class="w"> </span><span class="c1">//check if the state is enabled</span>
@@ -21770,6 +21779,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">StateMachine</span><span class="p">.</span><span class="n">ForceSetState</span><span class="p">(</span><span class="n">BufferedStateName</span><span class="p">))</span>
 <span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">BufferedStateName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">;</span>
 <span class="w">            </span><span class="n">GotoLabelActive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 <span class="w">            </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">StateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">EntryStance</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
@@ -21786,7 +21796,6 @@
 <span class="w">                </span><span class="k">break</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">BufferedStateName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -22062,7 +22071,7 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">CheckKaraCancel</span><span class="p">(</span><span class="n">EStateType</span><span class="w"> </span><span class="n">InStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FStateMachine</span><span class="o">&amp;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">CheckKaraCancel</span><span class="p">(</span><span class="n">EStateType</span><span class="w"> </span><span class="n">InStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">&amp;</span><span class="w"> </span><span class="n">CustomStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FStateMachine</span><span class="o">&amp;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">CancelFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">CNC_EnableKaraCancel</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_DidKaraCancel</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -22072,7 +22081,7 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ActionTime</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InStateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">InStateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">CustomStateType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">CustomStateType</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">PLF_DidKaraCancel</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
@@ -22229,8 +22238,6 @@
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReceivedHit</span><span class="p">.</span><span class="n">GroundBounce</span><span class="p">.</span><span class="n">GroundBounceStop</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">PLF_IsKnockedDown</span><span class="p">;</span>
-<span class="w">    </span><span class="n">HandleBufferedState</span><span class="p">(</span><span class="n">PrimaryStateMachine</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">SetComponentVisibility</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
@@ -22459,6 +22466,11 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PrimaryStateMachine</span><span class="p">;</span>
 <span class="p">}</span>
 
+<span class="n">EStateType</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">GetStateType</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">CurrentState</span><span class="o">-&gt;</span><span class="n">StateType</span><span class="p">;</span>
+<span class="p">}</span>
+
 <span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">CheckStateEnabled</span><span class="p">(</span><span class="n">EStateType</span><span class="w"> </span><span class="n">StateType</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">CustomStateType</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">StateMachineName</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">StateType</span><span class="p">)</span>
@@ -22598,9 +22610,7 @@
 <span class="w">    </span><span class="n">NextOffsetY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="w">    </span><span class="c1">// Reset root motion params</span>
-<span class="w">    </span><span class="n">PrevRootMotionX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PrevRootMotionY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PrevRootMotionZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ApplyRootMotion</span><span class="p">();</span>
 
 <span class="w">    </span><span class="c1">// Reset angle</span>
 <span class="w">    </span><span class="n">AnglePitch_x1000</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -22924,6 +22934,7 @@
 <span class="w">        </span><span class="n">SetFacing</span><span class="p">(</span><span class="n">DIR_Left</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">RoundInit_BP</span><span class="p">();</span>
+<span class="w">    </span><span class="n">ClearInputBuffer</span><span class="p">();</span>
 
 <span class="w">    </span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">Subroutine_Cmn_RoundInit</span><span class="p">);</span>
 <span class="w">    </span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">Subroutine_RoundInit</span><span class="p">);</span>
@@ -23074,6 +23085,11 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">StoredInputBuffer</span><span class="p">.</span><span class="n">CheckInputCondition</span><span class="p">(</span><span class="n">Input</span><span class="p">);</span>
 <span class="p">}</span>
 
+<span class="kt">void</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">ClearInputBuffer</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">StoredInputBuffer</span><span class="p">.</span><span class="n">ResetBuffer</span><span class="p">();</span>
+<span class="p">}</span>
+
 <span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">CheckIsAttacking</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ATK_IsAttacking</span><span class="p">;</span>
@@ -23217,6 +23233,11 @@
 <span class="w">    </span><span class="n">WhiffCancelOptions</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">PrimaryStateMachine</span><span class="p">.</span><span class="n">GetStateIndex</span><span class="p">(</span><span class="n">Option</span><span class="p">));</span>
 <span class="p">}</span>
 
+<span class="kt">void</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">ClearMovesUsedInChain</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">MovesUsedInChain</span><span class="p">.</span><span class="n">Empty</span><span class="p">();</span>
+<span class="p">}</span>
+
 <span class="kt">void</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">EnableChainCancel</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">Enable</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Enable</span><span class="p">)</span>
@@ -23319,9 +23340,8 @@
 <span class="p">{</span>
 <span class="w">    </span><span class="n">StunTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="n">StunTimeMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">PLF_IsKnockedDown</span><span class="p">;</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsHardKnockedDown</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_IsDead</span><span class="p">))</span>
-<span class="w">        </span><span class="n">EnableState</span><span class="p">(</span><span class="n">ENB_Tech</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ReceivedHit</span><span class="p">.</span><span class="n">GroundBounce</span><span class="p">.</span><span class="n">GroundBounceCount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">PLF_IsKnockedDown</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">bool</span><span class="w"> </span><span class="n">APlayerObject</span><span class="o">::</span><span class="n">IsTouchingWall</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>

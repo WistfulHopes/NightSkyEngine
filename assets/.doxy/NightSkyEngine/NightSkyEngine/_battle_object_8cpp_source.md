@@ -519,7 +519,66 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
         == INDEX_NONE && !AttackedObj->Player->IsInvulnerable(this))
     {
         auto AttackedPlayer = Cast<APlayerObject>(AttackedObj);
-        if (!AttackedPlayer) return;
+        if (!AttackedPlayer)
+        {
+            if (CheckBoxOverlap(AttackedObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hurt, FGameplayTag::EmptyTag))
+            {
+                AttackedObj->AttackOwner = this;
+                AttackedObj->ObjectsToIgnoreHitsFrom.AddUnique(this);
+                AttackFlags |= ATK_HasHit;
+                if (AttackFlags & ATK_SetPlayerHit) Player->AttackFlags |= ATK_HasHit;
+                AttackTarget = AttackedObj;
+
+                if (AttackedObj->SuperArmorSuccess(this))
+                {
+                    TriggerEvent(EVT_Hit, StateMachine_Primary);
+
+                    if (AttackedObj->SuperArmorData.ArmorHits > 0)
+                        AttackedObj->SuperArmorData.ArmorHits--;
+
+                    switch (AttackedObj->SuperArmorData.Type)
+                    {
+                    case ARM_Guard:
+                        {
+                            const FHitData Data = InitHitDataByAttackLevel(false);
+                            AttackedObj->ReceivedHitCommon = HitCommon;
+                            AttackedObj->ReceivedHit = Data;
+
+                            Hitstop = Data.Hitstop;
+                            AttackedObj->Hitstop = Data.Hitstop;
+                        }
+                        break;
+                    case ARM_Dodge:
+                    default:
+                        break;
+                    }
+
+                    if (AttackedObj->SuperArmorData.bArmorDisableIncomingHit)
+                        EnableHit(false);
+                    return;
+                }
+                
+                CallSubroutine(Subroutine_Cmn_OnHit);
+
+                TriggerEvent(EVT_Hit, StateMachine_Primary);
+                AttackedObj->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
+
+                if (IsPlayer && Player->PlayerFlags & PLF_HitgrabActive)
+                {
+                    return;
+                }
+
+                const FHitData Data = InitHitDataByAttackLevel(false);
+                CreateCommonParticle(HitCommon.HitVFX, POS_Col,
+                                     FVector(0, 0, 0),
+                                     FRotator(HitCommon.HitAngle, 0, 0));
+                PlayCommonSound(HitCommon.HitSFX);
+                
+                AttackedObj->Hitstop = Data.Hitstop;
+                Hitstop = Data.Hitstop;
+            }
+            return;
+        }
         if (CheckBoxOverlap(AttackedObj, BOX_Hit, FGameplayTag::EmptyTag, BOX_Hurt, FGameplayTag::EmptyTag))
         {
             AttackedPlayer->AttackOwner = this;
@@ -543,7 +602,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
             if (AttackedPlayer->IsCorrectBlock(HitCommon.BlockType)) //check blocking
             {
                 CallSubroutine(Subroutine_Cmn_OnBlock);
-                
+
                 CreateCommonParticle(Particle_Guard, POS_Enemy,
                                      FVector(0, 100, 0),
                                      FRotator(HitCommon.HitAngle, 0, 0));
@@ -588,6 +647,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
             }
             else if (AttackedPlayer->SuperArmorSuccess(this))
             {
+                AttackedPlayer->PlayerFlags &= ~PLF_IsStunned;
                 TriggerEvent(EVT_Hit, StateMachine_Primary);
                 if (AttackedPlayer->IsMainPlayer())
                 {
@@ -595,8 +655,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
                 }
 
                 if (AttackedPlayer->SuperArmorData.ArmorHits > 0)
-                    AttackedPlayer->SuperArmorData.
-                                    ArmorHits--;
+                    AttackedPlayer->SuperArmorData.ArmorHits--;
+
                 switch (AttackedPlayer->SuperArmorData.Type)
                 {
                 case ARM_Guard:
@@ -658,13 +718,16 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
                 default:
                     break;
                 }
+
+                if (AttackedPlayer->SuperArmorData.bArmorDisableIncomingHit)
+                    EnableHit(false);
             }
             else if ((AttackedPlayer->AttackFlags & ATK_IsAttacking) == 0)
             {
                 AttackedPlayer->PlayerFlags &= ~PLF_ReceivedCounterHit;
 
                 CallSubroutine(Subroutine_Cmn_OnHit);
-                
+
                 TriggerEvent(EVT_Hit, StateMachine_Primary);
                 AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
                 if (AttackedPlayer->IsMainPlayer())
@@ -704,10 +767,10 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
             else
             {
                 AttackedPlayer->PlayerFlags |= PLF_ReceivedCounterHit;
-                
+
                 CallSubroutine(Subroutine_Cmn_OnHit);
                 CallSubroutine(Subroutine_Cmn_OnCounterHit);
-                
+
                 TriggerEvent(EVT_Hit, StateMachine_Primary);
                 TriggerEvent(EVT_CounterHit, StateMachine_Primary);
                 AttackedPlayer->TriggerEvent(EVT_ReceiveHit, StateMachine_Primary);
@@ -717,7 +780,7 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
                     TriggerEvent(EVT_CounterHitMainPlayer, StateMachine_Primary);
                     AttackedPlayer->TriggerEvent(EVT_ReceiveHitMainPlayer, StateMachine_Primary);
                 }
-                
+
                 AttackedPlayer->AddColor = FLinearColor(1, 0, 0.0, 1);
                 AttackedPlayer->MulColor = FLinearColor(2.5, 0.1, 0.1, 1);
                 AttackedPlayer->AddFadeSpeed = 0.1;
@@ -1090,6 +1153,24 @@ FHitData ABattleObject::InitHitDataByAttackLevel(bool IsCounter)
         break;
     }
 
+    if (HitCommon.GuardSFXOverride != FGameplayTag::EmptyTag)
+    {
+        HitCommon.GuardSFX = HitCommon.GuardSFXOverride;
+    }
+    if (HitCommon.HitSFXOverride != FGameplayTag::EmptyTag)
+    {
+        HitCommon.HitSFX = HitCommon.HitSFXOverride;
+    }
+
+    if (HitCommon.GuardVFXOverride != FGameplayTag::EmptyTag)
+    {
+        HitCommon.GuardVFX = HitCommon.GuardVFXOverride;
+    }
+    if (HitCommon.HitVFXOverride != FGameplayTag::EmptyTag)
+    {
+        HitCommon.HitVFX = HitCommon.HitVFXOverride;
+    }
+
     if (NormalHit.EnemyHitstopModifier == INT_MAX)
         NormalHit.EnemyHitstopModifier = 0;
     if (NormalHit.RecoverableDamagePercent == INT_MAX)
@@ -1344,6 +1425,13 @@ void ABattleObject::ScreenPosToWorldPos(const int32 X, const int32 Y, int32& Out
     GameState->ScreenPosToWorldPos(X, Y, OutX, OutY);
 }
 
+void ABattleObject::WorldPosToScreenPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const
+{
+    if (!GameState) return;
+
+    GameState->WorldPosToScreenPos(X, Y, OutX, OutY);
+}
+
 void ABattleObject::TriggerEvent(EEventType EventType, FGameplayTag StateMachineName)
 {
     if (EventType == EVT_Update) UpdateTime++;
@@ -1378,6 +1466,14 @@ void ABattleObject::TriggerEvent(EEventType EventType, FGameplayTag StateMachine
     {
         State->ProcessEvent(Func, nullptr);
     }
+}
+
+void ABattleObject::UpdateCel()
+{
+    if (TimeUntilNextCel > 0)
+        TimeUntilNextCel--;
+    if (TimeUntilNextCel == 0)
+        CelIndex++;
 }
 
 //for collision viewer
@@ -1607,6 +1703,10 @@ void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
 
 void ABattleObject::UpdateVisuals()
 {
+    if (!IsActive) return;
+    if (!bRender) return;
+    if (IsPlayer && !Player->IsOnScreen()) return;
+    
     if (IsValid(GameState))
     {
         if (GameState->BattleState.CurrentSequenceTime >= 0)
@@ -1784,6 +1884,37 @@ void ABattleObject::UpdateVisualsNoRollback()
         }
     }
 
+    if (!IsPlayer)
+    {
+        TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+        this->GetComponents(USkeletalMeshComponent::StaticClass(), SkeletalMeshComponents);
+
+        for (USkeletalMeshComponent* Mesh : SkeletalMeshComponents)
+        {
+            TArray<UMaterialInterface*> Mats = Mesh->GetMaterials();
+            for (int64 i = 0; i < Mesh->GetNumMaterials(); i++)
+            {
+                UMaterialInterface* Mat = Mesh->GetMaterial(i);
+                if (!Mat)
+                {
+                    continue;
+                }
+
+                UMaterialInstanceDynamic* MIDynamic = Cast<UMaterialInstanceDynamic>(Mat);
+                if (!MIDynamic)
+                {
+                    MIDynamic = UMaterialInstanceDynamic::Create(Mats[i], this);
+                    Mesh->SetMaterial(i, MIDynamic);
+                }
+                MIDynamic->SetScalarParameterValue(TEXT("Transparency"), Transparency);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
+                MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
+                MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
+            }
+        }
+    }
+
     FrameBlendPosition = static_cast<float>(MaxCelTime - TimeUntilNextCel) / static_cast<float>(MaxCelTime);
     MarkComponentsRenderStateDirty();
 }
@@ -1905,6 +2036,8 @@ void ABattleObject::InitObject()
     if (IsValid(LinkedParticle))
     {
         LinkedParticle->Deactivate();
+        LinkedParticle->DestroyComponent();
+        LinkedParticle = nullptr;
     }
     ObjectState->Parent = this;
     ObjectState->Init();
@@ -1988,10 +2121,7 @@ void ABattleObject::Update()
         if (LinkedActor)
             LinkedActor->Update();
         
-        if (TimeUntilNextCel > 0)
-            TimeUntilNextCel--;
-        if (TimeUntilNextCel == 0)
-            CelIndex++;
+        UpdateCel();
         
         Move();
         
@@ -2000,8 +2130,8 @@ void ABattleObject::Update()
 
         if (MiscFlags & MISC_DeactivateIfBeyondBounds)
         {
-            if (PosX > GameState->BattleState.ScreenData.ScreenBoundsRight * 1000 + 105000
-                || PosX < GameState->BattleState.ScreenData.ScreenBoundsLeft * 1000 - 105000)
+            if (PosX > GameState->BattleState.ScreenData.ScreenBoundsRight * 1000 + 85000
+                || PosX < GameState->BattleState.ScreenData.ScreenBoundsLeft * 1000 - 85000)
                 DeactivateObject();
         }
     }
@@ -2016,6 +2146,7 @@ void ABattleObject::ResetObject()
     {
         LinkedParticle->SetVisibility(false);
         LinkedParticle->Deactivate();
+        LinkedParticle->DestroyComponent();
         LinkedParticle = nullptr;
     }
     RemoveLinkActor();
@@ -2298,7 +2429,8 @@ void ABattleObject::SetTimeUntilNextCel(int32 InTime)
 
 void ABattleObject::SetCelDuration(int32 InTime)
 {
-    TimeUntilNextCel = MaxCelTime = InTime;
+    MaxCelTime = InTime;
+    TimeUntilNextCel = MaxCelTime;
 }
 
 void ABattleObject::AddPosXWithDir(int InPosX)
@@ -2541,12 +2673,12 @@ void ABattleObject::SetAttacking(bool Attacking)
     if (Attacking)
     {
         AttackFlags |= ATK_IsAttacking;
+        AttackFlags &= ~ATK_HasHit;
     }
     else
     {
         AttackFlags &= ~ATK_IsAttacking;
     }
-    AttackFlags &= ~ATK_HasHit;
     AttackFlags &= ~ATK_HitActive;
 }
 
@@ -2595,7 +2727,6 @@ void ABattleObject::SetHitOTG(bool Enable)
         AttackFlags |= ATK_HitOTG;
     else
         AttackFlags &= ~ATK_HitOTG;
-
 }
 
 void ABattleObject::SetIgnorePushbackScaling(bool Ignore)
@@ -3093,7 +3224,11 @@ void ABattleObject::LinkCommonParticle(FGameplayTag Name)
             if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
             {
                 if (IsValid(LinkedParticle))
+                {
                     LinkedParticle->Deactivate();
+                    LinkedParticle->DestroyComponent();
+                }
+                LinkedParticle = nullptr;
                 LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
                     ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
                     EAttachLocation::SnapToTargetIncludingScale, true);
@@ -3122,7 +3257,11 @@ void ABattleObject::LinkCharaParticle(FGameplayTag Name)
             if (ParticleStruct.Name == Name && ParticleStruct.ParticleSystem)
             {
                 if (IsValid(LinkedParticle))
+                {
                     LinkedParticle->Deactivate();
+                    LinkedParticle->DestroyComponent();
+                }
+                LinkedParticle = nullptr;
                 LinkedParticle = UNiagaraFunctionLibrary::SpawnSystemAttached(
                     ParticleStruct.ParticleSystem, RootComponent, FName(), FVector(), FRotator(),
                     EAttachLocation::SnapToTargetIncludingScale, true);

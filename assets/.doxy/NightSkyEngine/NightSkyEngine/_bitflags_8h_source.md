@@ -115,6 +115,7 @@ enum EPlayerFlags
     PLF_HitgrabActive = 0x2000 UMETA(DisplayName = "Hitgrab Active"),
     PLF_ReceivedCounterHit = 0x4000 UMETA(DisplayName = "Received Counter Hit"),
     PLF_DidKaraCancel = 0x8000 UMETA(DisplayName = "Did Kara Cancel"),
+    PLF_HasBounced = 0x20000 UMETA(DisplayName = "Has Bounced"),
 };
 
 UENUM()

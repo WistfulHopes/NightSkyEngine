@@ -576,6 +576,8 @@
       <member refid="class_a_night_sky_game_state_1af1cef72e0b99f6407c80237c44eea405" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CallBattleExtension</name></member>
       <member refid="class_a_night_sky_game_state_1a1e3d04923638eef0e6b3f877e48ed478" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CameraActor</name></member>
       <member refid="class_a_night_sky_game_state_1ab1b4f6ed6493c24ed1a7ebd1d9eef224" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CameraShake</name></member>
+      <member refid="class_a_night_sky_game_state_1a41e848b74cd1fb4bf6b7b5456cd0b4bd" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CameraYaw</name></member>
+      <member refid="class_a_night_sky_game_state_1acb89e0643e3e7cd29feeca8ca926471a" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CameraYOffset</name></member>
       <member refid="class_a_night_sky_game_state_1a4143e5ba45bee2c9e781409c29d12441" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CanTag</name></member>
       <member refid="class_a_night_sky_game_state_1a870fc08ae3a8e37fbcf308d52788b687" prot="protected" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CollisionView</name></member>
       <member refid="class_a_night_sky_game_state_1a3e20535f5a4a6914ae9784275044022f" prot="protected" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>CreateChecksum</name></member>
@@ -657,6 +659,7 @@
       <member refid="class_a_night_sky_game_state_1a1de7f6dbdabee6c8017b0f9b0b2cf311" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>UpdateScreen</name></member>
       <member refid="class_a_night_sky_game_state_1a23a136407c51b13d13b17006ddb58ed4" prot="protected" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>UpdateVisuals</name></member>
       <member refid="class_a_night_sky_game_state_1a05e8e6845c19c70357d5d30cf06140f8" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>UseGauge</name></member>
+      <member refid="class_a_night_sky_game_state_1a6243b120d1a95233e460a9d116abb4bb" prot="public" virt="non-virtual"><scope>ANightSkyWTGameState</scope><name>WorldPosToScreenPos</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

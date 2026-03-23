@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="57" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="57" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="63" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="63" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="59" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="59" bodyend="66"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="65" column="18" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="65" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="class_u_collision_data_1a8d04a741849d290363781994217e6617" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>int32</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="68" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="68" bodyend="75"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="74" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="74" bodyend="81"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -83,7 +83,7 @@
         <label>UDataAsset</label>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="52" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="53" bodyend="114"/>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" line="58" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Data/CollisionData.h" bodystart="59" bodyend="120"/>
     <listofallmembers>
       <member refid="class_u_collision_data_1a46c003c0985744375dd0abaf1bd0ef4d" prot="public" virt="non-virtual"><scope>UCollisionData</scope><name>CollisionFrames</name></member>
       <member refid="class_u_collision_data_1a72b9be5e67cd90b86ef7f56105b8e0a3" prot="public" virt="non-virtual"><scope>UCollisionData</scope><name>GetByCelName</name></member>

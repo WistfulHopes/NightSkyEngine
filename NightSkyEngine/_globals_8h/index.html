@@ -4981,6 +4981,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#define-obj_scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define OBJ_SCALE
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -20054,6 +20065,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#define-obj_scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        define OBJ_SCALE
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -20124,7 +20146,11 @@
 <tbody>
 <tr>
 <td style="text-align: right;">define</td>
-<td style="text-align: left;"><a href="./#define-coord_scale"><strong>COORD_SCALE</strong></a>  <code>((double)1000 / 0.43)</code><br></td>
+<td style="text-align: left;"><a href="./#define-coord_scale"><strong>COORD_SCALE</strong></a>  <code>((float)1000 / OBJ\_SCALE)</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">define</td>
+<td style="text-align: left;"><a href="./#define-obj_scale"><strong>OBJ_SCALE</strong></a>  <code>0.43f</code><br></td>
 </tr>
 </tbody>
 </table>
@@ -20158,8 +20184,14 @@
 <hr>
 <h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
 <h3 id="define-coord_scale">define COORD_SCALE</h3>
-<div class="highlight"><pre><span></span><code><span class="cp">#define COORD_SCALE `((double)1000 / 0.43)`</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#define COORD_SCALE `((float)1000 / OBJ_SCALE)`</span>
 </code></pre></div>
+<hr>
+
+<h3 id="define-obj_scale">define OBJ_SCALE</h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#define OBJ_SCALE `0.43f`</span>
+</code></pre></div>
+<p>DO NOT TOUCH. These are integral to the unit scale system, and adjusting them will break rendering if you don't know what you're doing. </p>
 <hr>
 
 <hr />

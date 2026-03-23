@@ -38,6 +38,7 @@
 |  int32 | [**ArmorDamagePercent**](#variable-armordamagepercent)  <br> |
 |  int32 | [**ArmorHits**](#variable-armorhits)  <br> |
 |  TEnumAsByte&lt; ESuperArmorType &gt; | [**Type**](#variable-type)  <br> |
+|  uint8 | [**bArmorDisableIncomingHit**](#variable-barmordisableincominghit)  <br> |
 |  uint8 | [**bArmorHead**](#variable-barmorhead)  <br> |
 |  uint8 | [**bArmorLow**](#variable-barmorlow)  <br> |
 |  uint8 | [**bArmorMid**](#variable-barmormid)  <br> |
@@ -125,6 +126,19 @@ int32 FSuperArmorData::ArmorHits;
 
 ```C++
 TEnumAsByte<ESuperArmorType> FSuperArmorData::Type;
+```
+
+
+
+
+<hr>
+
+
+
+### variable bArmorDisableIncomingHit 
+
+```C++
+uint8 FSuperArmorData::bArmorDisableIncomingHit;
 ```
 
 

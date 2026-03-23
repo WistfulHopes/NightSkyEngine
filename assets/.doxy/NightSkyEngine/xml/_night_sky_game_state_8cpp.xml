@@ -857,8 +857,8 @@
 <codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)-&gt;JumpToStatePrimary(State_Universal_Stand);</highlight></codeline>
 <codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)-&gt;JumpToStatePrimary(State_Universal_Stand);</highlight></codeline>
 <codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[0]-&gt;PlayerFlags<sp/>=<sp/>PLF_IsOnScreen;</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[BattleState.TeamData[0].TeamCount]-&gt;PlayerFlags<sp/>=<sp/>PLF_IsOnScreen;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[0]-&gt;PlayerFlags<sp/>|=<sp/>PLF_IsOnScreen;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[BattleState.TeamData[0].TeamCount]-&gt;PlayerFlags<sp/>|=<sp/>PLF_IsOnScreen;</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"></highlight></codeline>
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.MaxMeter[0]<sp/>=<sp/>Players[0]-&gt;MaxMeter;</highlight></codeline>
 <codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.MaxMeter[1]<sp/>=<sp/>Players[BattleState.TeamData[0].TeamCount]-&gt;MaxMeter;</highlight></codeline>
@@ -908,8 +908,8 @@
 <codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)-&gt;JumpToStatePrimary(State_Universal_Stand);</highlight></codeline>
 <codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)-&gt;JumpToStatePrimary(State_Universal_Stand);</highlight></codeline>
 <codeline lineno="267"><highlight class="normal"></highlight></codeline>
-<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)-&gt;PlayerFlags<sp/>=<sp/>PLF_IsOnScreen;</highlight></codeline>
-<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)-&gt;PlayerFlags<sp/>=<sp/>PLF_IsOnScreen;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)-&gt;PlayerFlags<sp/>|=<sp/>PLF_IsOnScreen;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetMainPlayer(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)-&gt;PlayerFlags<sp/>|=<sp/>PLF_IsOnScreen;</highlight></codeline>
 <codeline lineno="270"><highlight class="normal"></highlight></codeline>
 <codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.MaxMeter[0]<sp/>=<sp/>GetMainPlayer(</highlight><highlight class="keyword">true</highlight><highlight class="normal">)-&gt;MaxMeter;</highlight></codeline>
 <codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.MaxMeter[1]<sp/>=<sp/>GetMainPlayer(</highlight><highlight class="keyword">false</highlight><highlight class="normal">)-&gt;MaxMeter;</highlight></codeline>
@@ -999,7 +999,7 @@
 <codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;PlayerIndex<sp/>=<sp/>i<sp/>&gt;=<sp/>BattleState.TeamData[0].TeamCount;</highlight></codeline>
-<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;TeamIndex<sp/>=<sp/>i<sp/>&gt;=<sp/>BattleState.TeamData[0].TeamCount<sp/>?<sp/>i<sp/>-<sp/>BattleState.TeamData[0].TeamCount<sp/>:<sp/>i;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;TeamIndex<sp/>=<sp/>i<sp/>&gt;=<sp/>BattleState.TeamData[0].TeamCount<sp/>?<sp/>0<sp/>:<sp/>1;</highlight></codeline>
 <codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;PlayerFlags<sp/>&amp;=<sp/>~PLF_IsOnScreen;</highlight></codeline>
 <codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;ObjNumber<sp/>=<sp/>i<sp/>+<sp/>MaxBattleObjects;</highlight></codeline>
 <codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;CallSubroutine(Subroutine_Cmn_MatchInit);</highlight></codeline>
@@ -1449,7 +1449,7 @@
 <codeline lineno="806"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>=<sp/>ScreenData-&gt;</highlight></codeline>
 <codeline lineno="807"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StageBoundsTop<sp/>-<sp/>106;</highlight></codeline>
 <codeline lineno="808"><highlight class="normal"></highlight></codeline>
-<codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>ScreenData-&gt;ScreenYZoom<sp/>=<sp/>106<sp/>*<sp/>(1</highlight></codeline>
+<codeline lineno="809"><highlight class="normal"><sp/><sp/><sp/><sp/>ScreenData-&gt;ScreenYZoom<sp/>=<sp/>CameraYOffset<sp/>*<sp/>(1</highlight></codeline>
 <codeline lineno="810"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ScreenData-&gt;FinalScreenWidth)<sp/>/<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ScreenData-&gt;DefaultWidth));</highlight></codeline>
 <codeline lineno="811"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="812"><highlight class="normal"></highlight></codeline>
@@ -1521,7 +1521,7 @@
 <codeline lineno="878"><highlight class="normal"></highlight></codeline>
 <codeline lineno="879"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::UpdateVisuals(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>bShouldResimulate)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
 <codeline lineno="880"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="881"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>SortedObjects.Num();<sp/>i++)</highlight></codeline>
+<codeline lineno="881"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>BattleState.ActiveObjectCount;<sp/>i++)</highlight></codeline>
 <codeline lineno="882"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="883"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SortedObjects[i]-&gt;UpdateVisuals();</highlight></codeline>
 <codeline lineno="884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bShouldResimulate)</highlight></codeline>
@@ -1909,12 +1909,12 @@
 <codeline lineno="1266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ScreenData<sp/>=<sp/>&amp;BattleState.ScreenData;</highlight></codeline>
 <codeline lineno="1267"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CameraPosition<sp/>=<sp/>BattleSceneTransform.GetRotation().RotateVector(</highlight></codeline>
-<codeline lineno="1269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FVector(ScreenData-&gt;FinalScreenX<sp/>*<sp/>0.43,<sp/>ScreenData-&gt;FinalScreenWidth<sp/>*<sp/>0.43,</highlight></codeline>
-<codeline lineno="1270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>*<sp/>0.43<sp/>-<sp/>ScreenData-&gt;ScreenYZoom<sp/>+<sp/>106))<sp/>+<sp/>BattleSceneTransform.</highlight></codeline>
+<codeline lineno="1269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FVector(ScreenData-&gt;FinalScreenX<sp/>*<sp/>OBJ_SCALE,<sp/>ScreenData-&gt;FinalScreenWidth<sp/>*<sp/>OBJ_SCALE,</highlight></codeline>
+<codeline lineno="1270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ScreenData-&gt;FinalScreenY<sp/>*<sp/>OBJ_SCALE<sp/>-<sp/>ScreenData-&gt;ScreenYZoom<sp/>+<sp/>CameraYOffset))<sp/>+<sp/>BattleSceneTransform.</highlight></codeline>
 <codeline lineno="1271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetLocation();</highlight></codeline>
 <codeline lineno="1272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FRotator<sp/>CameraRotation<sp/>=<sp/>BattleSceneTransform.GetRotation().Rotator();</highlight></codeline>
 <codeline lineno="1273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Yaw<sp/>-=<sp/>90;</highlight></codeline>
-<codeline lineno="1274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Pitch<sp/>+=<sp/>2.5;</highlight></codeline>
+<codeline lineno="1274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraRotation.Pitch<sp/>-=<sp/>CameraYaw;</highlight></codeline>
 <codeline lineno="1275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraActor-&gt;SetActorLocation(BattleState.CameraPosition);</highlight></codeline>
 <codeline lineno="1276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CameraActor-&gt;SetActorRotation(CameraRotation);</highlight></codeline>
 <codeline lineno="1277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CurrentSequenceTime<sp/>==<sp/>-1)</highlight></codeline>
@@ -2351,7 +2351,7 @@
 <codeline lineno="1708"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PlayerObjects;</highlight></codeline>
 <codeline lineno="1709"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1710"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;APlayerObject*&gt;<sp/>PlayerObjects;</highlight></codeline>
-<codeline lineno="1711"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>BattleState.TeamData[1].TeamCount;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
+<codeline lineno="1711"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>BattleState.TeamData[0].TeamCount;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
 <codeline lineno="1712"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="1713"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayerObjects.Add(Players[i]);</highlight></codeline>
 <codeline lineno="1714"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>PlayerObjects.Num()<sp/>-<sp/>1;<sp/>j++)</highlight></codeline>
@@ -2444,361 +2444,369 @@
 <codeline lineno="1801"><highlight class="normal"></highlight></codeline>
 <codeline lineno="1802"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::ScreenPosToWorldPos(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32<sp/>X,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32<sp/>Y,<sp/>int32&amp;<sp/>OutX,<sp/>int32&amp;<sp/>OutY)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
 <codeline lineno="1803"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1804"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ScreenYSize<sp/>=<sp/>BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>360<sp/>/<sp/>1280;</highlight></codeline>
+<codeline lineno="1804"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ScreenYSize<sp/>=<sp/>BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>720<sp/>/<sp/>1280;</highlight></codeline>
 <codeline lineno="1805"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1806"><highlight class="normal"><sp/><sp/><sp/><sp/>OutX<sp/>=<sp/>BattleState.ScreenData.ScreenWorldCenterX<sp/>*<sp/>1000<sp/>+<sp/>BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>(X<sp/>-<sp/>500);</highlight></codeline>
-<codeline lineno="1807"><highlight class="normal"><sp/><sp/><sp/><sp/>OutY<sp/>=<sp/>BattleState.ScreenData.ScreenWorldCenterY<sp/>*<sp/>1000<sp/>+<sp/>ScreenYSize<sp/>*<sp/>Y;</highlight></codeline>
+<codeline lineno="1806"><highlight class="normal"><sp/><sp/><sp/><sp/>OutX<sp/>=<sp/>BattleState.ScreenData.FinalScreenX<sp/>*<sp/>1000<sp/>+<sp/>BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>X;</highlight></codeline>
+<codeline lineno="1807"><highlight class="normal"><sp/><sp/><sp/><sp/>OutY<sp/>=<sp/>BattleState.ScreenData.FinalScreenY<sp/>*<sp/>1000<sp/>+<sp/>ScreenYSize<sp/>*<sp/>Y;</highlight></codeline>
 <codeline lineno="1808"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="1809"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1810"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::BattleHudVisibility(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Visible)</highlight></codeline>
-<codeline lineno="1811"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1812"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.bHUDVisible<sp/>=<sp/>Visible;</highlight></codeline>
-<codeline lineno="1813"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1814"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1815"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayCommonAudio(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
-<codeline lineno="1816"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1817"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1818"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1819"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].Finished)</highlight></codeline>
-<codeline lineno="1820"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1821"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
-<codeline lineno="1822"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="1823"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
-<codeline lineno="1824"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1825"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1826"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1827"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(InSoundWave);</highlight></codeline>
-<codeline lineno="1828"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Play();</highlight></codeline>
-<codeline lineno="1829"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1830"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1831"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1832"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1833"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1834"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1835"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayCharaAudio(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
-<codeline lineno="1836"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1837"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1838"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1839"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].Finished)</highlight></codeline>
-<codeline lineno="1840"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1841"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
-<codeline lineno="1842"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="1843"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
-<codeline lineno="1844"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1845"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1846"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1847"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(InSoundWave);</highlight></codeline>
-<codeline lineno="1848"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Play();</highlight></codeline>
-<codeline lineno="1849"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1850"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1851"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1852"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1853"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1854"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1855"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayVoiceLine(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Player)</highlight></codeline>
-<codeline lineno="1856"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1857"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
-<codeline lineno="1858"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="1859"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
-<codeline lineno="1860"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1861"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1862"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1863"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[Player]-&gt;SetSound(InSoundWave);</highlight></codeline>
-<codeline lineno="1864"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[Player]-&gt;Play();</highlight></codeline>
-<codeline lineno="1865"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1866"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1867"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1868"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayAnnouncerVoice(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
-<codeline lineno="1869"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1870"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
-<codeline lineno="1871"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="1872"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
-<codeline lineno="1873"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1874"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1875"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1876"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(InSoundWave);</highlight></codeline>
-<codeline lineno="1877"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Play();</highlight></codeline>
-<codeline lineno="1878"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1879"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1880"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1881"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayMusic(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FGameplayTag<sp/>Name)</highlight></codeline>
-<codeline lineno="1882"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1883"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!IsValid(GameInstance))</highlight></codeline>
-<codeline lineno="1884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1885"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(GameInstance-&gt;MusicData<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="1886"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1887"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="struct_f_sound_struct" kindref="compound">FSoundStruct</ref><sp/>SoundStruct<sp/>:<sp/>GameInstance-&gt;MusicData-&gt;SoundDatas)</highlight></codeline>
-<codeline lineno="1888"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1889"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SoundStruct.Name<sp/>==<sp/>Name)</highlight></codeline>
-<codeline lineno="1890"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1891"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayMusic(SoundStruct.SoundWave,<sp/>SoundStruct.MaxDuration);</highlight></codeline>
-<codeline lineno="1892"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1893"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1894"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1895"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1896"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1897"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1898"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayMusic(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
-<codeline lineno="1899"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1900"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
-<codeline lineno="1901"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="1902"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
-<codeline lineno="1903"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1904"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1905"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;SetSound(InSoundWave);</highlight></codeline>
-<codeline lineno="1906"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Play();</highlight></codeline>
-<codeline lineno="1907"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1908"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1909"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1910"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::ManageAudio()</highlight></codeline>
-<codeline lineno="1911"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1912"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1913"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1914"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CommonAudioChannels[i].StartingFrame;</highlight></codeline>
-<codeline lineno="1915"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CommonAudioChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CommonAudioChannels[i].</highlight></codeline>
-<codeline lineno="1916"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1917"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1918"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1919"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1920"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1921"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="1922"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1923"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1924"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1925"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1926"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1927"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CharaAudioChannels[i].StartingFrame;</highlight></codeline>
-<codeline lineno="1928"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CharaAudioChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CharaAudioChannels[i].</highlight></codeline>
-<codeline lineno="1929"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1930"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1931"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1932"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1933"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1934"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="1935"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1936"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1937"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1938"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaVoiceChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1939"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1940"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CharaVoiceChannels[i].StartingFrame;</highlight></codeline>
-<codeline lineno="1941"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CharaVoiceChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CharaVoiceChannels[i].</highlight></codeline>
-<codeline lineno="1942"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1943"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1944"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1945"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1946"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1947"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="1948"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1949"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1950"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1951"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1952"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.AnnouncerVoiceChannel.StartingFrame;</highlight></codeline>
-<codeline lineno="1953"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.AnnouncerVoiceChannel.Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.AnnouncerVoiceChannel.</highlight></codeline>
-<codeline lineno="1954"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1955"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1956"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1957"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1958"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
-<codeline lineno="1959"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1960"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Stop();</highlight></codeline>
-<codeline lineno="1961"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="1962"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1963"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1964"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1965"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1966"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.MusicChannel.StartingFrame;</highlight></codeline>
-<codeline lineno="1967"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.MusicChannel.MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1968"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1969"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayMusic(BattleState.MusicChannel.SoundWave,<sp/>BattleState.MusicChannel.MaxDuration);</highlight></codeline>
-<codeline lineno="1970"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1971"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1972"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1973"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1974"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::RollbackStartAudio(int32<sp/>InFrame)</highlight></codeline>
-<codeline lineno="1975"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1976"><highlight class="normal"><sp/><sp/><sp/><sp/>ManageAudio();</highlight></codeline>
-<codeline lineno="1977"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1978"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1979"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1980"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1981"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1982"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1983"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="1984"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(BattleState.CommonAudioChannels[i].SoundWave);</highlight></codeline>
-<codeline lineno="1985"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CommonAudioChannels[i].StartingFrame)<sp/>/</highlight></codeline>
-<codeline lineno="1986"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
-<codeline lineno="1987"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="1988"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
-<codeline lineno="1989"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1990"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="1991"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="1992"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1993"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1994"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1995"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="1996"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(BattleState.CharaAudioChannels[i].SoundWave);</highlight></codeline>
-<codeline lineno="1997"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CharaAudioChannels[i].StartingFrame)<sp/>/</highlight></codeline>
-<codeline lineno="1998"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
-<codeline lineno="1999"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="2000"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
-<codeline lineno="2001"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2002"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaVoiceChannelCount;<sp/>i++)</highlight></codeline>
-<codeline lineno="2003"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2004"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2005"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2006"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2007"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Stop();</highlight></codeline>
-<codeline lineno="2008"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;SetSound(BattleState.CharaVoiceChannels[i].SoundWave);</highlight></codeline>
-<codeline lineno="2009"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CharaVoiceChannels[i].StartingFrame)<sp/>/</highlight></codeline>
-<codeline lineno="2010"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
-<codeline lineno="2011"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="2012"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
-<codeline lineno="2013"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2014"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.AnnouncerVoiceChannel.Finished<sp/>&amp;&amp;<sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>!=<sp/>AudioManager-&gt;</highlight></codeline>
-<codeline lineno="2015"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AnnouncerVoicePlayer-&gt;GetSound())</highlight></codeline>
-<codeline lineno="2016"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2017"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Stop();</highlight></codeline>
-<codeline lineno="2018"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(BattleState.AnnouncerVoiceChannel.SoundWave);</highlight></codeline>
-<codeline lineno="2019"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.AnnouncerVoiceChannel.StartingFrame)<sp/>/</highlight></codeline>
-<codeline lineno="2020"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
-<codeline lineno="2021"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.AnnouncerVoiceChannel.MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="2022"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Play(CurrentAudioTime);</highlight></codeline>
-<codeline lineno="2023"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2024"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.MusicChannel.SoundWave<sp/>!=<sp/>AudioManager-&gt;MusicPlayer-&gt;GetSound())</highlight></codeline>
-<codeline lineno="2025"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2026"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Stop();</highlight></codeline>
-<codeline lineno="2027"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;SetSound(BattleState.MusicChannel.SoundWave);</highlight></codeline>
-<codeline lineno="2028"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.MusicChannel.StartingFrame)<sp/>/<sp/>60.f;</highlight></codeline>
-<codeline lineno="2029"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.MusicChannel.MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
-<codeline lineno="2030"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Play(CurrentAudioTime);</highlight></codeline>
+<codeline lineno="1810"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::WorldPosToScreenPos(int32<sp/>X,<sp/>int32<sp/>Y,<sp/>int32&amp;<sp/>OutX,<sp/>int32&amp;<sp/>OutY)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="1811"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1812"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ScreenYSize<sp/>=<sp/>BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>720<sp/>/<sp/>1280;</highlight></codeline>
+<codeline lineno="1813"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1814"><highlight class="normal"><sp/><sp/><sp/><sp/>OutX<sp/>=<sp/>(X<sp/>-<sp/>BattleState.ScreenData.FinalScreenX<sp/>*<sp/>1000)<sp/>*<sp/>20<sp/>/<sp/>(BattleState.ScreenData.FinalScreenWidth<sp/>*<sp/>9);</highlight></codeline>
+<codeline lineno="1815"><highlight class="normal"><sp/><sp/><sp/><sp/>OutY<sp/>=<sp/>(Y<sp/>-<sp/>BattleState.ScreenData.FinalScreenY<sp/>*<sp/>1000)<sp/>*<sp/>100<sp/>/<sp/>(ScreenYSize<sp/>*<sp/>72);</highlight></codeline>
+<codeline lineno="1816"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1817"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1818"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::BattleHudVisibility(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Visible)</highlight></codeline>
+<codeline lineno="1819"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1820"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.bHUDVisible<sp/>=<sp/>Visible;</highlight></codeline>
+<codeline lineno="1821"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1822"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1823"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayCommonAudio(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
+<codeline lineno="1824"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1825"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1826"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1827"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].Finished)</highlight></codeline>
+<codeline lineno="1828"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1829"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
+<codeline lineno="1830"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="1831"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
+<codeline lineno="1832"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1833"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1834"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1835"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(InSoundWave);</highlight></codeline>
+<codeline lineno="1836"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Play();</highlight></codeline>
+<codeline lineno="1837"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1838"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1839"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1840"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1841"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1842"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1843"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayCharaAudio(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
+<codeline lineno="1844"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1845"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1846"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1847"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].Finished)</highlight></codeline>
+<codeline lineno="1848"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1849"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
+<codeline lineno="1850"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="1851"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
+<codeline lineno="1852"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1853"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1854"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1855"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(InSoundWave);</highlight></codeline>
+<codeline lineno="1856"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Play();</highlight></codeline>
+<codeline lineno="1857"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1858"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1859"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1860"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1861"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1862"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1863"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayVoiceLine(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Player)</highlight></codeline>
+<codeline lineno="1864"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1865"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
+<codeline lineno="1866"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="1867"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
+<codeline lineno="1868"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[Player].Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1869"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1870"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1871"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[Player]-&gt;SetSound(InSoundWave);</highlight></codeline>
+<codeline lineno="1872"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[Player]-&gt;Play();</highlight></codeline>
+<codeline lineno="1873"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1874"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1875"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1876"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayAnnouncerVoice(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
+<codeline lineno="1877"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1878"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
+<codeline lineno="1879"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="1880"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
+<codeline lineno="1881"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.Finished<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1882"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1883"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1884"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(InSoundWave);</highlight></codeline>
+<codeline lineno="1885"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Play();</highlight></codeline>
+<codeline lineno="1886"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1887"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1888"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1889"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayMusic(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FGameplayTag<sp/>Name)</highlight></codeline>
+<codeline lineno="1890"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1891"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!IsValid(GameInstance))</highlight></codeline>
+<codeline lineno="1892"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1893"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(GameInstance-&gt;MusicData<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="1894"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1895"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="struct_f_sound_struct" kindref="compound">FSoundStruct</ref><sp/>SoundStruct<sp/>:<sp/>GameInstance-&gt;MusicData-&gt;SoundDatas)</highlight></codeline>
+<codeline lineno="1896"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1897"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SoundStruct.Name<sp/>==<sp/>Name)</highlight></codeline>
+<codeline lineno="1898"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1899"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayMusic(SoundStruct.SoundWave,<sp/>SoundStruct.MaxDuration);</highlight></codeline>
+<codeline lineno="1900"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1901"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1902"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1903"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1904"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1905"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1906"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::PlayMusic(USoundBase*<sp/>InSoundWave,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>MaxDuration)</highlight></codeline>
+<codeline lineno="1907"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1908"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.SoundWave<sp/>=<sp/>InSoundWave;</highlight></codeline>
+<codeline lineno="1909"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.StartingFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="1910"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.MusicChannel.MaxDuration<sp/>=<sp/>MaxDuration;</highlight></codeline>
+<codeline lineno="1911"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1912"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1913"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;SetSound(InSoundWave);</highlight></codeline>
+<codeline lineno="1914"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Play();</highlight></codeline>
+<codeline lineno="1915"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1916"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1917"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1918"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::ManageAudio()</highlight></codeline>
+<codeline lineno="1919"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1920"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1921"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1922"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CommonAudioChannels[i].StartingFrame;</highlight></codeline>
+<codeline lineno="1923"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CommonAudioChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CommonAudioChannels[i].</highlight></codeline>
+<codeline lineno="1924"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1925"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1926"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1927"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CommonAudioChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1928"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1929"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="1930"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1931"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1932"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1933"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1934"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1935"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CharaAudioChannels[i].StartingFrame;</highlight></codeline>
+<codeline lineno="1936"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CharaAudioChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CharaAudioChannels[i].</highlight></codeline>
+<codeline lineno="1937"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1938"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1939"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1940"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaAudioChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1941"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1942"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="1943"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1944"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1945"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1946"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaVoiceChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1947"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1948"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.CharaVoiceChannels[i].StartingFrame;</highlight></codeline>
+<codeline lineno="1949"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.CharaVoiceChannels[i].Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.CharaVoiceChannels[i].</highlight></codeline>
+<codeline lineno="1950"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1951"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1952"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[i].Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1953"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.CharaVoiceChannels[i].SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1954"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(bIsResimulating)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1955"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="1956"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1957"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1958"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1959"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1960"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.AnnouncerVoiceChannel.StartingFrame;</highlight></codeline>
+<codeline lineno="1961"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.AnnouncerVoiceChannel.Finished<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.AnnouncerVoiceChannel.</highlight></codeline>
+<codeline lineno="1962"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1963"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1964"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.Finished<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1965"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1966"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bIsResimulating)</highlight></codeline>
+<codeline lineno="1967"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1968"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Stop();</highlight></codeline>
+<codeline lineno="1969"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="1970"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1971"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1972"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1973"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1974"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/>BattleState.FrameNumber<sp/>-<sp/>BattleState.MusicChannel.StartingFrame;</highlight></codeline>
+<codeline lineno="1975"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(BattleState.MusicChannel.MaxDuration<sp/>*<sp/>60)<sp/>&lt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1976"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1977"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PlayMusic(BattleState.MusicChannel.SoundWave,<sp/>BattleState.MusicChannel.MaxDuration);</highlight></codeline>
+<codeline lineno="1978"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1979"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1980"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1981"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1982"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::RollbackStartAudio(int32<sp/>InFrame)</highlight></codeline>
+<codeline lineno="1983"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1984"><highlight class="normal"><sp/><sp/><sp/><sp/>ManageAudio();</highlight></codeline>
+<codeline lineno="1985"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1986"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CommonAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1987"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="1988"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1989"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1990"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1991"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="1992"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;SetSound(BattleState.CommonAudioChannels[i].SoundWave);</highlight></codeline>
+<codeline lineno="1993"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CommonAudioChannels[i].StartingFrame)<sp/>/</highlight></codeline>
+<codeline lineno="1994"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
+<codeline lineno="1995"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CommonAudioChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="1996"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CommonAudioPlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
+<codeline lineno="1997"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1998"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaAudioChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="1999"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2000"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2001"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2002"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2003"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="2004"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;SetSound(BattleState.CharaAudioChannels[i].SoundWave);</highlight></codeline>
+<codeline lineno="2005"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CharaAudioChannels[i].StartingFrame)<sp/>/</highlight></codeline>
+<codeline lineno="2006"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
+<codeline lineno="2007"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaAudioChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="2008"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaAudioPlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
+<codeline lineno="2009"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2010"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CharaVoiceChannelCount;<sp/>i++)</highlight></codeline>
+<codeline lineno="2011"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2012"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].Finished)<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2013"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].SoundWave<sp/>==<sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;GetSound())<sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2014"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2015"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Stop();</highlight></codeline>
+<codeline lineno="2016"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;SetSound(BattleState.CharaVoiceChannels[i].SoundWave);</highlight></codeline>
+<codeline lineno="2017"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.CharaVoiceChannels[i].StartingFrame)<sp/>/</highlight></codeline>
+<codeline lineno="2018"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
+<codeline lineno="2019"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.CharaVoiceChannels[i].MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="2020"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;CharaVoicePlayers[i]-&gt;Play(CurrentAudioTime);</highlight></codeline>
+<codeline lineno="2021"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2022"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!BattleState.AnnouncerVoiceChannel.Finished<sp/>&amp;&amp;<sp/>BattleState.AnnouncerVoiceChannel.SoundWave<sp/>!=<sp/>AudioManager-&gt;</highlight></codeline>
+<codeline lineno="2023"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AnnouncerVoicePlayer-&gt;GetSound())</highlight></codeline>
+<codeline lineno="2024"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2025"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Stop();</highlight></codeline>
+<codeline lineno="2026"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;SetSound(BattleState.AnnouncerVoiceChannel.SoundWave);</highlight></codeline>
+<codeline lineno="2027"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.AnnouncerVoiceChannel.StartingFrame)<sp/>/</highlight></codeline>
+<codeline lineno="2028"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>60.f;</highlight></codeline>
+<codeline lineno="2029"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.AnnouncerVoiceChannel.MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="2030"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;AnnouncerVoicePlayer-&gt;Play(CurrentAudioTime);</highlight></codeline>
 <codeline lineno="2031"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2032"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="2033"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2034"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::SaveGameState(<ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref>&amp;<sp/>RollbackData,<sp/>int32*<sp/>InChecksum)</highlight></codeline>
-<codeline lineno="2035"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="2036"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.BattleStateBuffer.AddUninitialized(SizeOfBattleState);</highlight></codeline>
-<codeline lineno="2037"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(RollbackData.BattleStateBuffer.GetData(),<sp/>&amp;BattleState.BattleStateSync,<sp/>SizeOfBattleState);</highlight></codeline>
-<codeline lineno="2038"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.BattleStateData<sp/>=<sp/>SaveForRollback();</highlight></codeline>
-<codeline lineno="2039"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>BattleExtensions.Num();<sp/>i++)</highlight></codeline>
-<codeline lineno="2040"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2041"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ExtensionData.Add(BattleExtensions[i]-&gt;SaveForRollback());</highlight></codeline>
-<codeline lineno="2042"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2043"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleExtensions.Num()<sp/>==<sp/>0)</highlight></codeline>
-<codeline lineno="2044"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2045"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ExtensionData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
-<codeline lineno="2046"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2047"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MaxBattleObjects;<sp/>i++)</highlight></codeline>
+<codeline lineno="2032"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.MusicChannel.SoundWave<sp/>!=<sp/>AudioManager-&gt;MusicPlayer-&gt;GetSound())</highlight></codeline>
+<codeline lineno="2033"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2034"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Stop();</highlight></codeline>
+<codeline lineno="2035"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;SetSound(BattleState.MusicChannel.SoundWave);</highlight></codeline>
+<codeline lineno="2036"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>CurrentAudioTime<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(InFrame<sp/>-<sp/>BattleState.MusicChannel.StartingFrame)<sp/>/<sp/>60.f;</highlight></codeline>
+<codeline lineno="2037"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleState.MusicChannel.MaxDuration<sp/>&gt;<sp/>CurrentAudioTime)</highlight></codeline>
+<codeline lineno="2038"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AudioManager-&gt;MusicPlayer-&gt;Play(CurrentAudioTime);</highlight></codeline>
+<codeline lineno="2039"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2040"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2041"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2042"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::SaveGameState(<ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref>&amp;<sp/>RollbackData,<sp/>int32*<sp/>InChecksum)</highlight></codeline>
+<codeline lineno="2043"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="2044"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.BattleStateBuffer.AddUninitialized(SizeOfBattleState);</highlight></codeline>
+<codeline lineno="2045"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(RollbackData.BattleStateBuffer.GetData(),<sp/>&amp;BattleState.BattleStateSync,<sp/>SizeOfBattleState);</highlight></codeline>
+<codeline lineno="2046"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.BattleStateData<sp/>=<sp/>SaveForRollback();</highlight></codeline>
+<codeline lineno="2047"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>BattleExtensions.Num();<sp/>i++)</highlight></codeline>
 <codeline lineno="2048"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2049"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Objects[i]-&gt;IsActive)</highlight></codeline>
-<codeline lineno="2050"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2051"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
-<codeline lineno="2052"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);</highlight></codeline>
-<codeline lineno="2053"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;SaveForRollback(RollbackData.ObjBuffer[i].GetData());</highlight></codeline>
-<codeline lineno="2054"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(Objects[i]-&gt;ObjectState-&gt;SaveForRollback());</highlight></codeline>
-<codeline lineno="2055"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive.AddDefaulted();</highlight></codeline>
-<codeline lineno="2056"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive[i]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2057"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2058"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2059"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2060"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
-<codeline lineno="2061"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive.AddDefaulted();</highlight></codeline>
-<codeline lineno="2062"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive[i]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2063"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
-<codeline lineno="2064"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2065"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2066"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
-<codeline lineno="2067"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2068"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
-<codeline lineno="2069"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);</highlight></codeline>
-<codeline lineno="2070"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;SaveForRollback(RollbackData.ObjBuffer[i<sp/>+<sp/>MaxBattleObjects].GetData());</highlight></codeline>
-<codeline lineno="2071"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Players[i]-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsOnScreen)</highlight></codeline>
-<codeline lineno="2072"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2073"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(Players[i]-&gt;PrimaryStateMachine.CurrentState-&gt;SaveForRollback());</highlight></codeline>
-<codeline lineno="2074"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2075"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2076"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2077"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
-<codeline lineno="2078"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2079"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.CharBuffer.AddDefaulted();</highlight></codeline>
-<codeline lineno="2080"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);</highlight></codeline>
-<codeline lineno="2081"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;SaveForRollbackPlayer(RollbackData.CharBuffer[i].GetData());</highlight></codeline>
-<codeline lineno="2082"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.PlayerData.Add(Players[i]-&gt;SaveForRollbackBP());</highlight></codeline>
-<codeline lineno="2083"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2084"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2085"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.WidgetAnimationData.Add(BattleHudActor-&gt;TopWidget-&gt;SaveForRollback());</highlight></codeline>
-<codeline lineno="2086"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.WidgetAnimationData.Add(BattleHudActor-&gt;BottomWidget-&gt;SaveForRollback());</highlight></codeline>
-<codeline lineno="2087"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2088"><highlight class="normal"><sp/><sp/><sp/><sp/>*InChecksum<sp/>=<sp/>CreateChecksum();</highlight></codeline>
-<codeline lineno="2089"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="2090"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2091"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::LoadGameState(<ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref>&amp;<sp/>RollbackData)</highlight></codeline>
-<codeline lineno="2092"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="2093"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
-<codeline lineno="2094"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(&amp;BattleState.BattleStateSync,<sp/>RollbackData.BattleStateBuffer.GetData(),<sp/>SizeOfBattleState);</highlight></codeline>
-<codeline lineno="2095"><highlight class="normal"><sp/><sp/><sp/><sp/>LoadForRollback(RollbackData.BattleStateData);</highlight></codeline>
-<codeline lineno="2096"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>BattleExtensions.Num();<sp/>i++)</highlight></codeline>
-<codeline lineno="2097"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2098"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleExtensions[i]-&gt;LoadForRollback(RollbackData.ExtensionData[i]);</highlight></codeline>
-<codeline lineno="2099"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MaxBattleObjects;<sp/>i++)</highlight></codeline>
-<codeline lineno="2101"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(RollbackData.ObjActive[i])</highlight></codeline>
-<codeline lineno="2103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;LoadForRollback(RollbackData.ObjBuffer[i].GetData());</highlight></codeline>
-<codeline lineno="2105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;ObjectState-&gt;LoadForRollback(RollbackData.StateData[i]);</highlight></codeline>
-<codeline lineno="2106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Objects[i]-&gt;IsActive)</highlight></codeline>
-<codeline lineno="2110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;ResetObject();</highlight></codeline>
-<codeline lineno="2111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
-<codeline lineno="2114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollback(RollbackData.ObjBuffer[i<sp/>+<sp/>MaxBattleObjects].GetData());</highlight></codeline>
-<codeline lineno="2116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Players[i]-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsOnScreen)</highlight></codeline>
-<codeline lineno="2117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="2118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;PrimaryStateMachine.CurrentState-&gt;LoadForRollback(</highlight></codeline>
-<codeline lineno="2119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData[i<sp/>+<sp/>MaxBattleObjects]);</highlight></codeline>
-<codeline lineno="2120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollbackPlayer(RollbackData.CharBuffer[i].GetData());</highlight></codeline>
-<codeline lineno="2122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollbackBP(RollbackData.PlayerData[i]);</highlight></codeline>
-<codeline lineno="2123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="2124"><highlight class="normal"><sp/><sp/><sp/><sp/>SortObjects();</highlight></codeline>
-<codeline lineno="2125"><highlight class="normal"><sp/><sp/><sp/><sp/>ParticleManager-&gt;RollbackParticles(CurrentFrame<sp/>-<sp/>BattleState.FrameNumber);</highlight></codeline>
-<codeline lineno="2126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2127"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;TopWidget-&gt;LoadForRollback(RollbackData.WidgetAnimationData[0]);</highlight></codeline>
-<codeline lineno="2128"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;BottomWidget-&gt;LoadForRollback(RollbackData.WidgetAnimationData[1]);</highlight></codeline>
-<codeline lineno="2129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2130"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;TopWidget-&gt;RollbackAnimations();</highlight></codeline>
-<codeline lineno="2131"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;BottomWidget-&gt;RollbackAnimations();</highlight></codeline>
-<codeline lineno="2132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!FighterRunner-&gt;IsA(AFighterSynctestRunner::StaticClass()))</highlight></codeline>
-<codeline lineno="2134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GameInstance-&gt;RollbackReplay(CurrentFrame<sp/>-<sp/>BattleState.FrameNumber);</highlight></codeline>
-<codeline lineno="2135"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="2136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2137"><highlight class="normal">TArray&lt;uint8&gt;<sp/>ANightSkyGameState::SaveForRollback()</highlight></codeline>
-<codeline lineno="2138"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="2139"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;uint8&gt;<sp/>SaveData;</highlight></codeline>
-<codeline lineno="2140"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectWriter<sp/>Writer(SaveData);</highlight></codeline>
-<codeline lineno="2141"><highlight class="normal"><sp/><sp/><sp/><sp/>Writer.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2142"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Writer,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="2143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SaveData;</highlight></codeline>
-<codeline lineno="2144"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="2145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::LoadForRollback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TArray&lt;uint8&gt;&amp;<sp/>InBytes)</highlight></codeline>
-<codeline lineno="2147"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="2148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InBytes.Num()<sp/>&lt;=<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2149"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectReader<sp/>Reader(InBytes);</highlight></codeline>
-<codeline lineno="2150"><highlight class="normal"><sp/><sp/><sp/><sp/>Reader.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="2151"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Reader,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2049"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ExtensionData.Add(BattleExtensions[i]-&gt;SaveForRollback());</highlight></codeline>
+<codeline lineno="2050"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2051"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(BattleExtensions.Num()<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="2052"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2053"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ExtensionData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
+<codeline lineno="2054"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2055"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MaxBattleObjects;<sp/>i++)</highlight></codeline>
+<codeline lineno="2056"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2057"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Objects[i]-&gt;IsActive)</highlight></codeline>
+<codeline lineno="2058"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2059"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
+<codeline lineno="2060"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);</highlight></codeline>
+<codeline lineno="2061"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;SaveForRollback(RollbackData.ObjBuffer[i].GetData());</highlight></codeline>
+<codeline lineno="2062"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(Objects[i]-&gt;ObjectState-&gt;SaveForRollback());</highlight></codeline>
+<codeline lineno="2063"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive.AddDefaulted();</highlight></codeline>
+<codeline lineno="2064"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive[i]<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2065"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2066"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2067"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2068"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
+<codeline lineno="2069"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive.AddDefaulted();</highlight></codeline>
+<codeline lineno="2070"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjActive[i]<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2071"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
+<codeline lineno="2072"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2073"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2074"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
+<codeline lineno="2075"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2076"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.AddDefaulted();</highlight></codeline>
+<codeline lineno="2077"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);</highlight></codeline>
+<codeline lineno="2078"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;SaveForRollback(RollbackData.ObjBuffer[i<sp/>+<sp/>MaxBattleObjects].GetData());</highlight></codeline>
+<codeline lineno="2079"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Players[i]-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsOnScreen)</highlight></codeline>
+<codeline lineno="2080"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2081"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(Players[i]-&gt;PrimaryStateMachine.CurrentState-&gt;SaveForRollback());</highlight></codeline>
+<codeline lineno="2082"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2083"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2084"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2085"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData.Add(TArray&lt;uint8&gt;{1});</highlight></codeline>
+<codeline lineno="2086"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2087"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.CharBuffer.AddDefaulted();</highlight></codeline>
+<codeline lineno="2088"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);</highlight></codeline>
+<codeline lineno="2089"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;SaveForRollbackPlayer(RollbackData.CharBuffer[i].GetData());</highlight></codeline>
+<codeline lineno="2090"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.PlayerData.Add(Players[i]-&gt;SaveForRollbackBP());</highlight></codeline>
+<codeline lineno="2091"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2092"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2093"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.WidgetAnimationData.Add(BattleHudActor-&gt;TopWidget-&gt;SaveForRollback());</highlight></codeline>
+<codeline lineno="2094"><highlight class="normal"><sp/><sp/><sp/><sp/>RollbackData.WidgetAnimationData.Add(BattleHudActor-&gt;BottomWidget-&gt;SaveForRollback());</highlight></codeline>
+<codeline lineno="2095"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2096"><highlight class="normal"><sp/><sp/><sp/><sp/>*InChecksum<sp/>=<sp/>CreateChecksum();</highlight></codeline>
+<codeline lineno="2097"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2098"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2099"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::LoadGameState(<ref refid="struct_f_rollback_data" kindref="compound">FRollbackData</ref>&amp;<sp/>RollbackData)</highlight></codeline>
+<codeline lineno="2100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="2101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>CurrentFrame<sp/>=<sp/>BattleState.FrameNumber;</highlight></codeline>
+<codeline lineno="2102"><highlight class="normal"><sp/><sp/><sp/><sp/>FMemory::Memcpy(&amp;BattleState.BattleStateSync,<sp/>RollbackData.BattleStateBuffer.GetData(),<sp/>SizeOfBattleState);</highlight></codeline>
+<codeline lineno="2103"><highlight class="normal"><sp/><sp/><sp/><sp/>LoadForRollback(RollbackData.BattleStateData);</highlight></codeline>
+<codeline lineno="2104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>BattleExtensions.Num();<sp/>i++)</highlight></codeline>
+<codeline lineno="2105"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BattleExtensions[i]-&gt;LoadForRollback(RollbackData.ExtensionData[i]);</highlight></codeline>
+<codeline lineno="2107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>MaxBattleObjects;<sp/>i++)</highlight></codeline>
+<codeline lineno="2109"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(RollbackData.ObjActive[i])</highlight></codeline>
+<codeline lineno="2111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;LoadForRollback(RollbackData.ObjBuffer[i].GetData());</highlight></codeline>
+<codeline lineno="2113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;ObjectState-&gt;LoadForRollback(RollbackData.StateData[i]);</highlight></codeline>
+<codeline lineno="2114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Objects[i]-&gt;IsActive)</highlight></codeline>
+<codeline lineno="2118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Objects[i]-&gt;ResetObject();</highlight></codeline>
+<codeline lineno="2119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2120"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>Players.Num();<sp/>i++)</highlight></codeline>
+<codeline lineno="2122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollback(RollbackData.ObjBuffer[i<sp/>+<sp/>MaxBattleObjects].GetData());</highlight></codeline>
+<codeline lineno="2124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Players[i]-&gt;PlayerFlags<sp/>&amp;<sp/>PLF_IsOnScreen)</highlight></codeline>
+<codeline lineno="2125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="2126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;PrimaryStateMachine.CurrentState-&gt;LoadForRollback(</highlight></codeline>
+<codeline lineno="2127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RollbackData.StateData[i<sp/>+<sp/>MaxBattleObjects]);</highlight></codeline>
+<codeline lineno="2128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollbackPlayer(RollbackData.CharBuffer[i].GetData());</highlight></codeline>
+<codeline lineno="2130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Players[i]-&gt;LoadForRollbackBP(RollbackData.PlayerData[i]);</highlight></codeline>
+<codeline lineno="2131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="2132"><highlight class="normal"><sp/><sp/><sp/><sp/>SortObjects();</highlight></codeline>
+<codeline lineno="2133"><highlight class="normal"><sp/><sp/><sp/><sp/>ParticleManager-&gt;RollbackParticles(CurrentFrame<sp/>-<sp/>BattleState.FrameNumber);</highlight></codeline>
+<codeline lineno="2134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2135"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;TopWidget-&gt;LoadForRollback(RollbackData.WidgetAnimationData[0]);</highlight></codeline>
+<codeline lineno="2136"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;BottomWidget-&gt;LoadForRollback(RollbackData.WidgetAnimationData[1]);</highlight></codeline>
+<codeline lineno="2137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2138"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;TopWidget-&gt;RollbackAnimations();</highlight></codeline>
+<codeline lineno="2139"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleHudActor-&gt;BottomWidget-&gt;RollbackAnimations();</highlight></codeline>
+<codeline lineno="2140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!FighterRunner-&gt;IsA(AFighterSynctestRunner::StaticClass()))</highlight></codeline>
+<codeline lineno="2142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GameInstance-&gt;RollbackReplay(CurrentFrame<sp/>-<sp/>BattleState.FrameNumber);</highlight></codeline>
+<codeline lineno="2143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2145"><highlight class="normal">TArray&lt;uint8&gt;<sp/>ANightSkyGameState::SaveForRollback()</highlight></codeline>
+<codeline lineno="2146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="2147"><highlight class="normal"><sp/><sp/><sp/><sp/>TArray&lt;uint8&gt;<sp/>SaveData;</highlight></codeline>
+<codeline lineno="2148"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectWriter<sp/>Writer(SaveData);</highlight></codeline>
+<codeline lineno="2149"><highlight class="normal"><sp/><sp/><sp/><sp/>Writer.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2150"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Writer,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SaveData;</highlight></codeline>
 <codeline lineno="2152"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="2153"><highlight class="normal"></highlight></codeline>
-<codeline lineno="2154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::EndMatch()</highlight></codeline>
+<codeline lineno="2154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::LoadForRollback(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TArray&lt;uint8&gt;&amp;<sp/>InBytes)</highlight></codeline>
 <codeline lineno="2155"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="2156"><highlight class="normal"><sp/><sp/><sp/><sp/>EndMatch_BP();</highlight></codeline>
-<codeline lineno="2157"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.BattlePhase<sp/>=<sp/>EBattlePhase::EndScreen;</highlight></codeline>
-<codeline lineno="2158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(InBytes.Num()<sp/>&lt;=<sp/>1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2157"><highlight class="normal"><sp/><sp/><sp/><sp/>FObjectReader<sp/>Reader(InBytes);</highlight></codeline>
+<codeline lineno="2158"><highlight class="normal"><sp/><sp/><sp/><sp/>Reader.ArIsSaveGame<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="2159"><highlight class="normal"><sp/><sp/><sp/><sp/>GetClass()-&gt;SerializeBin(Reader,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2160"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2162"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ANightSkyGameState::EndMatch()</highlight></codeline>
+<codeline lineno="2163"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="2164"><highlight class="normal"><sp/><sp/><sp/><sp/>EndMatch_BP();</highlight></codeline>
+<codeline lineno="2165"><highlight class="normal"><sp/><sp/><sp/><sp/>BattleState.BattlePhase<sp/>=<sp/>EBattlePhase::EndScreen;</highlight></codeline>
+<codeline lineno="2166"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp"/>
   </compounddef>

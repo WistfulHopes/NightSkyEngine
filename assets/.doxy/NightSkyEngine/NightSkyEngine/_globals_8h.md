@@ -89,7 +89,8 @@
 
 | Type | Name |
 | ---: | :--- |
-| define  | [**COORD\_SCALE**](_globals_8h.md#define-coord_scale)  `((double)1000 / 0.43)`<br> |
+| define  | [**COORD\_SCALE**](_globals_8h.md#define-coord_scale)  `((float)1000 / OBJ\_SCALE)`<br> |
+| define  | [**OBJ\_SCALE**](_globals_8h.md#define-obj_scale)  `0.43f`<br> |
 
 ## Public Attributes Documentation
 
@@ -173,11 +174,28 @@ Implementation of integer square root.
 ### define COORD\_SCALE 
 
 ```C++
-#define COORD_SCALE `((double)1000 / 0.43)`
+#define COORD_SCALE `((float)1000 / OBJ_SCALE)`
 ```
 
 
 
+
+<hr>
+
+
+
+### define OBJ\_SCALE 
+
+```C++
+#define OBJ_SCALE `0.43f`
+```
+
+
+
+DO NOT TOUCH. These are integral to the unit scale system, and adjusting them will break rendering if you don't know what you're doing. 
+
+
+        
 
 <hr>
 

@@ -286,10 +286,12 @@ Inherited by the following classes: [APlayerObject](class_a_player_object.md)
 | virtual void | [**Tick**](#function-tick) (float DeltaTime) override<br> |
 |  void | [**TriggerEvent**](#function-triggerevent) (EEventType EventType, FGameplayTag StateMachineName) <br> |
 | virtual void | [**Update**](#function-update) () <br> |
+|  void | [**UpdateCel**](#function-updatecel) () <br> |
 | virtual void | [**UpdateVisuals**](#function-updatevisuals) () <br> |
 | virtual void | [**UpdateVisualsNoRollback**](#function-updatevisualsnorollback) () <br> |
 |  void | [**UpdateVisuals\_BP**](#function-updatevisuals_bp) () <br> |
 |  void | [**UseGauge**](#function-usegauge) (int32 GaugeIndex, int32 Value) <br> |
+|  void | [**WorldPosToScreenPos**](#function-worldpostoscreenpos) (const int32 X, const int32 Y, int32 & OutX, int32 & OutY) const<br> |
 
 
 ## Public Static Functions
@@ -3509,6 +3511,19 @@ virtual void ABattleObject::Update ()
 
 
 
+### function UpdateCel 
+
+```C++
+void ABattleObject::UpdateCel () 
+```
+
+
+
+
+<hr>
+
+
+
 ### function UpdateVisuals 
 
 ```C++
@@ -3555,6 +3570,24 @@ void ABattleObject::UseGauge (
     int32 GaugeIndex,
     int32 Value
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### function WorldPosToScreenPos 
+
+```C++
+void ABattleObject::WorldPosToScreenPos (
+    const int32 X,
+    const int32 Y,
+    int32 & OutX,
+    int32 & OutY
+) const
 ```
 
 

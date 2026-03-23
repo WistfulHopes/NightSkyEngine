@@ -37,6 +37,7 @@ _The input buffer for a player object._ [More...](#detailed-description)
 | Type | Name |
 | ---: | :--- |
 |  int32 | [**InputBufferInternal**](#variable-inputbufferinternal)   = `{ 16 }`<br> |
+|  int8\_t | [**InputBufferValid**](#variable-inputbuffervalid)   = `{ 16 }`<br> |
 |  int32 | [**InputTime**](#variable-inputtime)   = `{}`<br> |
 
 
@@ -69,6 +70,7 @@ _The input buffer for a player object._ [More...](#detailed-description)
 |  bool | [**CheckInputSequenceStrict**](#function-checkinputsequencestrict) () const<br> |
 |  void | [**Emplace**](#function-emplace) (int32 Input, uint32 Index) <br>_Stores the input at an arbitrary buffer position. Intended for CPU usage._  |
 |  void | [**FlipInputsInBuffer**](#function-flipinputsinbuffer) () <br> |
+|  void | [**ResetBuffer**](#function-resetbuffer) () <br> |
 |  void | [**Update**](#function-update) (int32 Input, bool bStopped=false) <br>_Stores the input for this frame._  |
 |  void | [**WriteInputCondition**](#function-writeinputcondition) (const [**FInputCondition**](struct_f_input_condition.md) & InputCondition) <br> |
 
@@ -115,6 +117,23 @@ Stores inputs every frame, and handles input checking.
 
 ```C++
 int32 FInputBuffer::InputBufferInternal[InputBufferSize];
+```
+
+
+
+All stored inputs. Inputs are stored with the newest at the end and the oldest at the beginning. 
+
+
+        
+
+<hr>
+
+
+
+### variable InputBufferValid 
+
+```C++
+int8_t FInputBuffer::InputBufferValid[InputBufferSize];
 ```
 
 
@@ -435,6 +454,23 @@ void FInputBuffer::FlipInputsInBuffer ()
 
 
 Flips the directional inputs in the buffer. For use after a character switches sides. 
+
+
+        
+
+<hr>
+
+
+
+### function ResetBuffer 
+
+```C++
+void FInputBuffer::ResetBuffer () 
+```
+
+
+
+Resets the input buffer, as if it were the start of a match. 
 
 
         

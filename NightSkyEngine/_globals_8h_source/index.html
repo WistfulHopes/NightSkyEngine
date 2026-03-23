@@ -19780,7 +19780,8 @@
 <p><a href="../_globals_8h/">Go to the documentation of this file</a></p>
 <div class="highlight"><pre><span></span><code><span class="cp">#pragma once</span>
 
-<span class="cp">#define COORD_SCALE ((double)1000 / 0.43)</span>
+<span class="cp">#define OBJ_SCALE 0.43f</span>
+<span class="cp">#define COORD_SCALE ((float)1000 / OBJ_SCALE)</span>
 
 <span class="n">uint32</span><span class="w"> </span><span class="nf">isqrt_impl</span><span class="p">(</span><span class="n">uint64</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">uint64</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">xk</span><span class="p">);</span>
 

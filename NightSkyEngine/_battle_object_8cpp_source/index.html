@@ -20289,7 +20289,66 @@
 <span class="w">        </span><span class="o">==</span><span class="w"> </span><span class="n">INDEX_NONE</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">IsInvulnerable</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">AttackedPlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">APlayerObject</span><span class="o">&gt;</span><span class="p">(</span><span class="n">AttackedObj</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">AttackedPlayer</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">AttackedPlayer</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CheckBoxOverlap</span><span class="p">(</span><span class="n">AttackedObj</span><span class="p">,</span><span class="w"> </span><span class="n">BOX_Hit</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">,</span><span class="w"> </span><span class="n">BOX_Hurt</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">AttackOwner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
+<span class="w">                </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">ObjectsToIgnoreHitsFrom</span><span class="p">.</span><span class="n">AddUnique</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="w">                </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">ATK_HasHit</span><span class="p">;</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ATK_SetPlayerHit</span><span class="p">)</span><span class="w"> </span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">ATK_HasHit</span><span class="p">;</span>
+<span class="w">                </span><span class="n">AttackTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AttackedObj</span><span class="p">;</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">SuperArmorSuccess</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EVT_Hit</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">ArmorHits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                        </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">ArmorHits</span><span class="o">--</span><span class="p">;</span>
+
+<span class="w">                    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">Type</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="no">ARM_Guard</span><span class="p">:</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="k">const</span><span class="w"> </span><span class="n">FHitData</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitHitDataByAttackLevel</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">                            </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">ReceivedHitCommon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HitCommon</span><span class="p">;</span>
+<span class="w">                            </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">ReceivedHit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">;</span>
+
+<span class="w">                            </span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">.</span><span class="n">Hitstop</span><span class="p">;</span>
+<span class="w">                            </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">.</span><span class="n">Hitstop</span><span class="p">;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="no">ARM_Dodge</span><span class="p">:</span>
+<span class="w">                    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">                    </span><span class="p">}</span>
+
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">bArmorDisableIncomingHit</span><span class="p">)</span>
+<span class="w">                        </span><span class="n">EnableHit</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">                    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="n">CallSubroutine</span><span class="p">(</span><span class="n">Subroutine_Cmn_OnHit</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EVT_Hit</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+<span class="w">                </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EVT_ReceiveHit</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsPlayer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">PLF_HitgrabActive</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">const</span><span class="w"> </span><span class="n">FHitData</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InitHitDataByAttackLevel</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="w">                </span><span class="n">CreateCommonParticle</span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitVFX</span><span class="p">,</span><span class="w"> </span><span class="n">POS_Col</span><span class="p">,</span>
+<span class="w">                                     </span><span class="n">FVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">                                     </span><span class="n">FRotator</span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitAngle</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">                </span><span class="n">PlayCommonSound</span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitSFX</span><span class="p">);</span>
+
+<span class="w">                </span><span class="n">AttackedObj</span><span class="o">-&gt;</span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">.</span><span class="n">Hitstop</span><span class="p">;</span>
+<span class="w">                </span><span class="n">Hitstop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Data</span><span class="p">.</span><span class="n">Hitstop</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CheckBoxOverlap</span><span class="p">(</span><span class="n">AttackedObj</span><span class="p">,</span><span class="w"> </span><span class="n">BOX_Hit</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">,</span><span class="w"> </span><span class="n">BOX_Hurt</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">))</span>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">AttackOwner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
@@ -20358,6 +20417,7 @@
 <span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorSuccess</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>
 <span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">PlayerFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">PLF_IsStunned</span><span class="p">;</span>
 <span class="w">                </span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EVT_Hit</span><span class="p">,</span><span class="w"> </span><span class="n">StateMachine_Primary</span><span class="p">);</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">IsMainPlayer</span><span class="p">())</span>
 <span class="w">                </span><span class="p">{</span>
@@ -20365,8 +20425,8 @@
 <span class="w">                </span><span class="p">}</span>
 
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">ArmorHits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">                    </span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span>
-<span class="w">                                    </span><span class="n">ArmorHits</span><span class="o">--</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">ArmorHits</span><span class="o">--</span><span class="p">;</span>
+
 <span class="w">                </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">Type</span><span class="p">)</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="no">ARM_Guard</span><span class="p">:</span>
@@ -20428,6 +20488,9 @@
 <span class="w">                </span><span class="k">default</span><span class="o">:</span>
 <span class="w">                    </span><span class="k">break</span><span class="p">;</span>
 <span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">SuperArmorData</span><span class="p">.</span><span class="n">bArmorDisableIncomingHit</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">EnableHit</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">AttackedPlayer</span><span class="o">-&gt;</span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ATK_IsAttacking</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
@@ -20860,6 +20923,24 @@
 <span class="w">        </span><span class="k">break</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardSFXOverride</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardSFX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardSFXOverride</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitSFXOverride</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitSFX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitSFXOverride</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardVFXOverride</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardVFX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">GuardVFXOverride</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitVFXOverride</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">::</span><span class="n">EmptyTag</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitVFX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HitCommon</span><span class="p">.</span><span class="n">HitVFXOverride</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NormalHit</span><span class="p">.</span><span class="n">EnemyHitstopModifier</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">)</span>
 <span class="w">        </span><span class="n">NormalHit</span><span class="p">.</span><span class="n">EnemyHitstopModifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NormalHit</span><span class="p">.</span><span class="n">RecoverableDamagePercent</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">INT_MAX</span><span class="p">)</span>
@@ -21114,6 +21195,13 @@
 <span class="w">    </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">ScreenPosToWorldPos</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">OutX</span><span class="p">,</span><span class="w"> </span><span class="n">OutY</span><span class="p">);</span>
 <span class="p">}</span>
 
+<span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">WorldPosToScreenPos</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutX</span><span class="p">,</span><span class="w"> </span><span class="n">int32</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutY</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">GameState</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">WorldPosToScreenPos</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">OutX</span><span class="p">,</span><span class="w"> </span><span class="n">OutY</span><span class="p">);</span>
+<span class="p">}</span>
+
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">TriggerEvent</span><span class="p">(</span><span class="n">EEventType</span><span class="w"> </span><span class="n">EventType</span><span class="p">,</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">StateMachineName</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">EventType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EVT_Update</span><span class="p">)</span><span class="w"> </span><span class="n">UpdateTime</span><span class="o">++</span><span class="p">;</span>
@@ -21148,6 +21236,14 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">ProcessEvent</span><span class="p">(</span><span class="n">Func</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">UpdateCel</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">TimeUntilNextCel</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CelIndex</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">//for collision viewer</span>
@@ -21377,6 +21473,10 @@
 
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">UpdateVisuals</span><span class="p">()</span>
 <span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">IsActive</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bRender</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsPlayer</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">Player</span><span class="o">-&gt;</span><span class="n">IsOnScreen</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">GameState</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">BattleState</span><span class="p">.</span><span class="n">CurrentSequenceTime</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -21554,6 +21654,37 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">IsPlayer</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">USkeletalMeshComponent</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">SkeletalMeshComponents</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">GetComponents</span><span class="p">(</span><span class="n">USkeletalMeshComponent</span><span class="o">::</span><span class="n">StaticClass</span><span class="p">(),</span><span class="w"> </span><span class="n">SkeletalMeshComponents</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">USkeletalMeshComponent</span><span class="o">*</span><span class="w"> </span><span class="n">Mesh</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">SkeletalMeshComponents</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UMaterialInterface</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">Mats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mesh</span><span class="o">-&gt;</span><span class="n">GetMaterials</span><span class="p">();</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int64</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Mesh</span><span class="o">-&gt;</span><span class="n">GetNumMaterials</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">UMaterialInterface</span><span class="o">*</span><span class="w"> </span><span class="n">Mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mesh</span><span class="o">-&gt;</span><span class="n">GetMaterial</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">Mat</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="n">UMaterialInstanceDynamic</span><span class="o">*</span><span class="w"> </span><span class="n">MIDynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">UMaterialInstanceDynamic</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Mat</span><span class="p">);</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">MIDynamic</span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">MIDynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UMaterialInstanceDynamic</span><span class="o">::</span><span class="n">Create</span><span class="p">(</span><span class="n">Mats</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="k">this</span><span class="p">);</span>
+<span class="w">                    </span><span class="n">Mesh</span><span class="o">-&gt;</span><span class="n">SetMaterial</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">MIDynamic</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">MIDynamic</span><span class="o">-&gt;</span><span class="n">SetScalarParameterValue</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;Transparency&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Transparency</span><span class="p">);</span>
+<span class="w">                </span><span class="n">MIDynamic</span><span class="o">-&gt;</span><span class="n">SetScalarParameterValue</span><span class="p">(</span><span class="n">FName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;ScreenSpaceDepthOffset&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">ScreenSpaceDepthOffset</span><span class="p">);</span>
+<span class="w">                </span><span class="n">MIDynamic</span><span class="o">-&gt;</span><span class="n">SetScalarParameterValue</span><span class="p">(</span><span class="n">FName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;OrthoBlendActive&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">OrthoBlendActive</span><span class="p">);</span>
+<span class="w">                </span><span class="n">MIDynamic</span><span class="o">-&gt;</span><span class="n">SetVectorParameterValue</span><span class="p">(</span><span class="n">FName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;DamageColor&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">DamageColor</span><span class="p">);</span>
+<span class="w">                </span><span class="n">MIDynamic</span><span class="o">-&gt;</span><span class="n">SetVectorParameterValue</span><span class="p">(</span><span class="n">FName</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;DamageColor2&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">DamageColor2</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
 <span class="w">    </span><span class="n">FrameBlendPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MaxCelTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TimeUntilNextCel</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">(</span><span class="n">MaxCelTime</span><span class="p">);</span>
 <span class="w">    </span><span class="n">MarkComponentsRenderStateDirty</span><span class="p">();</span>
 <span class="p">}</span>
@@ -21675,6 +21806,8 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">LinkedParticle</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">        </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
+<span class="w">        </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">ObjectState</span><span class="o">-&gt;</span><span class="n">Parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
 <span class="w">    </span><span class="n">ObjectState</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">();</span>
@@ -21758,10 +21891,7 @@
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">LinkedActor</span><span class="p">)</span>
 <span class="w">            </span><span class="n">LinkedActor</span><span class="o">-&gt;</span><span class="n">Update</span><span class="p">();</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">TimeUntilNextCel</span><span class="o">--</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">CelIndex</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">UpdateCel</span><span class="p">();</span>
 
 <span class="w">        </span><span class="n">Move</span><span class="p">();</span>
 
@@ -21770,8 +21900,8 @@
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">MiscFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">MISC_DeactivateIfBeyondBounds</span><span class="p">)</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PosX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">BattleState</span><span class="p">.</span><span class="n">ScreenData</span><span class="p">.</span><span class="n">ScreenBoundsRight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">105000</span>
-<span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">PosX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">BattleState</span><span class="p">.</span><span class="n">ScreenData</span><span class="p">.</span><span class="n">ScreenBoundsLeft</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">105000</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">PosX</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">BattleState</span><span class="p">.</span><span class="n">ScreenData</span><span class="p">.</span><span class="n">ScreenBoundsRight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">85000</span>
+<span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">PosX</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">GameState</span><span class="o">-&gt;</span><span class="n">BattleState</span><span class="p">.</span><span class="n">ScreenData</span><span class="p">.</span><span class="n">ScreenBoundsLeft</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">85000</span><span class="p">)</span>
 <span class="w">                </span><span class="n">DeactivateObject</span><span class="p">();</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -21786,6 +21916,7 @@
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">SetVisibility</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
 <span class="w">        </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">        </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
 <span class="w">        </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="n">RemoveLinkActor</span><span class="p">();</span>
@@ -22068,7 +22199,8 @@
 
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">SetCelDuration</span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">InTime</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxCelTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InTime</span><span class="p">;</span>
+<span class="w">    </span><span class="n">MaxCelTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InTime</span><span class="p">;</span>
+<span class="w">    </span><span class="n">TimeUntilNextCel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxCelTime</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">AddPosXWithDir</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">InPosX</span><span class="p">)</span>
@@ -22311,12 +22443,12 @@
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Attacking</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">ATK_IsAttacking</span><span class="p">;</span>
+<span class="w">        </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ATK_HasHit</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">else</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ATK_IsAttacking</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ATK_HasHit</span><span class="p">;</span>
 <span class="w">    </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ATK_HitActive</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -22365,7 +22497,6 @@
 <span class="w">        </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">ATK_HitOTG</span><span class="p">;</span>
 <span class="w">    </span><span class="k">else</span>
 <span class="w">        </span><span class="n">AttackFlags</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ATK_HitOTG</span><span class="p">;</span>
-
 <span class="p">}</span>
 
 <span class="kt">void</span><span class="w"> </span><span class="n">ABattleObject</span><span class="o">::</span><span class="n">SetIgnorePushbackScaling</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">Ignore</span><span class="p">)</span>
@@ -22863,7 +22994,11 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">ParticleSystem</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">LinkedParticle</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">                    </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="w">                </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UNiagaraFunctionLibrary</span><span class="o">::</span><span class="n">SpawnSystemAttached</span><span class="p">(</span>
 <span class="w">                    </span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">ParticleSystem</span><span class="p">,</span><span class="w"> </span><span class="n">RootComponent</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="p">(),</span><span class="w"> </span><span class="n">FVector</span><span class="p">(),</span><span class="w"> </span><span class="n">FRotator</span><span class="p">(),</span>
 <span class="w">                    </span><span class="n">EAttachLocation</span><span class="o">::</span><span class="n">SnapToTargetIncludingScale</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
@@ -22892,7 +23027,11 @@
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">Name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">ParticleSystem</span><span class="p">)</span>
 <span class="w">            </span><span class="p">{</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">LinkedParticle</span><span class="p">))</span>
+<span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">Deactivate</span><span class="p">();</span>
+<span class="w">                    </span><span class="n">LinkedParticle</span><span class="o">-&gt;</span><span class="n">DestroyComponent</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 <span class="w">                </span><span class="n">LinkedParticle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UNiagaraFunctionLibrary</span><span class="o">::</span><span class="n">SpawnSystemAttached</span><span class="p">(</span>
 <span class="w">                    </span><span class="n">ParticleStruct</span><span class="p">.</span><span class="n">ParticleSystem</span><span class="p">,</span><span class="w"> </span><span class="n">RootComponent</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="p">(),</span><span class="w"> </span><span class="n">FVector</span><span class="p">(),</span><span class="w"> </span><span class="n">FRotator</span><span class="p">(),</span>
 <span class="w">                    </span><span class="n">EAttachLocation</span><span class="o">::</span><span class="n">SnapToTargetIncludingScale</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>

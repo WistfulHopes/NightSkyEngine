@@ -20493,7 +20493,7 @@
 <span class="w">    </span><span class="c1">//handles throwing objects</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">HandleThrowCollision</span><span class="p">();</span>
 <span class="w">    </span><span class="c1">//checks kara cancel</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckKaraCancel</span><span class="p">(</span><span class="n">EStateType</span><span class="w"> </span><span class="n">InStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FStateMachine</span><span class="o">&amp;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckKaraCancel</span><span class="p">(</span><span class="n">EStateType</span><span class="w"> </span><span class="n">InStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FGameplayTag</span><span class="o">&amp;</span><span class="w"> </span><span class="n">CustomStateType</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FStateMachine</span><span class="o">&amp;</span><span class="w"> </span><span class="n">StateMachine</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">//checks if a child object with a corresponding object id exists. if so, do not enter state </span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">CheckObjectPreventingState</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">InObjectID</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">//handles wall bounce</span>
@@ -20620,6 +20620,9 @@
 <span class="w">    </span><span class="c1">// Get state machine by name.</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="n">FStateMachine</span><span class="o">&amp;</span><span class="w"> </span><span class="n">GetStateMachine</span><span class="p">(</span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">StateMachineName</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Gets the state type of the current state.</span>
+<span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
+<span class="w">    </span><span class="n">EStateType</span><span class="w"> </span><span class="n">GetStateType</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// Get enable flags.</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">GetEnableFlags</span><span class="p">(</span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">StateMachineName</span><span class="p">);</span>
@@ -20655,6 +20658,9 @@
 <span class="w">    </span><span class="c1">//checks input condition</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">CheckInput</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FInputCondition</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Input</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//clear input buffer</span>
+<span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ClearInputBuffer</span><span class="p">();</span>
 <span class="w">    </span><span class="c1">//is attacking</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">CheckIsAttacking</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
@@ -20699,6 +20705,8 @@
 <span class="w">    </span><span class="c1">//remove whiff cancel option</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">RemoveWhiffCancelOption</span><span class="p">(</span><span class="n">FGameplayTag</span><span class="w"> </span><span class="n">Option</span><span class="p">);</span>
+<span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">ClearMovesUsedInChain</span><span class="p">();</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">EnableChainCancel</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">Enable</span><span class="p">);</span>
 <span class="w">    </span><span class="c1">//sets whiff cancel options enabled. off by default</span>
@@ -20820,6 +20828,8 @@
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetTeamCooldown</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">NewTeamIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Cooldown</span><span class="p">);</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsMainPlayer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
+<span class="w">    </span><span class="n">APlayerObject</span><span class="o">*</span><span class="w"> </span><span class="n">GetMainPlayer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintPure</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsOnScreen</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
 <span class="w">    </span><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintCallable</span><span class="p">)</span>

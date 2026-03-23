@@ -378,6 +378,8 @@ See [ABattleObject](class_a_battle_object.md)
 |  bool | [**CheckIsAttacking**](#function-checkisattacking) () const<br> |
 |  bool | [**CheckIsStunned**](#function-checkisstunned) () const<br> |
 |  bool | [**CheckStateEnabled**](#function-checkstateenabled) (EStateType StateType, FGameplayTag CustomStateType, FGameplayTag StateMachineName) <br> |
+|  void | [**ClearInputBuffer**](#function-clearinputbuffer) () <br> |
+|  void | [**ClearMovesUsedInChain**](#function-clearmovesusedinchain) () <br> |
 |  void | [**DisableAll**](#function-disableall) (FGameplayTag StateMachineName) <br> |
 |  void | [**DisableCustomState**](#function-disablecustomstate) (FGameplayTag CustomStateType, FGameplayTag StateMachineName) <br> |
 |  void | [**DisableState**](#function-disablestate) (UPARAM(meta=(Bitmask, BitmaskEnum="/Script/NightSkyEngine.EEnableFlags")) int32 Bitmask, FGameplayTag StateMachineName) <br> |
@@ -402,8 +404,10 @@ See [ABattleObject](class_a_battle_object.md)
 |  FGameplayTag | [**GetCurrentStateName**](#function-getcurrentstatename) (FGameplayTag StateMachineName) <br> |
 |  int32 | [**GetEnableFlags**](#function-getenableflags) (FGameplayTag StateMachineName) <br> |
 |  FGameplayTag | [**GetLastStateName**](#function-getlaststatename) () const<br> |
+|  [**APlayerObject**](class_a_player_object.md) \* | [**GetMainPlayer**](#function-getmainplayer) () const<br> |
 |  FGameplayTag | [**GetStateEntryName**](#function-getstateentryname) () const<br> |
 |  [**FStateMachine**](struct_f_state_machine.md) & | [**GetStateMachine**](#function-getstatemachine) (FGameplayTag StateMachineName) <br> |
+|  EStateType | [**GetStateType**](#function-getstatetype) () const<br> |
 |  bool | [**HandleAutoCombo**](#function-handleautocombo) (int32 StateIndex, [**FStateMachine**](struct_f_state_machine.md) & StateMachine) <br> |
 |  void | [**HandleBlockAction**](#function-handleblockaction) () <br> |
 |  void | [**HandleBufferedState**](#function-handlebufferedstate-12) () <br> |
@@ -588,10 +592,12 @@ See [ABattleObject](class_a_battle_object.md)
 | virtual void | [**Tick**](class_a_battle_object.md#function-tick) (float DeltaTime) override<br> |
 |  void | [**TriggerEvent**](class_a_battle_object.md#function-triggerevent) (EEventType EventType, FGameplayTag StateMachineName) <br> |
 | virtual void | [**Update**](class_a_battle_object.md#function-update) () <br> |
+|  void | [**UpdateCel**](class_a_battle_object.md#function-updatecel) () <br> |
 | virtual void | [**UpdateVisuals**](class_a_battle_object.md#function-updatevisuals) () <br> |
 | virtual void | [**UpdateVisualsNoRollback**](class_a_battle_object.md#function-updatevisualsnorollback) () <br> |
 |  void | [**UpdateVisuals\_BP**](class_a_battle_object.md#function-updatevisuals_bp) () <br> |
 |  void | [**UseGauge**](class_a_battle_object.md#function-usegauge) (int32 GaugeIndex, int32 Value) <br> |
+|  void | [**WorldPosToScreenPos**](class_a_battle_object.md#function-worldpostoscreenpos) (const int32 X, const int32 Y, int32 & OutX, int32 & OutY) const<br> |
 
 
 ## Public Static Functions
@@ -2850,6 +2856,32 @@ bool APlayerObject::CheckStateEnabled (
 
 
 
+### function ClearInputBuffer 
+
+```C++
+void APlayerObject::ClearInputBuffer () 
+```
+
+
+
+
+<hr>
+
+
+
+### function ClearMovesUsedInChain 
+
+```C++
+void APlayerObject::ClearMovesUsedInChain () 
+```
+
+
+
+
+<hr>
+
+
+
 ### function DisableAll 
 
 ```C++
@@ -3200,6 +3232,19 @@ FGameplayTag APlayerObject::GetLastStateName () const
 
 
 
+### function GetMainPlayer 
+
+```C++
+APlayerObject * APlayerObject::GetMainPlayer () const
+```
+
+
+
+
+<hr>
+
+
+
 ### function GetStateEntryName 
 
 ```C++
@@ -3219,6 +3264,19 @@ FGameplayTag APlayerObject::GetStateEntryName () const
 FStateMachine & APlayerObject::GetStateMachine (
     FGameplayTag StateMachineName
 ) 
+```
+
+
+
+
+<hr>
+
+
+
+### function GetStateType 
+
+```C++
+EStateType APlayerObject::GetStateType () const
 ```
 
 

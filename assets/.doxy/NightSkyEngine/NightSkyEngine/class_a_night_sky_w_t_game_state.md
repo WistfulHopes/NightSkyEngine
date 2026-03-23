@@ -60,6 +60,8 @@ See [ANightSkyGameState](class_a_night_sky_game_state.md)
 |  FTransform | [**BattleSceneTransform**](class_a_night_sky_game_state.md#variable-battlescenetransform)  <br> |
 |  [**FBattleState**](struct_f_battle_state.md) | [**BattleState**](class_a_night_sky_game_state.md#variable-battlestate)   = `{}`<br> |
 |  ACameraActor \* | [**CameraActor**](class_a_night_sky_game_state.md#variable-cameraactor)   = `nullptr`<br> |
+|  float | [**CameraYOffset**](class_a_night_sky_game_state.md#variable-camerayoffset)   = `105.0f`<br> |
+|  float | [**CameraYaw**](class_a_night_sky_game_state.md#variable-camerayaw)   = `-2.5f`<br> |
 |  class [**AFighterLocalRunner**](class_a_fighter_local_runner.md) \* | [**FighterRunner**](class_a_night_sky_game_state.md#variable-fighterrunner)   = `nullptr`<br> |
 |  class [**UNightSkyGameInstance**](class_u_night_sky_game_instance.md) \* | [**GameInstance**](class_a_night_sky_game_state.md#variable-gameinstance)   = `nullptr`<br> |
 |  int32 | [**LocalFrame**](class_a_night_sky_game_state.md#variable-localframe)   = `0`<br> |
@@ -179,6 +181,7 @@ See [ANightSkyGameState](class_a_night_sky_game_state.md)
 |  void | [**UpdateHUD\_BP**](class_a_night_sky_game_state.md#function-updatehud_bp) () <br> |
 |  void | [**UpdateScreen**](class_a_night_sky_game_state.md#function-updatescreen) () <br> |
 |  void | [**UseGauge**](class_a_night_sky_game_state.md#function-usegauge) (bool IsP1, int32 GaugeIndex, int32 Value) <br> |
+|  void | [**WorldPosToScreenPos**](class_a_night_sky_game_state.md#function-worldpostoscreenpos) (int32 X, int32 Y, int32 & OutX, int32 & OutY) const<br> |
 
 
 

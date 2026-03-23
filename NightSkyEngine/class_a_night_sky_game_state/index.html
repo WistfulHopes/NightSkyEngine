@@ -7803,6 +7803,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-camerayoffset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable CameraYOffset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-camerayaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable CameraYaw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-fighterrunner" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -8627,6 +8649,17 @@
     <span class="md-ellipsis">
       
         function UseGauge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-worldpostoscreenpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WorldPosToScreenPos
       
     </span>
   </a>
@@ -21121,6 +21154,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-camerayoffset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable CameraYOffset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-camerayaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        variable CameraYaw
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#variable-fighterrunner" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -21951,6 +22006,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-worldpostoscreenpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        function WorldPosToScreenPos
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -22214,6 +22280,14 @@
 <tr>
 <td style="text-align: right;">ACameraActor *</td>
 <td style="text-align: left;"><a href="#variable-cameraactor"><strong>CameraActor</strong></a>   = <code>nullptr</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">float</td>
+<td style="text-align: left;"><a href="#variable-camerayoffset"><strong>CameraYOffset</strong></a>   = <code>105.0f</code><br></td>
+</tr>
+<tr>
+<td style="text-align: right;">float</td>
+<td style="text-align: left;"><a href="#variable-camerayaw"><strong>CameraYaw</strong></a>   = <code>-2.5f</code><br></td>
 </tr>
 <tr>
 <td style="text-align: right;">class <a href="../class_a_fighter_local_runner/"><strong>AFighterLocalRunner</strong></a> *</td>
@@ -22522,6 +22596,10 @@
 <td style="text-align: right;">void</td>
 <td style="text-align: left;"><a href="#function-usegauge"><strong>UseGauge</strong></a> (bool IsP1, int32 GaugeIndex, int32 Value) <br></td>
 </tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-worldpostoscreenpos"><strong>WorldPosToScreenPos</strong></a> (int32 X, int32 Y, int32 &amp; OutX, int32 &amp; OutY) const<br></td>
+</tr>
 </tbody>
 </table>
 <h2 id="protected-functions">Protected Functions</h2>
@@ -22642,6 +22720,16 @@
 
 <h3 id="variable-cameraactor">variable CameraActor</h3>
 <div class="highlight"><pre><span></span><code><span class="n">ACameraActor</span><span class="o">*</span><span class="w"> </span><span class="n">ANightSkyGameState</span><span class="o">::</span><span class="n">CameraActor</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+
+<h3 id="variable-camerayoffset">variable CameraYOffset</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">ANightSkyGameState</span><span class="o">::</span><span class="n">CameraYOffset</span><span class="p">;</span>
+</code></pre></div>
+<hr>
+
+<h3 id="variable-camerayaw">variable CameraYaw</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">ANightSkyGameState</span><span class="o">::</span><span class="n">CameraYaw</span><span class="p">;</span>
 </code></pre></div>
 <hr>
 
@@ -23121,6 +23209,16 @@
 <span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">GaugeIndex</span><span class="p">,</span>
 <span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">Value</span>
 <span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<hr>
+
+<h3 id="function-worldpostoscreenpos">function WorldPosToScreenPos</h3>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">ANightSkyGameState</span><span class="o">::</span><span class="n">WorldPosToScreenPos</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">X</span><span class="p">,</span>
+<span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span>
+<span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutX</span><span class="p">,</span>
+<span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutY</span>
+<span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div>
 <hr>
 <h2 id="protected-functions-documentation">Protected Functions Documentation</h2>

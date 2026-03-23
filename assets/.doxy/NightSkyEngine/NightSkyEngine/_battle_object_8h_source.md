@@ -624,6 +624,8 @@ struct FSuperArmorData
     UPROPERTY(BlueprintReadWrite)
     uint8 bArmorTakeChipDamage : 1;
     UPROPERTY(BlueprintReadWrite)
+    uint8 bArmorDisableIncomingHit : 1;
+    UPROPERTY(BlueprintReadWrite)
     int32 ArmorDamagePercent;
     UPROPERTY(BlueprintReadWrite)
     int32 ArmorHits;
@@ -1341,7 +1343,8 @@ public:
     //handles flip
     void HandleFlip();
     void TriggerEvent(EEventType EventType, FGameplayTag StateMachineName);
-
+    void UpdateCel();
+    
     UFUNCTION(BlueprintCallable)
     void CollisionView();
 
@@ -1456,6 +1459,8 @@ public:
     void PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const;
     UFUNCTION(BlueprintPure)
     void ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
+    UFUNCTION(BlueprintPure)
+    void WorldPosToScreenPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
     //sets direction
     UFUNCTION(BlueprintCallable)
     void SetFacing(EObjDir NewDir);

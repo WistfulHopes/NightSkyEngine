@@ -10,7 +10,8 @@
 ```C++
 #pragma once
 
-#define COORD_SCALE ((double)1000 / 0.43)
+#define OBJ_SCALE 0.43f
+#define COORD_SCALE ((float)1000 / OBJ_SCALE)
 
 uint32 isqrt_impl(uint64 const n, uint64 const xk);
 

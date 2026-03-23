@@ -97,6 +97,8 @@
 * **CheckObjectPreventingState** ([**APlayerObject**](class_a_player_object.md))
 * **CheckReverseBeat** ([**APlayerObject**](class_a_player_object.md))
 * **CheckStateEnabled** ([**APlayerObject**](class_a_player_object.md))
+* **ClearInputBuffer** ([**APlayerObject**](class_a_player_object.md))
+* **ClearMovesUsedInChain** ([**APlayerObject**](class_a_player_object.md))
 * **CheckInputCondition** ([**FInputBuffer**](struct_f_input_buffer.md))
 * **CheckInputSequence** ([**FInputBuffer**](struct_f_input_buffer.md))
 * **CheckInputSequenceNegative** ([**FInputBuffer**](struct_f_input_buffer.md))
@@ -171,6 +173,7 @@
 * **FindWhiffCancelOption** ([**APlayerObject**](class_a_player_object.md))
 * **FlipInput** ([**APlayerObject**](class_a_player_object.md))
 * **ForceEnableFarNormal** ([**APlayerObject**](class_a_player_object.md))
+* **FAnimStruct** ([**FAnimStruct**](struct_f_anim_struct.md))
 * **FBattleParticle** ([**FBattleParticle**](struct_f_battle_particle.md))
 * **FInputBitmask** ([**FInputBitmask**](struct_f_input_bitmask.md))
 * **FlipInputsInBuffer** ([**FInputBuffer**](struct_f_input_buffer.md))
@@ -204,7 +207,7 @@
 * **GetEnemyDistanceX** ([**ANightSkyAIController**](class_a_night_sky_a_i_controller.md))
 * **GetEnemyDistanceY** ([**ANightSkyAIController**](class_a_night_sky_a_i_controller.md))
 * **GetLocalInputs** ([**ANightSkyGameState**](class_a_night_sky_game_state.md))
-* **GetMainPlayer** ([**ANightSkyGameState**](class_a_night_sky_game_state.md))
+* **GetMainPlayer** ([**ANightSkyGameState**](class_a_night_sky_game_state.md), [**APlayerObject**](class_a_player_object.md))
 * **GetNetworkStats** ([**ANightSkyGameState**](class_a_night_sky_game_state.md))
 * **GetPaused** ([**ANightSkyGameState**](class_a_night_sky_game_state.md))
 * **GetScreenFlags** ([**ANightSkyGameState**](class_a_night_sky_game_state.md))
@@ -216,6 +219,7 @@
 * **GetLastStateName** ([**APlayerObject**](class_a_player_object.md))
 * **GetStateEntryName** ([**APlayerObject**](class_a_player_object.md))
 * **GetStateMachine** ([**APlayerObject**](class_a_player_object.md))
+* **GetStateType** ([**APlayerObject**](class_a_player_object.md))
 * **GetSeed** ([**FRandomManager**](struct_f_random_manager.md))
 * **GetStateIndex** ([**FStateMachine**](struct_f_state_machine.md))
 * **GetStateName** ([**FStateMachine**](struct_f_state_machine.md))
@@ -426,6 +430,7 @@
 * **ResetAirDash** ([**APlayerObject**](class_a_player_object.md))
 * **ResetAirJump** ([**APlayerObject**](class_a_player_object.md))
 * **RoundInit\_BP** ([**APlayerObject**](class_a_player_object.md))
+* **ResetBuffer** ([**FInputBuffer**](struct_f_input_buffer.md))
 * **Rand** ([**FRandomManager**](struct_f_random_manager.md))
 * **RandRange** ([**FRandomManager**](struct_f_random_manager.md))
 * **Reseed** ([**FRandomManager**](struct_f_random_manager.md))
@@ -550,6 +555,7 @@
 ## u
 
 * **Update** ([**ABattleObject**](class_a_battle_object.md), [**AFighterLocalRunner**](class_a_fighter_local_runner.md), [**AFighterMultiplayerRunner**](class_a_fighter_multiplayer_runner.md), [**AFighterReplayRunner**](class_a_fighter_replay_runner.md), [**AFighterSynctestRunner**](class_a_fighter_synctest_runner.md), [**ALinkActor**](class_a_link_actor.md), [**ANightSkyAIController**](class_a_night_sky_a_i_controller.md), [**APlayerObject**](class_a_player_object.md), [**FInputBuffer**](struct_f_input_buffer.md), [**FStateMachine**](struct_f_state_machine.md))
+* **UpdateCel** ([**ABattleObject**](class_a_battle_object.md))
 * **UpdateVisuals** ([**ABattleObject**](class_a_battle_object.md), [**ANightSkyGameState**](class_a_night_sky_game_state.md))
 * **UpdateVisualsNoRollback** ([**ABattleObject**](class_a_battle_object.md), [**APlayerObject**](class_a_player_object.md))
 * **UpdateVisuals\_BP** ([**ABattleObject**](class_a_battle_object.md))
@@ -586,6 +592,7 @@
 
 ## w
 
+* **WorldPosToScreenPos** ([**ABattleObject**](class_a_battle_object.md), [**ANightSkyGameState**](class_a_night_sky_game_state.md))
 * **WriteInputCondition** ([**FInputBuffer**](struct_f_input_buffer.md))
 
 

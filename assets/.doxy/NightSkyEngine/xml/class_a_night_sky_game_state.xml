@@ -333,6 +333,36 @@
         </inbodydescription>
         <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="347" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="347" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1a41e848b74cd1fb4bf6b7b5456cd0b4bd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ANightSkyGameState::CameraYaw</definition>
+        <argsstring></argsstring>
+        <name>CameraYaw</name>
+        <qualifiedname>ANightSkyGameState::CameraYaw</qualifiedname>
+        <initializer>= -2.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="350" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_night_sky_game_state_1acb89e0643e3e7cd29feeca8ca926471a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float ANightSkyGameState::CameraYOffset</definition>
+        <argsstring></argsstring>
+        <name>CameraYOffset</name>
+        <qualifiedname>ANightSkyGameState::CameraYOffset</qualifiedname>
+        <initializer>= 105.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="353" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a23c398c92de2aee7e4184ba243f9288c" prot="public" static="no" mutable="no">
         <type>class <ref refid="class_a_fighter_local_runner" kindref="compound">AFighterLocalRunner</ref> *</type>
         <definition>class AFighterLocalRunner* ANightSkyGameState::FighterRunner</definition>
@@ -346,7 +376,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="350" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="350" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="356" column="27" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="356" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a4734cceabdd728a987f5c460058bf515" prot="public" static="no" mutable="no">
         <type><ref refid="class_a_night_sky_battle_hud_actor" kindref="compound">ANightSkyBattleHudActor</ref> *</type>
@@ -361,7 +391,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="352" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="352" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="358" column="25" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="358" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1ae9a25298800a2cf39df994407402f8e1" prot="public" static="no" mutable="no">
         <type>int32</type>
@@ -376,7 +406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="354" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="354" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="360" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="360" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a1872b0356bf03b3bcc7944e5842c903c" prot="public" static="no" mutable="no">
         <type>int32</type>
@@ -391,7 +421,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="355" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="355" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="361" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="361" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="private-attrib">
@@ -408,7 +438,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="358" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="358" bodyend="358"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="364" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="364" bodyend="364"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a8718509b8f476114526445ee1bb7c671" prot="private" static="no" mutable="no">
         <type>int32</type>
@@ -423,7 +453,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="359" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="359" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="365" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="365" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a6d087e39e0696fe1a59874d48fa67574" prot="private" static="no" mutable="no">
         <type>int32</type>
@@ -438,7 +468,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="360" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="360" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="366" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="366" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1aee63fecadfe27f3be5aa32b590d32a4a" prot="private" static="no" mutable="no">
         <type>int32</type>
@@ -453,7 +483,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="361" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="361" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="367" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="367" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a40c7575b0261afbf837731ca11cb7c75" prot="private" static="no" mutable="no">
         <type>int32</type>
@@ -468,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="362" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="362" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="368" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="368" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1a1d290c930a9bd4c21019b5225ed6e014" prot="private" static="no" mutable="no">
         <type><ref refid="struct_f_network_stats" kindref="compound">FNetworkStats</ref></type>
@@ -483,7 +513,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="363" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="363" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="369" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="369" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_a_night_sky_game_state_1ade868dcf1dd5f21fcdd79c4c923c55e6" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -498,7 +528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="364" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="364" bodyend="-1"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="370" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="370" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-func">
@@ -533,7 +563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="387" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="308" bodyend="313"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="393" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="308" bodyend="313"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1acf3da41307f5a783341a3abd5f50f679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -547,7 +577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="390" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="315" bodyend="387"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="396" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="315" bodyend="387"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a5c7bc7a88758184be99f2a72bc3f422d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -561,7 +591,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="391" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="187" bodyend="284"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="397" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="187" bodyend="284"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a6b5aa0e4df147ff0d3789556312a2512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -575,7 +605,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="393" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="286" bodyend="299"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="399" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="286" bodyend="299"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a32af680ea6004c8b03c93809d70b34e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -589,7 +619,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="395" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="813" bodyend="818"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="401" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="813" bodyend="818"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a843add8f2bca455c6d77dcc3bd4ec031" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -615,7 +645,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="396" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="389" bodyend="619"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="402" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="389" bodyend="619"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a33d67ae015e8a623b2f7911959398070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -629,7 +659,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="398" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="621" bodyend="672"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="404" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="621" bodyend="672"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a1de7f6dbdabee6c8017b0f9b0b2cf311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -643,7 +673,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="399" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="674" bodyend="811"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="405" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="674" bodyend="811"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a15044147972aba8a215afc694124cb6e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -657,7 +687,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="400" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1180" bodyend="1223"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="406" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1180" bodyend="1223"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a3845f653b032f44a47eb1a98ef811c80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -683,7 +713,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="401" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1225" bodyend="1231"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="407" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1225" bodyend="1231"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1adb8be86243850439d8490c880a451178" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -713,7 +743,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="402" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1802" bodyend="1808"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="408" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1802" bodyend="1808"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_night_sky_game_state_1a6243b120d1a95233e460a9d116abb4bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ANightSkyGameState::WorldPosToScreenPos</definition>
+        <argsstring>(int32 X, int32 Y, int32 &amp;OutX, int32 &amp;OutY) const</argsstring>
+        <name>WorldPosToScreenPos</name>
+        <qualifiedname>ANightSkyGameState::WorldPosToScreenPos</qualifiedname>
+        <param>
+          <type>int32</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>int32</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutX</declname>
+        </param>
+        <param>
+          <type>int32 &amp;</type>
+          <declname>OutY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="409" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1810" bodyend="1816"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a268885bdfbae7dd51fe888a29c2df695" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_a_battle_object" kindref="compound">ABattleObject</ref> *</type>
@@ -755,7 +815,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="403" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1233" bodyend="1260"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="410" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1233" bodyend="1260"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8271db2df9a043f12572fe52a6f3297a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -773,7 +833,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="404" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1531" bodyend="1553"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="411" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1531" bodyend="1553"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ac08d1203c7fbf38c5475511add0019a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -791,7 +851,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="405" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1555" bodyend="1575"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="412" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1555" bodyend="1575"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a062a01be98e5eb642af2bb02c58ee4e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
@@ -823,7 +883,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="406" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1577" bodyend="1615"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="413" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1577" bodyend="1615"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ae8f605270d780b0cc15f36b25cde8926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
@@ -849,7 +909,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="407" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1617" bodyend="1634"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="414" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1617" bodyend="1634"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1afc7cc5300fd35ffc10afbfea4376c396" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -875,7 +935,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="408" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1636" bodyend="1639"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="415" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1636" bodyend="1639"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a4143e5ba45bee2c9e781409c29d12441" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -897,7 +957,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="409" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1641" bodyend="1657"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="416" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1641" bodyend="1657"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1addba85ed7a649f021c5c243deaca7681" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -919,7 +979,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="411" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2034" bodyend="2089"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="418" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2042" bodyend="2097"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1aa1c2f14de7a4f18064dae2af9adc1125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -937,7 +997,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="412" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2091" bodyend="2135"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="419" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2099" bodyend="2143"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a60ec96cb34b97512f4d5071b306e4afc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>TArray&lt; uint8 &gt;</type>
@@ -951,7 +1011,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="414" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2137" bodyend="2144"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="421" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2145" bodyend="2152"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1afa469f5702101d1dc4c27599d350a843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -969,7 +1029,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="415" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2146" bodyend="2152"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="422" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2154" bodyend="2160"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ae5a5b4a1004263186a4476fac16ae488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -983,7 +1043,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="416" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2154" bodyend="2158"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="423" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="2162" bodyend="2166"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1af38079d0ed7561c917d14258b9c73fda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -997,7 +1057,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="418" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1262" bodyend="1336"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="425" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1262" bodyend="1336"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8b6e16e904a31da19541dfab27164dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1023,7 +1083,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="419" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1338" bodyend="1401"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="426" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1338" bodyend="1401"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1afdfd9d60f61e5b09515524eb921c85fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1037,7 +1097,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="420" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1403" bodyend="1408"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="427" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1403" bodyend="1408"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ab1b4f6ed6493c24ed1a7ebd1d9eef224" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1059,7 +1119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="421" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1410" bodyend="1418"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="428" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1410" bodyend="1418"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ac0d0cf0b862cba561c4e15c0fdccc60a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1073,7 +1133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="423" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1420" bodyend="1432"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="430" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1420" bodyend="1432"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a835a5d6908786f9c7d3259fd94f1bd48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1087,7 +1147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="424" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1434" bodyend="1529"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="431" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1434" bodyend="1529"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ac5e7a7901c991843fa0b7bc677002264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1105,7 +1165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="425" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1810" bodyend="1813"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="432" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1818" bodyend="1821"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a7eeb4cf3d98d684ae723ffc7043f31ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1127,7 +1187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="427" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1815" bodyend="1833"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="434" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1823" bodyend="1841"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a1893908bdf90037b088d6bbafb6c2e48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1149,7 +1209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="428" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1835" bodyend="1853"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="435" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1843" bodyend="1861"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1afd35da68de6c1f4935117eeaf0827943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1175,7 +1235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="429" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1855" bodyend="1866"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="436" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1863" bodyend="1874"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1aa29921ab0bb18ef8508afb07aade95f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1197,7 +1257,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="430" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1868" bodyend="1879"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="437" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1876" bodyend="1887"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a3ef4939f42f3436e8f53aacf4b6c0645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1219,7 +1279,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="431" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1898" bodyend="1908"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="438" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1906" bodyend="1916"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8de81b84d109ae61792a6de30ae2df73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1233,7 +1293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="432" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1910" bodyend="1972"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="439" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1918" bodyend="1980"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8c5af5ed36d76c18bedb028fa04bce9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1251,7 +1311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="433" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1974" bodyend="2032"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="440" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1982" bodyend="2040"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a11db0c56d04c167fb1eb77b4b95057fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -1269,7 +1329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="435" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1659" bodyend="1667"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="442" column="5" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1659" bodyend="1667"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a5a1eafca3aeb31c0aec995e6b8d4eb0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1291,7 +1351,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="436" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1669" bodyend="1673"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="443" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1669" bodyend="1673"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8dc2d3c6e37ec7f6d0a178835a88b3ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1309,7 +1369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="439" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1675" bodyend="1690"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="446" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1675" bodyend="1690"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a9f3e382b5096e449bd7f102a38de3054" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1327,7 +1387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="441" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1881" bodyend="1896"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="448" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1889" bodyend="1904"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a54186d1a1ffd51197caf5553457e9183" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>TArray&lt; <ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> * &gt;</type>
@@ -1345,7 +1405,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="444" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1692" bodyend="1723"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="451" column="8" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1692" bodyend="1723"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a6726354baa9f0118fcae2e61e0f49c9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_a_player_object" kindref="compound">APlayerObject</ref> *</type>
@@ -1363,7 +1423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="446" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1725" bodyend="1729"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="453" column="15" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1725" bodyend="1729"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1af1cef72e0b99f6407c80237c44eea405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1381,7 +1441,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="448" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1731" bodyend="1737"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="455" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1731" bodyend="1737"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a926c073b249026a0f6dfecff445e3d42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int32</type>
@@ -1403,7 +1463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="450" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1739" bodyend="1748"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="457" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1739" bodyend="1748"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ab826b90894f91433718d38e2d0417dc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1429,7 +1489,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="452" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1750" bodyend="1757"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="459" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1750" bodyend="1757"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a05e8e6845c19c70357d5d30cf06140f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1455,7 +1515,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="454" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1759" bodyend="1766"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="461" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1759" bodyend="1766"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a056583c7db62fb119481018d2ecfe7f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>EScreenFlag</type>
@@ -1469,7 +1529,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="456" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1768" bodyend="1771"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="463" column="13" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1768" bodyend="1771"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1abe60381060787b345b223f57928d7a6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1487,7 +1547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="458" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1773" bodyend="1776"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="465" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1773" bodyend="1776"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a36b7ce1ad370bb8795d9f347b34d063e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1501,7 +1561,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="460" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1778" bodyend="1781"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="467" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1778" bodyend="1781"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a61ed83052fdd9dc9055d1e3ca266fad8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int32</type>
@@ -1519,7 +1579,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="462" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1783" bodyend="1786"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="469" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1783" bodyend="1786"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a38a8437b4667c6457ec07764018bb8ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1533,7 +1593,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="465" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1788" bodyend="1791"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="472" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1788" bodyend="1791"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a3758439ae3a33d55365986fcb6120568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1551,7 +1611,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="467" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1793" bodyend="1800"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="474" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1793" bodyend="1800"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8236e0446711d7d818f2ec7acf232aec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1565,7 +1625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="470" column="6"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="477" column="6"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a5e064325b6d435f125534bffe7ea66f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1579,7 +1639,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="472" column="6"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="479" column="6"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ab8336aa4e5bae1388fa95f31e5d28fdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1593,7 +1653,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="474" column="6"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="481" column="6"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="protected-func">
@@ -1610,7 +1670,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="368" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="54" bodyend="70"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="374" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="54" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a81ef4a7114d83745db6e526680aff1d2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -1628,7 +1688,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="369" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="72" bodyend="76"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="375" column="14" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="72" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1adc753665a96ea7d8774f647bab1d20e1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1642,7 +1702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="370" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="78" bodyend="170"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="376" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="78" bodyend="170"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a675944b459fe3810f0d134253213b99b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1656,7 +1716,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="371" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="172" bodyend="185"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="377" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="172" bodyend="185"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a635a16015e51ba8289b6003ba9dbaac1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1670,7 +1730,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="372" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="301" bodyend="305"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="378" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="301" bodyend="305"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1abe6f8b26ba3183e8e0cbc1a17613c4f6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1684,7 +1744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="373" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="820" bodyend="839"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="379" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="820" bodyend="839"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a9ba76a8231f737d0b01f4f64020ca961" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1698,7 +1758,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="374" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="841" bodyend="854"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="380" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="841" bodyend="854"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a14e591fa8665c7b0307c8ab032fcf584" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1712,7 +1772,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="375" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="856" bodyend="877"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="381" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="856" bodyend="877"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a23a136407c51b13d13b17006ddb58ed4" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1730,7 +1790,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="376" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="879" bodyend="887"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="382" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="879" bodyend="887"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a193d6e2b417dc7f17aec9b107b5bbf8e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1744,7 +1804,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="377" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="889" bodyend="995"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="383" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="889" bodyend="995"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1ab59d1059cce9881b80ee21b308460f77" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1762,7 +1822,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="378" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="997" bodyend="1023"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="384" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="997" bodyend="1023"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a3309abfb5bfd68517e2dc47af4a9b72b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -1776,7 +1836,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="379" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1025" bodyend="1106"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="385" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1025" bodyend="1106"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a870fc08ae3a8e37fbcf308d52788b687" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1790,7 +1850,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="380" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1108" bodyend="1117"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="386" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1108" bodyend="1117"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a3e20535f5a4a6914ae9784275044022f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int32</type>
@@ -1804,7 +1864,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="381" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1119" bodyend="1144"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="387" column="7" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1119" bodyend="1144"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a8e2a9e51e4f6e632b4c3709042e9b7e3" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>FGGPONetworkStats</type>
@@ -1818,7 +1878,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="382" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1146" bodyend="1158"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="388" column="19" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1146" bodyend="1158"/>
       </memberdef>
       <memberdef kind="function" id="class_a_night_sky_game_state_1a99b8713d01a18fd6a89d2524a764bca4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1832,7 +1892,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="383" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1160" bodyend="1178"/>
+        <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="389" column="6" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.cpp" bodystart="1160" bodyend="1178"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -2259,7 +2319,7 @@
         <label>UUserWidget</label>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="289" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="290" bodyend="475"/>
+    <location file="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" line="289" column="1" bodyfile="C:/Users/wistf/Unreal Projects/NightSkyEngine/Plugins/NightSkyEngine/Source/NightSkyEngine/Battle/NightSkyGameState.h" bodystart="290" bodyend="482"/>
     <listofallmembers>
       <member refid="class_a_night_sky_game_state_1a268885bdfbae7dd51fe888a29c2df695" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>AddBattleObject</name></member>
       <member refid="class_a_night_sky_game_state_1a4153ccb90bc3b86fcb90fba48314d584" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>ANightSkyGameState</name></member>
@@ -2282,6 +2342,8 @@
       <member refid="class_a_night_sky_game_state_1af1cef72e0b99f6407c80237c44eea405" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CallBattleExtension</name></member>
       <member refid="class_a_night_sky_game_state_1a1e3d04923638eef0e6b3f877e48ed478" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraActor</name></member>
       <member refid="class_a_night_sky_game_state_1ab1b4f6ed6493c24ed1a7ebd1d9eef224" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraShake</name></member>
+      <member refid="class_a_night_sky_game_state_1a41e848b74cd1fb4bf6b7b5456cd0b4bd" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraYaw</name></member>
+      <member refid="class_a_night_sky_game_state_1acb89e0643e3e7cd29feeca8ca926471a" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CameraYOffset</name></member>
       <member refid="class_a_night_sky_game_state_1a4143e5ba45bee2c9e781409c29d12441" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CanTag</name></member>
       <member refid="class_a_night_sky_game_state_1a8718509b8f476114526445ee1bb7c671" prot="private" virt="non-virtual"><scope>ANightSkyGameState</scope><name>Checksum</name></member>
       <member refid="class_a_night_sky_game_state_1a870fc08ae3a8e37fbcf308d52788b687" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>CollisionView</name></member>
@@ -2367,6 +2429,7 @@
       <member refid="class_a_night_sky_game_state_1a1de7f6dbdabee6c8017b0f9b0b2cf311" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateScreen</name></member>
       <member refid="class_a_night_sky_game_state_1a23a136407c51b13d13b17006ddb58ed4" prot="protected" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UpdateVisuals</name></member>
       <member refid="class_a_night_sky_game_state_1a05e8e6845c19c70357d5d30cf06140f8" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>UseGauge</name></member>
+      <member refid="class_a_night_sky_game_state_1a6243b120d1a95233e460a9d116abb4bb" prot="public" virt="non-virtual"><scope>ANightSkyGameState</scope><name>WorldPosToScreenPos</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
