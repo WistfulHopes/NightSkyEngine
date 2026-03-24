@@ -1610,12 +1610,12 @@ void ABattleObject::CollisionView()
 			color = FLinearColor(0.f, 1.f, 1.f, .25f);
 		else
 			color = FLinearColor(0.f, 1.f, 0.f, .25f);
+		
 		for (const auto& LineSet : Lines.Last())
 		{
-			auto start = LineSet[0];
-			auto end = LineSet[1];
-			DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false),
-			              false, 1 / 60, 255, 2.f);
+			auto start = GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + GameState->BattleSceneTransform.GetLocation();
+			auto end =  GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + GameState->BattleSceneTransform.GetLocation();
+			DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 		}
 	}
 	TArray<FVector2D> CurrentCorners;
@@ -1632,10 +1632,9 @@ void ABattleObject::CollisionView()
 
 	for (const auto& LineSet : CurrentLines)
 	{
-		auto start = LineSet[0];
-		auto end = LineSet[1];
-		DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,
-		              1 / 60, 255, 2.f);
+		auto start = GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + GameState->BattleSceneTransform.GetLocation();
+		auto end =  GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + GameState->BattleSceneTransform.GetLocation();
+		DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 	}
 }
 
