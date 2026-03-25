@@ -1642,7 +1642,25 @@ void ABattleObject::CollisionView()
 		auto end =  OffsetTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + OffsetTransform.GetLocation();
 		DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 	}
-	
+}
+
+void ABattleObject::SaveForRollback(unsigned char* Buffer) const
+{
+	FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
+}
+
+void ABattleObject::LoadForRollback(const unsigned char* Buffer)
+{
+	FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
+	if (!IsPlayer)
+	{
+		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName);
+		if (StateIndex != INDEX_NONE)
+		{
+			ObjectState = Player->ObjectStates[StateIndex];
+			ObjectState->Parent = this;
+		}
+	}
 }
 
 void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
