@@ -1611,10 +1611,13 @@ void ABattleObject::CollisionView()
 		else
 			color = FLinearColor(0.f, 1.f, 0.f, .25f);
 		
+		FTransform OffsetTransform = FTransform::Identity;
+		if (GameState){OffsetTransform =  GameState->BattleSceneTransform;}
+		
 		for (const auto& LineSet : Lines.Last())
 		{
-			auto start = GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + GameState->BattleSceneTransform.GetLocation();
-			auto end =  GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + GameState->BattleSceneTransform.GetLocation();
+			auto start = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + OffsetTransform.GetLocation();
+			auto end = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + OffsetTransform.GetLocation();
 			DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 		}
 	}
@@ -1630,31 +1633,16 @@ void ABattleObject::CollisionView()
 	}
 	FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
 
+	FTransform OffsetTransform = FTransform::Identity;
+	if (GameState){OffsetTransform =  GameState->BattleSceneTransform;}
+	
 	for (const auto& LineSet : CurrentLines)
 	{
-		auto start = GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + GameState->BattleSceneTransform.GetLocation();
-		auto end =  GameState->BattleSceneTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + GameState->BattleSceneTransform.GetLocation();
+		auto start = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + OffsetTransform.GetLocation();
+		auto end =  OffsetTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + OffsetTransform.GetLocation();
 		DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 	}
-}
-
-void ABattleObject::SaveForRollback(unsigned char* Buffer) const
-{
-	FMemory::Memcpy(Buffer, &ObjSync, SizeOfBattleObject);
-}
-
-void ABattleObject::LoadForRollback(const unsigned char* Buffer)
-{
-	FMemory::Memcpy(&ObjSync, Buffer, SizeOfBattleObject);
-	if (!IsPlayer)
-	{
-		const int StateIndex = Player->ObjectStateNames.Find(ObjectStateName);
-		if (StateIndex != INDEX_NONE)
-		{
-			ObjectState = Player->ObjectStates[StateIndex];
-			ObjectState->Parent = this;
-		}
-	}
+	
 }
 
 void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
