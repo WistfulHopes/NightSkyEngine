@@ -1798,6 +1798,13 @@ EBlockType APlayerObject::GetAttackBlockType() const
 	return HitCommon.BlockType;
 }
 
+#if WITH_EDITOR
+void APlayerObject::WriteInputCondition(FInputCondition& Condition)
+{
+	StoredInputBuffer.WriteInputCondition(Condition);
+}
+#endif
+
 bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 {
 	CallSubroutine(Subroutine_Cmn_IsCorrectBlock);

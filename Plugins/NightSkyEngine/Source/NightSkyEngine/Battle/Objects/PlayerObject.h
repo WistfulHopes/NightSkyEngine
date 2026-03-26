@@ -1071,6 +1071,10 @@ public:
 	bool IsEnemyThrow() const;
 	bool IsEnemyBlocking() const;
 	EBlockType GetAttackBlockType() const;
+#if WITH_EDITOR
+	UFUNCTION(BlueprintCallable)
+	void WriteInputCondition(FInputCondition& Condition);
+#endif
 };
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);
