@@ -2348,11 +2348,11 @@ void APlayerObject::HandleWallBounce()
 {
 	if (ReceivedHit.WallBounce.WallBounceInCornerOnly)
 	{
-		if (PlayerFlags & PLF_TouchingWall && 
-			GameState->BattleState.ScreenData.ScreenWorldCenterX + GameState->BattleState.ScreenData.ScreenWorldWidth / 2
+		if ((PlayerFlags & PLF_TouchingWall) && 
+			(GameState->BattleState.ScreenData.ScreenWorldCenterX + GameState->BattleState.ScreenData.ScreenWorldWidth / 2
 			>= GameState->BattleState.ScreenData.StageBoundsRight ||
 			GameState->BattleState.ScreenData.ScreenWorldCenterX - GameState->BattleState.ScreenData.ScreenWorldWidth / 2
-			<= GameState->BattleState.ScreenData.StageBoundsLeft)
+			<= GameState->BattleState.ScreenData.StageBoundsLeft))
 		{
 			if (ReceivedHit.WallBounce.WallBounceCount > 0)
 			{

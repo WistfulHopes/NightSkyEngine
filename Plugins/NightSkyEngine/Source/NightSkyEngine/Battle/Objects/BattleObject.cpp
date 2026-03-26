@@ -484,8 +484,8 @@ void ABattleObject::HandlePushCollision(ABattleObject* OtherObj)
 					CollisionDepth = OtherObj->R - L;
 				}
 
-				if (IsPlayer && Player->PlayerFlags & PLF_TouchingWall 
-					|| OtherObj->IsPlayer && OtherObj->Player->PlayerFlags & PLF_TouchingWall)
+				if ((IsPlayer && Player->PlayerFlags & PLF_TouchingWall) 
+					|| (OtherObj->IsPlayer && OtherObj->Player->PlayerFlags & PLF_TouchingWall))
 				{
 					OtherObj->PosX -= CollisionDepth;
 					PosX += CollisionDepth;

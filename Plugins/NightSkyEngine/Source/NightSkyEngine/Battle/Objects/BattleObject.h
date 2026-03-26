@@ -633,7 +633,7 @@ public:
 	virtual ~FBattleObjectLog() = default;
 
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
+	uint32 ObjSync = 0;
 
 	/*
 	 * Movement and position values
@@ -946,7 +946,7 @@ public:
 	bool bIsCommonState = false;
 
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	uint32 ObjSyncEnd = 0;
 
 	virtual void LogForSyncTestFile(std::ofstream& file);
 };
@@ -965,7 +965,7 @@ public:
 	ABattleObject();
 
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
+	uint32 ObjSync = 0;
 
 	/*
 	 * Movement and position values
@@ -1276,7 +1276,7 @@ public:
 	bool bIsCommonState = false;
 
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	uint32 ObjSyncEnd = 0;
 
 	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;

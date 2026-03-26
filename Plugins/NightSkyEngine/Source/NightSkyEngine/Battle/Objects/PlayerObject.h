@@ -69,7 +69,7 @@ struct FPlayerObjectLog : public FBattleObjectLog
 	GENERATED_BODY()
 	
 	//Starting from this until PlayerSyncEnd, everything is saved/loaded for rollback.
-	unsigned char PlayerSync;
+	uint32 PlayerSync;
 
 	/*
 	 * Default values
@@ -316,7 +316,7 @@ protected:
 
 public:
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char PlayerSyncEnd;
+	uint32 PlayerSyncEnd;
 
 	virtual void LogForSyncTestFile(std::ofstream& file) override;
 };
@@ -333,7 +333,7 @@ public:
 	APlayerObject();
 
 	//Starting from this until PlayerSyncEnd, everything is saved/loaded for rollback.
-	unsigned char PlayerSync;
+	uint32 PlayerSync;
 
 	/*
 	 * Default values
@@ -580,7 +580,7 @@ protected:
 
 public:
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char PlayerSyncEnd;
+	uint32 PlayerSyncEnd;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	bool bIsCpu = false;
