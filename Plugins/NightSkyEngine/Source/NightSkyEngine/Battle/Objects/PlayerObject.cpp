@@ -2950,7 +2950,6 @@ void APlayerObject::PostStateChange()
 
 void APlayerObject::RoundInit(bool ResetHealth)
 {
-	OrthoBlendActive = 1;
 	StoredInputBuffer = FInputBuffer();
 	if (PlayerIndex == 0)
 	{

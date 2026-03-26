@@ -1297,8 +1297,6 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, SaveGame)
 	float ScreenSpaceDepthOffset = 0;
-	UPROPERTY(BlueprintReadWrite, SaveGame)
-	float OrthoBlendActive = 0;
 
 	UPROPERTY(SaveGame)
 	TArray<FAnimStruct> AnimStructs;

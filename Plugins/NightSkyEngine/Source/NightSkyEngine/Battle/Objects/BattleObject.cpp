@@ -402,7 +402,6 @@ void ABattleObject::Tick(float DeltaTime)
 	if (!GameState)
 	{
 		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
 	}
 }
 
@@ -1704,7 +1703,6 @@ void ABattleObject::UpdateVisuals()
 			ScreenSpaceDepthOffset = 0;
 			if (DrawPriorityLinkObj)
 				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
 		}
 		else
 		{
@@ -1712,13 +1710,11 @@ void ABattleObject::UpdateVisuals()
 				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
 			else
 				ScreenSpaceDepthOffset = (MaxDrawPriority - DrawPriority) * 50;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 		}
 	}
 	else
 	{
 		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
 	}
 
 	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
@@ -1841,7 +1837,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 	if (LinkedParticle)
 	{
 		LinkedParticle->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-		LinkedParticle->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 	}
 	
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
@@ -1854,7 +1849,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
@@ -1867,7 +1861,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
@@ -1898,7 +1891,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 				}
 				MIDynamic->SetScalarParameterValue(TEXT("Transparency"), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
@@ -2147,7 +2139,6 @@ void ABattleObject::ResetObject()
 		LinkedParticle = nullptr;
 	}
 	RemoveLinkActor();
-	OrthoBlendActive = 1;
 	
 	IsActive = false;
 	PosX = 0;
@@ -3162,7 +3153,6 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;
@@ -3204,7 +3194,6 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;
