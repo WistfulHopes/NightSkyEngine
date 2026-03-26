@@ -169,10 +169,10 @@ void ANightSkyGameState::Init()
 	MatchInit();
 	HUDInit();
 
-	if (!GameInstance->IsReplay)
+	if (!GameInstance->IsReplay && GameGameInstance->FighterRunner == Multiplayer)
 	{
 		GameInstance->EndRecordReplay();
-		// GameInstance->RecordReplay();
+		GameInstance->RecordReplay();
 	}
 }
 
