@@ -60,6 +60,7 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 		SortedObjects.Add(P1);
 		P1->InitPlayer();
 		P1->GameState = this;
+		P1->AddTickPrerequisiteActor(this);
 	}
 	{
 		Players.Add(P2);
@@ -68,23 +69,19 @@ void ANightSkyWTGameState::Init(APlayerObject* P1, APlayerObject* P2)
 		SortedObjects.Add(P2);
 		P2->InitPlayer();
 		P2->GameState = this;
+		P2->AddTickPrerequisiteActor(this);
 	}
 
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		Objects.Add(GetWorld()->SpawnActor<ABattleObject>(ABattleObject::StaticClass(), BattleSceneTransform));
 		Objects[i]->GameState = this;
+		Objects[i]->AddTickPrerequisiteActor(this);
 		SortedObjects.Add(Objects.Last());
 	}
 	
-	const FVector NewCameraLocation = BattleSceneTransform.GetRotation().RotateVector(FVector(0, 1080, 175)) + BattleSceneTransform.GetLocation();
-	FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
-	CameraRotation.Yaw -= 90;
+	UpdateCamera();
 	
-	CameraActor->SetActorLocation(NewCameraLocation);
-	CameraActor->SetActorRotation(CameraRotation);
-	SequenceCameraActor->SetActorLocation(NewCameraLocation);
-
 	MatchInit();
 	HUDInit();
 }
