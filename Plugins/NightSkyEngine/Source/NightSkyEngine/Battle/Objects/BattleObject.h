@@ -1598,7 +1598,7 @@ public:
 
 constexpr size_t SizeOfBattleObject = offsetof(ABattleObject, ObjSyncEnd) - offsetof(ABattleObject, ObjSync);
 
-#if WITH_EDITOR
+#if PLATFORM_WINDOWS && WITH_EDITOR
 static_assert(offsetof(FBattleObjectLog, ObjSyncEnd) - offsetof(FBattleObjectLog, ObjSync) == SizeOfBattleObject,
               "FBattleObjectLog must contain all members from ABattleObject between ObjSync and ObjSyncEnd");
 #endif
