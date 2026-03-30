@@ -338,6 +338,7 @@ void ANightSkyPlayerController::SendBattleData()
 			if (NetworkPawns[1]->CharaDataReceived) return;
 			for (const auto CharaData : GameInstance->BattleData.PlayerListP1)
 			{
+				auto Result = CharaData.LoadSynchronous();
 				NetworkMirror.PlayerList.Add(CharaData->GetPrimaryAssetId());
 			}
 			NetworkPawns[1]->ClientGetBattleData(GameInstance->BattleData, NetworkMirror);
@@ -348,6 +349,7 @@ void ANightSkyPlayerController::SendBattleData()
 		{
 			for (const auto CharaData : GameInstance->BattleData.PlayerListP2)
 			{
+				auto Result = CharaData.LoadSynchronous();
 				NetworkMirror.PlayerList.Add(CharaData->GetPrimaryAssetId());
 			}
 			NetworkPawns[0]->ServerGetBattleData(GameInstance->BattleData, NetworkMirror);

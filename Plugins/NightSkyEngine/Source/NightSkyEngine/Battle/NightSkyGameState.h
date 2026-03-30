@@ -346,6 +346,12 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsPlayingSequence = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CameraYaw = -2.5f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CameraYOffset = 105.0f;
+
 	UPROPERTY()
 	class AFighterLocalRunner* FighterRunner = nullptr;;
 	UPROPERTY(BlueprintReadWrite)
@@ -400,6 +406,7 @@ public:
 	void SetScreenBounds() const; //forces wall collision
 	void StartSuperFreeze(int32 Duration, int32 SelfDuration, ABattleObject* CallingObject);
 	void ScreenPosToWorldPos(int32 X, int32 Y, int32& OutX, int32& OutY) const;
+	void WorldPosToScreenPos(int32 X, int32 Y, int32& OutX, int32& OutY) const;
 	ABattleObject* AddBattleObject(const UState* InState, int PosX, int PosY, EObjDir Dir, int32 ObjectStateIndex, bool bIsCommonState, APlayerObject* Parent) const;
 	void SetDrawPriorityFront(ABattleObject* InObject) const;
 	void SetDrawPriorityBack(ABattleObject* InObject) const;

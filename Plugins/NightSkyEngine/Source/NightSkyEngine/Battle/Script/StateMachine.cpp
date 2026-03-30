@@ -18,6 +18,7 @@ void FStateMachine::AddState(const FGameplayTag& Name, UState* Config)
 		CurrentState = Config;
 		CurrentState->Init();
 		Update();
+		Parent->UpdateCel();
 	}
 }
 
@@ -52,7 +53,7 @@ bool FStateMachine::SetState(const FGameplayTag Name, bool bIsAlias)
 	if (const auto SubroutineState = Cast<USubroutineState>(StateToEnter))
 	{
 		Parent->CallSubroutine(SubroutineState->SubroutineName);
-		return false;
+		return true;
 	}
 	if (!bIsAlias)
 	{
@@ -71,6 +72,8 @@ bool FStateMachine::SetState(const FGameplayTag Name, bool bIsAlias)
 	CurrentState->Init();
 	Update();
 
+	Parent->UpdateCel();
+
 	return true;
 }
 
@@ -85,7 +88,7 @@ bool FStateMachine::ForceSetState(const FGameplayTag Name, bool bIsAlias)
 	if (const auto SubroutineState = Cast<USubroutineState>(StateToEnter))
 	{
 		Parent->CallSubroutine(SubroutineState->SubroutineName);
-		return false;
+		return true;
 	}
 	if (!bIsAlias)
 	{
@@ -104,6 +107,8 @@ bool FStateMachine::ForceSetState(const FGameplayTag Name, bool bIsAlias)
 	CurrentState->Init();
 	Update();
 
+	Parent->UpdateCel();
+
 	return true;
 }
 
@@ -116,7 +121,7 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 			if (const auto SubroutineState = Cast<USubroutineState>(State))
 			{
 				Parent->CallSubroutine(SubroutineState->SubroutineName);
-				return false;
+				return true;
 			}
 			if (!bIsAlias)
 			{
@@ -134,6 +139,8 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 			if (bPrimary) Parent->PostStateChange();
 			CurrentState->Init();
 			Update();
+
+			Parent->UpdateCel();
 
 			return true;
 		}

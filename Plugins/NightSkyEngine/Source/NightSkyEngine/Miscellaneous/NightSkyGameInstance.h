@@ -27,9 +27,9 @@ struct FBattleData
 	UPROPERTY(EditAnywhere)
 	bool bIsValid = false;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<UPrimaryCharaData*> PlayerListP1;
+	TArray<TSoftObjectPtr<UPrimaryCharaData>> PlayerListP1;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<UPrimaryCharaData*> PlayerListP2;
+	TArray<TSoftObjectPtr<UPrimaryCharaData>> PlayerListP2;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<int32> ColorIndicesP1;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

@@ -614,6 +614,8 @@ struct FSuperArmorData
 	UPROPERTY(BlueprintReadWrite)
 	uint8 bArmorTakeChipDamage : 1;
 	UPROPERTY(BlueprintReadWrite)
+	uint8 bArmorDisableIncomingHit : 1;
+	UPROPERTY(BlueprintReadWrite)
 	int32 ArmorDamagePercent;
 	UPROPERTY(BlueprintReadWrite)
 	int32 ArmorHits;
@@ -631,7 +633,7 @@ public:
 	virtual ~FBattleObjectLog() = default;
 
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
+	uint32 ObjSync = 0;
 
 	/*
 	 * Movement and position values
@@ -944,7 +946,7 @@ public:
 	bool bIsCommonState = false;
 
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	uint32 ObjSyncEnd = 0;
 
 	virtual void LogForSyncTestFile(std::ofstream& file);
 };
@@ -963,7 +965,7 @@ public:
 	ABattleObject();
 
 	//Starting from this until ObjSyncEnd, everything is saved/loaded for rollback.
-	unsigned char ObjSync = 0;
+	uint32 ObjSync = 0;
 
 	/*
 	 * Movement and position values
@@ -1274,7 +1276,7 @@ public:
 	bool bIsCommonState = false;
 
 	// Anything past here isn't saved or loaded for rollback, unless it has the SaveGame tag.
-	unsigned char ObjSyncEnd = 0;
+	uint32 ObjSyncEnd = 0;
 
 	UPROPERTY(SaveGame)
 	TArray<ABattleObject*> ObjectsToIgnoreHitsFrom;
@@ -1334,7 +1336,8 @@ public:
 	//handles flip
 	void HandleFlip();
 	void TriggerEvent(EEventType EventType, FGameplayTag StateMachineName);
-
+	void UpdateCel();
+	
 	UFUNCTION(BlueprintCallable)
 	void CollisionView();
 
@@ -1449,6 +1452,8 @@ public:
 	void PosTypeToPosition(EPosType Type, int32& OutPosX, int32& OutPosY) const;
 	UFUNCTION(BlueprintPure)
 	void ScreenPosToWorldPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
+	UFUNCTION(BlueprintPure)
+	void WorldPosToScreenPos(const int32 X, const int32 Y, int32& OutX, int32& OutY) const;
 	//sets direction
 	UFUNCTION(BlueprintCallable)
 	void SetFacing(EObjDir NewDir);
@@ -1466,7 +1471,7 @@ public:
 	void EnableHit(bool Enabled);
 	//sets attacking. while this is true, you can be counter hit, but you can hit the opponent and chain cancel.
 	UFUNCTION(BlueprintCallable)
-	void SetAttacking(bool Attacking);
+	void SetAttacking(bool Attacking, bool AllowCancel = false);
 	UFUNCTION(BlueprintCallable)
 	void SetPlayerHit(bool Enable);
 	UFUNCTION(BlueprintCallable)

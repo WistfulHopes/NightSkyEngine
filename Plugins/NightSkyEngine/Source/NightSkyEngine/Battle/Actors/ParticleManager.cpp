@@ -40,14 +40,20 @@ void AParticleManager::UpdateParticles()
 			NiagaraComponent->AdvanceSimulation(1, OneFrame / 1000);
 			NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge());
 			if (NiagaraComponent->IsComplete())
+			{
 				NiagaraComponent->Deactivate();
+				NiagaraComponent->DestroyComponent();
+			}
 			continue;
 		}
 		NiagaraComponent->SetPaused(false);
 		NiagaraComponent->AdvanceSimulation(1, OneFrame);
 		NiagaraComponent->SetDesiredAge(NiagaraComponent->GetDesiredAge() + OneFrame);
 		if (NiagaraComponent->IsComplete())
+		{
 			NiagaraComponent->Deactivate();
+			NiagaraComponent->DestroyComponent();
+		}
 	}
 }
 
