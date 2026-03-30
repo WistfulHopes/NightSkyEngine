@@ -41,7 +41,7 @@ bool FStateMachine::SetState(const FGameplayTag Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
-		UE_LOGFMT(LogNightSkyEngine, Warning, "Could not find state {0}! Cannot set state.", Name.ToString());
+		UE_LOGFMT(LogNightSkyEngine, Error, "Could not find state {0}! Cannot set state.", Name.ToString());
 		return false;
 	}
 
@@ -83,7 +83,7 @@ bool FStateMachine::ForceSetState(const FGameplayTag Name, bool bIsAlias)
 {
 	if (StateNames.Find(Name) == INDEX_NONE)
 	{
-		UE_LOGFMT(LogNightSkyEngine, Warning, "Could not find state {0}! Cannot set state.", Name.ToString());
+		UE_LOGFMT(LogNightSkyEngine, Error, "Could not find state {0}! Cannot set state.", Name.ToString());
 		return false;
 	}
 	
@@ -148,7 +148,7 @@ bool FStateMachine::ForceSetState(TSubclassOf<UState> Class, bool bIsAlias)
 			return true;
 		}
 	}
-	UE_LOGFMT(LogNightSkyEngine, Warning, "Could not find state of class {0}! Cannot set state.", Class->GetName());
+	UE_LOGFMT(LogNightSkyEngine, Error, "Could not find state of class {0}! Cannot set state.", Class->GetName());
 	return false;
 }
 
