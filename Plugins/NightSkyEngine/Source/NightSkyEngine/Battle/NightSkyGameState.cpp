@@ -168,12 +168,6 @@ void ANightSkyGameState::Init()
 
 	MatchInit();
 	HUDInit();
-
-	if (!GameInstance->IsReplay && GameInstance->FighterRunner == Multiplayer)
-	{
-		GameInstance->EndRecordReplay();
-		GameInstance->RecordReplay();
-	}
 }
 
 void ANightSkyGameState::PlayIntros()
@@ -570,6 +564,10 @@ void ANightSkyGameState::UpdateGameState(int32 Input1, int32 Input2, bool bShoul
 	}
 
 	// these aren't strictly game state related, but tying them to game state update makes things better	
+	if (GameInstance->FighterRunner == Multiplayer && !GameInstance->IsReplay)
+	{
+		GameInstance->UpdateReplay(Input1, Input2);
+	}
 
 	CollisionView();
 
