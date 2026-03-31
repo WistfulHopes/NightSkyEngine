@@ -20,16 +20,17 @@ jobs:
           OUTPUT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\WindowsEditor' # Path to where you want to store the packaged game
         run: |
           # Try to run empty UAT to check for correct path
-          & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -noP4 -platform=Win64 -configuration=Development -archivedirectory="$env:OUTPUT_PATH"
+          & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -notools
 
-      - name: Create zip
-        uses: ihiroky/archive-action@v1
-        with:
-          root_dir: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\WindowsEditor'
-          file_path: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\NSEPlugin.zip'
+      - name: Install zip
+        uses: montudor/action-zip@v0.1.0
 
+      - name: Zip output
+        run: zip -r NSEPlugin.zip . -x "Intermediate/*"
+        working-directory: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine'
+        
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: NSEPlugin
-          path: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\NSEPlugin.zip'
+          path: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\NSEPlugin.zip'
