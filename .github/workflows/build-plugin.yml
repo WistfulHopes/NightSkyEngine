@@ -23,8 +23,9 @@ jobs:
           & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -notools
 
       - name: Create archive
-        run: zip -r NSEPlugin.zip . -x "Intermediate/*"
-        working-directory: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine'
+        run: |
+          $file=Get-ChildItem -Path 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine' -Exclude "Intermediate"
+          Compress-Archive -Path $file -DestinationPath 'C:\Users\wistf\Unreal Projects\NightSkyEngine\NSEPlugin.zip'
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
