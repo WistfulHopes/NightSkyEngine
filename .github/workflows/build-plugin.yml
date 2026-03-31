@@ -1,4 +1,4 @@
-name: Package Unreal Engine Project
+name: Build Unreal Engine Plugin
  
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    name: Package Unreal Engine Game
+    name: Build Unreal Engine Plugin
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -21,3 +21,15 @@ jobs:
         run: |
           # Try to run empty UAT to check for correct path
           & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -noP4 -platform=Win64 -configuration=Development -archivedirectory="$env:OUTPUT_PATH"
+
+      - name: Create zip
+        uses: ihiroky/archive-action@v1
+        with:
+          root_dir: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\WindowsEditor'
+          file_path: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\NSEPlugin.zip'
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NSEPlugin
+          path: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\NSEPlugin.zip'
