@@ -1,0 +1,23 @@
+name: Package Unreal Engine Project
+ 
+on:
+  push:
+    branches:
+      - master
+ 
+jobs:
+  build:
+    runs-on: self-hosted
+    name: Package Unreal Engine Game
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+ 
+      - name: Package Project
+        env: 
+          UE_PATH: 'C:\Program Files\Epic Games\UE_5.7' # Path to your Unreal Engine installation
+          PROJECT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\NightSkyEngine.uproject' # Path to your Unreal project file
+          OUTPUT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\WindowsEditor' # Path to where you want to store the packaged game
+        run: |
+          # Try to run empty UAT to check for correct path
+          & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -noP4 -platform=Win64 -configuration=Development -archivedirectory="$env:OUTPUT_PATH"
