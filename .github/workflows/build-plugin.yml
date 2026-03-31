@@ -3,7 +3,7 @@ name: Build Unreal Engine Plugin
 on:
   push:
     branches:
-      - master
+      - main
  
 jobs:
   build:
