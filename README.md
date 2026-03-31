@@ -10,6 +10,8 @@ Documentation link: https://wistfulhopes.github.io/NightSkyEngine/
 
 Discord link: https://discord.gg/mJTU9PV7jH
 
+## Credits
+
 The following additional plugins are used:
 
 - GGPOUE4, originally by @BwdYeti, then forked by @erebuswolf, and finally modified for use in Night Sky Engine.
