@@ -1270,8 +1270,6 @@ void ANightSkyGameState::UpdateCamera()
 		FRotator CameraRotation = BattleSceneTransform.GetRotation().Rotator();
 		CameraRotation.Yaw -= 90;
 		CameraRotation.Pitch -= CameraYaw;
-		CameraActor->SetActorLocation(BattleState.CameraPosition);
-		CameraActor->SetActorRotation(CameraRotation);
 		if (BattleState.CurrentSequenceTime == -1)
 		{
 			BattleState.OrthoBlendActive = 1;
@@ -1283,6 +1281,8 @@ void ANightSkyGameState::UpdateCamera()
 			{
 				PlayerController->SetViewTargetWithBlend(CameraActor);
 			}
+			CameraActor->SetActorLocation(BattleState.CameraPosition);
+			CameraActor->SetActorRotation(CameraRotation);
 		}
 		else
 		{
@@ -1318,15 +1318,23 @@ void ANightSkyGameState::UpdateCamera()
 			APlayerCameraManager* CameraManager = UGameplayStatics::GetPlayerCameraManager(this, 0);
 			if (CameraManager->PendingViewTarget.Target == CameraActor)
 			{
+				CameraActor->SetActorLocation(BattleState.CameraPosition);
+				CameraActor->SetActorRotation(CameraRotation);
 				BattleState.OrthoBlendActive = 1 - (CameraManager->BlendTimeToGo / CameraManager->BlendParams.BlendTime);
 			}
 			else if (CameraManager->PendingViewTarget.Target == SequenceCameraActor)
 			{
 				BattleState.OrthoBlendActive = CameraManager->BlendTimeToGo / CameraManager->BlendParams.BlendTime;
 			}
+			else if (CameraManager->ViewTarget.Target == CameraActor)
+			{
+				CameraActor->SetActorLocation(BattleState.CameraPosition);
+				CameraActor->SetActorRotation(CameraRotation);
+				BattleState.OrthoBlendActive = 1;
+			}
 			else
 			{
-				BattleState.OrthoBlendActive = CameraManager->ViewTarget.Target == CameraActor ? 1 : 0;
+				BattleState.OrthoBlendActive = 0;
 			}
 
 			SequenceCameraActor->SetActorLocation(
@@ -1408,6 +1416,14 @@ void ANightSkyGameState::PlayLevelSequence(APlayerObject* Target, APlayerObject*
 
 void ANightSkyGameState::StopLevelSequence()
 {
+	APlayerCameraManager* CameraManager = UGameplayStatics::GetPlayerCameraManager(this, 0);
+	
+	if (CameraManager != nullptr)
+	{
+		CameraActor->SetActorLocation(CameraManager->ViewTarget.POV.Location);
+		CameraActor->SetActorRotation(CameraManager->ViewTarget.POV.Rotation);
+	}
+	
 	SequenceActor->GetSequencePlayer()->Stop();
 	BattleState.CurrentSequenceTime = -1;
 	BattleState.IsPlayingSequence = false;

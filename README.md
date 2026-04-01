@@ -15,6 +15,7 @@ Discord link: https://discord.gg/mJTU9PV7jH
 The following additional plugins are used:
 
 - GGPOUE4, originally by @BwdYeti, then forked by @erebuswolf, and finally modified for use in Night Sky Engine.
+- CommonLoadingScreen, originally part of the official Lyra Sample Project by Epic Games.
 
 Collision editor co-developed by [@MostExcellent](https://github.com/MostExcellent).
 
