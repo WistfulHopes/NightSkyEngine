@@ -20,7 +20,7 @@ jobs:
           & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -notools
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact
         with:
           name: NSEPlugin
           path: |
@@ -28,7 +28,7 @@ jobs:
             !C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine\Intermediate
       
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact
         with:
           name: NightSkyEngine
           path: |
