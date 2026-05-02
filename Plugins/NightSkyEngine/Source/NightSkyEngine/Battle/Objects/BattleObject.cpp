@@ -2104,6 +2104,10 @@ void ABattleObject::Update()
 
 	if (!IsPlayer)
 	{
+		Move();
+		
+		GameState->SetScreenBounds();
+		
 		if (ActionTime == 0)
 		{
 			ObjectState->Init();
@@ -2116,10 +2120,6 @@ void ABattleObject::Update()
 			LinkedActor->Update();
 		
 		UpdateCel();
-		
-		Move();
-		
-		GameState->SetScreenBounds();
 		ActionTime++;
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)

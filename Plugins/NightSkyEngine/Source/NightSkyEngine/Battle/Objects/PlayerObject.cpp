@@ -820,6 +820,8 @@ void APlayerObject::Update()
 	HandleLanding();
 	Move();
 	HandleLanding();
+		
+	GameState->SetScreenBounds();
 
 	Player->PrimaryStateMachine.Update();
 	for (auto& StateMachine : SubStateMachines)
