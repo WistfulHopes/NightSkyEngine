@@ -215,7 +215,7 @@ void APlayerObject::InitPlayer()
 		{
 			if (!IsValid(SubroutineClass)) continue;
 			
-			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->ClassDefaultObject)->Name != FGameplayTag::EmptyTag)
+			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->GetDefaultObject())->Name != FGameplayTag::EmptyTag)
 			{
 				UE_LOGFMT(LogTemp, Error, "Subroutine class '{0}' inherits from non-generic subroutine '{1}'!", 
 					SubroutineClass->GetName(), SubroutineClass->GetSuperClass()->GetName());
@@ -231,7 +231,7 @@ void APlayerObject::InitPlayer()
 		{
 			if (!IsValid(SubroutineClass)) continue;
 			
-			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->ClassDefaultObject)->Name != FGameplayTag::EmptyTag)
+			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->GetDefaultObject())->Name != FGameplayTag::EmptyTag)
 			{
 				UE_LOGFMT(LogTemp, Error, "Subroutine class '{0}' inherits from non-generic subroutine '{1}'!", 
 					SubroutineClass->GetName(), SubroutineClass->GetSuperClass()->GetName());
