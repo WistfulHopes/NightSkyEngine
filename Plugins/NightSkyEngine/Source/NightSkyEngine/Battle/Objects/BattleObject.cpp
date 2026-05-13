@@ -402,7 +402,6 @@ void ABattleObject::Tick(float DeltaTime)
 	if (!GameState)
 	{
 		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
 	}
 }
 
@@ -1610,12 +1609,15 @@ void ABattleObject::CollisionView()
 			color = FLinearColor(0.f, 1.f, 1.f, .25f);
 		else
 			color = FLinearColor(0.f, 1.f, 0.f, .25f);
+		
+		FTransform OffsetTransform = FTransform::Identity;
+		if (GameState){OffsetTransform =  GameState->BattleSceneTransform;}
+		
 		for (const auto& LineSet : Lines.Last())
 		{
-			auto start = LineSet[0];
-			auto end = LineSet[1];
-			DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false),
-			              false, 1 / 60, 255, 2.f);
+			auto start = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + OffsetTransform.GetLocation();
+			auto end = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + OffsetTransform.GetLocation();
+			DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 		}
 	}
 	TArray<FVector2D> CurrentCorners;
@@ -1630,12 +1632,14 @@ void ABattleObject::CollisionView()
 	}
 	FLinearColor color = FLinearColor(1.f, 1.f, 0.f, .2f);
 
+	FTransform OffsetTransform = FTransform::Identity;
+	if (GameState){OffsetTransform =  GameState->BattleSceneTransform;}
+	
 	for (const auto& LineSet : CurrentLines)
 	{
-		auto start = LineSet[0];
-		auto end = LineSet[1];
-		DrawDebugLine(GetWorld(), FVector(start.X, 0, start.Y), FVector(end.X, 0, end.Y), color.ToFColor(false), false,
-		              1 / 60, 255, 2.f);
+		auto start = OffsetTransform.GetRotation().RotateVector(FVector( LineSet[0].X, 0,  LineSet[0].Y)) + OffsetTransform.GetLocation();
+		auto end =  OffsetTransform.GetRotation().RotateVector(FVector( LineSet[1].X, 0,  LineSet[1].Y)) + OffsetTransform.GetLocation();
+		DrawDebugLine(GetWorld(), start, end, color.ToFColor(false),false, 1 / 60, 255, 2.f);
 	}
 }
 
@@ -1704,7 +1708,6 @@ void ABattleObject::UpdateVisuals()
 			ScreenSpaceDepthOffset = 0;
 			if (DrawPriorityLinkObj)
 				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 0, 0.2);
 		}
 		else
 		{
@@ -1712,13 +1715,11 @@ void ABattleObject::UpdateVisuals()
 				ScreenSpaceDepthOffset = DrawPriorityLinkObj->ScreenSpaceDepthOffset;
 			else
 				ScreenSpaceDepthOffset = (MaxDrawPriority - DrawPriority) * 50;
-			OrthoBlendActive = FMath::Lerp(OrthoBlendActive, 1, 0.2);
 		}
 	}
 	else
 	{
 		ScreenSpaceDepthOffset = 0;
-		OrthoBlendActive = 1;
 	}
 
 	AddColor = FMath::Lerp(AddColor, AddFadeColor, AddFadeSpeed);
@@ -1841,7 +1842,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 	if (LinkedParticle)
 	{
 		LinkedParticle->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-		LinkedParticle->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 	}
 	
 	TInlineComponentArray<UPrimitiveComponent*> Components(this);
@@ -1854,7 +1854,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("AddColor")), AddColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("MulColor")), MulColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
@@ -1867,7 +1866,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 			{
 				MIDynamic->SetScalarParameterValue(FName(TEXT("Transparency")), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
@@ -1898,7 +1896,6 @@ void ABattleObject::UpdateVisualsNoRollback()
 				}
 				MIDynamic->SetScalarParameterValue(TEXT("Transparency"), Transparency);
 				MIDynamic->SetScalarParameterValue(FName(TEXT("ScreenSpaceDepthOffset")), ScreenSpaceDepthOffset);
-				MIDynamic->SetScalarParameterValue(FName(TEXT("OrthoBlendActive")), OrthoBlendActive);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor")), DamageColor);
 				MIDynamic->SetVectorParameterValue(FName(TEXT("DamageColor2")), DamageColor2);
 			}
@@ -2107,6 +2104,10 @@ void ABattleObject::Update()
 
 	if (!IsPlayer)
 	{
+		Move();
+		
+		GameState->SetScreenBounds();
+		
 		if (ActionTime == 0)
 		{
 			ObjectState->Init();
@@ -2119,10 +2120,6 @@ void ABattleObject::Update()
 			LinkedActor->Update();
 		
 		UpdateCel();
-		
-		Move();
-		
-		GameState->SetScreenBounds();
 		ActionTime++;
 
 		if (MiscFlags & MISC_DeactivateIfBeyondBounds)
@@ -2147,7 +2144,6 @@ void ABattleObject::ResetObject()
 		LinkedParticle = nullptr;
 	}
 	RemoveLinkActor();
-	OrthoBlendActive = 1;
 	
 	IsActive = false;
 	PosX = 0;
@@ -3162,7 +3158,6 @@ void ABattleObject::CreateCommonParticle(FGameplayTag Name, EPosType PosType, FV
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;
@@ -3204,7 +3199,6 @@ void ABattleObject::CreateCharaParticle(FGameplayTag Name, EPosType PosType, FVe
 					NiagaraComponent->SetVariableVec2(FName("PivotOffset"), FVector2D(0, 0.5));
 				}
 				NiagaraComponent->SetVariableFloat(FName("ScreenSpaceDepthOffset"), ScreenSpaceDepthOffset);
-				NiagaraComponent->SetVariableFloat(FName("OrthoBlendActive"), OrthoBlendActive);
 				NiagaraComponent->SetCustomDepthStencilValue(2);
 				NiagaraComponent->SetBoundsScale(40000);
 				break;

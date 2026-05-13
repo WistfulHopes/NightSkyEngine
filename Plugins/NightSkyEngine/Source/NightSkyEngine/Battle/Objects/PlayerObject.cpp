@@ -214,6 +214,13 @@ void APlayerObject::InitPlayer()
 		for (auto SubroutineClass : CommonSubroutineData->SubroutineArray)
 		{
 			if (!IsValid(SubroutineClass)) continue;
+			
+			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->GetDefaultObject())->Name != FGameplayTag::EmptyTag)
+			{
+				UE_LOGFMT(LogTemp, Error, "Subroutine class '{0}' inherits from non-generic subroutine '{1}'!", 
+					SubroutineClass->GetName(), SubroutineClass->GetSuperClass()->GetName());
+			}
+			
 			auto Subroutine = NewObject<USubroutine>(this, SubroutineClass);
 			AddSubroutine(Subroutine->Name, Subroutine, true);
 		}
@@ -223,6 +230,13 @@ void APlayerObject::InitPlayer()
 		for (auto SubroutineClass : CharaSubroutineData->SubroutineArray)
 		{
 			if (!IsValid(SubroutineClass)) continue;
+			
+			if (Cast<USubroutine>(SubroutineClass->GetSuperClass()->GetDefaultObject())->Name != FGameplayTag::EmptyTag)
+			{
+				UE_LOGFMT(LogTemp, Error, "Subroutine class '{0}' inherits from non-generic subroutine '{1}'!", 
+					SubroutineClass->GetName(), SubroutineClass->GetSuperClass()->GetName());
+			}
+
 			auto Subroutine = NewObject<USubroutine>(this, SubroutineClass);
 			AddSubroutine(Subroutine->Name, Subroutine, false);
 		}
@@ -806,6 +820,8 @@ void APlayerObject::Update()
 	HandleLanding();
 	Move();
 	HandleLanding();
+		
+	GameState->SetScreenBounds();
 
 	Player->PrimaryStateMachine.Update();
 	for (auto& StateMachine : SubStateMachines)
@@ -2950,7 +2966,6 @@ void APlayerObject::PostStateChange()
 
 void APlayerObject::RoundInit(bool ResetHealth)
 {
-	OrthoBlendActive = 1;
 	StoredInputBuffer = FInputBuffer();
 	if (PlayerIndex == 0)
 	{

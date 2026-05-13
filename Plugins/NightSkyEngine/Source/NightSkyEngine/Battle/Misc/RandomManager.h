@@ -12,24 +12,9 @@ public:
 	FRandomManager() {}
 	FRandomManager(uint32 InSeed) : Seed(InSeed) {}
 
-	int Rand()
-	{
-		Seed = Seed * 1103515245 + 12345;
-		return Seed / 65536 % 32768;
-	}
+	int Rand();
 
-	int RandRange(int Min, int Max)
-	{
-		if (Min > Max)
-		{
-			const int32 Temp = Max;
-			Max = Min;
-			Min = Temp;
-		}
-		int32 Result = Rand();
-		Result = Result % (Max - Min + 1) + Min;
-		return Result;
-	}
+	int RandRange(int Min, int Max);
 	
 	void Reseed(uint32 InSeed)
 	{
@@ -40,6 +25,4 @@ public:
 	{
 		return Seed;
 	}
-
-	int32 GenerateRandomNumber();
 };

@@ -1079,6 +1079,7 @@ public:
 
 constexpr size_t SizeOfPlayerObject = offsetof(APlayerObject, PlayerSyncEnd) - offsetof(APlayerObject, PlayerSync);
 
-#if WITH_EDITOR
-static_assert(offsetof(FPlayerObjectLog, PlayerSyncEnd) - offsetof(FPlayerObjectLog, PlayerSync) == SizeOfPlayerObject, "FPlayerObjectLog must contain all members from ABattleObject between PlayerSync and PlayerSyncEnd");
+#if PLATFORM_WINDOWS && WITH_EDITOR
+static_assert(offsetof(FPlayerObjectLog, PlayerSyncEnd) - offsetof(FPlayerObjectLog, PlayerSync) == SizeOfPlayerObject, 
+			  "FPlayerObjectLog must contain all members from ABattleObject between PlayerSync and PlayerSyncEnd");
 #endif
