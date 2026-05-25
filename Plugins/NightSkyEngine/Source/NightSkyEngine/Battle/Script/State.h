@@ -120,48 +120,39 @@ UENUM()
 enum class EInputMethod : uint8
 {
 	/*
-	 * The button or direction may be held indefinitely.
+	 * The button may be held indefinitely. We do not need to find a 
+	 * positive edge in the buffer.
 	 * Diagonal directions are counted as both of the cardinal directions it represents.
+	 * Motion and button input should not share a sequence.
 	 */
 	Normal,
 	/*
-	 * The button or direction may be held indefinitely.
+	 * The button may be held indefinitely. We do not need to find a 
+	 * positive edge in the buffer.
 	 * Diagonal directions are not counted as either of the cardinal directions it represents.
+	 * Motion and button input should not share a sequence.
 	 */
 	Strict,
 	/*
-	 * The button or direction will only be counted on first press until release.
-	  * Diagonal directions are counted as both of the cardinal directions it represents.
+	 * The button will only be counted when the positive edge of the button
+	 * is in the input buffer.
+	 * No directional inputs should be present in the sequence, this will cause an error.
+	 * Only one button should be present in the sequence, TODO: this will cause an error.
 	 */
-	Once,
+	PositiveEdge,
 	/*
-	 * The button or direction will only be counted on first press until release.
-	 * Diagonal directions are not counted as either of the cardinal directions it represents.
-	 * This is a combination of the Once and Strict methods.
-	 */
-	OnceStrict,
-	/*
-	 * The button or direction will only be counted when first pressed, then released.
-	  * Diagonal directions are counted as both of the cardinal directions it represents.
+	 * The button will only be counted when first pressed, then released.
+	 * Both positive and negative edges need to be present in input buffer
+	 * No directional inputs should be present in the sequence, this will cause an error.
+	 * Only one button should be present in the sequence, TODO: this will cause an error.
 	 */
 	PressAndRelease,
 	/*
-	 * The button or direction will only be counted when first pressed, then released.
-	 * Diagonal directions are not counted as either of the cardinal directions it represents.
-	 * This is a combination of the Once and Strict methods.
+	 * The button will only be counted at the moment of release.
+	 * No directional inputs should be present in the sequence, this will cause an error.
+	 * Only one button should be present in the sequence, TODO: this will cause an error.
 	 */
-	PressAndReleaseStrict,
-	/*
-	 * The button or direction will only be counted at the moment of release.
-	  * Diagonal directions are counted as both of the cardinal directions it represents.
-	 */
-	Negative,
-	/*
-	 * The button or direction will only be counted at the moment of release.
-	 * Diagonal directions are not counted as either of the cardinal directions it represents.
-	 * This is a combination of the Negative and Strict methods.
-	 */
-	NegativeStrict,
+	NegativeEdge,
 };
 
 /**
@@ -207,6 +198,12 @@ struct FInputBitmask
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
+	
+	/**
+	 * Disallowed inputs. If any inputs in this array are detected, this input is invalidated.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EInputFlags"))
+	int DisallowedInputsMask;
 };
 
 /**
@@ -216,25 +213,34 @@ USTRUCT(BlueprintType)
 struct FInputCondition
 {
 	GENERATED_BODY()
-
+	
 	/**
 	 * A sequence of input bitmasks.
 	 * Depending on lenience, the amount of time between inputs is increased or decreased.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FInputBitmask> Sequence;
+	
 	/**
 	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs;
+
+	/**
+	 * Disallowed inputs. If any inputs in this array are detected, this input is invalidated.
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EInputFlags"))
+	int DisallowedInputsMask;
+
 	/**
 	 * This value determines how many imprecise inputs are allowed in this condition.
 	 * An imprecise input is a diagonal input that matches the cardinal direction.
-	 * For use with the Strict or Once Strict input methods.
+	 * For use with the Strict input method.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int ImpreciseInputCount = 0;
+	
 	/**
 	 * The input method used for this condition. 
 	 */

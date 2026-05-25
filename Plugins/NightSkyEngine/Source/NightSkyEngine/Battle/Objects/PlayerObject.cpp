@@ -335,7 +335,7 @@ bool APlayerObject::HandleAutoCombo(int32 StateIndex, FStateMachine& StateMachin
 		FInputCondition AutoComboCondition;
 		AutoComboCondition.Sequence.Add(FInputBitmask(Button));
 		AutoComboCondition.Sequence.Last().Lenience = 0;
-		AutoComboCondition.Method = EInputMethod::Once;
+		AutoComboCondition.Method = EInputMethod::PositiveEdge;
 
 		if (CheckInput(AutoComboCondition))
 		{
@@ -443,12 +443,12 @@ void APlayerObject::Update()
 		return;
 	}
 
-	if (Inputs << 27 == 0) //if no direction, set neutral input
+	if ((Inputs & INP_Directions) == 0) //if no direction, set neutral input
 		Inputs |= INP_Neutral;
 	else
 		Inputs = Inputs & ~INP_Neutral; //remove neutral input if directional input
 
-	if (Inputs >> 5 != StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] >> 5)
+	if ((Inputs & INP_Buttons) != StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] >> 5)
 	{
 		IntroEndFlag = true;
 		if (RoundWinTimer <= 0 || (bIsCpu && Enemy->IntroEndFlag))
@@ -1843,11 +1843,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		{
 			if (PrimaryStateMachine.StateNames.Contains(State_Universal_AirBlock))
 			{
-				Left.Method = EInputMethod::Once;
-				if (CheckInput(Left) && InstantBlockLockoutTimer == 0)
-				{
-					AddMeter(800);
-				}
+				Left.Method = EInputMethod::PositiveEdge;
 				return true;
 			}
 		}
@@ -1863,11 +1859,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		{
 			if (PrimaryStateMachine.StateNames.Contains(State_Universal_CrouchBlock))
 			{
-				Input1.Method = EInputMethod::OnceStrict;
-				if (CheckInput(Input1) && InstantBlockLockoutTimer == 0)
-				{
-					AddMeter(800);
-				}
+				Input1.Method = EInputMethod::PositiveEdge;
 				return true;
 			}
 		}
@@ -1880,11 +1872,7 @@ bool APlayerObject::IsCorrectBlock(EBlockType BlockType)
 		{
 			if (PrimaryStateMachine.StateNames.Contains(State_Universal_StandBlock))
 			{
-				Input4.Method = EInputMethod::OnceStrict;
-				if (CheckInput(Input4) && InstantBlockLockoutTimer == 0)
-				{
-					AddMeter(800);
-				}
+				Input4.Method = EInputMethod::PositiveEdge;
 				return true;
 			}
 		}

@@ -18,33 +18,30 @@ USTRUCT()
 struct FInputBuffer
 {
 	GENERATED_BODY()
-	
+
 private:
 	/**
-	 * The input sequence. Updated by the input being checked.
+	 * @brief Extracts the sequence from the input condition and add buffer to it for comparison logic.
+	 *
+	 * @param Input The input condition being checked.
 	 */
-	FInputBitmask InputSequence[InputSequenceSize] = {  };
-	/**
-	 * How much time is allowed between inputs. Updated by the input being checked.
-	 */
-	int32 ImpreciseInputCount = 0;
-	/**
-	 * Disallowed inputs. If any inputs in this array are detected, the entire condition is invalidated.
-	 */
-	TArray<TEnumAsByte<EInputFlags>> DisallowedInputs{};
+	static TArray<FInputBitmask> InitInputSequence(const FInputCondition& InputCondition, bool disallowDirections = false);
 
-	
 public:
+	
+	/**
+	 * @brief Cleans simultaneous opposite cardinal direction inputs.
+	 * 
+	 * @param Input The input bitmask.
+	 * @return Cleaned input bitmask.
+	 */
+	static int32 SOCDClean(int32 Input);
+	
 	/**
 	 * All stored inputs.
 	 * Inputs are stored with the newest at the end and the oldest at the beginning.
 	 */
 	int32 InputBufferInternal[InputBufferSize] = { 16 };
-	/**
-	 * All stored inputs.
-	 * Inputs are stored with the newest at the end and the oldest at the beginning.
-	 */
-	int8_t InputBufferValid[InputBufferSize] = { 16 };
 	/**
 	 * All input times.
 	 * Input times are looped over and incremented every actionable frame.
@@ -80,61 +77,60 @@ public:
 	bool CheckInputCondition(const FInputCondition& InputCondition);
 
 	/**
+	 * Checks the input against the buffer at index i with the Normal method.
+	 * @see EInputMethod
+	 *
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false.
+	 */
+	bool CheckInput(int32 NeededInput, int i) const;
+
+	/**
+	 * Checks the input against the buffer at index i with the Strict method.
+	 * @see EInputMethod
+	 *
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false.
+	 */
+	bool CheckInputStrictDirections(int32 NeededInput, int i, bool ignoreEmptyNeeded = false) const;
+
+	/**
+	 * Checks the if the check input function should return from too many frames since last match or
+	 * being out of inputs to check.
+	 * @see EInputMethod
+	 *
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false.
+	 */
+	bool CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, int InputIndex, int i, const FInputCondition& InputCondition, const TArray<FInputBitmask> InputSequence) const;
+
+	int GetInputIndex(const TArray<FInputBitmask> InputSequence) const;
+
+	/**
 	 * Checks the input sequence against the buffer with the Normal method.
 	 * @see EInputMethod
 	 * 
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
-	bool CheckInputSequence() const;
-	/**
-	 * Checks the input sequence against the buffer with the Strict method.
-	 * @see EInputMethod
-	 * 
-	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
-	 */
-	bool CheckInputSequenceStrict() const;
+	bool CheckInputSequence(bool Strict, const FInputCondition& InputCondition) const;
 	/**
 	 * Checks the input sequence against the buffer with the Once method.
 	 * @see EInputMethod
 	 * 
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
-	bool CheckInputSequenceOnce() const;
-	/**
-	 * Checks the input sequence against the buffer with the Once Strict method.
-	 * @see EInputMethod
-	 * 
-	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
-	 */
-	bool CheckInputSequenceOnceStrict() const;
+	bool CheckInputSequencePositiveEdge(const FInputCondition& InputCondition) const;
 	/**
 	 * Checks the input sequence against the buffer with the Once method.
 	 * @see EInputMethod
 	 * 
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
-	bool CheckInputSequencePressAndRelease() const;
-	/**
-	 * Checks the input sequence against the buffer with the Once Strict method.
-	 * @see EInputMethod
-	 * 
-	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
-	 */
-	bool CheckInputSequencePressAndReleaseStrict() const;
+	bool CheckInputSequencePressAndRelease(const FInputCondition& InputCondition) const;
 	/**
 	 * Checks the input sequence against the buffer with the Negative method.
 	 * @see EInputMethod
 	 * 
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
-	bool CheckInputSequenceNegative() const;
-	/**
-	 * Checks the input sequence against the buffer with the Negative Strict method.
-	 * @see EInputMethod
-	 * 
-	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
-	 */
-	bool CheckInputSequenceNegativeStrict() const;
+	bool CheckInputSequenceNegativeEdge(const FInputCondition& InputCondition) const;
 	/**
 	 * Flips the directional inputs in the buffer. For use after a character switches sides.
 	 */
