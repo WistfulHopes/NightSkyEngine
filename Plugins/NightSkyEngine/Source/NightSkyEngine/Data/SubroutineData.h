@@ -14,6 +14,8 @@ UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_RoundInit);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_RoundInit);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnUpdate);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnUpdate);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_PostUpdateDebug);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_PostUpdateDebug);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_OnStateChange);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_OnStateChange);
 UE_DECLARE_GAMEPLAY_TAG_EXTERN(Subroutine_Cmn_PostStateChange);

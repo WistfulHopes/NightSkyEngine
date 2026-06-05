@@ -436,11 +436,17 @@ bool APlayerObject::HandleStateTransition(int32 StateIndex, bool Buffer, FStateM
 	return false; //state couldn't be entered
 }
 
+void APlayerObject::CallPostUpdateDebugBps()
+{
+	CallSubroutine(Subroutine_Cmn_PostUpdateDebug);
+	CallSubroutine(Subroutine_PostUpdateDebug);
+}
+
 void APlayerObject::Update()
 {
 	if ((PlayerFlags & PLF_IsOnScreen) == 0)
 	{
-		return;
+		return CallPostUpdateDebugBps();
 	}
 
 	if ((Inputs & INP_Directions) == 0) //if no direction, set neutral input
@@ -572,12 +578,12 @@ void APlayerObject::Update()
 					ColPosX = (PosX + Enemy->PosX) / 2;
 					ColPosY = (PosY + Enemy->PosY) / 2 + 250000;
 					CreateCommonParticle(Particle_ThrowTech, POS_Col);
-					return;
+					return CallPostUpdateDebugBps();
 				}
 			}
 		}
 		ActionTime++;
-		return;
+		return CallPostUpdateDebugBps();
 	}
 
 	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
@@ -643,7 +649,7 @@ void APlayerObject::Update()
 		{
 			HandleStateMachine(false, StateMachine);
 		}
-		return;
+		return CallPostUpdateDebugBps();
 	}
 
 	//reset moves used in combo if not currently doing combo 
@@ -860,6 +866,7 @@ void APlayerObject::Update()
 	if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
 
 	ActionTime++;
+	CallPostUpdateDebugBps();
 }
 
 void APlayerObject::UpdateNotBattle()

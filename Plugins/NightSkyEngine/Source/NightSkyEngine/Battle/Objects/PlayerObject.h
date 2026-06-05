@@ -725,6 +725,8 @@ private:
 	void HandleGroundBounce();
 	void SetComponentVisibility() const;
 	virtual void UpdateVisualsNoRollback() override;
+	//call debug blueprints on exit from Update() function
+	void CallPostUpdateDebugBps();
 
 public:
 	//initialize player for match/round start

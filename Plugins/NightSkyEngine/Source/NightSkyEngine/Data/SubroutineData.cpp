@@ -8,6 +8,8 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_RoundInit, "Subroutine.Cmn.RoundIn
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_RoundInit, "Subroutine.RoundInit", "Subroutine Round Init");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnUpdate, "Subroutine.Cmn.OnUpdate", "Subroutine Common On Update");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnUpdate, "Subroutine.OnUpdate", "Subroutine On Update");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_PostUpdateDebug, "Subroutine.Cmn.PostUpdateDebug", "Subroutine Common Debug After Update");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_PostUpdateDebug, "Subroutine.PostUpdateDebug", "Subroutine Debug After Update");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnStateChange, "Subroutine.Cmn.OnStateChange", "Subroutine Common On State Change");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_OnStateChange, "Subroutine.OnStateChange", "Subroutine On State Change");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_PostStateChange, "Subroutine.Cmn.PostStateChange", "Subroutine Common Post State Change");
