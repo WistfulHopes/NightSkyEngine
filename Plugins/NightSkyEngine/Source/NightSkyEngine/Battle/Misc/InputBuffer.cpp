@@ -190,7 +190,7 @@ bool FInputBuffer::CheckInputSequence(bool Strict, const FInputCondition& InputC
 
 	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputIndex == -1) //check if input sequence has been fully read
+		if (InputIndex < 0) //check if input sequence has been fully read
 			return true;
 
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
@@ -349,7 +349,7 @@ bool FInputBuffer::CheckInputSequenceNegativeEdge(const FInputCondition& InputCo
 	// possibly find a negative edge on the last element of the input buffer.
 	for (int32 i = InputBufferSize - 2; i >= 0;)
 	{
-		if (InputIndex == -1) //check if input sequence has been fully read
+		if (InputIndex < 0) //check if input sequence has been fully read
 			return true;
 
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
