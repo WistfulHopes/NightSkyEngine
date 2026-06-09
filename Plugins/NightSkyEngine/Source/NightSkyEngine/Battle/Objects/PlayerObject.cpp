@@ -683,14 +683,14 @@ void APlayerObject::Update()
 		else StoredInputBuffer.Update(INP_Neutral, IsStopped());
 	}
 
-	if (AirDashTimer > 0)
-	{
-		AirDashTimer--;
-	}
 	if (AirDashTimer == 1)
 	{
 		CallSubroutine(Subroutine_Cmn_AnyCancel_Air);
 		SpeedX /= 2;
+	}
+	if (AirDashTimer > 0)
+	{
+		AirDashTimer--;
 	}
 
 	if (AirDashNoAttackTime > 0)
@@ -711,8 +711,6 @@ void APlayerObject::Update()
 		}
 	}
 
-	if (StunTime > 0)
-		StunTime--;
 	if (StunTime <= 0 && !(PlayerFlags & PLF_IsDead) && CheckIsStunned())
 	{
 		if (PrimaryStateMachine.CurrentState->StateType == EStateType::Blockstun)
@@ -762,6 +760,8 @@ void APlayerObject::Update()
 			}
 		}
 	}
+	if (StunTime > 0)
+		StunTime--;
 
 	if (PlayerFlags & PLF_TouchingWall && Enemy->PrimaryStateMachine.CurrentState->StateType != EStateType::Hitstun &&
 		Pushback != 0)
@@ -800,9 +800,8 @@ void APlayerObject::Update()
 	if (PlayerFlags & PLF_IsDead)
 		DisableState(ENB_Tech, StateMachine_Primary);
 
-	InstantBlockLockoutTimer--;
-
 	HandleProximityBlock();
+	InstantBlockLockoutTimer--;
 
 	if (Stance == ACT_Standing) //set pushbox values based on stance
 	{
