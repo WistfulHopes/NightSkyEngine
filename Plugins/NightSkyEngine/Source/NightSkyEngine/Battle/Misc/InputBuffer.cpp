@@ -3,6 +3,8 @@
 
 #include "InputBuffer.h"
 
+#include "NightSkyEngine/Miscellaneous/Logging.h"
+
 #include UE_INLINE_GENERATED_CPP_BY_NAME(InputBuffer)
 
 void FInputBuffer::WriteInputCondition(const FInputCondition& InputCondition)
@@ -47,6 +49,15 @@ void FInputBuffer::WriteInputCondition(const FInputCondition& InputCondition)
 			}
 			break;
 		}
+	case EInputMethod::IsUp:
+		{
+			for (int i = 0; i < InputCondition.Sequence.Num(); i++)
+			{
+				Update(InputCondition.Sequence[i].InputFlag);
+				Update(INP_Neutral);
+			}
+			break;
+		}
 	default:
 		break;
 	}
@@ -66,31 +77,35 @@ int32 FInputBuffer::SOCDClean(int32 Input)
 void FInputBuffer::Update(int32 Input, bool bStopped)
 {
 	Input =	SOCDClean(Input);
-	if (!bStopped)
+
+	bool matched = false;
+	if ((Input | INP_Valid) == InputBufferInternal[InputBufferSize - 1])
 	{
-		for (auto& Window : InputTime)
-		{
-			Window++;
-		}
+		matched = true;
 	}
 
-	if (Input == InputBufferInternal[InputBufferSize - 1]) 
-		return;
-	
-	for (int32 i = 0; i < InputBufferSize - 1; i++)
+	if (!matched)
 	{
-		InputBufferInternal[i] = InputBufferInternal[i + 1];
-		InputTime[i] = InputTime[i + 1];
+		for (int32 i = 0; i < InputBufferSize - 1; i++)
+		{
+			InputBufferInternal[i] = InputBufferInternal[i + 1];
+			InputTime[i] = InputTime[i + 1];
+		}
+		InputBufferInternal[InputBufferSize - 1] = (Input | EInputFlags::INP_Valid);
+		InputTime[InputBufferSize - 1] = 0;
 	}
-	InputBufferInternal[InputBufferSize - 1] = (Input | INP_Valid);
-	InputTime[InputBufferSize - 1] = 0;
+
+	if (!bStopped)
+	{
+		InputTime[InputBufferSize-1]++;
+	}
 }
 
 void FInputBuffer::Emplace(int32 Input, uint32 Index)
 {
 	if (Index > InputBufferSize - 1) return;
 
-	InputBufferInternal[Index] |= (Input | INP_Valid);
+	InputBufferInternal[Index] |= (Input | EInputFlags::INP_Valid);
 }
 
 bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
@@ -107,6 +122,10 @@ bool FInputBuffer::CheckInputCondition(const FInputCondition& InputCondition)
 		return CheckInputSequencePressAndRelease(InputCondition);
 	case EInputMethod::NegativeEdge:
 		return CheckInputSequenceNegativeEdge(InputCondition);
+	case EInputMethod::IsUp:
+		return CheckInputSequenceIsUp(false, InputCondition);
+	case EInputMethod::IsUpStrict:
+		return CheckInputSequenceIsUp(true, InputCondition);
 	default:
 		return false;
 	}
@@ -134,18 +153,18 @@ TArray <FInputBitmask> FInputBuffer::InitInputSequence(const FInputCondition& In
 	{
 		if (i >= InputCondition.Sequence.Num())
 		{
-			InputSequence[i].InputFlag = -1;
+			InputSequence[i].InputFlag = EInputFlags::INP_Invalid;
 			continue;
 		}
 		InputSequence[i] = InputCondition.Sequence[i];
 		if (disallowDirections && ((InputSequence[i].InputFlag & INP_Directions) > 0)) {
-			UE_LOG(LogTemp, Error, TEXT("Direction requested in desired input sequence but method is not normal or strict."));
+			UE_LOG(LogNightSkyEngine, Error, TEXT("Direction requested in desired input sequence but method is not normal or strict."));
 		}
 	}
 	return InputSequence;
 }
 
-bool FInputBuffer::CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, int InputIndex, int i, const FInputCondition& InputCondition, const TArray<FInputBitmask> InputSequence) const {
+bool FInputBuffer::CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, int InputIndex, int i, const FInputCondition& InputCondition, const TArray<FInputBitmask>& InputSequence) const {
 	const TArray <TEnumAsByte<EInputFlags>> DisallowedInputs = InputCondition.DisallowedInputs;
 	int32 DisallowedInputsMask = InputCondition.DisallowedInputsMask;
 
@@ -169,10 +188,10 @@ bool FInputBuffer::CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, in
 	return true;
 }
 
-int FInputBuffer::GetInputIndex(const TArray<FInputBitmask> InputSequence) const {
+int FInputBuffer::GetInputIndex(const TArray<FInputBitmask>& InputSequence) const {
 	for (int32 i = InputSequenceSize - 1; i > -1; i--)
 	{
-		if (InputSequence[i].InputFlag != -1)
+		if (InputSequence[i].InputFlag != INP_Invalid)
 		{
 			return i;
 		}
@@ -187,30 +206,34 @@ bool FInputBuffer::CheckInputSequence(bool Strict, const FInputCondition& InputC
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
 	int32 ImpreciseMatches = 0;
 	int32 ImpreciseInputCount = InputCondition.ImpreciseInputCount;
+	int32 HoldAccumulation = 0;
 
 	for (int32 i = InputBufferSize - 1; i >= 0;)
 	{
-		if (InputIndex < 0) //check if input sequence has been fully read
+		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
-
+		
+		if (i < InputBufferSize - 1)
+		{
+			FramesSinceLastMatch += InputTime[i+1];
+		}
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
 			return false;
-		}
-		else {
-			FramesSinceLastMatch += InputTime[i];
 		}
 
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
 
 		if (Strict ? CheckInputStrictDirections(NeededInput, i) : CheckInput(NeededInput, i)) //if input matches...
 		{
-			if (InputSequence[InputIndex].Hold > 0 && FramesSinceLastMatch < InputSequence[InputIndex].Hold) //if button held for less than required...
+			HoldAccumulation +=  InputTime[i];
+			if (InputSequence[InputIndex].Hold > 0 && HoldAccumulation < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				i--;
 				continue;
 			}
 			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
 			InputIndex--; //advance sequence
+			HoldAccumulation = 0;
 			i--;
 			continue;
 		}
@@ -223,7 +246,8 @@ bool FInputBuffer::CheckInputSequence(bool Strict, const FInputCondition& InputC
 				i--;
 				continue;
 			}
-			if (InputSequence[InputIndex].Hold > 0 && FramesSinceLastMatch < InputSequence[InputIndex].Hold) //if button held for less than required...
+			HoldAccumulation +=  InputTime[i];
+			if (InputSequence[InputIndex].Hold > 0 && HoldAccumulation < InputSequence[InputIndex].Hold) //if button held for less than required...
 			{
 				i--;
 				continue;
@@ -231,6 +255,82 @@ bool FInputBuffer::CheckInputSequence(bool Strict, const FInputCondition& InputC
 			ImpreciseMatches++;
 			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
 			InputIndex--; //advance sequence
+			HoldAccumulation = 0;
+		}
+		i--;
+	}
+
+	return false;
+}
+
+
+bool FInputBuffer::CheckInputSequenceIsUp(bool Strict, const FInputCondition& InputCondition) const
+{
+	const TArray<FInputBitmask> InputSequence = InitInputSequence(InputCondition);
+	int32 InputIndex = GetInputIndex(InputSequence);
+	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
+	int32 ImpreciseMatches = 0;
+	int32 ImpreciseInputCount = InputCondition.ImpreciseInputCount;
+	int32 HoldAccumulation = 0;
+	
+	if (InputCondition.Sequence.Num() > 1)
+	{
+		UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by is Up should only have one input."));
+	}
+			
+	for (int32 i = InputBufferSize - 1; i >= 0;)
+	{
+		if (InputIndex == -1) //check if input sequence has been fully read
+			return true;
+		
+		if (i < InputBufferSize - 1)
+		{
+			FramesSinceLastMatch += InputTime[i+1];
+		}
+		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
+			return false;
+		}
+
+		if (InputSequence[InputIndex].Hold > 0)
+		{
+			UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by is Up does not support hold values > 0."));
+		}
+		
+		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
+
+		if (Strict ? (~InputBufferInternal[i] & EInputFlags::INP_Directions) != (NeededInput & EInputFlags::INP_Directions) : ((~InputBufferInternal[i] & NeededInput) == NeededInput || NeededInput == EInputFlags::INP_None) )//if input matches the opposite of the given input...
+		{
+			HoldAccumulation +=  InputTime[i];
+			if (InputSequence[InputIndex].Hold > 0 && HoldAccumulation < InputSequence[InputIndex].Hold) //if button held for less than required...
+			{
+				i--;
+				continue;
+			}
+			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
+			InputIndex--; //advance sequence
+			HoldAccumulation = 0;
+			i--;
+			continue;
+		}
+
+		if (Strict && ((~InputBufferInternal[i] & NeededInput) == NeededInput || NeededInput == EInputFlags::INP_None) ) //if input doesn't match precisely...
+		{
+			if (ImpreciseMatches >= ImpreciseInputCount)
+			{
+				FramesSinceLastMatch += InputTime[i];
+				i--;
+				continue;
+			}
+			HoldAccumulation +=  InputTime[i];
+			if (InputSequence[InputIndex].Hold > 0 && HoldAccumulation < InputSequence[InputIndex].Hold) //if button held for less than required...
+			{
+				i--;
+				continue;
+			}
+			ImpreciseMatches++;
+			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
+			InputIndex--; //advance sequence
+			HoldAccumulation = 0;
 		}
 		i--;
 	}
@@ -240,29 +340,40 @@ bool FInputBuffer::CheckInputSequence(bool Strict, const FInputCondition& InputC
 
 bool FInputBuffer::CheckInputSequencePositiveEdge(const FInputCondition& InputCondition) const
 {
+	if (InputCondition.Sequence.Num() > 1)
+	{
+		UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Positive Edge should only have 1 input."));
+	}
 	const TArray<FInputBitmask> InputSequence = InitInputSequence(InputCondition, true);
 	int32 InputIndex = GetInputIndex(InputSequence);
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
-	
+
 	// Do not let i become zero because we can't find a positive edge if we are out of inputs.
 	for (int32 i = InputBufferSize - 1; i > 0;)
 	{
 		if (InputIndex < 0) //check if input sequence has been fully read
 		{
-			FramesSinceLastMatch += InputTime[i - 1];
+			FramesSinceLastMatch += InputTime[i + 1];
 			if (FramesSinceLastMatch > InputSequence[0].Lenience + InputSequence[0].Hold) return false;
 			//Check the input is no longer held.
-			if ((InputBufferInternal[i] & INP_Valid) && !(InputBufferInternal[i] & InputSequence[0].InputFlag))
+			if ((InputBufferInternal[i] & EInputFlags::INP_Valid) &&
+				((InputBufferInternal[i] ^ InputSequence[0].InputFlag)&InputSequence[0].InputFlag))
 				return true;
 			i--;
 			continue;
 		}
+		
+		if (InputSequence[InputIndex].Hold > 0)
+		{
+			UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Positive Edge does not support hold values > 0"));
+		}
 
+		if (i < InputBufferSize - 1)
+		{
+			FramesSinceLastMatch += InputTime[i+1];
+		}
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
 			return false;
-		}
-		else {
-			FramesSinceLastMatch += InputTime[i];
 		}
 
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
@@ -274,7 +385,6 @@ bool FInputBuffer::CheckInputSequencePositiveEdge(const FInputCondition& InputCo
 				i--;
 				continue;
 			}
-			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
 			InputIndex--; //advance sequence
 		}
 		i--;
@@ -285,6 +395,10 @@ bool FInputBuffer::CheckInputSequencePositiveEdge(const FInputCondition& InputCo
 
 bool FInputBuffer::CheckInputSequencePressAndRelease(const FInputCondition& InputCondition) const
 {
+	if (InputCondition.Sequence.Num() > 1)
+	{
+		UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Press And Release should only have 1 input"));
+	}
 	const TArray<FInputBitmask> InputSequence = InitInputSequence(InputCondition, true);
 	int32 InputIndex = GetInputIndex(InputSequence);
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
@@ -307,11 +421,17 @@ bool FInputBuffer::CheckInputSequencePressAndRelease(const FInputCondition& Inpu
 			continue;
 		}
 
+		if (InputSequence[InputIndex].Hold > 0)
+		{
+			UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Press And Release does not support hold values > 0"));
+		}
+
+		if (i < InputBufferSize - 1)
+		{
+			FramesSinceLastMatch += InputTime[i+1];
+		}
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
 			return false;
-		}
-		else {
-			FramesSinceLastMatch += InputTime[i];
 		}
 
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
@@ -341,6 +461,10 @@ bool FInputBuffer::CheckInputSequencePressAndRelease(const FInputCondition& Inpu
 
 bool FInputBuffer::CheckInputSequenceNegativeEdge(const FInputCondition& InputCondition) const
 {
+	if (InputCondition.Sequence.Num() > 1)
+	{
+		UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Negative Edge should only have 1 input"));
+	}
 	const TArray<FInputBitmask> InputSequence = InitInputSequence(InputCondition, true);
 	int32 InputIndex = GetInputIndex(InputSequence);
 	int32 FramesSinceLastMatch = 0; //how long it's been since last input match
@@ -349,14 +473,20 @@ bool FInputBuffer::CheckInputSequenceNegativeEdge(const FInputCondition& InputCo
 	// possibly find a negative edge on the last element of the input buffer.
 	for (int32 i = InputBufferSize - 2; i >= 0;)
 	{
-		if (InputIndex < 0) //check if input sequence has been fully read
+		if (InputIndex == -1) //check if input sequence has been fully read
 			return true;
 
+		if (InputSequence[InputIndex].Hold > 0)
+		{
+			UE_LOG(LogNightSkyEngine, Error, TEXT("Input checked by Negative Edge does not support hold values > 0"));
+		}
+
+		if (i < InputBufferSize - 1)
+		{
+			FramesSinceLastMatch += InputTime[i+1];
+		}
 		if (!CheckLastMatchOrDisallowedInputs(FramesSinceLastMatch, InputIndex, i, InputCondition, InputSequence)) {
 			return false;
-		}
-		else {
-			FramesSinceLastMatch += InputTime[i];
 		}
 
 		const int32 NeededInput = InputSequence[InputIndex].InputFlag;
@@ -364,7 +494,7 @@ bool FInputBuffer::CheckInputSequenceNegativeEdge(const FInputCondition& InputCo
 		if ( CheckInput(NeededInput, i)) //if input matches...
 		{
 			// Check if the next value in the buffer is still the desired input
-			// and if so, then this isn't a negative edge and we continue backward in the buffer.
+			// and if so, then this isn't a negative edge, and we continue backward in the buffer.
 			if (CheckInput(NeededInput, i + 1)) continue;
 			FramesSinceLastMatch = FMath::Min(0, FramesSinceLastMatch - InputSequence[InputIndex].Lenience - InputSequence[InputIndex].Hold); //reset last match
 			InputIndex--; //advance sequence

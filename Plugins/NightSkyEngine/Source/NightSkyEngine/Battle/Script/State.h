@@ -153,6 +153,16 @@ enum class EInputMethod : uint8
 	 * Only one button should be present in the sequence, TODO: this will cause an error.
 	 */
 	NegativeEdge,
+	/*
+	 * Will return true if the button is up at some point in the lenience buffer.
+	 * Only one button or direction should be present in the sequence, TODO: this will cause an error.
+	 */
+	IsUp,
+	/*
+	 * Will return true if the button is up at some point in the lenience buffer.
+	 * Only one button or direction should be present in the sequence, TODO: this will cause an error.
+	 */
+	IsUpStrict,
 };
 
 /**
@@ -203,7 +213,7 @@ struct FInputBitmask
 	 * Disallowed inputs. If any inputs in this array are detected, this input is invalidated.
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (Bitmask, BitmaskEnum = "/Script/NightSkyEngine.EInputFlags"))
-	int DisallowedInputsMask;
+	int DisallowedInputsMask = 0;
 };
 
 /**

@@ -99,9 +99,9 @@ public:
 	 *
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false.
 	 */
-	bool CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, int InputIndex, int i, const FInputCondition& InputCondition, const TArray<FInputBitmask> InputSequence) const;
+	bool CheckLastMatchOrDisallowedInputs(int FramesSinceLastMatch, int InputIndex, int i, const FInputCondition& InputCondition, const TArray<FInputBitmask>& InputSequence) const;
 
-	int GetInputIndex(const TArray<FInputBitmask> InputSequence) const;
+	int GetInputIndex(const TArray<FInputBitmask>& InputSequence) const;
 
 	/**
 	 * Checks the input sequence against the buffer with the Normal method.
@@ -110,6 +110,13 @@ public:
 	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
 	 */
 	bool CheckInputSequence(bool Strict, const FInputCondition& InputCondition) const;
+	/**
+	 * Checks the input sequence against the buffer with the is up method.
+	 * @see EInputMethod
+	 * 
+	 * @return If the input sequence matches the buffer, return true. Otherwise return false. 
+	 */
+	bool CheckInputSequenceIsUp(bool Strict, const FInputCondition& InputCondition) const;
 	/**
 	 * Checks the input sequence against the buffer with the Once method.
 	 * @see EInputMethod

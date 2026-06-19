@@ -26,6 +26,7 @@ enum EInputFlags
 	INP_F = 0x400 UMETA(DisplayName = "F"),
 	INP_G = 0x800 UMETA(DisplayName = "G"),
 	INP_H = 0x1000 UMETA(DisplayName = "H"),
+	INP_Invalid = 0x10000000, // This bit marks the input as a invalid input entry in the input buffer
 	INP_Valid = 0x20000000 UMETA(Hidden), // This bit marks the input as a valid input entry in the input buffer
 	INP_ResetTraining = 0x40000000 UMETA(Hidden),
 	INP_Rematch = 0x80000000 UMETA(Hidden),
