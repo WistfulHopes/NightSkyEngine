@@ -3,6 +3,7 @@
 
 #include "SerializableObj.h"
 
+#include "NightSkyBlueprintFunctionLibrary.h"
 #include "Serialization/ObjectReader.h"
 #include "Serialization/ObjectWriter.h"
 
@@ -11,18 +12,13 @@
 TArray<uint8> USerializableObj::SaveForRollback()
 {
 	TArray<uint8> SaveData;
-	FObjectWriter Writer(SaveData);
-	Writer.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Writer, this);
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, SaveData);
 	return SaveData;
 }
 
 void USerializableObj::LoadForRollback(const TArray<uint8>& InBytes)
 {
-	if (InBytes.Num() <= 1) return;
-	FObjectReader Reader(InBytes);
-	Reader.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Reader, this);
+	UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
 }
 
 void USerializableObj::ResetToCDO()

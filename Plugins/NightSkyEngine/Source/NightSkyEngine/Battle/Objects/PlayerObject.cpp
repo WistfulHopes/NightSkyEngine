@@ -5,13 +5,12 @@
 
 #include "NightSkyEngine/Battle/NightSkyGameState.h"
 #include "NightSkyEngine/Battle/Actors/LinkActor.h"
+#include "NightSkyEngine/Battle/Misc/NightSkyBlueprintFunctionLibrary.h"
 #include "NightSkyEngine/Battle/Script/Subroutine.h"
 #include "NightSkyEngine/Data/LinkActorData.h"
 #include "NightSkyEngine/Data/ParticleData.h"
 #include "NightSkyEngine/Data/SubroutineData.h"
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
-#include "Serialization/ObjectReader.h"
-#include "Serialization/ObjectWriter.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(PlayerObject)
 
@@ -3218,9 +3217,7 @@ void APlayerObject::SaveForRollbackPlayer(unsigned char* Buffer) const
 TArray<uint8> APlayerObject::SaveForRollbackBP()
 {
 	TArray<uint8> SaveData;
-	FObjectWriter Writer(SaveData);
-	Writer.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Writer, this);
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, SaveData);
 	return SaveData;
 }
 
@@ -3229,12 +3226,9 @@ void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 	FMemory::Memcpy(&PlayerSync, Buffer, SizeOfPlayerObject);
 }
 
-void APlayerObject::LoadForRollbackBP(TArray<uint8> InBytes)
+void APlayerObject::LoadForRollbackBP(const TArray<uint8>& InBytes)
 {
-	if (InBytes.Num() <= 1) return;
-	FObjectReader Reader(InBytes);
-	Reader.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Reader, this);
+	UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
 }
 
 void APlayerObject::EnableState(int32 EnableType, FGameplayTag StateMachineName)

@@ -251,23 +251,41 @@ struct FBattleState
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
 	FBattleState, BattleStateSync);
 
+USTRUCT(BlueprintType)
+struct FRollbackBuffer
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(SaveGame)
+	TArray<uint8> Buffer{};
+	
+	FRollbackBuffer() {}
+	FRollbackBuffer(const TArray<uint8>& InBuffer) : Buffer(InBuffer) {}
+};
+
 USTRUCT()
 struct FRollbackData
 {
 	GENERATED_BODY()
 	
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<bool> ObjActive;
-	TArray<TArray<uint8>> ObjBuffer;
-	TArray<TArray<uint8>> CharBuffer;
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> ObjBuffer;
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> CharBuffer;
+	UPROPERTY(SaveGame)
 	TArray<uint8> BattleStateBuffer;
-	TArray<TArray<uint8>> PlayerData;
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> PlayerData;
+	UPROPERTY(SaveGame)
 	TArray<uint8> BattleStateData;
-	TArray<TArray<uint8>> StateData;
-	TArray<TArray<uint8>> ExtensionData;
-	TArray<TArray<uint8>> WidgetAnimationData;
-	
-	void Serialize(FArchive& Ar);
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> StateData;
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> ExtensionData;
+	UPROPERTY(SaveGame)
+	TArray<FRollbackBuffer> WidgetAnimationData;
 };
 
 // Network

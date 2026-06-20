@@ -776,7 +776,7 @@ public:
 	void SaveForRollbackPlayer(unsigned char* Buffer) const;
 	TArray<uint8> SaveForRollbackBP();
 	void LoadForRollbackPlayer(const unsigned char* Buffer);
-	void LoadForRollbackBP(TArray<uint8> InBytes);
+	void LoadForRollbackBP(const TArray<uint8>& InBytes);
 	void EmptyStateMachine();
 
 	// Only call when initializing the match.

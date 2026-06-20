@@ -16,6 +16,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Misc/Globals.h"
+#include "Misc/NightSkyBlueprintFunctionLibrary.h"
 #include "NightSkyEngine/Battle/CPU/NightSkyAIController.h"
 #include "NightSkyEngine/Data/BattleExtensionData.h"
 #include "NightSkyEngine/Data/PrimaryCharaData.h"
@@ -24,23 +25,8 @@
 #include "NightSkyEngine/Miscellaneous/NightSkyGameInstance.h"
 #include "NightSkyEngine/UI/NightSkyBattleHudActor.h"
 #include "NightSkyEngine/UI/NightSkyBattleWidget.h"
-#include "Serialization/ObjectReader.h"
-#include "Serialization/ObjectWriter.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyGameState)
-
-void FRollbackData::Serialize(FArchive& Ar)
-{
-	Ar << ObjActive;
-	Ar << ObjBuffer;
-	Ar << CharBuffer;
-	Ar << BattleStateBuffer;
-	Ar << BattleStateData;
-	Ar << PlayerData;
-	Ar << StateData;
-	Ar << ExtensionData;
-	Ar << WidgetAnimationData;
-}
 
 // Sets default values
 ANightSkyGameState::ANightSkyGameState()
@@ -89,7 +75,7 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < GameInstance->BattleData.PlayerListP1.Num(); i++)
 	{
-		auto Unused = GameInstance->BattleData.PlayerListP1[i].LoadSynchronous();
+		[[maybe_unused]] auto Unused = GameInstance->BattleData.PlayerListP1[i].LoadSynchronous();
 
 		APlayerObject* SpawnedPlayer;
 		if (const auto Player = GameInstance->BattleData.PlayerListP1[i]; Player != nullptr)
@@ -113,7 +99,7 @@ void ANightSkyGameState::Init()
 
 	for (int i = 0; i < GameInstance->BattleData.PlayerListP2.Num(); i++)
 	{
-		auto Unused = GameInstance->BattleData.PlayerListP2[i].LoadSynchronous();
+		[[maybe_unused]] auto Unused = GameInstance->BattleData.PlayerListP2[i].LoadSynchronous();
 
 		APlayerObject* SpawnedPlayer;
 		if (const auto Player = GameInstance->BattleData.PlayerListP2[i]; Player != nullptr)
@@ -2072,15 +2058,15 @@ void ANightSkyGameState::SaveGameState(FRollbackData& RollbackData, int32* InChe
 	}
 	if (BattleExtensions.Num() == 0)
 	{
-		RollbackData.ExtensionData.Add(TArray<uint8>{1});
+		RollbackData.ExtensionData.Add(TArray<uint8>{});
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (Objects[i]->IsActive)
 		{
 			RollbackData.ObjBuffer.AddDefaulted();
-			RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
-			Objects[i]->SaveForRollback(RollbackData.ObjBuffer[i].GetData());
+			RollbackData.ObjBuffer.Last().Buffer.AddUninitialized(SizeOfBattleObject);
+			Objects[i]->SaveForRollback(RollbackData.ObjBuffer[i].Buffer.GetData());
 			RollbackData.StateData.Add(Objects[i]->ObjectState->SaveForRollback());
 			RollbackData.ObjActive.AddDefaulted();
 			RollbackData.ObjActive[i] = true;
@@ -2090,26 +2076,26 @@ void ANightSkyGameState::SaveGameState(FRollbackData& RollbackData, int32* InChe
 			RollbackData.ObjBuffer.AddDefaulted();
 			RollbackData.ObjActive.AddDefaulted();
 			RollbackData.ObjActive[i] = false;
-			RollbackData.StateData.Add(TArray<uint8>{1});
+			RollbackData.StateData.Add(TArray<uint8>{});
 		}
 	}
 	for (int i = 0; i < Players.Num(); i++)
 	{
 		RollbackData.ObjBuffer.AddDefaulted();
-		RollbackData.ObjBuffer.Last().AddUninitialized(SizeOfBattleObject);
-		Players[i]->SaveForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].GetData());
+		RollbackData.ObjBuffer.Last().Buffer.AddUninitialized(SizeOfBattleObject);
+		Players[i]->SaveForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].Buffer.GetData());
+		RollbackData.CharBuffer.AddDefaulted();
+		RollbackData.CharBuffer.Last().Buffer.AddUninitialized(SizeOfPlayerObject);
+		Players[i]->SaveForRollbackPlayer(RollbackData.CharBuffer[i].Buffer.GetData());
+		RollbackData.PlayerData.Add(Players[i]->SaveForRollbackBP());
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
 			RollbackData.StateData.Add(Players[i]->PrimaryStateMachine.CurrentState->SaveForRollback());
 		}
 		else
 		{
-			RollbackData.StateData.Add(TArray<uint8>{1});
+			RollbackData.StateData.Add(TArray<uint8>{});
 		}
-		RollbackData.CharBuffer.AddDefaulted();
-		RollbackData.CharBuffer.Last().AddUninitialized(SizeOfPlayerObject);
-		Players[i]->SaveForRollbackPlayer(RollbackData.CharBuffer[i].GetData());
-		RollbackData.PlayerData.Add(Players[i]->SaveForRollbackBP());
 	}
 
 	RollbackData.WidgetAnimationData.Add(BattleHudActor->TopWidget->SaveForRollback());
@@ -2125,14 +2111,14 @@ void ANightSkyGameState::LoadGameState(FRollbackData& RollbackData)
 	LoadForRollback(RollbackData.BattleStateData);
 	for (int i = 0; i < BattleExtensions.Num(); i++)
 	{
-		BattleExtensions[i]->LoadForRollback(RollbackData.ExtensionData[i]);
+		BattleExtensions[i]->LoadForRollback(RollbackData.ExtensionData[i].Buffer);
 	}
 	for (int i = 0; i < MaxBattleObjects; i++)
 	{
 		if (RollbackData.ObjActive[i])
 		{
-			Objects[i]->LoadForRollback(RollbackData.ObjBuffer[i].GetData());
-			Objects[i]->ObjectState->LoadForRollback(RollbackData.StateData[i]);
+			Objects[i]->LoadForRollback(RollbackData.ObjBuffer[i].Buffer.GetData());
+			Objects[i]->ObjectState->LoadForRollback(RollbackData.StateData[i].Buffer);
 		}
 		else
 		{
@@ -2142,20 +2128,20 @@ void ANightSkyGameState::LoadGameState(FRollbackData& RollbackData)
 	}
 	for (int i = 0; i < Players.Num(); i++)
 	{
-		Players[i]->LoadForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].GetData());
+		Players[i]->LoadForRollback(RollbackData.ObjBuffer[i + MaxBattleObjects].Buffer.GetData());
+		Players[i]->LoadForRollbackPlayer(RollbackData.CharBuffer[i].Buffer.GetData());
+		Players[i]->LoadForRollbackBP(RollbackData.PlayerData[i].Buffer);
 		if (Players[i]->PlayerFlags & PLF_IsOnScreen)
 		{
 			Players[i]->PrimaryStateMachine.CurrentState->LoadForRollback(
-				RollbackData.StateData[i + MaxBattleObjects]);
+				RollbackData.StateData[i + MaxBattleObjects].Buffer);
 		}
-		Players[i]->LoadForRollbackPlayer(RollbackData.CharBuffer[i].GetData());
-		Players[i]->LoadForRollbackBP(RollbackData.PlayerData[i]);
 	}
 	SortObjects();
 	ParticleManager->RollbackParticles(CurrentFrame - BattleState.FrameNumber);
 
-	BattleHudActor->TopWidget->LoadForRollback(RollbackData.WidgetAnimationData[0]);
-	BattleHudActor->BottomWidget->LoadForRollback(RollbackData.WidgetAnimationData[1]);
+	BattleHudActor->TopWidget->LoadForRollback(RollbackData.WidgetAnimationData[0].Buffer);
+	BattleHudActor->BottomWidget->LoadForRollback(RollbackData.WidgetAnimationData[1].Buffer);
 
 	BattleHudActor->TopWidget->RollbackAnimations();
 	BattleHudActor->BottomWidget->RollbackAnimations();
@@ -2167,18 +2153,13 @@ void ANightSkyGameState::LoadGameState(FRollbackData& RollbackData)
 TArray<uint8> ANightSkyGameState::SaveForRollback()
 {
 	TArray<uint8> SaveData;
-	FObjectWriter Writer(SaveData);
-	Writer.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Writer, this);
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, SaveData);
 	return SaveData;
 }
 
 void ANightSkyGameState::LoadForRollback(const TArray<uint8>& InBytes)
 {
-	if (InBytes.Num() <= 1) return;
-	FObjectReader Reader(InBytes);
-	Reader.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Reader, this);
+	UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
 }
 
 void ANightSkyGameState::EndMatch()

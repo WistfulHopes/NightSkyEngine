@@ -11,7 +11,7 @@
 #include "NightSkyEngine/Network/RpcConnectionManager.h"
 #include <iostream>
 
-#include "Serialization/BufferArchive.h"
+#include "NightSkyEngine/Battle/Misc/NightSkyBlueprintFunctionLibrary.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(FighterMultiplayerRunner)
 
@@ -92,14 +92,13 @@ bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, in
 {
 	FRollbackData RollbackData = FRollbackData();
 	GameState->SaveGameState(RollbackData, checksum);
-	FBufferArchive Ar(false);
-	Ar.SetWantBinaryPropertySerialization(true);
-	RollbackData.Serialize(Ar);
+	TArray<uint8> Buffer;
+	UNightSkyBlueprintFunctionLibrary::SerializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer);
 
-	*len = Ar.Num();
+	*len = Buffer.Num();
 	*buffer = new unsigned char[*len];
 
-	FMemory::Memcpy(*buffer, Ar.GetData(), Ar.Num());
+	FMemory::Memcpy(*buffer, Buffer.GetData(), Buffer.Num());
 	return true;
 }
 
@@ -107,10 +106,9 @@ bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int
 {
 	FRollbackData RollbackData = FRollbackData();
 
-	const TArray BPArray(buffer, len);
-	FMemoryReader Ar(BPArray);
-	Ar.SetWantBinaryPropertySerialization(true);
-	RollbackData.Serialize(Ar);
+	const TArray Buffer(buffer, len);
+	int DataIdx = 0;
+	UNightSkyBlueprintFunctionLibrary::DeserializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer, DataIdx);
 
 	GameState->LoadGameState(RollbackData);
 	return true;
@@ -126,10 +124,9 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	if (file.is_open())
 	{
 		FRollbackData RollbackData = FRollbackData();
-		const TArray BPArray(buffer, len);
-		FMemoryReader Ar(BPArray);
-		Ar.SetWantBinaryPropertySerialization(true);
-		RollbackData.Serialize(Ar);
+		const TArray Buffer(buffer, len);
+		int DataIdx = 0;
+		UNightSkyBlueprintFunctionLibrary::DeserializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer, DataIdx);
 		
 		file << "GameState:\n";
 		FBattleState BattleState = FBattleState();
@@ -142,7 +139,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			{
 				FBattleObjectLog BattleObject = FBattleObjectLog();
 				FMemory::Memcpy(reinterpret_cast<char*>(&BattleObject) + offsetof(FBattleObjectLog, ObjSync),
-				                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
+				                RollbackData.ObjBuffer[i].Buffer.GetData(), SizeOfBattleObject);
 				BattleObject.LogForSyncTestFile(file);
 			}
 		}
@@ -150,9 +147,9 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		{
 			FPlayerObjectLog PlayerObject = FPlayerObjectLog();
 			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FBattleObjectLog, ObjSync),
-			                RollbackData.ObjBuffer[i].GetData(), SizeOfBattleObject);
+			                RollbackData.ObjBuffer[i].Buffer.GetData(), SizeOfBattleObject);
 			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FPlayerObjectLog, PlayerSync),
-			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].GetData(), SizeOfPlayerObject);
+			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].Buffer.GetData(), SizeOfPlayerObject);
 			PlayerObject.LogForSyncTestFile(file);
 		}
 
@@ -186,8 +183,8 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfBattleObject; x++)
 			{
-				if (RollbackData.ObjBuffer[i].IsEmpty()) continue;
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i][x]) << " ";
+				if (RollbackData.ObjBuffer[i].Buffer.IsEmpty()) continue;
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i].Buffer[x]) << " ";
 				if ((x + 1) % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
@@ -209,7 +206,7 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 			file << "\n\t0: ";
 			for (int x = 0; x < SizeOfPlayerObject; x++)
 			{
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.CharBuffer[i][x]) << " ";
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.CharBuffer[i].Buffer[x]) << " ";
 				if ((x + 1) % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
@@ -223,9 +220,9 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 		{
 			file << "Player " << i << ":\n";
 			file << "\n\t0: ";
-			for (int x = 0; x < RollbackData.PlayerData[i].Num(); x++)
+			for (int x = 0; x < RollbackData.PlayerData[i].Buffer.Num(); x++)
 			{
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.PlayerData[i][x]) << " ";
+				file << std::hex << std::uppercase << static_cast<int>(RollbackData.PlayerData[i].Buffer[x]) << " ";
 				if ((x + 1) % 16 == 0)
 				{
 					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
