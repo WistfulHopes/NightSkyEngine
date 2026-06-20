@@ -1228,6 +1228,7 @@ ABattleObject* ANightSkyGameState::AddBattleObject(
 		if (!Objects[i]->IsActive)
 		{
 			Objects[i]->ObjectState = DuplicateObject(InState, Objects[i]);
+			Objects[i]->ObjectStateName = InState->Name;
 			Objects[i]->ObjectState->Parent = Objects[i];
 			Objects[i]->IsActive = true;
 			Objects[i]->Direction = Dir;

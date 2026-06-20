@@ -1,0 +1,10 @@
+{
+	"BuildId": "47537391",
+	"Modules": 
+	{
+		"CollisionEditor": "UnrealEditor-CollisionEditor.dll",
+		"GGPOUE4": "UnrealEditor-GGPOUE4.dll",
+		"NightSkyEngine": "UnrealEditor-NightSkyEngine.dll",
+		"NightSkyEngineEditor": "UnrealEditor-NightSkyEngineEditor.dll"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"BuildId": "47537391",
+	"Modules": 
+	{
+		"NightSkyEngineDemo": "UnrealEditor-NightSkyEngineDemo.dll",
+		"RenderHotpatch": "UnrealEditor-RenderHotpatch.dll"
+	}
+}
