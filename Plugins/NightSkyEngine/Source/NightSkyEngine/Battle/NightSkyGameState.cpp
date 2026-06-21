@@ -1246,6 +1246,7 @@ ABattleObject* ANightSkyGameState::AddBattleObject(
 
 void ANightSkyGameState::UpdateCamera()
 {
+	if (bIsResimulating) return;
 	if (CameraActor != nullptr)
 	{
 		const auto ScreenData = &BattleState.ScreenData;
@@ -1442,6 +1443,7 @@ void ANightSkyGameState::HUDInit() const
 
 void ANightSkyGameState::UpdateHUD()
 {
+	if (bIsResimulating) return;
 	if (BattleState.bHUDVisible)
 	{
 		BattleHudActor->TopWidget->SetVisibility(ESlateVisibility::Visible);
