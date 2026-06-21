@@ -9,20 +9,20 @@
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(SerializableObj)
 
-TArray<uint8> USerializableObj::SaveForRollback()
+void USerializableObj::SaveForRollback(TArray<uint8>& Data)
 {
-	TArray<uint8> SaveData;
-	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, SaveData);
-	return SaveData;
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, Data);
 }
 
-void USerializableObj::LoadForRollback(const TArray<uint8>& InBytes)
+int64 USerializableObj::LoadForRollback(const TArrayView<const uint8>& InBytes)
 {
-	UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
+	return UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, MakeArrayView(InBytes));
 }
 
 void USerializableObj::ResetToCDO()
 {
 	const auto CDO = Cast<USerializableObj>(GetClass()->GetDefaultObject());
-	LoadForRollback(CDO->SaveForRollback());
+	TArray<uint8> Data;
+	CDO->SaveForRollback(Data);
+	LoadForRollback(Data);
 }

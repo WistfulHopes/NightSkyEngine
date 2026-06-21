@@ -1662,39 +1662,6 @@ void ABattleObject::LoadForRollback(const unsigned char* Buffer)
 	}
 }
 
-void FBattleObjectLog::LogForSyncTestFile(std::ofstream& file)
-{
-	if (file)
-	{
-		file << "BattleObject:\n";
-		file << "\tPosX: " << PosX << std::endl;
-		file << "\tPosY: " << PosY << std::endl;
-		file << "\tPosZ: " << PosZ << std::endl;
-		file << "\tPrevPosX: " << PrevPosX << std::endl;
-		file << "\tPrevPosY: " << PrevPosY << std::endl;
-		file << "\tPrevPosZ: " << PrevPosZ << std::endl;
-		file << "\tSpeedX: " << SpeedX << std::endl;
-		file << "\tSpeedY: " << SpeedY << std::endl;
-		file << "\tSpeedZ: " << SpeedZ << std::endl;
-		file << "\tGravity: " << Gravity << std::endl;
-		file << "\tInertia: " << Inertia << std::endl;
-		file << "\tActionTime: " << ActionTime << std::endl;
-		file << "\tPushHeight: " << PushHeight << std::endl;
-		file << "\tPushHeightLow: " << PushHeightLow << std::endl;
-		file << "\tPushWidth: " << PushWidth << std::endl;
-		file << "\tStunTime: " << StunTime << std::endl;
-		file << "\tStunTimeMax: " << StunTimeMax << std::endl;
-		file << "\tHitstop: " << Hitstop << std::endl;
-		file << "\tCelName: " << TCHAR_TO_ANSI(*CelName.ToString()) << std::endl;
-		file << "\tAttackFlags: " << AttackFlags << std::endl;
-		file << "\tDirection: " << Direction << std::endl;
-		file << "\tMiscFlags: " << MiscFlags << std::endl;
-		file << "\tCelIndex: " << CelIndex << std::endl;
-		file << "\tTimeUntilNextCel: " << TimeUntilNextCel << std::endl;
-		file << "\tAnimFrame: " << AnimFrame << std::endl;
-	}
-}
-
 void ABattleObject::UpdateVisuals()
 {
 	if (!IsActive) return;

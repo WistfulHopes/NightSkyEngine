@@ -3,8 +3,7 @@
 
 #include "NightSkyBattleWidget.h"
 
-#include "Serialization/ObjectReader.h"
-#include "Serialization/ObjectWriter.h"
+#include "NightSkyEngine/Battle/Misc/NightSkyBlueprintFunctionLibrary.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(NightSkyBattleWidget)
 
@@ -41,19 +40,12 @@ void UNightSkyBattleWidget::RollbackAnimations()
 	}
 }
 
-TArray<uint8> UNightSkyBattleWidget::SaveForRollback()
+void UNightSkyBattleWidget::SaveForRollback(TArray<uint8>& Data)
 {
-	TArray<uint8> SaveData;
-	FObjectWriter Writer(SaveData);
-	Writer.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Writer, this);
-	return SaveData;
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, Data);
 }
 
-void UNightSkyBattleWidget::LoadForRollback(const TArray<uint8>& InBytes)
+uint64 UNightSkyBattleWidget::LoadForRollback(const TArrayView<const uint8>& InBytes)
 {
-	if (InBytes.Num() <= 1) return;
-	FObjectReader Reader(InBytes);
-	Reader.ArIsSaveGame = true;
-	GetClass()->SerializeBin(Reader, this);
+	return UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
 }

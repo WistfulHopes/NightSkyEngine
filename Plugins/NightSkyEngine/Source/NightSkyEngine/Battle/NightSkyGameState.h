@@ -251,43 +251,6 @@ struct FBattleState
 constexpr size_t SizeOfBattleState = offsetof(FBattleState, BattleStateSyncEnd) - offsetof(
 	FBattleState, BattleStateSync);
 
-USTRUCT(BlueprintType)
-struct FRollbackBuffer
-{
-	GENERATED_BODY()
-	
-	UPROPERTY(SaveGame)
-	TArray<uint8> Buffer{};
-	
-	FRollbackBuffer() {}
-	FRollbackBuffer(const TArray<uint8>& InBuffer) : Buffer(InBuffer) {}
-};
-
-USTRUCT()
-struct FRollbackData
-{
-	GENERATED_BODY()
-	
-	UPROPERTY(SaveGame)
-	TArray<bool> ObjActive;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> ObjBuffer;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> CharBuffer;
-	UPROPERTY(SaveGame)
-	TArray<uint8> BattleStateBuffer;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> PlayerData;
-	UPROPERTY(SaveGame)
-	TArray<uint8> BattleStateData;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> StateData;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> ExtensionData;
-	UPROPERTY(SaveGame)
-	TArray<FRollbackBuffer> WidgetAnimationData;
-};
-
 // Network
 
 USTRUCT(BlueprintType)
@@ -433,11 +396,11 @@ public:
 	void SetTeamCooldown(const bool IsP1, const int TeamIndex, const int Cooldown);
 	bool CanTag(const APlayerObject* InPlayer, int TeamIndex) const;
 	
-	void SaveGameState(FRollbackData& RollbackData, int32* InChecksum); //saves game state
-	void LoadGameState(FRollbackData& RollbackData); //loads game state
+	void SaveGameState(TArray<uint8>& RollbackBuffer, int32* InChecksum); //saves game state
+	void LoadGameState(const TArray<uint8>& RollbackBuffer); //loads game state
 	
-	TArray<uint8> SaveForRollback();
-	void LoadForRollback(const TArray<uint8>& InBytes);
+	void SaveForRollback(TArray<uint8>& Data);
+	int64 LoadForRollback(const TArrayView<const uint8>& InBytes);
 	void EndMatch();
 
 	void UpdateCamera();

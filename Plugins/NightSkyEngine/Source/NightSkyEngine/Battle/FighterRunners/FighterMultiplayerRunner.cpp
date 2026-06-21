@@ -90,27 +90,20 @@ bool AFighterMultiplayerRunner::BeginGameCallback(const char*)
 
 bool AFighterMultiplayerRunner::SaveGameStateCallback(unsigned char** buffer, int32* len, int32* checksum, int32)
 {
-	FRollbackData RollbackData = FRollbackData();
+	TArray<uint8> RollbackData;
 	GameState->SaveGameState(RollbackData, checksum);
-	TArray<uint8> Buffer;
-	UNightSkyBlueprintFunctionLibrary::SerializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer);
 
-	*len = Buffer.Num();
-	*buffer = new unsigned char[*len];
+	*len = RollbackData.Num();
+	*buffer = (uint8*)FMemory::Malloc(*len);
 
-	FMemory::Memcpy(*buffer, Buffer.GetData(), Buffer.Num());
+	FMemory::Memcpy(*buffer, RollbackData.GetData(), RollbackData.Num());
 	return true;
 }
 
 bool AFighterMultiplayerRunner::LoadGameStateCallback(unsigned char* buffer, int32 len)
 {
-	FRollbackData RollbackData = FRollbackData();
-
 	const TArray Buffer(buffer, len);
-	int DataIdx = 0;
-	UNightSkyBlueprintFunctionLibrary::DeserializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer, DataIdx);
-
-	GameState->LoadGameState(RollbackData);
+	GameState->LoadGameState(Buffer);
 	return true;
 }
 
@@ -123,114 +116,14 @@ bool AFighterMultiplayerRunner::LogGameState(const char* filename, unsigned char
 	file.open(TCHAR_TO_ANSI(*savedDir));
 	if (file.is_open())
 	{
-		FRollbackData RollbackData = FRollbackData();
-		const TArray Buffer(buffer, len);
-		int DataIdx = 0;
-		UNightSkyBlueprintFunctionLibrary::DeserializeBinStruct(&RollbackData, FRollbackData::StaticStruct(), Buffer, DataIdx);
-		
-		file << "GameState:\n";
-		FBattleState BattleState = FBattleState();
-		FMemory::Memcpy(&BattleState.BattleStateSync, RollbackData.BattleStateBuffer.GetData(), SizeOfBattleState);
-		file << "\tFrameNumber: " << BattleState.FrameNumber << std::endl;
-		file << "\tActiveObjectCount: " << BattleState.ActiveObjectCount << std::endl;
-		for (int i = 0; i < GameState->MaxBattleObjects; i++)
+		for (int x = 0; x < len; x++)
 		{
-			if (RollbackData.ObjActive[i])
-			{
-				FBattleObjectLog BattleObject = FBattleObjectLog();
-				FMemory::Memcpy(reinterpret_cast<char*>(&BattleObject) + offsetof(FBattleObjectLog, ObjSync),
-				                RollbackData.ObjBuffer[i].Buffer.GetData(), SizeOfBattleObject);
-				BattleObject.LogForSyncTestFile(file);
-			}
-		}
-		for (int i = GameState->MaxBattleObjects; i < GameState->MaxBattleObjects + GameState->Players.Num(); i++)
-		{
-			FPlayerObjectLog PlayerObject = FPlayerObjectLog();
-			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FBattleObjectLog, ObjSync),
-			                RollbackData.ObjBuffer[i].Buffer.GetData(), SizeOfBattleObject);
-			FMemory::Memcpy(reinterpret_cast<char*>(&PlayerObject) + offsetof(FPlayerObjectLog, PlayerSync),
-			                RollbackData.CharBuffer[i - GameState->MaxBattleObjects].Buffer.GetData(), SizeOfPlayerObject);
-			PlayerObject.LogForSyncTestFile(file);
-		}
-
-		file << "RawRollbackData:\n";
-		file << "\tStateBuffer:\n";
-		file << "\n\t0: ";
-		for (int x = 0; x < SizeOfBattleState; x++)
-		{
-			file << std::hex << std::uppercase << static_cast<int>(RollbackData.BattleStateBuffer[x]) << " ";
+			file << std::hex << std::uppercase << static_cast<int>(buffer[x]) << " ";
 			if ((x + 1) % 16 == 0)
 			{
 				file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
 			}
 		}
-		file << "\n";
-		file << "\tStateData:\n";
-		file << "\n\t0: ";
-		for (int x = 0; x < RollbackData.BattleStateData.Num(); x++)
-		{
-			file << std::hex << std::uppercase << static_cast<int>(RollbackData.BattleStateData[x]) << " ";
-			if ((x + 1) % 16 == 0)
-			{
-				file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
-			}
-		}
-		file << "\n";
-		file << "\tObjBuffer:\n";
-		for (int i = 0; i < GameState->MaxBattleObjects + GameState->Players.Num(); i++)
-		{
-			file << "Object " << i << ":\n";
-			file << "\n\t0: ";
-			for (int x = 0; x < SizeOfBattleObject; x++)
-			{
-				if (RollbackData.ObjBuffer[i].Buffer.IsEmpty()) continue;
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.ObjBuffer[i].Buffer[x]) << " ";
-				if ((x + 1) % 16 == 0)
-				{
-					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
-				}
-			}
-			file << "\n";
-		}
-		file << "\n";
-		file << "\tObjActive:\n";
-		for (int i = 0; i < GameState->MaxBattleObjects; i++)
-		{
-			file << RollbackData.ObjActive[i] << " ";
-		}
-		file << "\n";
-		file << "\tPlayerBuffer:\n";
-		for (int i = 0; i < GameState->Players.Num(); i++)
-		{
-			file << "Player " << i << ":\n";
-			file << "\n\t0: ";
-			for (int x = 0; x < SizeOfPlayerObject; x++)
-			{
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.CharBuffer[i].Buffer[x]) << " ";
-				if ((x + 1) % 16 == 0)
-				{
-					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
-				}
-			}
-			file << "\n";
-		}
-		file << "\tPlayerData:\n";
-		file << "\n\t0: ";
-		for (int i = 0; i < GameState->Players.Num(); i++)
-		{
-			file << "Player " << i << ":\n";
-			file << "\n\t0: ";
-			for (int x = 0; x < RollbackData.PlayerData[i].Buffer.Num(); x++)
-			{
-				file << std::hex << std::uppercase << static_cast<int>(RollbackData.PlayerData[i].Buffer[x]) << " ";
-				if ((x + 1) % 16 == 0)
-				{
-					file << "\n\t" << std::hex << std::uppercase << x + 1 << ": ";
-				}
-			}
-			file << "\n";
-		}
-		file << "\n";
 		
 		file.close();
 	}

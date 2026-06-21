@@ -30,24 +30,6 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnBlock, "Subroutine.Cmn.OnBlock",
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnHit, "Subroutine.Cmn.OnHit", "Common On Hit");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Subroutine_Cmn_OnCounterHit, "Subroutine.Cmn.OnCounterHit", "Common On Counter Hit");
 
-void FPlayerObjectLog::LogForSyncTestFile(std::ofstream& file)
-{
-	FBattleObjectLog::LogForSyncTestFile(file);
-	if (file)
-	{
-		file << "PlayerObject:\n";
-		file << "\tCurrentAirJumpCount: " << CurrentAirJumpCount << std::endl;
-		file << "\tCurrentAirDashCount: " << CurrentAirDashCount << std::endl;
-		file << "\tAirDashTimer: " << AirDashTimer << std::endl;
-		file << "\tAirDashTimerMax: " << AirDashTimerMax << std::endl;
-		file << "\tCurrentHealth: " << CurrentHealth << std::endl;
-		file << "\tCancelFlags: " << CancelFlags << std::endl;
-		file << "\tPlayerFlags: " << PlayerFlags << std::endl;
-		file << "\tInputs: " << StoredInputBuffer.InputBufferInternal[InputBufferSize - 1] << std::endl;
-		file << "\tStance: " << Stance.GetValue() << std::endl;
-	}
-}
-
 APlayerObject::APlayerObject()
 {
 	PrimaryStateMachine.Parent = this;
@@ -827,6 +809,14 @@ void APlayerObject::Update()
 		
 	GameState->SetScreenBounds();
 
+	HandleBufferedState(PrimaryStateMachine);
+	HandleStateMachine(true, PrimaryStateMachine);
+	for (auto& StateMachine : SubStateMachines)
+	{
+		HandleBufferedState(StateMachine);
+		HandleStateMachine(false, StateMachine);
+	}
+	
 	Player->PrimaryStateMachine.Update();
 	for (auto& StateMachine : SubStateMachines)
 	{
@@ -848,14 +838,6 @@ void APlayerObject::Update()
 
 	if (PosY > GroundHeight) //set jumping if above ground
 		Stance = ACT_Jumping;
-
-	HandleStateMachine(true, PrimaryStateMachine);
-	HandleBufferedState(PrimaryStateMachine);
-	for (auto& StateMachine : SubStateMachines)
-	{
-		HandleStateMachine(false, StateMachine);
-		HandleBufferedState(StateMachine);
-	}
 	
 	GetBoxes();
 
@@ -3214,11 +3196,9 @@ void APlayerObject::SaveForRollbackPlayer(unsigned char* Buffer) const
 	FMemory::Memcpy(Buffer, &PlayerSync, SizeOfPlayerObject);
 }
 
-TArray<uint8> APlayerObject::SaveForRollbackBP()
+void APlayerObject::SaveForRollbackBP(TArray<uint8>& Data)
 {
-	TArray<uint8> SaveData;
-	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, SaveData);
-	return SaveData;
+	UNightSkyBlueprintFunctionLibrary::SerializeBin(this, Data);
 }
 
 void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
@@ -3226,9 +3206,9 @@ void APlayerObject::LoadForRollbackPlayer(const unsigned char* Buffer)
 	FMemory::Memcpy(&PlayerSync, Buffer, SizeOfPlayerObject);
 }
 
-void APlayerObject::LoadForRollbackBP(const TArray<uint8>& InBytes)
+int64 APlayerObject::LoadForRollbackBP(const TArrayView<const uint8>& InBytes)
 {
-	UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
+	return UNightSkyBlueprintFunctionLibrary::DeserializeBin(this, InBytes);
 }
 
 void APlayerObject::EnableState(int32 EnableType, FGameplayTag StateMachineName)

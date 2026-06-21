@@ -104,6 +104,6 @@ public:
 	void SetAnimationRollbackData();
 	void RollbackAnimations();
 
-	TArray<uint8> SaveForRollback();
-	void LoadForRollback(const TArray<uint8>& InBytes);
+	void SaveForRollback(TArray<uint8>& Data);
+	uint64 LoadForRollback(const TArrayView<const uint8>& InBytes);
 };

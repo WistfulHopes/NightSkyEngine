@@ -15,7 +15,7 @@ class NIGHTSKYENGINE_API USerializableObj : public UObject
 	GENERATED_BODY()
 	
 public:
-	TArray<uint8> SaveForRollback();
-	void LoadForRollback(const TArray<uint8>& InBytes);
+	void SaveForRollback(TArray<uint8>& Data);
+	int64 LoadForRollback(const TArrayView<const uint8>& InBytes);
 	void ResetToCDO();
 };

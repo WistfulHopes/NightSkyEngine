@@ -16,16 +16,15 @@ class NIGHTSKYENGINE_API UNightSkyBlueprintFunctionLibrary : public UBlueprintFu
 
 private:
 	static void SerializeProperty(void* Ptr, FProperty* Property, TArray<uint8>& Data, bool bForce = false);
-	static void DeserializeProperty(void* Ptr, FProperty* Property, const TArray<uint8>& Data, int& DataIdx, bool bForce = false);
+	static int64 DeserializeProperty(void* Ptr, FProperty* Property, const TArrayView<const uint8>& Data, int64& DataIdx, bool bForce = false);
 	
 public:
-	static void SerializeBinStruct(void* Ptr, UScriptStruct* Struct, TArray<uint8>& Data);
-	static void DeserializeBinStruct(void* Ptr, UScriptStruct* Struct, const TArray<uint8>& Data, int& DataIdx);
+	static void SerializeBinStruct(void* Ptr, UScriptStruct* Struct, TArray<uint8>& Data, bool bForce = false);
+	static int64 DeserializeBinStruct(void* Ptr, UScriptStruct* Struct, const TArrayView<const uint8>& Data, int64& DataIdx, bool bForce = false);
 
-	UFUNCTION(BlueprintPure)
 	static void SerializeBin(UObject* Obj, TArray<uint8>& Data);
-	UFUNCTION(BlueprintCallable)
-	static void DeserializeBin(UObject* Obj, const TArray<uint8>& Data);
+	static int64 DeserializeBin(UObject* Obj, const TArrayView<const uint8>& Data);
+	
 	UFUNCTION(BlueprintPure)
 	static int32 Vec2Angle_x1000(int32 x, int32 y);
 	UFUNCTION(BlueprintPure)
