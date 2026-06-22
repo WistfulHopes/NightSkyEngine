@@ -481,6 +481,72 @@ void APlayerObject::Update()
 	if (ComboCounter > 0)
 		ComboTimer++;
 
+	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
+	{
+		HandleBufferedState(PrimaryStateMachine);
+		for (auto& StateMachine : SubStateMachines)
+		{
+			HandleBufferedState(StateMachine);
+		}
+
+		PlayerFlags |= PLF_IsDead;
+		RecoverableHealth = 0;
+		if (Enemy->CurrentHealth > 0)
+		{
+			if (IsMainPlayer())
+			{
+				if (!(PlayerFlags & PLF_DeathCamOverride) && AttackOwner)
+				{
+					if (ReceivedHitCommon.AttackLevel < 2)
+					{
+						AddCommonBattleObject(State_BattleObject_KO_S);
+					}
+					else if (ReceivedHitCommon.AttackLevel < 4)
+					{
+						AddCommonBattleObject(State_BattleObject_KO_M);
+					}
+					else
+					{
+						AddCommonBattleObject(State_BattleObject_KO_L);
+					}
+					Hitstop = 1;
+					AttackOwner->Hitstop = 1;
+				}
+			}
+		}
+		if (Enemy->CurrentHealth == 0 && (Enemy->PlayerFlags & PLF_IsDead) == 0 && AttackOwner)
+		{
+			AddCommonBattleObject(State_BattleObject_KO_Draw);
+			Hitstop = 1;
+			AttackOwner->Hitstop = 1;
+		}
+		else if (!IsMainPlayer())
+		{
+			PlayerFlags &= ~PLF_IsOnScreen;
+		}
+	}
+
+	if (Hitstop > 0)
+	{
+		if (PlayerFlags & PLF_IsStunned)
+		{
+			HandleBufferedState(PrimaryStateMachine);
+
+			for (auto& StateMachine : SubStateMachines)
+			{
+				HandleBufferedState(StateMachine);
+			}
+		}
+		GetBoxes();
+		if (!bIsCpu) StoredInputBuffer.Update(Inputs, IsStopped());
+		HandleStateMachine(true, PrimaryStateMachine); //handle state transitions
+		for (auto& StateMachine : SubStateMachines)
+		{
+			HandleStateMachine(false, StateMachine);
+		}
+		return CallPostUpdateDebugBps();
+	}
+
 	if (PlayerFlags & PLF_IsThrowLock)
 	{
 		if (!bIsCpu) StoredInputBuffer.Update(Inputs, IsStopped());
@@ -564,72 +630,6 @@ void APlayerObject::Update()
 			}
 		}
 		ActionTime++;
-		return CallPostUpdateDebugBps();
-	}
-
-	if (CurrentHealth <= 0 && (PlayerFlags & PLF_IsDead) == 0)
-	{
-		HandleBufferedState(PrimaryStateMachine);
-		for (auto& StateMachine : SubStateMachines)
-		{
-			HandleBufferedState(StateMachine);
-		}
-
-		PlayerFlags |= PLF_IsDead;
-		RecoverableHealth = 0;
-		if (Enemy->CurrentHealth > 0)
-		{
-			if (IsMainPlayer())
-			{
-				if (!(PlayerFlags & PLF_DeathCamOverride) && AttackOwner)
-				{
-					if (ReceivedHitCommon.AttackLevel < 2)
-					{
-						AddCommonBattleObject(State_BattleObject_KO_S);
-					}
-					else if (ReceivedHitCommon.AttackLevel < 4)
-					{
-						AddCommonBattleObject(State_BattleObject_KO_M);
-					}
-					else
-					{
-						AddCommonBattleObject(State_BattleObject_KO_L);
-					}
-					Hitstop = 1;
-					AttackOwner->Hitstop = 1;
-				}
-			}
-		}
-		if (Enemy->CurrentHealth == 0 && (Enemy->PlayerFlags & PLF_IsDead) == 0 && AttackOwner)
-		{
-			AddCommonBattleObject(State_BattleObject_KO_Draw);
-			Hitstop = 1;
-			AttackOwner->Hitstop = 1;
-		}
-		else if (!IsMainPlayer())
-		{
-			PlayerFlags &= ~PLF_IsOnScreen;
-		}
-	}
-
-	if (Hitstop > 0)
-	{
-		if (PlayerFlags & PLF_IsStunned)
-		{
-			HandleBufferedState(PrimaryStateMachine);
-
-			for (auto& StateMachine : SubStateMachines)
-			{
-				HandleBufferedState(StateMachine);
-			}
-		}
-		GetBoxes();
-		if (!bIsCpu) StoredInputBuffer.Update(Inputs, IsStopped());
-		HandleStateMachine(true, PrimaryStateMachine); //handle state transitions
-		for (auto& StateMachine : SubStateMachines)
-		{
-			HandleStateMachine(false, StateMachine);
-		}
 		return CallPostUpdateDebugBps();
 	}
 
