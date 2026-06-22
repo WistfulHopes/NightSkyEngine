@@ -1523,6 +1523,9 @@ void APlayerObject::ThrowEnd()
 {
 	if (!Enemy) return;
 	Enemy->PlayerFlags &= ~PLF_IsThrowLock;
+	// Clear stun flag in case the throw did damage via a normal hitbox/hurtbox interaction.
+	// Might have implications for how tag fighters have to implement their throws for throws be comboable.
+	Enemy->PlayerFlags &= ~PLF_IsStunned;
 }
 
 void APlayerObject::SetThrowRange(int32 InThrowRange)
