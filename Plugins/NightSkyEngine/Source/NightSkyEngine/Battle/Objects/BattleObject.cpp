@@ -2211,6 +2211,8 @@ void ABattleObject::ResetObject()
 	{
 		Box = FCollisionBox();
 	}
+	LabelName = FGameplayTag();
+	GotoLabelActive = false;
 	ObjectStateName = FGameplayTag();
 	ObjectID = 0;
 	Player = nullptr;
