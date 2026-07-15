@@ -574,12 +574,26 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 			AttackedPlayer->ObjectsToIgnoreHitsFrom.AddUnique(this);
 			AttackedPlayer->FaceOpponent();
 			AttackedPlayer->HaltMomentum();
-			AttackedPlayer->PlayerFlags |= PLF_IsStunned;
 			AttackFlags |= ATK_HasHit;
 			if (AttackFlags & ATK_SetPlayerHit) Player->AttackFlags |= ATK_HasHit;
 			AttackTarget = AttackedPlayer;
 
-			TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
+			if (AttackedPlayer->MiscFlags & MISC_Parrying)
+			{
+				AttackedPlayer->CallSubroutine(AttackedPlayer->HandleParrySubroutineName);
+				// 1 on successful parry, 0 else.
+				if (AttackedPlayer->SubroutineReturnVal1)
+				{
+					TriggerEvent(EVT_Parried, StateMachine_Primary);
+					const FHitData Data = InitHitDataByAttackLevel(false);
+					// Strictly speaking, handling hitstop should be user (and thus blueprint) configurable...
+					Hitstop = Data.Hitstop;
+					// AttackedPlayer->Hitstop = Data.Hitstop;
+					return;
+				}
+			}
+			// flag set here because hitting a parrying opponent doesn't stun them.
+			AttackedPlayer->PlayerFlags |= PLF_IsStunned;			TriggerEvent(EVT_HitOrBlock, StateMachine_Primary);
 			if (AttackedPlayer->IsMainPlayer())
 			{
 				TriggerEvent(EVT_HitOrBlockMainPlayer, StateMachine_Primary);
@@ -2727,6 +2741,19 @@ void ABattleObject::DeactivateObject()
 
 	// Wait until the next frame to complete
 	MiscFlags |= MISC_DeactivateOnNextUpdate;
+}
+
+void ABattleObject::SetParrying(bool enable)
+{
+	if (enable)
+		MiscFlags |= MISC_Parrying;
+	else
+		MiscFlags &= ~MISC_Parrying;
+}
+
+void ABattleObject::SetHandleParrySubroutine(FGameplayTag name)
+{
+	HandleParrySubroutineName = name;
 }
 
 bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType SelfType, const FGameplayTag SelfCustomType,
