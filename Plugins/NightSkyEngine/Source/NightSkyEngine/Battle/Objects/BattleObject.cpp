@@ -2812,8 +2812,8 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 		// Calculate vertices
 		int32 P1[2] = {-Box.SizeX / 2, -Box.SizeY / 2};
 		int32 P2[2] = {-Box.SizeX / 2, Box.SizeY / 2};
-		int32 P3[2] = {Box.SizeX / 2, -Box.SizeY / 2};
-		int32 P4[2] = {Box.SizeX / 2, Box.SizeY / 2};
+		int32 P3[2] = {Box.SizeX / 2, Box.SizeY / 2};
+		int32 P4[2] = {Box.SizeX / 2, -Box.SizeY / 2};
 
 		// Calculate rotated points
 		auto Angle = Direction == DIR_Right ? AnglePitch_x1000 : 180000 - AnglePitch_x1000 + 180000;
@@ -2874,9 +2874,9 @@ bool ABattleObject::CheckBoxOverlap(ABattleObject* OtherObj, const EBoxType Self
 
 			int32 OtherP1[2] = {-OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
 			int32 OtherP2[2] = {-OtherBox.SizeX / 2, OtherBox.SizeY / 2};
-			int32 OtherP3[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
-			int32 OtherP4[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
-
+			int32 OtherP3[2] = {OtherBox.SizeX / 2, OtherBox.SizeY / 2};
+			int32 OtherP4[2] = {OtherBox.SizeX / 2, -OtherBox.SizeY / 2};
+			
 			auto OtherAngle = OtherObj->Direction == DIR_Right
 				                  ? OtherObj->AnglePitch_x1000
 				                  : 180000 - OtherObj->AnglePitch_x1000 + 180000;
