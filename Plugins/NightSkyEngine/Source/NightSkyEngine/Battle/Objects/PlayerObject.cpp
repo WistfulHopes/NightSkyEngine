@@ -610,6 +610,9 @@ void APlayerObject::Update()
 					FaceOpponent();
 					if (Enemy->Stance != ACT_Jumping)
 					{
+						// GuardBreak is a hitstun state which means you need an attack owner. The enemy is likely in a throw state and
+						// so doesn't have an attack owner, assign them one.
+						Enemy->AttackOwner = this;
 						JumpToStatePrimary(State_Universal_GuardBreakStand);
 						Enemy->JumpToStatePrimary(State_Universal_GuardBreakStand);
 						InitEventHandler(EVT_Update, "ThrowTech", 0, FGameplayTag::EmptyTag);
@@ -617,6 +620,7 @@ void APlayerObject::Update()
 					}
 					else
 					{
+						Enemy->AttackOwner = this;
 						JumpToStatePrimary(State_Universal_GuardBreakAir);
 						Enemy->JumpToStatePrimary(State_Universal_GuardBreakAir);
 						InitEventHandler(EVT_Update, "ThrowTechAir", 0, FGameplayTag::EmptyTag);
