@@ -588,7 +588,8 @@ void ABattleObject::HandleHitCollision(ABattleObject* AttackedObj)
 					const FHitData Data = InitHitDataByAttackLevel(false);
 					// Strictly speaking, handling hitstop should be user (and thus blueprint) configurable...
 					Hitstop = Data.Hitstop;
-					// AttackedPlayer->Hitstop = Data.Hitstop;
+					AttackedPlayer->Hitstop = Data.Hitstop;
+					PlayCommonSound(Sound_Parry);
 					return;
 				}
 			}
