@@ -16,6 +16,15 @@ struct FAnimVector
 	int32 Z;
 };
 
+FORCEINLINE FAnimVector LerpAnimVector(FAnimVector A, FAnimVector B, int64 Alpha)
+{
+	auto X = A.X + (int64)(B.X - A.X) * Alpha / 1000;
+	auto Y = A.Y + (int64)(B.Y - A.Y) * Alpha / 1000;
+	auto Z = A.Z + (int64)(B.Z - A.Z) * Alpha / 1000;
+	
+	return FAnimVector(X, Y, Z);
+}
+
 FORCEINLINE FArchive operator <<(FArchive& Ar, FAnimVector& InVal)
 {
 	Ar << InVal.X;
@@ -96,7 +105,13 @@ public:
 	}
 	
 	UFUNCTION(BlueprintPure)
-	FAnimVector GetRootTranslationAtTime(int32 Time) const;
+	FAnimVector GetRootTranslationAtFrame(int32 Frame) const;
+	
+	UFUNCTION(BlueprintPure)
+	FAnimVector GetRootTranslationAtFrame60(int32 Frame) const;
+
+	UFUNCTION(BlueprintPure)
+	FAnimVector GetRootTranslationAtTime(int64 Time) const;
 
 	UFUNCTION(BlueprintPure)
 	FAnimTransform GetCachedBoneTransformAtTime(FName BoneName, int32 Time, bool bRelativeToRoot) const;

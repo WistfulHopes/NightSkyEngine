@@ -19,7 +19,7 @@ void UNightSkyAnimSequenceUserData::Serialize(FArchive& Ar)
 void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeOwner(PropertyChangedEvent);
-	
+
 	// We can't call blueprint implemented functions while routing post load
 	if (FUObjectThreadContext::Get().IsRoutingPostLoad)
 	{
@@ -37,7 +37,7 @@ void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEv
 
 	auto AnimSequence = Cast<UAnimSequence>(GetOuter());
 	if (!IsValid(AnimSequence)) return;
-	
+
 	UNightSkyAnimMetaData* AnimMetaData = nullptr;
 
 	for (auto& MetaData : AnimSequence->GetMetaData())
@@ -97,9 +97,10 @@ void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEv
 		FAnimExtractContext Context{
 			static_cast<double>(i) / AnimSequence->GetSamplingFrameRate().AsDecimal(),
 			true,
+			FDeltaTimeRecord{1.0f / (float)AnimSequence->GetSamplingFrameRate().AsDecimal()},
 		};
-
-		FVector Translation = AnimSequence->ExtractRootTrackTransform(Context, nullptr).GetTranslation();
+		FTransform transform = AnimSequence->ExtractRootMotion(Context);
+		FVector Translation = transform.GetTranslation();
 		FAnimVector AnimTranslation;
 
 		AnimTranslation.X = Translation.X * COORD_SCALE;
@@ -110,10 +111,28 @@ void UNightSkyAnimSequenceUserData::PostEditChangeOwner(const FPropertyChangedEv
 	}
 }
 
-FAnimVector UNightSkyAnimSequenceUserData::GetRootTranslationAtTime(int32 Time) const
+FAnimVector UNightSkyAnimSequenceUserData::GetRootTranslationAtFrame(int32 Frame) const
 {
-	if (!RootTranslation.Contains(Time)) return FAnimVector{};
-	return RootTranslation[Time];
+	if (!RootTranslation.Contains(Frame)) return FAnimVector{};
+	return RootTranslation[Frame];
+}
+
+FAnimVector UNightSkyAnimSequenceUserData::GetRootTranslationAtFrame60(int32 Frame) const
+{
+	return GetRootTranslationAtTime(Frame * FrameRate);
+}
+
+FAnimVector UNightSkyAnimSequenceUserData::GetRootTranslationAtTime(int64 Time) const
+{
+	if (Time / 60 >= FrameCount - 1) return RootTranslation[RootTranslation.Num() - 1];
+
+	const auto RoundedToFrame = Time / 60;
+
+	const auto PrevFrame = Time / 60;
+	const auto NextFrame = Time / 60 + 1;
+
+	return LerpAnimVector(RootTranslation[PrevFrame], RootTranslation[NextFrame],
+	                      (Time - RoundedToFrame * 60) / (60 * FrameCount) * 1000);
 }
 
 FAnimTransform UNightSkyAnimSequenceUserData::GetCachedBoneTransformAtTime(FName BoneName, int32 Time,
@@ -134,7 +153,7 @@ FAnimTransform UNightSkyAnimSequenceUserData::GetCachedBoneTransformAtTime(FName
 }
 
 FAnimVector UNightSkyAnimSequenceUserData::GetCachedBoneLocationAtTime(FName BoneName, int32 Time,
-	bool bRelativeToRoot) const
+                                                                       bool bRelativeToRoot) const
 {
 	if (!MeshSpaceBoneTransforms.Contains(BoneName)) return FAnimVector{};
 	if (!MeshSpaceBoneTransforms[BoneName].Contains(Time)) return FAnimVector{};

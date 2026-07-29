@@ -633,6 +633,8 @@ void APlayerObject::Update()
 				}
 			}
 		}
+		// Throw lock branch is terminating, however throw animations can induce motion so we invoke move here.
+		Move()
 		ActionTime++;
 		return CallPostUpdateDebugBps();
 	}
