@@ -42,13 +42,7 @@ void ABattleObject::BeginPlay()
 
 void ABattleObject::Move()
 {
-	if (IsPlayer)
-	{
-		if (Player->PlayerFlags & PLF_IsThrowLock)
-			return;
-		Player->SetHitValuesOverTime();
-	}
-	else
+	if (!IsPlayer)
 	{
 		PositionLinkUpdate();
 	}
@@ -73,15 +67,23 @@ void ABattleObject::Move()
 		if (!MaxCelTime) return;
 		
 		const auto FrameAnim = AnimFrame + (BlendAnimFrame - AnimFrame) * (MaxCelTime - TimeUntilNextCel) / MaxCelTime;
-		const auto RootMotion = BodyAnimUserData->GetRootTranslationAtTime(FrameAnim);
-
-		AddPosXWithDir(RootMotion.X - PrevRootMotionX);
-		PosY += RootMotion.Y - PrevRootMotionY;
-		PosZ += RootMotion.Z - PrevRootMotionZ;
-
+		const auto [X, Y, Z] = BodyAnimUserData->GetRootTranslationAtFrame60(FrameAnim);
+		FVector3d vec_in = FVector3d(X, Y, Z);
+		FVector3d vec_out = GameState->BattleSceneTransform.GetRotation().UnrotateVector(vec_in);
+		// RootTranslation data is incremental relative to the last frame.
+		AddPosXWithDir(vec_out.X);
+		PosY += vec_out.Z;
+		PosZ += vec_out.Y;
 		return;
 	}
-	ApplyRootMotion();
+
+	if (IsPlayer)
+	{
+		if (Player->PlayerFlags & PLF_IsThrowLock)
+			return;
+		Player->SetHitValuesOverTime();
+		return;
+	}
 
 	SpeedX = SpeedX * SpeedXRatePerFrame / 100;
 	SpeedY = SpeedY * SpeedYRatePerFrame / 100;
