@@ -39,6 +39,7 @@ enum EEventType
 	EVT_Block UMETA(DisplayName="Block"),
 	EVT_HitOrBlock UMETA(DisplayName="Hit or Block"),
 	EVT_CounterHit UMETA(DisplayName="Counter Hit"),
+	EVT_Parried UMETA(DisplayName="Parried", ToolTip="Event for when you got parried"),
 	EVT_Kill UMETA(DisplayName="Kill"),
 	EVT_ReceiveHit UMETA(DisplayName="Receive Hit"),
 	EVT_SuperFreeze UMETA(DisplayName="Super Freeze"),
@@ -66,7 +67,7 @@ struct FEventHandler
 // Hit related data.
 
 // How the opponent must block the attack.
-UENUM()
+UENUM(BlueprintType)
 enum EBlockType
 {
 	BLK_Mid UMETA(DisplayName="Mid"),
@@ -986,6 +987,7 @@ protected:
 	void Move();
 	void CalculateHoming();
 	bool SuperArmorSuccess(const ABattleObject* Attacker) const;
+	FGameplayTag HandleParrySubroutineName;
 
 public:
 	// Called every frame
@@ -1150,6 +1152,14 @@ public:
 	void SetIgnoreOTG(bool Ignore);
 	UFUNCTION(BlueprintCallable)
 	void SetHitOTG(bool Enable);
+	UFUNCTION(BlueprintCallable,
+		meta=(ToolTip="Set whether this Battle Object is currently parrying"))
+	void SetParrying(bool enable);
+	// Set the gameplay tag for the subroutine to call when an attack collides with this object's hurtbox during a parry.
+	// Subroutine should set SubroutineReturnVal1 to 0 on failed parry, 1 on successful parry.
+	// This subroutine should put the parrying object in the correct followup state on success.
+	UFUNCTION(BlueprintCallable)
+	void SetHandleParrySubroutine(FGameplayTag name);
 	UFUNCTION(BlueprintCallable)
 	void SetIgnorePushbackScaling(bool Ignore);
 	UFUNCTION(BlueprintCallable)

@@ -15,5 +15,6 @@ UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_M, "Sound.Hit.Slash.M", "Slash Hi
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_L, "Sound.Hit.Slash.L", "Slash Hit (Large) Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Slash_SP, "Sound.Hit.Slash.SP", "Slash Hit (Special) Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Hit_Clash, "Sound.Hit.Clash", "Hit Clash Sound");
+UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Parry, "Sound.Parry", "Successful Parry Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Land, "Sound.Land", "Landing Sound");
 UE_DEFINE_GAMEPLAY_TAG_COMMENT(Sound_Landing_Crash, "Sound.Landing.Crash", "Landing Sound (Crash)");

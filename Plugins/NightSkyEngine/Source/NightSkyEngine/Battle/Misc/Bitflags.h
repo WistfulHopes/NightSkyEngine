@@ -113,6 +113,10 @@ enum EMiscFlags
 	* Flag sets if object will ignore super freeze.
 	 */
 	MISC_IgnoreSuperFreeze = 0x200 UMETA(DisplayName = "Ignore Super Freeze"),
+	/**
+	 * Flag sets if object is currently parrying.
+	 */
+	MISC_Parrying = 0x400 UMETA(DisplayName = "Set Currently Parrying"),
 };
 
 /**
