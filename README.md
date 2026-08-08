@@ -19,4 +19,6 @@ The following additional plugins are used:
 
 Collision editor co-developed by [@MostExcellent](https://github.com/MostExcellent).
 
-All sound effects are from [this site](http://osabisi.sakura.ne.jp/m2/).
+All sound effects are from Bueno.
+
+All music comes from [this site](https://youfulca.com/music_assets/).
