@@ -1,9 +1,9 @@
-name: Build Night Sky Engine
+name: Build Night Sky Engine (V2)
  
 on:
   push:
     branches:
-      - main
+      - v2
  
 jobs:
   build:
@@ -13,8 +13,8 @@ jobs:
       - name: Package Project
         env: 
           UE_PATH: 'C:\Program Files\Epic Games\UE_5.7' # Path to your Unreal Engine installation
-          PROJECT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\NightSkyEngine.uproject' # Path to your Unreal project file
-          OUTPUT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEngine\Build\WindowsEditor' # Path to where you want to store the packaged game
+          PROJECT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\NightSkyEngine.uproject' # Path to your Unreal project file
+          OUTPUT_PATH: 'C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Build\WindowsEditor' # Path to where you want to store the packaged game
         run: |
           # Try to run empty UAT to check for correct path
           & $env:UE_PATH\Engine\Build\BatchFiles\RunUAT.bat BuildEditor -project="$env:PROJECT_PATH" -notools
@@ -24,18 +24,18 @@ jobs:
         with:
           name: NSEPlugin
           path: |
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine
-            !C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine\Intermediate
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Plugins\NightSkyEngine
+            !C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Plugins\NightSkyEngine\Intermediate
       
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
           name: NightSkyEngine
           path: |
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Binaries
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Config
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Content
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\Source
-            C:\Users\wistf\Unreal Projects\NightSkyEngine\NightSkyEngine.uproject
-            !C:\Users\wistf\Unreal Projects\NightSkyEngine\Plugins\NightSkyEngine\Intermediate
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Binaries
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Config
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Content
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Plugins
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Source
+            C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\NightSkyEngine.uproject
+            !C:\Users\wistf\Unreal Projects\NightSkyEnginePrivate\Plugins\NightSkyEngine\Intermediate
